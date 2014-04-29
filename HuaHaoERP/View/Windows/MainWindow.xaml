@@ -7,6 +7,9 @@
             <DropShadowEffect ShadowDepth="0"/>
         </Grid.Effect>
         <Grid x:Name="Grid_StatusBar" Height="25" Margin="0" VerticalAlignment="Bottom" Background="#FF007ACC"/>
+        <Button x:Name="Button_Close" Content="X" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top" Width="28" Height="20" Click="Button_Close_Click"/>
+        <Button x:Name="Button_Min" Content="-" HorizontalAlignment="Right" Margin="0,0,66,0" VerticalAlignment="Top" Width="28" Height="20" Click="Button_Min_Click"/>
+        <Button x:Name="Button_Max" Content="口" HorizontalAlignment="Right" Margin="0,0,38,0" VerticalAlignment="Top" Width="28" Height="20" Click="Button_Max_Click"/>
 
     </Grid>
 </Window>

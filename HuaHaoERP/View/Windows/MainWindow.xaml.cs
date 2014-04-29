@@ -31,5 +31,20 @@ namespace HuaHaoERP
                 this.DragMove();
             }
         }
+
+        private void Button_Close_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Button_Min_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = System.Windows.WindowState.Minimized;
+        }
+
+        private void Button_Max_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
