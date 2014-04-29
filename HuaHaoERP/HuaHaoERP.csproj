@@ -60,6 +60,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="View\Pages\Page1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ResourceDictionarys\Dictionary1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Windows\Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -78,6 +86,9 @@
     <Compile Include="ViewModel\Process3\Class1.cs" />
     <Compile Include="ViewModel\Process4\Class1.cs" />
     <Compile Include="ViewModel\Process5\Class1.cs" />
+    <Compile Include="View\Pages\Page1.xaml.cs">
+      <DependentUpon>Page1.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Windows\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -112,6 +123,8 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="View\Resources\Ico\Pyramid_Logo_white_128x128.ico" />
+    <Resource Include="View\Resources\Images\Pyramid_Logo_white_128x128.png" />
     <Resource Include="ViewModel\Readme.txt" />
     <None Include="Readme.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
