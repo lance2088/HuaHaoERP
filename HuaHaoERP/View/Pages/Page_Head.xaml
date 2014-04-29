@@ -7,9 +7,5 @@
       d:DesignHeight="75" d:DesignWidth="1000"
 	Title="Page_Head">
 
-    <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="/HuaHaoERP;component/View/Resources/Images/Background_Head.jpg" Stretch="UniformToFill" TileMode="FlipXY"/>
-        </Grid.Background>
-    </Grid>
+    <Grid/>
 </Page>

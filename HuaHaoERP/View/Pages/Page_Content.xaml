@@ -8,7 +8,7 @@
 	Title="Page_Content">
 
     <Grid>
-        <TabControl Margin="0" TabStripPlacement="Left">
+        <TabControl Margin="0" TabStripPlacement="Left" BorderThickness="0">
             <TabItem Header="TabItem" Template="{DynamicResource TabItemControlTemplate_CommonMain}" Width="150" Height="40">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
