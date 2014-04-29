@@ -14,15 +14,24 @@ using System.Windows.Shapes;
 
 namespace HuaHaoERP
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+            InitializeData();
         }
+
+        private void InitializeData()
+        {
+            this.Frame_Head.Content = new View.Pages.Page_Head();
+            this.Frame_Content.Content = new View.Pages.Page_Content();
+            this.Frame_StatusBar.Content = new View.Pages.Page_StatusBar();
+        }
+
+
+
+
 
         private void Window_MainWindow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {

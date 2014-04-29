@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace HuaHaoERP.View.Pages
 {
     /// <summary>
-    /// Interaction logic for Page1.xaml
+    /// Interaction logic for Page_Content.xaml
     /// </summary>
-    public partial class Page1 : Page
+    public partial class Page_Content : Page
     {
-        public Page1()
+        public Page_Content()
         {
             InitializeComponent();
         }
