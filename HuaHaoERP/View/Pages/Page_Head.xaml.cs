@@ -23,5 +23,10 @@ namespace HuaHaoERP.View.Pages
         {
             InitializeComponent();
         }
+
+        private void Label_Help_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            
+        }
     }
 }

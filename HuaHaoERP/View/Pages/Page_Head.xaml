@@ -7,5 +7,13 @@
       d:DesignHeight="75" d:DesignWidth="1000"
 	Title="Page_Head">
 
-    <Grid/>
+    <Grid x:Name="Grid_Head">
+        <Label Content="金字塔" HorizontalAlignment="Left" Margin="15,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16" FontWeight="Bold">
+            <Label.Effect>
+                <DropShadowEffect/>
+            </Label.Effect>
+        </Label>
+        <Grid x:Name="Grid_Placeholder" HorizontalAlignment="Right" Height="20" Margin="0,0,10,0" VerticalAlignment="Top" Width="84"/>
+        <Label x:Name="Label_Help" Content="帮助" HorizontalAlignment="Right" Margin="0,0,99,0" VerticalAlignment="Top" MouseLeftButtonDown="Label_Help_MouseLeftButtonDown" VerticalContentAlignment="Center" Height="20" Padding="5,0" ToolTip="有疑问？请点这里" Foreground="White"/>
+    </Grid>
 </Page>

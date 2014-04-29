@@ -116,6 +116,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Helper\Excel\Reader.cs" />
+    <Compile Include="Helper\SQLite\DBHelper.cs" />
+    <Compile Include="Helper\XML\Reader.cs" />
     <Compile Include="Model\Class1.cs" />
     <Compile Include="ViewModel\Console\Class1.cs" />
     <Compile Include="ViewModel\Process1\Class1.cs" />
@@ -167,7 +170,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="View\Resources\Images\Background.jpg" />
-    <Resource Include="View\Resources\Images\Background_Head.jpg" />
     <Resource Include="View\Resources\Images\MaxMinCloseButtonPic\Close.png" />
     <Resource Include="View\Resources\Images\MaxMinCloseButtonPic\CloseAct.png" />
     <Resource Include="View\Resources\Images\MaxMinCloseButtonPic\CloseSel.png" />
@@ -208,6 +210,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

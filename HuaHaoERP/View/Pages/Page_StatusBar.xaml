@@ -10,6 +10,7 @@
     <Grid Background="#FF007ACC">
         <Label x:Name="Label_DateTime" Content="DateTime" HorizontalAlignment="Right" Margin="0,0,10,0" Foreground="White"/>
         <Label x:Name="Label_Imprint" Content="Imprint" HorizontalAlignment="Left" Margin="10,0,0,0" Foreground="White"/>
+        <Label x:Name="Label_Message" Content="Message" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Top" Foreground="White"/>
 
     </Grid>
 </Page>
