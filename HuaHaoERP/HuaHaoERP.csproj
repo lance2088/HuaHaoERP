@@ -84,6 +84,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Model\Class1.cs" />
+    <Compile Include="ViewModel\Console\Class1.cs" />
     <Compile Include="ViewModel\Process1\Class1.cs" />
     <Compile Include="ViewModel\Process2\Class1.cs" />
     <Compile Include="ViewModel\Process3\Class1.cs" />
