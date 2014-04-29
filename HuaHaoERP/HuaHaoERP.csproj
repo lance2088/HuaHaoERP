@@ -117,6 +117,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Helper\Excel\Reader.cs" />
+    <Compile Include="Helper\LogHelper\FileLog.cs" />
     <Compile Include="Helper\SQLite\DBHelper.cs" />
     <Compile Include="Helper\XML\Reader.cs" />
     <Compile Include="Model\Class1.cs" />
