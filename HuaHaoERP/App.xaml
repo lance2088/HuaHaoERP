@@ -6,6 +6,8 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="View\ResourceDictionarys\DictionaryButton.xaml" />
+                <ResourceDictionary Source="View\ResourceDictionarys\DictionaryDataGrid.xaml" />
+                <ResourceDictionary Source="View\ResourceDictionarys\DictionaryTabControl.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
