@@ -9,10 +9,10 @@
 
     <Grid>
         <TabControl Margin="0" TabStripPlacement="Left">
-            <TabItem Header="TabItem">
+            <TabItem Header="TabItem" Template="{DynamicResource TabItemControlTemplate_CommonMain}" Width="150" Height="40">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
-            <TabItem Header="TabItem">
+            <TabItem Header="TabItem" Template="{DynamicResource TabItemControlTemplate_CommonMain}" Width="150" Height="40">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
         </TabControl>
