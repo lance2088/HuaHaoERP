@@ -72,6 +72,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Model\Class1.cs" />
+    <Compile Include="ViewModel\Process1\Class1.cs" />
+    <Compile Include="ViewModel\Process2\Class1.cs" />
+    <Compile Include="ViewModel\Process3\Class1.cs" />
+    <Compile Include="ViewModel\Process4\Class1.cs" />
+    <Compile Include="ViewModel\Process5\Class1.cs" />
     <Compile Include="View\Windows\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -106,11 +112,13 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="ViewModel\Readme.txt" />
     <None Include="Readme.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <Content Include="ThirdPartyLib\System.Data.SQLite.dll" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
