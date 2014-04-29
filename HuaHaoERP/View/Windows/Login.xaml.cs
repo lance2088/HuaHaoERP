@@ -22,5 +22,11 @@ namespace HuaHaoERP.View.Windows
         {
             InitializeComponent();
         }
+
+        private void Button_Login_Click(object sender, RoutedEventArgs e)
+        {
+            new MainWindow().Show();
+            this.Close();
+        }
     }
 }

@@ -23,5 +23,13 @@ namespace HuaHaoERP
         {
             InitializeComponent();
         }
+
+        private void Window_MainWindow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if(e.ButtonState == MouseButtonState.Pressed)
+            {
+                this.DragMove();
+            }
+        }
     }
 }
