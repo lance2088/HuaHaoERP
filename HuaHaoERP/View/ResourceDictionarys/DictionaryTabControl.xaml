@@ -6,6 +6,20 @@
 				<ContentPresenter x:Name="Content" ContentSource="Header" HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
 			</Border>
 		</Grid>
+		<ControlTemplate.Triggers>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition Property="Selector.IsSelected" Value="False"/>
+					<Condition Property="IsMouseOver" Value="True"/>
+				</MultiTrigger.Conditions>
+			</MultiTrigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition Property="Selector.IsSelected" Value="False"/>
+					<Condition Property="IsMouseOver" Value="False"/>
+				</MultiTrigger.Conditions>
+			</MultiTrigger>
+		</ControlTemplate.Triggers>
 	</ControlTemplate>
     
 </ResourceDictionary>
