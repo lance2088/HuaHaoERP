@@ -2,22 +2,19 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" FontFamily="SimSun" TextOptions.TextFormattingMode="Display"
         Title="MainWindow" Height="600" Width="1000" WindowStartupLocation="CenterScreen" Background="{x:Null}" WindowStyle="None" AllowsTransparency="True" MouseLeftButtonDown="Window_MainWindow_MouseLeftButtonDown" ResizeMode="CanResizeWithGrip" MinWidth="800" MinHeight="600">
-    <Grid Background="White" Margin="5">
-        <Grid.Effect>
-            <DropShadowEffect ShadowDepth="0"/>
-        </Grid.Effect>
+    <Grid Background="White">
         <Grid x:Name="Grid_StatusBar" Height="25" Margin="0" VerticalAlignment="Bottom" Background="#FF007ACC">
             <Frame x:Name="Frame_StatusBar" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
         </Grid>
-        <Grid x:Name="Grid_Content" Margin="0,75,0,25" Background="#FFF6F6F6">
+        <Grid x:Name="Grid_Content" Margin="0,75,0,25" Background="#FF293A56">
             <Frame x:Name="Frame_Content" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
         </Grid>
         <Grid x:Name="Grid_Head" Height="75" Margin="0" VerticalAlignment="Top" Background="#FFD6DBE9">
             <Frame x:Name="Frame_Head" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
         </Grid>
-        <Button x:Name="Button_Close" Content="X" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top" Width="28" Height="20" Click="Button_Close_Click"/>
-        <Button x:Name="Button_Min" Content="-" HorizontalAlignment="Right" Margin="0,0,66,0" VerticalAlignment="Top" Width="28" Height="20" Click="Button_Min_Click"/>
-        <Button x:Name="Button_Max" Content="口" HorizontalAlignment="Right" Margin="0,0,38,0" VerticalAlignment="Top" Width="28" Height="20" Click="Button_Max_Click"/>
+        <Button x:Name="Button_Close" Content="X" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top" Width="28" Height="20" Click="Button_Close_Click" Template="{DynamicResource ButtonControlTemplate_CloseButton}"/>
+        <Button x:Name="Button_Min" Content="-" HorizontalAlignment="Right" Margin="0,0,66,0" VerticalAlignment="Top" Width="28" Height="20" Click="Button_Min_Click" Template="{DynamicResource ButtonControlTemplate_MinButton}"/>
+        <Button x:Name="Button_Max" Content="口" HorizontalAlignment="Right" Margin="0,0,38,0" VerticalAlignment="Top" Width="28" Height="20" Click="Button_Max_Click" Template="{DynamicResource ButtonControlTemplate_MaxButton}"/>
 
     </Grid>
 </Window>
