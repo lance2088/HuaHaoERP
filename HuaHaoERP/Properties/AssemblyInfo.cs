@@ -8,9 +8,9 @@ using System.Windows;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("HuaHaoERP")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("华浩ERP")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("StoneAnt")]
 [assembly: AssemblyProduct("HuaHaoERP")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
