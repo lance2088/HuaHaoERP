@@ -4,7 +4,7 @@
         Title="MainWindow" Height="600" Width="1000" WindowStartupLocation="CenterScreen" Background="{x:Null}" WindowStyle="None" AllowsTransparency="True" MouseLeftButtonDown="Window_MainWindow_MouseLeftButtonDown" ResizeMode="CanResizeWithGrip" MinWidth="800" MinHeight="600">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/HuaHaoERP;component/View/Resources/Images/Background.jpg" TileMode="FlipXY" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="/HuaHaoERP;component/View/Resources/Images/Background.jpg" TileMode="FlipXY"/>
         </Grid.Background>
         <Grid x:Name="Grid_StatusBar" Height="25" Margin="0" VerticalAlignment="Bottom">
             <Frame x:Name="Frame_StatusBar" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
