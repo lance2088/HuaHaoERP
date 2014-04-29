@@ -151,6 +151,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="View\Resources\Images\Background_Head.jpg" />
     <Resource Include="View\Resources\Images\MaxMinCloseButtonPic\Close.png" />
     <Resource Include="View\Resources\Images\MaxMinCloseButtonPic\CloseAct.png" />
     <Resource Include="View\Resources\Images\MaxMinCloseButtonPic\CloseSel.png" />

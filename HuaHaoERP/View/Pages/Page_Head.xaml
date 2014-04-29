@@ -8,6 +8,8 @@
 	Title="Page_Head">
 
     <Grid>
-        
+        <Grid.Background>
+            <ImageBrush ImageSource="/HuaHaoERP;component/View/Resources/Images/Background_Head.jpg" Stretch="UniformToFill" TileMode="FlipXY"/>
+        </Grid.Background>
     </Grid>
 </Page>
