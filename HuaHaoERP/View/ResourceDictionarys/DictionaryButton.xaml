@@ -69,5 +69,20 @@
 			</Trigger>
 		</ControlTemplate.Triggers>
 	</ControlTemplate>
+	<ControlTemplate x:Key="ButtonControlTemplate_CommonDefault" TargetType="{x:Type Button}">
+		<Grid Background="{x:Null}">
+			<Rectangle x:Name="rectangle" Fill="#FF007ACC" HorizontalAlignment="Left" Height="24" Stroke="Black" VerticalAlignment="Top" Width="75"/>
+			<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="5" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+		</Grid>
+		<ControlTemplate.Triggers>
+			<Trigger Property="IsMouseOver" Value="True">
+				<Setter Property="Stroke" TargetName="rectangle" Value="White"/>
+			</Trigger>
+			<Trigger Property="IsPressed" Value="True">
+				<Setter Property="Fill" TargetName="rectangle" Value="#FFCA5100"/>
+				<Setter Property="Stroke" TargetName="rectangle" Value="White"/>
+			</Trigger>
+		</ControlTemplate.Triggers>
+	</ControlTemplate>
     
 </ResourceDictionary>
