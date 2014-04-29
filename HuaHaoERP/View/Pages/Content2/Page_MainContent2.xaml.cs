@@ -12,20 +12,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace HuaHaoERP.View.Pages
+namespace HuaHaoERP.View.Pages.Content2
 {
-    public partial class Page_Content : Page
+    /// <summary>
+    /// Interaction logic for Page_MainContent2.xaml
+    /// </summary>
+    public partial class Page_MainContent2 : Page
     {
-        public Page_Content()
+        public Page_MainContent2()
         {
             InitializeComponent();
-            InitializeData();
-        }
-
-        private void InitializeData()
-        {
-            this.Frame_Content1.Content = new Content1.Page_MainContent1();
-            this.Frame_Content2.Content = new Content2.Page_MainContent2();
         }
     }
 }
