@@ -145,6 +145,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Helper\AppInitialize\Initialize.cs" />
+    <Compile Include="Helper\Events\Customer\CustomerEvent.cs" />
+    <Compile Include="Helper\Events\Customer\CustomerEventArgs.cs" />
     <Compile Include="Helper\Events\PopUpEvent.cs" />
     <Compile Include="Helper\Events\PopUpEventArgs.cs" />
     <Compile Include="Helper\Events\StatusBarMessageEvent.cs" />
@@ -153,8 +155,9 @@
     <Compile Include="Helper\LogHelper\FileLog.cs" />
     <Compile Include="Helper\SQLite\DBHelper.cs" />
     <Compile Include="Helper\XML\Reader.cs" />
-    <Compile Include="Model\Class1.cs" />
-    <Compile Include="ViewModel\Console\Class1.cs" />
+    <Compile Include="Model\CustomerModel.cs" />
+    <Compile Include="ViewModel\EventDistribution.cs" />
+    <Compile Include="ViewModel\Customer\CustomerConsole.cs" />
     <Compile Include="ViewModel\Process1\Class1.cs" />
     <Compile Include="ViewModel\Process2\Class1.cs" />
     <Compile Include="ViewModel\Process3\Class1.cs" />
