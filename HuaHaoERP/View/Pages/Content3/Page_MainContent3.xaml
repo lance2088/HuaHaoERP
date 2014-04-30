@@ -10,10 +10,14 @@
     <Grid>
         <TabControl Margin="0" BorderThickness="0" Padding="0">
             <TabItem Header="TabItem" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Height="25">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="White">
+                    <DataGrid Margin="0,40,0,0" BorderThickness="0,1,0,0"/>
+                </Grid>
             </TabItem>
             <TabItem Header="TabItem" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="White">
+                    <DataGrid Margin="0,40,0,0" BorderThickness="0,1,0,0"/>
+                </Grid>
             </TabItem>
         </TabControl>
 

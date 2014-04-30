@@ -26,7 +26,7 @@ namespace HuaHaoERP.View.Pages.Content1
         private void Button_AddClient_Click(object sender, RoutedEventArgs e)
         {
             Helper.Events.PopUpEventArgs MyE = new Helper.Events.PopUpEventArgs();
-            MyE.ClassObject = new Page_MainContent1_Popup_AddClient();
+            MyE.ClassObject = new Page_MainContent1_Popup_AddCustomer();
             Helper.Events.PopUpEvent.OnShowPopUp(this, MyE);
         }
 

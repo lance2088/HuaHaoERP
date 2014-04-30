@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" FontFamily="SimSun" TextOptions.TextFormattingMode="Display"
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="526" d:DesignWidth="1070"
 	Title="Page_MainContent1">
 
     <Grid>

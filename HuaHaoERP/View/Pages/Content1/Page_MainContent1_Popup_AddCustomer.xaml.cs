@@ -17,9 +17,9 @@ namespace HuaHaoERP.View.Pages.Content1
     /// <summary>
     /// Interaction logic for Page_MainContent1_Popup_AddClient.xaml
     /// </summary>
-    public partial class Page_MainContent1_Popup_AddClient : Page
+    public partial class Page_MainContent1_Popup_AddCustomer : Page
     {
-        public Page_MainContent1_Popup_AddClient()
+        public Page_MainContent1_Popup_AddCustomer()
         {
             InitializeComponent();
         }
