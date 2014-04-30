@@ -27,17 +27,5 @@ namespace HuaHaoERP.ViewModel
             };
         }
 
-        //private static void Customer_Add(object sender, CustomerEventArgs e)
-        //{
-        //    new ViewModel.Customer.CustomerConsole().Add(e.CustomerData);
-        //}
-        //private static void Customer_Delete(object sender, CustomerEventArgs e)
-        //{
-        //    new ViewModel.Customer.CustomerConsole().Delete(e.CustomerData);
-        //}
-        //private static void Customer_Modify(object sender, CustomerEventArgs e)
-        //{
-        //    new ViewModel.Customer.CustomerConsole().Modify(e.CustomerData);
-        //}
     }
 }
