@@ -88,6 +88,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Pages\Content1\Page_MainContent1_Popup_AddSupplier.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Pages\Content2\Page_MainContent2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -159,6 +163,9 @@
     </Compile>
     <Compile Include="View\Pages\Content1\Page_MainContent1_Popup_AddClient.xaml.cs">
       <DependentUpon>Page_MainContent1_Popup_AddClient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\Content1\Page_MainContent1_Popup_AddSupplier.xaml.cs">
+      <DependentUpon>Page_MainContent1_Popup_AddSupplier.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\Content2\Page_MainContent2.xaml.cs">
       <DependentUpon>Page_MainContent2.xaml</DependentUpon>

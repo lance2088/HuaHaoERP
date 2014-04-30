@@ -36,7 +36,9 @@ namespace HuaHaoERP.View.Pages.Content1
 
         private void Button_AddSupplier_Click(object sender, RoutedEventArgs e)
         {
-
+            Helper.Events.PopUpEventArgs MyE = new Helper.Events.PopUpEventArgs();
+            MyE.ClassObject = new Page_MainContent1_Popup_AddSupplier();
+            Helper.Events.PopUpEvent.OnShowPopUp(this, MyE);
         }
 
     #endregion

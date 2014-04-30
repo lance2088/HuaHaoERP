@@ -4,12 +4,16 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" FontFamily="SimSun" TextOptions.TextFormattingMode="Display"
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="400" d:DesignWidth="840"
 	Title="Page_MainContent1_Popup_AddClient">
 
-    <Grid>
-        <Button x:Name="Button_Commit" Content="确定" HorizontalAlignment="Left" Margin="66,265,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Click="Button_Commit_Click"/>
-        <Button x:Name="Button_Cancel" Content="取消" HorizontalAlignment="Left" Margin="181,265,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Click="Button_Cancel_Click"/>
+    <Grid Background="White" Margin="0,0,5,5" HorizontalAlignment="Right" Width="400">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="Button_Commit" Content="确定" HorizontalAlignment="Right" Margin="0,0,40,40" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Click="Button_Commit_Click" Height="24"/>
+        <Button x:Name="Button_Cancel" Content="取消" HorizontalAlignment="Left" Margin="40,0,0,40" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Click="Button_Cancel_Click" Grid.Column="1" Height="24"/>
 
     </Grid>
 </Page>
