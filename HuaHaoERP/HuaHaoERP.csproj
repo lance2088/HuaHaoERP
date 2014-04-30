@@ -142,7 +142,6 @@
     </Compile>
     <Compile Include="Helper\AppInitialize\Initialize.cs" />
     <Compile Include="Helper\Events\PopUpEvent.cs" />
-    <Compile Include="Helper\Events\JumpEventArgs.cs" />
     <Compile Include="Helper\Events\PopUpEventArgs.cs" />
     <Compile Include="Helper\Excel\Reader.cs" />
     <Compile Include="Helper\LogHelper\FileLog.cs" />
