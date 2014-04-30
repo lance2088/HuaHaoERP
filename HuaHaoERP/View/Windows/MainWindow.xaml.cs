@@ -36,7 +36,6 @@ namespace HuaHaoERP
             PopUpEvent.EShowPopUp += Grid_Popup_Show;
             PopUpEvent.EHidePopUp += Grid_Popup_Hide;
         }
-
         private void Grid_Popup_Show(object sender, PopUpEventArgs e)
         {
             this.Frame_Popup.Content = e.ClassObject;

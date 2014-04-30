@@ -11,7 +11,16 @@
         <TabControl Margin="0" BorderThickness="0" Padding="0">
             <TabItem Header="客户管理" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Height="25">
                 <Grid Background="White">
-                    <DataGrid Margin="0,40,0,0" BorderThickness="0,1,0,0"/>
+                    <DataGrid Margin="0,40,0,0" BorderThickness="0,1,0,0">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="序号"/>
+                            <DataGridTextColumn Header="姓名"/>
+                            <DataGridTextColumn Header="公司"/>
+                            <DataGridTextColumn Header="电话"/>
+                            <DataGridTextColumn Header="地址"/>
+                            <DataGridTextColumn Header="备注"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
                     <Button x:Name="Button_AddClient" Content="添加" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Click="Button_AddClient_Click" Template="{DynamicResource ButtonControlTemplate_CommonDefault}"/>
                 </Grid>
             </TabItem>
