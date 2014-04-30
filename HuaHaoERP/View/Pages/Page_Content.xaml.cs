@@ -26,6 +26,9 @@ namespace HuaHaoERP.View.Pages
         {
             this.Frame_Content1.Content = new Content1.Page_MainContent1();
             this.Frame_Content2.Content = new Content2.Page_MainContent2();
+            this.Frame_Content3.Content = new Content3.Page_MainContent3();
+            this.Frame_Content4.Content = new Content4.Page_MainContent4();
+            this.Frame_Content5.Content = new Content5.Page_MainContent5();
         }
     }
 }

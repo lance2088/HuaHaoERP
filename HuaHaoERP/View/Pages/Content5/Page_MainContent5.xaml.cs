@@ -12,27 +12,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace HuaHaoERP.View.Pages.Content1
+namespace HuaHaoERP.View.Pages.Content5
 {
-    public partial class Page_MainContent1 : Page
+    /// <summary>
+    /// Interaction logic for Page_MainContent5.xaml
+    /// </summary>
+    public partial class Page_MainContent5 : Page
     {
-        public Page_MainContent1()
+        public Page_MainContent5()
         {
             InitializeComponent();
         }
-
-    #region Client
-        private void Button_AddClient_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-    #endregion
-
-    #region Supplier
-        private void Button_AddSupplier_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-    #endregion
     }
 }
