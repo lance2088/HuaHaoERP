@@ -124,6 +124,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Helper\AppInitialize\Initialize.cs" />
     <Compile Include="Helper\Excel\Reader.cs" />
     <Compile Include="Helper\LogHelper\FileLog.cs" />
     <Compile Include="Helper\SQLite\DBHelper.cs" />
