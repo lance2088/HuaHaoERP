@@ -13,7 +13,7 @@ namespace HuaHaoERP.Helper.XML
         /// </summary>
         /// <param name="Element"></param>
         /// <returns></returns>
-        public string ReadLevelTwo(string Element)
+        internal string ReadLevelTwo(string Element)
         {
             XmlDocument xmldoc = new XmlDocument();
             XmlNodeList rootList = xmldoc.SelectSingleNode("root").ChildNodes;

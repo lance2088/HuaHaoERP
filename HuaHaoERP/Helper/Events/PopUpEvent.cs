@@ -7,8 +7,8 @@ namespace HuaHaoERP.Helper.Events
 {
     static class PopUpEvent
     {
-        public static EventHandler<PopUpEventArgs> EShowPopUp;
-        public static void OnShowPopUp(object sender, PopUpEventArgs e)
+        internal static EventHandler<PopUpEventArgs> EShowPopUp;
+        internal static void OnShowPopUp(object sender, PopUpEventArgs e)
         {
             if (EShowPopUp != null)
             {
@@ -16,8 +16,8 @@ namespace HuaHaoERP.Helper.Events
             }
         }
 
-        public static EventHandler<PopUpEventArgs> EHidePopUp;
-        public static void OnHidePopUp(object sender, PopUpEventArgs e)
+        internal static EventHandler<PopUpEventArgs> EHidePopUp;
+        internal static void OnHidePopUp(object sender, PopUpEventArgs e)
         {
             if (EHidePopUp != null)
             {

@@ -9,7 +9,7 @@ namespace HuaHaoERP.Helper.Events
     {
         private object classObject;
 
-        public object ClassObject
+        internal object ClassObject
         {
             get { return classObject; }
             set { classObject = value; }

@@ -9,7 +9,7 @@ namespace HuaHaoERP.Helper.Events
     {
         private string message;
 
-        public string Message
+        internal string Message
         {
             get { return message; }
             set { message = value; }

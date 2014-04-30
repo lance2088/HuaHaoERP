@@ -10,7 +10,7 @@ namespace HuaHaoERP.Helper.LogHelper
     {
         private static string path = AppDomain.CurrentDomain.BaseDirectory + "Logs\\";
 
-        public static void Log(string log)
+        internal static void Log(string log)
         {
             if (!Directory.Exists(path))
             {

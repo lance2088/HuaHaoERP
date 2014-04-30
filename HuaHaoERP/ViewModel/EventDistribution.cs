@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using HuaHaoERP.Helper.Events;
-using HuaHaoERP.Helper.Events.Customer;
 
 namespace HuaHaoERP.ViewModel
 {
@@ -14,12 +13,31 @@ namespace HuaHaoERP.ViewModel
     {
         static EventDistribution()
         {
-            CustomerEvent.EAdd += Customer_Add;
+            CustomerEvent.EAdd += (sender, e) => 
+            {
+                new ViewModel.Customer.CustomerConsole().Add(e.CustomerData);
+            };
+            CustomerEvent.EDelete += (sender, e) =>
+            {
+                new ViewModel.Customer.CustomerConsole().Delete(e.CustomerData);
+            };
+            CustomerEvent.EModify += (sender, e) => 
+            {
+                new ViewModel.Customer.CustomerConsole().Modify(e.CustomerData);
+            };
         }
 
-        private static void Customer_Add(object sender, CustomerEventArgs e)
-        {
-            new ViewModel.CustomerConsole().Add();
-        }
+        //private static void Customer_Add(object sender, CustomerEventArgs e)
+        //{
+        //    new ViewModel.Customer.CustomerConsole().Add(e.CustomerData);
+        //}
+        //private static void Customer_Delete(object sender, CustomerEventArgs e)
+        //{
+        //    new ViewModel.Customer.CustomerConsole().Delete(e.CustomerData);
+        //}
+        //private static void Customer_Modify(object sender, CustomerEventArgs e)
+        //{
+        //    new ViewModel.Customer.CustomerConsole().Modify(e.CustomerData);
+        //}
     }
 }

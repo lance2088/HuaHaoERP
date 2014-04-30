@@ -17,7 +17,7 @@ namespace HuaHaoERP.Helper.Excel
         /// <param name="sheetname"></param>
         /// <param name="ds"></param>
         /// <returns></returns>
-        public bool ReadExcelDataSource(string filepath, string sheetname, out DataSet ds)
+        internal bool ReadExcelDataSource(string filepath, string sheetname, out DataSet ds)
         {
             ds = new DataSet();
             if (!File.Exists(filepath))

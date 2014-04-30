@@ -13,11 +13,11 @@ namespace HuaHaoERP.Helper.SQLite
         private SQLiteConnection conn = new SQLiteConnection();
         private SQLiteCommand cmd = new SQLiteCommand();
 
-        public DBHelper()
+        internal DBHelper()
         {
             InitializeDbConnect();
         }
-        public DBHelper(string Password)
+        internal DBHelper(string Password)
         {
             InitializeDbConnect(Password);
         }
@@ -56,7 +56,7 @@ namespace HuaHaoERP.Helper.SQLite
         /// </summary>
         /// <param name="sqls"></param>
         /// <returns></returns>
-        public bool Transaction(List<string> sqls)
+        internal bool Transaction(List<string> sqls)
         {
             bool flag = false;
             SQLiteTransaction strans = conn.BeginTransaction();
@@ -87,7 +87,7 @@ namespace HuaHaoERP.Helper.SQLite
         /// </summary>
         /// <param name="sql"></param>
         /// <returns></returns>
-        public bool SingleExecution(string sql)
+        internal bool SingleExecution(string sql)
         {
             bool flag = false;
             try
@@ -113,7 +113,7 @@ namespace HuaHaoERP.Helper.SQLite
         /// <param name="sql"></param>
         /// <param name="ds"></param>
         /// <returns></returns>
-        public bool QueryData(string sql, out DataSet ds)
+        internal bool QueryData(string sql, out DataSet ds)
         {
             bool flag = false;
             ds = new DataSet();
@@ -140,7 +140,7 @@ namespace HuaHaoERP.Helper.SQLite
         /// <param name="sql"></param>
         /// <param name="result"></param>
         /// <returns></returns>
-        public bool QuerySingleResult(string sql, out object result)
+        internal bool QuerySingleResult(string sql, out object result)
         {
             bool flag = false;
             result = new object();
