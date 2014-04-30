@@ -70,9 +70,10 @@ namespace HuaHaoERP.Helper.SQLite
                 strans.Commit();
                 flag = true;
             }
-            catch (Exception)
+            catch (Exception ee)
             {
                 strans.Rollback();
+                LogHelper.FileLog.Log(ee.ToString());
             }
             finally
             {
@@ -95,9 +96,9 @@ namespace HuaHaoERP.Helper.SQLite
                 cmd.ExecuteNonQuery();
                 flag = true;
             }
-            catch(Exception)
+            catch(Exception ee)
             {
-
+                LogHelper.FileLog.Log(ee.ToString());
             }
             finally
             {
@@ -122,9 +123,9 @@ namespace HuaHaoERP.Helper.SQLite
                 dAdapter.Fill(ds);
                 flag = true;
             }
-            catch (Exception)
+            catch (Exception ee)
             {
-
+                LogHelper.FileLog.Log(ee.ToString());
             }
             finally
             {
@@ -153,9 +154,9 @@ namespace HuaHaoERP.Helper.SQLite
                 }
                 flag = true;
             }
-            catch (Exception)
+            catch (Exception ee)
             {
-
+                LogHelper.FileLog.Log(ee.ToString());
             }
             finally
             {
