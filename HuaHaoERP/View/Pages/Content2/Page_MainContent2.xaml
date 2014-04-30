@@ -9,10 +9,10 @@
 
     <Grid>
         <TabControl Margin="0">
-            <TabItem Header="TabItem">
+            <TabItem Header="TabItem" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
-            <TabItem Header="TabItem">
+            <TabItem Header="TabItem" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
         </TabControl>

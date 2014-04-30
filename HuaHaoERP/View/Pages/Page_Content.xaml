@@ -9,14 +9,29 @@
 
     <Grid>
         <TabControl Margin="5" TabStripPlacement="Left" BorderThickness="0" Background="{x:Null}">
-            <TabItem Header="TabItem" Template="{DynamicResource TabItemControlTemplate_CommonMain}" Width="150" Height="40">
+            <TabItem Header="客户库" Template="{DynamicResource TabItemControlTemplate_CommonMain}" Width="150" Height="40" Margin="0,25,0,-25">
                 <Grid>
                     <Frame x:Name="Frame_Content1" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="TabItem" Template="{DynamicResource TabItemControlTemplate_CommonMain}" Width="150" Height="40">
+            <TabItem Header="生产资料" Template="{DynamicResource TabItemControlTemplate_CommonMain}" Width="150" Height="40" Margin="0,25,0,-25">
                 <Grid>
                     <Frame x:Name="Frame_Content2" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="生产管理" Template="{DynamicResource TabItemControlTemplate_CommonMain}" Width="150" Height="40" Margin="0,25,0,-25">
+                <Grid>
+                    <Frame x:Name="Frame_Content3" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="原料管理" Template="{DynamicResource TabItemControlTemplate_CommonMain}" Width="150" Height="40" Margin="0,25,0,-25">
+                <Grid>
+                    <Frame x:Name="Frame_Content4" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="软件设置" Template="{DynamicResource TabItemControlTemplate_CommonMain}" Width="150" Height="40" Margin="0,25,0,-25">
+                <Grid>
+                    <Frame x:Name="Frame_Content5" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </TabItem>
         </TabControl>

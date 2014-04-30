@@ -9,10 +9,10 @@
         <Grid x:Name="Grid_StatusBar" Height="25" Margin="0" VerticalAlignment="Bottom">
             <Frame x:Name="Frame_StatusBar" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
         </Grid>
-        <Grid x:Name="Grid_Content" Margin="0,75,0,25">
+        <Grid x:Name="Grid_Content" Margin="0,55,0,25">
             <Frame x:Name="Frame_Content" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
         </Grid>
-        <Grid x:Name="Grid_Head" Height="75" Margin="0" VerticalAlignment="Top">
+        <Grid x:Name="Grid_Head" Height="55" Margin="0" VerticalAlignment="Top">
             <Frame x:Name="Frame_Head" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
         </Grid>
         <Button x:Name="Button_Close" Content="X" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top" Width="28" Height="20" Click="Button_Close_Click" Template="{DynamicResource ButtonControlTemplate_CloseButton}"/>
