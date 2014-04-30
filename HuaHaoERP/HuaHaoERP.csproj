@@ -141,8 +141,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Helper\AppInitialize\Initialize.cs" />
-    <Compile Include="Helper\Events\Class1.cs" />
-    <Compile Include="Helper\Events\MyEventArgs.cs" />
+    <Compile Include="Helper\Events\PopUpEvent.cs" />
+    <Compile Include="Helper\Events\JumpEventArgs.cs" />
+    <Compile Include="Helper\Events\PopUpEventArgs.cs" />
     <Compile Include="Helper\Excel\Reader.cs" />
     <Compile Include="Helper\LogHelper\FileLog.cs" />
     <Compile Include="Helper\SQLite\DBHelper.cs" />

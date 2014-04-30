@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using HuaHaoERP.Helper.Events;
 
 namespace HuaHaoERP.View.Pages
 {
@@ -20,6 +21,7 @@ namespace HuaHaoERP.View.Pages
         {
             InitializeComponent();
             InitializeData();
+            SubscribeToEvent();
         }
 
         private void InitializeData()
@@ -29,6 +31,23 @@ namespace HuaHaoERP.View.Pages
             this.Frame_Content3.Content = new Content3.Page_MainContent3();
             this.Frame_Content4.Content = new Content4.Page_MainContent4();
             this.Frame_Content5.Content = new Content5.Page_MainContent5();
+        }
+
+        private void SubscribeToEvent()
+        {
+            PopUpEvent.EShowPopUp += Grid_Popup_Show;
+            PopUpEvent.EHidePopUp += Grid_Popup_Hide;
+        }
+
+        private void Grid_Popup_Show(object sender, PopUpEventArgs e)
+        {
+            this.Frame_Popup.Content = e.ClassObject;
+            this.Grid_Popup.Visibility = System.Windows.Visibility.Visible;
+        }
+        private void Grid_Popup_Hide(object sender, PopUpEventArgs e)
+        {
+            this.Frame_Popup.Content = null;
+            this.Grid_Popup.Visibility = System.Windows.Visibility.Collapsed;
         }
     }
 }
