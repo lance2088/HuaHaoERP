@@ -10,12 +10,12 @@
     <Grid>
         <TabControl Margin="5" TabStripPlacement="Left" BorderThickness="0" Background="{x:Null}">
             <TabItem Header="TabItem" Template="{DynamicResource TabItemControlTemplate_CommonMain}" Width="150" Height="40">
-                <Grid Background="#FFE5E5E5">
+                <Grid>
                     <Frame x:Name="Frame_Content1" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </TabItem>
             <TabItem Header="TabItem" Template="{DynamicResource TabItemControlTemplate_CommonMain}" Width="150" Height="40">
-                <Grid Background="#FFE5E5E5">
+                <Grid>
                     <Frame x:Name="Frame_Content2" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </TabItem>

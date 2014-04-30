@@ -29,8 +29,10 @@ namespace HuaHaoERP
             this.Frame_StatusBar.Content = new View.Pages.Page_StatusBar();
         }
 
-
-
+        private void SaveRect()
+        {
+            Properties.Settings.Default.MainWindowRect = new Rect(this.Left, this.Top, this.Width, this.Height);
+        }
 
 
         private void Window_MainWindow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -39,10 +41,12 @@ namespace HuaHaoERP
             {
                 this.DragMove();
             }
+            SaveRect();
         }
 
         private void Button_Close_Click(object sender, RoutedEventArgs e)
         {
+            Properties.Settings.Default.Save();
             this.Close();
         }
 
@@ -54,6 +58,11 @@ namespace HuaHaoERP
         private void Button_Max_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Window_MainWindow_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            SaveRect();
         }
     }
 }
