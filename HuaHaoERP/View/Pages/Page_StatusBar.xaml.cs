@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using HuaHaoERP.Helper.Events;
 
 namespace HuaHaoERP.View.Pages
 {
@@ -23,6 +24,7 @@ namespace HuaHaoERP.View.Pages
         {
             InitializeComponent();
             InitializeData();
+            SubscribeToEvent();
         }
 
         private void InitializeData()
@@ -31,6 +33,15 @@ namespace HuaHaoERP.View.Pages
             timer.Tick += timer_Tick;
             timer.Interval = TimeSpan.FromSeconds(0.1);//设置刷新的间隔时间
             timer.Start();
+        }
+
+        private void SubscribeToEvent()
+        {
+            StatusBarMessageEvent.EUpdateMessage += Label_Message_UpdateData;
+        }
+        private void Label_Message_UpdateData(object sender, StatusBarMessageEventArgs e)
+        {
+            this.Label_Message.Content = e.Message;
         }
 
         private void timer_Tick(object sender, EventArgs e)

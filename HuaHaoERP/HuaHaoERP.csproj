@@ -147,6 +147,8 @@
     <Compile Include="Helper\AppInitialize\Initialize.cs" />
     <Compile Include="Helper\Events\PopUpEvent.cs" />
     <Compile Include="Helper\Events\PopUpEventArgs.cs" />
+    <Compile Include="Helper\Events\StatusBarMessageEvent.cs" />
+    <Compile Include="Helper\Events\StatusBarMessageEventArgs.cs" />
     <Compile Include="Helper\Excel\Reader.cs" />
     <Compile Include="Helper\LogHelper\FileLog.cs" />
     <Compile Include="Helper\SQLite\DBHelper.cs" />
