@@ -18,7 +18,6 @@ namespace HuaHaoERP
     public partial class MainWindow : Window
     {
         private Rect WorkRect = SystemParameters.WorkArea;
-        private bool isLockSaveRect = false;
 
         public MainWindow()
         {
@@ -34,23 +33,19 @@ namespace HuaHaoERP
             this.Frame_StatusBar.Content = new View.Pages.Page_StatusBar();
             if (Properties.Settings.Default.isMainWindowRectMax == true)
             {
-                isLockSaveRect = true;
                 this.WindowStartupLocation = System.Windows.WindowStartupLocation.Manual;
                 this.Top = 0;
                 this.Left = 0;
                 this.Width = WorkRect.Width;
                 this.Height = WorkRect.Height;
-                isLockSaveRect = false;
             }
             else if (Properties.Settings.Default.MainWindowRect != new Rect(0,0,0,0))
             {
-                isLockSaveRect = true;
                 this.WindowStartupLocation = System.Windows.WindowStartupLocation.Manual;
                 this.Width = Properties.Settings.Default.MainWindowRect.Width;
                 this.Height = Properties.Settings.Default.MainWindowRect.Height;
                 this.Top = Properties.Settings.Default.MainWindowRect.Top;
                 this.Left = Properties.Settings.Default.MainWindowRect.Left;
-                isLockSaveRect = false;
             }
         }
 
@@ -80,15 +75,15 @@ namespace HuaHaoERP
             if (e.ButtonState == MouseButtonState.Pressed && Properties.Settings.Default.isMainWindowRectMax == false)
             {
                 this.DragMove();
-                if (isLockSaveRect == false)
-                {
-                    SaveRect();
-                }
             }
         }
 
         private void Button_Close_Click(object sender, RoutedEventArgs e)
         {
+            if (Properties.Settings.Default.isMainWindowRectMax == false)
+            {
+                SaveRect();
+            }
             Properties.Settings.Default.Save();
             this.Close();
         }
@@ -100,7 +95,6 @@ namespace HuaHaoERP
 
         private void Button_Max_Click(object sender, RoutedEventArgs e)
         {
-            isLockSaveRect = true;
             if (Properties.Settings.Default.isMainWindowRectMax)
             {
                 Properties.Settings.Default.isMainWindowRectMax = false;
@@ -118,14 +112,14 @@ namespace HuaHaoERP
                 this.Height = WorkRect.Height;
                 this.Top = 0;
             }
-            isLockSaveRect = false;
         }
 
         private void Window_MainWindow_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            if (isLockSaveRect == false && this.IsLoaded == true)
+            if (this.ActualHeight > WorkRect.Height || this.ActualWidth > WorkRect.Width)
             {
-                SaveRect();
+                this.WindowState = System.Windows.WindowState.Normal;
+                Button_Max_Click(null, null);
             }
         }
     }
