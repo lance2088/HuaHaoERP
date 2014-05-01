@@ -3,11 +3,39 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      mc:Ignorable="d" FontFamily="SimSun" TextOptions.TextFormattingMode="Display"
+      d:DesignHeight="500" d:DesignWidth="840"
 	Title="Page_MainContent1_Popup_AddSupplier">
 
-    <Grid>
-        
+    <Grid HorizontalAlignment="Right" Width="400" Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="Button_Commit" Content="确定" HorizontalAlignment="Right" Margin="0,0,40,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Click="Button_Commit_Click"/>
+        <Button x:Name="Button_Cancel" Content="取消" Grid.Column="1" HorizontalAlignment="Left" Margin="40,0,0,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Click="Button_Cancel_Click"/>
+        <Label Content="供应商编号" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top"/>
+        <Label Content="备注" HorizontalAlignment="Left" Margin="20,380,0,0" VerticalAlignment="Top"/>
+        <Label Content="开户行" HorizontalAlignment="Left" Margin="20,340,0,0" VerticalAlignment="Top"/>
+        <Label Content="银行卡号" HorizontalAlignment="Left" Margin="20,300,0,0" VerticalAlignment="Top"/>
+        <Label Content="业务" HorizontalAlignment="Left" Margin="20,260,0,0" VerticalAlignment="Top"/>
+        <Label Content="手机" HorizontalAlignment="Left" Margin="20,220,0,0" VerticalAlignment="Top"/>
+        <Label Content="传真" HorizontalAlignment="Left" Margin="17,180,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <Label Content="公司" HorizontalAlignment="Left" Margin="20,100,0,0" VerticalAlignment="Top"/>
+        <Label Content="供应商名称" HorizontalAlignment="Left" Margin="20,60,0,0" VerticalAlignment="Top"/>
+        <Label Content="地址" HorizontalAlignment="Left" Margin="20,140,0,0" VerticalAlignment="Top"/>
+        <Label Content="电话" HorizontalAlignment="Left" Margin="20,180,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="95,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
+        <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="24" Margin="95,380,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="281" VerticalContentAlignment="Center"/>
+        <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="24" Margin="95,340,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" VerticalContentAlignment="Center"/>
+        <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="24" Margin="95,300,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="281" VerticalContentAlignment="Center"/>
+        <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="24" Margin="95,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="281" VerticalContentAlignment="Center"/>
+        <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="24" Margin="95,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="56,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" Grid.Column="1"/>
+        <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="24" Margin="95,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
+        <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="24" Margin="95,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="281" VerticalContentAlignment="Center"/>
+        <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="24" Margin="95,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="281" VerticalContentAlignment="Center"/>
+        <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="24" Margin="95,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
+
     </Grid>
 </Page>

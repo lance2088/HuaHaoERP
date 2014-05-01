@@ -11,9 +11,9 @@ namespace HuaHaoERP.ViewModel
     /// </summary>
     static class EventDistribution
     {
-        static EventDistribution()
+        internal static void InitEvent()
         {
-            CustomerEvent.EAdd += (sender, e) => 
+            CustomerEvent.EAdd += (sender, e) =>
             {
                 new ViewModel.Customer.CustomerConsole().Add(e.CustomerData);
             };
@@ -21,11 +21,10 @@ namespace HuaHaoERP.ViewModel
             {
                 new ViewModel.Customer.CustomerConsole().Delete(e.CustomerData);
             };
-            CustomerEvent.EModify += (sender, e) => 
+            CustomerEvent.EModify += (sender, e) =>
             {
                 new ViewModel.Customer.CustomerConsole().Modify(e.CustomerData);
             };
         }
-
     }
 }

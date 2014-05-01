@@ -14,14 +14,22 @@ using System.Windows.Shapes;
 
 namespace HuaHaoERP.View.Pages.Content1
 {
-    /// <summary>
-    /// Interaction logic for Page_MainContent1_Popup_AddSupplier.xaml
-    /// </summary>
     public partial class Page_MainContent1_Popup_AddSupplier : Page
     {
         public Page_MainContent1_Popup_AddSupplier()
         {
             InitializeComponent();
+        }
+
+        private void Button_Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            Helper.Events.PopUpEvent.OnHidePopUp(this, new Helper.Events.PopUpEventArgs());
+        }
+
+        private void Button_Commit_Click(object sender, RoutedEventArgs e)
+        {
+
+            Helper.Events.PopUpEvent.OnHidePopUp(this, new Helper.Events.PopUpEventArgs());
         }
     }
 }

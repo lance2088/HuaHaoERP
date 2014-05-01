@@ -5,8 +5,11 @@ using System.Text;
 
 namespace HuaHaoERP.Helper.AppInitialize
 {
-    class Initialize
+    static class Initialize
     {
-
+        internal static void Init()
+        {
+            ViewModel.EventDistribution.InitEvent();
+        }
     }
 }

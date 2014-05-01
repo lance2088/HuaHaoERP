@@ -7,9 +7,9 @@ namespace HuaHaoERP.Model
 {
     class CustomerModel
     {
-        private string guid;
+        private Guid guid;
 
-        internal string Guid
+        internal Guid Guid
         {
             get { return guid; }
             set { guid = value; }

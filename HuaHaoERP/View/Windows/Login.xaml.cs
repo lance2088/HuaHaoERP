@@ -21,6 +21,7 @@ namespace HuaHaoERP.View.Windows
         public Login()
         {
             InitializeComponent();
+            Helper.AppInitialize.Initialize.Init();
         }
 
         private void Button_Login_Click(object sender, RoutedEventArgs e)
