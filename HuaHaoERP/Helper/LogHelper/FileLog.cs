@@ -12,26 +12,24 @@ namespace HuaHaoERP.Helper.LogHelper
 
         internal static void ErrorLog(string log)
         {
-            if (!Directory.Exists(path))
-            {
-                Directory.CreateDirectory(path);
-            }
-            FileStream fs = new FileStream(path + "Error.log", FileMode.Append);
-            StreamWriter sw = new StreamWriter(fs);
-            log = DateTime.Now + " \t| " + log + "\n";
-            sw.Write(log);
-            sw.Flush();//清空缓冲区  
-            sw.Close();//关闭流  
-            fs.Close();
+            LogToFile(log, "Error.log");
+        }
+        internal static void WarnLog(string log)
+        {
+            LogToFile(log, "Warn.log");
+        }
+        internal static void Log(string log)
+        {
+            LogToFile(log, "Log.log");
         }
 
-        internal static void Log(string log)
+        private static void LogToFile(string log, string file)
         {
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
             }
-            FileStream fs = new FileStream(path + "Error.log", FileMode.Append);
+            FileStream fs = new FileStream(path + file, FileMode.Append);
             StreamWriter sw = new StreamWriter(fs);
             log = DateTime.Now + " \t| " + log + "\n";
             sw.Write(log);
