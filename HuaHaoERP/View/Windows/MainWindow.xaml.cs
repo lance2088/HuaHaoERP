@@ -17,6 +17,9 @@ namespace HuaHaoERP
 {
     public partial class MainWindow : Window
     {
+        private Rect WorkRect = SystemParameters.WorkArea;
+        private bool isLockSaveRect = false;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -29,6 +32,26 @@ namespace HuaHaoERP
             this.Frame_Head.Content = new View.Pages.Page_Head();
             this.Frame_Content.Content = new View.Pages.Page_Content();
             this.Frame_StatusBar.Content = new View.Pages.Page_StatusBar();
+            if (Properties.Settings.Default.isMainWindowRectMax == true)
+            {
+                isLockSaveRect = true;
+                this.WindowStartupLocation = System.Windows.WindowStartupLocation.Manual;
+                this.Top = 0;
+                this.Left = 0;
+                this.Width = WorkRect.Width;
+                this.Height = WorkRect.Height;
+                isLockSaveRect = false;
+            }
+            else if (Properties.Settings.Default.MainWindowRect != new Rect(0,0,0,0))
+            {
+                isLockSaveRect = true;
+                this.WindowStartupLocation = System.Windows.WindowStartupLocation.Manual;
+                this.Width = Properties.Settings.Default.MainWindowRect.Width;
+                this.Height = Properties.Settings.Default.MainWindowRect.Height;
+                this.Top = Properties.Settings.Default.MainWindowRect.Top;
+                this.Left = Properties.Settings.Default.MainWindowRect.Left;
+                isLockSaveRect = false;
+            }
         }
 
         private void SubscribeToEvent()
@@ -52,14 +75,16 @@ namespace HuaHaoERP
             Properties.Settings.Default.MainWindowRect = new Rect(this.Left, this.Top, this.Width, this.Height);
         }
 
-
         private void Window_MainWindow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if(e.ButtonState == MouseButtonState.Pressed)
+            if (e.ButtonState == MouseButtonState.Pressed && Properties.Settings.Default.isMainWindowRectMax == false)
             {
                 this.DragMove();
+                if (isLockSaveRect == false)
+                {
+                    SaveRect();
+                }
             }
-            SaveRect();
         }
 
         private void Button_Close_Click(object sender, RoutedEventArgs e)
@@ -75,12 +100,33 @@ namespace HuaHaoERP
 
         private void Button_Max_Click(object sender, RoutedEventArgs e)
         {
-
+            isLockSaveRect = true;
+            if (Properties.Settings.Default.isMainWindowRectMax)
+            {
+                Properties.Settings.Default.isMainWindowRectMax = false;
+                this.Width = Properties.Settings.Default.MainWindowRect.Width;
+                this.Height = Properties.Settings.Default.MainWindowRect.Height;
+                this.Top = Properties.Settings.Default.MainWindowRect.Top;
+                this.Left = Properties.Settings.Default.MainWindowRect.Left;
+            }
+            else
+            {
+                Properties.Settings.Default.isMainWindowRectMax = true;
+                SaveRect();//保存非最大化状态的Rect
+                this.Width = WorkRect.Width;
+                this.Left = 0;
+                this.Height = WorkRect.Height;
+                this.Top = 0;
+            }
+            isLockSaveRect = false;
         }
 
         private void Window_MainWindow_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            SaveRect();
+            if (isLockSaveRect == false && this.IsLoaded == true)
+            {
+                SaveRect();
+            }
         }
     }
 }

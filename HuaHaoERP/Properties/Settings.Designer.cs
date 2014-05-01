@@ -34,5 +34,17 @@ namespace HuaHaoERP.Properties {
                 this["MainWindowRect"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool isMainWindowRectMax {
+            get {
+                return ((bool)(this["isMainWindowRectMax"]));
+            }
+            set {
+                this["isMainWindowRectMax"] = value;
+            }
+        }
     }
 }
