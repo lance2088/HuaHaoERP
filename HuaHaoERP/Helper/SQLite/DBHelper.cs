@@ -17,10 +17,6 @@ namespace HuaHaoERP.Helper.SQLite
         {
             InitializeDbConnect();
         }
-        internal DBHelper(string Password)
-        {
-            InitializeDbConnect(Password);
-        }
 
         /// <summary>
         /// 初始化数据库连接
