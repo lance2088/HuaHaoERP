@@ -4,19 +4,19 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" FontFamily="SimSun" TextOptions.TextFormattingMode="Display"
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="434" d:DesignWidth="808"
 	Title="Page_MainContent5">
 
     <Grid>
         <TabControl Margin="0" BorderThickness="0" Padding="0">
             <TabItem Header="综合设置" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Height="25">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="White"/>
             </TabItem>
             <TabItem Header="安全设置" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="White"/>
             </TabItem>
             <TabItem Header="关于我们" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="White"/>
             </TabItem>
         </TabControl>
 
