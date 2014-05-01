@@ -10,13 +10,28 @@ namespace HuaHaoERP.Helper.LogHelper
     {
         private static string path = AppDomain.CurrentDomain.BaseDirectory + "Logs\\";
 
+        internal static void ErrorLog(string log)
+        {
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            FileStream fs = new FileStream(path + "Error.log", FileMode.Append);
+            StreamWriter sw = new StreamWriter(fs);
+            log = DateTime.Now + " \t| " + log + "\n";
+            sw.Write(log);
+            sw.Flush();//清空缓冲区  
+            sw.Close();//关闭流  
+            fs.Close();
+        }
+
         internal static void Log(string log)
         {
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
             }
-            FileStream fs = new FileStream(path + "Log.log", FileMode.Append);
+            FileStream fs = new FileStream(path + "Error.log", FileMode.Append);
             StreamWriter sw = new StreamWriter(fs);
             log = DateTime.Now + " \t| " + log + "\n";
             sw.Write(log);

@@ -35,7 +35,14 @@ namespace HuaHaoERP.Helper.SQLite
             connBuilder.DataSource = DataSource;
             conn.ConnectionString = connBuilder.ToString();
             conn.SetPassword(Password);
-            conn.Open();
+            try
+            {
+                conn.Open();
+            }
+            catch(Exception ee)
+            {
+                Helper.LogHelper.FileLog.ErrorLog(ee.ToString());
+            }
             cmd.Connection = conn;
         }
         /// <summary>
