@@ -58,7 +58,10 @@ namespace HuaHaoERP.View.Pages.Content1
             {
                 CustomerEventArgs MyE = new CustomerEventArgs();
                 MyE.CustomerData = d;
-                Helper.Events.CustomerEvent.OnAdd(this, MyE);
+                CustomerEvent.OnAdd(this, MyE);
+                StatusBarMessageEventArgs MessE = new StatusBarMessageEventArgs();
+                MessE.Message = "添加用户：" + d.Name;
+                StatusBarMessageEvent.OnUpdateMessage(this, MessE);
                 Button_Cancel_Click(null, null);
             }
             else
