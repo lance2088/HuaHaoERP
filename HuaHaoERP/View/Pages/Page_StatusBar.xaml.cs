@@ -18,7 +18,8 @@ namespace HuaHaoERP.View.Pages
 {
     public partial class Page_StatusBar : Page
     {
-        DispatcherTimer timer = new DispatcherTimer();
+        private DispatcherTimer timer = new DispatcherTimer();
+        private double ShowSeconds = 0;
 
         public Page_StatusBar()
         {
@@ -42,12 +43,21 @@ namespace HuaHaoERP.View.Pages
         private void Label_Message_UpdateData(object sender, StatusBarMessageEventArgs e)
         {
             this.Label_Message.Content = e.Message;
+            ShowSeconds = 5;
         }
 
         private void timer_Tick(object sender, EventArgs e)
         {
             this.Label_DateTime.Content = DateTime.Now.ToString("yyyy年MM月dd日 dddd HH:mm:ss");
+            if (ShowSeconds > 0)
+            {
+                ShowSeconds -= 0.1;
+            }
+            else if (ShowSeconds > -1)
+            {
+                this.Label_Message.Content = "";
+                ShowSeconds = -1;
+            }
         }
-
     }
 }

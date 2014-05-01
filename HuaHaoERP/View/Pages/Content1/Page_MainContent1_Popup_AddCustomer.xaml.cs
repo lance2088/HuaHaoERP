@@ -28,12 +28,12 @@ namespace HuaHaoERP.View.Pages.Content1
         private void InitializeData()
         {
             Guid = Guid.NewGuid();
+            d.Guid = Guid;
         }
 
         private bool CheckAndGetData()
         {
             bool flag = true;
-            d.Guid = Guid;
             d.Number = this.TextBox_Customer_Number.Text;
             d.Name = this.TextBox_Customer_Name.Text;
             d.Company = this.TextBox_Customer_Company.Text;

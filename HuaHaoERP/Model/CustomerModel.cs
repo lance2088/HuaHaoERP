@@ -98,5 +98,13 @@ namespace HuaHaoERP.Model
             get { return orderQuantity; }
             set { orderQuantity = value; }
         }
+
+        private DateTime deleteMark;
+
+        public DateTime DeleteMark
+        {
+            get { return deleteMark; }
+            set { deleteMark = value; }
+        }
     }
 }
