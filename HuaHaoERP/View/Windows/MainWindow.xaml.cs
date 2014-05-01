@@ -98,10 +98,10 @@ namespace HuaHaoERP
             if (Properties.Settings.Default.isMainWindowRectMax)
             {
                 Properties.Settings.Default.isMainWindowRectMax = false;
-                this.Width = Properties.Settings.Default.MainWindowRect.Width;
-                this.Height = Properties.Settings.Default.MainWindowRect.Height;
                 this.Top = Properties.Settings.Default.MainWindowRect.Top;
+                this.Height = Properties.Settings.Default.MainWindowRect.Height;
                 this.Left = Properties.Settings.Default.MainWindowRect.Left;
+                this.Width = Properties.Settings.Default.MainWindowRect.Width;
             }
             else
             {
