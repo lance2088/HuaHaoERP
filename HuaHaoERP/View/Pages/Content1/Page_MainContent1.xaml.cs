@@ -19,11 +19,19 @@ namespace HuaHaoERP.View.Pages.Content1
         public Page_MainContent1()
         {
             InitializeComponent();
+            InitializeCustomerDataGrid();
         }
 
     #region Client
 
-        private void Button_AddClient_Click(object sender, RoutedEventArgs e)
+        private void InitializeCustomerDataGrid()
+        {
+            List<Model.CustomerModel> data;
+            new ViewModel.Customer.CustomerConsole().ReadList(out data);
+            this.DataGrid_Customer.ItemsSource = data;
+            
+        }
+        private void Button_AddCustomer_Click(object sender, RoutedEventArgs e)
         {
             Helper.Events.PopUpEventArgs MyE = new Helper.Events.PopUpEventArgs();
             MyE.ClassObject = new Page_MainContent1_Popup_AddCustomer();

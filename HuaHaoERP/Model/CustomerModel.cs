@@ -14,6 +14,14 @@ namespace HuaHaoERP.Model
             get { return guid; }
             set { guid = value; }
         }
+
+        private int id;
+
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
         private string number;
 
         internal string Number
@@ -77,9 +85,9 @@ namespace HuaHaoERP.Model
             get { return remark; }
             set { remark = value; }
         }
-        private DateTime lastOrderTime;
+        private string lastOrderTime;
 
-        internal DateTime LastOrderTime
+        internal string LastOrderTime
         {
             get { return lastOrderTime; }
             set { lastOrderTime = value; }
@@ -99,9 +107,9 @@ namespace HuaHaoERP.Model
             set { orderQuantity = value; }
         }
 
-        private DateTime deleteMark;
+        private string deleteMark;
 
-        public DateTime DeleteMark
+        public string DeleteMark
         {
             get { return deleteMark; }
             set { deleteMark = value; }
