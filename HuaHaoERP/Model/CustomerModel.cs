@@ -9,7 +9,7 @@ namespace HuaHaoERP.Model
     {
         private Guid guid;
 
-        internal Guid Guid
+        public Guid Guid
         {
             get { return guid; }
             set { guid = value; }
@@ -24,84 +24,84 @@ namespace HuaHaoERP.Model
         }
         private string number;
 
-        internal string Number
+        public string Number
         {
             get { return number; }
             set { number = value; }
         }
         private string name;
 
-        internal string Name
+        public string Name
         {
             get { return name; }
             set { name = value; }
         }
         private string company;
 
-        internal string Company
+        public string Company
         {
             get { return company; }
             set { company = value; }
         }
         private string address;
 
-        internal string Address
+        public string Address
         {
             get { return address; }
             set { address = value; }
         }
         private string phone;
 
-        internal string Phone
+        public string Phone
         {
             get { return phone; }
             set { phone = value; }
         }
         private string mobilePhone;
 
-        internal string MobilePhone
+        public string MobilePhone
         {
             get { return mobilePhone; }
             set { mobilePhone = value; }
         }
         private string fax;
 
-        internal string Fax
+        public string Fax
         {
             get { return fax; }
             set { fax = value; }
         }
         private string business;
 
-        internal string Business
+        public string Business
         {
             get { return business; }
             set { business = value; }
         }
         private string remark;
 
-        internal string Remark
+        public string Remark
         {
             get { return remark; }
             set { remark = value; }
         }
         private string lastOrderTime;
 
-        internal string LastOrderTime
+        public string LastOrderTime
         {
             get { return lastOrderTime; }
             set { lastOrderTime = value; }
         }
         private int customerLevel;
 
-        internal int CustomerLevel
+        public int CustomerLevel
         {
             get { return customerLevel; }
             set { customerLevel = value; }
         }
         private int orderQuantity;
 
-        internal int OrderQuantity
+        public int OrderQuantity
         {
             get { return orderQuantity; }
             set { orderQuantity = value; }
