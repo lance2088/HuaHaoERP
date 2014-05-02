@@ -12,7 +12,27 @@
             <TabItem Header="流水线" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Height="25">
                 <Grid Background="White"/>
             </TabItem>
-            <TabItem Header="TabItem" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}">
+            <TabItem Header="版裁" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}">
+                <Grid Background="White">
+                    <DataGrid Margin="0,40,0,0" BorderThickness="0,1,0,0"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="冲版" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}">
+                <Grid Background="White">
+                    <DataGrid Margin="0,40,0,0" BorderThickness="0,1,0,0"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="拉伸" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}">
+                <Grid Background="White">
+                    <DataGrid Margin="0,40,0,0" BorderThickness="0,1,0,0"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="卷边" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}">
+                <Grid Background="White">
+                    <DataGrid Margin="0,40,0,0" BorderThickness="0,1,0,0"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="抛光" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}">
                 <Grid Background="White">
                     <DataGrid Margin="0,40,0,0" BorderThickness="0,1,0,0"/>
                 </Grid>
