@@ -56,12 +56,8 @@ namespace HuaHaoERP.View.Pages.Content1
         {
             if(CheckAndGetData())
             {
-                CustomerEventArgs MyE = new CustomerEventArgs();
-                MyE.CustomerData = d;
-                CustomerEvent.OnAdd(this, MyE);
-                StatusBarMessageEventArgs MessE = new StatusBarMessageEventArgs();
-                MessE.Message = "添加用户：" + d.Name;
-                StatusBarMessageEvent.OnUpdateMessage(this, MessE);
+                CustomerEvent.OnAdd(this, d);
+                StatusBarMessageEvent.OnUpdateMessage(this, "添加用户：" + d.Name);
                 Button_Cancel_Click(null, null);
             }
             else
@@ -72,7 +68,7 @@ namespace HuaHaoERP.View.Pages.Content1
 
         private void Button_Cancel_Click(object sender, RoutedEventArgs e)
         {
-            Helper.Events.PopUpEvent.OnHidePopUp(this, new Helper.Events.PopUpEventArgs());
+            Helper.Events.PopUpEvent.OnHidePopUp(this);
         }
     }
 }

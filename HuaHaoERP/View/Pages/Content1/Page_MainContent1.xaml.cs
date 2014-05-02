@@ -33,9 +33,7 @@ namespace HuaHaoERP.View.Pages.Content1
         }
         private void Button_AddCustomer_Click(object sender, RoutedEventArgs e)
         {
-            Helper.Events.PopUpEventArgs MyE = new Helper.Events.PopUpEventArgs();
-            MyE.ClassObject = new Page_MainContent1_Popup_AddCustomer();
-            Helper.Events.PopUpEvent.OnShowPopUp(this, MyE);
+            Helper.Events.PopUpEvent.OnShowPopUp(this, new Page_MainContent1_Popup_AddCustomer());
         }
 
     #endregion
@@ -44,9 +42,7 @@ namespace HuaHaoERP.View.Pages.Content1
 
         private void Button_AddSupplier_Click(object sender, RoutedEventArgs e)
         {
-            Helper.Events.PopUpEventArgs MyE = new Helper.Events.PopUpEventArgs();
-            MyE.ClassObject = new Page_MainContent1_Popup_AddSupplier();
-            Helper.Events.PopUpEvent.OnShowPopUp(this, MyE);
+            Helper.Events.PopUpEvent.OnShowPopUp(this, new Page_MainContent1_Popup_AddSupplier());
         }
 
     #endregion

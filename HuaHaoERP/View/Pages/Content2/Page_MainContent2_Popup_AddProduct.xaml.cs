@@ -24,7 +24,7 @@ namespace HuaHaoERP.View.Pages.Content2
 
         private void Button_Cancel_Click(object sender, RoutedEventArgs e)
         {
-            PopUpEvent.OnHidePopUp(this, new PopUpEventArgs());
+            PopUpEvent.OnHidePopUp(this);
         }
 
         private void Button_Commit_Click(object sender, RoutedEventArgs e)

@@ -8,11 +8,13 @@ namespace HuaHaoERP.Helper.Events
     static class StatusBarMessageEvent
     {
         internal static EventHandler<StatusBarMessageEventArgs> EUpdateMessage;
-        internal static void OnUpdateMessage(object sender, StatusBarMessageEventArgs e)
+        internal static void OnUpdateMessage(object sender, string Message)
         {
             if(EUpdateMessage != null)
             {
-                EUpdateMessage(sender, e);
+                StatusBarMessageEventArgs ee = new StatusBarMessageEventArgs();
+                ee.Message = Message;
+                EUpdateMessage(sender, ee);
             }
         }
     }

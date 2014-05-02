@@ -23,13 +23,13 @@ namespace HuaHaoERP.View.Pages.Content1
 
         private void Button_Cancel_Click(object sender, RoutedEventArgs e)
         {
-            Helper.Events.PopUpEvent.OnHidePopUp(this, new Helper.Events.PopUpEventArgs());
+            Helper.Events.PopUpEvent.OnHidePopUp(this);
         }
 
         private void Button_Commit_Click(object sender, RoutedEventArgs e)
         {
 
-            Helper.Events.PopUpEvent.OnHidePopUp(this, new Helper.Events.PopUpEventArgs());
+            Helper.Events.PopUpEvent.OnHidePopUp(this);
         }
     }
 }

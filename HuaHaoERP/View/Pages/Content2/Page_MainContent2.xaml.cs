@@ -26,9 +26,7 @@ namespace HuaHaoERP.View.Pages.Content2
 
         private void Button_AddProduct_Click(object sender, RoutedEventArgs e)
         {
-            PopUpEventArgs MyE = new PopUpEventArgs();
-            MyE.ClassObject = new HuaHaoERP.View.Pages.Content2.Page_MainContent2_Popup_AddProduct();
-            PopUpEvent.OnShowPopUp(this, MyE);
+            PopUpEvent.OnShowPopUp(this, new HuaHaoERP.View.Pages.Content2.Page_MainContent2_Popup_AddProduct());
         }
 
         #endregion
@@ -37,9 +35,7 @@ namespace HuaHaoERP.View.Pages.Content2
 
         private void Button_AddSemifinishedProduct_Click(object sender, RoutedEventArgs e)
         {
-            PopUpEventArgs MyE = new PopUpEventArgs();
-            MyE.ClassObject = new HuaHaoERP.View.Pages.Content2.Page_MainContent2_Popup_SemifinishedProduct();
-            PopUpEvent.OnShowPopUp(this, MyE);
+            PopUpEvent.OnShowPopUp(this, new HuaHaoERP.View.Pages.Content2.Page_MainContent2_Popup_SemifinishedProduct());
         }
 
         #endregion
@@ -48,9 +44,7 @@ namespace HuaHaoERP.View.Pages.Content2
 
         private void Button_AddRawMaterials_Click(object sender, RoutedEventArgs e)
         {
-            PopUpEventArgs MyE = new PopUpEventArgs();
-            MyE.ClassObject = new HuaHaoERP.View.Pages.Content2.Page_MainContent2_Popup_RawMaterials();
-            PopUpEvent.OnShowPopUp(this, MyE);
+            PopUpEvent.OnShowPopUp(this, new HuaHaoERP.View.Pages.Content2.Page_MainContent2_Popup_RawMaterials());
         }
 
         #endregion

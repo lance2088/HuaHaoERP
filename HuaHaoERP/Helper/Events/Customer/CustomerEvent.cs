@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using HuaHaoERP.Model;
 
 namespace HuaHaoERP.Helper.Events
 {
@@ -11,25 +12,31 @@ namespace HuaHaoERP.Helper.Events
         public static EventHandler<CustomerEventArgs> EDelete;
         public static EventHandler<CustomerEventArgs> EModify;
 
-        internal static void OnAdd(object sender, CustomerEventArgs e)
+        internal static void OnAdd(object sender, CustomerModel CustomerData)
         {
             if(EAdd != null)
             {
-                EAdd(sender, e);
+                CustomerEventArgs ee = new CustomerEventArgs();
+                ee.CustomerData = CustomerData;
+                EAdd(sender, ee);
             }
         }
-        internal static void OnDelete(object sender, CustomerEventArgs e)
+        internal static void OnDelete(object sender, CustomerModel CustomerData)
         {
             if (EDelete != null)
             {
-                EDelete(sender, e);
+                CustomerEventArgs ee = new CustomerEventArgs();
+                ee.CustomerData = CustomerData;
+                EDelete(sender, ee);
             }
         }
-        internal static void OnModify(object sender, CustomerEventArgs e)
+        internal static void OnModify(object sender, CustomerModel CustomerData)
         {
             if (EModify != null)
             {
-                EModify(sender, e);
+                CustomerEventArgs ee = new CustomerEventArgs();
+                ee.CustomerData = CustomerData;
+                EModify(sender, ee);
             }
         }
     }
