@@ -11,17 +11,26 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using HuaHaoERP.Helper.Events;
 
 namespace HuaHaoERP.View.Pages.Content2
 {
-    /// <summary>
-    /// Interaction logic for Page_MainContent2_Popup_RawMaterials.xaml
-    /// </summary>
     public partial class Page_MainContent2_Popup_RawMaterials : Page
     {
         public Page_MainContent2_Popup_RawMaterials()
         {
             InitializeComponent();
+        }
+
+        private void Button_Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            PopUpEvent.OnHidePopUp(this, new PopUpEventArgs());
+        }
+
+        private void Button_Commit_Click(object sender, RoutedEventArgs e)
+        {
+
+            Button_Cancel_Click(null, null);
         }
     }
 }
