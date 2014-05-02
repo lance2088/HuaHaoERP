@@ -4,15 +4,13 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" FontFamily="SimSun" TextOptions.TextFormattingMode="Display"
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="485" d:DesignWidth="857"
 	Title="Page_MainContent3">
 
     <Grid>
         <TabControl Margin="0" BorderThickness="0" Padding="0">
-            <TabItem Header="TabItem" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Height="25">
-                <Grid Background="White">
-                    <DataGrid Margin="0,40,0,0" BorderThickness="0,1,0,0"/>
-                </Grid>
+            <TabItem Header="流水线" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Height="25">
+                <Grid Background="White"/>
             </TabItem>
             <TabItem Header="TabItem" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}">
                 <Grid Background="White">
