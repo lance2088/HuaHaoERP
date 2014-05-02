@@ -51,7 +51,7 @@ namespace HuaHaoERP.View.Pages.Content1
 
         private void Button_AddStaff_Click(object sender, RoutedEventArgs e)
         {
-
+            Helper.Events.PopUpEvent.OnShowPopUp(this, new Page_MainContent1_Popup_AddStaff());
         }
 
     #endregion
