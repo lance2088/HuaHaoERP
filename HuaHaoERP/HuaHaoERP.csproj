@@ -96,6 +96,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Pages\Content2\Page_MainContent2_Popup_AddProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\Content2\Page_MainContent2_Popup_RawMaterials.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\Content2\Page_MainContent2_Popup_SemifinishedProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Pages\Content3\Page_MainContent3.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -174,6 +186,15 @@
     </Compile>
     <Compile Include="View\Pages\Content2\Page_MainContent2.xaml.cs">
       <DependentUpon>Page_MainContent2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\Content2\Page_MainContent2_Popup_AddProduct.xaml.cs">
+      <DependentUpon>Page_MainContent2_Popup_AddProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\Content2\Page_MainContent2_Popup_RawMaterials.xaml.cs">
+      <DependentUpon>Page_MainContent2_Popup_RawMaterials.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\Content2\Page_MainContent2_Popup_SemifinishedProduct.xaml.cs">
+      <DependentUpon>Page_MainContent2_Popup_SemifinishedProduct.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\Content3\Page_MainContent3.xaml.cs">
       <DependentUpon>Page_MainContent3.xaml</DependentUpon>

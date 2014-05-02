@@ -50,5 +50,14 @@ namespace HuaHaoERP.View.Pages.Content1
         }
 
     #endregion
+
+    #region Staff
+
+        private void Button_AddStaff_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+    #endregion
     }
 }

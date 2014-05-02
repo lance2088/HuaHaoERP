@@ -11,17 +11,54 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using HuaHaoERP.Helper.Events;
 
 namespace HuaHaoERP.View.Pages.Content2
 {
-    /// <summary>
-    /// Interaction logic for Page_MainContent2.xaml
-    /// </summary>
     public partial class Page_MainContent2 : Page
     {
         public Page_MainContent2()
         {
             InitializeComponent();
         }
+
+        #region Product 产品
+
+        private void Button_AddProduct_Click(object sender, RoutedEventArgs e)
+        {
+            PopUpEventArgs MyE = new PopUpEventArgs();
+            MyE.ClassObject = new HuaHaoERP.View.Pages.Content2.Page_MainContent2_Popup_AddProduct();
+            PopUpEvent.OnShowPopUp(this, MyE);
+        }
+
+        #endregion
+
+        #region SemifinishedProduct 半成品
+
+        private void Button_AddSemifinishedProduct_Click(object sender, RoutedEventArgs e)
+        {
+            PopUpEventArgs MyE = new PopUpEventArgs();
+            MyE.ClassObject = new HuaHaoERP.View.Pages.Content2.Page_MainContent2_Popup_SemifinishedProduct();
+            PopUpEvent.OnShowPopUp(this, MyE);
+        }
+
+        #endregion
+
+        #region RawMaterials 原料
+
+        private void Button_AddRawMaterials_Click(object sender, RoutedEventArgs e)
+        {
+            PopUpEventArgs MyE = new PopUpEventArgs();
+            MyE.ClassObject = new HuaHaoERP.View.Pages.Content2.Page_MainContent2_Popup_RawMaterials();
+            PopUpEvent.OnShowPopUp(this, MyE);
+        }
+
+        #endregion
+
+        
+
+        
+
+        
     }
 }
