@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 	<ControlTemplate x:Key="TabItemControlTemplate_CommonMain" TargetType="{x:Type TabItem}">
 		<Grid>
-			<Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" Margin="0" Width="Auto">
+			<Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" Padding="{TemplateBinding Padding}" Margin="0" Width="Auto" Background="#FFC8683D">
 				<ContentPresenter x:Name="Content" ContentSource="Header" HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
 			</Border>
 		</Grid>
@@ -12,21 +12,39 @@
 					<Condition Property="Selector.IsSelected" Value="False"/>
 					<Condition Property="IsMouseOver" Value="True"/>
 				</MultiTrigger.Conditions>
+				<Setter Property="Background" TargetName="Bd" Value="#FF2A8391"/>
 			</MultiTrigger>
 			<MultiTrigger>
 				<MultiTrigger.Conditions>
 					<Condition Property="Selector.IsSelected" Value="False"/>
 					<Condition Property="IsMouseOver" Value="False"/>
 				</MultiTrigger.Conditions>
+				<Setter Property="Background" TargetName="Bd" Value="#FFBD8146"/>
 			</MultiTrigger>
 		</ControlTemplate.Triggers>
 	</ControlTemplate>
 	<ControlTemplate x:Key="TabItemControlTemplate_LevelTwoTab" TargetType="{x:Type TabItem}">
 		<Grid>
-			<Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1,1,1,0" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" Margin="0">
+			<Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1,1,1,0" Margin="0" Background="#FFC7673D" Padding="10,2">
 				<ContentPresenter x:Name="Content" ContentSource="Header" HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
 			</Border>
 		</Grid>
+		<ControlTemplate.Triggers>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition Property="Selector.IsSelected" Value="False"/>
+					<Condition Property="IsMouseOver" Value="False"/>
+				</MultiTrigger.Conditions>
+				<Setter Property="Background" TargetName="Bd" Value="#FFBF7F42"/>
+			</MultiTrigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition Property="Selector.IsSelected" Value="False"/>
+					<Condition Property="IsMouseOver" Value="True"/>
+				</MultiTrigger.Conditions>
+				<Setter Property="Background" TargetName="Bd" Value="#FF55877C"/>
+			</MultiTrigger>
+		</ControlTemplate.Triggers>
 	</ControlTemplate>
     
 </ResourceDictionary>
