@@ -22,7 +22,7 @@ namespace HuaHaoERP.View.Pages.Content1
             InitializeCustomerDataGrid();
         }
 
-    #region Client
+    #region Customer
 
         private void InitializeCustomerDataGrid()
         {
@@ -34,6 +34,18 @@ namespace HuaHaoERP.View.Pages.Content1
         private void Button_AddCustomer_Click(object sender, RoutedEventArgs e)
         {
             Helper.Events.PopUpEvent.OnShowPopUp(this, new Page_MainContent1_Popup_AddCustomer());
+        }
+        private void DataGrid_Customer_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            e.Row.MouseRightButtonDown += (s, a) =>
+            {
+                a.Handled = true;
+                (sender as DataGrid).SelectedIndex = (s as DataGridRow).GetIndex();
+                (s as DataGridRow).Focus();
+                this.Popup.IsOpen = true;
+                HuaHaoERP.Model.CustomerModel asd = this.DataGrid_Customer.SelectedCells[0].Item as HuaHaoERP.Model.CustomerModel;
+                //this.L_A.Content = asd.Name;
+            };
         }
 
     #endregion
@@ -55,5 +67,7 @@ namespace HuaHaoERP.View.Pages.Content1
         }
 
     #endregion
+
+        
     }
 }

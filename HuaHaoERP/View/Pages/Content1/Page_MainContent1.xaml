@@ -11,7 +11,7 @@
         <TabControl Margin="0" BorderThickness="0" Padding="0">
             <TabItem Header="客户管理" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Height="25">
                 <Grid Background="White">
-                    <DataGrid x:Name="DataGrid_Customer" Margin="0,40,0,0" BorderThickness="0,1,0,0" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" CanUserReorderColumns="False" HeadersVisibility="Column" IsReadOnly="True">
+                    <DataGrid x:Name="DataGrid_Customer" Margin="0,40,0,0" BorderThickness="0,1,0,0" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" CanUserReorderColumns="False" HeadersVisibility="Column" IsReadOnly="True" LoadingRow="DataGrid_Customer_LoadingRow">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="GUID" Binding="{Binding Guid}" Visibility="Hidden"/>
                             <DataGridTextColumn Header="序号" Binding="{Binding Id}"/>
@@ -45,6 +45,10 @@
                 </Grid>
             </TabItem>
         </TabControl>
-
+        <Popup x:Name="Popup" Placement="MousePoint" StaysOpen="False">
+            <Grid Background="White" MinWidth="200" MinHeight="200">
+                <Frame Content="" Margin="0" NavigationUIVisibility="Hidden"/>
+            </Grid>
+        </Popup>
     </Grid>
 </Page>
