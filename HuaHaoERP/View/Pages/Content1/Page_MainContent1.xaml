@@ -47,7 +47,7 @@
         </TabControl>
         <Popup x:Name="Popup" Placement="MousePoint" StaysOpen="False">
             <Grid Background="White" MinWidth="200" MinHeight="200">
-                <Frame Content="" Margin="0" NavigationUIVisibility="Hidden"/>
+                <Frame x:Name="Frame_RightKeyMenu" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
             </Grid>
         </Popup>
     </Grid>

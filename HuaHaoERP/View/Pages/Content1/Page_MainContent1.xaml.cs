@@ -44,6 +44,7 @@ namespace HuaHaoERP.View.Pages.Content1
                 (s as DataGridRow).Focus();
                 this.Popup.IsOpen = true;
                 HuaHaoERP.Model.CustomerModel asd = this.DataGrid_Customer.SelectedCells[0].Item as HuaHaoERP.Model.CustomerModel;
+                this.Frame_RightKeyMenu.Content = new Page_MainCOntent1_Popup_RightKey();
                 //this.L_A.Content = asd.Name;
             };
         }
