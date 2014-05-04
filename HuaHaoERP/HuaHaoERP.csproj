@@ -96,7 +96,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\Content1\Page_MainCOntent1_Popup_RightKey.xaml">
+    <Page Include="View\Pages\Content1\Page_MainContent1_Popup_RightKey.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -195,8 +195,8 @@
     <Compile Include="View\Pages\Content1\Page_MainContent1_Popup_AddSupplier.xaml.cs">
       <DependentUpon>Page_MainContent1_Popup_AddSupplier.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\Content1\Page_MainCOntent1_Popup_RightKey.xaml.cs">
-      <DependentUpon>Page_MainCOntent1_Popup_RightKey.xaml</DependentUpon>
+    <Compile Include="View\Pages\Content1\Page_MainContent1_Popup_RightKey.xaml.cs">
+      <DependentUpon>Page_MainContent1_Popup_RightKey.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\Content2\Page_MainContent2.xaml.cs">
       <DependentUpon>Page_MainContent2.xaml</DependentUpon>
