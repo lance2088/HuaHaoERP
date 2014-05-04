@@ -50,8 +50,39 @@
             </TabItem>
             <TabItem Header="外加工" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="27,0,-27,0" Foreground="White">
                 <Grid Background="White">
-                    <DataGrid Margin="0,40,0,0" BorderThickness="0,1,0,0"/>
-                    <DatePicker x:Name="DatePicker_外加工" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" MinWidth="120" VerticalContentAlignment="Center"/>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="428*"/>
+                        <ColumnDefinition Width="429*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid Margin="10,65,10,40" BorderThickness="1">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="序号"/>
+                            <DataGridTextColumn Header="日期"/>
+                            <DataGridTextColumn Header="产品"/>
+                            <DataGridTextColumn Header="外加工商"/>
+                            <DataGridTextColumn Header="数量"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <DatePicker x:Name="DatePicker_外加工" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" MinWidth="120" VerticalContentAlignment="Center" Height="24" Width="120"/>
+                    <DataGrid Grid.Column="1" Margin="10,65,10,40" BorderThickness="1">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="序号"/>
+                            <DataGridTextColumn Header="日期"/>
+                            <DataGridTextColumn Header="产品"/>
+                            <DataGridTextColumn Header="外加工商"/>
+                            <DataGridTextColumn Header="数量"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <ComboBox HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="120"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="135,40,0,0" VerticalAlignment="Top" Width="120"/>
+                    <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="120"/>
+                    <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="135,40,0,0" VerticalAlignment="Top" Width="120"/>
+                    <Label Content="0" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="80" BorderThickness="0,0,0,1" BorderBrush="Black" HorizontalContentAlignment="Center" Padding="5,5,5,2"/>
+                    <Label Content="0" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="80" Grid.Column="1" BorderThickness="0,0,0,1" BorderBrush="Black" HorizontalContentAlignment="Center" Padding="5,5,5,2"/>
+                    <Label Content="数量统计：" HorizontalAlignment="Right" Margin="0,0,95,10" VerticalAlignment="Bottom" Padding="5,5,5,3"/>
+                    <Label Content="数量统计：" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,95,10" VerticalAlignment="Bottom" Padding="5,5,5,3"/>
+                    <Label Content="出单" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Height="35" Width="155" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label Content="入单" Grid.Column="1" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Height="35" Width="159" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                 </Grid>
             </TabItem>
         </TabControl>
