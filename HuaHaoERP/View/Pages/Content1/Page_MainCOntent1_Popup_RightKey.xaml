@@ -7,8 +7,9 @@
       d:DesignHeight="300" d:DesignWidth="300"
 	Title="Page_MainCOntent1_Popup_RightKey">
 
-    <Grid Background="White">
+    <Grid Background="White" Margin="0">
         <Button x:Name="Button_RightKey_Delete" Content="删除" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,10,0,0" Click="Button_RightKey_Delete_Click"/>
+        <Rectangle Margin="0"/>
 
     </Grid>
 </Page>

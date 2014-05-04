@@ -10,14 +10,14 @@
     <Grid>
         <TabControl Margin="0" BorderThickness="0" Padding="0">
             <TabItem Header="综合设置" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Height="25" Margin="7,0,-7,0" Foreground="White">
-                <Grid Background="White"/>
+                <Grid Background="#FFF0F0F0"/>
             </TabItem>
             <TabItem Header="安全设置" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="17,0,-17,0" Foreground="White">
-                <Grid Background="White"/>
+                <Grid Background="#FFF0F0F0"/>
             </TabItem>
             <TabItem Header="关于我们" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="27,0,-27,0" Foreground="White">
-                <Grid Background="White">
-                    <Button Content="Button" HorizontalAlignment="Left" Margin="487,268,0,0" VerticalAlignment="Top" Width="75"/>
+                <Grid Background="#FFF0F0F0">
+                    <Button Content="Button" HorizontalAlignment="Left" Margin="487,268,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}"/>
                     <TextBox HorizontalAlignment="Left" Height="23" Margin="135,269,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
                 </Grid>
             </TabItem>

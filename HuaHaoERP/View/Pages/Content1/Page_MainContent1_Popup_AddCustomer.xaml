@@ -7,7 +7,7 @@
       d:DesignHeight="493" d:DesignWidth="840"
 	Title="Page_MainContent1_Popup_AddClient">
 
-    <Grid Background="White" Margin="0" HorizontalAlignment="Right" Width="400">
+    <Grid Background="#FFF0F0F0" Margin="0" HorizontalAlignment="Right" Width="400">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
