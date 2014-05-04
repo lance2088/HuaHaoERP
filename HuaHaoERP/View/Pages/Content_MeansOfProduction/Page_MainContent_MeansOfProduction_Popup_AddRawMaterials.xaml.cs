@@ -13,11 +13,11 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using HuaHaoERP.Helper.Events;
 
-namespace HuaHaoERP.View.Pages.Content2
+namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
 {
-    public partial class Page_MainContent2_Popup_RawMaterials : Page
+    public partial class Page_MainContent_MeansOfProduction_Popup_AddRawMaterials : Page
     {
-        public Page_MainContent2_Popup_RawMaterials()
+        public Page_MainContent_MeansOfProduction_Popup_AddRawMaterials()
         {
             InitializeComponent();
         }

@@ -25,11 +25,11 @@ namespace HuaHaoERP.View.Pages
 
         private void InitializeData()
         {
-            this.Frame_Content1.Content = new Content_CustomerLibrary.Page_MainContent_CustomerLibrary();
-            this.Frame_Content2.Content = new Content2.Page_MainContent2();
-            this.Frame_Content3.Content = new Content3.Page_MainContent3();
-            this.Frame_Content4.Content = new Content4.Page_MainContent4();
-            this.Frame_ContentSettings.Content = new ContentSettings.Page_MainContent_Settings();
+            this.Frame_Content_CustomerLibrary.Content = new Content_CustomerLibrary.Page_MainContent_CustomerLibrary();
+            this.Frame_Content_MeansOfProduction.Content = new Content_MeansOfProduction.Page_MainContent_MeansOfProduction();
+            this.Frame_Content_ProductionManagement.Content = new Content_ProductionManagement.Page_MainContent_ProductionManagement();
+            this.Frame_Content_Warehouse.Content = new Content_Warehouse.Page_MainContent_Warehouse();
+            this.Frame_Content_Settings.Content = new ContentSettings.Page_MainContent_Settings();
             this.Frame_Content_Orders.Content = new ContentOrders.Page_MainContent_Orders();
         }
         
