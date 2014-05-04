@@ -29,9 +29,14 @@
                     <Frame x:Name="Frame_Content4" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </TabItem>
+            <TabItem Header="订单管理" Template="{DynamicResource TabItemControlTemplate_CommonMain}" Width="150" Height="40" Margin="0,25,0,-25" Foreground="White">
+                <Grid>
+                    <Frame x:Name="Frame_Content_Orders" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
+                </Grid>
+            </TabItem>
             <TabItem Header="软件设置" Template="{DynamicResource TabItemControlTemplate_CommonMain}" Width="150" Height="40" Margin="0,25,0,-25" Foreground="White">
                 <Grid>
-                    <Frame x:Name="Frame_Content5" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
+                    <Frame x:Name="Frame_ContentSettings" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </TabItem>
         </TabControl>

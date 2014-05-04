@@ -12,26 +12,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace HuaHaoERP.View.Pages.Content1
+namespace HuaHaoERP.View.Pages.ContentOrders
 {
     /// <summary>
-    /// Interaction logic for Page_MainCOntent1_Popup_RightKey.xaml
+    /// Interaction logic for Page_MainContent_Orders.xaml
     /// </summary>
-    public partial class Page_MainCOntent1_Popup_RightKey : Page
+    public partial class Page_MainContent_Orders : Page
     {
-        public Page_MainCOntent1_Popup_RightKey()
+        public Page_MainContent_Orders()
         {
             InitializeComponent();
-        }
-        public Page_MainCOntent1_Popup_RightKey(string type, string guid)
-        {
-            InitializeComponent();
-
-        }
-
-        private void Button_RightKey_Delete_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

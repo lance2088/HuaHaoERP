@@ -12,14 +12,11 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace HuaHaoERP.View.Pages.Content5
+namespace HuaHaoERP.View.Pages.ContentSettings
 {
-    /// <summary>
-    /// Interaction logic for Page_MainContent5.xaml
-    /// </summary>
-    public partial class Page_MainContent5 : Page
+    public partial class Page_MainContent_Settings : Page
     {
-        public Page_MainContent5()
+        public Page_MainContent_Settings()
         {
             InitializeComponent();
         }

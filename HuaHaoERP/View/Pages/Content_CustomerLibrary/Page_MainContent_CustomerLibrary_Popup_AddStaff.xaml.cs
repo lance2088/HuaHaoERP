@@ -12,14 +12,11 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace HuaHaoERP.View.Pages.Content1
+namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
 {
-    /// <summary>
-    /// Interaction logic for Page_MainContent1_Popup_AddStaff.xaml
-    /// </summary>
-    public partial class Page_MainContent1_Popup_AddStaff : Page
+    public partial class Page_MainContent_CustomerLibrary_Popup_AddStaff : Page
     {
-        public Page_MainContent1_Popup_AddStaff()
+        public Page_MainContent_CustomerLibrary_Popup_AddStaff()
         {
             InitializeComponent();
         }

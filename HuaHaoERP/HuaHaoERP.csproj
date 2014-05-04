@@ -80,51 +80,55 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="View\Pages\Content1\Page_MainContent1.xaml">
+    <Page Include="View\Pages\Content_CustomerLibrary\Page_MainContent_CustomerLibrary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\Content1\Page_MainContent1_Popup_AddCustomer.xaml">
+    <Page Include="View\Pages\Content_CustomerLibrary\Page_MainContent_CustomerLibrary_Popup_AddCustomer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\Content1\Page_MainContent1_Popup_AddStaff.xaml">
+    <Page Include="View\Pages\Content_CustomerLibrary\Page_MainContent_CustomerLibrary_Popup_AddStaff.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\Content1\Page_MainContent1_Popup_AddSupplier.xaml">
+    <Page Include="View\Pages\Content_CustomerLibrary\Page_MainContent_CustomerLibrary_Popup_AddSupplier.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\Content1\Page_MainContent1_Popup_RightKey.xaml">
+    <Page Include="View\Pages\Content_CustomerLibrary\Page_MainContent_CustomerLibrary_Popup_RightKey.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\Content2\Page_MainContent2.xaml">
+    <Page Include="View\Pages\Content_MeansOfProduction\Page_MainContent2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\Content2\Page_MainContent2_Popup_AddProduct.xaml">
+    <Page Include="View\Pages\Content_MeansOfProduction\Page_MainContent2_Popup_AddProduct.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\Content2\Page_MainContent2_Popup_AddRawMaterials.xaml">
+    <Page Include="View\Pages\Content_MeansOfProduction\Page_MainContent2_Popup_AddRawMaterials.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\Content2\Page_MainContent2_Popup_AddSemifinishedProduct.xaml">
+    <Page Include="View\Pages\Content_MeansOfProduction\Page_MainContent2_Popup_AddSemifinishedProduct.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\Content3\Page_MainContent3.xaml">
+    <Page Include="View\Pages\Content_ProductionManagement\Page_MainContent3.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\Content4\Page_MainContent4.xaml">
+    <Page Include="View\Pages\Content_Warehouse\Page_MainContent4.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\Content5\Page_MainContent5.xaml">
+    <Page Include="View\Pages\Content_Settings\Page_MainContent_Settings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\Content_Orders\Page_MainContent_Orders.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -189,41 +193,44 @@
     <Compile Include="ViewModel\Process3\Class1.cs" />
     <Compile Include="ViewModel\Process4\Class1.cs" />
     <Compile Include="ViewModel\Process5\Class1.cs" />
-    <Compile Include="View\Pages\Content1\Page_MainContent1.xaml.cs">
-      <DependentUpon>Page_MainContent1.xaml</DependentUpon>
+    <Compile Include="View\Pages\Content_CustomerLibrary\Page_MainContent_CustomerLibrary.xaml.cs">
+      <DependentUpon>Page_MainContent_CustomerLibrary.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\Content1\Page_MainContent1_Popup_AddCustomer.xaml.cs">
-      <DependentUpon>Page_MainContent1_Popup_AddCustomer.xaml</DependentUpon>
+    <Compile Include="View\Pages\Content_CustomerLibrary\Page_MainContent_CustomerLibrary_Popup_AddCustomer.xaml.cs">
+      <DependentUpon>Page_MainContent_CustomerLibrary_Popup_AddCustomer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\Content1\Page_MainContent1_Popup_AddStaff.xaml.cs">
-      <DependentUpon>Page_MainContent1_Popup_AddStaff.xaml</DependentUpon>
+    <Compile Include="View\Pages\Content_CustomerLibrary\Page_MainContent_CustomerLibrary_Popup_AddStaff.xaml.cs">
+      <DependentUpon>Page_MainContent_CustomerLibrary_Popup_AddStaff.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\Content1\Page_MainContent1_Popup_AddSupplier.xaml.cs">
-      <DependentUpon>Page_MainContent1_Popup_AddSupplier.xaml</DependentUpon>
+    <Compile Include="View\Pages\Content_CustomerLibrary\Page_MainContent_CustomerLibrary_Popup_AddSupplier.xaml.cs">
+      <DependentUpon>Page_MainContent_CustomerLibrary_Popup_AddSupplier.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\Content1\Page_MainContent1_Popup_RightKey.xaml.cs">
-      <DependentUpon>Page_MainContent1_Popup_RightKey.xaml</DependentUpon>
+    <Compile Include="View\Pages\Content_CustomerLibrary\Page_MainContent_CustomerLibrary_Popup_RightKey.xaml.cs">
+      <DependentUpon>Page_MainContent_CustomerLibrary_Popup_RightKey.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\Content2\Page_MainContent2.xaml.cs">
+    <Compile Include="View\Pages\Content_MeansOfProduction\Page_MainContent2.xaml.cs">
       <DependentUpon>Page_MainContent2.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\Content2\Page_MainContent2_Popup_AddProduct.xaml.cs">
+    <Compile Include="View\Pages\Content_MeansOfProduction\Page_MainContent2_Popup_AddProduct.xaml.cs">
       <DependentUpon>Page_MainContent2_Popup_AddProduct.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\Content2\Page_MainContent2_Popup_AddRawMaterials.xaml.cs">
+    <Compile Include="View\Pages\Content_MeansOfProduction\Page_MainContent2_Popup_AddRawMaterials.xaml.cs">
       <DependentUpon>Page_MainContent2_Popup_AddRawMaterials.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\Content2\Page_MainContent2_Popup_AddSemifinishedProduct.xaml.cs">
+    <Compile Include="View\Pages\Content_MeansOfProduction\Page_MainContent2_Popup_AddSemifinishedProduct.xaml.cs">
       <DependentUpon>Page_MainContent2_Popup_AddSemifinishedProduct.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\Content3\Page_MainContent3.xaml.cs">
+    <Compile Include="View\Pages\Content_ProductionManagement\Page_MainContent3.xaml.cs">
       <DependentUpon>Page_MainContent3.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\Content4\Page_MainContent4.xaml.cs">
+    <Compile Include="View\Pages\Content_Warehouse\Page_MainContent4.xaml.cs">
       <DependentUpon>Page_MainContent4.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\Content5\Page_MainContent5.xaml.cs">
-      <DependentUpon>Page_MainContent5.xaml</DependentUpon>
+    <Compile Include="View\Pages\Content_Settings\Page_MainContent_Settings.xaml.cs">
+      <DependentUpon>Page_MainContent_Settings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\Content_Orders\Page_MainContent_Orders.xaml.cs">
+      <DependentUpon>Page_MainContent_Orders.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\Page_Content.xaml.cs">
       <DependentUpon>Page_Content.xaml</DependentUpon>

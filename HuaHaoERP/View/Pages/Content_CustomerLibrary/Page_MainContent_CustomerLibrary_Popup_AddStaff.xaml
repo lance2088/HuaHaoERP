@@ -1,0 +1,13 @@
+﻿<Page x:Class="HuaHaoERP.View.Pages.Content_CustomerLibrary.Page_MainContent_CustomerLibrary_Popup_AddStaff"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="402" d:DesignWidth="783"
+	Title="Page_MainContent1_Popup_AddStaff">
+
+    <Grid Background="White" Width="400" HorizontalAlignment="Right">
+        
+    </Grid>
+</Page>

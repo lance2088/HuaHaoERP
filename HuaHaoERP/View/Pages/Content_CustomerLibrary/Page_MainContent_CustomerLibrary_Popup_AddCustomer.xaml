@@ -1,4 +1,4 @@
-﻿<Page x:Class="HuaHaoERP.View.Pages.Content1.Page_MainContent1_Popup_AddCustomer"
+﻿<Page x:Class="HuaHaoERP.View.Pages.Content_CustomerLibrary.Page_MainContent_CustomerLibrary_Popup_AddCustomer"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 

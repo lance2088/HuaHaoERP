@@ -13,11 +13,11 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using HuaHaoERP.Helper.Events;
 
-namespace HuaHaoERP.View.Pages.Content1
+namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
 {
-    public partial class Page_MainContent1 : Page
+    public partial class Page_MainContent_CustomerLibrary : Page
     {
-        public Page_MainContent1()
+        public Page_MainContent_CustomerLibrary()
         {
             InitializeComponent();
             SubscribeToEvent();
@@ -46,7 +46,7 @@ namespace HuaHaoERP.View.Pages.Content1
         }
         private void Button_AddCustomer_Click(object sender, RoutedEventArgs e)
         {
-            Helper.Events.PopUpEvent.OnShowPopUp(this, new Page_MainContent1_Popup_AddCustomer());
+            Helper.Events.PopUpEvent.OnShowPopUp(this, new Page_MainContent_CustomerLibrary_Popup_AddCustomer());
         }
         private void DataGrid_Customer_LoadingRow(object sender, DataGridRowEventArgs e)
         {
@@ -57,7 +57,7 @@ namespace HuaHaoERP.View.Pages.Content1
                 (s as DataGridRow).Focus();
                 this.Popup.IsOpen = true;
                 HuaHaoERP.Model.CustomerModel asd = this.DataGrid_Customer.SelectedCells[0].Item as HuaHaoERP.Model.CustomerModel;
-                this.Frame_RightKeyMenu.Content = new Page_MainCOntent1_Popup_RightKey();
+                this.Frame_RightKeyMenu.Content = new Page_MainContent_CustomerLibrary_Popup_RightKey();
                 //this.L_A.Content = asd.Name;
             };
         }
@@ -72,7 +72,7 @@ namespace HuaHaoERP.View.Pages.Content1
         }
         private void Button_AddSupplier_Click(object sender, RoutedEventArgs e)
         {
-            Helper.Events.PopUpEvent.OnShowPopUp(this, new Page_MainContent1_Popup_AddSupplier());
+            Helper.Events.PopUpEvent.OnShowPopUp(this, new Page_MainContent_CustomerLibrary_Popup_AddSupplier());
         }
 
         #endregion
@@ -85,7 +85,7 @@ namespace HuaHaoERP.View.Pages.Content1
         }
         private void Button_AddStaff_Click(object sender, RoutedEventArgs e)
         {
-            Helper.Events.PopUpEvent.OnShowPopUp(this, new Page_MainContent1_Popup_AddStaff());
+            Helper.Events.PopUpEvent.OnShowPopUp(this, new Page_MainContent_CustomerLibrary_Popup_AddStaff());
         }
 
         #endregion

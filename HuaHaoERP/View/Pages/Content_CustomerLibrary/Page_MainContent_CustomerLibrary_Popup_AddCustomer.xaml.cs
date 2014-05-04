@@ -13,14 +13,14 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using HuaHaoERP.Helper.Events;
 
-namespace HuaHaoERP.View.Pages.Content1
+namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
 {
-    public partial class Page_MainContent1_Popup_AddCustomer : Page
+    public partial class Page_MainContent_CustomerLibrary_Popup_AddCustomer : Page
     {
         Model.CustomerModel d = new Model.CustomerModel();
         private Guid Guid;
 
-        public Page_MainContent1_Popup_AddCustomer()
+        public Page_MainContent_CustomerLibrary_Popup_AddCustomer()
         {
             InitializeComponent();
             InitializeData();
