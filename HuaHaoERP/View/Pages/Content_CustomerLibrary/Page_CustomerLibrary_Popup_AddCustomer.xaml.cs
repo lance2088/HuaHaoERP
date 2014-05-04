@@ -25,10 +25,30 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             InitializeComponent();
             InitializeData();
         }
+        public Page_CustomerLibrary_Popup_AddCustomer(object data)
+        {
+            InitializeComponent();
+            InitializeData((Model.CustomerModel)data);
+        }
         private void InitializeData()
         {
             Guid = Guid.NewGuid();
             d.Guid = Guid;
+        }
+        private void InitializeData(Model.CustomerModel d)
+        {
+            Guid = d.Guid;
+            this.TextBox_Customer_Number.Text = d.Number;
+            this.TextBox_Customer_Name.Text = d.Name;
+            this.TextBox_Customer_Company.Text = d.Company;
+            this.TextBox_Customer_Address.Text = d.Address;
+            this.TextBox_Customer_Phone.Text = d.Phone;
+            this.TextBox_Customer_MobilePhone.Text = d.MobilePhone;
+            this.TextBox_Customer_Fax.Text = d.Fax;
+            this.TextBox_Customer_Business.Text = d.Business;
+            this.TextBox_Customer_Remark.Text = d.Remark;
+            this.TextBox_Customer_CustomerLevel.Text = d.CustomerLevel.ToString();
+            this.TextBox_Customer_OrderQuantity.Text = d.OrderQuantity.ToString();
         }
 
         private bool CheckAndGetData()
