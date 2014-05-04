@@ -20,11 +20,13 @@ namespace HuaHaoERP.View.Pages.Content1
         public Page_MainContent1()
         {
             InitializeComponent();
+            SubscribeToEvent();
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             InitializeCustomerDataGrid();
-            SubscribeToEvent();
+            InitializeSupplierDataGrid();
+            InitializeStaffDataGrid();
         }
         private void SubscribeToEvent()
         {
@@ -34,7 +36,7 @@ namespace HuaHaoERP.View.Pages.Content1
             };
         }
 
-    #region Customer
+        #region Customer 客户
 
         private void InitializeCustomerDataGrid()
         {
@@ -60,9 +62,9 @@ namespace HuaHaoERP.View.Pages.Content1
             };
         }
 
-    #endregion
+        #endregion
 
-    #region Supplier
+        #region Supplier 供应商
 
         private void InitializeSupplierDataGrid()
         {
@@ -73,9 +75,9 @@ namespace HuaHaoERP.View.Pages.Content1
             Helper.Events.PopUpEvent.OnShowPopUp(this, new Page_MainContent1_Popup_AddSupplier());
         }
 
-    #endregion
+        #endregion
 
-    #region Staff
+        #region Staff 员工
 
         private void InitializeStaffDataGrid()
         {
@@ -86,7 +88,7 @@ namespace HuaHaoERP.View.Pages.Content1
             Helper.Events.PopUpEvent.OnShowPopUp(this, new Page_MainContent1_Popup_AddStaff());
         }
 
-    #endregion
+        #endregion
 
         
     }

@@ -14,14 +14,26 @@ using System.Windows.Shapes;
 
 namespace HuaHaoERP.View.Pages.Content3
 {
-    /// <summary>
-    /// Interaction logic for Page_MainContent3.xaml
-    /// </summary>
     public partial class Page_MainContent3 : Page
     {
         public Page_MainContent3()
         {
             InitializeComponent();
+        }
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            InitializeData();
+        }
+
+        private void InitializeData()
+        {
+            this.DatePicker_版裁.SelectedDate = DateTime.Now;
+            this.DatePicker_包装.SelectedDate = DateTime.Now;
+            this.DatePicker_冲版.SelectedDate = DateTime.Now;
+            this.DatePicker_卷边.SelectedDate = DateTime.Now;
+            this.DatePicker_拉伸.SelectedDate = DateTime.Now;
+            this.DatePicker_抛光.SelectedDate = DateTime.Now;
+            this.DatePicker_外加工.SelectedDate = DateTime.Now;
         }
     }
 }

@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" FontFamily="SimSun" TextOptions.TextFormattingMode="Display"
       d:DesignHeight="485" d:DesignWidth="857"
-	Title="Page_MainContent3">
+	Title="Page_MainContent3" Loaded="Page_Loaded">
 
     <Grid>
         <TabControl Margin="0" BorderThickness="0" Padding="0">
@@ -15,36 +15,43 @@
             <TabItem Header="版裁" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="17,0,-17,0" Foreground="White">
                 <Grid Background="White">
                     <DataGrid Margin="0,40,0,0" BorderThickness="0,1,0,0"/>
+                    <DatePicker x:Name="DatePicker_版裁" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" MinWidth="120" VerticalContentAlignment="Center"/>
                 </Grid>
             </TabItem>
             <TabItem Header="冲版" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="17,0,-17,0" Foreground="White">
                 <Grid Background="White">
                     <DataGrid Margin="0,40,0,0" BorderThickness="0,1,0,0"/>
+                    <DatePicker x:Name="DatePicker_冲版" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" MinWidth="120"/>
                 </Grid>
             </TabItem>
             <TabItem Header="拉伸" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="17,0,-17,0" Foreground="White">
                 <Grid Background="White">
                     <DataGrid Margin="0,40,0,0" BorderThickness="0,1,0,0"/>
+                    <DatePicker x:Name="DatePicker_拉伸" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" MinWidth="120" VerticalContentAlignment="Center"/>
                 </Grid>
             </TabItem>
             <TabItem Header="卷边" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="17,0,-17,0" Foreground="White">
                 <Grid Background="White">
                     <DataGrid Margin="0,40,0,0" BorderThickness="0,1,0,0"/>
+                    <DatePicker x:Name="DatePicker_卷边" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" MinWidth="120" VerticalContentAlignment="Center"/>
                 </Grid>
             </TabItem>
             <TabItem Header="抛光" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="17,0,-17,0" Foreground="White">
                 <Grid Background="White">
                     <DataGrid Margin="0,40,0,0" BorderThickness="0,1,0,0"/>
+                    <DatePicker x:Name="DatePicker_抛光" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" MinWidth="120" VerticalContentAlignment="Center"/>
                 </Grid>
             </TabItem>
             <TabItem Header="包装" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="17,0,-17,0" Foreground="White">
                 <Grid Background="White">
                     <DataGrid Margin="0,40,0,0" BorderThickness="0,1,0,0"/>
+                    <DatePicker x:Name="DatePicker_包装" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" MinWidth="120" VerticalContentAlignment="Center"/>
                 </Grid>
             </TabItem>
             <TabItem Header="外加工" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="27,0,-27,0" Foreground="White">
                 <Grid Background="White">
                     <DataGrid Margin="0,40,0,0" BorderThickness="0,1,0,0"/>
+                    <DatePicker x:Name="DatePicker_外加工" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" MinWidth="120" VerticalContentAlignment="Center"/>
                 </Grid>
             </TabItem>
         </TabControl>
