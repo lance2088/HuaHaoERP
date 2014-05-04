@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using HuaHaoERP.Helper.Events;
 
 namespace HuaHaoERP.View.Pages.Content1
 {
@@ -23,6 +24,14 @@ namespace HuaHaoERP.View.Pages.Content1
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             InitializeCustomerDataGrid();
+            SubscribeToEvent();
+        }
+        private void SubscribeToEvent()
+        {
+            CustomerEvent.EUpdateDataGrid += (sender, e) => 
+            {
+                InitializeCustomerDataGrid();
+            };
         }
 
     #region Customer
@@ -55,6 +64,10 @@ namespace HuaHaoERP.View.Pages.Content1
 
     #region Supplier
 
+        private void InitializeSupplierDataGrid()
+        {
+
+        }
         private void Button_AddSupplier_Click(object sender, RoutedEventArgs e)
         {
             Helper.Events.PopUpEvent.OnShowPopUp(this, new Page_MainContent1_Popup_AddSupplier());
@@ -64,6 +77,10 @@ namespace HuaHaoERP.View.Pages.Content1
 
     #region Staff
 
+        private void InitializeStaffDataGrid()
+        {
+
+        }
         private void Button_AddStaff_Click(object sender, RoutedEventArgs e)
         {
             Helper.Events.PopUpEvent.OnShowPopUp(this, new Page_MainContent1_Popup_AddStaff());

@@ -165,17 +165,23 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Helper\AppInitialize\Initialize.cs" />
-    <Compile Include="Helper\Events\Customer\CustomerEvent.cs" />
-    <Compile Include="Helper\Events\Customer\CustomerEventArgs.cs" />
+    <Compile Include="Helper\Events\1.Customer\CustomerEvent.cs" />
+    <Compile Include="Helper\Events\1.Customer\CustomerEventArgs.cs" />
     <Compile Include="Helper\Events\PopUpEvent.cs" />
     <Compile Include="Helper\Events\PopUpEventArgs.cs" />
+    <Compile Include="Helper\Events\1.Staff\StaffEvent.cs" />
+    <Compile Include="Helper\Events\1.Staff\StaffEventArgs.cs" />
     <Compile Include="Helper\Events\StatusBarMessageEvent.cs" />
     <Compile Include="Helper\Events\StatusBarMessageEventArgs.cs" />
+    <Compile Include="Helper\Events\1.Supplier\SupplierEventArgs.cs" />
+    <Compile Include="Helper\Events\1.Supplier\SupplierEvent.cs" />
     <Compile Include="Helper\Excel\Reader.cs" />
     <Compile Include="Helper\LogHelper\FileLog.cs" />
     <Compile Include="Helper\SQLite\DBHelper.cs" />
     <Compile Include="Helper\XML\Reader.cs" />
     <Compile Include="Model\CustomerModel.cs" />
+    <Compile Include="Model\StaffModel.cs" />
+    <Compile Include="Model\SupplierModel.cs" />
     <Compile Include="ViewModel\EventDistribution.cs" />
     <Compile Include="ViewModel\Customer\CustomerConsole.cs" />
     <Compile Include="ViewModel\Process1\Class1.cs" />

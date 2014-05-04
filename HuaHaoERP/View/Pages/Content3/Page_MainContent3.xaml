@@ -37,6 +37,11 @@
                     <DataGrid Margin="0,40,0,0" BorderThickness="0,1,0,0"/>
                 </Grid>
             </TabItem>
+            <TabItem Header="外加工" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="27,0,-27,0">
+                <Grid Background="White">
+                    <DataGrid Margin="0,40,0,0" BorderThickness="0,1,0,0"/>
+                </Grid>
+            </TabItem>
         </TabControl>
 
     </Grid>
