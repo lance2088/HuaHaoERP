@@ -19,6 +19,9 @@ namespace HuaHaoERP.View.Pages.Content1
         public Page_MainContent1()
         {
             InitializeComponent();
+        }
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
             InitializeCustomerDataGrid();
         }
 
@@ -29,7 +32,6 @@ namespace HuaHaoERP.View.Pages.Content1
             List<Model.CustomerModel> data;
             new ViewModel.Customer.CustomerConsole().ReadList(out data);
             this.DataGrid_Customer.ItemsSource = data;
-            
         }
         private void Button_AddCustomer_Click(object sender, RoutedEventArgs e)
         {
