@@ -34,6 +34,14 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             {
                 InitializeCustomerDataGrid();
             };
+            SupplierEvent.EUpdateDataGrid += (sender, e) =>
+            {
+                InitializeSupplierDataGrid();
+            };
+            StaffEvent.EUpdateDataGrid += (sender, e) =>
+            {
+                InitializeStaffDataGrid();
+            };
         }
 
         #region Customer 客户
