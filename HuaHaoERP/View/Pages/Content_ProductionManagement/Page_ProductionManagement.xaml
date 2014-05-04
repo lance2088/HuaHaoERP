@@ -73,10 +73,10 @@
                             <DataGridTextColumn Header="数量"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <ComboBox HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="120"/>
-                    <ComboBox HorizontalAlignment="Left" Margin="135,40,0,0" VerticalAlignment="Top" Width="120"/>
-                    <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="120"/>
-                    <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="135,40,0,0" VerticalAlignment="Top" Width="120"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="135,40,0,0" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
+                    <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
+                    <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="135,40,0,0" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
                     <Label Content="0" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="80" BorderThickness="0,0,0,1" BorderBrush="Black" HorizontalContentAlignment="Center" Padding="5,5,5,2"/>
                     <Label Content="0" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="80" Grid.Column="1" BorderThickness="0,0,0,1" BorderBrush="Black" HorizontalContentAlignment="Center" Padding="5,5,5,2"/>
                     <Label Content="数量统计：" HorizontalAlignment="Right" Margin="0,0,95,10" VerticalAlignment="Bottom" Padding="5,5,5,3"/>
