@@ -12,11 +12,11 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace HuaHaoERP.View.Pages.Content_Warehouse
+namespace HuaHaoERP.View.Pages.Content_Settings
 {
-    public partial class Page_MainContent_Warehouse : Page
+    public partial class Page_Settings : Page
     {
-        public Page_MainContent_Warehouse()
+        public Page_Settings()
         {
             InitializeComponent();
         }

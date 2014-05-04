@@ -12,14 +12,11 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace HuaHaoERP.View.Pages.ContentOrders
+namespace HuaHaoERP.View.Pages.Content_Warehouse
 {
-    /// <summary>
-    /// Interaction logic for Page_MainContent_Orders.xaml
-    /// </summary>
-    public partial class Page_MainContent_Orders : Page
+    public partial class Page_Warehouse : Page
     {
-        public Page_MainContent_Orders()
+        public Page_Warehouse()
         {
             InitializeComponent();
         }

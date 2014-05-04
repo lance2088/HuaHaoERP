@@ -15,9 +15,9 @@ using HuaHaoERP.Helper.Events;
 
 namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
 {
-    public partial class Page_MainContent_MeansOfProduction_Popup_AddSemifinishedProduct : Page
+    public partial class Page_MeansOfProduction_Popup_AddSemifinishedProduct : Page
     {
-        public Page_MainContent_MeansOfProduction_Popup_AddSemifinishedProduct()
+        public Page_MeansOfProduction_Popup_AddSemifinishedProduct()
         {
             InitializeComponent();
         }

@@ -15,12 +15,12 @@ using HuaHaoERP.Helper.Events;
 
 namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
 {
-    public partial class Page_MainContent_CustomerLibrary_Popup_AddCustomer : Page
+    public partial class Page_CustomerLibrary_Popup_AddCustomer : Page
     {
         Model.CustomerModel d = new Model.CustomerModel();
         private Guid Guid;
 
-        public Page_MainContent_CustomerLibrary_Popup_AddCustomer()
+        public Page_CustomerLibrary_Popup_AddCustomer()
         {
             InitializeComponent();
             InitializeData();

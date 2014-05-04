@@ -14,22 +14,11 @@ using System.Windows.Shapes;
 
 namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
 {
-    public partial class Page_MainContent_CustomerLibrary_Popup_AddSupplier : Page
+    public partial class Page_CustomerLibrary_Popup_AddStaff : Page
     {
-        public Page_MainContent_CustomerLibrary_Popup_AddSupplier()
+        public Page_CustomerLibrary_Popup_AddStaff()
         {
             InitializeComponent();
-        }
-
-        private void Button_Cancel_Click(object sender, RoutedEventArgs e)
-        {
-            Helper.Events.PopUpEvent.OnHidePopUp(this);
-        }
-
-        private void Button_Commit_Click(object sender, RoutedEventArgs e)
-        {
-
-            Helper.Events.PopUpEvent.OnHidePopUp(this);
         }
     }
 }

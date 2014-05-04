@@ -15,9 +15,9 @@ using HuaHaoERP.Helper.Events;
 
 namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
 {
-    public partial class Page_MainContent_MeansOfProduction : Page
+    public partial class Page_MeansOfProduction : Page
     {
-        public Page_MainContent_MeansOfProduction()
+        public Page_MeansOfProduction()
         {
             InitializeComponent();
         }
@@ -26,7 +26,7 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
 
         private void Button_AddProduct_Click(object sender, RoutedEventArgs e)
         {
-            PopUpEvent.OnShowPopUp(this, new HuaHaoERP.View.Pages.Content_MeansOfProduction.Page_MainContent_MeansOfProduction_Popup_AddProduct());
+            PopUpEvent.OnShowPopUp(this, new HuaHaoERP.View.Pages.Content_MeansOfProduction.Page_MeansOfProduction_Popup_AddProduct());
         }
 
         #endregion
@@ -35,7 +35,7 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
 
         private void Button_AddSemifinishedProduct_Click(object sender, RoutedEventArgs e)
         {
-            PopUpEvent.OnShowPopUp(this, new HuaHaoERP.View.Pages.Content_MeansOfProduction.Page_MainContent_MeansOfProduction_Popup_AddSemifinishedProduct());
+            PopUpEvent.OnShowPopUp(this, new HuaHaoERP.View.Pages.Content_MeansOfProduction.Page_MeansOfProduction_Popup_AddSemifinishedProduct());
         }
 
         #endregion
@@ -44,7 +44,7 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
 
         private void Button_AddRawMaterials_Click(object sender, RoutedEventArgs e)
         {
-            PopUpEvent.OnShowPopUp(this, new HuaHaoERP.View.Pages.Content_MeansOfProduction.Page_MainContent_MeansOfProduction_Popup_AddRawMaterials());
+            PopUpEvent.OnShowPopUp(this, new HuaHaoERP.View.Pages.Content_MeansOfProduction.Page_MeansOfProduction_Popup_AddRawMaterials());
         }
 
         #endregion

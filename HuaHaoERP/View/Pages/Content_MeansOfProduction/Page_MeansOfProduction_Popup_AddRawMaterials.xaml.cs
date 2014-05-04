@@ -15,9 +15,9 @@ using HuaHaoERP.Helper.Events;
 
 namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
 {
-    public partial class Page_MainContent_MeansOfProduction_Popup_AddProduct : Page
+    public partial class Page_MeansOfProduction_Popup_AddRawMaterials : Page
     {
-        public Page_MainContent_MeansOfProduction_Popup_AddProduct()
+        public Page_MeansOfProduction_Popup_AddRawMaterials()
         {
             InitializeComponent();
         }

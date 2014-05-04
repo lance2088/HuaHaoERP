@@ -12,13 +12,23 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace HuaHaoERP.View.Pages.ContentSettings
+namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
 {
-    public partial class Page_MainContent_Settings : Page
+    public partial class Page_CustomerLibrary_Popup_RightKey : Page
     {
-        public Page_MainContent_Settings()
+        public Page_CustomerLibrary_Popup_RightKey()
         {
             InitializeComponent();
+        }
+        public Page_CustomerLibrary_Popup_RightKey(string type, string guid)
+        {
+            InitializeComponent();
+
+        }
+
+        private void Button_RightKey_Delete_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

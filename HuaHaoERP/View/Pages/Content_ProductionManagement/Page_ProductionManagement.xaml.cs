@@ -14,9 +14,9 @@ using System.Windows.Shapes;
 
 namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 {
-    public partial class Page_MainContent_ProductionManagement : Page
+    public partial class Page_ProductionManagement : Page
     {
-        public Page_MainContent_ProductionManagement()
+        public Page_ProductionManagement()
         {
             InitializeComponent();
         }
