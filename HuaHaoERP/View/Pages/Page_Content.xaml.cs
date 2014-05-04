@@ -30,7 +30,7 @@ namespace HuaHaoERP.View.Pages
             this.Frame_Content_ProductionManagement.Content = new Content_ProductionManagement.Page_ProductionManagement();
             this.Frame_Content_Warehouse.Content = new Content_Warehouse.Page_Warehouse();
             this.Frame_Content_Settings.Content = new Content_Settings.Page_Settings();
-            this.Frame_Content_Orders.Content = new ContentOrders.Page_Orders();
+            this.Frame_Content_Orders.Content = new Content_Orders.Page_Orders();
         }
         
     }

@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace HuaHaoERP.View.Pages.ContentOrders
+namespace HuaHaoERP.View.Pages.Content_Orders
 {
     /// <summary>
     /// Interaction logic for Page_Orders.xaml
