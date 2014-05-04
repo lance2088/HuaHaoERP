@@ -48,7 +48,7 @@
                     <Condition Property="Selector.IsSelected" Value="False"/>
                     <Condition Property="IsMouseOver" Value="False"/>
                 </MultiTrigger.Conditions>
-                <Setter Property="Background" TargetName="Bd" Value="#FF009AD9"/>
+                <Setter Property="Background" TargetName="Bd" Value="#19009AD9"/>
             </MultiTrigger>
             <MultiTrigger>
                 <MultiTrigger.Conditions>
