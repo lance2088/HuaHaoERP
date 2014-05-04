@@ -7,7 +7,7 @@
       d:DesignHeight="500" d:DesignWidth="840"
 	Title="Page_MainContent1_Popup_AddSupplier">
 
-    <Grid HorizontalAlignment="Right" Width="400" Background="#FFF0F0F0">
+    <Grid HorizontalAlignment="Right" Width="400" Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
