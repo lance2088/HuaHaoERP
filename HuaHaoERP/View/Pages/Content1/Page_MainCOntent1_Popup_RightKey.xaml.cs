@@ -23,5 +23,15 @@ namespace HuaHaoERP.View.Pages.Content1
         {
             InitializeComponent();
         }
+        public Page_MainCOntent1_Popup_RightKey(string type, string guid)
+        {
+            InitializeComponent();
+
+        }
+
+        private void Button_RightKey_Delete_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

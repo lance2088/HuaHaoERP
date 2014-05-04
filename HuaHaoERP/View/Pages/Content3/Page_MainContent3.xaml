@@ -9,30 +9,30 @@
 
     <Grid>
         <TabControl Margin="0" BorderThickness="0" Padding="0">
-            <TabItem Header="流水线" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Height="25">
+            <TabItem Header="流水线" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Height="25" Margin="7,0,-7,0">
                 <Grid Background="White"/>
             </TabItem>
-            <TabItem Header="版裁" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}">
+            <TabItem Header="版裁" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="17,0,-17,0">
                 <Grid Background="White">
                     <DataGrid Margin="0,40,0,0" BorderThickness="0,1,0,0"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="冲版" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}">
+            <TabItem Header="冲版" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="17,0,-17,0">
                 <Grid Background="White">
                     <DataGrid Margin="0,40,0,0" BorderThickness="0,1,0,0"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="拉伸" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}">
+            <TabItem Header="拉伸" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="17,0,-17,0">
                 <Grid Background="White">
                     <DataGrid Margin="0,40,0,0" BorderThickness="0,1,0,0"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="卷边" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}">
+            <TabItem Header="卷边" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="17,0,-17,0">
                 <Grid Background="White">
                     <DataGrid Margin="0,40,0,0" BorderThickness="0,1,0,0"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="抛光" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}">
+            <TabItem Header="抛光" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="17,0,-17,0">
                 <Grid Background="White">
                     <DataGrid Margin="0,40,0,0" BorderThickness="0,1,0,0"/>
                 </Grid>

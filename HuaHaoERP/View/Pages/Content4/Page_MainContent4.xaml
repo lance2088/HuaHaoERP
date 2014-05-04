@@ -9,17 +9,17 @@
 
     <Grid>
         <TabControl Margin="0" BorderThickness="0" Padding="0">
-            <TabItem Header="仓库库存" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Height="25">
+            <TabItem Header="仓库库存" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Height="25" Margin="7,0,-7,0">
                 <Grid Background="White">
                     <DataGrid Margin="0,40,0,0" BorderThickness="0,1,0,0"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="原料购买" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}">
+            <TabItem Header="原料购买" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="17,0,-17,0">
                 <Grid Background="White">
                     <DataGrid Margin="0,40,0,0" BorderThickness="0,1,0,0"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="余料管理" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}">
+            <TabItem Header="余料管理" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="27,0,-27,0">
                 <Grid Background="White">
                     <DataGrid Margin="0,40,0,0" BorderThickness="0,1,0,0"/>
                 </Grid>
