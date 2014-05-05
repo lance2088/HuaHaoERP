@@ -39,7 +39,7 @@ namespace HuaHaoERP.ViewModel.Customer
         {
             bool flag = true;
             data = new List<CustomerModel>();
-            string sql = "select * from T_Customer Where DeleteMark is null";
+            string sql = "select * from T_Customer Where DeleteMark is null order by Number";
             DataSet ds = new DataSet();
             flag = new Helper.SQLite.DBHelper().QueryData(sql, out ds);
             if(flag)
