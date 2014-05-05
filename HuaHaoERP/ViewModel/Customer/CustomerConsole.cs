@@ -21,7 +21,15 @@ namespace HuaHaoERP.ViewModel.Customer
         internal bool Delete(CustomerModel d)
         {
             bool flag = true;
-            string sql = "Update T_Customer Set DeleteMark='" + DateTime.Now + "'";
+            string sql = "Delete From T_Customer Where GUID='" + d.Guid + "'";
+            flag = new Helper.SQLite.DBHelper().SingleExecution(sql);
+            return flag;
+        }
+
+        internal bool MarkDelete(CustomerModel d)
+        {
+            bool flag = true;
+            string sql = "Update T_Customer Set DeleteMark='" + DateTime.Now + "' Where GUID='" + d.Guid + "'";
             flag = new Helper.SQLite.DBHelper().SingleExecution(sql);
             return flag;
         }

@@ -10,6 +10,7 @@ namespace HuaHaoERP.Helper.Events
     {
         public static EventHandler<CustomerEventArgs> EAdd;
         public static EventHandler<CustomerEventArgs> EDelete;
+        public static EventHandler<CustomerEventArgs> EMarkDelete;
         public static EventHandler<CustomerEventArgs> EModify;
         public static EventHandler EUpdateDataGrid;
 
@@ -29,6 +30,15 @@ namespace HuaHaoERP.Helper.Events
                 CustomerEventArgs ee = new CustomerEventArgs();
                 ee.CustomerData = CustomerData;
                 EDelete(sender, ee);
+            }
+        }
+        internal static void OnMarkDelete(object sender, CustomerModel CustomerData)
+        {
+            if (EMarkDelete != null)
+            {
+                CustomerEventArgs ee = new CustomerEventArgs();
+                ee.CustomerData = CustomerData;
+                EMarkDelete(sender, ee);
             }
         }
         internal static void OnModify(object sender, CustomerModel CustomerData)

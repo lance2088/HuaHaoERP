@@ -17,8 +17,10 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
 {
     public partial class Page_CustomerLibrary_Popup_AddCustomer : Page
     {
-        Model.CustomerModel d = new Model.CustomerModel();
+        private Model.CustomerModel d = new Model.CustomerModel();
         private Guid Guid;
+        private Guid OldGuid;
+        private bool isNew = true;
 
         public Page_CustomerLibrary_Popup_AddCustomer()
         {
@@ -28,16 +30,16 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
         public Page_CustomerLibrary_Popup_AddCustomer(object data)
         {
             InitializeComponent();
+            isNew = false;
             InitializeData((Model.CustomerModel)data);
         }
         private void InitializeData()
         {
-            Guid = Guid.NewGuid();
-            d.Guid = Guid;
+            
         }
         private void InitializeData(Model.CustomerModel d)
         {
-            Guid = d.Guid;
+            OldGuid = d.Guid;
             this.TextBox_Customer_Number.Text = d.Number;
             this.TextBox_Customer_Name.Text = d.Name;
             this.TextBox_Customer_Company.Text = d.Company;
@@ -54,6 +56,8 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
         private bool CheckAndGetData()
         {
             bool flag = true;
+            Guid = Guid.NewGuid();
+            d.Guid = Guid;
             d.Number = this.TextBox_Customer_Number.Text;
             d.Name = this.TextBox_Customer_Name.Text;
             d.Company = this.TextBox_Customer_Company.Text;
@@ -77,13 +81,24 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             if(CheckAndGetData())
             {
                 CustomerEvent.OnAdd(this, d);
-                StatusBarMessageEvent.OnUpdateMessage(this, "添加用户：" + d.Name);
+                if (!isNew)
+                {
+                    Model.CustomerModel dOld = new Model.CustomerModel();
+                    dOld.Guid = OldGuid;
+                    CustomerEvent.OnDelete(this, dOld);
+                    StatusBarMessageEvent.OnUpdateMessage(this, "修改用户：" + d.Name);
+                }
+                else
+                {
+                    StatusBarMessageEvent.OnUpdateMessage(this, "添加用户：" + d.Name);
+                }
                 CustomerEvent.OnUpdateDataGrid(this, new EventArgs());
                 Button_Cancel_Click(null, null);
             }
             else
             {
                 Console.WriteLine("Add False");
+                StatusBarMessageEvent.OnUpdateMessage(this, "添加/修改用户操作失败");
             }
         }
 
