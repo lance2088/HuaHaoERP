@@ -31,7 +31,7 @@
                     <Button Content="添加" Grid.Column="1" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}"/>
                     <ComboBox HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="70" Height="24" VerticalContentAlignment="Center"/>
                     <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="135,10,0,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center">
-                        <ComboBoxItem Content="全部" IsSelected="True"/>
+                        <ComboBoxItem Content="全部出入库记录" IsSelected="True"/>
                         <ComboBoxItem Content="入库记录" />
                         <ComboBoxItem Content="出库记录" />
                     </ComboBox>

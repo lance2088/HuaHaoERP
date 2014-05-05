@@ -27,13 +27,28 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void InitializeData()
         {
-            this.DatePicker_版裁.SelectedDate = DateTime.Now;
-            this.DatePicker_包装.SelectedDate = DateTime.Now;
-            this.DatePicker_冲版.SelectedDate = DateTime.Now;
-            this.DatePicker_卷边.SelectedDate = DateTime.Now;
-            this.DatePicker_拉伸.SelectedDate = DateTime.Now;
-            this.DatePicker_抛光.SelectedDate = DateTime.Now;
             this.DatePicker_外加工.SelectedDate = DateTime.Now;
+        }
+        private void AddAssemblyLineModule()
+        {
+            Grid g = new Grid();
+            g.Height = 400;
+            g.Width = 300;
+            g.Background = new SolidColorBrush(Colors.LightBlue);
+            this.WrapPanel_AssemblyLine.Children.Add(g);
+            //this.WrapPanel_AssemblyLine.RegisterName("gridggg", g);
+            Frame f = new Frame();
+            f.Content = new Page_ProductionManagement_AssemblyLineModule();
+            g.Children.Add(f);
+        }
+        private void RemoveAssemblyLineModule()
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            AddAssemblyLineModule();
         }
     }
 }
