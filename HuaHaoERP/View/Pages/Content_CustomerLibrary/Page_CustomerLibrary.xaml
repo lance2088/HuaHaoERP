@@ -57,6 +57,16 @@
                     <Button x:Name="Button_AddStaff" Content="添加" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Click="Button_AddStaff_Click"/>
                 </Grid>
             </TabItem>
+            <TabItem Header="外加工商管理" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="37,0,-37,0" Foreground="White">
+                <Grid Background="White">
+                    <DataGrid Margin="0,40,0,0" BorderThickness="0,1,0,0">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="GUID" Visibility="Hidden"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="Button_Add" Content="添加" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" />
+                </Grid>
+            </TabItem>
         </TabControl>
         <Popup x:Name="Popup" Placement="MousePoint" StaysOpen="False">
             <Grid Background="White" MinWidth="100" MinHeight="100">

@@ -28,6 +28,8 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         private void InitializeData()
         {
             this.DatePicker_外加工.SelectedDate = DateTime.Now;
+            Button_Click(null,null);
+            Button_Click(null,null);
         }
         private void AddAssemblyLineModule()
         {
