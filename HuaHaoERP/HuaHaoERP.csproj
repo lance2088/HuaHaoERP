@@ -196,6 +196,9 @@
     <Compile Include="Model\CustomerModel.cs" />
     <Compile Include="Model\StaffModel.cs" />
     <Compile Include="Model\SupplierModel.cs" />
+    <Compile Include="ViewModel\Customer\ProcessorsConsole.cs" />
+    <Compile Include="ViewModel\Customer\StaffConsole.cs" />
+    <Compile Include="ViewModel\Customer\SupplierConsole.cs" />
     <Compile Include="ViewModel\EventDistribution.cs" />
     <Compile Include="ViewModel\Customer\CustomerConsole.cs" />
     <Compile Include="ViewModel\Process1\Class1.cs" />
