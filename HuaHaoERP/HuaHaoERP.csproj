@@ -88,6 +88,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Pages\Content_CustomerLibrary\Page_CustomerLibrary_Popup_AddProcessors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Pages\Content_CustomerLibrary\Page_CustomerLibrary_Popup_AddStaff.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -175,12 +179,14 @@
     <Compile Include="Helper\AppInitialize\Initialize.cs" />
     <Compile Include="Helper\Events\1.Customer\CustomerEvent.cs" />
     <Compile Include="Helper\Events\1.Customer\CustomerEventArgs.cs" />
-    <Compile Include="Helper\Events\PopUpEvent.cs" />
-    <Compile Include="Helper\Events\PopUpEventArgs.cs" />
+    <Compile Include="Helper\Events\0.Common\PopUpEvent.cs" />
+    <Compile Include="Helper\Events\0.Common\PopUpEventArgs.cs" />
     <Compile Include="Helper\Events\1.Staff\StaffEvent.cs" />
     <Compile Include="Helper\Events\1.Staff\StaffEventArgs.cs" />
-    <Compile Include="Helper\Events\StatusBarMessageEvent.cs" />
-    <Compile Include="Helper\Events\StatusBarMessageEventArgs.cs" />
+    <Compile Include="Helper\Events\1.Processors\ProcessorsEvent.cs" />
+    <Compile Include="Helper\Events\1.Processors\ProcessorsEventArgs.cs" />
+    <Compile Include="Helper\Events\0.Common\StatusBarMessageEvent.cs" />
+    <Compile Include="Helper\Events\0.Common\StatusBarMessageEventArgs.cs" />
     <Compile Include="Helper\Events\1.Supplier\SupplierEventArgs.cs" />
     <Compile Include="Helper\Events\1.Supplier\SupplierEvent.cs" />
     <Compile Include="Helper\Excel\Reader.cs" />
@@ -202,6 +208,9 @@
     </Compile>
     <Compile Include="View\Pages\Content_CustomerLibrary\Page_CustomerLibrary_Popup_AddCustomer.xaml.cs">
       <DependentUpon>Page_CustomerLibrary_Popup_AddCustomer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\Content_CustomerLibrary\Page_CustomerLibrary_Popup_AddProcessors.xaml.cs">
+      <DependentUpon>Page_CustomerLibrary_Popup_AddProcessors.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\Content_CustomerLibrary\Page_CustomerLibrary_Popup_AddStaff.xaml.cs">
       <DependentUpon>Page_CustomerLibrary_Popup_AddStaff.xaml</DependentUpon>
