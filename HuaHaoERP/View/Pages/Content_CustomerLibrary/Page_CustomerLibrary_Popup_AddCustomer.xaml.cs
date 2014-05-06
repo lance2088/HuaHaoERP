@@ -20,6 +20,7 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
         private Model.CustomerModel d = new Model.CustomerModel();
         private Guid Guid;
         private Guid OldGuid;
+        private string OldAddTime = "";
         private bool isNew = true;
 
         public Page_CustomerLibrary_Popup_AddCustomer()
@@ -39,6 +40,7 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
         }
         private void InitializeData(Model.CustomerModel d)
         {
+            this.d = d;
             OldGuid = d.Guid;
             this.TextBox_Customer_Number.Text = d.Number;
             this.TextBox_Customer_Name.Text = d.Name;
@@ -51,6 +53,7 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             this.TextBox_Customer_Clerk.Text = d.Clerk;
             this.TextBox_Customer_DebtCeiling.Text = d.DebtCeiling.ToString();
             this.TextBox_Customer_Remark.Text = d.Remark;
+            OldAddTime = d.AddTime.ToString();
         }
 
         private bool CheckAndGetData()
@@ -75,6 +78,10 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             flag = decimal.TryParse(this.TextBox_Customer_DebtCeiling.Text, out DebtCeiling);
             d.DebtCeiling = DebtCeiling;
             d.Remark = this.TextBox_Customer_Remark.Text.Trim();
+            if(OldAddTime == "")
+            {
+                d.AddTime = DateTime.Now;
+            }
             return flag;
         }
 

@@ -20,7 +20,8 @@ namespace HuaHaoERP.Model
         private string clerk;
         private decimal debtCeiling;
         private string remark;
-        private string deleteMark;
+        private DateTime deleteMark;
+        private DateTime addTime;
 
         #region GETSET
         public Guid Guid
@@ -91,10 +92,18 @@ namespace HuaHaoERP.Model
             get { return remark; }
             set { remark = value; }
         }
-        public string DeleteMark
+        public DateTime DeleteMark
         {
             get { return deleteMark; }
             set { deleteMark = value; }
+        }
+        /// <summary>
+        /// 录入时间
+        /// </summary>
+        public DateTime AddTime
+        {
+            get { return addTime; }
+            set { addTime = value; }
         }
         #endregion
     }

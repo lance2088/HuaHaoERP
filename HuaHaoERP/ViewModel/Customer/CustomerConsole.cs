@@ -12,8 +12,8 @@ namespace HuaHaoERP.ViewModel.Customer
         internal bool Add(CustomerModel d)
         {
             bool flag = true;
-            string sql = "Insert Into T_Customer (GUID,Number,Name,Address,Area,Phone,MobilePhone,Fax,Business,Clerk,DebtCeiling,Remark) "
-                       + " values('" + d.Guid + "','" + d.Number + "','" + d.Name + "','" + d.Address + "','" + d.Area + "','" + d.Phone + "','" + d.MobilePhone + "','" + d.Fax + "','" + d.Business + "','" + d.Clerk + "','" + d.DebtCeiling + "','" + d.Remark + "')";
+            string sql = "Insert Into T_Customer (GUID,Number,Name,Address,Area,Phone,MobilePhone,Fax,Business,Clerk,DebtCeiling,Remark,AddTime) "
+                       + " values('" + d.Guid + "','" + d.Number + "','" + d.Name + "','" + d.Address + "','" + d.Area + "','" + d.Phone + "','" + d.MobilePhone + "','" + d.Fax + "','" + d.Business + "','" + d.Clerk + "','" + d.DebtCeiling + "','" + d.Remark + "','" + d.AddTime.ToString("yyyy-MM-dd HH:mm:ss") + "')";
             flag = new Helper.SQLite.DBHelper().SingleExecution(sql);
             return flag;
         }
@@ -29,25 +29,16 @@ namespace HuaHaoERP.ViewModel.Customer
         internal bool MarkDelete(CustomerModel d)
         {
             bool flag = true;
-            string sql = "Update T_Customer Set DeleteMark='" + DateTime.Now + "' Where GUID='" + d.Guid + "'";
+            string sql = "Update T_Customer Set DeleteMark='" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' Where GUID='" + d.Guid + "'";
             flag = new Helper.SQLite.DBHelper().SingleExecution(sql);
             return flag;
         }
-
-        //internal bool Modify(CustomerModel d)
-        //{
-        //    bool flag = true;
-        //    string sql = "Insert Into T_Customer (GUID,Number,Name,Address,Area,Phone,MobilePhone,Fax,Business,Clerk,DebtCeiling,Remark) "
-        //               + " values('" + d.Guid + "','" + d.Number + "','" + d.Name + "','" + d.Address + "','" + d.Area + "','" + d.Phone + "','" + d.MobilePhone + "','" + d.Fax + "','" + d.Business + "','" + d.Clerk + "','" + d.DebtCeiling + "','" + d.Remark + "')";
-        //    flag = new Helper.SQLite.DBHelper().SingleExecution(sql);
-        //    return flag;
-        //}
 
         internal bool ReadList(out List<CustomerModel> data)
         {
             bool flag = true;
             data = new List<CustomerModel>();
-            string sql = "select * from T_Customer Where DeleteMark is null order by Number";
+            string sql = "select * from T_Customer Where DeleteMark is null order by AddTime";
             DataSet ds = new DataSet();
             flag = new Helper.SQLite.DBHelper().QueryData(sql, out ds);
             if(flag)
@@ -69,6 +60,7 @@ namespace HuaHaoERP.ViewModel.Customer
                     d.Clerk = dr["Clerk"].ToString();
                     d.DebtCeiling = decimal.Parse(dr["DebtCeiling"].ToString());
                     d.Remark = dr["Remark"].ToString();
+                    d.AddTime = Convert.ToDateTime(dr["AddTime"]);
                     data.Add(d);
                 }
             }
