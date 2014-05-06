@@ -42,37 +42,39 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             OldGuid = d.Guid;
             this.TextBox_Customer_Number.Text = d.Number;
             this.TextBox_Customer_Name.Text = d.Name;
-            this.TextBox_Customer_Company.Text = d.Company;
             this.TextBox_Customer_Address.Text = d.Address;
+            this.TextBox_Customer_Area.Text = d.Area;
             this.TextBox_Customer_Phone.Text = d.Phone;
             this.TextBox_Customer_MobilePhone.Text = d.MobilePhone;
             this.TextBox_Customer_Fax.Text = d.Fax;
             this.TextBox_Customer_Business.Text = d.Business;
+            this.TextBox_Customer_Clerk.Text = d.Clerk;
+            this.TextBox_Customer_DebtCeiling.Text = d.DebtCeiling.ToString();
             this.TextBox_Customer_Remark.Text = d.Remark;
-            this.TextBox_Customer_CustomerLevel.Text = d.CustomerLevel.ToString();
-            this.TextBox_Customer_OrderQuantity.Text = d.OrderQuantity.ToString();
         }
 
         private bool CheckAndGetData()
         {
             bool flag = true;
+            if (this.TextBox_Customer_Number.Text.Trim() == "" || this.TextBox_Customer_Name.Text.Trim() == "")
+            {
+                return false;
+            }
             Guid = Guid.NewGuid();
             d.Guid = Guid;
-            d.Number = this.TextBox_Customer_Number.Text;
-            d.Name = this.TextBox_Customer_Name.Text;
-            d.Company = this.TextBox_Customer_Company.Text;
-            d.Address = this.TextBox_Customer_Address.Text;
-            d.Phone = this.TextBox_Customer_Phone.Text;
-            d.MobilePhone = this.TextBox_Customer_MobilePhone.Text;
-            d.Fax = this.TextBox_Customer_Fax.Text;
-            d.Business = this.TextBox_Customer_Business.Text;
-            d.Remark = this.TextBox_Customer_Remark.Text;
-            int CustomerLevel;
-            flag = int.TryParse(this.TextBox_Customer_CustomerLevel.Text, out CustomerLevel);
-            d.CustomerLevel = CustomerLevel;
-            int OrderQuantity;
-            flag = int.TryParse(this.TextBox_Customer_OrderQuantity.Text, out OrderQuantity);
-            d.OrderQuantity = OrderQuantity;
+            d.Number = this.TextBox_Customer_Number.Text.Trim();
+            d.Name = this.TextBox_Customer_Name.Text.Trim();
+            d.Address = this.TextBox_Customer_Address.Text.Trim();
+            d.Area = this.TextBox_Customer_Area.Text.Trim();
+            d.Phone = this.TextBox_Customer_Phone.Text.Trim();
+            d.MobilePhone = this.TextBox_Customer_MobilePhone.Text.Trim();
+            d.Fax = this.TextBox_Customer_Fax.Text.Trim();
+            d.Business = this.TextBox_Customer_Business.Text.Trim();
+            d.Clerk = this.TextBox_Customer_Clerk.Text.Trim();
+            decimal DebtCeiling = 0m;
+            flag = decimal.TryParse(this.TextBox_Customer_DebtCeiling.Text, out DebtCeiling);
+            d.DebtCeiling = DebtCeiling;
+            d.Remark = this.TextBox_Customer_Remark.Text.Trim();
             return flag;
         }
 

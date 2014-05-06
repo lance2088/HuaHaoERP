@@ -21,9 +21,6 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
         {
             InitializeComponent();
             SubscribeToEvent();
-        }
-        private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
             InitializeCustomerDataGrid();
             InitializeSupplierDataGrid();
             InitializeStaffDataGrid();

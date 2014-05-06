@@ -25,10 +25,10 @@ namespace HuaHaoERP.ViewModel
             {
                 new ViewModel.Customer.CustomerConsole().MarkDelete(e.CustomerData);
             };
-            CustomerEvent.EModify += (sender, e) =>
-            {
-                new ViewModel.Customer.CustomerConsole().Modify(e.CustomerData);
-            };
+            //CustomerEvent.EModify += (sender, e) =>
+            //{
+            //    new ViewModel.Customer.CustomerConsole().Modify(e.CustomerData);
+            //};
         }
     }
 }

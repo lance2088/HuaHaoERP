@@ -12,8 +12,8 @@ namespace HuaHaoERP.ViewModel.Customer
         internal bool Add(CustomerModel d)
         {
             bool flag = true;
-            string sql = "Insert Into T_Customer (GUID,Number,Name,Company,Address,Phone,MobilePhone,Fax,Business,Remark,CustomerLevel,OrderQuantity) "
-                       + " values('"+d.Guid+"','"+d.Number+"','"+d.Name+"','"+d.Company+"','"+d.Address+"','"+d.Phone+"','"+d.MobilePhone+"','"+d.Fax+"','"+d.Business+"','"+d.Remark+"','"+d.CustomerLevel+"','"+d.OrderQuantity+"')";
+            string sql = "Insert Into T_Customer (GUID,Number,Name,Address,Area,Phone,MobilePhone,Fax,Business,Clerk,DebtCeiling,Remark) "
+                       + " values('" + d.Guid + "','" + d.Number + "','" + d.Name + "','" + d.Address + "','" + d.Area + "','" + d.Phone + "','" + d.MobilePhone + "','" + d.Fax + "','" + d.Business + "','" + d.Clerk + "','" + d.DebtCeiling + "','" + d.Remark + "')";
             flag = new Helper.SQLite.DBHelper().SingleExecution(sql);
             return flag;
         }
@@ -34,14 +34,14 @@ namespace HuaHaoERP.ViewModel.Customer
             return flag;
         }
 
-        internal bool Modify(CustomerModel d)
-        {
-            bool flag = true;
-            string sql = "Insert Into T_Customer (GUID,Number,Name,Company,Address,Phone,MobilePhone,Fax,Business,Remark,CustomerLevel,OrderQuantity) "
-                       + " values('" + d.Guid + "','" + d.Number + "','" + d.Name + "','" + d.Company + "','" + d.Address + "','" + d.Phone + "','" + d.MobilePhone + "','" + d.Fax + "','" + d.Business + "','" + d.Remark + "','" + d.CustomerLevel + "','" + d.OrderQuantity + "')";
-            flag = new Helper.SQLite.DBHelper().SingleExecution(sql);
-            return flag;
-        }
+        //internal bool Modify(CustomerModel d)
+        //{
+        //    bool flag = true;
+        //    string sql = "Insert Into T_Customer (GUID,Number,Name,Address,Area,Phone,MobilePhone,Fax,Business,Clerk,DebtCeiling,Remark) "
+        //               + " values('" + d.Guid + "','" + d.Number + "','" + d.Name + "','" + d.Address + "','" + d.Area + "','" + d.Phone + "','" + d.MobilePhone + "','" + d.Fax + "','" + d.Business + "','" + d.Clerk + "','" + d.DebtCeiling + "','" + d.Remark + "')";
+        //    flag = new Helper.SQLite.DBHelper().SingleExecution(sql);
+        //    return flag;
+        //}
 
         internal bool ReadList(out List<CustomerModel> data)
         {
@@ -58,18 +58,17 @@ namespace HuaHaoERP.ViewModel.Customer
                     CustomerModel d = new CustomerModel();
                     d.Guid = (Guid)dr["GUID"];
                     d.Id = id++;
-                    d.Number = dr[1].ToString();
-                    d.Name = dr[2].ToString();
-                    d.Company = dr[3].ToString();
-                    d.Address = dr[4].ToString();
-                    d.Phone = dr[5].ToString();
-                    d.MobilePhone = dr[6].ToString();
-                    d.Fax = dr[7].ToString();
-                    d.Business = dr[8].ToString();
-                    d.Remark = dr[9].ToString();
-                    d.LastOrderTime = dr["LastOrderTime"].ToString();
-                    d.CustomerLevel = int.Parse(dr["CustomerLevel"].ToString());
-                    d.OrderQuantity = int.Parse(dr["OrderQuantity"].ToString());
+                    d.Number = dr["Number"].ToString();
+                    d.Name = dr["Name"].ToString();
+                    d.Address = dr["Address"].ToString();
+                    d.Area = dr["Area"].ToString();
+                    d.Phone = dr["Phone"].ToString();
+                    d.MobilePhone = dr["MobilePhone"].ToString();
+                    d.Fax = dr["Fax"].ToString();
+                    d.Business = dr["Business"].ToString();
+                    d.Clerk = dr["Clerk"].ToString();
+                    d.DebtCeiling = decimal.Parse(dr["DebtCeiling"].ToString());
+                    d.Remark = dr["Remark"].ToString();
                     data.Add(d);
                 }
             }

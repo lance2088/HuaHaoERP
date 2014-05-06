@@ -11,16 +11,15 @@ namespace HuaHaoERP.Model
         private int id;
         private string number;
         private string name;
-        private string company;
         private string address;
+        private string area;
         private string phone;
         private string mobilePhone;
         private string fax;
         private string business;
+        private string clerk;
+        private decimal debtCeiling;
         private string remark;
-        private string lastOrderTime;
-        private int customerLevel;
-        private int orderQuantity;
         private string deleteMark;
 
         #region GETSET
@@ -44,15 +43,15 @@ namespace HuaHaoERP.Model
             get { return name; }
             set { name = value; }
         }
-        public string Company
-        {
-            get { return company; }
-            set { company = value; }
-        }
         public string Address
         {
             get { return address; }
             set { address = value; }
+        }
+        public string Area
+        {
+            get { return area; }
+            set { area = value; }
         }
         public string Phone
         {
@@ -74,25 +73,23 @@ namespace HuaHaoERP.Model
             get { return business; }
             set { business = value; }
         }
+        public string Clerk
+        {
+            get { return clerk; }
+            set { clerk = value; }
+        }
+        /// <summary>
+        /// 欠款上限
+        /// </summary>
+        public decimal DebtCeiling
+        {
+            get { return debtCeiling; }
+            set { debtCeiling = value; }
+        }
         public string Remark
         {
             get { return remark; }
             set { remark = value; }
-        }
-        public string LastOrderTime
-        {
-            get { return lastOrderTime; }
-            set { lastOrderTime = value; }
-        }
-        public int CustomerLevel
-        {
-            get { return customerLevel; }
-            set { customerLevel = value; }
-        }
-        public int OrderQuantity
-        {
-            get { return orderQuantity; }
-            set { orderQuantity = value; }
         }
         public string DeleteMark
         {
