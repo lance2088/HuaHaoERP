@@ -68,8 +68,11 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
         }
         private void DataGrid_Customer_Row_MouseDoubleClick(object sender, RoutedEventArgs e)
         {
-            HuaHaoERP.Model.CustomerModel data = this.DataGrid_Customer.SelectedCells[0].Item as HuaHaoERP.Model.CustomerModel;
-            Helper.Events.PopUpEvent.OnShowPopUp(this, new Page_CustomerLibrary_Popup_AddCustomer(data));
+            if (this.DataGrid_Customer.SelectedCells.Count != 0)
+            {
+                HuaHaoERP.Model.CustomerModel data = this.DataGrid_Customer.SelectedCells[0].Item as HuaHaoERP.Model.CustomerModel;
+                Helper.Events.PopUpEvent.OnShowPopUp(this, new Page_CustomerLibrary_Popup_AddCustomer(data));
+            }
         }
 
         #endregion
