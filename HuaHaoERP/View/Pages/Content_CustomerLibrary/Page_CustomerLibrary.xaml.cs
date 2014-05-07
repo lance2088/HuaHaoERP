@@ -82,7 +82,7 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
         {
             List<Model.SupplierModel> data;
             new ViewModel.Customer.SupplierConsole().ReadList(out data);
-            this.DataGrid_Processors.ItemsSource = data;
+            this.DataGrid_Supplier.ItemsSource = data;
         }
         private void Button_AddSupplier_Click(object sender, RoutedEventArgs e)
         {
@@ -90,11 +90,19 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
         }
         private void DataGrid_Supplier_Row_MouseDoubleClick(object sender, RoutedEventArgs e)
         {
-
+            if (this.DataGrid_Customer.SelectedCells.Count != 0)
+            {
+                HuaHaoERP.Model.SupplierModel data = this.DataGrid_Supplier.SelectedCells[0].Item as HuaHaoERP.Model.SupplierModel;
+                Helper.Events.PopUpEvent.OnShowPopUp(this, new Page_CustomerLibrary_Popup_AddSupplier(data));
+            }
         }
         private void Button_DeleteSupplier_Click(object sender, RoutedEventArgs e)
         {
-
+            if (this.DataGrid_Supplier.SelectedCells.Count > 0)
+            {
+                HuaHaoERP.Model.SupplierModel data = this.DataGrid_Supplier.SelectedCells[0].Item as HuaHaoERP.Model.SupplierModel;
+                Helper.Events.SupplierEvent.OnMarkDelete(this, data);
+            }
         }
         #endregion
 

@@ -64,14 +64,17 @@ namespace HuaHaoERP.ViewModel
             SupplierEvent.EAdd += (sender, e) =>
             {
                 new ViewModel.Customer.SupplierConsole().Add(e.SupplierData);
+                SupplierEvent.OnUpdateDataGrid(sender, new EventArgs());
             };
             SupplierEvent.EDelete += (sender, e) =>
             {
                 new ViewModel.Customer.SupplierConsole().Delete(e.SupplierData);
+                SupplierEvent.OnUpdateDataGrid(sender, new EventArgs());
             };
             SupplierEvent.EMarkDelete += (sender, e) =>
             {
                 new ViewModel.Customer.SupplierConsole().MarkDelete(e.SupplierData);
+                SupplierEvent.OnUpdateDataGrid(sender, new EventArgs());
             };
         }
     }
