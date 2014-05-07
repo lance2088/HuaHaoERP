@@ -19,18 +19,18 @@
                         </DataGrid.Resources>
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="GUID" Binding="{Binding Guid}" Visibility="Hidden"/>
-                            <DataGridTextColumn Header="序号" Binding="{Binding Id}"/>
-                            <DataGridTextColumn Header="客户编号" Binding="{Binding Number}"/>
-                            <DataGridTextColumn Header="客户名称" Binding="{Binding Name}"/>
-                            <DataGridTextColumn Header="地址" Binding="{Binding Address}"/>
-                            <DataGridTextColumn Header="区域" Binding="{Binding Area}"/>
-                            <DataGridTextColumn Header="电话" Binding="{Binding Phone}"/>
-                            <DataGridTextColumn Header="手机" Binding="{Binding MobilePhone}"/>
-                            <DataGridTextColumn Header="传真" Binding="{Binding Fax}"/>
-                            <DataGridTextColumn Header="业务" Binding="{Binding Business}"/>
-                            <DataGridTextColumn Header="业务员" Binding="{Binding Clerk}"/>
-                            <DataGridTextColumn Header="欠款上限" Binding="{Binding DebtCeiling}"/>
-                            <DataGridTextColumn Header="备注" Binding="{Binding Remark}"/>
+                            <DataGridTextColumn Header="序号" Binding="{Binding Id}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Header="客户编号" Binding="{Binding Number}" ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}"/>
+                            <DataGridTextColumn Header="客户名称" Binding="{Binding Name}" ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}"/>
+                            <DataGridTextColumn Header="地址" Binding="{Binding Address}" ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}"/>
+                            <DataGridTextColumn Header="区域" Binding="{Binding Area}" ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}"/>
+                            <DataGridTextColumn Header="电话" Binding="{Binding Phone}" ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}"/>
+                            <DataGridTextColumn Header="手机" Binding="{Binding MobilePhone}" ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}"/>
+                            <DataGridTextColumn Header="传真" Binding="{Binding Fax}" ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}"/>
+                            <DataGridTextColumn Header="业务" Binding="{Binding Business}" ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}"/>
+                            <DataGridTextColumn Header="业务员" Binding="{Binding Clerk}" ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}"/>
+                            <DataGridTextColumn Header="欠款上限" Binding="{Binding DebtCeiling}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Header="备注" Binding="{Binding Remark}" ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <Button x:Name="Button_AddCustomer" Content="添加" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Click="Button_AddCustomer_Click" Template="{DynamicResource ButtonControlTemplate_CommonDefault}"/>
@@ -65,15 +65,16 @@
                     <DataGrid x:Name="DataGrid_Staff" Margin="0,40,0,0" BorderThickness="0,1,0,0" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" HeadersVisibility="Column" IsReadOnly="True">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Guid}" Header="GUID" Visibility="Hidden"/>
-                            <DataGridTextColumn Binding="{Binding Number}" Header="工号"/>
-                            <DataGridTextColumn Binding="{Binding Name}" Header="姓名"/>
-                            <DataGridTextColumn Binding="{Binding Jobs}" Header="工种"/>
-                            <DataGridTextColumn Binding="{Binding EntryTime}" Header="入厂时间"/>
-                            <DataGridTextColumn Binding="{Binding Seniority}" Header="工龄"/>
-                            <DataGridTextColumn Binding="{Binding Contact}" Header="联系方式"/>
-                            <DataGridTextColumn Binding="{Binding IDNumber}" Header="身份证"/>
-                            <DataGridTextColumn Binding="{Binding Remark}" Header="备注"/>
-                            <DataGridTextColumn Binding="{Binding DepartureTime}" Header="离职时间"/>
+                            <DataGridTextColumn ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" Binding="{Binding Id}" Header="序号"/>
+                            <DataGridTextColumn ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}" Binding="{Binding Number}" Header="工号"/>
+                            <DataGridTextColumn ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}" Binding="{Binding Name}" Header="姓名"/>
+                            <DataGridTextColumn ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}" Binding="{Binding Jobs}" Header="工种"/>
+                            <DataGridTextColumn ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" Binding="{Binding EntryTime}" Header="入厂时间"/>
+                            <DataGridTextColumn ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}" Binding="{Binding Seniority}" Header="工龄(月)"/>
+                            <DataGridTextColumn ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}" Binding="{Binding Contact}" Header="联系方式"/>
+                            <DataGridTextColumn ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}" Binding="{Binding IDNumber}" Header="身份证"/>
+                            <DataGridTextColumn ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}" Binding="{Binding Remark}" Header="备注"/>
+                            <DataGridTextColumn ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" Binding="{Binding DepartureTime}" Header="离职时间"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <Button x:Name="Button_AddStaff" Content="添加" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Click="Button_AddStaff_Click"/>
@@ -84,20 +85,20 @@
                     <DataGrid x:Name="DataGrid_Processors" Margin="0,40,0,0" BorderThickness="0,1,0,0" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" AutoGenerateColumns="False" HeadersVisibility="Column" IsReadOnly="True">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="GUID" Binding="{Binding Guid}" Visibility="Hidden"/>
-                            <DataGridTextColumn Header="序号" Binding="{Binding Id}"/>
-                            <DataGridTextColumn Header="客户编号" Binding="{Binding Number}"/>
-                            <DataGridTextColumn Header="客户名称" Binding="{Binding Name}"/>
-                            <DataGridTextColumn Header="地址" Binding="{Binding Address}"/>
-                            <DataGridTextColumn Header="区域" Binding="{Binding Area}"/>
-                            <DataGridTextColumn Header="电话" Binding="{Binding Phone}"/>
-                            <DataGridTextColumn Header="手机" Binding="{Binding MobilePhone}"/>
-                            <DataGridTextColumn Header="传真" Binding="{Binding Fax}"/>
-                            <DataGridTextColumn Header="业务" Binding="{Binding Business}"/>
-                            <DataGridTextColumn Header="业务员" Binding="{Binding Clerk}"/>
-                            <DataGridTextColumn Header="开户行" Binding="{Binding OpeningBank}"/>
-                            <DataGridTextColumn Header="银行卡号" Binding="{Binding BankCardNo}"/>
-                            <DataGridTextColumn Header="开户人姓名" Binding="{Binding BankCardName}"/>
-                            <DataGridTextColumn Header="备注" Binding="{Binding Remark}"/>
+                            <DataGridTextColumn ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" Header="序号" Binding="{Binding Id}"/>
+                            <DataGridTextColumn ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}" Header="客户编号" Binding="{Binding Number}"/>
+                            <DataGridTextColumn ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}" Header="客户名称" Binding="{Binding Name}"/>
+                            <DataGridTextColumn ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}" Header="地址" Binding="{Binding Address}"/>
+                            <DataGridTextColumn ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}" Header="区域" Binding="{Binding Area}"/>
+                            <DataGridTextColumn ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}" Header="电话" Binding="{Binding Phone}"/>
+                            <DataGridTextColumn ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}" Header="手机" Binding="{Binding MobilePhone}"/>
+                            <DataGridTextColumn ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}" Header="传真" Binding="{Binding Fax}"/>
+                            <DataGridTextColumn ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}" Header="业务" Binding="{Binding Business}"/>
+                            <DataGridTextColumn ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}" Header="业务员" Binding="{Binding Clerk}"/>
+                            <DataGridTextColumn ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}" Header="开户行" Binding="{Binding OpeningBank}"/>
+                            <DataGridTextColumn ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}" Header="银行卡号" Binding="{Binding BankCardNo}"/>
+                            <DataGridTextColumn ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}" Header="开户人姓名" Binding="{Binding BankCardName}"/>
+                            <DataGridTextColumn ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}" Header="备注" Binding="{Binding Remark}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <Button x:Name="Button_Add_Processors" Content="添加" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Click="Button_Add_Processors_Click" />
