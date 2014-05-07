@@ -86,7 +86,9 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
 
         private void InitializeSupplierDataGrid()
         {
-
+            List<Model.SupplierModel> data;
+            new ViewModel.Customer.SupplierConsole().ReadList(out data);
+            this.DataGrid_Processors.ItemsSource = data;
         }
         private void Button_AddSupplier_Click(object sender, RoutedEventArgs e)
         {
