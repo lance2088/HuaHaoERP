@@ -29,6 +29,34 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             this.DatePicker_EntryTime.SelectedDate = DateTime.Now;
             this.DatePicker_DepartureTime.SelectedDate = DateTime.Now;
         }
+        public Page_CustomerLibrary_Popup_AddStaff(object data)
+        {
+            InitializeComponent();
+            this.DatePicker_DepartureTime.IsEnabled = false;
+            this.DatePicker_EntryTime.SelectedDate = DateTime.Now;
+            this.DatePicker_DepartureTime.SelectedDate = DateTime.Now;
+            isNew = false;
+            InitializeData((Model.StaffModel)data);
+        }
+        private void InitializeData(Model.StaffModel d)
+        {
+            this.d = d;
+            OldGuid = d.Guid;
+            this.TextBox_Number.Text = d.Number;
+            this.TextBox_Name.Text = d.Name;
+            this.TextBox_Jobs.Text = d.Jobs;
+            this.DatePicker_EntryTime.SelectedDate = Convert.ToDateTime(d.EntryTime);
+            this.TextBox_Contact.Text = d.Contact;
+            this.TextBox_IDNumber.Text = d.IDNumber;
+            this.TextBox_Remark.Text = d.Remark;
+            if (!d.DepartureTime.Equals(""))
+            {
+                this.CheckBox_isDeparture.IsChecked = true;
+                this.DatePicker_DepartureTime.IsEnabled = true;
+                this.DatePicker_DepartureTime.SelectedDate = Convert.ToDateTime(d.DepartureTime);
+            }
+            OldAddTime = d.AddTime.ToString();
+        }
 
         private bool CheckAndGetData()
         {
@@ -50,6 +78,10 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             {
                 d.DepartureTime = ((DateTime)this.DatePicker_DepartureTime.SelectedDate).ToString("yyyy-MM-dd HH:mm:ss");
             }
+            else
+            {
+                d.DepartureTime = "0001-01-01 00:00:00";
+            }
             if (OldAddTime == "")
             {
                 d.AddTime = DateTime.Now;
@@ -62,6 +94,17 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             if (CheckAndGetData())
             {
                 Helper.Events.StaffEvent.OnAdd(this, d);
+                if (!isNew)
+                {
+                    Model.StaffModel dOld = new Model.StaffModel();
+                    dOld.Guid = OldGuid;
+                    Helper.Events.StaffEvent.OnDelete(this, dOld);
+                    Helper.Events.StatusBarMessageEvent.OnUpdateMessage(this, "修改员工：" + d.Name);
+                }
+                else
+                {
+                    Helper.Events.StatusBarMessageEvent.OnUpdateMessage(this, "添加员工：" + d.Name);
+                }
                 Button_Cancel_Click(null, null);
             }
             else

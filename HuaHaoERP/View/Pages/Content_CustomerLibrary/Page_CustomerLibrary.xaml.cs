@@ -114,7 +114,11 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
         }
         private void DataGrid_Staff_Row_MouseDoubleClick(object sender, RoutedEventArgs e)
         {
-
+            if (this.DataGrid_Staff.SelectedCells.Count != 0)
+            {
+                HuaHaoERP.Model.StaffModel data = this.DataGrid_Staff.SelectedCells[0].Item as HuaHaoERP.Model.StaffModel;
+                Helper.Events.PopUpEvent.OnShowPopUp(this, new Page_CustomerLibrary_Popup_AddStaff(data));
+            }
         }
         #endregion
 
