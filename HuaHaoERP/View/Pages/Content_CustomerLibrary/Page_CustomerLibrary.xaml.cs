@@ -101,7 +101,9 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
 
         private void InitializeStaffDataGrid()
         {
-
+            List<Model.StaffModel> data;
+            new ViewModel.Customer.StaffConsole().ReadList(out data);
+            this.DataGrid_Staff.ItemsSource = data;
         }
         private void Button_AddStaff_Click(object sender, RoutedEventArgs e)
         {

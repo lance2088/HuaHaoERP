@@ -42,23 +42,35 @@ namespace HuaHaoERP.Model
             get { return jobs; }
             set { jobs = value; }
         }
-        private DateTime entryTime;
+        private string entryTime;
 
-        public DateTime EntryTime
+        public string EntryTime
         {
             get { return entryTime; }
             set { entryTime = value; }
         }
-        private string Contact;
-
-        public string Contact1
+        private string seniority;
+        /// <summary>
+        /// 工龄
+        /// </summary>
+        public string Seniority
         {
-            get { return Contact; }
-            set { Contact = value; }
+            get 
+            { 
+                return seniority; 
+            }
+            set { seniority = value; }
         }
-        private int iDNumber;
+        private string contact;
 
-        public int IDNumber
+        public string Contact
+        {
+            get { return contact; }
+            set { contact = value; }
+        }
+        private string iDNumber;
+
+        public string IDNumber
         {
             get { return iDNumber; }
             set { iDNumber = value; }

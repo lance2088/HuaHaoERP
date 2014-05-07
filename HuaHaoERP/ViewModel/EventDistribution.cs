@@ -48,14 +48,17 @@ namespace HuaHaoERP.ViewModel
             StaffEvent.EAdd += (sender, e) =>
             {
                 new ViewModel.Customer.StaffConsole().Add(e.StaffData);
+                StaffEvent.OnUpdateDataGrid(sender, new EventArgs());
             };
             StaffEvent.EDelete += (sender, e) =>
             {
                 new ViewModel.Customer.StaffConsole().Delete(e.StaffData);
+                StaffEvent.OnUpdateDataGrid(sender, new EventArgs());
             };
             StaffEvent.EMarkDelete += (sender, e) =>
             {
                 new ViewModel.Customer.StaffConsole().MarkDelete(e.StaffData);
+                StaffEvent.OnUpdateDataGrid(sender, new EventArgs());
             };
 
             SupplierEvent.EAdd += (sender, e) =>
