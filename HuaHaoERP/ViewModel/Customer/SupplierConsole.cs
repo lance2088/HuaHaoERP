@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using HuaHaoERP.Model;
+using System.Data;
 
 namespace HuaHaoERP.ViewModel.Customer
 {
@@ -30,9 +31,37 @@ namespace HuaHaoERP.ViewModel.Customer
         }
         internal bool ReadList(out List<SupplierModel> data)
         {
+            bool flag = true;
             data = new List<SupplierModel>();
-
-            return false;
+            string sql = "select * from T_Supplier Where DeleteMark is null order by AddTime";
+            DataSet ds = new DataSet();
+            flag = new Helper.SQLite.DBHelper().QueryData(sql, out ds);
+            if (flag)
+            {
+                int id = 1;
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    SupplierModel d = new SupplierModel();
+                    d.Guid = (Guid)dr["GUID"];
+                    d.Id = id++;
+                    d.Number = dr["Number"].ToString();
+                    d.Name = dr["Name"].ToString();
+                    d.Address = dr["Address"].ToString();
+                    d.Area = dr["Area"].ToString();
+                    d.Phone = dr["Phone"].ToString();
+                    d.MobilePhone = dr["MobilePhone"].ToString();
+                    d.Fax = dr["Fax"].ToString();
+                    d.Business = dr["Business"].ToString();
+                    d.Clerk = dr["Clerk"].ToString();
+                    d.OpeningBank = dr["OpeningBank"].ToString();
+                    d.BankCardNo = int.Parse(dr["BankCardNo"].ToString());
+                    d.BankCardName = dr["BankCardName"].ToString();
+                    d.Remark = dr["Remark"].ToString();
+                    d.AddTime = Convert.ToDateTime(dr["AddTime"]);
+                    data.Add(d);
+                }
+            }
+            return flag;
         }
     }
 }
