@@ -19,15 +19,17 @@ namespace HuaHaoERP.ViewModel.Customer
         }
         internal bool Delete(ProcessorsModel d)
         {
-
-
-            return false;
+            bool flag = true;
+            string sql = "Delete From T_Processors Where GUID='" + d.Guid + "'";
+            flag = new Helper.SQLite.DBHelper().SingleExecution(sql);
+            return flag;
         }
         internal bool MarkDelete(ProcessorsModel d)
         {
-
-
-            return false;
+            bool flag = true;
+            string sql = "Update T_Processors Set DeleteMark='" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' Where GUID='" + d.Guid + "'";
+            flag = new Helper.SQLite.DBHelper().SingleExecution(sql);
+            return flag;
         }
         internal bool ReadList(out List<ProcessorsModel> data)
         {

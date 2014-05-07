@@ -23,15 +23,17 @@ namespace HuaHaoERP.ViewModel.Customer
         }
         internal bool Delete(StaffModel d)
         {
-
-
-            return false;
+            bool flag = true;
+            string sql = "Delete From T_Staff Where GUID='" + d.Guid + "'";
+            flag = new Helper.SQLite.DBHelper().SingleExecution(sql);
+            return flag;
         }
         internal bool MarkDelete(StaffModel d)
         {
-
-
-            return false;
+            bool flag = true;
+            string sql = "Update T_Staff Set DeleteMark='" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' Where GUID='" + d.Guid + "'";
+            flag = new Helper.SQLite.DBHelper().SingleExecution(sql);
+            return flag;
         }
         internal bool ReadList(out List<StaffModel> data)
         {

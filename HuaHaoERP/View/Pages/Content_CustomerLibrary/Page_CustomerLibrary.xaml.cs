@@ -94,7 +94,10 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
         {
             Helper.Events.PopUpEvent.OnShowPopUp(this, new Page_CustomerLibrary_Popup_AddSupplier());
         }
+        private void DataGrid_Supplier_Row_MouseDoubleClick(object sender, RoutedEventArgs e)
+        {
 
+        }
         #endregion
 
         #region Staff 员工
@@ -109,7 +112,10 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
         {
             Helper.Events.PopUpEvent.OnShowPopUp(this, new Page_CustomerLibrary_Popup_AddStaff());
         }
+        private void DataGrid_Staff_Row_MouseDoubleClick(object sender, RoutedEventArgs e)
+        {
 
+        }
         #endregion
 
         #region Processors 外加工商
@@ -122,6 +128,14 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
         private void Button_Add_Processors_Click(object sender, RoutedEventArgs e)
         {
             Helper.Events.PopUpEvent.OnShowPopUp(this, new Page_CustomerLibrary_Popup_AddProcessors());
+        }
+        private void DataGrid_Processors_Row_MouseDoubleClick(object sender, RoutedEventArgs e)
+        {
+            if (this.DataGrid_Processors.SelectedCells.Count != 0)
+            {
+                HuaHaoERP.Model.ProcessorsModel data = this.DataGrid_Processors.SelectedCells[0].Item as HuaHaoERP.Model.ProcessorsModel;
+                Helper.Events.PopUpEvent.OnShowPopUp(this, new Page_CustomerLibrary_Popup_AddProcessors(data));
+            }
         }
         #endregion
 

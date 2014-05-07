@@ -26,6 +26,31 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
         {
             InitializeComponent();
         }
+        public Page_CustomerLibrary_Popup_AddProcessors(object data)
+        {
+            InitializeComponent();
+            isNew = false;
+            InitializeData((Model.ProcessorsModel)data);
+        }
+        private void InitializeData(Model.ProcessorsModel d)
+        {
+            this.d = d;
+            OldGuid = d.Guid;
+            this.TextBox_Number.Text = d.Number;
+            this.TextBox_Name.Text = d.Name;
+            this.TextBox_Address.Text = d.Address;
+            this.TextBox_Area.Text = d.Area;
+            this.TextBox_Phone.Text = d.Phone;
+            this.TextBox_MobilePhone.Text = d.MobilePhone;
+            this.TextBox_Fax.Text = d.Fax;
+            this.TextBox_Business.Text = d.Business;
+            this.TextBox_Clerk.Text = d.Clerk;
+            this.TextBox_OpeningBank.Text = d.OpeningBank;
+            this.TextBox_BankCardNo.Text = d.BankCardNo.ToString();
+            this.TextBox_BankCardName.Text = d.BankCardName;
+            this.TextBox_Remark.Text = d.Remark;
+            OldAddTime = d.AddTime.ToString();
+        }
 
         private bool CheckAndGetData()
         {
@@ -63,6 +88,17 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             if (CheckAndGetData())
             {
                 Helper.Events.ProcessorsEvent.OnAdd(this, d);
+                if (!isNew)
+                {
+                    Model.ProcessorsModel dOld = new Model.ProcessorsModel();
+                    dOld.Guid = OldGuid;
+                    Helper.Events.ProcessorsEvent.OnDelete(this, dOld);
+                    Helper.Events.StatusBarMessageEvent.OnUpdateMessage(this, "修改外加工商：" + d.Name);
+                }
+                else
+                {
+                    Helper.Events.StatusBarMessageEvent.OnUpdateMessage(this, "添加外加工商：" + d.Name);
+                }
                 Button_Cancel_Click(null, null);
             }
             else

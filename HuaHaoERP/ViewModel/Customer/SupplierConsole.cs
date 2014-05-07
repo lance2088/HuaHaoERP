@@ -19,15 +19,17 @@ namespace HuaHaoERP.ViewModel.Customer
         }
         internal bool Delete(SupplierModel d)
         {
-
-
-            return false;
+            bool flag = true;
+            string sql = "Delete From T_Supplier Where GUID='" + d.Guid + "'";
+            flag = new Helper.SQLite.DBHelper().SingleExecution(sql);
+            return flag;
         }
         internal bool MarkDelete(SupplierModel d)
         {
-
-
-            return false;
+            bool flag = true;
+            string sql = "Update T_Supplier Set DeleteMark='" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' Where GUID='" + d.Guid + "'";
+            flag = new Helper.SQLite.DBHelper().SingleExecution(sql);
+            return flag;
         }
         internal bool ReadList(out List<SupplierModel> data)
         {
