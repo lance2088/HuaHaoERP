@@ -10,7 +10,7 @@ namespace HuaHaoERP.Helper.Events
     {
         public static EventHandler<StaffEventArgs> EAdd;
         public static EventHandler<StaffEventArgs> EDelete;
-        public static EventHandler<StaffEventArgs> EModify;
+        public static EventHandler<StaffEventArgs> EMarkDelete;
         public static EventHandler EUpdateDataGrid;
 
         internal static void OnAdd(object sender, StaffModel StaffData)
@@ -31,13 +31,13 @@ namespace HuaHaoERP.Helper.Events
                 EDelete(sender, ee);
             }
         }
-        internal static void OnModify(object sender, StaffModel StaffData)
+        internal static void OnMarkDelete(object sender, StaffModel StaffData)
         {
-            if (EModify != null)
+            if (EMarkDelete != null)
             {
                 StaffEventArgs ee = new StaffEventArgs();
                 ee.StaffData = StaffData;
-                EModify(sender, ee);
+                EMarkDelete(sender, ee);
             }
         }
         internal static void OnUpdateDataGrid(object sender, EventArgs e)

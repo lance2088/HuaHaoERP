@@ -107,7 +107,7 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
         #region Processors 外加工商
         private void Button_Add_Processors_Click(object sender, RoutedEventArgs e)
         {
-
+            Helper.Events.PopUpEvent.OnShowPopUp(this, new Page_CustomerLibrary_Popup_AddProcessors());
         }
         #endregion
 

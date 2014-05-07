@@ -25,6 +25,45 @@ namespace HuaHaoERP.ViewModel
             {
                 new ViewModel.Customer.CustomerConsole().MarkDelete(e.CustomerData);
             };
+
+            ProcessorsEvent.EAdd += (sender, e) =>
+            {
+                new ViewModel.Customer.ProcessorsConsole().Add(e.ProcessorsData);
+            };
+            ProcessorsEvent.EDelete += (sender, e) =>
+            {
+                new ViewModel.Customer.ProcessorsConsole().Delete(e.ProcessorsData);
+            };
+            ProcessorsEvent.EMarkDelete += (sender, e) =>
+            {
+                new ViewModel.Customer.ProcessorsConsole().MarkDelete(e.ProcessorsData);
+            };
+
+            StaffEvent.EAdd += (sender, e) =>
+            {
+                new ViewModel.Customer.StaffConsole().Add(e.StaffData);
+            };
+            StaffEvent.EDelete += (sender, e) =>
+            {
+                new ViewModel.Customer.StaffConsole().Delete(e.StaffData);
+            };
+            StaffEvent.EMarkDelete += (sender, e) =>
+            {
+                new ViewModel.Customer.StaffConsole().MarkDelete(e.StaffData);
+            };
+
+            SupplierEvent.EAdd += (sender, e) =>
+            {
+                new ViewModel.Customer.SupplierConsole().Add(e.SupplierData);
+            };
+            SupplierEvent.EDelete += (sender, e) =>
+            {
+                new ViewModel.Customer.SupplierConsole().Delete(e.SupplierData);
+            };
+            SupplierEvent.EMarkDelete += (sender, e) =>
+            {
+                new ViewModel.Customer.SupplierConsole().MarkDelete(e.SupplierData);
+            };
         }
     }
 }
