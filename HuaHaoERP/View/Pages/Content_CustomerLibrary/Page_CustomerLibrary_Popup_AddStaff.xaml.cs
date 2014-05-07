@@ -33,7 +33,6 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
         {
             InitializeComponent();
             this.DatePicker_DepartureTime.IsEnabled = false;
-            this.DatePicker_EntryTime.SelectedDate = DateTime.Now;
             this.DatePicker_DepartureTime.SelectedDate = DateTime.Now;
             isNew = false;
             InitializeData((Model.StaffModel)data);
