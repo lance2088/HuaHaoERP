@@ -23,5 +23,15 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
         {
             InitializeComponent();
         }
+
+        private void Button_Commit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Cancel_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

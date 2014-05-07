@@ -116,10 +116,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\Content_MeansOfProduction\Page_MeansOfProduction_Popup_AddSemifinishedProduct.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\Pages\Content_ProductionManagement\Page_ProductionManagement.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -232,9 +228,6 @@
     </Compile>
     <Compile Include="View\Pages\Content_MeansOfProduction\Page_MeansOfProduction_Popup_AddRawMaterials.xaml.cs">
       <DependentUpon>Page_MeansOfProduction_Popup_AddRawMaterials.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Pages\Content_MeansOfProduction\Page_MeansOfProduction_Popup_AddSemifinishedProduct.xaml.cs">
-      <DependentUpon>Page_MeansOfProduction_Popup_AddSemifinishedProduct.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\Content_ProductionManagement\Page_ProductionManagement.xaml.cs">
       <DependentUpon>Page_ProductionManagement.xaml</DependentUpon>

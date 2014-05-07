@@ -31,15 +31,6 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
 
         #endregion
 
-        #region SemifinishedProduct 半成品
-
-        private void Button_AddSemifinishedProduct_Click(object sender, RoutedEventArgs e)
-        {
-            PopUpEvent.OnShowPopUp(this, new HuaHaoERP.View.Pages.Content_MeansOfProduction.Page_MeansOfProduction_Popup_AddSemifinishedProduct());
-        }
-
-        #endregion
-
         #region RawMaterials 原料
 
         private void Button_AddRawMaterials_Click(object sender, RoutedEventArgs e)
@@ -49,10 +40,5 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
 
         #endregion
 
-        
-
-        
-
-        
     }
 }
