@@ -5,7 +5,7 @@ using System.Text;
 
 namespace HuaHaoERP.Model
 {
-    class SupplierModel
+    class ProcessorsModel
     {
         private Guid guid;
         private string number;

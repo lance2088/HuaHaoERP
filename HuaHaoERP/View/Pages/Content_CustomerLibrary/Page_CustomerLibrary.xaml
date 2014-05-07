@@ -63,7 +63,7 @@
                             <DataGridTextColumn Header="GUID" Visibility="Hidden"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button x:Name="Button_Add" Content="添加" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" />
+                    <Button x:Name="Button_Add_Processors" Content="添加" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Click="Button_Add_Processors_Click" />
                 </Grid>
             </TabItem>
         </TabControl>

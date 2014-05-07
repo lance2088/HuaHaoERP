@@ -39,6 +39,7 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             {
                 InitializeStaffDataGrid();
             };
+            
         }
 
         #region Customer 客户
@@ -103,6 +104,12 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
 
         #endregion
 
-        
+        #region Processors 外加工商
+        private void Button_Add_Processors_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        #endregion
+
     }
 }
