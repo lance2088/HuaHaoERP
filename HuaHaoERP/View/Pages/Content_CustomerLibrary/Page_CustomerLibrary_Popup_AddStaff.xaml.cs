@@ -19,17 +19,45 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
         public Page_CustomerLibrary_Popup_AddStaff()
         {
             InitializeComponent();
+            this.DatePicker_DepartureTime.IsEnabled = false;
+        }
+
+        private bool CheckAndGetData()
+        {
+            bool flag = true;
+
+            return flag;
         }
 
         private void Button_Commit_Click(object sender, RoutedEventArgs e)
         {
+            if (CheckAndGetData())
+            {
 
-            Helper.Events.PopUpEvent.OnHidePopUp(this);
+                Button_Cancel_Click(null, null);
+            }
+            else
+            {
+
+            }
         }
 
         private void Button_Cancel_Click(object sender, RoutedEventArgs e)
         {
             Helper.Events.PopUpEvent.OnHidePopUp(this);
+        }
+
+        private void CheckBox_isDeparture_Click(object sender, RoutedEventArgs e)
+        {
+            bool isDeparture = (bool)this.CheckBox_isDeparture.IsChecked;
+            if (isDeparture)
+            {
+                this.DatePicker_DepartureTime.IsEnabled = true;
+            }
+            else
+            {
+                this.DatePicker_DepartureTime.IsEnabled = false;
+            }
         }
     }
 }
