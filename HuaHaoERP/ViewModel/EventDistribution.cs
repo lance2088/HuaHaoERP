@@ -16,14 +16,17 @@ namespace HuaHaoERP.ViewModel
             CustomerEvent.EAdd += (sender, e) =>
             {
                 new ViewModel.Customer.CustomerConsole().Add(e.CustomerData);
+                CustomerEvent.OnUpdateDataGrid(sender, new EventArgs());
             };
             CustomerEvent.EDelete += (sender, e) =>
             {
                 new ViewModel.Customer.CustomerConsole().Delete(e.CustomerData);
+                CustomerEvent.OnUpdateDataGrid(sender, new EventArgs());
             };
             CustomerEvent.EMarkDelete += (sender, e) =>
             {
                 new ViewModel.Customer.CustomerConsole().MarkDelete(e.CustomerData);
+                CustomerEvent.OnUpdateDataGrid(sender, new EventArgs());
             };
 
             ProcessorsEvent.EAdd += (sender, e) =>

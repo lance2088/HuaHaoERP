@@ -101,7 +101,6 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
                 {
                     StatusBarMessageEvent.OnUpdateMessage(this, "添加用户：" + d.Name);
                 }
-                CustomerEvent.OnUpdateDataGrid(this, new EventArgs());
                 Button_Cancel_Click(null, null);
             }
             else
