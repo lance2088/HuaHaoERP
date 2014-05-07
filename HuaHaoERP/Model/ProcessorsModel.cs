@@ -14,6 +14,13 @@ namespace HuaHaoERP.Model
             get { return guid; }
             set { guid = value; }
         }
+        private int id;
+
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
         private string number;
 
         public string Number

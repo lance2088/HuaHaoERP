@@ -32,14 +32,17 @@ namespace HuaHaoERP.ViewModel
             ProcessorsEvent.EAdd += (sender, e) =>
             {
                 new ViewModel.Customer.ProcessorsConsole().Add(e.ProcessorsData);
+                ProcessorsEvent.OnUpdateDataGrid(sender, new EventArgs());
             };
             ProcessorsEvent.EDelete += (sender, e) =>
             {
                 new ViewModel.Customer.ProcessorsConsole().Delete(e.ProcessorsData);
+                ProcessorsEvent.OnUpdateDataGrid(sender, new EventArgs());
             };
             ProcessorsEvent.EMarkDelete += (sender, e) =>
             {
                 new ViewModel.Customer.ProcessorsConsole().MarkDelete(e.ProcessorsData);
+                ProcessorsEvent.OnUpdateDataGrid(sender, new EventArgs());
             };
 
             StaffEvent.EAdd += (sender, e) =>

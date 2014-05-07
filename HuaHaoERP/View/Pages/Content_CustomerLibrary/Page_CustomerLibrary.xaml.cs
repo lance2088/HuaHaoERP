@@ -24,6 +24,7 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             InitializeCustomerDataGrid();
             InitializeSupplierDataGrid();
             InitializeStaffDataGrid();
+            InitializeProcessorsDataGrid();
         }
         private void SubscribeToEvent()
         {
@@ -39,7 +40,10 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             {
                 InitializeStaffDataGrid();
             };
-            
+            ProcessorsEvent.EUpdateDataGrid += (sender, e) =>
+            {
+                InitializeProcessorsDataGrid();
+            };
         }
 
         #region Customer 客户
@@ -105,6 +109,12 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
         #endregion
 
         #region Processors 外加工商
+        private void InitializeProcessorsDataGrid()
+        {
+            List<Model.ProcessorsModel> data;
+            new ViewModel.Customer.ProcessorsConsole().ReadList(out data);
+            this.DataGrid_Processors.ItemsSource = data;
+        }
         private void Button_Add_Processors_Click(object sender, RoutedEventArgs e)
         {
             Helper.Events.PopUpEvent.OnShowPopUp(this, new Page_CustomerLibrary_Popup_AddProcessors());
