@@ -26,7 +26,7 @@
         <TextBox Height="24" Margin="85,300,195,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
         <TextBox Height="24" Margin="85,340,137,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
         <TextBox Height="24" Margin="90,300,10,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.Column="1"/>
-        <TextBox Height="48" Margin="85,380,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <TextBox Height="48" Margin="85,380,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="2" AcceptsReturn="True"/>
         <Label Content="加工商编号*" HorizontalAlignment="Left" Margin="10,20,0,0" VerticalAlignment="Top"/>
         <Label Content="地区" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top"/>
         <Label Content="区域" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top"/>

@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      mc:Ignorable="d" 
+      mc:Ignorable="d" FontFamily="SimSun" TextOptions.TextFormattingMode="Display"
       d:DesignHeight="480" d:DesignWidth="783"
 	Title="Page1_Popup_AddStaff">
 
@@ -14,6 +14,24 @@
         </Grid.ColumnDefinitions>
         <Button x:Name="Button_Commit" Content="确定" HorizontalAlignment="Right" Margin="0,0,20,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Click="Button_Commit_Click"/>
         <Button x:Name="Button_Cancel" Content="取消" Grid.Column="1" HorizontalAlignment="Left" Margin="20,0,0,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Click="Button_Cancel_Click"/>
-
+        <TextBox Height="24" Margin="85,20,195,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
+        <TextBox Height="24" Margin="85,60,195,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
+        <TextBox Height="24" Margin="85,100,195,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
+        <DatePicker HorizontalAlignment="Left" Margin="85,140,0,0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+        <TextBox Height="24" Margin="70,140,10,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.Column="1" IsReadOnly="True" Focusable="False"/>
+        <TextBox Height="24" Margin="85,180,195,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
+        <TextBox Height="24" Margin="85,220,195,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
+        <TextBox Height="48" Margin="85,260,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="2" AcceptsReturn="True"/>
+        <Label Content="工号" HorizontalAlignment="Left" Margin="10,20,0,0" VerticalAlignment="Top"/>
+        <Label Content="姓名" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top"/>
+        <Label Content="工种" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top"/>
+        <Label Content="入厂时间" HorizontalAlignment="Left" Margin="10,140,0,0" VerticalAlignment="Top"/>
+        <Label Content="工龄" HorizontalAlignment="Left" Margin="31,140,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <Label Content="联系方式" HorizontalAlignment="Left" Margin="10,180,0,0" VerticalAlignment="Top"/>
+        <Label Content="身份证号" HorizontalAlignment="Left" Margin="10,220,0,0" VerticalAlignment="Top"/>
+        <Label Content="备注" HorizontalAlignment="Left" Margin="10,260,0,0" VerticalAlignment="Top"/>
+        <Label Content="离职时间" HorizontalAlignment="Left" Margin="7,324,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <CheckBox Content="是否离职" HorizontalAlignment="Left" Margin="85,324,0,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" Padding="4,0,0,0"/>
+        <DatePicker Grid.Column="1" HorizontalAlignment="Left" Margin="70,324,0,0" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Page>
