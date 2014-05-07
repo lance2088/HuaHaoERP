@@ -198,11 +198,6 @@
     <Compile Include="ViewModel\Customer\SupplierConsole.cs" />
     <Compile Include="ViewModel\EventDistribution.cs" />
     <Compile Include="ViewModel\Customer\CustomerConsole.cs" />
-    <Compile Include="ViewModel\Process1\Class1.cs" />
-    <Compile Include="ViewModel\Process2\Class1.cs" />
-    <Compile Include="ViewModel\Process3\Class1.cs" />
-    <Compile Include="ViewModel\Process4\Class1.cs" />
-    <Compile Include="ViewModel\Process5\Class1.cs" />
     <Compile Include="View\Pages\Content_CustomerLibrary\Page_CustomerLibrary.xaml.cs">
       <DependentUpon>Page_CustomerLibrary.xaml</DependentUpon>
     </Compile>
