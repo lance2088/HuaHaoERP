@@ -58,19 +58,6 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
         {
             Helper.Events.PopUpEvent.OnShowPopUp(this, new Page_CustomerLibrary_Popup_AddCustomer());
         }
-        private void DataGrid_Customer_LoadingRow(object sender, DataGridRowEventArgs e)
-        {
-            e.Row.MouseRightButtonDown += (s, a) =>
-            {
-                a.Handled = true;
-                (sender as DataGrid).SelectedIndex = (s as DataGridRow).GetIndex();
-                (s as DataGridRow).Focus();
-                this.Popup.IsOpen = true;
-                HuaHaoERP.Model.CustomerModel asd = this.DataGrid_Customer.SelectedCells[0].Item as HuaHaoERP.Model.CustomerModel;
-                this.Frame_RightKeyMenu.Content = new Page_CustomerLibrary_Popup_RightKey();
-                //this.L_A.Content = asd.Name;
-            };
-        }
         private void DataGrid_Customer_Row_MouseDoubleClick(object sender, RoutedEventArgs e)
         {
             if (this.DataGrid_Customer.SelectedCells.Count != 0)
