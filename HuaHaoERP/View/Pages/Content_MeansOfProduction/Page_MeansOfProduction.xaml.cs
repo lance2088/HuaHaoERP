@@ -22,23 +22,28 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
             InitializeComponent();
         }
 
-        #region Product 产品
 
+        #region Product 产品
         private void Button_AddProduct_Click(object sender, RoutedEventArgs e)
         {
             PopUpEvent.OnShowPopUp(this, new HuaHaoERP.View.Pages.Content_MeansOfProduction.Page_MeansOfProduction_Popup_AddProduct());
         }
+        private void Button_DeleteProduct_Click(object sender, RoutedEventArgs e)
+        {
 
+        }
         #endregion
 
-        #region RawMaterials 原料
 
+        #region RawMaterials 原料
         private void Button_AddRawMaterials_Click(object sender, RoutedEventArgs e)
         {
             PopUpEvent.OnShowPopUp(this, new HuaHaoERP.View.Pages.Content_MeansOfProduction.Page_MeansOfProduction_Popup_AddRawMaterials());
         }
+        private void Button_DeleteRawMaterials_Click(object sender, RoutedEventArgs e)
+        {
 
+        }
         #endregion
-
     }
 }
