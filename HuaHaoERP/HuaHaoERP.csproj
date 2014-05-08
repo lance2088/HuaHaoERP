@@ -191,6 +191,8 @@
     <Compile Include="Helper\XML\Reader.cs" />
     <Compile Include="Model\CustomerModel.cs" />
     <Compile Include="Model\ProcessorsModel.cs" />
+    <Compile Include="Model\ProductModel.cs" />
+    <Compile Include="Model\RawMaterialsModel.cs" />
     <Compile Include="Model\StaffModel.cs" />
     <Compile Include="Model\SupplierModel.cs" />
     <Compile Include="ViewModel\Customer\ProcessorsConsole.cs" />
