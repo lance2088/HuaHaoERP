@@ -38,16 +38,16 @@
                             </Style>
                         </DataGrid.Resources>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding Guid}" Header="GUID" Visibility="Hidden"/>
-                            <DataGridTextColumn Binding="{Binding Id}" Header="序号"/>
-                            <DataGridTextColumn Binding="{Binding Number}" Header="材料编号"/>
-                            <DataGridTextColumn Binding="{Binding Name}" Header="材料名称"/>
-                            <DataGridTextColumn Binding="{Binding Weight}" Header="重量"/>
-                            <DataGridTextColumn Binding="{Binding Material}" Header="材质"/>
-                            <DataGridTextColumn Binding="{Binding SupplierNumber}" Header="供应商"/>
-                            <DataGridTextColumn Binding="{Binding Sp1}" Header="亮麻版"/>
-                            <DataGridTextColumn Binding="{Binding Sp2}" Header="深浅拉"/>
-                            <DataGridTextColumn Binding="{Binding Remark}" Header="备注"/>
+                            <DataGridTextColumn Binding="{Binding Guid}" Header="GUID" Visibility="Hidden" ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}"/>
+                            <DataGridTextColumn Binding="{Binding Id}" Header="序号" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Binding="{Binding Number}" Header="材料编号" ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}"/>
+                            <DataGridTextColumn Binding="{Binding Name}" Header="材料名称" ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}"/>
+                            <DataGridTextColumn Binding="{Binding Weight}" Header="重量" ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}"/>
+                            <DataGridTextColumn Binding="{Binding Material}" Header="材质" ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}"/>
+                            <DataGridTextColumn Binding="{Binding SupplierNumber}" Header="供应商" ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}"/>
+                            <DataGridTextColumn Binding="{Binding Sp1}" Header="亮麻版" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Binding="{Binding Sp2}" Header="深浅拉" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Binding="{Binding Remark}" Header="备注" ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <Button x:Name="Button_AddRawMaterials" Content="添加" HorizontalAlignment="Right" Margin="0,10,90,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Click="Button_AddRawMaterials_Click"/>
