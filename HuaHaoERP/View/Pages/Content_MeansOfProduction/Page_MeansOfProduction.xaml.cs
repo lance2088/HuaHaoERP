@@ -66,7 +66,11 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
         }
         private void Button_DeleteRawMaterials_Click(object sender, RoutedEventArgs e)
         {
-
+            if (this.DataGrid_RawMaterials.SelectedCells.Count > 0)
+            {
+                HuaHaoERP.Model.RawMaterialsModel data = this.DataGrid_RawMaterials.SelectedCells[0].Item as HuaHaoERP.Model.RawMaterialsModel;
+                Helper.Events.RawMaterialsEvent.OnMarkDelete(this, data);
+            }
         }
         #endregion
     }
