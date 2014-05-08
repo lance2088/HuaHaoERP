@@ -11,7 +11,7 @@
         <TabControl Margin="0" BorderThickness="0" Padding="0">
             <TabItem Header="客户管理" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Height="25" Margin="7,0,-7,0" Foreground="White">
                 <Grid Background="White">
-                    <DataGrid x:Name="DataGrid_Customer" Margin="0,40,0,0" BorderThickness="0,1,0,0" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" HeadersVisibility="Column" IsReadOnly="True">
+                    <DataGrid x:Name="DataGrid_Customer" Margin="0,40,0,0" BorderThickness="0" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" HeadersVisibility="Column" IsReadOnly="True" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" BorderBrush="{x:Null}" CellStyle="{DynamicResource DataGridCellStyleCommon}" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF">
                         <DataGrid.Resources>
                             <Style TargetType="DataGridRow">
                                 <EventSetter Event="MouseDoubleClick" Handler="DataGrid_Customer_Row_MouseDoubleClick" />
