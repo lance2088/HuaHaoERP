@@ -51,6 +51,10 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
         private bool CheckAndGetData()
         {
             bool flag = true;
+            if (this.TextBox_Number.Text.Trim() == "" || this.TextBox_Name.Text.Trim() == "")
+            {
+                return false;
+            }
             Guid = Guid.NewGuid();
             d.Guid = Guid;
             d.Number = this.TextBox_Number.Text.Trim();
@@ -88,12 +92,12 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
                     RawMaterialsEvent.OnDelete(this, dOld);
                     StatusBarMessageEvent.OnUpdateMessage(this, "修改原材料：" + d.Name);
                 }
+                Button_Cancel_Click(null, null);
             }
             else
             {
                 StatusBarMessageEvent.OnUpdateMessage(this, "添加/修改原材料失败");
             }
-            Button_Cancel_Click(null, null);
         }
     }
 }
