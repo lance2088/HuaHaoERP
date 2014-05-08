@@ -31,19 +31,18 @@
             </TabItem>
             <TabItem Header="原材料" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="17,0,-17,0" Foreground="White">
                 <Grid Background="White">
-                    <DataGrid x:Name="DataGrid_RawMaterials" Margin="0,40,0,0" BorderThickness="0" BorderBrush="{x:Null}" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" CellStyle="{DynamicResource DataGridCellStyleCommon}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}">
+                    <DataGrid x:Name="DataGrid_RawMaterials" Margin="0,40,0,0" BorderThickness="0" BorderBrush="{x:Null}" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" CellStyle="{DynamicResource DataGridCellStyleCommon}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" AutoGenerateColumns="False">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="GUID" Visibility="Hidden"/>
-                            <DataGridTextColumn Header="序号"/>
-                            <DataGridTextColumn Header="材料编号"/>
-                            <DataGridTextColumn Header="材料名称"/>
-                            <DataGridTextColumn Header="重量"/>
-                            <DataGridTextColumn Header="材质"/>
-                            <DataGridTextColumn Header="供应商"/>
-                            <DataGridTextColumn Header="来料日期"/>
-                            <DataGridTextColumn Header="亮麻版"/>
-                            <DataGridTextColumn Header="深浅拉"/>
-                            <DataGridTextColumn Header="备注"/>
+                            <DataGridTextColumn Binding="{Binding Guid}" Header="GUID" Visibility="Hidden"/>
+                            <DataGridTextColumn Binding="{Binding Id}" Header="序号"/>
+                            <DataGridTextColumn Binding="{Binding Number}" Header="材料编号"/>
+                            <DataGridTextColumn Binding="{Binding Name}" Header="材料名称"/>
+                            <DataGridTextColumn Binding="{Binding Weight}" Header="重量"/>
+                            <DataGridTextColumn Binding="{Binding Material}" Header="材质"/>
+                            <DataGridTextColumn Binding="{Binding SupplierNumber}" Header="供应商"/>
+                            <DataGridTextColumn Binding="{Binding Sp1}" Header="亮麻版"/>
+                            <DataGridTextColumn Binding="{Binding Sp2}" Header="深浅拉"/>
+                            <DataGridTextColumn Binding="{Binding Remark}" Header="备注"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <Button x:Name="Button_AddRawMaterials" Content="添加" HorizontalAlignment="Right" Margin="0,10,90,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Click="Button_AddRawMaterials_Click"/>

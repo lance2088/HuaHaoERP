@@ -20,10 +20,28 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
         public Page_MeansOfProduction()
         {
             InitializeComponent();
+            SubscribeToEvent();
+            InitializeProductDataGrid();
+            InitializeRawMaterialsDataGrid();
         }
 
+        private void SubscribeToEvent()
+        {
+            ProductEvent.EUpdateDataGrid += (s, e) =>
+            {
+                InitializeProductDataGrid();
+            };
+            RawMaterialsEvent.EUpdateDataGrid += (s, e) =>
+            {
+                InitializeRawMaterialsDataGrid();
+            };
+        }
 
         #region Product 产品
+        private void InitializeProductDataGrid()
+        {
+
+        }
         private void Button_AddProduct_Click(object sender, RoutedEventArgs e)
         {
             PopUpEvent.OnShowPopUp(this, new HuaHaoERP.View.Pages.Content_MeansOfProduction.Page_MeansOfProduction_Popup_AddProduct());
@@ -36,6 +54,12 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
 
 
         #region RawMaterials 原料
+        private void InitializeRawMaterialsDataGrid()
+        {
+            List<Model.RawMaterialsModel> data;
+            new ViewModel.MeansOfProduction.RawMaterialsConsole().ReadList(out data);
+            this.DataGrid_RawMaterials.ItemsSource = data;
+        }
         private void Button_AddRawMaterials_Click(object sender, RoutedEventArgs e)
         {
             PopUpEvent.OnShowPopUp(this, new HuaHaoERP.View.Pages.Content_MeansOfProduction.Page_MeansOfProduction_Popup_AddRawMaterials());

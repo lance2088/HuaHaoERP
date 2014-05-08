@@ -56,13 +56,6 @@ namespace HuaHaoERP.Model
             get { return supplierNumber; }
             set { supplierNumber = value; }
         }
-        private string incomingDate;
-
-        public string IncomingDate
-        {
-            get { return incomingDate; }
-            set { incomingDate = value; }
-        }
         private string sp1;
 
         public string Sp1

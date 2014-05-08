@@ -17,9 +17,46 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
 {
     public partial class Page_MeansOfProduction_Popup_AddRawMaterials : Page
     {
+        private Model.RawMaterialsModel d = new Model.RawMaterialsModel();
+        private Guid Guid;
+        private Guid OldGuid;
+        private string OldAddTime = "";
+        private bool isNew = true;
+
         public Page_MeansOfProduction_Popup_AddRawMaterials()
         {
             InitializeComponent();
+        }
+        public Page_MeansOfProduction_Popup_AddRawMaterials(object data)
+        {
+            InitializeComponent();
+            isNew = false;
+            InitializeData((Model.RawMaterialsModel)data);
+        }
+
+        private void InitializeData(Model.RawMaterialsModel d)
+        {
+
+        }
+
+        private bool CheckAndGetData()
+        {
+            bool flag = true;
+            Guid = Guid.NewGuid();
+            d.Guid = Guid;
+            d.Number = this.TextBox_Number.Text.Trim();
+            d.Name = this.TextBox_Name.Text.Trim();
+            d.Weight = this.TextBox_Weight.Text.Trim();
+            d.Material = this.TextBox_Material.Text.Trim();
+            //d.SupplierNumber = this.ComboBox_Supplier.Text;
+            d.Sp1 = this.ComboBox_Sp1.Text;
+            d.Sp2 = this.ComboBox_Sp2.Text;
+            d.Remark = this.TextBox_Remark.Text.Trim();
+            if (OldAddTime == "")
+            {
+                d.AddTime = DateTime.Now;
+            }
+            return flag;
         }
 
         private void Button_Cancel_Click(object sender, RoutedEventArgs e)
@@ -29,7 +66,25 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
 
         private void Button_Commit_Click(object sender, RoutedEventArgs e)
         {
-
+            if (CheckAndGetData())
+            {
+                RawMaterialsEvent.OnAdd(this, d);
+                if(isNew)
+                {
+                    StatusBarMessageEvent.OnUpdateMessage(this, "添加原材料：" + d.Name);
+                }
+                else
+                {
+                    Model.RawMaterialsModel dOld = new Model.RawMaterialsModel();
+                    dOld.Guid = OldGuid;
+                    RawMaterialsEvent.OnDelete(this, dOld);
+                    StatusBarMessageEvent.OnUpdateMessage(this, "修改原材料：" + d.Name);
+                }
+            }
+            else
+            {
+                StatusBarMessageEvent.OnUpdateMessage(this, "添加/修改原材料失败");
+            }
             Button_Cancel_Click(null, null);
         }
     }
