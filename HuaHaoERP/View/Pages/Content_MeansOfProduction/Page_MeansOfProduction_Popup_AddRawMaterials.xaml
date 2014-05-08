@@ -14,6 +14,32 @@
         </Grid.ColumnDefinitions>
         <Button x:Name="Button_Commit" Content="确定" HorizontalAlignment="Right" Margin="0,0,20,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Click="Button_Commit_Click"/>
         <Button x:Name="Button_Cancel" Content="取消" Grid.Column="1" HorizontalAlignment="Left" Margin="20,0,0,20" VerticalAlignment="Bottom" Width="75" IsCancel="True" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Click="Button_Cancel_Click"/>
+        <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="24" Margin="85,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="85,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
+        <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="24" Margin="85,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="85,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
+        <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="24" Margin="85,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
+        <ComboBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="85,180,0,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center"/>
+        <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="24" Margin="85,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
+        <DatePicker HorizontalAlignment="Left" Margin="85,220,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="120" VerticalContentAlignment="Center"/>
+        <ComboBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="85,260,0,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center">
+            <ComboBoxItem Content="亮版" IsSelected="True"/>
+            <ComboBoxItem Content="麻版"/>
+        </ComboBox>
+        <ComboBox HorizontalAlignment="Left" Margin="70,260,0,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center" Grid.Column="1">
+            <ComboBoxItem Content="深拉" IsSelected="True"/>
+            <ComboBoxItem Content="浅拉"/>
+        </ComboBox>
+        <TextBox HorizontalAlignment="Left" Height="48" Margin="85,300,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="305" Grid.ColumnSpan="2" AcceptsReturn="True"/>
+        <Label Content="材料编号" HorizontalAlignment="Left" Margin="10,20,0,0" VerticalAlignment="Top"/>
+        <Label Content="材料名称" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top"/>
+        <Label Content="重量" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top"/>
+        <Label Content="材质" HorizontalAlignment="Left" Margin="10,140,0,0" VerticalAlignment="Top"/>
+        <Label Content="供应商" HorizontalAlignment="Left" Margin="10,180,0,0" VerticalAlignment="Top"/>
+        <Label Content="来料日期" HorizontalAlignment="Left" Margin="10,220,0,0" VerticalAlignment="Top"/>
+        <Label Content="亮麻版" HorizontalAlignment="Left" Margin="10,260,0,0" VerticalAlignment="Top"/>
+        <Label Content="深浅拉" Grid.Column="1" HorizontalAlignment="Left" Margin="29,260,0,0" VerticalAlignment="Top" Padding="0,5"/>
+        <Label Content="备注" HorizontalAlignment="Left" Margin="10,300,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Page>

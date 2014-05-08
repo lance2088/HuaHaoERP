@@ -14,6 +14,22 @@
         </Grid.ColumnDefinitions>
         <Button x:Name="Button_Commit" Content="确定" HorizontalAlignment="Right" Margin="0,0,20,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Click="Button_Commit_Click"/>
         <Button x:Name="Button_Cancel" Content="取消" Grid.Column="1" HorizontalAlignment="Left" Margin="20,0,0,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" IsCancel="True" Click="Button_Cancel_Click"/>
+        <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="24" Margin="85,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="70,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" Grid.Column="1"/>
+        <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="24" Margin="85,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="70,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" Grid.Column="1"/>
+        <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="24" Margin="85,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
+        <TextBox HorizontalAlignment="Left" Height="150" Margin="85,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" AcceptsReturn="True" Grid.ColumnSpan="2"/>
+        <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="24" Margin="85,306,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
+        <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="48" Margin="85,346,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="305" AcceptsReturn="True"/>
+        <Label Content="产品编号" HorizontalAlignment="Left" Margin="10,20,0,0" VerticalAlignment="Top"/>
+        <Label Content="产品材质" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top"/>
+        <Label Content="规格" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top"/>
+        <Label Content="工序" HorizontalAlignment="Left" Margin="10,140,0,0" VerticalAlignment="Top"/>
+        <Label Content="包装个数" HorizontalAlignment="Left" Margin="10,306,0,0" VerticalAlignment="Top"/>
+        <Label Content="备注" HorizontalAlignment="Left" Margin="10,346,0,0" VerticalAlignment="Top"/>
+        <Label Content="产品名称" Grid.Column="1" HorizontalAlignment="Left" Margin="17,20,0,0" VerticalAlignment="Top" Padding="0,5"/>
+        <Label Content="产品类型" Grid.Column="1" HorizontalAlignment="Left" Margin="17,60,0,0" VerticalAlignment="Top" Padding="0,5"/>
 
     </Grid>
 </Page>
