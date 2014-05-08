@@ -13,6 +13,8 @@ namespace HuaHaoERP.ViewModel
     {
         internal static void InitEvent()
         {
+            #region 客户库
+            //客户
             CustomerEvent.EAdd += (sender, e) =>
             {
                 new ViewModel.Customer.CustomerConsole().Add(e.CustomerData);
@@ -28,7 +30,7 @@ namespace HuaHaoERP.ViewModel
                 new ViewModel.Customer.CustomerConsole().MarkDelete(e.CustomerData);
                 CustomerEvent.OnUpdateDataGrid(sender, new EventArgs());
             };
-
+            //外加工商
             ProcessorsEvent.EAdd += (sender, e) =>
             {
                 new ViewModel.Customer.ProcessorsConsole().Add(e.ProcessorsData);
@@ -44,7 +46,7 @@ namespace HuaHaoERP.ViewModel
                 new ViewModel.Customer.ProcessorsConsole().MarkDelete(e.ProcessorsData);
                 ProcessorsEvent.OnUpdateDataGrid(sender, new EventArgs());
             };
-
+            //员工
             StaffEvent.EAdd += (sender, e) =>
             {
                 new ViewModel.Customer.StaffConsole().Add(e.StaffData);
@@ -60,7 +62,7 @@ namespace HuaHaoERP.ViewModel
                 new ViewModel.Customer.StaffConsole().MarkDelete(e.StaffData);
                 StaffEvent.OnUpdateDataGrid(sender, new EventArgs());
             };
-
+            //供应商
             SupplierEvent.EAdd += (sender, e) =>
             {
                 new ViewModel.Customer.SupplierConsole().Add(e.SupplierData);
@@ -76,6 +78,44 @@ namespace HuaHaoERP.ViewModel
                 new ViewModel.Customer.SupplierConsole().MarkDelete(e.SupplierData);
                 SupplierEvent.OnUpdateDataGrid(sender, new EventArgs());
             };
+            #endregion
+
+            #region 生产资料
+            //产品
+            ProductEvent.EAdd += (sender, e) =>
+            {
+                new ViewModel.MeansOfProduction.ProductConsole().Add(e.ProductData);
+                ProductEvent.OnUpdateDataGrid(sender, new EventArgs());
+            };
+            ProductEvent.EDelete += (sender, e) =>
+            {
+                new ViewModel.MeansOfProduction.ProductConsole().Delete(e.ProductData);
+                ProductEvent.OnUpdateDataGrid(sender, new EventArgs());
+            };
+            ProductEvent.EMarkDelete += (sender, e) =>
+            {
+                new ViewModel.MeansOfProduction.ProductConsole().MarkDelete(e.ProductData);
+                ProductEvent.OnUpdateDataGrid(sender, new EventArgs());
+            };
+            //原材料
+            RawMaterialsEvent.EAdd += (sender, e) =>
+            {
+                new ViewModel.MeansOfProduction.RawMaterialsConsole().Add(e.RawMaterialsData);
+                RawMaterialsEvent.OnUpdateDataGrid(sender, new EventArgs());
+            };
+            RawMaterialsEvent.EDelete += (sender, e) =>
+            {
+                new ViewModel.MeansOfProduction.RawMaterialsConsole().Delete(e.RawMaterialsData);
+                RawMaterialsEvent.OnUpdateDataGrid(sender, new EventArgs());
+            };
+            RawMaterialsEvent.EMarkDelete += (sender, e) =>
+            {
+                new ViewModel.MeansOfProduction.RawMaterialsConsole().MarkDelete(e.RawMaterialsData);
+                RawMaterialsEvent.OnUpdateDataGrid(sender, new EventArgs());
+            };
+            #endregion
+
+
         }
     }
 }

@@ -185,6 +185,10 @@
     <Compile Include="Helper\Events\0.Common\StatusBarMessageEventArgs.cs" />
     <Compile Include="Helper\Events\1.Supplier\SupplierEventArgs.cs" />
     <Compile Include="Helper\Events\1.Supplier\SupplierEvent.cs" />
+    <Compile Include="Helper\Events\2.Product\ProductEvent.cs" />
+    <Compile Include="Helper\Events\2.Product\ProductEventArgs.cs" />
+    <Compile Include="Helper\Events\2.RawMaterials\RawMaterialsEvent.cs" />
+    <Compile Include="Helper\Events\2.RawMaterials\RawMaterialsEventArgs.cs" />
     <Compile Include="Helper\Excel\Reader.cs" />
     <Compile Include="Helper\LogHelper\FileLog.cs" />
     <Compile Include="Helper\SQLite\DBHelper.cs" />
