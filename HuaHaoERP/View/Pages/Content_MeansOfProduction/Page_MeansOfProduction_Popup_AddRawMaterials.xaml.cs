@@ -36,7 +36,16 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
 
         private void InitializeData(Model.RawMaterialsModel d)
         {
-
+            this.d = d;
+            OldGuid = d.Guid;
+            this.TextBox_Number.Text = d.Number;
+            this.TextBox_Name.Text = d.Name;
+            this.TextBox_Weight.Text = d.Weight;
+            this.TextBox_Material.Text = d.Material;
+            this.ComboBox_Sp1.Text = d.Sp1;
+            this.ComboBox_Sp2.Text = d.Sp2;
+            this.TextBox_Remark.Text = d.Remark;
+            OldAddTime = d.AddTime.ToString();
         }
 
         private bool CheckAndGetData()
@@ -48,7 +57,6 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
             d.Name = this.TextBox_Name.Text.Trim();
             d.Weight = this.TextBox_Weight.Text.Trim();
             d.Material = this.TextBox_Material.Text.Trim();
-            //d.SupplierNumber = this.ComboBox_Supplier.Text;
             d.Sp1 = this.ComboBox_Sp1.Text;
             d.Sp2 = this.ComboBox_Sp2.Text;
             d.Remark = this.TextBox_Remark.Text.Trim();
