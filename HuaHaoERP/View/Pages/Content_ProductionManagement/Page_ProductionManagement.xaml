@@ -23,7 +23,7 @@
                         <ColumnDefinition Width="428*"/>
                         <ColumnDefinition Width="429*"/>
                     </Grid.ColumnDefinitions>
-                    <DataGrid Margin="10,65,10,40" BorderThickness="1">
+                    <DataGrid Margin="10,65,10,40" BorderThickness="1" CellStyle="{DynamicResource DataGridCellStyleCommon}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" BorderBrush="#FF99CCFF" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="序号"/>
                             <DataGridTextColumn Header="日期"/>
@@ -33,7 +33,7 @@
                         </DataGrid.Columns>
                     </DataGrid>
                     <DatePicker x:Name="DatePicker_外加工" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" MinWidth="120" VerticalContentAlignment="Center" Height="24" Width="120"/>
-                    <DataGrid Grid.Column="1" Margin="10,65,10,40" BorderThickness="1">
+                    <DataGrid Grid.Column="1" Margin="10,65,10,40" BorderThickness="1" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" BorderBrush="#FF99CCFF" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="序号"/>
                             <DataGridTextColumn Header="日期"/>
