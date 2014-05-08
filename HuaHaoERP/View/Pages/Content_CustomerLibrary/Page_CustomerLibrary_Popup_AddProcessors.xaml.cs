@@ -71,9 +71,7 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             d.Business = this.TextBox_Business.Text.Trim();
             d.Clerk = this.TextBox_Clerk.Text.Trim();
             d.OpeningBank = this.TextBox_OpeningBank.Text.Trim();
-            int BankCardNo = 0;
-            flag = int.TryParse(this.TextBox_BankCardNo.Text.Trim(), out BankCardNo);
-            d.BankCardNo = BankCardNo;
+            d.BankCardNo = this.TextBox_BankCardNo.Text.Trim();
             d.BankCardName = this.TextBox_BankCardName.Text.Trim();
             d.Remark = this.TextBox_Remark.Text.Trim();
             if (OldAddTime == "")

@@ -56,7 +56,7 @@ namespace HuaHaoERP.ViewModel.Customer
                     d.Business = dr["Business"].ToString();
                     d.Clerk = dr["Clerk"].ToString();
                     d.OpeningBank = dr["OpeningBank"].ToString();
-                    d.BankCardNo = int.Parse(dr["BankCardNo"].ToString());
+                    d.BankCardNo = dr["BankCardNo"].ToString();
                     d.BankCardName = dr["BankCardName"].ToString();
                     d.Remark = dr["Remark"].ToString();
                     d.AddTime = Convert.ToDateTime(dr["AddTime"]);

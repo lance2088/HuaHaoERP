@@ -91,9 +91,9 @@ namespace HuaHaoERP.Model
             get { return openingBank; }
             set { openingBank = value; }
         }
-        private int bankCardNo;
+        private string bankCardNo;
 
-        public int BankCardNo
+        public string BankCardNo
         {
             get { return bankCardNo; }
             set { bankCardNo = value; }
