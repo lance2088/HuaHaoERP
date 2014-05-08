@@ -68,9 +68,10 @@
                 <Grid Background="White">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="347*"/>
-                        <ColumnDefinition Width="110*"/>
+                        <ColumnDefinition Width="110*" MinWidth="200"/>
                     </Grid.ColumnDefinitions>
                     <DataGrid Margin="10,40,10,10" BorderThickness="1" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column"/>
+                    <Border BorderBrush="#FF99CCFF" BorderThickness="1" Grid.Column="1" Margin="0,40,10,10"/>
                 </Grid>
             </TabItem>
         </TabControl>
