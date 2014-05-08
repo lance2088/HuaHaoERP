@@ -39,7 +39,7 @@
             </TabItem>
             <TabItem Header="供应商管理" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="17,0,-17,0" Foreground="White">
                 <Grid Background="White">
-                    <DataGrid x:Name="DataGrid_Supplier" Margin="0,40,0,0" BorderThickness="0,1,0,0" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" HeadersVisibility="Column" IsReadOnly="True">
+                    <DataGrid x:Name="DataGrid_Supplier" Margin="0,40,0,0" BorderThickness="0" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" HeadersVisibility="Column" IsReadOnly="True" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="{x:Null}" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF">
                         <DataGrid.Resources>
                             <Style TargetType="DataGridRow">
                                 <EventSetter Event="MouseDoubleClick" Handler="DataGrid_Supplier_Row_MouseDoubleClick" />
@@ -69,7 +69,7 @@
             </TabItem>
             <TabItem Header="员工管理" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="27,0,-27,0" Foreground="White">
                 <Grid Background="White">
-                    <DataGrid x:Name="DataGrid_Staff" Margin="0,40,0,0" BorderThickness="0,1,0,0" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" HeadersVisibility="Column" IsReadOnly="True">
+                    <DataGrid x:Name="DataGrid_Staff" Margin="0,40,0,0" BorderThickness="0" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" HeadersVisibility="Column" IsReadOnly="True" BorderBrush="{x:Null}" CellStyle="{DynamicResource DataGridCellStyleCommon}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF">
                         <DataGrid.Resources>
                             <Style TargetType="DataGridRow">
                                 <EventSetter Event="MouseDoubleClick" Handler="DataGrid_Staff_Row_MouseDoubleClick" />
@@ -95,7 +95,7 @@
             </TabItem>
             <TabItem Header="外加工商管理" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="37,0,-37,0" Foreground="White">
                 <Grid Background="White">
-                    <DataGrid x:Name="DataGrid_Processors" Margin="0,40,0,0" BorderThickness="0,1,0,0" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" AutoGenerateColumns="False" HeadersVisibility="Column" IsReadOnly="True">
+                    <DataGrid x:Name="DataGrid_Processors" Margin="0,40,0,0" BorderThickness="0" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" AutoGenerateColumns="False" HeadersVisibility="Column" IsReadOnly="True" BorderBrush="{x:Null}" VerticalGridLinesBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}">
                         <DataGrid.Resources>
                             <Style TargetType="DataGridRow">
                                 <EventSetter Event="MouseDoubleClick" Handler="DataGrid_Processors_Row_MouseDoubleClick" />
