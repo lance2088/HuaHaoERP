@@ -90,7 +90,7 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
         }
         private void DataGrid_Supplier_Row_MouseDoubleClick(object sender, RoutedEventArgs e)
         {
-            if (this.DataGrid_Customer.SelectedCells.Count != 0)
+            if (this.DataGrid_Supplier.SelectedCells.Count != 0)
             {
                 HuaHaoERP.Model.SupplierModel data = this.DataGrid_Supplier.SelectedCells[0].Item as HuaHaoERP.Model.SupplierModel;
                 Helper.Events.PopUpEvent.OnShowPopUp(this, new Page_CustomerLibrary_Popup_AddSupplier(data));
