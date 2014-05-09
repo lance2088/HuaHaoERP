@@ -288,6 +288,7 @@
     <None Include="InternalDoc\Data.db" />
     <None Include="InternalDoc\Design.doc" />
     <None Include="InternalDoc\华浩表格V1.1.xls" />
+    <None Include="InternalDoc\设计文档.xls" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

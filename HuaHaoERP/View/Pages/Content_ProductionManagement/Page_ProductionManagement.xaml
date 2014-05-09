@@ -40,6 +40,9 @@
                             <DataGridTextColumn Header="产品"/>
                             <DataGridTextColumn Header="外加工商"/>
                             <DataGridTextColumn Header="数量"/>
+                            <DataGridTextColumn Header="轻伤"/>
+                            <DataGridTextColumn Header="重伤"/>
+                            <DataGridTextColumn Header="丢失"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <ComboBox HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="100" VerticalContentAlignment="Center"/>
