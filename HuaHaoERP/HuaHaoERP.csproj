@@ -173,6 +173,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Helper\AppInitialize\Initialize.cs" />
+    <Compile Include="Helper\DataDefinition\Process.cs" />
     <Compile Include="Helper\Events\1.Customer\CustomerEvent.cs" />
     <Compile Include="Helper\Events\1.Customer\CustomerEventArgs.cs" />
     <Compile Include="Helper\Events\0.Common\PopUpEvent.cs" />
