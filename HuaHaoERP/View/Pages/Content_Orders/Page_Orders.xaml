@@ -4,16 +4,20 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" FontFamily="SimSun" TextOptions.TextFormattingMode="Display"
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="427" d:DesignWidth="902"
 	Title="Page_Orders">
 
     <Grid>
         <TabControl Margin="0" BorderThickness="0" Padding="0">
             <TabItem Header="供应商订单" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Height="25" Margin="7,0,-7,0" Foreground="White">
-                <Grid Background="#FFF0F0F0"/>
+                <Grid Background="#FFF0F0F0">
+                    <DataGrid Margin="0,40,0,0" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderThickness="0,1,0,0" BorderBrush="#FF99CCFF"/>
+                </Grid>
             </TabItem>
             <TabItem Header="外加工订单" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="17,0,-17,0" Foreground="White">
-                <Grid Background="#FFF0F0F0"/>
+                <Grid Background="#FFF0F0F0">
+                    <DataGrid Margin="0,40,0,0" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" BorderThickness="0,1,0,0"/>
+                </Grid>
             </TabItem>
         </TabControl>
 
