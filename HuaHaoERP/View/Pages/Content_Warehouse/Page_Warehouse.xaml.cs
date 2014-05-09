@@ -20,5 +20,15 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         {
             InitializeComponent();
         }
+
+        private void Button_Commit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Clear_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

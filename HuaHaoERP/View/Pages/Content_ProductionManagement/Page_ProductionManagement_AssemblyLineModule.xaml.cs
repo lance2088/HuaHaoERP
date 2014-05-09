@@ -23,5 +23,10 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         {
             InitializeComponent();
         }
+
+        private void Button_Close_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }

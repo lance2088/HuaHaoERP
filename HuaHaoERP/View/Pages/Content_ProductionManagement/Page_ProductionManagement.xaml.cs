@@ -32,7 +32,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         private void AddAssemblyLineModule()
         {
             Grid g = new Grid();
-            g.Height = 400;
+            g.Height = 300;
             g.Width = 300;
             g.Background = new SolidColorBrush(Colors.LightBlue);
             this.WrapPanel_AssemblyLine.Children.Add(g);
