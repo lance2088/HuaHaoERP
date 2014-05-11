@@ -13,16 +13,16 @@
                 <Grid Background="White">
                     <DataGrid x:Name="DataGrid_Product" Margin="0,40,0,0" BorderThickness="0" BorderBrush="{x:Null}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="GUID" Visibility="Hidden"/>
-                            <DataGridTextColumn Header="序号"/>
-                            <DataGridTextColumn Header="产品编号"/>
-                            <DataGridTextColumn Header="产品名称"/>
-                            <DataGridTextColumn Header="产品材质"/>
-                            <DataGridTextColumn Header="产品类型"/>
-                            <DataGridTextColumn Header="规格"/>
-                            <DataGridTextColumn Header="工序"/>
-                            <DataGridTextColumn Header="包装个数"/>
-                            <DataGridTextColumn Header="备注"/>
+                            <DataGridTextColumn Binding="{Binding Guid}" Header="GUID" Visibility="Hidden"/>
+                            <DataGridTextColumn Binding="{Binding Id}" Header="序号"/>
+                            <DataGridTextColumn Binding="{Binding Number}" Header="产品编号"/>
+                            <DataGridTextColumn Binding="{Binding Name}" Header="产品名称"/>
+                            <DataGridTextColumn Binding="{Binding Material}" Header="产品材质"/>
+                            <DataGridTextColumn Binding="{Binding Type}" Header="产品类型"/>
+                            <DataGridTextColumn Binding="{Binding Specification}" Header="规格"/>
+                            <DataGridTextColumn Binding="{Binding Process}" Header="工序"/>
+                            <DataGridTextColumn Binding="{Binding PackageNumber}" Header="包装个数"/>
+                            <DataGridTextColumn Binding="{Binding Remark}" Header="备注"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <Button x:Name="Button_AddProduct" Content="添加" HorizontalAlignment="Right" Margin="0,10,90,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Click="Button_AddProduct_Click"/>

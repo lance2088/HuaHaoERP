@@ -56,6 +56,13 @@ namespace HuaHaoERP.Model
             get { return specification; }
             set { specification = value; }
         }
+        private string process;
+
+        public string Process
+        {
+            get { return process; }
+            set { process = value; }
+        }
         private string p1;
 
         public string P1

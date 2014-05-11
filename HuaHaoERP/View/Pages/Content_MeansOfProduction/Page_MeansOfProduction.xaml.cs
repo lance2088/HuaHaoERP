@@ -40,7 +40,9 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
         #region Product 产品
         private void InitializeProductDataGrid()
         {
-
+            List<Model.ProductModel> data;
+            new ViewModel.MeansOfProduction.ProductConsole().ReadList(out data);
+            this.DataGrid_Product.ItemsSource = data;
         }
         private void Button_AddProduct_Click(object sender, RoutedEventArgs e)
         {
