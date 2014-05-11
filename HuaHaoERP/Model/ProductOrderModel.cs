@@ -7,5 +7,6 @@ namespace HuaHaoERP.Model
 {
     class ProductOrderModel
     {
+
     }
 }
