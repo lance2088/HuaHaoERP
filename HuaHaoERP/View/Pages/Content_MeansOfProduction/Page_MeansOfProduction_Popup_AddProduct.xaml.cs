@@ -108,7 +108,7 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
         {
             if (CheckAndGetData())
             {
-
+                ProductEvent.OnAdd(this, d);
             }
             Button_Cancel_Click(null, null);
         }
