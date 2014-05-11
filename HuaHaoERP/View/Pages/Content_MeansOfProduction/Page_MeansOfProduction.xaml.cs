@@ -50,7 +50,19 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
         }
         private void Button_DeleteProduct_Click(object sender, RoutedEventArgs e)
         {
-
+            if (this.DataGrid_Product.SelectedCells.Count > 0)
+            {
+                HuaHaoERP.Model.ProductModel data = this.DataGrid_Product.SelectedCells[0].Item as HuaHaoERP.Model.ProductModel;
+                Helper.Events.ProductEvent.OnMarkDelete(this, data);
+            }
+        }
+        private void DataGrid_Product_Row_MouseDoubleClick(object sender, RoutedEventArgs e)
+        {
+            if (this.DataGrid_Product.SelectedCells.Count != 0)
+            {
+                HuaHaoERP.Model.ProductModel data = this.DataGrid_Product.SelectedCells[0].Item as HuaHaoERP.Model.ProductModel;
+                Helper.Events.PopUpEvent.OnShowPopUp(this, new Page_MeansOfProduction_Popup_AddProduct(data));
+            }
         }
         #endregion
 

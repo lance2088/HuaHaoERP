@@ -12,6 +12,11 @@
             <TabItem Header="产品" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Height="25" Margin="7,0,-7,0" Foreground="White">
                 <Grid Background="White">
                     <DataGrid x:Name="DataGrid_Product" Margin="0,40,0,0" BorderThickness="0" BorderBrush="{x:Null}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False">
+                        <DataGrid.Resources>
+                            <Style TargetType="DataGridRow">
+                                <EventSetter Event="MouseDoubleClick" Handler="DataGrid_Product_Row_MouseDoubleClick" />
+                            </Style>
+                        </DataGrid.Resources>
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Guid}" Header="GUID" Visibility="Hidden"/>
                             <DataGridTextColumn Binding="{Binding Id}" Header="序号"/>
