@@ -36,6 +36,7 @@
         <Label Content="业务员" HorizontalAlignment="Left" Margin="20,300,0,0" VerticalAlignment="Top"/>
         <Label Content="欠款上限" HorizontalAlignment="Left" Margin="20,340,0,0" VerticalAlignment="Top"/>
         <Label Content="备注" HorizontalAlignment="Left" Margin="20,380,0,0" VerticalAlignment="Top"/>
+        <Label Content="（数字）" Grid.Column="1" HorizontalAlignment="Left" Margin="5,340,0,0" VerticalAlignment="Top" Padding="0,5"/>
 
     </Grid>
 </Page>

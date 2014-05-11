@@ -41,6 +41,7 @@
         <Label Content="5" HorizontalAlignment="Left" Margin="49,180,0,0" VerticalAlignment="Top" Grid.Column="1"/>
         <Label Content="3" HorizontalAlignment="Left" Margin="64,220,0,0" VerticalAlignment="Top"/>
         <Label Content="6" HorizontalAlignment="Left" Margin="49,220,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <Label Content="（数字）" Grid.Column="1" HorizontalAlignment="Left" Margin="5,306,0,0" VerticalAlignment="Top" Padding="0,5"/>
 
     </Grid>
 </Page>

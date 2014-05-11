@@ -40,6 +40,7 @@
         <Label Content="银行卡号" HorizontalAlignment="Left" Margin="10,340,0,0" VerticalAlignment="Top"/>
         <Label Content="开户人姓名" HorizontalAlignment="Left" Margin="15,300,0,0" VerticalAlignment="Top" Grid.Column="1"/>
         <Label Content="备注" HorizontalAlignment="Left" Margin="10,380,0,0" VerticalAlignment="Top"/>
+        <Label Content="（数字）" Grid.Column="1" HorizontalAlignment="Left" Margin="63,340,0,0" VerticalAlignment="Top" Padding="0,5"/>
 
     </Grid>
 </Page>
