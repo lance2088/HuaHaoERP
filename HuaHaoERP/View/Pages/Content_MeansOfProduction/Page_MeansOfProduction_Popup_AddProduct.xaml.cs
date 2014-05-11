@@ -76,8 +76,15 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
             {
                 return false;
             }
-            Guid = Guid.NewGuid();
-            d.Guid = Guid;
+            if (isNew)
+            {
+                Guid = Guid.NewGuid();
+                d.Guid = Guid;
+            }
+            else
+            {
+                d.Guid = OldGuid;
+            }
             d.Number = this.TextBox_Number.Text.Trim();
             d.Name = this.TextBox_Name.Text.Trim();
             d.Material = this.TextBox_Material.Text.Trim();
@@ -108,7 +115,6 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
         {
             if (CheckAndGetData())
             {
-                ProductEvent.OnAdd(this, d);
                 if (isNew)
                 {
                     StatusBarMessageEvent.OnUpdateMessage(this, "添加产品：" + d.Name);
@@ -120,6 +126,7 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
                     ProductEvent.OnDelete(this, dOld);
                     StatusBarMessageEvent.OnUpdateMessage(this, "修改产品：" + d.Name);
                 }
+                ProductEvent.OnAdd(this, d);
                 Button_Cancel_Click(null, null);
             }
         }

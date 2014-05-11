@@ -60,12 +60,20 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
             {
                 return false;
             }
-            Guid = Guid.NewGuid();
-            d.Guid = Guid;
+            if (isNew)
+            {
+                Guid = Guid.NewGuid();
+                d.Guid = Guid;
+            }
+            else
+            {
+                d.Guid = OldGuid;
+            }
             d.Number = this.TextBox_Number.Text.Trim();
             d.Name = this.TextBox_Name.Text.Trim();
             d.Weight = this.TextBox_Weight.Text.Trim();
             d.Material = this.TextBox_Material.Text.Trim();
+            //d.Supplier = this.ComboBox_Supplier.Text;
             d.Sp1 = this.ComboBox_Sp1.Text;
             d.Sp2 = this.ComboBox_Sp2.Text;
             d.Remark = this.TextBox_Remark.Text.Trim();
@@ -85,7 +93,6 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
         {
             if (CheckAndGetData())
             {
-                RawMaterialsEvent.OnAdd(this, d);
                 if(isNew)
                 {
                     StatusBarMessageEvent.OnUpdateMessage(this, "添加原材料：" + d.Name);
@@ -97,6 +104,7 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
                     RawMaterialsEvent.OnDelete(this, dOld);
                     StatusBarMessageEvent.OnUpdateMessage(this, "修改原材料：" + d.Name);
                 }
+                RawMaterialsEvent.OnAdd(this, d);
                 Button_Cancel_Click(null, null);
             }
             else

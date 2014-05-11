@@ -63,7 +63,6 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             {
                 return false;
             }
-            
             if(isNew)
             {
                 Guid = Guid.NewGuid();
