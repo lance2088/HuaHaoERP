@@ -11,10 +11,19 @@
         <TabControl Margin="0" BorderThickness="0" Padding="0">
             <TabItem Header="出货单" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Height="25" Margin="7,0,-7,0" Foreground="White">
                 <Grid Background="#FFF0F0F0">
-                    <DataGrid Margin="0,40,0,0" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderThickness="0,1,0,0" BorderBrush="#FF99CCFF">
+                    <DataGrid x:Name="DataGrid_ProductOrder" Margin="0,40,0,0" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderThickness="0,1,0,0" BorderBrush="#FF99CCFF" HeadersVisibility="Column" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" AutoGenerateColumns="False">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Guid" Visibility="Hidden"/>
                             <DataGridTextColumn Header="序号"/>
+                            <DataGridTextColumn Header="订单编号"/>
+                            <DataGridTextColumn Header="客户名称"/>
+                            <DataGridTextColumn Header="指定交货日期"/>
+                            <DataGridTextColumn Header="下单日期"/>
+                            <DataGridTextColumn Header="产品名称"/>
+                            <DataGridTextColumn Header="件数"/>
+                            <DataGridTextColumn Header="数量"/>
+                            <DataGridTextColumn Header="单位"/>
+                            <DataGridTextColumn Header="备注"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <Button x:Name="Button_AddProductOrder" Content="添加订单" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Click="Button_AddProductOrder_Click"/>

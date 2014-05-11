@@ -116,8 +116,21 @@ namespace HuaHaoERP.ViewModel
             #endregion
 
             #region 订单
-
-
+            ProductOrderEvent.EAdd += (s, e) =>
+            {
+                new ViewModel.Orders.ProductOrderConsole().Add(e.Data);
+                ProductOrderEvent.OnUpdateDataGrid(s, new EventArgs());
+            };
+            ProductOrderEvent.EDelete += (s, e) =>
+            {
+                new ViewModel.Orders.ProductOrderConsole().Delete(e.Data);
+                ProductOrderEvent.OnUpdateDataGrid(s, new EventArgs());
+            };
+            ProductOrderEvent.EMarkDelete += (s, e) =>
+            {
+                new ViewModel.Orders.ProductOrderConsole().MarkDelete(e.Data);
+                ProductOrderEvent.OnUpdateDataGrid(s, new EventArgs());
+            };
             #endregion
         }
     }

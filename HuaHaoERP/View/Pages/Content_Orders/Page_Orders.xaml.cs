@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using HuaHaoERP.Helper.Events;
 
 namespace HuaHaoERP.View.Pages.Content_Orders
 {
@@ -22,8 +23,22 @@ namespace HuaHaoERP.View.Pages.Content_Orders
         public Page_Orders()
         {
             InitializeComponent();
+            InitializeProductOrderData();
+
+            SubscribeToEvent();
+        }
+        private void SubscribeToEvent()
+        {
+            ProductEvent.EUpdateDataGrid += (s, e) =>
+            {
+                InitializeProductOrderData();
+            };
         }
 
+        private void InitializeProductOrderData()
+        {
+            //this.DataGrid_ProductOrder.ItemsSource
+        }
         private void Button_AddProductOrder_Click(object sender, RoutedEventArgs e)
         {
             Helper.Events.PopUpEvent.OnShowPopUp(this, new Page_Orders_Product());
