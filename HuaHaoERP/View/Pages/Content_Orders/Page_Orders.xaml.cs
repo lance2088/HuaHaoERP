@@ -15,9 +15,6 @@ using HuaHaoERP.Helper.Events;
 
 namespace HuaHaoERP.View.Pages.Content_Orders
 {
-    /// <summary>
-    /// Interaction logic for Page_Orders.xaml
-    /// </summary>
     public partial class Page_Orders : Page
     {
         public Page_Orders()
@@ -29,7 +26,7 @@ namespace HuaHaoERP.View.Pages.Content_Orders
         }
         private void SubscribeToEvent()
         {
-            ProductEvent.EUpdateDataGrid += (s, e) =>
+            ProductOrderEvent.EUpdateDataGrid += (s, e) =>
             {
                 InitializeProductOrderData();
             };
