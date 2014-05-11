@@ -57,7 +57,9 @@ namespace HuaHaoERP.Model
             set { specification = value; }
         }
         private string process;
-
+        /// <summary>
+        /// 仅供使用，数据库没有
+        /// </summary>
         public string Process
         {
             get { return process; }
