@@ -36,7 +36,7 @@
         <Label Content="亮麻版" HorizontalAlignment="Left" Margin="10,220,0,0" VerticalAlignment="Top"/>
         <Label Content="深浅拉" HorizontalAlignment="Left" Margin="10,260,0,0" VerticalAlignment="Top"/>
         <Label Content="备注" HorizontalAlignment="Left" Margin="10,300,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="Button_ClearComboBoxSupplier" Content="-" Grid.Column="1" HorizontalAlignment="Left" Margin="20,181,0,0" VerticalAlignment="Top" Width="24" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Height="22" Click="Button_ClearComboBoxSupplier_Click"/>
+        <Button x:Name="Button_ClearComboBoxSupplier" Content="-" Grid.Column="1" HorizontalAlignment="Left" Margin="20,180,0,0" VerticalAlignment="Top" Width="24" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Height="24" Click="Button_ClearComboBoxSupplier_Click" ToolTip="清选供应商"/>
 
     </Grid>
 </Page>
