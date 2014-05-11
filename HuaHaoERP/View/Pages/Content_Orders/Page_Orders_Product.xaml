@@ -14,6 +14,7 @@
         </Grid.ColumnDefinitions>
         <Button x:Name="Button_Commit" Content="确定" HorizontalAlignment="Right" Margin="0,0,20,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Click="Button_Commit_Click" Height="24"/>
         <Button x:Name="Button_Cancel" Content="取消" Grid.Column="1" HorizontalAlignment="Left" Margin="20,0,0,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" IsCancel="True" Click="Button_Cancel_Click" Height="24"/>
+        <CheckBox Content="自动扣库存" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,60,60" VerticalAlignment="Bottom" Height="24" VerticalContentAlignment="Center"/>
 
     </Grid>
 </Page>
