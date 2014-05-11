@@ -56,13 +56,77 @@ namespace HuaHaoERP.Model
             get { return specification; }
             set { specification = value; }
         }
-        private string process;
+        private string p1;
 
-        public string Process
+        public string P1
         {
-            get { return process; }
-            set { process = value; }
+            get { return p1; }
+            set { p1 = value; }
         }
+        private string p2;
+
+        public string P2
+        {
+            get { return p2; }
+            set { p2 = value; }
+        }
+        private string p3;
+
+        public string P3
+        {
+            get { return p3; }
+            set { p3 = value; }
+        }
+        private string p4;
+
+        public string P4
+        {
+            get { return p4; }
+            set { p4 = value; }
+        }
+        private string p5;
+
+        public string P5
+        {
+            get { return p5; }
+            set { p5 = value; }
+        }
+        private string p6;
+
+        public string P6
+        {
+            get { return p6; }
+            set { p6 = value; }
+        }
+        private string p7;
+
+        public string P7
+        {
+            get { return p7; }
+            set { p7 = value; }
+        }
+        private string p8;
+
+        public string P8
+        {
+            get { return p8; }
+            set { p8 = value; }
+        }
+        private string p9;
+
+        public string P9
+        {
+            get { return p9; }
+            set { p9 = value; }
+        }
+        private string p10;
+
+        public string P10
+        {
+            get { return p10; }
+            set { p10 = value; }
+        }
+
         private int packageNumber;
 
         public int PackageNumber
