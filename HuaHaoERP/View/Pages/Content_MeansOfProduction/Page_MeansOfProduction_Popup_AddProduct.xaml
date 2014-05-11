@@ -30,16 +30,16 @@
         <Label Content="产品名称" Grid.Column="1" HorizontalAlignment="Left" Margin="17,20,0,0" VerticalAlignment="Top" Padding="0,5"/>
         <Label Content="产品类型" Grid.Column="1" HorizontalAlignment="Left" Margin="17,60,0,0" VerticalAlignment="Top" Padding="0,5"/>
         <ComboBox x:Name="ComboBox_P1" HorizontalAlignment="Left" Margin="85,140,0,0" VerticalAlignment="Top" Width="80" Height="24" VerticalContentAlignment="Center"/>
-        <ComboBox x:Name="ComboBox_P2" HorizontalAlignment="Left" Margin="70,140,0,0" VerticalAlignment="Top" Width="80" Height="24" Grid.Column="1" VerticalContentAlignment="Center"/>
-        <ComboBox x:Name="ComboBox_P3" HorizontalAlignment="Left" Margin="85,180,0,0" VerticalAlignment="Top" Width="80" Height="24" VerticalContentAlignment="Center"/>
-        <ComboBox x:Name="ComboBox_P4" HorizontalAlignment="Left" Margin="70,180,0,0" VerticalAlignment="Top" Width="80" Height="24" Grid.Column="1" VerticalContentAlignment="Center"/>
-        <ComboBox x:Name="ComboBox_P5" HorizontalAlignment="Left" Margin="85,220,0,0" VerticalAlignment="Top" Width="80" Height="24" VerticalContentAlignment="Center"/>
+        <ComboBox x:Name="ComboBox_P2" HorizontalAlignment="Left" Margin="85,180,0,0" VerticalAlignment="Top" Width="80" Height="24" VerticalContentAlignment="Center"/>
+        <ComboBox x:Name="ComboBox_P3" HorizontalAlignment="Left" Margin="85,220,0,0" VerticalAlignment="Top" Width="80" Height="24" VerticalContentAlignment="Center"/>
+        <ComboBox x:Name="ComboBox_P4" HorizontalAlignment="Left" Margin="70,140,0,0" VerticalAlignment="Top" Width="80" Height="24" Grid.Column="1" VerticalContentAlignment="Center"/>
+        <ComboBox x:Name="ComboBox_P5" HorizontalAlignment="Left" Margin="70,180,0,0" VerticalAlignment="Top" Width="80" Height="24" VerticalContentAlignment="Center" Grid.Column="1"/>
         <ComboBox x:Name="ComboBox_P6" HorizontalAlignment="Left" Margin="70,220,0,0" VerticalAlignment="Top" Width="80" Height="24" Grid.Column="1" VerticalContentAlignment="Center"/>
         <Label Content="1" HorizontalAlignment="Left" Margin="64,140,0,0" VerticalAlignment="Top"/>
-        <Label Content="2" HorizontalAlignment="Left" Margin="49,140,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <Label Content="3" HorizontalAlignment="Left" Margin="64,180,0,0" VerticalAlignment="Top"/>
-        <Label Content="4" HorizontalAlignment="Left" Margin="49,180,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <Label Content="5" HorizontalAlignment="Left" Margin="64,220,0,0" VerticalAlignment="Top"/>
+        <Label Content="4" HorizontalAlignment="Left" Margin="49,140,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <Label Content="2" HorizontalAlignment="Left" Margin="64,180,0,0" VerticalAlignment="Top"/>
+        <Label Content="5" HorizontalAlignment="Left" Margin="49,180,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <Label Content="3" HorizontalAlignment="Left" Margin="64,220,0,0" VerticalAlignment="Top"/>
         <Label Content="6" HorizontalAlignment="Left" Margin="49,220,0,0" VerticalAlignment="Top" Grid.Column="1"/>
 
     </Grid>
