@@ -120,5 +120,10 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
                 StatusBarMessageEvent.OnUpdateMessage(this, "添加/修改原材料失败");
             }
         }
+
+        private void Button_ClearComboBoxSupplier_Click(object sender, RoutedEventArgs e)
+        {
+            this.ComboBox_Supplier.SelectedIndex = -1;
+        }
     }
 }
