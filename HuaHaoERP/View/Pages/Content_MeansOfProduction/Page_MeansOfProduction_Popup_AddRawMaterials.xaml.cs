@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using HuaHaoERP.Helper.Events;
+using System.Data;
 
 namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
 {
@@ -36,7 +37,10 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
         }
         private void InitializeData()
         {
-            this.ComboBox_Supplier.ItemsSource = Helper.DataDefinition.CustomerLibrary.SupplierList;
+            this.ComboBox_Supplier.ItemsSource = Helper.DataDefinition.CustomerLibrary.SupplierList.DefaultView;
+            this.ComboBox_Supplier.DisplayMemberPath = "Name";
+            this.ComboBox_Supplier.SelectedValuePath = "GUID";
+            this.ComboBox_Supplier.SelectedIndex = 0;
         }
         private void InitializeData(Model.RawMaterialsModel d)
         {
@@ -47,6 +51,7 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
             this.TextBox_Name.Text = d.Name;
             this.TextBox_Weight.Text = d.Weight;
             this.TextBox_Material.Text = d.Material;
+            this.ComboBox_Supplier.SelectedValue = d.Supplier;
             this.ComboBox_Sp1.Text = d.Sp1;
             this.ComboBox_Sp2.Text = d.Sp2;
             this.TextBox_Remark.Text = d.Remark;
@@ -73,7 +78,7 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
             d.Name = this.TextBox_Name.Text.Trim();
             d.Weight = this.TextBox_Weight.Text.Trim();
             d.Material = this.TextBox_Material.Text.Trim();
-            //d.Supplier = this.ComboBox_Supplier.Text;
+            d.Supplier = (Guid)this.ComboBox_Supplier.SelectedValue;
             d.Sp1 = this.ComboBox_Sp1.Text;
             d.Sp2 = this.ComboBox_Sp2.Text;
             d.Remark = this.TextBox_Remark.Text.Trim();
