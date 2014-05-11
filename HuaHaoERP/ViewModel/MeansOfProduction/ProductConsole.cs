@@ -17,14 +17,14 @@ namespace HuaHaoERP.ViewModel.MeansOfProduction
         internal bool Delete(ProductModel d)
         {
             bool flag = true;
-            string sql = "Delete From T_Product Where GUID='" + d.Guid + "'";
+            string sql = "Delete From T_ProductInfo_Product Where GUID='" + d.Guid + "'";
             flag = new Helper.SQLite.DBHelper().SingleExecution(sql);
             return flag;
         }
         internal bool MarkDelete(ProductModel d)
         {
             bool flag = true;
-            string sql = "Update T_Product Set DeleteMark='" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' Where GUID='" + d.Guid + "'";
+            string sql = "Update T_ProductInfo_Product Set DeleteMark='" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' Where GUID='" + d.Guid + "'";
             flag = new Helper.SQLite.DBHelper().SingleExecution(sql);
             return flag;
         }

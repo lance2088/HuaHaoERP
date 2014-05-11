@@ -12,7 +12,7 @@ namespace HuaHaoERP.ViewModel.MeansOfProduction
         internal bool Add(RawMaterialsModel d)
         {
             bool flag = true;
-            string sql = "Insert Into T_RawMaterials (GUID,Number,Name,Weight,Material,SupplierNumber,Sp1,Sp2,Remark,AddTime) "
+            string sql = "Insert Into T_ProductInfo_RawMaterials (GUID,Number,Name,Weight,Material,SupplierNumber,Sp1,Sp2,Remark,AddTime) "
                        + " values('" + d.Guid + "','" + d.Number + "','" + d.Name + "','" + d.Weight + "','" + d.Material + "','" + d.SupplierNumber + "','" + d.Sp1 + "','" + d.Sp2 + "','" + d.Remark + "','" + d.AddTime.ToString("yyyy-MM-dd HH:mm:ss") + "')";
             flag = new Helper.SQLite.DBHelper().SingleExecution(sql);
             return flag;
@@ -20,14 +20,14 @@ namespace HuaHaoERP.ViewModel.MeansOfProduction
         internal bool Delete(RawMaterialsModel d)
         {
             bool flag = true;
-            string sql = "Delete From T_RawMaterials Where GUID='" + d.Guid + "'";
+            string sql = "Delete From T_ProductInfo_RawMaterials Where GUID='" + d.Guid + "'";
             flag = new Helper.SQLite.DBHelper().SingleExecution(sql);
             return flag;
         }
         internal bool MarkDelete(RawMaterialsModel d)
         {
             bool flag = true;
-            string sql = "Update T_RawMaterials Set DeleteMark='" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' Where GUID='" + d.Guid + "'";
+            string sql = "Update T_ProductInfo_RawMaterials Set DeleteMark='" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' Where GUID='" + d.Guid + "'";
             flag = new Helper.SQLite.DBHelper().SingleExecution(sql);
             return flag;
         }
@@ -35,7 +35,7 @@ namespace HuaHaoERP.ViewModel.MeansOfProduction
         {
             bool flag = true;
             data = new List<RawMaterialsModel>();
-            string sql = "select * from T_RawMaterials Where DeleteMark is null order by AddTime";
+            string sql = "select * from T_ProductInfo_RawMaterials Where DeleteMark is null order by AddTime";
             DataSet ds = new DataSet();
             flag = new Helper.SQLite.DBHelper().QueryData(sql, out ds);
             if (flag)

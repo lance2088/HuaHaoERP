@@ -16,7 +16,7 @@ namespace HuaHaoERP.ViewModel.Customer
                 d.DepartureTime = "0001-01-01 00:00:00";
             }
             bool flag = true;
-            string sql = "Insert Into T_Staff (GUID,Number,Name,Jobs,EntryTime,Contact,IDNumber,Remark,DepartureTime,AddTime) "
+            string sql = "Insert Into T_UserInfo_Staff (GUID,Number,Name,Jobs,EntryTime,Contact,IDNumber,Remark,DepartureTime,AddTime) "
                        + " values('" + d.Guid + "','" + d.Number + "','" + d.Name + "','" + d.Jobs + "','" + d.EntryTime + "','" + d.Contact + "','" + d.IDNumber + "','" + d.Remark + "','" + d.DepartureTime + "','" + d.AddTime.ToString("yyyy-MM-dd HH:mm:ss") + "')";
             flag = new Helper.SQLite.DBHelper().SingleExecution(sql);
             return flag;
@@ -24,14 +24,14 @@ namespace HuaHaoERP.ViewModel.Customer
         internal bool Delete(StaffModel d)
         {
             bool flag = true;
-            string sql = "Delete From T_Staff Where GUID='" + d.Guid + "'";
+            string sql = "Delete From T_UserInfo_Staff Where GUID='" + d.Guid + "'";
             flag = new Helper.SQLite.DBHelper().SingleExecution(sql);
             return flag;
         }
         internal bool MarkDelete(StaffModel d)
         {
             bool flag = true;
-            string sql = "Update T_Staff Set DeleteMark='" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' Where GUID='" + d.Guid + "'";
+            string sql = "Update T_UserInfo_Staff Set DeleteMark='" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' Where GUID='" + d.Guid + "'";
             flag = new Helper.SQLite.DBHelper().SingleExecution(sql);
             return flag;
         }
@@ -39,7 +39,7 @@ namespace HuaHaoERP.ViewModel.Customer
         {
             bool flag = true;
             data = new List<StaffModel>();
-            string sql = "select * from T_Staff Where DeleteMark is null order by AddTime";
+            string sql = "select * from T_UserInfo_Staff Where DeleteMark is null order by AddTime";
             DataSet ds = new DataSet();
             flag = new Helper.SQLite.DBHelper().QueryData(sql, out ds);
             if (flag)
