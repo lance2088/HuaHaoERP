@@ -58,8 +58,15 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             {
                 return false;
             }
-            this.Guid = Guid.NewGuid();
-            d.Guid = this.Guid;
+            if(isNew)
+            {
+                this.Guid = Guid.NewGuid();
+                d.Guid = this.Guid;
+            }
+            else
+            {
+                d.Guid = OldGuid;
+            }
             d.Number = this.TextBox_Number.Text.Trim();
             d.Name = this.TextBox_Name.Text.Trim();
             d.Address = this.TextBox_Address.Text.Trim();
@@ -88,7 +95,6 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
         {
             if (CheckAndGetData())
             {
-                Helper.Events.SupplierEvent.OnAdd(this, d);
                 if (!isNew)
                 {
                     Model.SupplierModel dOld = new Model.SupplierModel();
@@ -100,6 +106,7 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
                 {
                     Helper.Events.StatusBarMessageEvent.OnUpdateMessage(this, "添加供应商：" + d.Name);
                 }
+                Helper.Events.SupplierEvent.OnAdd(this, d);
                 Button_Cancel_Click(null, null);
             }
             else

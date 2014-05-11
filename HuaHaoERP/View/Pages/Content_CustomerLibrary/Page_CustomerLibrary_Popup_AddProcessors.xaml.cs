@@ -59,8 +59,15 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             {
                 return false;
             }
-            this.Guid = Guid.NewGuid();
-            d.Guid = this.Guid;
+            if (isNew)
+            {
+                this.Guid = Guid.NewGuid();
+                d.Guid = this.Guid;
+            }
+            else
+            {
+                d.Guid = OldGuid;
+            }
             d.Number = this.TextBox_Number.Text.Trim();
             d.Name = this.TextBox_Name.Text.Trim();
             d.Address = this.TextBox_Address.Text.Trim();
@@ -85,7 +92,6 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
         {
             if (CheckAndGetData())
             {
-                Helper.Events.ProcessorsEvent.OnAdd(this, d);
                 if (!isNew)
                 {
                     Model.ProcessorsModel dOld = new Model.ProcessorsModel();
@@ -97,6 +103,7 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
                 {
                     Helper.Events.StatusBarMessageEvent.OnUpdateMessage(this, "添加外加工商：" + d.Name);
                 }
+                Helper.Events.ProcessorsEvent.OnAdd(this, d);
                 Button_Cancel_Click(null, null);
             }
             else

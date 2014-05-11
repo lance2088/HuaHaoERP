@@ -12,8 +12,8 @@ namespace HuaHaoERP.ViewModel.MeansOfProduction
         internal bool Add(RawMaterialsModel d)
         {
             bool flag = true;
-            string sql = "Insert Into T_ProductInfo_RawMaterials (GUID,Number,Name,Weight,Material,SupplierNumber,Sp1,Sp2,Remark,AddTime) "
-                       + " values('" + d.Guid + "','" + d.Number + "','" + d.Name + "','" + d.Weight + "','" + d.Material + "','" + d.SupplierNumber + "','" + d.Sp1 + "','" + d.Sp2 + "','" + d.Remark + "','" + d.AddTime.ToString("yyyy-MM-dd HH:mm:ss") + "')";
+            string sql = "Insert Into T_ProductInfo_RawMaterials (GUID,Number,Name,Weight,Material,Supplier,Sp1,Sp2,Remark,AddTime) "
+                       + " values('" + d.Guid + "','" + d.Number + "','" + d.Name + "','" + d.Weight + "','" + d.Material + "','" + d.Supplier + "','" + d.Sp1 + "','" + d.Sp2 + "','" + d.Remark + "','" + d.AddTime.ToString("yyyy-MM-dd HH:mm:ss") + "')";
             flag = new Helper.SQLite.DBHelper().SingleExecution(sql);
             return flag;
         }
@@ -35,7 +35,9 @@ namespace HuaHaoERP.ViewModel.MeansOfProduction
         {
             bool flag = true;
             data = new List<RawMaterialsModel>();
-            string sql = "select * from T_ProductInfo_RawMaterials Where DeleteMark is null order by AddTime";
+            string sql = "select a.*,b.Number SupplierNumber,b.Name SupplierName "
+                +"from T_ProductInfo_RawMaterials a Left Join T_UserInfo_Supplier b On a.Supplier=b.Guid "
+                +"Where a.DeleteMark is null order by a.AddTime";
             DataSet ds = new DataSet();
             flag = new Helper.SQLite.DBHelper().QueryData(sql, out ds);
             if (flag)
@@ -50,7 +52,7 @@ namespace HuaHaoERP.ViewModel.MeansOfProduction
                     d.Name = dr["Name"].ToString();
                     d.Weight = dr["Weight"].ToString();
                     d.Material = dr["Material"].ToString();
-                    d.SupplierNumber = dr["SupplierNumber"].ToString();
+                    d.SupplierName = dr["SupplierNumber"].ToString() +" - "+ dr["SupplierName"].ToString();
                     d.Sp1 = dr["Sp1"].ToString();
                     d.Sp2 = dr["Sp2"].ToString();
                     d.Remark = dr["Remark"].ToString();

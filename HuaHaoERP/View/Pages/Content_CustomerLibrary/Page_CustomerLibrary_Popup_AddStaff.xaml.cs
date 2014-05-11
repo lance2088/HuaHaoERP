@@ -64,8 +64,15 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             {
                 return false;
             }
-            Guid = Guid.NewGuid();
-            d.Guid = Guid;
+            if (isNew)
+            {
+                this.Guid = Guid.NewGuid();
+                d.Guid = this.Guid;
+            }
+            else
+            {
+                d.Guid = OldGuid;
+            }
             d.Number = this.TextBox_Number.Text.Trim();
             d.Name = this.TextBox_Name.Text.Trim();
             d.Jobs = this.TextBox_Jobs.Text.Trim();
@@ -92,7 +99,6 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
         {
             if (CheckAndGetData())
             {
-                Helper.Events.StaffEvent.OnAdd(this, d);
                 if (!isNew)
                 {
                     Model.StaffModel dOld = new Model.StaffModel();
@@ -104,6 +110,7 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
                 {
                     Helper.Events.StatusBarMessageEvent.OnUpdateMessage(this, "添加员工：" + d.Name);
                 }
+                Helper.Events.StaffEvent.OnAdd(this, d);
                 Button_Cancel_Click(null, null);
             }
             else

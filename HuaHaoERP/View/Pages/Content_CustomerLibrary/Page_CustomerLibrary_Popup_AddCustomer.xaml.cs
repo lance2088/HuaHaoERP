@@ -63,8 +63,16 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             {
                 return false;
             }
-            Guid = Guid.NewGuid();
-            d.Guid = Guid;
+            
+            if(isNew)
+            {
+                Guid = Guid.NewGuid();
+                d.Guid = Guid;
+            }
+            else
+            {
+                d.Guid = OldGuid;
+            }
             d.Number = this.TextBox_Customer_Number.Text.Trim();
             d.Name = this.TextBox_Customer_Name.Text.Trim();
             d.Address = this.TextBox_Customer_Address.Text.Trim();
@@ -89,7 +97,6 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
         {
             if(CheckAndGetData())
             {
-                CustomerEvent.OnAdd(this, d);
                 if (!isNew)
                 {
                     Model.CustomerModel dOld = new Model.CustomerModel();
@@ -101,6 +108,7 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
                 {
                     StatusBarMessageEvent.OnUpdateMessage(this, "添加用户：" + d.Name);
                 }
+                CustomerEvent.OnAdd(this, d);
                 Button_Cancel_Click(null, null);
             }
             else

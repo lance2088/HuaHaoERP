@@ -49,12 +49,21 @@ namespace HuaHaoERP.Model
             get { return material; }
             set { material = value; }
         }
-        private string supplierNumber;
+        private Guid supplier;
 
-        public string SupplierNumber
+        public Guid Supplier
         {
-            get { return supplierNumber; }
-            set { supplierNumber = value; }
+            get { return supplier; }
+            set { supplier = value; }
+        }
+        private string supplierName;
+        /// <summary>
+        /// 供显示
+        /// </summary>
+        public string SupplierName
+        {
+            get { return supplierName; }
+            set { supplierName = value; }
         }
         private string sp1;
 

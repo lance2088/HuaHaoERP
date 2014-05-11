@@ -26,6 +26,7 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
         public Page_MeansOfProduction_Popup_AddRawMaterials()
         {
             InitializeComponent();
+            InitializeData();
         }
         public Page_MeansOfProduction_Popup_AddRawMaterials(object data)
         {
@@ -33,9 +34,13 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
             isNew = false;
             InitializeData((Model.RawMaterialsModel)data);
         }
-
+        private void InitializeData()
+        {
+            this.ComboBox_Supplier.ItemsSource = Helper.DataDefinition.CustomerLibrary.SupplierList;
+        }
         private void InitializeData(Model.RawMaterialsModel d)
         {
+            InitializeData();
             this.d = d;
             OldGuid = d.Guid;
             this.TextBox_Number.Text = d.Number;

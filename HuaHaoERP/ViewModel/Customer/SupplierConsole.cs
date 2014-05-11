@@ -65,5 +65,12 @@ namespace HuaHaoERP.ViewModel.Customer
             }
             return flag;
         }
+        internal bool GetNameList(out List<SupplierModel> data)
+        {
+            bool flag = true;
+            data = new List<SupplierModel>();
+
+            return flag;
+        }
     }
 }
