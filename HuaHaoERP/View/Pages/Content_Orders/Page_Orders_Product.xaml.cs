@@ -23,5 +23,15 @@ namespace HuaHaoERP.View.Pages.Content_Orders
         {
             InitializeComponent();
         }
+
+        private void Button_Commit_Click(object sender, RoutedEventArgs e)
+        {
+            Helper.Events.PopUpEvent.OnHidePopUp(this);
+        }
+
+        private void Button_Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            Helper.Events.PopUpEvent.OnHidePopUp(this);
+        }
     }
 }
