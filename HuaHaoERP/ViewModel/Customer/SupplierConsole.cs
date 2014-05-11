@@ -65,11 +65,12 @@ namespace HuaHaoERP.ViewModel.Customer
             }
             return flag;
         }
-        internal bool GetNameList(out List<SupplierModel> data)
+        internal bool GetNameList(out DataSet ds)
         {
             bool flag = true;
-            data = new List<SupplierModel>();
-
+            ds = new DataSet();
+            string sql = "select Guid,Number,Name From T_UserInfo_Supplier Where DeleteMark is null order by AddTime";
+            flag = new Helper.SQLite.DBHelper().QueryData(sql, out ds);
             return flag;
         }
     }

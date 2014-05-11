@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data;
 
 namespace HuaHaoERP.Helper.DataDefinition
 {
@@ -12,14 +13,15 @@ namespace HuaHaoERP.Helper.DataDefinition
 
         }
 
-        private static List<string> supplierList;
+        private static DataTable supplierList;
 
-        public static List<string> SupplierList
+        public static DataTable SupplierList
         {
             get 
-            { 
-
-                return CustomerLibrary.supplierList; 
+            {
+                DataSet ds = new DataSet();
+                new ViewModel.Customer.SupplierConsole().GetNameList(out ds);
+                return ds.Tables[0]; 
             }
             set { CustomerLibrary.supplierList = value; }
         }
