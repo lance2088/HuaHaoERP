@@ -100,10 +100,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\Content_CustomerLibrary\Page_CustomerLibrary_Popup_RightKey.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\Pages\Content_MeansOfProduction\Page_MeansOfProduction.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -240,9 +236,6 @@
     </Compile>
     <Compile Include="View\Pages\Content_CustomerLibrary\Page_CustomerLibrary_Popup_AddSupplier.xaml.cs">
       <DependentUpon>Page_CustomerLibrary_Popup_AddSupplier.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Pages\Content_CustomerLibrary\Page_CustomerLibrary_Popup_RightKey.xaml.cs">
-      <DependentUpon>Page_CustomerLibrary_Popup_RightKey.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\Content_MeansOfProduction\Page_MeansOfProduction.xaml.cs">
       <DependentUpon>Page_MeansOfProduction.xaml</DependentUpon>
