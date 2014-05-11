@@ -52,7 +52,7 @@ namespace HuaHaoERP.ViewModel.MeansOfProduction
                     d.Name = dr["Name"].ToString();
                     d.Weight = dr["Weight"].ToString();
                     d.Material = dr["Material"].ToString();
-                    d.SupplierName = dr["SupplierNumber"].ToString() +" - "+ dr["SupplierName"].ToString();
+                    d.SupplierName = dr["SupplierName"].ToString();
                     d.Sp1 = dr["Sp1"].ToString();
                     d.Sp2 = dr["Sp2"].ToString();
                     d.Remark = dr["Remark"].ToString();

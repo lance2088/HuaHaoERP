@@ -51,7 +51,7 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
             this.TextBox_Name.Text = d.Name;
             this.TextBox_Weight.Text = d.Weight;
             this.TextBox_Material.Text = d.Material;
-            this.ComboBox_Supplier.SelectedValue = d.Supplier;
+            this.ComboBox_Supplier.Text = d.SupplierName;
             this.ComboBox_Sp1.Text = d.Sp1;
             this.ComboBox_Sp2.Text = d.Sp2;
             this.TextBox_Remark.Text = d.Remark;
