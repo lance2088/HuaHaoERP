@@ -203,6 +203,8 @@
     <Compile Include="Helper\Events\2.Product\ProductEventArgs.cs" />
     <Compile Include="Helper\Events\2.RawMaterials\RawMaterialsEvent.cs" />
     <Compile Include="Helper\Events\2.RawMaterials\RawMaterialsEventArgs.cs" />
+    <Compile Include="Helper\Events\3.Orders\ProductOrderEvent.cs" />
+    <Compile Include="Helper\Events\3.Orders\ProductOrderEventArgs.cs" />
     <Compile Include="Helper\Excel\Reader.cs" />
     <Compile Include="Helper\LogHelper\FileLog.cs" />
     <Compile Include="Helper\SQLite\DBHelper.cs" />
@@ -210,6 +212,7 @@
     <Compile Include="Model\CustomerModel.cs" />
     <Compile Include="Model\ProcessorsModel.cs" />
     <Compile Include="Model\ProductModel.cs" />
+    <Compile Include="Model\ProductOrderModel.cs" />
     <Compile Include="Model\RawMaterialsModel.cs" />
     <Compile Include="Model\StaffModel.cs" />
     <Compile Include="Model\SupplierModel.cs" />
@@ -220,6 +223,9 @@
     <Compile Include="ViewModel\Customer\CustomerConsole.cs" />
     <Compile Include="ViewModel\MeansOfProduction\ProductConsole.cs" />
     <Compile Include="ViewModel\MeansOfProduction\RawMaterialsConsole.cs" />
+    <Compile Include="ViewModel\Orders\ProcessorsOrderConsole.cs" />
+    <Compile Include="ViewModel\Orders\ProductOrderConsole.cs" />
+    <Compile Include="ViewModel\Orders\SupplierOrderConsole.cs" />
     <Compile Include="View\Pages\Content_CustomerLibrary\Page_CustomerLibrary.xaml.cs">
       <DependentUpon>Page_CustomerLibrary.xaml</DependentUpon>
     </Compile>
