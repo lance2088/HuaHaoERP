@@ -9,7 +9,7 @@
 
     <Grid>
         <TabControl Margin="0" BorderThickness="0" Padding="0">
-            <TabItem Header="产品" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Height="25" Margin="7,0,-7,0" Foreground="White">
+            <TabItem FocusVisualStyle="{x:Null}" Header="产品" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Height="25" Margin="7,0,-7,0" Foreground="White">
                 <Grid Background="White">
                     <DataGrid x:Name="DataGrid_Product" Margin="0,40,0,0" BorderThickness="0" BorderBrush="{x:Null}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False">
                         <DataGrid.Resources>
@@ -30,11 +30,11 @@
                             <DataGridTextColumn Binding="{Binding Remark}" Header="备注"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button x:Name="Button_AddProduct" Content="添加" HorizontalAlignment="Right" Margin="0,10,90,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Click="Button_AddProduct_Click"/>
-                    <Button x:Name="Button_DeleteProduct" Content="删除" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Click="Button_DeleteProduct_Click"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_AddProduct" Content="添加" HorizontalAlignment="Right" Margin="0,10,90,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Click="Button_AddProduct_Click"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_DeleteProduct" Content="删除" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Click="Button_DeleteProduct_Click"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="原材料" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="17,0,-17,0" Foreground="White">
+            <TabItem FocusVisualStyle="{x:Null}" Header="原材料" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="17,0,-17,0" Foreground="White">
                 <Grid Background="White">
                     <DataGrid x:Name="DataGrid_RawMaterials" Margin="0,40,0,0" BorderThickness="0" BorderBrush="{x:Null}" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" CellStyle="{DynamicResource DataGridCellStyleCommon}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" AutoGenerateColumns="False" HeadersVisibility="Column">
                         <DataGrid.Resources>
@@ -55,8 +55,8 @@
                             <DataGridTextColumn Binding="{Binding Remark}" Header="备注" ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button x:Name="Button_AddRawMaterials" Content="添加" HorizontalAlignment="Right" Margin="0,10,90,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Click="Button_AddRawMaterials_Click"/>
-                    <Button x:Name="Button_DeleteRawMaterials" Content="删除" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Click="Button_DeleteRawMaterials_Click"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_AddRawMaterials" Content="添加" HorizontalAlignment="Right" Margin="0,10,90,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Click="Button_AddRawMaterials_Click"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_DeleteRawMaterials" Content="删除" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Click="Button_DeleteRawMaterials_Click"/>
                 </Grid>
             </TabItem>
         </TabControl>

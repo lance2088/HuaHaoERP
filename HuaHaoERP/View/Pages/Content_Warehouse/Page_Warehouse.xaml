@@ -9,7 +9,7 @@
 
     <Grid>
         <TabControl Margin="0" BorderThickness="0" Padding="0">
-            <TabItem Header="库存管理" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Height="25" Margin="7,0,-7,0" Foreground="White">
+            <TabItem FocusVisualStyle="{x:Null}" Header="库存管理" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Height="25" Margin="7,0,-7,0" Foreground="White">
                 <Grid Background="White">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="105*"/>
@@ -30,7 +30,7 @@
                     </DataGrid>
                     <DatePicker Grid.Column="2" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="100" Height="24"/>
                     <Label Content="已包装数量：" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Padding="0,2" VerticalContentAlignment="Center" Height="24"/>
-                    <ComboBox Grid.Column="2" HorizontalAlignment="Left" Margin="237,10,0,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center">
+                    <ComboBox FocusVisualStyle="{x:Null}" Grid.Column="2" HorizontalAlignment="Left" Margin="237,10,0,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center">
                         <ComboBoxItem Content="全部记录" IsSelected="True"/>
                         <ComboBoxItem Content="入库记录" />
                         <ComboBoxItem Content="出库记录" />
@@ -43,14 +43,14 @@
                         </DataGrid.Columns>
                     </DataGrid>
                     <Label Content="散件数量：" Grid.Column="1" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Padding="0,2" Height="24" VerticalContentAlignment="Center"/>
-                    <Button Content="包装" Grid.Column="1" HorizontalAlignment="Left" Margin="65,10,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" ToolTip="点击将散件包装成件"/>
+                    <Button FocusVisualStyle="{x:Null}" Content="包装" Grid.Column="1" HorizontalAlignment="Left" Margin="65,10,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" ToolTip="点击将散件包装成件"/>
                     <DatePicker Grid.Column="2" HorizontalAlignment="Left" Margin="132,10,0,0" VerticalAlignment="Top" Width="100" Height="24"/>
                     <Label Content="至" Grid.Column="2" HorizontalAlignment="Left" Margin="105,10,0,0" VerticalAlignment="Top"/>
-                    <Button Content="出库" Grid.Column="2" HorizontalAlignment="Right" Margin="0,10,90,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}"/>
-                    <Button Content="入库" Grid.Column="2" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}"/>
+                    <Button FocusVisualStyle="{x:Null}" Content="出库" Grid.Column="2" HorizontalAlignment="Right" Margin="0,10,90,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}"/>
+                    <Button FocusVisualStyle="{x:Null}" Content="入库" Grid.Column="2" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="原料管理" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="17,0,-17,0" Foreground="White">
+            <TabItem FocusVisualStyle="{x:Null}" Header="原料管理" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="17,0,-17,0" Foreground="White">
                 <Grid Background="White">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="142*"/>
@@ -66,11 +66,11 @@
                     </DataGrid>
                     <Label Content="出入库记录：" Grid.Column="1" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Padding="0,5"/>
                     <Label Content="库存数量：" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Padding="0,5"/>
-                    <Button Content="出库" Grid.Column="1" HorizontalAlignment="Right" Margin="0,10,90,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}"/>
-                    <Button Content="入库" Grid.Column="1" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}"/>
+                    <Button FocusVisualStyle="{x:Null}" Content="出库" Grid.Column="1" HorizontalAlignment="Right" Margin="0,10,90,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}"/>
+                    <Button FocusVisualStyle="{x:Null}" Content="入库" Grid.Column="1" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="余料管理" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="27,0,-27,0" Foreground="White">
+            <TabItem FocusVisualStyle="{x:Null}" Header="余料管理" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="27,0,-27,0" Foreground="White">
                 <Grid Background="White">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="683*"/>
@@ -85,8 +85,8 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
                         <Rectangle Fill="#FFF4F4F5" Margin="0" Stroke="#FF99CCFF" Grid.ColumnSpan="2"/>
-                        <Button x:Name="Button_Commit" Content="确定" HorizontalAlignment="Right" Margin="0,213,20,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Click="Button_Commit_Click"/>
-                        <Button x:Name="Button_Clear" Content="清空" HorizontalAlignment="Left" Margin="20,213,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Grid.Column="1" Click="Button_Clear_Click"/>
+                        <Button FocusVisualStyle="{x:Null}" x:Name="Button_Commit" Content="确定" HorizontalAlignment="Right" Margin="0,213,20,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Click="Button_Commit_Click"/>
+                        <Button FocusVisualStyle="{x:Null}" x:Name="Button_Clear" Content="清空" HorizontalAlignment="Left" Margin="20,213,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Grid.Column="1" Click="Button_Clear_Click"/>
                         <ComboBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="100,30,0,0" VerticalAlignment="Top" Width="120" IsEditable="True" Height="24" VerticalContentAlignment="Center"/>
                         <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="24" Margin="100,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
                         <Label Content="余料类型" HorizontalAlignment="Left" Margin="20,30,0,0" VerticalAlignment="Top"/>
@@ -94,7 +94,7 @@
                         <Label Content="备注" HorizontalAlignment="Left" Margin="20,138,0,0" VerticalAlignment="Top"/>
                         <TextBox Grid.ColumnSpan="2" Height="48" Margin="100,138,20,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
                     </Grid>
-                    <ComboBox HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center"/>
+                    <ComboBox FocusVisualStyle="{x:Null}" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center"/>
                     <Label Content="按类型筛选：" HorizontalAlignment="Right" Margin="0,10,135,0" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
                 </Grid>
             </TabItem>

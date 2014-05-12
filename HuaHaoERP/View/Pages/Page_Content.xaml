@@ -9,34 +9,34 @@
 
     <Grid>
         <TabControl Margin="5" TabStripPlacement="Left" BorderThickness="0" Background="{x:Null}" Padding="0">
-            <TabItem Header="客 户 库" Template="{DynamicResource TabItemControlTemplate_CommonMain}" Width="150" Height="40" Margin="0,25,0,-25" Foreground="White" FontSize="14">
+            <TabItem FocusVisualStyle="{x:Null}" Header="客 户 库" Template="{DynamicResource TabItemControlTemplate_CommonMain}" Width="150" Height="40" Margin="0,25,0,-25" Foreground="White" FontSize="14">
                 <Grid>
-                    <Frame x:Name="Frame_Content_CustomerLibrary" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
+                    <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_Content_CustomerLibrary" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="生产资料" Template="{DynamicResource TabItemControlTemplate_CommonMain}" Width="150" Height="40" Margin="0,25,0,-25" Foreground="White" FontSize="14">
+            <TabItem FocusVisualStyle="{x:Null}" Header="生产资料" Template="{DynamicResource TabItemControlTemplate_CommonMain}" Width="150" Height="40" Margin="0,25,0,-25" Foreground="White" FontSize="14">
                 <Grid>
-                    <Frame x:Name="Frame_Content_MeansOfProduction" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
+                    <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_Content_MeansOfProduction" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="生产管理" Template="{DynamicResource TabItemControlTemplate_CommonMain}" Width="150" Height="40" Margin="0,35,0,-35" Foreground="White" FontSize="14">
+            <TabItem FocusVisualStyle="{x:Null}" Header="生产管理" Template="{DynamicResource TabItemControlTemplate_CommonMain}" Width="150" Height="40" Margin="0,35,0,-35" Foreground="White" FontSize="14">
                 <Grid>
-                    <Frame x:Name="Frame_Content_ProductionManagement" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
+                    <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_Content_ProductionManagement" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="仓库管理" Template="{DynamicResource TabItemControlTemplate_CommonMain}" Width="150" Height="40" Margin="0,35,0,-35" Foreground="White" FontSize="14">
+            <TabItem FocusVisualStyle="{x:Null}" Header="仓库管理" Template="{DynamicResource TabItemControlTemplate_CommonMain}" Width="150" Height="40" Margin="0,35,0,-35" Foreground="White" FontSize="14">
                 <Grid>
-                    <Frame x:Name="Frame_Content_Warehouse" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
+                    <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_Content_Warehouse" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="订单管理" Template="{DynamicResource TabItemControlTemplate_CommonMain}" Width="150" Height="40" Margin="0,35,0,-35" Foreground="White" FontSize="14">
+            <TabItem FocusVisualStyle="{x:Null}" Header="订单管理" Template="{DynamicResource TabItemControlTemplate_CommonMain}" Width="150" Height="40" Margin="0,35,0,-35" Foreground="White" FontSize="14">
                 <Grid>
-                    <Frame x:Name="Frame_Content_Orders" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
+                    <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_Content_Orders" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="软件设置" Template="{DynamicResource TabItemControlTemplate_CommonMain}" Width="150" Height="40" Margin="0,45,0,-45" Foreground="White" FontSize="14">
+            <TabItem FocusVisualStyle="{x:Null}" Header="软件设置" Template="{DynamicResource TabItemControlTemplate_CommonMain}" Width="150" Height="40" Margin="0,45,0,-45" Foreground="White" FontSize="14">
                 <Grid>
-                    <Frame x:Name="Frame_Content_Settings" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
+                    <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_Content_Settings" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </TabItem>
         </TabControl>

@@ -9,7 +9,7 @@
 
     <Grid>
         <TabControl Margin="0" BorderThickness="0" Padding="0">
-            <TabItem Header="出货单" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Height="25" Margin="7,0,-7,0" Foreground="White">
+            <TabItem FocusVisualStyle="{x:Null}" Header="出货单" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Height="25" Margin="7,0,-7,0" Foreground="White">
                 <Grid Background="#FFF0F0F0">
                     <DataGrid x:Name="DataGrid_ProductOrder" Margin="0,40,0,0" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderThickness="0,1,0,0" BorderBrush="#FF99CCFF" HeadersVisibility="Column" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" AutoGenerateColumns="False">
                         <DataGrid.Columns>
@@ -26,10 +26,10 @@
                             <DataGridTextColumn Header="备注"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button x:Name="Button_AddProductOrder" Content="添加订单" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Click="Button_AddProductOrder_Click"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_AddProductOrder" Content="添加订单" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Click="Button_AddProductOrder_Click"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="供应商订单" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Height="25" Margin="17,0,-17,0" Foreground="White">
+            <TabItem FocusVisualStyle="{x:Null}" Header="供应商订单" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Height="25" Margin="17,0,-17,0" Foreground="White">
                 <Grid Background="#FFF0F0F0">
                     <DataGrid Margin="0,40,0,0" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderThickness="0,1,0,0" BorderBrush="#FF99CCFF">
                         <DataGrid.Columns>
@@ -39,7 +39,7 @@
                     </DataGrid>
                 </Grid>
             </TabItem>
-            <TabItem Header="外加工订单" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="27,0,-27,0" Foreground="White">
+            <TabItem FocusVisualStyle="{x:Null}" Header="外加工订单" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="27,0,-27,0" Foreground="White">
                 <Grid Background="#FFF0F0F0">
                     <DataGrid Margin="0,40,0,0" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" BorderThickness="0,1,0,0">
                         <DataGrid.Columns>
