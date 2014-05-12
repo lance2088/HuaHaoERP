@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using HuaHaoERP.Helper.Events;
 
 namespace HuaHaoERP.View.Pages.Content_Orders
 {
@@ -48,6 +49,7 @@ namespace HuaHaoERP.View.Pages.Content_Orders
             if (CheckAndGetData())
             {
 
+                ProductOrderEvent.OnAdd(this, d);
                 Button_Cancel_Click(null, null);
             }
             else
@@ -78,11 +80,6 @@ namespace HuaHaoERP.View.Pages.Content_Orders
             d.Details.Add(dd);
             this.DataGrid_ProductDetails.ItemsSource = null;
             this.DataGrid_ProductDetails.ItemsSource = d.Details;
-        }
-
-        private void DataGrid_ProductDetails_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
-        {
-
         }
     }
 }
