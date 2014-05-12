@@ -85,6 +85,10 @@ namespace HuaHaoERP.View.Pages.Content_Orders
 
         private void Button_AddProductDetails_Click(object sender, RoutedEventArgs e)
         {
+            if(this.ComboBox_Product.Text == "")
+            {
+                return;
+            }
             Model.ProductOrderDetailsModel dd = new Model.ProductOrderDetailsModel();
             dd.Guid = Guid.NewGuid();
             dd.OrderID = Guid;
