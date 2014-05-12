@@ -5,7 +5,7 @@ using System.Text;
 
 namespace HuaHaoERP.Helper.Events
 {
-    class Class1
+    class Class2
     {
     }
 }
