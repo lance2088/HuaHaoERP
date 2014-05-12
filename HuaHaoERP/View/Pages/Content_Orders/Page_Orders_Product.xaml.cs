@@ -18,6 +18,7 @@ namespace HuaHaoERP.View.Pages.Content_Orders
     public partial class Page_Orders_Product : Page
     {
         Model.ProductOrderModel d = new Model.ProductOrderModel();
+        Guid Guid = Guid.NewGuid();
 
         public Page_Orders_Product()
         {
@@ -36,12 +37,21 @@ namespace HuaHaoERP.View.Pages.Content_Orders
             this.ComboBox_Product.SelectedValuePath = "GUID";//GUID四个字母要大写
             this.ComboBox_Product.SelectedIndex = 0;
             this.DatePicker_OrderDate.SelectedDate = DateTime.Now;
+            GenerateOrderNumber();
         }
         private bool CheckAndGetData()
         {
             bool flag = true;
-
+            d.Guid = Guid;
+            d.OrderNumber = this.TextBox_OrderNumber.Text.Trim();
+            d.CustomerID = (Guid)this.ComboBox_Customer.SelectedValue;
+            d.DeliveryDate = ((DateTime)this.DatePicker_DeliveryDate.SelectedDate).ToString("yyyy-MM-dd HH:mm:ss");
+            d.OrderDate = ((DateTime)this.DatePicker_OrderDate.SelectedDate).ToString("yyyy-MM-dd HH:mm:ss");
             return flag;
+        }
+        private void GenerateOrderNumber()
+        {
+            this.TextBox_OrderNumber.Text = this.ComboBox_Customer.Text+"_"+((DateTime)this.DatePicker_OrderDate.SelectedDate).ToString("yyyyMMdd");
         }
 
         private void Button_Commit_Click(object sender, RoutedEventArgs e)
@@ -67,6 +77,7 @@ namespace HuaHaoERP.View.Pages.Content_Orders
         {
             Model.ProductOrderDetailsModel dd = new Model.ProductOrderDetailsModel();
             dd.Guid = Guid.NewGuid();
+            dd.OrderID = Guid;
             dd.ProductID = (Guid)this.ComboBox_Product.SelectedValue;
             dd.ProductName = this.ComboBox_Product.Text.Trim();
             dd.NumberOfItems = 0;
@@ -74,6 +85,16 @@ namespace HuaHaoERP.View.Pages.Content_Orders
             d.Details.Add(dd);
             this.DataGrid_ProductDetails.ItemsSource = null;
             this.DataGrid_ProductDetails.ItemsSource = d.Details;
+        }
+
+        private void ComboBox_Customer_DropDownClosed(object sender, EventArgs e)
+        {
+            GenerateOrderNumber();
+        }
+
+        private void DatePicker_OrderDate_CalendarClosed(object sender, RoutedEventArgs e)
+        {
+            GenerateOrderNumber();
         }
     }
 }

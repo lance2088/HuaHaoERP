@@ -34,7 +34,9 @@ namespace HuaHaoERP.View.Pages.Content_Orders
 
         private void InitializeProductOrderData()
         {
-            //this.DataGrid_ProductOrder.ItemsSource
+            List<Model.ProductOrderModelForDataGrid> data;
+            new ViewModel.Orders.ProductOrderConsole().ReadList(out data);
+            this.DataGrid_ProductOrder.ItemsSource = data;
         }
         private void Button_AddProductOrder_Click(object sender, RoutedEventArgs e)
         {
