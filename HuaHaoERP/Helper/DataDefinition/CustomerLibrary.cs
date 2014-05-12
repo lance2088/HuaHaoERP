@@ -13,7 +13,7 @@ namespace HuaHaoERP.Helper.DataDefinition
 
         }
 
-        private static DataTable supplierList;
+        //private static DataTable supplierList;
 
         public static DataTable SupplierList
         {
@@ -23,7 +23,7 @@ namespace HuaHaoERP.Helper.DataDefinition
                 new ViewModel.Customer.SupplierConsole().GetNameList(out ds);
                 return ds.Tables[0]; 
             }
-            set { CustomerLibrary.supplierList = value; }
+            //set { CustomerLibrary.supplierList = value; }
         }
     }
 }

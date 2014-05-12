@@ -199,8 +199,8 @@
     <Compile Include="Helper\Events\2.MeansOfProduction\ProductEventArgs.cs" />
     <Compile Include="Helper\Events\2.MeansOfProduction\RawMaterialsEvent.cs" />
     <Compile Include="Helper\Events\2.MeansOfProduction\RawMaterialsEventArgs.cs" />
-    <Compile Include="Helper\Events\3.Orders\ProductOrderEvent.cs" />
-    <Compile Include="Helper\Events\3.Orders\ProductOrderEventArgs.cs" />
+    <Compile Include="Helper\Events\5.Orders\ProductOrderEvent.cs" />
+    <Compile Include="Helper\Events\5.Orders\ProductOrderEventArgs.cs" />
     <Compile Include="Helper\Excel\Reader.cs" />
     <Compile Include="Helper\LogHelper\FileLog.cs" />
     <Compile Include="Helper\SQLite\DBHelper.cs" />
