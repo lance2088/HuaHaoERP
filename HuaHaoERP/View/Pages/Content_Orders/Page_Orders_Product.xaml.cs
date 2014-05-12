@@ -69,14 +69,8 @@ namespace HuaHaoERP.View.Pages.Content_Orders
             dd.Guid = Guid.NewGuid();
             dd.ProductID = (Guid)this.ComboBox_Product.SelectedValue;
             dd.ProductName = this.ComboBox_Product.Text.Trim();
-            int NumberOfItems = 0;
-            int.TryParse(this.TextBox_NumberOfItems.Text.Trim(), out NumberOfItems);
-            dd.NumberOfItems = NumberOfItems;
-            int Quantity = 0;
-            int.TryParse(this.TextBox_Quantity.Text.Trim(), out Quantity);
-            dd.Quantity = Quantity;
-            dd.Unit = this.ComboBox_Unit.Text.Trim();
-            dd.Remark = this.TextBox_Remark.Text.Trim();
+            dd.NumberOfItems = 0;
+            dd.Quantity = 0;
             d.Details.Add(dd);
             this.DataGrid_ProductDetails.ItemsSource = null;
             this.DataGrid_ProductDetails.ItemsSource = d.Details;
