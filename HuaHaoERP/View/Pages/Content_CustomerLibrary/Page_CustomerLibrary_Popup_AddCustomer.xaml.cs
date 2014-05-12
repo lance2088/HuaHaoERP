@@ -119,7 +119,7 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
 
         private void Button_Cancel_Click(object sender, RoutedEventArgs e)
         {
-            Helper.Events.PopUpEvent.OnHidePopUp(this);
+            Helper.Events.PopUpEvent.OnHidePopUp();
         }
     }
 }

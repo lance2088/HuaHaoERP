@@ -38,7 +38,7 @@ namespace HuaHaoERP.View.Pages.Content_Orders
         }
         private void Button_AddProductOrder_Click(object sender, RoutedEventArgs e)
         {
-            Helper.Events.PopUpEvent.OnShowPopUp(this, new Page_Orders_Product());
+            Helper.Events.PopUpEvent.OnShowPopUp(new Page_Orders_Product());
         }
     }
 }

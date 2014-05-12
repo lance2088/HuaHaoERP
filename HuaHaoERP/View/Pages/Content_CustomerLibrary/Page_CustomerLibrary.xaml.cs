@@ -56,14 +56,14 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
         }
         private void Button_AddCustomer_Click(object sender, RoutedEventArgs e)
         {
-            Helper.Events.PopUpEvent.OnShowPopUp(this, new Page_CustomerLibrary_Popup_AddCustomer());
+            Helper.Events.PopUpEvent.OnShowPopUp(new Page_CustomerLibrary_Popup_AddCustomer());
         }
         private void DataGrid_Customer_Row_MouseDoubleClick(object sender, RoutedEventArgs e)
         {
             if (this.DataGrid_Customer.SelectedCells.Count != 0)
             {
                 HuaHaoERP.Model.CustomerModel data = this.DataGrid_Customer.SelectedCells[0].Item as HuaHaoERP.Model.CustomerModel;
-                Helper.Events.PopUpEvent.OnShowPopUp(this, new Page_CustomerLibrary_Popup_AddCustomer(data));
+                Helper.Events.PopUpEvent.OnShowPopUp(new Page_CustomerLibrary_Popup_AddCustomer(data));
             }
         }
         private void Button_DeleteCustomer_Click(object sender, RoutedEventArgs e)
@@ -86,14 +86,14 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
         }
         private void Button_AddSupplier_Click(object sender, RoutedEventArgs e)
         {
-            Helper.Events.PopUpEvent.OnShowPopUp(this, new Page_CustomerLibrary_Popup_AddSupplier());
+            Helper.Events.PopUpEvent.OnShowPopUp(new Page_CustomerLibrary_Popup_AddSupplier());
         }
         private void DataGrid_Supplier_Row_MouseDoubleClick(object sender, RoutedEventArgs e)
         {
             if (this.DataGrid_Supplier.SelectedCells.Count != 0)
             {
                 HuaHaoERP.Model.SupplierModel data = this.DataGrid_Supplier.SelectedCells[0].Item as HuaHaoERP.Model.SupplierModel;
-                Helper.Events.PopUpEvent.OnShowPopUp(this, new Page_CustomerLibrary_Popup_AddSupplier(data));
+                Helper.Events.PopUpEvent.OnShowPopUp(new Page_CustomerLibrary_Popup_AddSupplier(data));
             }
         }
         private void Button_DeleteSupplier_Click(object sender, RoutedEventArgs e)
@@ -116,14 +116,14 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
         }
         private void Button_AddStaff_Click(object sender, RoutedEventArgs e)
         {
-            Helper.Events.PopUpEvent.OnShowPopUp(this, new Page_CustomerLibrary_Popup_AddStaff());
+            Helper.Events.PopUpEvent.OnShowPopUp(new Page_CustomerLibrary_Popup_AddStaff());
         }
         private void DataGrid_Staff_Row_MouseDoubleClick(object sender, RoutedEventArgs e)
         {
             if (this.DataGrid_Staff.SelectedCells.Count != 0)
             {
                 HuaHaoERP.Model.StaffModel data = this.DataGrid_Staff.SelectedCells[0].Item as HuaHaoERP.Model.StaffModel;
-                Helper.Events.PopUpEvent.OnShowPopUp(this, new Page_CustomerLibrary_Popup_AddStaff(data));
+                Helper.Events.PopUpEvent.OnShowPopUp(new Page_CustomerLibrary_Popup_AddStaff(data));
             }
         }
         private void Button_DeleteStaff_Click(object sender, RoutedEventArgs e)
@@ -145,14 +145,14 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
         }
         private void Button_Add_Processors_Click(object sender, RoutedEventArgs e)
         {
-            Helper.Events.PopUpEvent.OnShowPopUp(this, new Page_CustomerLibrary_Popup_AddProcessors());
+            Helper.Events.PopUpEvent.OnShowPopUp(new Page_CustomerLibrary_Popup_AddProcessors());
         }
         private void DataGrid_Processors_Row_MouseDoubleClick(object sender, RoutedEventArgs e)
         {
             if (this.DataGrid_Processors.SelectedCells.Count != 0)
             {
                 HuaHaoERP.Model.ProcessorsModel data = this.DataGrid_Processors.SelectedCells[0].Item as HuaHaoERP.Model.ProcessorsModel;
-                Helper.Events.PopUpEvent.OnShowPopUp(this, new Page_CustomerLibrary_Popup_AddProcessors(data));
+                Helper.Events.PopUpEvent.OnShowPopUp(new Page_CustomerLibrary_Popup_AddProcessors(data));
             }
         }
         private void Button_DeleteProcessors_Click(object sender, RoutedEventArgs e)

@@ -46,7 +46,7 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
         }
         private void Button_AddProduct_Click(object sender, RoutedEventArgs e)
         {
-            PopUpEvent.OnShowPopUp(this, new HuaHaoERP.View.Pages.Content_MeansOfProduction.Page_MeansOfProduction_Popup_AddProduct());
+            PopUpEvent.OnShowPopUp(new HuaHaoERP.View.Pages.Content_MeansOfProduction.Page_MeansOfProduction_Popup_AddProduct());
         }
         private void Button_DeleteProduct_Click(object sender, RoutedEventArgs e)
         {
@@ -61,7 +61,7 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
             if (this.DataGrid_Product.SelectedCells.Count != 0)
             {
                 HuaHaoERP.Model.ProductModel data = this.DataGrid_Product.SelectedCells[0].Item as HuaHaoERP.Model.ProductModel;
-                Helper.Events.PopUpEvent.OnShowPopUp(this, new Page_MeansOfProduction_Popup_AddProduct(data));
+                Helper.Events.PopUpEvent.OnShowPopUp(new Page_MeansOfProduction_Popup_AddProduct(data));
             }
         }
         #endregion
@@ -76,14 +76,14 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
         }
         private void Button_AddRawMaterials_Click(object sender, RoutedEventArgs e)
         {
-            PopUpEvent.OnShowPopUp(this, new HuaHaoERP.View.Pages.Content_MeansOfProduction.Page_MeansOfProduction_Popup_AddRawMaterials());
+            PopUpEvent.OnShowPopUp(new HuaHaoERP.View.Pages.Content_MeansOfProduction.Page_MeansOfProduction_Popup_AddRawMaterials());
         }
         private void DataGrid_RawMaterials_Row_MouseDoubleClick(object sender, RoutedEventArgs e)
         {
             if (this.DataGrid_RawMaterials.SelectedCells.Count != 0)
             {
                 HuaHaoERP.Model.RawMaterialsModel data = this.DataGrid_RawMaterials.SelectedCells[0].Item as HuaHaoERP.Model.RawMaterialsModel;
-                Helper.Events.PopUpEvent.OnShowPopUp(this, new Page_MeansOfProduction_Popup_AddRawMaterials(data));
+                Helper.Events.PopUpEvent.OnShowPopUp(new Page_MeansOfProduction_Popup_AddRawMaterials(data));
             }
         }
         private void Button_DeleteRawMaterials_Click(object sender, RoutedEventArgs e)

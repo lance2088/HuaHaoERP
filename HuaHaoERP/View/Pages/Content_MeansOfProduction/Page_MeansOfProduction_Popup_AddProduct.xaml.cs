@@ -108,7 +108,7 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
         }
         private void Button_Cancel_Click(object sender, RoutedEventArgs e)
         {
-            PopUpEvent.OnHidePopUp(this);
+            PopUpEvent.OnHidePopUp();
         }
 
         private void Button_Commit_Click(object sender, RoutedEventArgs e)
