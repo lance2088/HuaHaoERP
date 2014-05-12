@@ -16,6 +16,8 @@ namespace HuaHaoERP.View.Pages.Content_Orders
 {
     public partial class Page_Orders_Product : Page
     {
+        Model.ProductOrderModel d = new Model.ProductOrderModel();
+
         public Page_Orders_Product()
         {
             InitializeComponent();
@@ -23,6 +25,7 @@ namespace HuaHaoERP.View.Pages.Content_Orders
         }
         private void InitializeData()
         {
+            d.Details = new List<Model.ProductOrderDetailsModel>();
             this.ComboBox_Customer.ItemsSource = Helper.DataDefinition.CustomerLibrary.CustomerList.DefaultView;
             this.ComboBox_Customer.DisplayMemberPath = "Name";
             this.ComboBox_Customer.SelectedValuePath = "GUID";//GUID四个字母要大写
@@ -33,16 +36,53 @@ namespace HuaHaoERP.View.Pages.Content_Orders
             this.ComboBox_Product.SelectedIndex = 0;
             this.DatePicker_OrderDate.SelectedDate = DateTime.Now;
         }
+        private bool CheckAndGetData()
+        {
+            bool flag = true;
+
+            return flag;
+        }
 
         private void Button_Commit_Click(object sender, RoutedEventArgs e)
         {
+            if (CheckAndGetData())
+            {
 
-            Button_Cancel_Click(null, null);
+                Button_Cancel_Click(null, null);
+            }
+            else
+            {
+
+            }
         }
 
         private void Button_Cancel_Click(object sender, RoutedEventArgs e)
         {
             Helper.Events.PopUpEvent.OnHidePopUp();
+        }
+
+        private void Button_AddProductDetails_Click(object sender, RoutedEventArgs e)
+        {
+            Model.ProductOrderDetailsModel dd = new Model.ProductOrderDetailsModel();
+            dd.Guid = Guid.NewGuid();
+            dd.ProductID = (Guid)this.ComboBox_Product.SelectedValue;
+            dd.ProductName = this.ComboBox_Product.Text.Trim();
+            int NumberOfItems = 0;
+            int.TryParse(this.TextBox_NumberOfItems.Text.Trim(), out NumberOfItems);
+            dd.NumberOfItems = NumberOfItems;
+            int Quantity = 0;
+            int.TryParse(this.TextBox_Quantity.Text.Trim(), out Quantity);
+            dd.Quantity = Quantity;
+            dd.Unit = this.ComboBox_Unit.Text.Trim();
+            dd.Remark = this.TextBox_Remark.Text.Trim();
+            d.Details.Add(dd);
+            this.DataGrid_ProductDetails.ItemsSource = null;
+            this.DataGrid_ProductDetails.ItemsSource = d.Details;
+        }
+
+        private void DataGrid_ProductDetails_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+        {
+
         }
     }
 }

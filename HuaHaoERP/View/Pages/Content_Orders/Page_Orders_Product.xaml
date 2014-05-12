@@ -22,26 +22,28 @@
         <ComboBox x:Name="ComboBox_Customer" HorizontalAlignment="Left" Margin="75,60,0,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center"/>
         <DatePicker x:Name="DatePicker_DeliveryDate" HorizontalAlignment="Left" Margin="75,100,0,0" VerticalAlignment="Top" Width="120" Height="24"/>
         <DatePicker x:Name="DatePicker_OrderDate" HorizontalAlignment="Left" Margin="75,140,0,0" VerticalAlignment="Top" Width="120" Height="24"/>
-        <DataGrid Margin="270,20,50,10" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False">
+        <DataGrid x:Name="DataGrid_ProductDetails" Margin="270,20,50,10" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeRows="False" CellEditEnding="DataGrid_ProductDetails_CellEditEnding">
             <DataGrid.Columns>
-                <DataGridComboBoxColumn Header="产品名称"/>
-                <DataGridTextColumn Header="件数"/>
-                <DataGridTextColumn Header="数量"/>
-                <DataGridComboBoxColumn Header="单位"/>
-                <DataGridTextColumn Header="备注"/>
+                <DataGridTextColumn Binding="{Binding Guid}" Header="GUID" Visibility="Hidden"/>
+                <DataGridTextColumn Binding="{Binding Id}" Header="序号" Visibility="Hidden"/>
+                <DataGridTextColumn Binding="{Binding ProductName}" Header="产品名称" MinWidth="100" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding NumberOfItems}" Header="件数" MinWidth="50" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn Binding="{Binding Quantity}" Header="数量" MinWidth="50" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn Binding="{Binding Unit}" Header="单位" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn Binding="{Binding Remark}" Header="备注" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
         <ComboBox x:Name="ComboBox_Product" HorizontalAlignment="Left" Margin="270,44,0,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center" Grid.Row="1"/>
-        <TextBox HorizontalAlignment="Left" Height="24" Margin="395,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" VerticalContentAlignment="Center" Grid.Row="1"/>
-        <TextBox HorizontalAlignment="Left" Height="24" Margin="460,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" VerticalContentAlignment="Center" Grid.Row="1"/>
-        <ComboBox HorizontalAlignment="Left" Margin="525,44,0,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center" Grid.Row="1" IsEditable="True"/>
-        <TextBox HorizontalAlignment="Left" Height="48" Margin="270,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="375" AcceptsReturn="True" Grid.Row="1"/>
+        <TextBox x:Name="TextBox_NumberOfItems" HorizontalAlignment="Left" Height="24" Margin="395,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" VerticalContentAlignment="Center" Grid.Row="1"/>
+        <TextBox x:Name="TextBox_Quantity" HorizontalAlignment="Left" Height="24" Margin="460,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" VerticalContentAlignment="Center" Grid.Row="1"/>
+        <ComboBox x:Name="ComboBox_Unit" HorizontalAlignment="Left" Margin="525,44,0,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center" Grid.Row="1" IsEditable="True"/>
+        <TextBox x:Name="TextBox_Remark" HorizontalAlignment="Left" Height="48" Margin="270,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="375" AcceptsReturn="True" Grid.Row="1"/>
         <Label Content="产品名称" HorizontalAlignment="Left" Margin="270,20,0,0" VerticalAlignment="Top" Grid.Row="1" Height="24" Width="58"/>
         <Label Content="备注" HorizontalAlignment="Left" Margin="270,73,0,0" Grid.Row="1" VerticalAlignment="Top"/>
         <Label Content="件数" HorizontalAlignment="Left" Margin="395,20,0,0" Grid.Row="1" VerticalAlignment="Top"/>
         <Label Content="数量" HorizontalAlignment="Left" Margin="460,20,0,0" Grid.Row="1" VerticalAlignment="Top"/>
         <Label Content="单位" HorizontalAlignment="Left" Margin="525,20,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-        <Button Content="添加" HorizontalAlignment="Left" Margin="675,121,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}"/>
+        <Button x:Name="Button_AddProductDetails" Content="添加" HorizontalAlignment="Left" Margin="675,121,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Click="Button_AddProductDetails_Click"/>
         <Label Content="订单编号" HorizontalAlignment="Left" Margin="10,20,0,0" VerticalAlignment="Top"/>
         <Label Content="客户名称" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top"/>
         <Label Content="交货日期" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top"/>
