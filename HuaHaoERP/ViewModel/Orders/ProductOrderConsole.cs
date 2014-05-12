@@ -85,7 +85,6 @@ namespace HuaHaoERP.ViewModel.Orders
                         d.Quantity = dr["Quantity"].ToString();
                         d.Unit = dr["Unit"].ToString();
                         d.Remark = dr["Remark"].ToString();
-                        //data.Add(d);
                     }
                     LastOrderGuid = (Guid)dr["GUID"];
                 }
