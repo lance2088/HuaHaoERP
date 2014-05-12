@@ -24,7 +24,7 @@ namespace HuaHaoERP.ViewModel.Orders
             flag = new Helper.SQLite.DBHelper().Transaction(sqls);
             return flag;
         }
-        internal bool Delete(Model.ProductOrderModel d)
+        internal bool Update(Model.ProductOrderModel d)
         {
             bool flag = false;
 

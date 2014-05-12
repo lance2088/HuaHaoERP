@@ -8,7 +8,7 @@ namespace HuaHaoERP.Helper.Events
     class ProcessorsEvent
     {
         public static EventHandler<ProcessorsEventArgs> EAdd;
-        public static EventHandler<ProcessorsEventArgs> EDelete;
+        public static EventHandler<ProcessorsEventArgs> EUpdate;
         public static EventHandler<ProcessorsEventArgs> EMarkDelete;
         public static EventHandler EUpdateDataGrid;
 
@@ -21,13 +21,13 @@ namespace HuaHaoERP.Helper.Events
                 EAdd(sender, ee);
             }
         }
-        internal static void OnDelete(object sender, Model.ProcessorsModel d)
+        internal static void OnUpdate(object sender, Model.ProcessorsModel d)
         {
-            if(EDelete != null)
+            if (EUpdate != null)
             {
                 ProcessorsEventArgs ee = new ProcessorsEventArgs();
                 ee.ProcessorsData = d;
-                EDelete(sender, ee);
+                EUpdate(sender, ee);
             }
         }
         internal static void OnMarkDelete(object sender, Model.ProcessorsModel d)

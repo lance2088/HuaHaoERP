@@ -17,11 +17,16 @@ namespace HuaHaoERP.ViewModel.MeansOfProduction
             flag = new Helper.SQLite.DBHelper().SingleExecution(sql);
             return flag;
         }
-        internal bool Delete(RawMaterialsModel d)
+        internal bool Update(RawMaterialsModel d)
         {
             bool flag = true;
-            string sql = "Delete From T_ProductInfo_RawMaterials Where GUID='" + d.Guid + "'";
-            flag = new Helper.SQLite.DBHelper().SingleExecution(sql);
+            List<string> sqls = new List<string>();
+            string sql_Delete = "Delete From T_ProductInfo_RawMaterials Where GUID='" + d.Guid + "'";
+            string sql_Update = "Insert Into T_ProductInfo_RawMaterials (GUID,Number,Name,Weight,Material,Supplier,Sp1,Sp2,Remark,AddTime) "
+                                + " values('" + d.Guid + "','" + d.Number + "','" + d.Name + "','" + d.Weight + "','" + d.Material + "','" + d.Supplier + "','" + d.Sp1 + "','" + d.Sp2 + "','" + d.Remark + "','" + d.AddTime.ToString("yyyy-MM-dd HH:mm:ss") + "')";
+            sqls.Add(sql_Delete);
+            sqls.Add(sql_Update);
+            flag = new Helper.SQLite.DBHelper().Transaction(sqls);
             return flag;
         }
         internal bool MarkDelete(RawMaterialsModel d)

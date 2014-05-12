@@ -102,16 +102,14 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
             {
                 if(isNew)
                 {
+                    RawMaterialsEvent.OnAdd(this, d);
                     StatusBarMessageEvent.OnUpdateMessage("添加原材料：" + d.Name);
                 }
                 else
                 {
-                    Model.RawMaterialsModel dOld = new Model.RawMaterialsModel();
-                    dOld.Guid = OldGuid;
-                    RawMaterialsEvent.OnDelete(this, dOld);
+                    RawMaterialsEvent.OnUpdate(this, d);
                     StatusBarMessageEvent.OnUpdateMessage("修改原材料：" + d.Name);
                 }
-                RawMaterialsEvent.OnAdd(this, d);
                 Button_Cancel_Click(null, null);
             }
             else

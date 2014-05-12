@@ -9,7 +9,7 @@ namespace HuaHaoERP.Helper.Events
     static class CustomerEvent
     {
         public static EventHandler<CustomerEventArgs> EAdd;
-        public static EventHandler<CustomerEventArgs> EDelete;
+        public static EventHandler<CustomerEventArgs> EUpdate;
         public static EventHandler<CustomerEventArgs> EMarkDelete;
         public static EventHandler EUpdateDataGrid;
 
@@ -22,13 +22,13 @@ namespace HuaHaoERP.Helper.Events
                 EAdd(sender, ee);
             }
         }
-        internal static void OnDelete(object sender, CustomerModel d)
+        internal static void OnUpdate(object sender, CustomerModel d)
         {
-            if (EDelete != null)
+            if (EUpdate != null)
             {
                 CustomerEventArgs ee = new CustomerEventArgs();
                 ee.CustomerData = d;
-                EDelete(sender, ee);
+                EUpdate(sender, ee);
             }
         }
         internal static void OnMarkDelete(object sender, CustomerModel d)

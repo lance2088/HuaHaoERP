@@ -9,7 +9,7 @@ namespace HuaHaoERP.Helper.Events
     class RawMaterialsEvent
     {
         public static EventHandler<RawMaterialsEventArgs> EAdd;
-        public static EventHandler<RawMaterialsEventArgs> EDelete;
+        public static EventHandler<RawMaterialsEventArgs> EUpdate;
         public static EventHandler<RawMaterialsEventArgs> EMarkDelete;
         public static EventHandler EUpdateDataGrid;
 
@@ -22,13 +22,13 @@ namespace HuaHaoERP.Helper.Events
                 EAdd(sender, ee);
             }
         }
-        internal static void OnDelete(object sender, RawMaterialsModel RawMaterialsData)
+        internal static void OnUpdate(object sender, RawMaterialsModel RawMaterialsData)
         {
-            if (EDelete != null)
+            if (EUpdate != null)
             {
                 RawMaterialsEventArgs ee = new RawMaterialsEventArgs();
                 ee.RawMaterialsData = RawMaterialsData;
-                EDelete(sender, ee);
+                EUpdate(sender, ee);
             }
         }
         internal static void OnMarkDelete(object sender, RawMaterialsModel RawMaterialsData)

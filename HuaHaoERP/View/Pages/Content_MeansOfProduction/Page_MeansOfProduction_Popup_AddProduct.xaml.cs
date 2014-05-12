@@ -117,16 +117,14 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
             {
                 if (isNew)
                 {
+                    ProductEvent.OnAdd(this, d);
                     StatusBarMessageEvent.OnUpdateMessage("添加产品：" + d.Name);
                 }
                 else
                 {
-                    Model.ProductModel dOld = new Model.ProductModel();
-                    dOld.Guid = OldGuid;
-                    ProductEvent.OnDelete(this, dOld);
+                    ProductEvent.OnUpdate(this, d);
                     StatusBarMessageEvent.OnUpdateMessage("修改产品：" + d.Name);
                 }
-                ProductEvent.OnAdd(this, d);
                 Button_Cancel_Click(null, null);
             }
         }

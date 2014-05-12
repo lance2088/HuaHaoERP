@@ -94,16 +94,14 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             {
                 if (!isNew)
                 {
-                    Model.ProcessorsModel dOld = new Model.ProcessorsModel();
-                    dOld.Guid = OldGuid;
-                    Helper.Events.ProcessorsEvent.OnDelete(this, dOld);
+                    Helper.Events.ProcessorsEvent.OnUpdate(this, d);
                     Helper.Events.StatusBarMessageEvent.OnUpdateMessage("修改外加工商：" + d.Name);
                 }
                 else
                 {
+                    Helper.Events.ProcessorsEvent.OnAdd(this, d);
                     Helper.Events.StatusBarMessageEvent.OnUpdateMessage("添加外加工商：" + d.Name);
                 }
-                Helper.Events.ProcessorsEvent.OnAdd(this, d);
                 Button_Cancel_Click(null, null);
             }
             else
