@@ -45,13 +45,20 @@ namespace HuaHaoERP.View.Pages.Content_Orders
             d.Guid = Guid;
             d.OrderNumber = this.TextBox_OrderNumber.Text.Trim();
             d.CustomerID = (Guid)this.ComboBox_Customer.SelectedValue;
-            d.DeliveryDate = ((DateTime)this.DatePicker_DeliveryDate.SelectedDate).ToString("yyyy-MM-dd HH:mm:ss");
+            try
+            {
+                d.DeliveryDate = ((DateTime)this.DatePicker_DeliveryDate.SelectedDate).ToString("yyyy-MM-dd HH:mm:ss");
+            }
+            catch(Exception)
+            {
+                d.DeliveryDate = "0001-01-01 00:00:00";
+            }
             d.OrderDate = ((DateTime)this.DatePicker_OrderDate.SelectedDate).ToString("yyyy-MM-dd HH:mm:ss");
             return flag;
         }
         private void GenerateOrderNumber()
         {
-            this.TextBox_OrderNumber.Text = this.ComboBox_Customer.Text+"_"+((DateTime)this.DatePicker_OrderDate.SelectedDate).ToString("yyyyMMdd");
+            this.TextBox_OrderNumber.Text = this.ComboBox_Customer.Text + "_" + ((DateTime)this.DatePicker_OrderDate.SelectedDate).ToString("yyyyMMdd") +DateTime.Now.ToString("HHmmss");
         }
 
         private void Button_Commit_Click(object sender, RoutedEventArgs e)

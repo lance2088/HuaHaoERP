@@ -78,8 +78,8 @@ namespace HuaHaoERP.ViewModel.Orders
                         d.Guid = (Guid)dr["GUID"];
                         d.OrderNumber = dr["OrderNumber"].ToString();
                         d.CustomerName = dr["CustomerName"].ToString();
-                        d.DeliveryDate = dr["DeliveryDate"].ToString();
-                        d.OrderDate = dr["OrderDate"].ToString();
+                        d.DeliveryDate = (Convert.ToDateTime(dr["DeliveryDate"]).Year < 10) ? "" : Convert.ToDateTime(dr["DeliveryDate"]).ToString("yyyy-MM-dd");
+                        d.OrderDate = Convert.ToDateTime(dr["OrderDate"]).ToString("yyyy-MM-dd");
                         d.Id = id++;
                         d.ProductName = dr["ProductName"].ToString();
                         d.NumberOfItems = dr["NumberOfItems"].ToString();
