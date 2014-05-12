@@ -14,19 +14,30 @@ using System.Windows.Shapes;
 
 namespace HuaHaoERP.View.Pages.Content_Orders
 {
-    /// <summary>
-    /// Interaction logic for Page_Orders_Product.xaml
-    /// </summary>
     public partial class Page_Orders_Product : Page
     {
         public Page_Orders_Product()
         {
             InitializeComponent();
+            InitializeData();
+        }
+        private void InitializeData()
+        {
+            this.ComboBox_Customer.ItemsSource = Helper.DataDefinition.CustomerLibrary.CustomerList.DefaultView;
+            this.ComboBox_Customer.DisplayMemberPath = "Name";
+            this.ComboBox_Customer.SelectedValuePath = "GUID";//GUID四个字母要大写
+            this.ComboBox_Customer.SelectedIndex = 0;
+            this.ComboBox_Product.ItemsSource = Helper.DataDefinition.CustomerLibrary.ProductList.DefaultView;
+            this.ComboBox_Product.DisplayMemberPath = "Name";
+            this.ComboBox_Product.SelectedValuePath = "GUID";//GUID四个字母要大写
+            this.ComboBox_Product.SelectedIndex = 0;
+            this.DatePicker_OrderDate.SelectedDate = DateTime.Now;
         }
 
         private void Button_Commit_Click(object sender, RoutedEventArgs e)
         {
-            Helper.Events.PopUpEvent.OnHidePopUp();
+
+            Button_Cancel_Click(null, null);
         }
 
         private void Button_Cancel_Click(object sender, RoutedEventArgs e)

@@ -66,5 +66,13 @@ namespace HuaHaoERP.ViewModel.Customer
             }
             return flag;
         }
+        internal bool GetNameList(out DataSet ds)
+        {
+            bool flag = true;
+            ds = new DataSet();
+            string sql = "select Guid,Number,Name From T_UserInfo_Customer Where DeleteMark is null order by AddTime";
+            flag = new Helper.SQLite.DBHelper().QueryData(sql, out ds);
+            return flag;
+        }
     }
 }

@@ -40,7 +40,6 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
             this.ComboBox_Supplier.ItemsSource = Helper.DataDefinition.CustomerLibrary.SupplierList.DefaultView;
             this.ComboBox_Supplier.DisplayMemberPath = "Name";
             this.ComboBox_Supplier.SelectedValuePath = "GUID";//GUID四个字母要大写
-            //this.ComboBox_Supplier.SelectedIndex = 0;
         }
         private void InitializeData(Model.RawMaterialsModel d)
         {

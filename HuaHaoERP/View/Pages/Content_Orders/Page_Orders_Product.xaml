@@ -17,11 +17,11 @@
         </Grid.ColumnDefinitions>
         <Button x:Name="Button_Commit" Content="确定" HorizontalAlignment="Center" Margin="0,0,115,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Click="Button_Commit_Click" Height="24" Grid.Row="1"/>
         <Button x:Name="Button_Cancel" Content="取消" HorizontalAlignment="Center" Margin="115,0,0,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" IsCancel="True" Click="Button_Cancel_Click" Height="24" Grid.Row="1"/>
-        <CheckBox Content="自动扣库存" HorizontalAlignment="Left" Margin="75,180,0,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" Width="80"/>
-        <TextBox HorizontalAlignment="Left" Height="24" Margin="75,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
-        <ComboBox HorizontalAlignment="Left" Margin="75,60,0,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center"/>
-        <DatePicker HorizontalAlignment="Left" Margin="75,100,0,0" VerticalAlignment="Top" Width="120" Height="24"/>
-        <DatePicker HorizontalAlignment="Left" Margin="75,140,0,0" VerticalAlignment="Top" Width="120" Height="24"/>
+        <CheckBox x:Name="CheckBox_AutoBuckleStock" Content="自动扣库存" HorizontalAlignment="Left" Margin="75,180,0,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" Width="80"/>
+        <TextBox x:Name="TextBox_OrderNumber" HorizontalAlignment="Left" Height="24" Margin="75,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
+        <ComboBox x:Name="ComboBox_Customer" HorizontalAlignment="Left" Margin="75,60,0,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center"/>
+        <DatePicker x:Name="DatePicker_DeliveryDate" HorizontalAlignment="Left" Margin="75,100,0,0" VerticalAlignment="Top" Width="120" Height="24"/>
+        <DatePicker x:Name="DatePicker_OrderDate" HorizontalAlignment="Left" Margin="75,140,0,0" VerticalAlignment="Top" Width="120" Height="24"/>
         <DataGrid Margin="270,20,50,10" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False">
             <DataGrid.Columns>
                 <DataGridComboBoxColumn Header="产品名称"/>
@@ -31,7 +31,7 @@
                 <DataGridTextColumn Header="备注"/>
             </DataGrid.Columns>
         </DataGrid>
-        <ComboBox HorizontalAlignment="Left" Margin="270,44,0,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center" Grid.Row="1"/>
+        <ComboBox x:Name="ComboBox_Product" HorizontalAlignment="Left" Margin="270,44,0,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center" Grid.Row="1"/>
         <TextBox HorizontalAlignment="Left" Height="24" Margin="395,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" VerticalContentAlignment="Center" Grid.Row="1"/>
         <TextBox HorizontalAlignment="Left" Height="24" Margin="460,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" VerticalContentAlignment="Center" Grid.Row="1"/>
         <ComboBox HorizontalAlignment="Left" Margin="525,44,0,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center" Grid.Row="1" IsEditable="True"/>
@@ -42,6 +42,10 @@
         <Label Content="数量" HorizontalAlignment="Left" Margin="460,20,0,0" Grid.Row="1" VerticalAlignment="Top"/>
         <Label Content="单位" HorizontalAlignment="Left" Margin="525,20,0,0" Grid.Row="1" VerticalAlignment="Top"/>
         <Button Content="添加" HorizontalAlignment="Left" Margin="675,121,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}"/>
+        <Label Content="订单编号" HorizontalAlignment="Left" Margin="10,20,0,0" VerticalAlignment="Top"/>
+        <Label Content="客户名称" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top"/>
+        <Label Content="交货日期" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top"/>
+        <Label Content="下单日期" HorizontalAlignment="Left" Margin="10,140,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Page>
