@@ -101,11 +101,11 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
                     Model.CustomerModel dOld = new Model.CustomerModel();
                     dOld.Guid = OldGuid;
                     CustomerEvent.OnDelete(this, dOld);
-                    StatusBarMessageEvent.OnUpdateMessage(this, "修改用户：" + d.Name);
+                    StatusBarMessageEvent.OnUpdateMessage("修改用户：" + d.Name);
                 }
                 else
                 {
-                    StatusBarMessageEvent.OnUpdateMessage(this, "添加用户：" + d.Name);
+                    StatusBarMessageEvent.OnUpdateMessage("添加用户：" + d.Name);
                 }
                 CustomerEvent.OnAdd(this, d);
                 Button_Cancel_Click(null, null);
@@ -113,7 +113,7 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             else
             {
                 Console.WriteLine("Add False");
-                StatusBarMessageEvent.OnUpdateMessage(this, "添加/修改用户操作失败");
+                StatusBarMessageEvent.OnUpdateMessage("添加/修改用户操作失败");
             }
         }
 

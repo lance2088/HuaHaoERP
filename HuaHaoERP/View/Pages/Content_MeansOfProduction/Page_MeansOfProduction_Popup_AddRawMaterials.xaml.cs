@@ -103,21 +103,21 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
             {
                 if(isNew)
                 {
-                    StatusBarMessageEvent.OnUpdateMessage(this, "添加原材料：" + d.Name);
+                    StatusBarMessageEvent.OnUpdateMessage("添加原材料：" + d.Name);
                 }
                 else
                 {
                     Model.RawMaterialsModel dOld = new Model.RawMaterialsModel();
                     dOld.Guid = OldGuid;
                     RawMaterialsEvent.OnDelete(this, dOld);
-                    StatusBarMessageEvent.OnUpdateMessage(this, "修改原材料：" + d.Name);
+                    StatusBarMessageEvent.OnUpdateMessage("修改原材料：" + d.Name);
                 }
                 RawMaterialsEvent.OnAdd(this, d);
                 Button_Cancel_Click(null, null);
             }
             else
             {
-                StatusBarMessageEvent.OnUpdateMessage(this, "添加/修改原材料失败");
+                StatusBarMessageEvent.OnUpdateMessage("添加/修改原材料失败");
             }
         }
 

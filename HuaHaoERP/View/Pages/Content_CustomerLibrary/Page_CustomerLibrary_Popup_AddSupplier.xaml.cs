@@ -100,11 +100,11 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
                     Model.SupplierModel dOld = new Model.SupplierModel();
                     dOld.Guid = OldGuid;
                     Helper.Events.SupplierEvent.OnDelete(this, dOld);
-                    Helper.Events.StatusBarMessageEvent.OnUpdateMessage(this, "修改供应商：" + d.Name);
+                    Helper.Events.StatusBarMessageEvent.OnUpdateMessage("修改供应商：" + d.Name);
                 }
                 else
                 {
-                    Helper.Events.StatusBarMessageEvent.OnUpdateMessage(this, "添加供应商：" + d.Name);
+                    Helper.Events.StatusBarMessageEvent.OnUpdateMessage("添加供应商：" + d.Name);
                 }
                 Helper.Events.SupplierEvent.OnAdd(this, d);
                 Button_Cancel_Click(null, null);
