@@ -15,4 +15,14 @@ namespace HuaHaoERP.Helper.Events
             set { data = value; }
         }
     }
+    class ProductOrderEventArgsForDateGrid : EventArgs
+    {
+        private Model.ProductOrderModelForDataGrid data;
+
+        internal Model.ProductOrderModelForDataGrid Data
+        {
+            get { return data; }
+            set { data = value; }
+        }
+    }
 }

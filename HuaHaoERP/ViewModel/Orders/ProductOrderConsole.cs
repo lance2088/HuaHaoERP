@@ -30,10 +30,11 @@ namespace HuaHaoERP.ViewModel.Orders
 
             return flag;
         }
-        internal bool MarkDelete(Model.ProductOrderModel d)
+        internal bool MarkDelete(Model.ProductOrderModelForDataGrid d)
         {
-            bool flag = false;
-
+            bool flag = true;
+            string sql = "Update T_Orders_Product Set DeleteMark='" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' Where GUID='" + d.Guid + "'";
+            flag = new Helper.SQLite.DBHelper().SingleExecution(sql);
             return flag;
         }
         internal bool ReadList(out List<Model.ProductOrderModelForDataGrid> data)

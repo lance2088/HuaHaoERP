@@ -42,5 +42,14 @@ namespace HuaHaoERP.View.Pages.Content_Orders
         {
             Helper.Events.PopUpEvent.OnShowPopUp(new Page_Orders_Product());
         }
+
+        private void Button_DeleteProductOrder_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.DataGrid_ProductOrder.SelectedCells.Count > 0)
+            {
+                HuaHaoERP.Model.ProductOrderModelForDataGrid data = this.DataGrid_ProductOrder.SelectedCells[0].Item as HuaHaoERP.Model.ProductOrderModelForDataGrid;
+                Helper.Events.ProductOrderEvent.OnMarkDelete(this, data);
+            }
+        }
     }
 }
