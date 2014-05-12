@@ -42,6 +42,10 @@ namespace HuaHaoERP.View.Pages.Content_Orders
         private bool CheckAndGetData()
         {
             bool flag = true;
+            if(d.Details.Count == 0)
+            {
+                return false;
+            }
             d.Guid = Guid;
             d.OrderNumber = this.TextBox_OrderNumber.Text.Trim();
             d.CustomerID = (Guid)this.ComboBox_Customer.SelectedValue;
@@ -65,7 +69,6 @@ namespace HuaHaoERP.View.Pages.Content_Orders
         {
             if (CheckAndGetData())
             {
-
                 ProductOrderEvent.OnAdd(this, d);
                 Button_Cancel_Click(null, null);
             }
