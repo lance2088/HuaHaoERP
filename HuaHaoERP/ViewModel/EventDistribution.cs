@@ -18,65 +18,65 @@ namespace HuaHaoERP.ViewModel
             CustomerEvent.EAdd += (sender, e) =>
             {
                 new ViewModel.Customer.CustomerConsole().Add(e.CustomerData);
-                CustomerEvent.OnUpdateDataGrid(sender, new EventArgs());
+                CustomerEvent.OnUpdateDataGrid();
             };
             CustomerEvent.EDelete += (sender, e) =>
             {
                 new ViewModel.Customer.CustomerConsole().Delete(e.CustomerData);
-                CustomerEvent.OnUpdateDataGrid(sender, new EventArgs());
+                CustomerEvent.OnUpdateDataGrid();
             };
             CustomerEvent.EMarkDelete += (sender, e) =>
             {
                 new ViewModel.Customer.CustomerConsole().MarkDelete(e.CustomerData);
-                CustomerEvent.OnUpdateDataGrid(sender, new EventArgs());
+                CustomerEvent.OnUpdateDataGrid();
             };
             //外加工商
             ProcessorsEvent.EAdd += (sender, e) =>
             {
                 new ViewModel.Customer.ProcessorsConsole().Add(e.ProcessorsData);
-                ProcessorsEvent.OnUpdateDataGrid(sender, new EventArgs());
+                ProcessorsEvent.OnUpdateDataGrid();
             };
             ProcessorsEvent.EDelete += (sender, e) =>
             {
                 new ViewModel.Customer.ProcessorsConsole().Delete(e.ProcessorsData);
-                ProcessorsEvent.OnUpdateDataGrid(sender, new EventArgs());
+                ProcessorsEvent.OnUpdateDataGrid();
             };
             ProcessorsEvent.EMarkDelete += (sender, e) =>
             {
                 new ViewModel.Customer.ProcessorsConsole().MarkDelete(e.ProcessorsData);
-                ProcessorsEvent.OnUpdateDataGrid(sender, new EventArgs());
+                ProcessorsEvent.OnUpdateDataGrid();
             };
             //员工
             StaffEvent.EAdd += (sender, e) =>
             {
                 new ViewModel.Customer.StaffConsole().Add(e.StaffData);
-                StaffEvent.OnUpdateDataGrid(sender, new EventArgs());
+                StaffEvent.OnUpdateDataGrid();
             };
             StaffEvent.EDelete += (sender, e) =>
             {
                 new ViewModel.Customer.StaffConsole().Delete(e.StaffData);
-                StaffEvent.OnUpdateDataGrid(sender, new EventArgs());
+                StaffEvent.OnUpdateDataGrid();
             };
             StaffEvent.EMarkDelete += (sender, e) =>
             {
                 new ViewModel.Customer.StaffConsole().MarkDelete(e.StaffData);
-                StaffEvent.OnUpdateDataGrid(sender, new EventArgs());
+                StaffEvent.OnUpdateDataGrid();
             };
             //供应商
             SupplierEvent.EAdd += (sender, e) =>
             {
                 new ViewModel.Customer.SupplierConsole().Add(e.SupplierData);
-                SupplierEvent.OnUpdateDataGrid(sender, new EventArgs());
+                SupplierEvent.OnUpdateDataGrid();
             };
             SupplierEvent.EDelete += (sender, e) =>
             {
                 new ViewModel.Customer.SupplierConsole().Delete(e.SupplierData);
-                SupplierEvent.OnUpdateDataGrid(sender, new EventArgs());
+                SupplierEvent.OnUpdateDataGrid();
             };
             SupplierEvent.EMarkDelete += (sender, e) =>
             {
                 new ViewModel.Customer.SupplierConsole().MarkDelete(e.SupplierData);
-                SupplierEvent.OnUpdateDataGrid(sender, new EventArgs());
+                SupplierEvent.OnUpdateDataGrid();
             };
             #endregion
 
@@ -85,33 +85,33 @@ namespace HuaHaoERP.ViewModel
             ProductEvent.EAdd += (sender, e) =>
             {
                 new ViewModel.MeansOfProduction.ProductConsole().Add(e.ProductData);
-                ProductEvent.OnUpdateDataGrid(sender, new EventArgs());
+                ProductEvent.OnUpdateDataGrid();
             };
             ProductEvent.EDelete += (sender, e) =>
             {
                 new ViewModel.MeansOfProduction.ProductConsole().Delete(e.ProductData);
-                ProductEvent.OnUpdateDataGrid(sender, new EventArgs());
+                ProductEvent.OnUpdateDataGrid();
             };
             ProductEvent.EMarkDelete += (sender, e) =>
             {
                 new ViewModel.MeansOfProduction.ProductConsole().MarkDelete(e.ProductData);
-                ProductEvent.OnUpdateDataGrid(sender, new EventArgs());
+                ProductEvent.OnUpdateDataGrid();
             };
             //原材料
             RawMaterialsEvent.EAdd += (sender, e) =>
             {
                 new ViewModel.MeansOfProduction.RawMaterialsConsole().Add(e.RawMaterialsData);
-                RawMaterialsEvent.OnUpdateDataGrid(sender, new EventArgs());
+                RawMaterialsEvent.OnUpdateDataGrid();
             };
             RawMaterialsEvent.EDelete += (sender, e) =>
             {
                 new ViewModel.MeansOfProduction.RawMaterialsConsole().Delete(e.RawMaterialsData);
-                RawMaterialsEvent.OnUpdateDataGrid(sender, new EventArgs());
+                RawMaterialsEvent.OnUpdateDataGrid();
             };
             RawMaterialsEvent.EMarkDelete += (sender, e) =>
             {
                 new ViewModel.MeansOfProduction.RawMaterialsConsole().MarkDelete(e.RawMaterialsData);
-                RawMaterialsEvent.OnUpdateDataGrid(sender, new EventArgs());
+                RawMaterialsEvent.OnUpdateDataGrid();
             };
             #endregion
 
@@ -119,17 +119,17 @@ namespace HuaHaoERP.ViewModel
             ProductOrderEvent.EAdd += (s, e) =>
             {
                 new ViewModel.Orders.ProductOrderConsole().Add(e.Data);
-                ProductOrderEvent.OnUpdateDataGrid(s, new EventArgs());
+                ProductOrderEvent.OnUpdateDataGrid();
             };
             ProductOrderEvent.EDelete += (s, e) =>
             {
                 new ViewModel.Orders.ProductOrderConsole().Delete(e.Data);
-                ProductOrderEvent.OnUpdateDataGrid(s, new EventArgs());
+                ProductOrderEvent.OnUpdateDataGrid();
             };
             ProductOrderEvent.EMarkDelete += (s, e) =>
             {
                 new ViewModel.Orders.ProductOrderConsole().MarkDelete(e.Data);
-                ProductOrderEvent.OnUpdateDataGrid(s, new EventArgs());
+                ProductOrderEvent.OnUpdateDataGrid();
             };
             #endregion
         }

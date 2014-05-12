@@ -13,38 +13,38 @@ namespace HuaHaoERP.Helper.Events
         public static EventHandler<CustomerEventArgs> EMarkDelete;
         public static EventHandler EUpdateDataGrid;
 
-        internal static void OnAdd(object sender, CustomerModel CustomerData)
+        internal static void OnAdd(object sender, CustomerModel d)
         {
             if(EAdd != null)
             {
                 CustomerEventArgs ee = new CustomerEventArgs();
-                ee.CustomerData = CustomerData;
+                ee.CustomerData = d;
                 EAdd(sender, ee);
             }
         }
-        internal static void OnDelete(object sender, CustomerModel CustomerData)
+        internal static void OnDelete(object sender, CustomerModel d)
         {
             if (EDelete != null)
             {
                 CustomerEventArgs ee = new CustomerEventArgs();
-                ee.CustomerData = CustomerData;
+                ee.CustomerData = d;
                 EDelete(sender, ee);
             }
         }
-        internal static void OnMarkDelete(object sender, CustomerModel CustomerData)
+        internal static void OnMarkDelete(object sender, CustomerModel d)
         {
             if (EMarkDelete != null)
             {
                 CustomerEventArgs ee = new CustomerEventArgs();
-                ee.CustomerData = CustomerData;
+                ee.CustomerData = d;
                 EMarkDelete(sender, ee);
             }
         }
-        internal static void OnUpdateDataGrid(object sender, EventArgs e)
+        internal static void OnUpdateDataGrid()
         {
             if (EUpdateDataGrid != null)
             {
-                EUpdateDataGrid(sender, e);
+                EUpdateDataGrid(null, null);
             }
         }
     }

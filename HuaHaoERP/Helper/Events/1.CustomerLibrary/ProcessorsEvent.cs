@@ -39,11 +39,11 @@ namespace HuaHaoERP.Helper.Events
                 EMarkDelete(sender, ee);
             }
         }
-        internal static void OnUpdateDataGrid(object sender, EventArgs e)
+        internal static void OnUpdateDataGrid()
         {
             if(EUpdateDataGrid != null)
             {
-                EUpdateDataGrid(sender, e);
+                EUpdateDataGrid(null, null);
             }
         }
     }
