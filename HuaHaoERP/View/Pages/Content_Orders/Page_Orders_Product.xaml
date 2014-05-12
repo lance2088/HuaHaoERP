@@ -7,7 +7,7 @@
       d:DesignHeight="458" d:DesignWidth="889"
 	Title="Page_Orders_Product">
 
-    <Grid HorizontalAlignment="Right" Width="800" Background="White">
+    <Grid HorizontalAlignment="Right" Width="790" Background="White">
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
@@ -39,8 +39,8 @@
         <Label Content="客户名称" HorizontalAlignment="Left" Margin="30,70,0,0" VerticalAlignment="Top"/>
         <Label Content="交货日期" HorizontalAlignment="Left" Margin="30,110,0,0" VerticalAlignment="Top"/>
         <Label Content="下单日期" HorizontalAlignment="Left" Margin="30,150,0,0" VerticalAlignment="Top"/>
-        <Label Content="* 选择某行按Delete键即可删除" HorizontalAlignment="Right" Margin="0,0,50,71" VerticalAlignment="Bottom"/>
-        <Label Content="* 先添加产品，再在表格中修改参数" HorizontalAlignment="Right" Margin="0,0,50,47" VerticalAlignment="Bottom"/>
+        <Label Content="* 选择某行按Delete键即可删除" HorizontalAlignment="Right" Margin="0,0,50,71" VerticalAlignment="Bottom" Padding="5,5,0,5"/>
+        <Label Content="* 先添加产品，再在表格中修改参数" HorizontalAlignment="Right" Margin="0,0,50,47" VerticalAlignment="Bottom" Padding="5,5,0,5"/>
 
     </Grid>
 </Page>
