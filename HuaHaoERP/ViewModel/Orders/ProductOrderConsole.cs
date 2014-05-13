@@ -89,7 +89,10 @@ namespace HuaHaoERP.ViewModel.Orders
                     }
                     LastOrderGuid = (Guid)dr["GUID"];
                 }
-                data.Add(d);
+                if (LastOrderGuid != new Guid())
+                {
+                    data.Add(d);
+                }
             }
             return flag;
         }
