@@ -10,19 +10,35 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace HuaHaoERP.View.Windows
 {
-    /// <summary>
-    /// Interaction logic for Login.xaml
-    /// </summary>
     public partial class Login : Window
     {
+        private DispatcherTimer timer = new DispatcherTimer();
+        private double ShowSeconds = 0;
+
         public Login()
         {
             InitializeComponent();
             Helper.AppInitialize.Initialize.Init();
             this.PasswordBox_LoginPassword.Focus();
+            timer.Tick += timer_Tick;
+            timer.Interval = TimeSpan.FromSeconds(1);//设置刷新的间隔时间
+        }
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            if (ShowSeconds > 0)
+            {
+                ShowSeconds -= 1;
+            }
+            else if (ShowSeconds > -1)
+            {
+                this.Label_Message.Content = "";
+                ShowSeconds = -1;
+                timer.Stop();
+            }
         }
 
         private void Button_Login_Click(object sender, RoutedEventArgs e)
@@ -36,7 +52,10 @@ namespace HuaHaoERP.View.Windows
             }
             else
             {
-                //
+                this.Label_Message.Content = "用户名或密码错误";
+                this.PasswordBox_LoginPassword.Clear();
+                ShowSeconds = 5;
+                timer.Start();
             }
             
         }
