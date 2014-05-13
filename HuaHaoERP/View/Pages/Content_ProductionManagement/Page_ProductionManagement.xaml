@@ -20,8 +20,8 @@
             <TabItem FocusVisualStyle="{x:Null}" Header="外加工" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="17,0,-17,0" Foreground="White">
                 <Grid Background="White">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="428*"/>
-                        <ColumnDefinition Width="429*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
                     <DataGrid Margin="10,65,10,40" BorderThickness="1" CellStyle="{DynamicResource DataGridCellStyleCommon}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" BorderBrush="#FF99CCFF" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False">
                         <DataGrid.Columns>
@@ -45,10 +45,10 @@
                             <DataGridTextColumn Header="丢失"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <ComboBox HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="100" VerticalContentAlignment="Center"/>
-                    <ComboBox HorizontalAlignment="Left" Margin="115,40,0,0" VerticalAlignment="Top" Width="100" VerticalContentAlignment="Center"/>
-                    <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="0,40,0,0" VerticalAlignment="Top" Width="100" VerticalContentAlignment="Center"/>
-                    <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="105,40,0,0" VerticalAlignment="Top" Width="100" VerticalContentAlignment="Center"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Width="100" VerticalContentAlignment="Center" Height="22"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="115,38,0,0" VerticalAlignment="Top" Width="100" VerticalContentAlignment="Center" Height="22"/>
+                    <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="0,38,0,0" VerticalAlignment="Top" Width="100" VerticalContentAlignment="Center" Height="22"/>
+                    <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="105,38,0,0" VerticalAlignment="Top" Width="100" VerticalContentAlignment="Center" Height="22"/>
                     <Label Content="0" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="80" BorderThickness="0,0,0,1" BorderBrush="Black" HorizontalContentAlignment="Center" Padding="5,5,5,2"/>
                     <Label Content="0" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="80" Grid.Column="1" BorderThickness="0,0,0,1" BorderBrush="Black" HorizontalContentAlignment="Center" Padding="5,5,5,2"/>
                     <Label Content="数量统计：" HorizontalAlignment="Right" Margin="0,0,95,10" VerticalAlignment="Bottom" Padding="5,5,5,3"/>

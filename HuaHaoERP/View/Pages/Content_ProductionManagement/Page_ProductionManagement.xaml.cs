@@ -33,7 +33,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         {
             Grid g = new Grid();
             g.Height = 300;
-            g.Width = 300;
+            g.Width = 375;
             g.Background = new SolidColorBrush(Colors.LightBlue);
             this.WrapPanel_AssemblyLine.Children.Add(g);
             //this.WrapPanel_AssemblyLine.RegisterName("gridggg", g);
