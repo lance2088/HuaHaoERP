@@ -35,5 +35,14 @@ namespace HuaHaoERP.Helper.DataDefinition
                 return ds.Tables[0];
             }
         }
+        public static DataTable StaffList
+        {
+            get
+            {
+                DataSet ds = new DataSet();
+                new ViewModel.Customer.StaffConsole().GetNameList(out ds);
+                return ds.Tables[0];
+            }
+        }
     }
 }

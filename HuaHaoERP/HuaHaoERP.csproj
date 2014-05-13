@@ -200,7 +200,8 @@
     <Compile Include="Helper\Events\2.MeansOfProduction\ProductEventArgs.cs" />
     <Compile Include="Helper\Events\2.MeansOfProduction\RawMaterialsEvent.cs" />
     <Compile Include="Helper\Events\2.MeansOfProduction\RawMaterialsEventArgs.cs" />
-    <Compile Include="Helper\Events\3.ProductionManagement\Class1.cs" />
+    <Compile Include="Helper\Events\3.ProductionManagement\AssemblyLineEvent.cs" />
+    <Compile Include="Helper\Events\3.ProductionManagement\AssemblyLineEventArgs.cs" />
     <Compile Include="Helper\Events\5.Orders\ProductOrderEvent.cs" />
     <Compile Include="Helper\Events\5.Orders\ProductOrderEventArgs.cs" />
     <Compile Include="Helper\Events\4.Warehouse\Class2.cs" />

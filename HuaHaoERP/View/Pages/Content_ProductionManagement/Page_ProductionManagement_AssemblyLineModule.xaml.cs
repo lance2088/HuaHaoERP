@@ -11,22 +11,34 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using HuaHaoERP.Helper.Events;
 
 namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 {
-    /// <summary>
-    /// Interaction logic for Page_ProductionManagement_AssemblyLineModule.xaml
-    /// </summary>
     public partial class Page_ProductionManagement_AssemblyLineModule : Page
     {
-        public Page_ProductionManagement_AssemblyLineModule()
+        private string RegisterName;
+        public Page_ProductionManagement_AssemblyLineModule(string Name)
         {
             InitializeComponent();
+            this.RegisterName = Name;
         }
-
+        
+        private void InitializeStaffComboBox()
+        {
+            this.ComboBox_StaffList.ItemsSource = Helper.DataDefinition.CustomerLibrary.StaffList.DefaultView;
+            this.ComboBox_StaffList.DisplayMemberPath = "Name";
+            this.ComboBox_StaffList.SelectedValuePath = "GUID";//GUID四个字母要大写
+            this.ComboBox_StaffList.SelectedIndex = 0;
+        }
         private void Button_Close_Click(object sender, RoutedEventArgs e)
         {
-            
+            AssemblyLineEvent.OnRemoveAssemblyLineModule(RegisterName);
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            InitializeStaffComboBox();
         }
     }
 }

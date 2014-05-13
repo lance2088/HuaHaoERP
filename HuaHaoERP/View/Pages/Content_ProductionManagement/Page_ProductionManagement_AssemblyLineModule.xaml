@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" FontFamily="SimSun" TextOptions.TextFormattingMode="Display"
       d:DesignHeight="345" d:DesignWidth="375"
-	Title="Page_ProductionManagement_AssemblyLineModule">
+	Title="Page_ProductionManagement_AssemblyLineModule" Loaded="Page_Loaded">
 
     <Grid Background="LightBlue">
         <Rectangle Margin="5" Stroke="White" StrokeThickness="2"/>
@@ -22,7 +22,7 @@
         <Button Content="+" HorizontalAlignment="Right" Margin="0,65,40,0" VerticalAlignment="Top" BorderBrush="White" Background="{x:Null}" Foreground="White" FontWeight="Bold" FontSize="16" Padding="-1,0,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="20" Height="22"/>
         <Label Content="产品名称" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
         <Button Content="入库" HorizontalAlignment="Right" Margin="0,0,15,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}"/>
-        <ComboBox HorizontalAlignment="Left" Margin="241,65,0,0" VerticalAlignment="Top" Width="69" Height="22"/>
+        <ComboBox x:Name="ComboBox_StaffList" HorizontalAlignment="Left" Margin="241,65,0,0" VerticalAlignment="Top" Width="69" Height="22"/>
 
     </Grid>
 </Page>
