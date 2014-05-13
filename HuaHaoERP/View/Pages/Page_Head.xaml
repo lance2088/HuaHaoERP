@@ -14,7 +14,7 @@
             </Label.Effect>
         </Label>
         <Grid x:Name="Grid_Placeholder" HorizontalAlignment="Right" Height="20" Margin="0,0,10,0" VerticalAlignment="Top" Width="84"/>
-        <Label x:Name="Label_Help" Content="帮助" HorizontalAlignment="Right" Margin="0,0,99,0" VerticalAlignment="Top" MouseLeftButtonDown="Label_Help_MouseLeftButtonDown" VerticalContentAlignment="Center" Height="20" Padding="5,0" ToolTip="有疑问？请点这里" Foreground="White"/>
         <Image HorizontalAlignment="Left" Source="/HuaHaoERP;component/View/Resources/Images/Pyramid_Logo_white_128x128.png" Margin="10,0,0,0"/>
+        <Label x:Name="Label_LoginUser" Content="欢迎，" HorizontalAlignment="Right" Margin="0,0,99,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Padding="5,0" Foreground="White" Height="20" FontSize="14"/>
     </Grid>
 </Page>

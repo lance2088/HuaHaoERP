@@ -14,19 +14,12 @@ using System.Windows.Shapes;
 
 namespace HuaHaoERP.View.Pages
 {
-    /// <summary>
-    /// Interaction logic for Page_Head.xaml
-    /// </summary>
     public partial class Page_Head : Page
     {
         public Page_Head()
         {
             InitializeComponent();
-        }
-
-        private void Label_Help_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            
+            this.Label_LoginUser.Content += Helper.DataDefinition.CommonParameters.LoginUserName;
         }
     }
 }
