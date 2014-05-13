@@ -22,12 +22,23 @@ namespace HuaHaoERP.View.Windows
         {
             InitializeComponent();
             Helper.AppInitialize.Initialize.Init();
+            this.PasswordBox_LoginPassword.Focus();
         }
 
         private void Button_Login_Click(object sender, RoutedEventArgs e)
         {
-            new MainWindow().Show();
-            this.Close();
+            string UserName = this.TextBox_LoginUserName.Text.Trim();
+            string Password = Helper.Tools.TranslatePassword.TranslateToString(this.PasswordBox_LoginPassword.SecurePassword);
+            if(new ViewModel.Security.LoginConsole().LoginAuthentication(UserName, Password))
+            {
+                new MainWindow().Show();
+                this.Close();
+            }
+            else
+            {
+                //
+            }
+            
         }
 
         private void Button_Close_Click(object sender, RoutedEventArgs e)

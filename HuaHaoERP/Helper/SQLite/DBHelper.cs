@@ -154,8 +154,8 @@ namespace HuaHaoERP.Helper.SQLite
                 while(reader.Read())
                 {
                     result = reader.GetValue(0);
+                    flag = true;
                 }
-                flag = true;
             }
             catch (Exception ee)
             {
