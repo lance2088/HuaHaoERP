@@ -10,7 +10,7 @@ namespace HuaHaoERP.ViewModel.Security
         internal bool LoginAuthentication(string UserName, string Password)
         {
             bool flag = false;
-            object Permissions = "";
+            object Permissions;//string
             string sql = "select b.Permissions "
                 +"from T_System_User a LEFT JOIN T_System_UserGroup b ON  a.UserGroup=b.ID"
                 + " where a.Name='"+UserName+"' And a.Password='"+Password+"' And a.DeleteMark is NULL";
