@@ -6,7 +6,7 @@ using System.Data;
 
 namespace HuaHaoERP.Helper.DataDefinition
 {
-    static class CustomerLibrary
+    static class ComboBoxList
     {
         public static DataTable SupplierList
         {
@@ -41,6 +41,15 @@ namespace HuaHaoERP.Helper.DataDefinition
             {
                 DataSet ds = new DataSet();
                 new ViewModel.Customer.StaffConsole().GetNameList(out ds);
+                return ds.Tables[0];
+            }
+        }
+        public static DataTable ProcessorsList
+        {
+            get
+            {
+                DataSet ds = new DataSet();
+                new ViewModel.Customer.ProcessorsConsole().GetNameList(out ds);
                 return ds.Tables[0];
             }
         }

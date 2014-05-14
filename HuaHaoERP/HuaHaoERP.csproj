@@ -182,7 +182,7 @@
     </Compile>
     <Compile Include="Helper\AppInitialize\Initialize.cs" />
     <Compile Include="Helper\DataDefinition\CommonParameters.cs" />
-    <Compile Include="Helper\DataDefinition\CustomerLibrary.cs" />
+    <Compile Include="Helper\DataDefinition\ComboBoxList.cs" />
     <Compile Include="Helper\DataDefinition\Process.cs" />
     <Compile Include="Helper\Events\1.CustomerLibrary\CustomerEvent.cs" />
     <Compile Include="Helper\Events\1.CustomerLibrary\CustomerEventArgs.cs" />

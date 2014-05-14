@@ -26,7 +26,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         
         private void InitializeStaffComboBox()
         {
-            this.ComboBox_StaffList.ItemsSource = Helper.DataDefinition.CustomerLibrary.StaffList.DefaultView;
+            this.ComboBox_StaffList.ItemsSource = Helper.DataDefinition.ComboBoxList.StaffList.DefaultView;
             this.ComboBox_StaffList.DisplayMemberPath = "Name";
             this.ComboBox_StaffList.SelectedValuePath = "GUID";//GUID四个字母要大写
             this.ComboBox_StaffList.SelectedIndex = 0;

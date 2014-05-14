@@ -36,6 +36,23 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         private void InitializeData()
         {
             this.DatePicker_外加工.SelectedDate = DateTime.Now;
+            this.ComboBox_Product_Out.ItemsSource = Helper.DataDefinition.ComboBoxList.ProductList.DefaultView;
+            this.ComboBox_Product_Out.DisplayMemberPath = "Name";
+            this.ComboBox_Product_Out.SelectedValuePath = "GUID";//GUID四个字母要大写
+            this.ComboBox_Product_Out.SelectedIndex = 0;
+            this.ComboBox_Processors_Out.ItemsSource = Helper.DataDefinition.ComboBoxList.ProcessorsList.DefaultView;
+            this.ComboBox_Processors_Out.DisplayMemberPath = "Name";
+            this.ComboBox_Processors_Out.SelectedValuePath = "GUID";//GUID四个字母要大写
+            this.ComboBox_Processors_Out.SelectedIndex = 0;
+            this.ComboBox_Product_In.ItemsSource = Helper.DataDefinition.ComboBoxList.ProductList.DefaultView;
+            this.ComboBox_Product_In.DisplayMemberPath = "Name";
+            this.ComboBox_Product_In.SelectedValuePath = "GUID";//GUID四个字母要大写
+            this.ComboBox_Product_In.SelectedIndex = 0;
+            this.ComboBox_Processors_In.ItemsSource = Helper.DataDefinition.ComboBoxList.ProcessorsList.DefaultView;
+            this.ComboBox_Processors_In.DisplayMemberPath = "Name";
+            this.ComboBox_Processors_In.SelectedValuePath = "GUID";//GUID四个字母要大写
+            this.ComboBox_Processors_In.SelectedIndex = 0;
+
         }
         private void AddAssemblyLineModule()
         {
