@@ -52,7 +52,6 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             this.ComboBox_Processors_In.DisplayMemberPath = "Name";
             this.ComboBox_Processors_In.SelectedValuePath = "GUID";//GUID四个字母要大写
             this.ComboBox_Processors_In.SelectedIndex = 0;
-
         }
         private void AddAssemblyLineModule()
         {

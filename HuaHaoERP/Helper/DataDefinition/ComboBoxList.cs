@@ -53,5 +53,14 @@ namespace HuaHaoERP.Helper.DataDefinition
                 return ds.Tables[0];
             }
         }
+        public static DataTable RawMaterialsList
+        {
+            get
+            {
+                DataSet ds = new DataSet();
+                new ViewModel.MeansOfProduction.RawMaterialsConsole().GetNameList(out ds);
+                return ds.Tables[0];
+            }
+        }
     }
 }
