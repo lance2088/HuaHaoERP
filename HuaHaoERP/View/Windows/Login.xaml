@@ -12,8 +12,8 @@
         <PasswordBox x:Name="PasswordBox_LoginPassword" HorizontalAlignment="Left" Margin="290,130,0,0" VerticalAlignment="Top" Width="150" Height="24" VerticalContentAlignment="Center" FontSize="14"/>
         <Image HorizontalAlignment="Left" Height="105" Margin="55,55,0,0" VerticalAlignment="Top" Width="105" Source="/HuaHaoERP;component/View/Resources/Images/Pyramid_Logo_white_128x128.png"/>
         <Label x:Name="Label_Message" Content="" HorizontalAlignment="Left" Margin="290,159,0,0" VerticalAlignment="Top" Foreground="White" Padding="1,0,0,0" Width="150" VerticalContentAlignment="Center" Height="24" FontSize="14"/>
-        <Label Content="用户名" HorizontalAlignment="Left" Margin="239,80,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14" Padding="5,0" Height="24" VerticalContentAlignment="Center"/>
-        <Label Content="密　码" HorizontalAlignment="Left" Margin="239,130,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="24" Padding="5,0"/>
+        <Label Content="用户名" HorizontalAlignment="Left" Margin="233,80,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14" Padding="5,0" Height="24" VerticalContentAlignment="Center"/>
+        <Label Content="密　码" HorizontalAlignment="Left" Margin="233,130,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="24" Padding="5,0"/>
 
     </Grid>
 </Window>
