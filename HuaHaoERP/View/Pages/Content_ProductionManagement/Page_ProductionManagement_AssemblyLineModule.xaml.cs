@@ -17,11 +17,11 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 {
     public partial class Page_ProductionManagement_AssemblyLineModule : Page
     {
-        private string RegisterName;
+        private string GridName;
         public Page_ProductionManagement_AssemblyLineModule(string Name)
         {
             InitializeComponent();
-            this.RegisterName = Name;
+            this.GridName = Name;
         }
         
         private void InitializeStaffComboBox()
@@ -33,7 +33,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         }
         private void Button_Close_Click(object sender, RoutedEventArgs e)
         {
-            AssemblyLineEvent.OnRemoveAssemblyLineModule(RegisterName);
+            AssemblyLineEvent.OnRemoveAssemblyLineModule(this.GridName);
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
