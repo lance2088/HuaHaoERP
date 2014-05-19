@@ -28,6 +28,16 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         }
         private void SubscribeToEvent()
         {
+            AssemblyLineEvent.EShowAssemblyLineModule += (s, e) =>
+            {
+                foreach(Model.ProductModel d in e.ProductData)
+                {
+                    if(d.IsShow == true)
+                    {
+                        AddAssemblyLineModule(d.Guid);
+                    }
+                }
+            };
             AssemblyLineEvent.ERemoveAssemblyLineModule += (s, e) =>
             {
                 RemoveAssemblyLineModule(e.RegisterName);
@@ -35,7 +45,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         }
         private void InitializeData()
         {
-            this.DatePicker_外加工.SelectedDate = DateTime.Now;
+            this.DatePicker_Processors.SelectedDate = DateTime.Now;
             this.ComboBox_Product_Out.ItemsSource = Helper.DataDefinition.ComboBoxList.ProductList.DefaultView;
             this.ComboBox_Product_Out.DisplayMemberPath = "Name";
             this.ComboBox_Product_Out.SelectedValuePath = "GUID";//GUID四个字母要大写
@@ -53,17 +63,21 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             this.ComboBox_Processors_In.SelectedValuePath = "GUID";//GUID四个字母要大写
             this.ComboBox_Processors_In.SelectedIndex = 0;
         }
-        private void AddAssemblyLineModule()
+        /// <summary>
+        /// 添加流水线模块
+        /// </summary>
+        private void AddAssemblyLineModule(Guid ProductGuid)
         {
-            string RegisterName = "Grid_" + new Random().Next();
+            string RegisterName = "Grid_" + ProductGuid.ToString().Replace("-", "");
+            if (this.WrapPanel_AssemblyLine.FindName(RegisterName) as Grid != null)
+            {
+                return;
+            }
             Grid g = new Grid();
-            //g.Height = 300;
-            //g.Width = 300;
-            g.Background = new SolidColorBrush(Colors.LightBlue);
             this.WrapPanel_AssemblyLine.Children.Add(g);
             this.WrapPanel_AssemblyLine.RegisterName(RegisterName, g);
             Frame f = new Frame();
-            f.Content = new Page_ProductionManagement_AssemblyLineModule(RegisterName);
+            f.Content = new Page_ProductionManagement_AssemblyLineModule(RegisterName, ProductGuid);
             g.Children.Add(f);
         }
         private void RemoveAssemblyLineModule(string RegisterName)
@@ -76,9 +90,9 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_ChooseProduct_Click(object sender, RoutedEventArgs e)
         {
-            AddAssemblyLineModule();
+            Helper.Events.PopUpEvent.OnShowPopUp(new Page_ProductionManagement_ChooseProduct());
         }
     }
 }

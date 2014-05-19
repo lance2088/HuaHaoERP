@@ -18,10 +18,12 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
     public partial class Page_ProductionManagement_AssemblyLineModule : Page
     {
         private string GridName;
-        public Page_ProductionManagement_AssemblyLineModule(string Name)
+        private Guid ProductGuid;
+        public Page_ProductionManagement_AssemblyLineModule(string Name, Guid ProductGuid)
         {
             InitializeComponent();
             this.GridName = Name;
+            this.ProductGuid = ProductGuid;
         }
         
         private void InitializeStaffComboBox()
@@ -39,6 +41,16 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             InitializeStaffComboBox();
+        }
+
+        private void Button_Add_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Reduce_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

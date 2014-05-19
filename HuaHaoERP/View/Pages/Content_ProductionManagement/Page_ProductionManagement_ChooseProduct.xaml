@@ -1,0 +1,24 @@
+﻿<Page x:Class="HuaHaoERP.View.Pages.Content_ProductionManagement.Page_ProductionManagement_ChooseProduct"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="437" d:DesignWidth="800"
+	Title="Page_ProductionManagement_ChooseProduct">
+
+    <Grid Width="400" HorizontalAlignment="Right" Background="White">
+        <Button x:Name="Button_Commit" Content="确定" HorizontalAlignment="Left" Margin="105,0,0,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Click="Button_Commit_Click" Height="24"/>
+        <Button x:Name="Button_Cancel" Content="取消" HorizontalAlignment="Right" Margin="0,0,105,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" IsCancel="True" Click="Button_Cancel_Click" Height="24"/>
+        <DataGrid x:Name="DataGrid_Product" Margin="20,100,20,60" CellStyle="{DynamicResource DataGridCellStyleCommon}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" BorderBrush="#FF99CCFF" HeadersVisibility="Column" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="GUID" Visibility="Hidden" Binding="{Binding Guid}"/>
+                <DataGridTextColumn Header="序号" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="编号" Binding="{Binding Number}"/>
+                <DataGridTextColumn Header="名称" Binding="{Binding Name}"/>
+                <DataGridCheckBoxColumn x:Name="DataGridCheckBoxColumn_isShow" Header="是否显示" Binding="{Binding IsShow}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Page>

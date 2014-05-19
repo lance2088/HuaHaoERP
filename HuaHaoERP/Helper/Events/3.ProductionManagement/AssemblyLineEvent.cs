@@ -18,5 +18,16 @@ namespace HuaHaoERP.Helper.Events
                 ERemoveAssemblyLineModule(null, e);
             }
         }
+
+        internal static EventHandler<AssemblyLineEventArgs> EShowAssemblyLineModule;
+        internal static void OnShowAssemblyLineModule(List<Model.ProductModel> d)
+        {
+            if(EShowAssemblyLineModule != null)
+            {
+                AssemblyLineEventArgs e = new AssemblyLineEventArgs();
+                e.ProductData = d;
+                EShowAssemblyLineModule(null, e);
+            }
+        }
     }
 }

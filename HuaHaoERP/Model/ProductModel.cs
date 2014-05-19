@@ -164,5 +164,12 @@ namespace HuaHaoERP.Model
             get { return addTime; }
             set { addTime = value; }
         }
+        private bool isShow;
+
+        public bool IsShow
+        {
+            get { return isShow; }
+            set { isShow = value; }
+        }
     }
 }
