@@ -57,8 +57,8 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         {
             string RegisterName = "Grid_" + new Random().Next();
             Grid g = new Grid();
-            g.Height = 300;
-            g.Width = 375;
+            //g.Height = 300;
+            //g.Width = 300;
             g.Background = new SolidColorBrush(Colors.LightBlue);
             this.WrapPanel_AssemblyLine.Children.Add(g);
             this.WrapPanel_AssemblyLine.RegisterName(RegisterName, g);
