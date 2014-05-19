@@ -19,13 +19,23 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
     {
         private string GridName;
         private Guid ProductGuid;
+        private Model.AssemblyLineModuleModel d;
+
         public Page_ProductionManagement_AssemblyLineModule(string Name, Guid ProductGuid)
         {
             InitializeComponent();
             this.GridName = Name;
             this.ProductGuid = ProductGuid;
+            InitializeData();
         }
-        
+        private void InitializeData()
+        {
+            if(new ViewModel.ProductionManagement.AssemblyLineModuleConsole().ReadList(ProductGuid, out d))
+            {
+                this.Label_ProductName.Content = d.Name;
+                this.DataGrid.ItemsSource = d.ProcessList;
+            }
+        }
         private void InitializeStaffComboBox()
         {
             this.ComboBox_StaffList.ItemsSource = Helper.DataDefinition.ComboBoxList.StaffList.DefaultView;
@@ -52,5 +62,12 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         {
 
         }
+
+        private void DataGrid_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            Model.AssemblyLineModuleProcessModel dp = this.DataGrid.SelectedCells[0].Item as Model.AssemblyLineModuleProcessModel;
+            this.Label_Process.Content = dp.Process;
+        }
+
     }
 }

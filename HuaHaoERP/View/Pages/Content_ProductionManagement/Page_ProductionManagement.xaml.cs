@@ -66,6 +66,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         /// <summary>
         /// 添加流水线模块
         /// </summary>
+        /// <param name="ProductGuid"></param>
         private void AddAssemblyLineModule(Guid ProductGuid)
         {
             string RegisterName = "Grid_" + ProductGuid.ToString().Replace("-", "");
@@ -80,6 +81,10 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             f.Content = new Page_ProductionManagement_AssemblyLineModule(RegisterName, ProductGuid);
             g.Children.Add(f);
         }
+        /// <summary>
+        /// 删除流水线模块
+        /// </summary>
+        /// <param name="RegisterName"></param>
         private void RemoveAssemblyLineModule(string RegisterName)
         {
             Grid g = this.WrapPanel_AssemblyLine.FindName(RegisterName) as Grid;

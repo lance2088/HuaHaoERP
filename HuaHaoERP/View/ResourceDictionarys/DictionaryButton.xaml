@@ -71,7 +71,7 @@
 	</ControlTemplate>
 	<ControlTemplate x:Key="ButtonControlTemplate_CommonDefault" TargetType="{x:Type Button}">
 		<Grid Background="{x:Null}">
-            <Rectangle x:Name="rectangle" Fill="#FF007ACC" HorizontalAlignment="Left" Height="24" Stroke="#FF007ACC" VerticalAlignment="Top" Width="75"/>
+            <Rectangle x:Name="rectangle" Fill="#FF007ACC" HorizontalAlignment="Stretch" Height="Auto" Stroke="#FF007ACC" VerticalAlignment="Stretch" Width="Auto"/>
 			<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="5" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
 		</Grid>
 		<ControlTemplate.Triggers>

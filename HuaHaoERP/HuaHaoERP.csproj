@@ -214,6 +214,7 @@
     <Compile Include="Helper\SQLite\DBHelper.cs" />
     <Compile Include="Helper\Tools\TranslatePassword.cs" />
     <Compile Include="Helper\XML\Reader.cs" />
+    <Compile Include="Model\AssemblyLineModuleModel.cs" />
     <Compile Include="Model\CustomerModel.cs" />
     <Compile Include="Model\ProcessorsModel.cs" />
     <Compile Include="Model\ProductModel.cs" />
@@ -231,6 +232,7 @@
     <Compile Include="ViewModel\Orders\ProcessorsOrderConsole.cs" />
     <Compile Include="ViewModel\Orders\ProductOrderConsole.cs" />
     <Compile Include="ViewModel\Orders\SupplierOrderConsole.cs" />
+    <Compile Include="ViewModel\ProductionManagement\AssemblyLineModuleConsole.cs" />
     <Compile Include="ViewModel\Security\LoginConsole.cs" />
     <Compile Include="View\Pages\Content_CustomerLibrary\Page_CustomerLibrary.xaml.cs">
       <DependentUpon>Page_CustomerLibrary.xaml</DependentUpon>
