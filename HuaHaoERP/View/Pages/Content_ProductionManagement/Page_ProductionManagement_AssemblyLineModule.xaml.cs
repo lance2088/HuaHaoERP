@@ -44,6 +44,11 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             this.ComboBox_StaffList.SelectedValuePath = "GUID";//GUID四个字母要大写
             this.ComboBox_StaffList.SelectedIndex = 0;
         }
+        /// <summary>
+        /// 加/减工序的半成品数量
+        /// parm=1 加， -1减
+        /// </summary>
+        /// <param name="parm"></param>
         private void ChangeQuantity(int parm)
         {
             if (this.DataGrid.SelectedCells.Count > 0)
