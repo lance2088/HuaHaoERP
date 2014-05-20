@@ -8,11 +8,12 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
 {
     class AssemblyLineModuleConsole
     {
-        internal bool Add()
+        internal bool Add(Model.AssemblyLineModuleProcessModel d)
         {
             bool flag = true;
-
-
+            string sql = "Insert into T_PM_ProductionSchedule(Guid,Date,StaffID,ProductID,Process,Number) "
+                        + "values('" + d.Guid + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + d.StaffID + "','" + d.ProductID + "','" + d.Process + "'," + d.Quantity + ")";
+            flag = new Helper.SQLite.DBHelper().SingleExecution(sql);
             return flag;
         }
 
@@ -59,6 +60,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                         }
                     }
                 }
+                CalculateProcessList(ref ProcessList);
                 d.ProcessList = ProcessList;
             }
             return flag;
@@ -74,6 +76,17 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                     dp.Quantity = 0;
                     d.Add(dp);
                 }
+            }
+        }
+        /// <summary>
+        /// 处理工序数量相减
+        /// </summary>
+        /// <param name="d"></param>
+        private void CalculateProcessList(ref List<Model.AssemblyLineModuleProcessModel> d)
+        {
+            for (int i = 0; i < d.Count - 1; i++)
+            {
+                d[i].Quantity -= d[i + 1].Quantity;
             }
         }
     }

@@ -33,6 +33,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             if(new ViewModel.ProductionManagement.AssemblyLineModuleConsole().ReadList(ProductGuid, out d))
             {
                 this.Label_ProductName.Content = d.Name;
+                this.DataGrid.ItemsSource = null;
                 this.DataGrid.ItemsSource = d.ProcessList;
             }
         }
@@ -43,6 +44,27 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             this.ComboBox_StaffList.SelectedValuePath = "GUID";//GUID四个字母要大写
             this.ComboBox_StaffList.SelectedIndex = 0;
         }
+        private void ChangeQuantity(int parm)
+        {
+            if (this.DataGrid.SelectedCells.Count > 0)
+            {
+                Model.AssemblyLineModuleProcessModel dp = this.DataGrid.SelectedCells[0].Item as Model.AssemblyLineModuleProcessModel;
+                string pro = dp.Process;
+                int Quantity = 0;
+                if (int.TryParse(this.TextBox_Quantity.Text, out Quantity))
+                {
+                    dp.Guid = Guid.NewGuid();
+                    dp.StaffID = (Guid)this.ComboBox_StaffList.SelectedValue;
+                    dp.ProductID = this.ProductGuid;
+                    dp.Quantity = parm * Quantity;
+                    if(new ViewModel.ProductionManagement.AssemblyLineModuleConsole().Add(dp))
+                    {
+                        InitializeData();
+                    }
+                }
+            }
+        }
+
         private void Button_Close_Click(object sender, RoutedEventArgs e)
         {
             AssemblyLineEvent.OnRemoveAssemblyLineModule(this.GridName);
@@ -55,18 +77,21 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void Button_Add_Click(object sender, RoutedEventArgs e)
         {
-
+            ChangeQuantity(1);
         }
 
         private void Button_Reduce_Click(object sender, RoutedEventArgs e)
         {
-
+            ChangeQuantity(-1);
         }
 
         private void DataGrid_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
         {
-            Model.AssemblyLineModuleProcessModel dp = this.DataGrid.SelectedCells[0].Item as Model.AssemblyLineModuleProcessModel;
-            this.Label_Process.Content = dp.Process;
+            if (this.DataGrid.SelectedCells.Count > 0)
+            {
+                Model.AssemblyLineModuleProcessModel dp = this.DataGrid.SelectedCells[0].Item as Model.AssemblyLineModuleProcessModel;
+                this.Label_Process.Content = dp.Process;
+            }
         }
 
     }

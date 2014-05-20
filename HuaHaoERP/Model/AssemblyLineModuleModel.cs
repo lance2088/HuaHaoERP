@@ -37,6 +37,27 @@ namespace HuaHaoERP.Model
 
     class AssemblyLineModuleProcessModel
     {
+        private Guid guid;
+
+        public Guid Guid
+        {
+            get { return guid; }
+            set { guid = value; }
+        }
+        private Guid staffID;
+
+        public Guid StaffID
+        {
+            get { return staffID; }
+            set { staffID = value; }
+        }
+        private Guid productID;
+
+        public Guid ProductID
+        {
+            get { return productID; }
+            set { productID = value; }
+        }
         private string process;
 
         public string Process
