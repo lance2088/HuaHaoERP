@@ -12,8 +12,8 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="Button_Commit" Content="确定" HorizontalAlignment="Right" Margin="0,0,20,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Click="Button_Commit_Click"/>
-        <Button x:Name="Button_Cancel" Content="取消" Grid.Column="1" HorizontalAlignment="Left" Margin="20,0,0,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Click="Button_Cancel_Click" IsCancel="True"/>
+        <Button x:Name="Button_Commit" Content="确定" HorizontalAlignment="Right" Margin="0,0,20,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_Commit_Click" Height="24" Foreground="White"/>
+        <Button x:Name="Button_Cancel" Content="取消" Grid.Column="1" HorizontalAlignment="Left" Margin="20,0,0,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_Cancel_Click" IsCancel="True" Height="24" Foreground="White"/>
         <TextBox x:Name="TextBox_Number" Height="24" Margin="85,20,195,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
         <TextBox x:Name="TextBox_Name" Height="24" Margin="70,20,10,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.Column="1"/>
         <TextBox x:Name="TextBox_Address" Height="24" Margin="85,60,10,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>

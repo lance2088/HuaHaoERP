@@ -54,6 +54,7 @@ namespace HuaHaoERP.View.Windows
             {
                 this.Label_Message.Content = "用户名或密码错误";
                 this.PasswordBox_LoginPassword.Clear();
+                this.PasswordBox_LoginPassword.Focus();
                 ShowSeconds = 5;
                 timer.Start();
             }
