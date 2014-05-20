@@ -30,10 +30,10 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         }
         private void InitializeData()
         {
+            this.DataGrid.ItemsSource = null;
             if(new ViewModel.ProductionManagement.AssemblyLineModuleConsole().ReadList(ProductGuid, out d))
             {
                 this.Label_ProductName.Content = d.Name;
-                this.DataGrid.ItemsSource = null;
                 this.DataGrid.ItemsSource = d.ProcessList;
             }
         }
