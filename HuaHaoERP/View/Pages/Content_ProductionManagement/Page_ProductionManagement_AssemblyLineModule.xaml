@@ -19,12 +19,11 @@
         <TextBox x:Name="TextBox_Quantity" HorizontalAlignment="Left" Height="24" Margin="186,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="90" BorderThickness="1" Background="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="White"/>
         <Label x:Name="Label_ProductName" Content="产品名称" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Width="242"/>
         <ComboBox x:Name="ComboBox_StaffList" HorizontalAlignment="Left" Margin="186,179,0,0" VerticalAlignment="Top" Width="90" Height="24" IsEditable="True" VerticalContentAlignment="Center"/>
-        <Label Content="数量：" HorizontalAlignment="Left" Margin="186,102,0,0" VerticalAlignment="Top" Padding="0,5,5,5"/>
+        <Label Content="数量：(整数)" HorizontalAlignment="Left" Margin="186,102,0,0" VerticalAlignment="Top" Padding="0,5,5,5"/>
         <Label Content="员工：" HorizontalAlignment="Left" Margin="186,155,0,0" VerticalAlignment="Top" Padding="0,5,5,5"/>
         <Label Content="当前工序：" HorizontalAlignment="Left" Margin="186,41,0,0" VerticalAlignment="Top" Padding="0,0,5,0"/>
         <Label x:Name="Label_Process" Content="" HorizontalAlignment="Left" Margin="186,60,0,0" VerticalAlignment="Top" Height="37" Width="90" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="16" FontWeight="Bold" BorderThickness="1" BorderBrush="White"/>
-        <Button x:Name="Button_Add" Content="+" HorizontalAlignment="Left" Margin="186,0,0,17" VerticalAlignment="Bottom" Width="56" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_Add_Click" Height="24" Foreground="White"/>
-        <Button x:Name="Button_Reduce" Content="-" HorizontalAlignment="Left" Margin="247,0,0,17" VerticalAlignment="Bottom" Width="29" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_Reduce_Click" Height="24" Foreground="White"/>
+        <Button x:Name="Button_Add" Content="+" Margin="187,0,25,21" VerticalAlignment="Bottom" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_Add_Click" Height="24" Foreground="White" ToolTip="若要修正错误输入，请在数字输入框输入负数"/>
 
     </Grid>
 </Page>

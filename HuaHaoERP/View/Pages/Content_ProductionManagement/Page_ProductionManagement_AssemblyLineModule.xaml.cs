@@ -35,6 +35,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             {
                 this.Label_ProductName.Content = d.Name;
                 this.DataGrid.ItemsSource = d.ProcessList;
+                this.Label_Process.Content = "";
             }
         }
         private void InitializeStaffComboBox()
@@ -67,6 +68,11 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                         InitializeData();
                     }
                 }
+                else
+                {
+                    this.TextBox_Quantity.Clear();
+                    this.TextBox_Quantity.Focus();
+                }
             }
         }
 
@@ -83,11 +89,6 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         private void Button_Add_Click(object sender, RoutedEventArgs e)
         {
             ChangeQuantity(1);
-        }
-
-        private void Button_Reduce_Click(object sender, RoutedEventArgs e)
-        {
-            ChangeQuantity(-1);
         }
 
         private void DataGrid_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
