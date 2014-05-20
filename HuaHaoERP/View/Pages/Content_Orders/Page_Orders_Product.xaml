@@ -15,8 +15,8 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button FocusVisualStyle="{x:Null}" x:Name="Button_Commit" Content="确定" HorizontalAlignment="Right" Margin="0,0,20,20" VerticalAlignment="Bottom" Width="74" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Click="Button_Commit_Click" Height="24"/>
-        <Button FocusVisualStyle="{x:Null}" x:Name="Button_Cancel" Content="取消" HorizontalAlignment="Left" Margin="20,0,0,20" VerticalAlignment="Bottom" Width="76" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" IsCancel="True" Click="Button_Cancel_Click" Height="24" Grid.Column="1"/>
+        <Button FocusVisualStyle="{x:Null}" x:Name="Button_Commit" Content="确定" HorizontalAlignment="Right" Margin="0,0,20,20" VerticalAlignment="Bottom" Width="74" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_Commit_Click" Height="24" Foreground="White"/>
+        <Button FocusVisualStyle="{x:Null}" x:Name="Button_Cancel" Content="取消" HorizontalAlignment="Left" Margin="20,0,0,20" VerticalAlignment="Bottom" Width="76" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" IsCancel="True" Click="Button_Cancel_Click" Height="24" Grid.Column="1" Foreground="White"/>
         <CheckBox x:Name="CheckBox_AutoBuckleStock" Content="自动扣库存" HorizontalAlignment="Left" Margin="95,213,0,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" Width="80" IsEnabled="False"/>
         <TextBox x:Name="TextBox_OrderNumber" HorizontalAlignment="Left" Height="24" Margin="95,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" VerticalContentAlignment="Center"/>
         <ComboBox x:Name="ComboBox_Customer" HorizontalAlignment="Left" Margin="95,70,0,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center" DropDownClosed="ComboBox_Customer_DropDownClosed"/>
@@ -36,7 +36,7 @@
         </DataGrid>
         <ComboBox x:Name="ComboBox_Product" HorizontalAlignment="Left" Margin="333,30,0,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
         <Label Content="产品名称" HorizontalAlignment="Left" Margin="270,30,0,0" VerticalAlignment="Top" Height="24" Width="58" Padding="0,5,5,5"/>
-        <Button FocusVisualStyle="{x:Null}" x:Name="Button_AddProductDetails" Content="添加" HorizontalAlignment="Left" Margin="111,30,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonDefault}" Click="Button_AddProductDetails_Click" Grid.Column="1" Height="24" IsDefault="True"/>
+        <Button FocusVisualStyle="{x:Null}" x:Name="Button_AddProductDetails" Content="添加" HorizontalAlignment="Left" Margin="111,30,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_AddProductDetails_Click" Grid.Column="1" Height="24" IsDefault="True" Foreground="White"/>
         <Label Content="订单编号" HorizontalAlignment="Left" Margin="30,30,0,0" VerticalAlignment="Top" Height="24" Width="58"/>
         <Label Content="客户名称" HorizontalAlignment="Left" Margin="30,70,0,0" VerticalAlignment="Top" Height="24" Width="58"/>
         <Label Content="交货日期" HorizontalAlignment="Left" Margin="30,110,0,0" VerticalAlignment="Top" Height="24" Width="58"/>
