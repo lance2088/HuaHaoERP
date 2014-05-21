@@ -12,7 +12,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="Button_Commit" Content="确定" HorizontalAlignment="Right" Margin="0,0,20,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_Commit_Click" Height="24" Foreground="White"/>
+        <Button x:Name="Button_Commit" Content="确定" HorizontalAlignment="Right" Margin="0,0,20,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_Commit_Click" Height="24" Foreground="White" IsDefault="True"/>
         <Button x:Name="Button_Cancel" Content="取消" Grid.Column="1" HorizontalAlignment="Left" Margin="20,0,0,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" IsCancel="True" Click="Button_Cancel_Click" Height="24" Foreground="White"/>
         <TextBox x:Name="TextBox_Number" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="24" Margin="85,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
         <TextBox x:Name="TextBox_Name" HorizontalAlignment="Left" Height="24" Margin="70,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" Grid.Column="1"/>
