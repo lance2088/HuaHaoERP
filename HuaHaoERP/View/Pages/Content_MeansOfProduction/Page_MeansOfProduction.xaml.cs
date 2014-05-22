@@ -53,7 +53,8 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
             if (this.DataGrid_Product.SelectedCells.Count > 0)
             {
                 HuaHaoERP.Model.ProductModel data = this.DataGrid_Product.SelectedCells[0].Item as HuaHaoERP.Model.ProductModel;
-                Helper.Events.ProductEvent.OnMarkDelete(this, data);
+                new ViewModel.MeansOfProduction.ProductConsole().MarkDelete(data);
+                Helper.Events.ProductEvent.OnUpdateDataGrid();
             }
         }
         private void DataGrid_Product_Row_MouseDoubleClick(object sender, RoutedEventArgs e)
@@ -91,7 +92,8 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
             if (this.DataGrid_RawMaterials.SelectedCells.Count > 0)
             {
                 HuaHaoERP.Model.RawMaterialsModel data = this.DataGrid_RawMaterials.SelectedCells[0].Item as HuaHaoERP.Model.RawMaterialsModel;
-                Helper.Events.RawMaterialsEvent.OnMarkDelete(this, data);
+                new ViewModel.MeansOfProduction.RawMaterialsConsole().MarkDelete(data);
+                Helper.Events.RawMaterialsEvent.OnUpdateDataGrid();
             }
         }
         #endregion

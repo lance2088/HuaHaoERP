@@ -71,7 +71,8 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             if (this.DataGrid_Customer.SelectedCells.Count > 0)
             {
                 HuaHaoERP.Model.CustomerModel data = this.DataGrid_Customer.SelectedCells[0].Item as HuaHaoERP.Model.CustomerModel;
-                Helper.Events.CustomerEvent.OnMarkDelete(this, data);
+                new ViewModel.Customer.CustomerConsole().MarkDelete(data);
+                CustomerEvent.OnUpdateDataGrid();
             }
         }
         #endregion
@@ -101,7 +102,8 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             if (this.DataGrid_Supplier.SelectedCells.Count > 0)
             {
                 HuaHaoERP.Model.SupplierModel data = this.DataGrid_Supplier.SelectedCells[0].Item as HuaHaoERP.Model.SupplierModel;
-                Helper.Events.SupplierEvent.OnMarkDelete(this, data);
+                new ViewModel.Customer.SupplierConsole().MarkDelete(data);
+                Helper.Events.SupplierEvent.OnUpdateDataGrid();
             }
         }
         #endregion
@@ -131,7 +133,8 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             if (this.DataGrid_Staff.SelectedCells.Count > 0)
             {
                 HuaHaoERP.Model.StaffModel data = this.DataGrid_Staff.SelectedCells[0].Item as HuaHaoERP.Model.StaffModel;
-                Helper.Events.StaffEvent.OnMarkDelete(this, data);
+                new ViewModel.Customer.StaffConsole().MarkDelete(data);
+                Helper.Events.StaffEvent.OnUpdateDataGrid();
             }
         }
         #endregion
@@ -160,7 +163,8 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             if (this.DataGrid_Processors.SelectedCells.Count > 0)
             {
                 HuaHaoERP.Model.ProcessorsModel data = this.DataGrid_Processors.SelectedCells[0].Item as HuaHaoERP.Model.ProcessorsModel;
-                Helper.Events.ProcessorsEvent.OnMarkDelete(this, data);
+                new ViewModel.Customer.ProcessorsConsole().MarkDelete(data);
+                ProcessorsEvent.OnUpdateDataGrid();
             }
         }
         #endregion

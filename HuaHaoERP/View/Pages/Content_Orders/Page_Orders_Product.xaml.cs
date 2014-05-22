@@ -69,7 +69,8 @@ namespace HuaHaoERP.View.Pages.Content_Orders
         {
             if (CheckAndGetData())
             {
-                ProductOrderEvent.OnAdd(this, d);
+                new ViewModel.Orders.ProductOrderConsole().Add(d);
+                ProductOrderEvent.OnUpdateDataGrid();
                 Button_Cancel_Click(null, null);
             }
             else

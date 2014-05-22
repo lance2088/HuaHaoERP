@@ -48,7 +48,8 @@ namespace HuaHaoERP.View.Pages.Content_Orders
             if (this.DataGrid_ProductOrder.SelectedCells.Count > 0)
             {
                 HuaHaoERP.Model.ProductOrderModelForDataGrid data = this.DataGrid_ProductOrder.SelectedCells[0].Item as HuaHaoERP.Model.ProductOrderModelForDataGrid;
-                Helper.Events.ProductOrderEvent.OnMarkDelete(this, data);
+                new ViewModel.Orders.ProductOrderConsole().MarkDelete(data);
+                Helper.Events.ProductOrderEvent.OnUpdateDataGrid();
             }
         }
     }

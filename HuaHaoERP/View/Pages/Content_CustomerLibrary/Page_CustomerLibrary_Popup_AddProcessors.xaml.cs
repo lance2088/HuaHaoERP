@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using HuaHaoERP.Helper.Events;
 
 namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
 {
@@ -94,12 +95,14 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             {
                 if (!isNew)
                 {
-                    Helper.Events.ProcessorsEvent.OnUpdate(this, d);
+                    new ViewModel.Customer.ProcessorsConsole().Update(d);
+                    ProcessorsEvent.OnUpdateDataGrid();
                     Helper.Events.StatusBarMessageEvent.OnUpdateMessage("修改外加工商：" + d.Name);
                 }
                 else
                 {
-                    Helper.Events.ProcessorsEvent.OnAdd(this, d);
+                    new ViewModel.Customer.ProcessorsConsole().Add(d);
+                    ProcessorsEvent.OnUpdateDataGrid();
                     Helper.Events.StatusBarMessageEvent.OnUpdateMessage("添加外加工商：" + d.Name);
                 }
                 Button_Cancel_Click(null, null);

@@ -97,12 +97,14 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             {
                 if (!isNew)
                 {
-                    Helper.Events.SupplierEvent.OnUpdate(this, d);
+                    new ViewModel.Customer.SupplierConsole().Update(d);
+                    Helper.Events.SupplierEvent.OnUpdateDataGrid();
                     Helper.Events.StatusBarMessageEvent.OnUpdateMessage("修改供应商：" + d.Name);
                 }
                 else
                 {
-                    Helper.Events.SupplierEvent.OnAdd(this, d);
+                    new ViewModel.Customer.SupplierConsole().Add(d);
+                    Helper.Events.SupplierEvent.OnUpdateDataGrid();
                     Helper.Events.StatusBarMessageEvent.OnUpdateMessage("添加供应商：" + d.Name);
                 }
                 Button_Cancel_Click(null, null);

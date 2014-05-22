@@ -184,30 +184,22 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Helper\AppInitialize\Initialize.cs" />
     <Compile Include="Helper\DataDefinition\CommonParameters.cs" />
     <Compile Include="Helper\DataDefinition\ComboBoxList.cs" />
     <Compile Include="Helper\DataDefinition\Process.cs" />
     <Compile Include="Helper\Events\1.CustomerLibrary\CustomerEvent.cs" />
-    <Compile Include="Helper\Events\1.CustomerLibrary\CustomerEventArgs.cs" />
     <Compile Include="Helper\Events\0.Common\PopUpEvent.cs" />
     <Compile Include="Helper\Events\0.Common\PopUpEventArgs.cs" />
     <Compile Include="Helper\Events\1.CustomerLibrary\StaffEvent.cs" />
-    <Compile Include="Helper\Events\1.CustomerLibrary\StaffEventArgs.cs" />
     <Compile Include="Helper\Events\1.CustomerLibrary\ProcessorsEvent.cs" />
-    <Compile Include="Helper\Events\1.CustomerLibrary\ProcessorsEventArgs.cs" />
     <Compile Include="Helper\Events\0.Common\StatusBarMessageEvent.cs" />
     <Compile Include="Helper\Events\0.Common\StatusBarMessageEventArgs.cs" />
-    <Compile Include="Helper\Events\1.CustomerLibrary\SupplierEventArgs.cs" />
     <Compile Include="Helper\Events\1.CustomerLibrary\SupplierEvent.cs" />
     <Compile Include="Helper\Events\2.MeansOfProduction\ProductEvent.cs" />
-    <Compile Include="Helper\Events\2.MeansOfProduction\ProductEventArgs.cs" />
     <Compile Include="Helper\Events\2.MeansOfProduction\RawMaterialsEvent.cs" />
-    <Compile Include="Helper\Events\2.MeansOfProduction\RawMaterialsEventArgs.cs" />
     <Compile Include="Helper\Events\3.ProductionManagement\AssemblyLineEvent.cs" />
     <Compile Include="Helper\Events\3.ProductionManagement\AssemblyLineEventArgs.cs" />
     <Compile Include="Helper\Events\5.Orders\ProductOrderEvent.cs" />
-    <Compile Include="Helper\Events\5.Orders\ProductOrderEventArgs.cs" />
     <Compile Include="Helper\Events\4.Warehouse\Class2.cs" />
     <Compile Include="Helper\Excel\Reader.cs" />
     <Compile Include="Helper\LogHelper\FileLog.cs" />
@@ -225,7 +217,6 @@
     <Compile Include="ViewModel\Customer\ProcessorsConsole.cs" />
     <Compile Include="ViewModel\Customer\StaffConsole.cs" />
     <Compile Include="ViewModel\Customer\SupplierConsole.cs" />
-    <Compile Include="ViewModel\EventDistribution.cs" />
     <Compile Include="ViewModel\Customer\CustomerConsole.cs" />
     <Compile Include="ViewModel\MeansOfProduction\ProductConsole.cs" />
     <Compile Include="ViewModel\MeansOfProduction\RawMaterialsConsole.cs" />

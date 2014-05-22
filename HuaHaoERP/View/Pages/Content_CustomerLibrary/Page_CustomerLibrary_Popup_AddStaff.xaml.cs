@@ -101,12 +101,14 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             {
                 if (!isNew)
                 {
-                    Helper.Events.StaffEvent.OnUpdate(this, d);
+                    new ViewModel.Customer.StaffConsole().Update(d);
+                    Helper.Events.StaffEvent.OnUpdateDataGrid();
                     Helper.Events.StatusBarMessageEvent.OnUpdateMessage("修改员工：" + d.Name);
                 }
                 else
                 {
-                    Helper.Events.StaffEvent.OnAdd(this, d);
+                    new ViewModel.Customer.StaffConsole().Add(d);
+                    Helper.Events.StaffEvent.OnUpdateDataGrid();
                     Helper.Events.StatusBarMessageEvent.OnUpdateMessage("添加员工：" + d.Name);
                 }
                 Button_Cancel_Click(null, null);

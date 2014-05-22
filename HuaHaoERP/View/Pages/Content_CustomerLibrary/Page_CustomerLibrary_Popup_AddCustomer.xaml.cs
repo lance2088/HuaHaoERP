@@ -98,12 +98,14 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             {
                 if (!isNew)
                 {
-                    CustomerEvent.OnUpdate(this, d);
+                    new ViewModel.Customer.CustomerConsole().Update(d);
+                    CustomerEvent.OnUpdateDataGrid();
                     StatusBarMessageEvent.OnUpdateMessage("修改用户：" + d.Name);
                 }
                 else
                 {
-                    CustomerEvent.OnAdd(this, d);
+                    new ViewModel.Customer.CustomerConsole().Add(d);
+                    CustomerEvent.OnUpdateDataGrid();
                     StatusBarMessageEvent.OnUpdateMessage("添加用户：" + d.Name);
                 }
                 Button_Cancel_Click(null, null);
