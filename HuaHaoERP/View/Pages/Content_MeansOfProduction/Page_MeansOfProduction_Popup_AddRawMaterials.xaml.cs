@@ -37,7 +37,7 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
         }
         private void InitializeData()
         {
-            this.ComboBox_Supplier.ItemsSource = Helper.DataDefinition.ComboBoxList.SupplierList.DefaultView;
+            this.ComboBox_Supplier.ItemsSource = Helper.DataDefinition.ComboBoxList.SupplierListWithoutAll.DefaultView;
             this.ComboBox_Supplier.DisplayMemberPath = "Name";
             this.ComboBox_Supplier.SelectedValuePath = "GUID";//GUID四个字母要大写
         }

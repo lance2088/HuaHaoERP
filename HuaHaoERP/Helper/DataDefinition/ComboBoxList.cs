@@ -8,7 +8,7 @@ namespace HuaHaoERP.Helper.DataDefinition
 {
     static class ComboBoxList
     {
-        public static DataTable SupplierList
+        public static DataTable SupplierListWithoutAll
         {
             get 
             {
@@ -17,7 +17,7 @@ namespace HuaHaoERP.Helper.DataDefinition
                 return ds.Tables[0]; 
             }
         }
-        public static DataTable CustomerList
+        public static DataTable CustomerListWithoutAll
         {
             get
             {
@@ -55,7 +55,7 @@ namespace HuaHaoERP.Helper.DataDefinition
                 return dt;
             }
         }
-        public static DataTable StaffList
+        public static DataTable StaffListWithoutAll
         {
             get
             {
@@ -64,7 +64,7 @@ namespace HuaHaoERP.Helper.DataDefinition
                 return ds.Tables[0];
             }
         }
-        public static DataTable ProcessorsList
+        public static DataTable ProcessorsListWithoutAll
         {
             get
             {
@@ -73,7 +73,7 @@ namespace HuaHaoERP.Helper.DataDefinition
                 return ds.Tables[0];
             }
         }
-        public static DataTable RawMaterialsList
+        public static DataTable RawMaterialsListWithoutAll
         {
             get
             {

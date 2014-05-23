@@ -37,7 +37,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             this.ComboBox_Product.DisplayMemberPath = "Name";
             this.ComboBox_Product.SelectedValuePath = "GUID";//GUID四个字母要大写
             this.ComboBox_Product.SelectedIndex = 0;
-            this.ComboBox_Processors.ItemsSource = Helper.DataDefinition.ComboBoxList.ProcessorsList.DefaultView;
+            this.ComboBox_Processors.ItemsSource = Helper.DataDefinition.ComboBoxList.ProcessorsListWithoutAll.DefaultView;
             this.ComboBox_Processors.DisplayMemberPath = "Name";
             this.ComboBox_Processors.SelectedValuePath = "GUID";//GUID四个字母要大写
             this.ComboBox_Processors.SelectedIndex = 0;
