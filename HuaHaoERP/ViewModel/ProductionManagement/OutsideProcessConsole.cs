@@ -43,7 +43,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                     ProductionManagement_OutsideProcessModel d = new ProductionManagement_OutsideProcessModel();
                     d.Guid = (Guid)dr["GUID"];
                     d.Id = id++;
-                    d.OrderDate = dr["Date"].ToString().Split(' ')[0];
+                    d.OrderDate = Convert.ToDateTime(dr["Date"].ToString()).ToString("yyyy-MM-dd");
                     d.ProductGuid = (Guid)dr["ProductID"];
                     d.ProductName = dr["ProductName"].ToString();
                     d.ProcessorsGuid = (Guid)dr["ProcessorsID"];

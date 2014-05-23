@@ -52,20 +52,18 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         }
         private void InitializeData()
         {
-            this.DatePicker_Processors.SelectedDate = DateTime.Now;
-            this.ComboBox_Product_Out.ItemsSource = Helper.DataDefinition.ComboBoxList.ProductList.DefaultView;
-            this.ComboBox_Product_Out.DisplayMemberPath = "Name";
-            this.ComboBox_Product_Out.SelectedValuePath = "GUID";//GUID四个字母要大写
-            this.ComboBox_Product_Out.SelectedIndex = 0;
-            this.ComboBox_Processors_Out.ItemsSource = Helper.DataDefinition.ComboBoxList.ProcessorsList.DefaultView;
-            this.ComboBox_Processors_Out.DisplayMemberPath = "Name";
-            this.ComboBox_Processors_Out.SelectedValuePath = "GUID";//GUID四个字母要大写
-            this.ComboBox_Processors_Out.SelectedIndex = 0;
+            this.DatePicker_ProcessorsFirst.SelectedDate = DateTime.Now;
+            this.DatePicker_ProcessorsEnd.SelectedDate = DateTime.Now;
+            this.ComboBox_Product.ItemsSource = Helper.DataDefinition.ComboBoxList.ProductList.DefaultView;
+            this.ComboBox_Product.DisplayMemberPath = "Name";
+            this.ComboBox_Product.SelectedValuePath = "GUID";//GUID四个字母要大写
+            this.ComboBox_Product.SelectedIndex = 0;
+            this.ComboBox_Processors.ItemsSource = Helper.DataDefinition.ComboBoxList.ProcessorsList.DefaultView;
+            this.ComboBox_Processors.DisplayMemberPath = "Name";
+            this.ComboBox_Processors.SelectedValuePath = "GUID";//GUID四个字母要大写
+            this.ComboBox_Processors.SelectedIndex = 0;
 
             InitializeOutsideProcessDataGrid();
-
-            this.Label_CountOutOrder.Content = this.CountOutOrder;
-            this.Label_CountInOrder.Content = this.CountInOrder;
         }
         /// <summary>
         /// 添加流水线模块
@@ -125,6 +123,9 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             this.DataGrid_ProcessOut.ItemsSource = data;
             new ViewModel.ProductionManagement.OutsideProcessConsole().ReadList("入单", out data, out CountInOrder);
             this.DataGrid_ProcessIn.ItemsSource = data;
+
+            this.Label_CountOutOrder.Content = this.CountOutOrder;
+            this.Label_CountInOrder.Content = this.CountInOrder;
         }
     }
 }
