@@ -99,5 +99,15 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         {
             Helper.Events.PopUpEvent.OnShowPopUp(new Page_ProductionManagement_ChooseProduct());
         }
+
+        private void Button_AddProcessOut_Click(object sender, RoutedEventArgs e)
+        {
+            PopUpEvent.OnShowPopUp(new Page_ProductionManagement_OutsideProcess(true));
+        }
+
+        private void Button_AddProcessIn_Click(object sender, RoutedEventArgs e)
+        {
+            PopUpEvent.OnShowPopUp(new Page_ProductionManagement_OutsideProcess(false));
+        }
     }
 }
