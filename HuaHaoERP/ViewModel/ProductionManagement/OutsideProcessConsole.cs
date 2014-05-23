@@ -18,14 +18,15 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
             return flag;
         }
 
-        internal bool ReadList(string OrderType, out List<ProductionManagement_OutsideProcessModel> data)
+        internal bool ReadList(string OrderType, out List<ProductionManagement_OutsideProcessModel> data, out int Count)
         {
             bool flag = false;
             data = new List<ProductionManagement_OutsideProcessModel>();
+            Count = 0;
             string sql = " SELECT                                                                   "
                        +"	a.*,                                                                    "
-                       +"   b.Name as ProductName,                                                   "
-                       +"   c.Name as ProcessorsName                                                 "
+                       +"   b.Name as ProductName,                                                  "
+                       +"   c.Name as ProcessorsName                                                "
                        +" FROM                                                                      "
                        +"	T_PM_ProcessSchedule a                                                  "
                        +" LEFT JOIN T_ProductInfo_Product b ON a.ProductID=b.GUID                   "
@@ -48,6 +49,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                     d.ProcessorsGuid = (Guid)dr["ProcessorsID"];
                     d.ProcessorsName = dr["ProcessorsName"].ToString();
                     d.Quantity = int.Parse(dr["Quantity"].ToString());
+                    Count += d.Quantity;
                     d.MinorInjuries = int.Parse(dr["MinorInjuries"].ToString());
                     d.Injuries = int.Parse(dr["Injuries"].ToString());
                     d.Lose = int.Parse(dr["Lose"].ToString());

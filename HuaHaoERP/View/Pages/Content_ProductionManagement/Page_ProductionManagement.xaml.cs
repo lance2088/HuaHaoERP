@@ -17,6 +17,9 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 {
     public partial class Page_ProductionManagement : Page
     {
+        private int CountOutOrder;
+        private int CountInOrder;
+
         public Page_ProductionManagement()
         {
             InitializeComponent();
@@ -58,16 +61,11 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             this.ComboBox_Processors_Out.DisplayMemberPath = "Name";
             this.ComboBox_Processors_Out.SelectedValuePath = "GUID";//GUID四个字母要大写
             this.ComboBox_Processors_Out.SelectedIndex = 0;
-            this.ComboBox_Product_In.ItemsSource = Helper.DataDefinition.ComboBoxList.ProductList.DefaultView;
-            this.ComboBox_Product_In.DisplayMemberPath = "Name";
-            this.ComboBox_Product_In.SelectedValuePath = "GUID";//GUID四个字母要大写
-            this.ComboBox_Product_In.SelectedIndex = 0;
-            this.ComboBox_Processors_In.ItemsSource = Helper.DataDefinition.ComboBoxList.ProcessorsList.DefaultView;
-            this.ComboBox_Processors_In.DisplayMemberPath = "Name";
-            this.ComboBox_Processors_In.SelectedValuePath = "GUID";//GUID四个字母要大写
-            this.ComboBox_Processors_In.SelectedIndex = 0;
 
             InitializeOutsideProcessDataGrid();
+
+            this.Label_CountOutOrder.Content = this.CountOutOrder;
+            this.Label_CountInOrder.Content = this.CountInOrder;
         }
         /// <summary>
         /// 添加流水线模块
@@ -118,10 +116,14 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void InitializeOutsideProcessDataGrid()
         {
+
+
+
+
             List<Model.ProductionManagement_OutsideProcessModel> data;
-            new ViewModel.ProductionManagement.OutsideProcessConsole().ReadList("出单",out data);
+            new ViewModel.ProductionManagement.OutsideProcessConsole().ReadList("出单",out data, out CountOutOrder);
             this.DataGrid_ProcessOut.ItemsSource = data;
-            new ViewModel.ProductionManagement.OutsideProcessConsole().ReadList("入单", out data);
+            new ViewModel.ProductionManagement.OutsideProcessConsole().ReadList("入单", out data, out CountInOrder);
             this.DataGrid_ProcessIn.ItemsSource = data;
         }
     }
