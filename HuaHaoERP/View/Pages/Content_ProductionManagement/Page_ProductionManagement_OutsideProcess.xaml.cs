@@ -33,7 +33,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         private void InitializeData()
         {
             this.DatePicker_OrderDate.SelectedDate = DateTime.Now;
-            this.ComboBox_Product.ItemsSource = Helper.DataDefinition.ComboBoxList.ProductList.DefaultView;
+            this.ComboBox_Product.ItemsSource = Helper.DataDefinition.ComboBoxList.ProductListWithoutAll.DefaultView;
             this.ComboBox_Product.DisplayMemberPath = "Name";
             this.ComboBox_Product.SelectedValuePath = "GUID";//GUID四个字母要大写
             this.ComboBox_Product.SelectedIndex = 0;

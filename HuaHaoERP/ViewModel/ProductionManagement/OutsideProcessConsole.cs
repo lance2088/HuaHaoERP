@@ -18,7 +18,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
             return flag;
         }
 
-        internal bool ReadList(string OrderType, out List<ProductionManagement_OutsideProcessModel> data, out int Count)
+        internal bool ReadList(string OrderType, Guid ProductID,Guid ProcessorsID, out List<ProductionManagement_OutsideProcessModel> data, out int Count)
         {
             bool flag = false;
             data = new List<ProductionManagement_OutsideProcessModel>();

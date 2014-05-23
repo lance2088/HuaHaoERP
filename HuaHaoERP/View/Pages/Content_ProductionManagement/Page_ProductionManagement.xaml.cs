@@ -54,7 +54,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         {
             this.DatePicker_ProcessorsFirst.SelectedDate = DateTime.Now;
             this.DatePicker_ProcessorsEnd.SelectedDate = DateTime.Now;
-            this.ComboBox_Product.ItemsSource = Helper.DataDefinition.ComboBoxList.ProductList.DefaultView;
+            this.ComboBox_Product.ItemsSource = Helper.DataDefinition.ComboBoxList.ProductListWithAll.DefaultView;
             this.ComboBox_Product.DisplayMemberPath = "Name";
             this.ComboBox_Product.SelectedValuePath = "GUID";//GUID四个字母要大写
             this.ComboBox_Product.SelectedIndex = 0;
@@ -114,14 +114,14 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void InitializeOutsideProcessDataGrid()
         {
-
-
+            Guid ProductGuid = (Guid)this.ComboBox_Product.SelectedValue;
+            Guid ProcessorsGuid = (Guid)this.ComboBox_Processors.SelectedValue;
 
 
             List<Model.ProductionManagement_OutsideProcessModel> data;
-            new ViewModel.ProductionManagement.OutsideProcessConsole().ReadList("出单",out data, out CountOutOrder);
+            new ViewModel.ProductionManagement.OutsideProcessConsole().ReadList("出单", ProductGuid, ProcessorsGuid, out data, out CountOutOrder);
             this.DataGrid_ProcessOut.ItemsSource = data;
-            new ViewModel.ProductionManagement.OutsideProcessConsole().ReadList("入单", out data, out CountInOrder);
+            new ViewModel.ProductionManagement.OutsideProcessConsole().ReadList("入单", ProductGuid, ProcessorsGuid, out data, out CountInOrder);
             this.DataGrid_ProcessIn.ItemsSource = data;
 
             this.Label_CountOutOrder.Content = this.CountOutOrder;
