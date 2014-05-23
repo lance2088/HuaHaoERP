@@ -42,6 +42,10 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             {
                 RemoveAssemblyLineModule(e.RegisterName);
             };
+            ProductionManagement_OutsideProcessEvent.EUpdateDataGrid += (s, e) =>
+            {
+                InitializeOutsideProcessDataGrid();
+            };
         }
         private void InitializeData()
         {

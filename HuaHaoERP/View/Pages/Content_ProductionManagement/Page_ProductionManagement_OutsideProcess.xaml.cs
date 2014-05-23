@@ -104,6 +104,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             if (GetAndCheckData())
             {
                 new ViewModel.ProductionManagement.OutsideProcessConsole().Add(d);
+                Helper.Events.ProductionManagement_OutsideProcessEvent.OnUpdateDataGrid();
                 Button_Cancel_Click(null,null);
             }
             else
