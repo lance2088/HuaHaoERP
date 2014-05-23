@@ -10,7 +10,7 @@
     <Grid Width="400" HorizontalAlignment="Right" Background="White">
         <Button x:Name="Button_Commit" Content="确定" HorizontalAlignment="Left" Margin="105,0,0,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_Commit_Click" Height="24" Foreground="White" IsDefault="True"/>
         <Button x:Name="Button_Cancel" Content="取消" HorizontalAlignment="Right" Margin="0,0,105,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" IsCancel="True" Click="Button_Cancel_Click" Height="24" Foreground="White"/>
-        <DataGrid x:Name="DataGrid_Product" Margin="20,100,20,60" CellStyle="{DynamicResource DataGridCellStyleCommon}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" BorderBrush="#FF99CCFF" HeadersVisibility="Column" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" AutoGenerateColumns="False">
+        <DataGrid x:Name="DataGrid_Product" Margin="20,100,20,60" CellStyle="{DynamicResource DataGridCellStyleCommon}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" BorderBrush="#FF99CCFF" HeadersVisibility="Column" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" AutoGenerateColumns="False" SelectionMode="Single" SelectionUnit="Cell">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="GUID" Visibility="Hidden" Binding="{Binding Guid}"/>
                 <DataGridTextColumn Header="序号" Binding="{Binding Id}"/>
