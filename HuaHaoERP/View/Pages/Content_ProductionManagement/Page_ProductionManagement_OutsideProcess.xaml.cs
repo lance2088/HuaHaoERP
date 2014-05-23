@@ -45,6 +45,14 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             if(isOut)
             {
                 this.Label_Title.Content += "出单";
+                this.Label_MinorInjuries.Visibility = System.Windows.Visibility.Collapsed;
+                this.TextBox_MinorInjuries.Visibility = System.Windows.Visibility.Collapsed;
+                this.Label_Injuries.Visibility = System.Windows.Visibility.Collapsed;
+                this.TextBox_Injuries.Visibility = System.Windows.Visibility.Collapsed;
+                this.Label_Lose.Visibility = System.Windows.Visibility.Collapsed;
+                this.TextBox_Lose.Visibility = System.Windows.Visibility.Collapsed;
+                this.Label_Remark.Margin = new Thickness(30, 220, 0, 0);
+                this.TextBox_Remark.Margin = new Thickness(120, 220, 0, 0);
             }
             else
             {
