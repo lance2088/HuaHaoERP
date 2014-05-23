@@ -18,6 +18,10 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
     public partial class Page_ProductionManagement_OutsideProcess : Page
     {
         private bool isOut = true;
+        private Model.ProductionManagement_OutsideProcessModel d = new Model.ProductionManagement_OutsideProcessModel();
+        private Guid Guid;
+        private Guid OldGuid;
+        private bool isNew = true;
 
         public Page_ProductionManagement_OutsideProcess(bool isOut)
         {
@@ -29,6 +33,15 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         private void InitializeData()
         {
             this.DatePicker_OrderDate.SelectedDate = DateTime.Now;
+            this.ComboBox_Product.ItemsSource = Helper.DataDefinition.ComboBoxList.ProductList.DefaultView;
+            this.ComboBox_Product.DisplayMemberPath = "Name";
+            this.ComboBox_Product.SelectedValuePath = "GUID";//GUID四个字母要大写
+            this.ComboBox_Product.SelectedIndex = 0;
+            this.ComboBox_Processors.ItemsSource = Helper.DataDefinition.ComboBoxList.ProcessorsList.DefaultView;
+            this.ComboBox_Processors.DisplayMemberPath = "Name";
+            this.ComboBox_Processors.SelectedValuePath = "GUID";//GUID四个字母要大写
+            this.ComboBox_Processors.SelectedIndex = 0;
+
             if(isOut)
             {
                 this.Label_Title.Content += "出单";
@@ -42,16 +55,38 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         private bool GetAndCheckData()
         {
             bool flag = true;
-
-
+            this.Guid = Guid.NewGuid();
+            d.Guid = this.Guid;
+            d.OrderDate = ((DateTime)this.DatePicker_OrderDate.SelectedDate).ToString("yyyy-MM-dd HH:mm:ss");
+            d.ProductGuid = (Guid)this.ComboBox_Product.SelectedValue;
+            d.ProcessorsGuid = (Guid)this.ComboBox_Processors.SelectedValue;
+            d.Quantity = int.Parse(this.TextBox_Quantity.Text.Trim());
+            d.MinorInjuries = int.Parse(this.TextBox_MinorInjuries.Text.Trim());
+            d.Injuries = int.Parse(this.TextBox_Injuries.Text.Trim());
+            d.Lose = int.Parse(this.TextBox_Lose.Text.Trim());
+            if(isOut)
+            {
+                d.OrderType = "出单";
+            }
+            else
+            {
+                d.OrderType = "入单";
+            }
+            d.Remark = this.TextBox_Remark.Text.Trim();
             return flag;
         }
 
         private void Button_Commit_Click(object sender, RoutedEventArgs e)
         {
+            if (GetAndCheckData())
+            {
+                new ViewModel.ProductionManagement.OutsideProcessConsole().Add(d);
+                Button_Cancel_Click(null,null);
+            }
+            else
+            {
 
-            PopUpEvent.OnHidePopUp();
-
+            }
         }
 
         private void Button_Cancel_Click(object sender, RoutedEventArgs e)
