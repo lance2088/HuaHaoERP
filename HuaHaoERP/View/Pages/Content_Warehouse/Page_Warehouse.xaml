@@ -56,8 +56,8 @@
                         <ColumnDefinition Width="142*"/>
                         <ColumnDefinition Width="315*"/>
                     </Grid.ColumnDefinitions>
-                    <DataGrid Margin="0,40,10,10" BorderThickness="1" Grid.Column="1" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False"/>
-                    <DataGrid Margin="10,40,10,10" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" IsReadOnly="True" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False">
+                    <DataGrid x:Name="DataGrid_RawMaterialsRecord" Margin="0,40,10,10" BorderThickness="1" Grid.Column="1" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" AutoGenerateColumns="False"/>
+                    <DataGrid x:Name="DataGrid_RawMaterialsQuantity" Margin="10,40,10,10" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" IsReadOnly="True" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False" AutoGenerateColumns="False" SelectionMode="Single">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="编号"/>
                             <DataGridTextColumn Header="名称"/>
