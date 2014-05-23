@@ -62,6 +62,8 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             this.ComboBox_Processors_In.DisplayMemberPath = "Name";
             this.ComboBox_Processors_In.SelectedValuePath = "GUID";//GUID四个字母要大写
             this.ComboBox_Processors_In.SelectedIndex = 0;
+
+            InitializeOutsideProcessDataGrid();
         }
         /// <summary>
         /// 添加流水线模块
@@ -108,6 +110,15 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         private void Button_AddProcessIn_Click(object sender, RoutedEventArgs e)
         {
             PopUpEvent.OnShowPopUp(new Page_ProductionManagement_OutsideProcess(false));
+        }
+
+        private void InitializeOutsideProcessDataGrid()
+        {
+            List<Model.ProductionManagement_OutsideProcessModel> data;
+            new ViewModel.ProductionManagement.OutsideProcessConsole().ReadList("出单",out data);
+            this.DataGrid_ProcessOut.ItemsSource = data;
+            new ViewModel.ProductionManagement.OutsideProcessConsole().ReadList("入单", out data);
+            this.DataGrid_ProcessIn.ItemsSource = data;
         }
     }
 }

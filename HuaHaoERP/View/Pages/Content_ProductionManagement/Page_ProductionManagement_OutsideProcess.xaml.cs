@@ -54,16 +54,27 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private bool GetAndCheckData()
         {
-            bool flag = true;
+            int FalseCount = 0;
             this.Guid = Guid.NewGuid();
             d.Guid = this.Guid;
             d.OrderDate = ((DateTime)this.DatePicker_OrderDate.SelectedDate).ToString("yyyy-MM-dd HH:mm:ss");
             d.ProductGuid = (Guid)this.ComboBox_Product.SelectedValue;
             d.ProcessorsGuid = (Guid)this.ComboBox_Processors.SelectedValue;
-            d.Quantity = int.Parse(this.TextBox_Quantity.Text.Trim());
-            d.MinorInjuries = int.Parse(this.TextBox_MinorInjuries.Text.Trim());
-            d.Injuries = int.Parse(this.TextBox_Injuries.Text.Trim());
-            d.Lose = int.Parse(this.TextBox_Lose.Text.Trim());
+            int Quantity = 0;
+            if(!int.TryParse(this.TextBox_Quantity.Text.Trim(), out Quantity))
+            {
+                FalseCount++;
+            }
+            d.Quantity = Quantity;
+            int MinorInjuries = 0;
+            int.TryParse(this.TextBox_MinorInjuries.Text.Trim(), out MinorInjuries);
+            d.MinorInjuries = MinorInjuries;
+            int Injuries = 0;
+            int.TryParse(this.TextBox_Injuries.Text.Trim(), out Injuries);
+            d.Injuries = Injuries;
+            int Lose = 0;
+            int.TryParse(this.TextBox_Lose.Text.Trim(), out Lose);
+            d.Lose = Lose;
             if(isOut)
             {
                 d.OrderType = "出单";
@@ -73,7 +84,11 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 d.OrderType = "入单";
             }
             d.Remark = this.TextBox_Remark.Text.Trim();
-            return flag;
+            if (FalseCount > 0)
+            {
+                return false;
+            }
+            return true;
         }
 
         private void Button_Commit_Click(object sender, RoutedEventArgs e)

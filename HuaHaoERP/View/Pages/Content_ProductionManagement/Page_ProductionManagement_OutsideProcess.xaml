@@ -22,10 +22,10 @@
         <DatePicker x:Name="DatePicker_OrderDate" HorizontalAlignment="Left" Margin="120,60,0,0" VerticalAlignment="Top" Width="120"/>
         <ComboBox x:Name="ComboBox_Product" HorizontalAlignment="Left" Margin="120,100,0,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center"/>
         <ComboBox x:Name="ComboBox_Processors" HorizontalAlignment="Left" Margin="120,140,0,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="TextBox_Quantity" HorizontalAlignment="Left" Height="24" Margin="120,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" KeyDown="TextBox_KeyDown" TextChanged="TextBox_TextChanged"/>
-        <TextBox x:Name="TextBox_MinorInjuries" HorizontalAlignment="Left" Height="24" Margin="120,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" KeyDown="TextBox_KeyDown" TextChanged="TextBox_TextChanged"/>
-        <TextBox x:Name="TextBox_Injuries" HorizontalAlignment="Left" Height="24" Margin="120,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" KeyDown="TextBox_KeyDown" TextChanged="TextBox_TextChanged"/>
-        <TextBox x:Name="TextBox_Lose" HorizontalAlignment="Left" Height="24" Margin="120,300,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" KeyDown="TextBox_KeyDown" TextChanged="TextBox_TextChanged"/>
+        <TextBox x:Name="TextBox_Quantity" HorizontalAlignment="Left" Height="24" Margin="120,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" KeyDown="TextBox_KeyDown" TextChanged="TextBox_TextChanged" Text="0"/>
+        <TextBox x:Name="TextBox_MinorInjuries" HorizontalAlignment="Left" Height="24" Margin="120,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" KeyDown="TextBox_KeyDown" TextChanged="TextBox_TextChanged" Text="0"/>
+        <TextBox x:Name="TextBox_Injuries" HorizontalAlignment="Left" Height="24" Margin="120,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" KeyDown="TextBox_KeyDown" TextChanged="TextBox_TextChanged" Text="0"/>
+        <TextBox x:Name="TextBox_Lose" HorizontalAlignment="Left" Height="24" Margin="120,300,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" KeyDown="TextBox_KeyDown" TextChanged="TextBox_TextChanged" Text="0"/>
         <TextBox x:Name="TextBox_Remark" HorizontalAlignment="Left" Height="48" Margin="120,340,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" AcceptsReturn="True"/>
 
     </Grid>

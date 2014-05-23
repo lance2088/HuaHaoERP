@@ -20,41 +20,43 @@
             <TabItem FocusVisualStyle="{x:Null}" Header="外加工" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="17,0,-17,0" Foreground="White">
                 <Grid Background="White">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="3*"/>
                     </Grid.ColumnDefinitions>
-                    <DataGrid x:Name="DataGrid_ProcessOut" Margin="10,65,10,40" BorderThickness="1" CellStyle="{DynamicResource DataGridCellStyleCommon}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" BorderBrush="#FF99CCFF" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False">
+                    <DataGrid x:Name="DataGrid_ProcessOut" Margin="10,65,10,40" BorderThickness="1" CellStyle="{DynamicResource DataGridCellStyleCommon}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" BorderBrush="#FF99CCFF" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" AutoGenerateColumns="False">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="序号"/>
-                            <DataGridTextColumn Header="日期"/>
-                            <DataGridTextColumn Header="产品"/>
-                            <DataGridTextColumn Header="外加工商"/>
-                            <DataGridTextColumn Header="数量"/>
+                            <DataGridTextColumn Header="序号" Binding="{Binding Id}"/>
+                            <DataGridTextColumn Header="日期" Binding="{Binding OrderData}"/>
+                            <DataGridTextColumn Header="产品" Binding="{Binding ProductName}"/>
+                            <DataGridTextColumn Header="外加工商" Binding="{Binding ProcessorsName}"/>
+                            <DataGridTextColumn Header="数量" Binding="{Binding Quantity}"/>
+                            <DataGridTextColumn Header="备注" Binding="{Binding Remark}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <DatePicker x:Name="DatePicker_Processors" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" MinWidth="120" VerticalContentAlignment="Center" Height="24" Width="120"/>
-                    <DataGrid x:Name="DataGrid_ProcessIn" Grid.Column="1" Margin="0,65,10,40" BorderThickness="1" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" BorderBrush="#FF99CCFF" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False">
+                    <DataGrid x:Name="DataGrid_ProcessIn" Grid.Column="1" Margin="0,65,10,40" BorderThickness="1" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" BorderBrush="#FF99CCFF" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" AutoGenerateColumns="False">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="序号"/>
-                            <DataGridTextColumn Header="日期"/>
-                            <DataGridTextColumn Header="产品"/>
-                            <DataGridTextColumn Header="外加工商"/>
-                            <DataGridTextColumn Header="数量"/>
-                            <DataGridTextColumn Header="轻伤"/>
-                            <DataGridTextColumn Header="重伤"/>
-                            <DataGridTextColumn Header="丢失"/>
+                            <DataGridTextColumn Header="序号" Binding="{Binding Id}"/>
+                            <DataGridTextColumn Header="日期" Binding="{Binding OrderDate}"/>
+                            <DataGridTextColumn Header="产品" Binding="{Binding ProductName}"/>
+                            <DataGridTextColumn Header="外加工商" Binding="{Binding ProcessorsName}"/>
+                            <DataGridTextColumn Header="数量" Binding="{Binding Quantity}"/>
+                            <DataGridTextColumn Header="轻伤" Binding="{Binding MinorInjuries}"/>
+                            <DataGridTextColumn Header="重伤" Binding="{Binding Injuries}"/>
+                            <DataGridTextColumn Header="丢失" Binding="{Binding Lose}"/>
+                            <DataGridTextColumn Header="备注" Binding="{Binding Remark}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <ComboBox x:Name="ComboBox_Product_Out" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Width="100" VerticalContentAlignment="Center" Height="22"/>
                     <ComboBox x:Name="ComboBox_Processors_Out" HorizontalAlignment="Left" Margin="115,38,0,0" VerticalAlignment="Top" Width="100" VerticalContentAlignment="Center" Height="22"/>
                     <ComboBox x:Name="ComboBox_Product_In" Grid.Column="1" HorizontalAlignment="Left" Margin="0,38,0,0" VerticalAlignment="Top" Width="100" VerticalContentAlignment="Center" Height="22"/>
                     <ComboBox x:Name="ComboBox_Processors_In" Grid.Column="1" HorizontalAlignment="Left" Margin="105,38,0,0" VerticalAlignment="Top" Width="100" VerticalContentAlignment="Center" Height="22"/>
-                    <Label Content="0" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="80" BorderThickness="0,0,0,1" BorderBrush="Black" HorizontalContentAlignment="Center" Padding="5,5,5,2"/>
-                    <Label Content="0" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="80" Grid.Column="1" BorderThickness="0,0,0,1" BorderBrush="Black" HorizontalContentAlignment="Center" Padding="5,5,5,2"/>
-                    <Label Content="数量统计：" HorizontalAlignment="Right" Margin="0,0,95,10" VerticalAlignment="Bottom" Padding="5,5,5,3"/>
-                    <Label Content="数量统计：" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,95,10" VerticalAlignment="Bottom" Padding="5,5,5,3"/>
-                    <Label Content="出单" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0"/>
-                    <Label Content="入单" Grid.Column="1" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0"/>
+                    <Label Content="0" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="80" BorderThickness="0,0,0,1" BorderBrush="Black" HorizontalContentAlignment="Center" Padding="5,5,5,2" Height="22"/>
+                    <Label Content="0" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="80" Grid.Column="1" BorderThickness="0,0,0,1" BorderBrush="Black" HorizontalContentAlignment="Center" Padding="5,5,5,2" Height="22"/>
+                    <Label Content="数量统计：" HorizontalAlignment="Right" Margin="0,0,95,10" VerticalAlignment="Bottom" Padding="5,5,5,3" Height="22" Width="70"/>
+                    <Label Content="数量统计：" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,95,10" VerticalAlignment="Bottom" Padding="5,5,5,3" Height="22" Width="70"/>
+                    <Label Content="出单" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" Height="23" Width="42"/>
+                    <Label Content="入单" Grid.Column="1" HorizontalAlignment="Center" Margin="227,10,233,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" Height="23" Width="42"/>
                     <Button x:Name="Button_AddProcessOut" Content="添加出单" HorizontalAlignment="Right" Margin="0,36,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_AddProcessOut_Click"/>
                     <Button x:Name="Button_AddProcessIn" Content="添加入单" Grid.Column="1" HorizontalAlignment="Right" Margin="0,36,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_AddProcessIn_Click"/>
                 </Grid>
