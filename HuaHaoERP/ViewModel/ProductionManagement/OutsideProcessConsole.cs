@@ -75,7 +75,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                 }
             }
             strCount = (Count + CountMinorInjuries + CountInjuries + CountLose).ToString();
-            if (CountMinorInjuries != 0 || CountInjuries != 0 || CountLose != 0)
+            if (OrderType == "入单")
             {
                 strCount += "（" + Count.ToString() + "," + CountMinorInjuries.ToString() + "," + CountInjuries.ToString() + "," + CountLose.ToString() + "）";
             }
