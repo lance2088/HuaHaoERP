@@ -10,7 +10,7 @@
     <Grid Width="400" HorizontalAlignment="Right" Background="White">
         <Button x:Name="Button_Commit" Content="确定" HorizontalAlignment="Left" Margin="105,0,0,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_Commit_Click" Height="24" Foreground="White" IsDefault="True"/>
         <Button x:Name="Button_Cancel" Content="取消" HorizontalAlignment="Right" Margin="0,0,105,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" IsCancel="True" Click="Button_Cancel_Click" Height="24" Foreground="White"/>
-        <DataGrid x:Name="DataGrid_Product" Margin="20,100,20,60" CellStyle="{DynamicResource DataGridCellStyleCommon}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" BorderBrush="#FF99CCFF" HeadersVisibility="Column" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" AutoGenerateColumns="False" SelectionMode="Single" SelectionUnit="Cell">
+        <DataGrid x:Name="DataGrid_Product" Margin="20,49,20,60" CellStyle="{DynamicResource DataGridCellStyleCommon}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" BorderBrush="#FF99CCFF" HeadersVisibility="Column" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" AutoGenerateColumns="False" SelectionMode="Single" SelectionUnit="Cell">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="GUID" Visibility="Hidden" Binding="{Binding Guid}"/>
                 <DataGridTextColumn Header="序号" Binding="{Binding Id}"/>
@@ -19,8 +19,8 @@
                 <DataGridCheckBoxColumn x:Name="DataGridCheckBoxColumn_isShow" Header="是否显示" Binding="{Binding IsShow}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="Button_SelectAll" Content="全选" HorizontalAlignment="Left" Margin="20,71,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_SelectAll_Click"/>
-        <Button x:Name="Button_Anti_electionDefault" Content="反选" HorizontalAlignment="Left" Margin="100,71,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_Anti_electionDefault_Click"/>
+        <Button x:Name="Button_SelectAll" Content="全选" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_SelectAll_Click"/>
+        <Button x:Name="Button_Anti_electionDefault" Content="反选" HorizontalAlignment="Left" Margin="100,20,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_Anti_electionDefault_Click"/>
 
     </Grid>
 </Page>
