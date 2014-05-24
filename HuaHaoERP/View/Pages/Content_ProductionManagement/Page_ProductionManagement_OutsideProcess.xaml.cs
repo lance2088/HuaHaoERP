@@ -122,9 +122,8 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         private void TextBox_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             TextBox txt = sender as TextBox;
-
             //屏蔽非法按键
-            if ((e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9) || e.Key == Key.Decimal)
+            if ((e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9) || e.Key == Key.Decimal || e.Key == Key.Tab)
             {
                 if (txt.Text.Contains(".") && e.Key == Key.Decimal)
                 {
@@ -167,5 +166,11 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             }
         }
         #endregion
+
+        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+            txt.SelectAll();
+        }
     }
 }
