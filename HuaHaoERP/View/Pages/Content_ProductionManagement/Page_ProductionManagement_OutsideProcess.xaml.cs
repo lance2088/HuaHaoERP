@@ -65,7 +65,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             int FalseCount = 0;
             this.Guid = Guid.NewGuid();
             d.Guid = this.Guid;
-            d.OrderDate = ((DateTime)this.DatePicker_OrderDate.SelectedDate).ToString("yyyy-MM-dd HH:mm:ss");
+            d.OrderDate = ((DateTime)this.DatePicker_OrderDate.SelectedDate + DateTime.Now.TimeOfDay).ToString("yyyy-MM-dd HH:mm:ss");
             d.ProductGuid = (Guid)this.ComboBox_Product.SelectedValue;
             d.ProcessorsGuid = (Guid)this.ComboBox_Processors.SelectedValue;
             int Quantity = 0;
