@@ -58,8 +58,8 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         }
         private void InitializeData()
         {
-            this.DatePicker_ProcessorsFirst.SelectedDate = DateTime.Now;
-            this.DatePicker_ProcessorsEnd.SelectedDate = DateTime.Now;
+            this.DatePicker_ProcessorsFirst.SelectedDate = DateTime.Now.Date;
+            this.DatePicker_ProcessorsEnd.SelectedDate = DateTime.Now.Date;
             this.ComboBox_Product.ItemsSource = Helper.DataDefinition.ComboBoxList.ProductListWithAll.DefaultView;
             this.ComboBox_Product.DisplayMemberPath = "Name";
             this.ComboBox_Product.SelectedValuePath = "GUID";//GUID四个字母要大写
