@@ -138,8 +138,8 @@ namespace HuaHaoERP.View.Pages.Content_Orders
             dd.Guid = Guid.NewGuid();
             dd.OrderID = Guid;
             dd.ProductID = (Guid)this.ComboBox_Product.SelectedValue;
-            dd.ProductNumber = this.ComboBox_Product.Text.Split('_')[0].Trim();
-            dd.ProductName = this.ComboBox_Product.Text.Split('_')[1].Trim();
+            //dd.ProductNumber = this.ComboBox_Product.Text.Split('_')[0].Trim();
+            dd.ProductName = this.ComboBox_Product.Text.Trim();
             dd.NumberOfItems = 0;
             dd.Quantity = 0;
             d.Details.Add(dd);

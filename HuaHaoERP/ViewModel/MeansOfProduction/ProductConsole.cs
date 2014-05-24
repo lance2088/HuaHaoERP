@@ -103,7 +103,7 @@ namespace HuaHaoERP.ViewModel.MeansOfProduction
         {
             bool flag = true;
             ds = new DataSet();
-            string sql = "select Guid,Number||' _ '||Name as Name From T_ProductInfo_Product Where DeleteMark is null order by AddTime";
+            string sql = "select Guid,Number,Name From T_ProductInfo_Product Where DeleteMark is null order by AddTime";
             flag = new Helper.SQLite.DBHelper().QueryData(sql, out ds);
             return flag;
         }
