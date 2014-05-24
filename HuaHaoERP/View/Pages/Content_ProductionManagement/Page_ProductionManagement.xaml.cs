@@ -77,7 +77,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         /// <param name="ProductGuid"></param>
         private void AddAssemblyLineModule(Guid ProductGuid)
         {
-            string RegisterName = "Grid_" + ProductGuid.ToString().Replace("-", "");
+            string RegisterName = "Grid_ALM_" + ProductGuid.ToString().Replace("-", "");
             if (this.WrapPanel_AssemblyLine.FindName(RegisterName) as Grid != null)
             {
                 return;
