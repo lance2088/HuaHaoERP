@@ -2,10 +2,45 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data;
+using HuaHaoERP.Model;
 
 namespace HuaHaoERP.ViewModel.Warehouse
 {
     class RawMaterialsConsole
     {
+        internal bool AddByBatch(List<Model.RawMaterialsDetailModel> list)
+        {
+            List<string> sqlList = new List<string>();
+            foreach (RawMaterialsDetailModel d in list)
+            {
+                string sql = "Insert into T_Warehouse_RawMaterials(Guid,RawMaterialsID,Date,Operator,Number,Remark) "
+                        + "values('" + d.Guid + "','" + d.Number + "','" + d.Date + "','" + d.Operator + "','" + d.Weight + "','" + d.Remark + "')";
+                sqlList.Add(sql);
+               
+            }
+            return new Helper.SQLite.DBHelper().Transaction(sqlList);
+        }
+
+        internal bool ReadList(out List<RawMaterialsDetailModel> data)
+        {
+            bool flag = true;
+            data = new List<RawMaterialsDetailModel>();
+            string sql = "select a.RawMaterialsID as Number,b.Name as Name,count(1) as Amount from T_Warehouse_RawMaterials a left join T_ProductInfo_RawMaterials b on a.RawMaterialsID = b.Number group by RawMaterialsID";
+            DataSet ds = new DataSet();
+            flag = new Helper.SQLite.DBHelper().QueryData(sql, out ds);
+            if (flag)
+            {
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    RawMaterialsDetailModel d = new RawMaterialsDetailModel();
+                    d.Number = dr["Number"].ToString();
+                    d.Name = dr["Name"].ToString();
+                    d.Amount = dr["Amount"].ToString();
+                    data.Add(d);
+                }
+            }
+            return flag;
+        }
     }
 }

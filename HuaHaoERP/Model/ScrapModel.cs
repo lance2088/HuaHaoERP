@@ -7,7 +7,6 @@ namespace HuaHaoERP.Model
 {
     class ScrapModel
     {
-        //Guid,Name,Date,Operator,Number,Remark
         private Guid guid;
 
         public Guid Guid

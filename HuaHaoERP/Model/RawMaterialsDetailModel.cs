@@ -67,5 +67,13 @@ namespace HuaHaoERP.Model
             get { return optor; }
             set { optor = value; }
         }
+
+        private string amount;
+
+        public string Amount
+        {
+            get { return amount; }
+            set { amount = value; }
+        }
     }
 }

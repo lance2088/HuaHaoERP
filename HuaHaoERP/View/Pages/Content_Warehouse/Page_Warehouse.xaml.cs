@@ -20,6 +20,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
     public partial class Page_Warehouse : Page
     {
         private ScrapConsole sc = new ScrapConsole();
+        private RawMaterialsConsole rmc = new RawMaterialsConsole();
         private ScrapModel m = new ScrapModel();
         public Page_Warehouse()
         {
@@ -29,6 +30,11 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
 
         private void InitPage()
         {
+            #region 原材料管理
+            List<RawMaterialsDetailModel> rmm = new List<RawMaterialsDetailModel>();
+            rmc.ReadList(out rmm);
+            DataGrid_RawMaterialsQuantity.ItemsSource = rmm;
+            #endregion
             #region 余料管理
             ComboBox_DropDownOpened(this, null);
             RefreshData_Scrap();
