@@ -20,19 +20,30 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
 
         internal bool ReadList(string OrderType, Guid ProductID,Guid ProcessorsID, out List<ProductionManagement_OutsideProcessModel> data, out int Count)
         {
+            string sql_WhereParm = "";
+            if (ProductID != new Guid())
+            {
+                sql_WhereParm += " AND a.ProductID='" + ProductID + "' ";
+            }
+            if (ProcessorsID != new Guid())
+            {
+                sql_WhereParm += " AND a.ProcessorsID='" + ProcessorsID + "' ";
+            }
+
             bool flag = false;
             data = new List<ProductionManagement_OutsideProcessModel>();
             Count = 0;
-            string sql = " SELECT                                                                   "
-                       +"	a.*,                                                                    "
-                       +"   b.Name as ProductName,                                                  "
-                       +"   c.Name as ProcessorsName                                                "
-                       +" FROM                                                                      "
-                       +"	T_PM_ProcessSchedule a                                                  "
-                       +" LEFT JOIN T_ProductInfo_Product b ON a.ProductID=b.GUID                   "
-                       +" LEFT JOIN T_UserInfo_Processors c ON a.ProcessorsID=c.GUID                "
-                       +" WHERE                                                                     "
-                       + "	OrderType = '" + OrderType + "'                                         ";
+            string sql = " SELECT                                                                    "
+                       + "	a.*,                                                                     "
+                       + "   b.Name as ProductName,                                                  "
+                       + "   c.Name as ProcessorsName                                                "
+                       + " FROM                                                                      "
+                       + "	T_PM_ProcessSchedule a                                                   "
+                       + " LEFT JOIN T_ProductInfo_Product b ON a.ProductID=b.GUID                   "
+                       + " LEFT JOIN T_UserInfo_Processors c ON a.ProcessorsID=c.GUID                "
+                       + " WHERE                                                                     "
+                       + "	OrderType = '" + OrderType + "'                                          "
+                       + sql_WhereParm;
             DataSet ds = new DataSet();
             flag = new Helper.SQLite.DBHelper().QueryData(sql, out ds);
             if (flag)

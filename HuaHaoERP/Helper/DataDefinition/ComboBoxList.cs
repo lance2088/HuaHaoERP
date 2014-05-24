@@ -13,7 +13,7 @@ namespace HuaHaoERP.Helper.DataDefinition
             DataTable dt = new DataTable();
             dt = ds.Tables[0].Clone();
             DataRow dr = dt.NewRow();
-            dr["GUID"] = "00000000-0000-0000-0000-000000000000";
+            dr["GUID"] = new Guid();
             //dr["Number"] = 0;
             dr["Name"] = "全部" + Name;
             dt.Rows.Add(dr);
