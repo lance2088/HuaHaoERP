@@ -11,6 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using HuaHaoERP.ViewModel.Warehouse;
+using HuaHaoERP.Model;
 
 namespace HuaHaoERP.View.Pages.Content_Warehouse
 {
@@ -19,6 +21,13 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         public Page_Warehouse_RawMaterials()
         {
             InitializeComponent();
+            var rawMaterials = new List<RawMaterialsDetailModel>()
+            {
+                new RawMaterialsDetailModel{
+                    Id = 1
+                }
+            };
+            DataGrid_RawMaterials.ItemsSource = rawMaterials;
         }
 
         private void Button_Commit_Click(object sender, RoutedEventArgs e)
@@ -28,7 +37,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
 
         private void Button_Cancel_Click(object sender, RoutedEventArgs e)
         {
-
+            Helper.Events.PopUpEvent.OnHidePopUp();
         }
     }
 }

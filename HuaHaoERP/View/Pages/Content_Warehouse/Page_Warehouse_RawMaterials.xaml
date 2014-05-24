@@ -11,7 +11,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="DataGrid_RawMaterials" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" Margin="10,40,10,50"
+        <DataGrid x:Name="DataGrid_RawMaterials" AutoGenerateColumns="False" Margin="10,40,10,50"
                   BorderThickness="1" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}"
                   BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" Grid.ColumnSpan="2">
             <DataGrid.Columns>
