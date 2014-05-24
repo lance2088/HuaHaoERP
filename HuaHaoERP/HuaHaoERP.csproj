@@ -229,6 +229,7 @@
     <Compile Include="Model\ProductModel.cs" />
     <Compile Include="Model\ProductOrderModel.cs" />
     <Compile Include="Model\RawMaterialsModel.cs" />
+    <Compile Include="Model\ScrapModel.cs" />
     <Compile Include="Model\StaffModel.cs" />
     <Compile Include="Model\SupplierModel.cs" />
     <Compile Include="ViewModel\Customer\ProcessorsConsole.cs" />
@@ -243,6 +244,7 @@
     <Compile Include="ViewModel\ProductionManagement\AssemblyLineModuleConsole.cs" />
     <Compile Include="ViewModel\ProductionManagement\OutsideProcessConsole.cs" />
     <Compile Include="ViewModel\Security\LoginConsole.cs" />
+    <Compile Include="ViewModel\Warehouse\ScrapConsole.cs" />
     <Compile Include="View\Pages\Content_CustomerLibrary\Page_CustomerLibrary.xaml.cs">
       <DependentUpon>Page_CustomerLibrary.xaml</DependentUpon>
     </Compile>
