@@ -18,7 +18,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
             return flag;
         }
 
-        internal bool ReadList(string OrderType, Guid ProductID,Guid ProcessorsID, out List<ProductionManagement_OutsideProcessModel> data, out int Count)
+        internal bool ReadList(string OrderType, DateTime Start, DateTime End, Guid ProductID, Guid ProcessorsID, out List<ProductionManagement_OutsideProcessModel> data, out int Count)
         {
             string sql_WhereParm = "";
             if (ProductID != new Guid())
@@ -29,6 +29,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
             {
                 sql_WhereParm += " AND a.ProcessorsID='" + ProcessorsID + "' ";
             }
+            sql_WhereParm += " AND a.Date between '" + Start.ToString("yyyy-MM-dd HH:mm:ss") + "' and '" + End.ToString("yyyy-MM-dd HH:mm:ss") + "'";
 
             bool flag = false;
             data = new List<ProductionManagement_OutsideProcessModel>();

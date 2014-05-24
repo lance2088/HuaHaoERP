@@ -126,9 +126,9 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             this.ProcessorsFirst = (DateTime)this.DatePicker_ProcessorsFirst.SelectedDate;
 
             List<Model.ProductionManagement_OutsideProcessModel> data;
-            new ViewModel.ProductionManagement.OutsideProcessConsole().ReadList("出单", ProductID, ProcessorsID, out data, out CountOutOrder);
+            new ViewModel.ProductionManagement.OutsideProcessConsole().ReadList("出单", ProcessorsFirst, ProcessorsEnd, ProductID, ProcessorsID, out data, out CountOutOrder);
             this.DataGrid_ProcessOut.ItemsSource = data;
-            new ViewModel.ProductionManagement.OutsideProcessConsole().ReadList("入单", ProductID, ProcessorsID, out data, out CountInOrder);
+            new ViewModel.ProductionManagement.OutsideProcessConsole().ReadList("入单", ProcessorsFirst, ProcessorsEnd, ProductID, ProcessorsID, out data, out CountInOrder);
             this.DataGrid_ProcessIn.ItemsSource = data;
 
             this.Label_CountOutOrder.Content = this.CountOutOrder;
