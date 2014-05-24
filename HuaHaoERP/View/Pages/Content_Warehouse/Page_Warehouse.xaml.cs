@@ -37,6 +37,17 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             DatePicker_Date.Text = DateTime.Now.ToShortDateString();
             #endregion 
         }
+        #region 原材料管理
+        private void Button_RawMaterials_Out_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_RawMaterials_In_Click(object sender, RoutedEventArgs e)
+        {
+            Helper.Events.PopUpEvent.OnShowPopUp(new Page_Warehouse_RawMaterials());
+        }
+        #endregion
         #region 余料管理
 
         private void RefreshData_Scrap()
@@ -136,5 +147,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                 e.Handled = true;
             }
         }
+
+      
     }
 }
