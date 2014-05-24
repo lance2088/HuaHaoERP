@@ -18,8 +18,9 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
             return flag;
         }
 
-        internal bool ReadList(string OrderType, DateTime Start, DateTime End, Guid ProductID, Guid ProcessorsID, out List<ProductionManagement_OutsideProcessModel> data, out int Count)
+        internal bool ReadList(string OrderType, DateTime Start, DateTime End, Guid ProductID, Guid ProcessorsID, out List<ProductionManagement_OutsideProcessModel> data, out string strCount)
         {
+            strCount = "";
             string sql_WhereParm = "";
             if (ProductID != new Guid())
             {
@@ -32,7 +33,8 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
             sql_WhereParm += " AND a.Date between '" + Start.ToString("yyyy-MM-dd HH:mm:ss") + "' and '" + End.ToString("yyyy-MM-dd HH:mm:ss") + "'";
             bool flag = false;
             data = new List<ProductionManagement_OutsideProcessModel>();
-            Count = 0;
+            int Count = 0;
+            int CountMinorInjuries = 0, CountInjuries = 0, CountLose = 0;
             string sql = " SELECT                                                                    "
                        + "	a.*,                                                                     "
                        + "   b.Name as ProductName,                                                  "
@@ -62,12 +64,20 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                     d.Quantity = int.Parse(dr["Quantity"].ToString());
                     Count += d.Quantity;
                     d.MinorInjuries = int.Parse(dr["MinorInjuries"].ToString());
+                    CountMinorInjuries += d.MinorInjuries;
                     d.Injuries = int.Parse(dr["Injuries"].ToString());
+                    CountInjuries += d.Injuries;
                     d.Lose = int.Parse(dr["Lose"].ToString());
+                    CountLose += d.Lose;
                     d.OrderType = OrderType;
                     d.Remark = dr["Remark"].ToString();
                     data.Add(d);
                 }
+            }
+            strCount = (Count + CountMinorInjuries + CountInjuries + CountLose).ToString();
+            if (CountMinorInjuries != 0 || CountInjuries != 0 || CountLose != 0)
+            {
+                strCount += "（" + Count.ToString() + "," + CountMinorInjuries.ToString() + "," + CountInjuries.ToString() + "," + CountLose.ToString() + "）";
             }
             return flag;
         }

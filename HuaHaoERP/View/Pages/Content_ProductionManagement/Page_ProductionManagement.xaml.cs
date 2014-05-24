@@ -17,15 +17,13 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 {
     public partial class Page_ProductionManagement : Page
     {
-        private int CountOutOrder;
-        private int CountInOrder;
+        private string CountOutOrder;
+        private string CountInOrder;
 
         private DateTime ProcessorsFirst;
         private DateTime ProcessorsEnd;
         private Guid ProductID;
         private Guid ProcessorsID;
-
-        List<Model.ProductModel> data = new List<Model.ProductModel>();
 
         public Page_ProductionManagement()
         {
@@ -40,8 +38,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         {
             AssemblyLineEvent.EShowAssemblyLineModule += (s, e) =>
             {
-                data = e.ProductData;
-                foreach (Model.ProductModel d in data)
+                foreach (Model.ProductModel d in e.ProductData)
                 {
                     if(d.IsShow == true)
                     {
