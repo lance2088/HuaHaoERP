@@ -229,6 +229,7 @@
     <Compile Include="Model\ProductionManagement_OutsideProcessModel.cs" />
     <Compile Include="Model\ProductModel.cs" />
     <Compile Include="Model\ProductOrderModel.cs" />
+    <Compile Include="Model\RawMaterialsDetailModel.cs" />
     <Compile Include="Model\RawMaterialsModel.cs" />
     <Compile Include="Model\ScrapModel.cs" />
     <Compile Include="Model\StaffModel.cs" />
