@@ -25,6 +25,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         private Guid ProductID;
         private Guid ProcessorsID;
 
+        List<Model.ProductModel> data = new List<Model.ProductModel>();
 
         public Page_ProductionManagement()
         {
@@ -39,7 +40,8 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         {
             AssemblyLineEvent.EShowAssemblyLineModule += (s, e) =>
             {
-                foreach(Model.ProductModel d in e.ProductData)
+                data = e.ProductData;
+                foreach (Model.ProductModel d in data)
                 {
                     if(d.IsShow == true)
                     {
@@ -58,6 +60,10 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             ProductionManagement_OutsideProcessEvent.EUpdateDataGrid += (s, e) =>
             {
                 InitializeOutsideProcessDataGrid();
+                foreach (Guid id in Helper.DataDefinition.CommonParameters.AssemblyLineModuleShow)
+                {
+                    AddAssemblyLineModule(id);
+                }
             };
         }
         private void InitializeData()
