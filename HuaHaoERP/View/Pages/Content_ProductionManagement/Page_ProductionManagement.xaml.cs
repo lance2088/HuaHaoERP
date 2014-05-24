@@ -45,6 +45,10 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                     {
                         AddAssemblyLineModule(d.Guid);
                     }
+                    else
+                    {
+                        RemoveAssemblyLineModule("Grid_ALM_" + d.Guid.ToString().Replace("-", ""));
+                    }
                 }
             };
             AssemblyLineEvent.ERemoveAssemblyLineModule += (s, e) =>
@@ -58,6 +62,10 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         }
         private void InitializeData()
         {
+            foreach(Guid str in Helper.DataDefinition.CommonParameters.AssemblyLineModuleShow)
+            {
+                AddAssemblyLineModule(str);
+            }
             this.DatePicker_ProcessorsFirst.SelectedDate = DateTime.Now.Date;
             this.DatePicker_ProcessorsEnd.SelectedDate = DateTime.Now.Date;
             this.ComboBox_Product.ItemsSource = Helper.DataDefinition.ComboBoxList.ProductListWithAll.DefaultView;

@@ -17,11 +17,10 @@
                 <DataGridTextColumn Header="编号" Binding="{Binding Number}"/>
                 <DataGridTextColumn Header="名称" Binding="{Binding Name}"/>
                 <DataGridCheckBoxColumn x:Name="DataGridCheckBoxColumn_isShow" Header="是否显示" Binding="{Binding IsShow}"/>
-                <DataGridCheckBoxColumn Header="是否默认显示" Binding="{Binding IsDefault}"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="Button_SelectAll" Content="全选" HorizontalAlignment="Left" Margin="20,71,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_SelectAll_Click"/>
-        <Button x:Name="Button_CLearSelected" Content="清空" HorizontalAlignment="Left" Margin="100,71,0,0" VerticalAlignment="Top" Width="75" Height="24" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Click="Button_CLearSelected_Click"/>
+        <Button x:Name="Button_Anti_electionDefault" Content="反选" HorizontalAlignment="Left" Margin="100,71,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_Anti_electionDefault_Click"/>
 
     </Grid>
 </Page>

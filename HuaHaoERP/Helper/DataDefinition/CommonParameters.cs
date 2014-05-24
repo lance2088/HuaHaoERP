@@ -23,5 +23,18 @@ namespace HuaHaoERP.Helper.DataDefinition
             get { return permissions; }
             set { permissions = value; }
         }
+
+        private static List<Guid> assemblyLineModuleShow;
+
+        public static List<Guid> AssemblyLineModuleShow
+        {
+            get 
+            {
+                List<Guid> d = new List<Guid>();
+                new SettingFile.AssemblyLineModule().Read(out d);
+                return d; 
+            }
+            set { CommonParameters.assemblyLineModuleShow = value; }
+        }
     }
 }
