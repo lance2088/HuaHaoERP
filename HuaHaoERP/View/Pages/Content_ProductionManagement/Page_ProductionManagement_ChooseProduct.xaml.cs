@@ -41,5 +41,21 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             Helper.Events.AssemblyLineEvent.OnShowAssemblyLineModule(d);
             Button_Cancel_Click(null, null);
         }
+
+        private void Button_SelectAll_Click(object sender, RoutedEventArgs e)
+        {
+            foreach(Model.ProductModel md in d)
+            {
+                md.IsShow = true;
+            }
+        }
+
+        private void Button_CLearSelected_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (Model.ProductModel md in d)
+            {
+                md.IsShow = false;
+            }
+        }
     }
 }
