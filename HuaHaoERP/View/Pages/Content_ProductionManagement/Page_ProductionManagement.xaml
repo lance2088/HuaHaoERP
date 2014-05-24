@@ -63,8 +63,8 @@
                     <Button x:Name="Button_AddProcessIn" Content="添加入单" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_AddProcessIn_Click"/>
                     <DatePicker x:Name="DatePicker_ProcessorsEnd" HorizontalAlignment="Left" Margin="142,10,0,0" VerticalAlignment="Top" MinWidth="100" VerticalContentAlignment="Center" Height="24" Width="100" CalendarClosed="DatePicker_ProcessorsEnd_CalendarClosed"/>
                     <Label Content="至" HorizontalAlignment="Left" Margin="115,10,0,0" VerticalAlignment="Top"/>
-                    <Button x:Name="Button_Today" Content="当日" HorizontalAlignment="Left" Margin="247,10,0,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_Today_Click"/>
-                    <Button x:Name="Button_AllDate" Content="全部日期" Margin="302,10,0,0" VerticalAlignment="Top" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_AllDate_Click" HorizontalAlignment="Left" Width="75" Grid.ColumnSpan="2"/>
+                    <Button x:Name="Button_Today" Content="当日" HorizontalAlignment="Left" Margin="247,10,0,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Height="24" Foreground="Black" Click="Button_Today_Click"/>
+                    <Button x:Name="Button_AllDate" Content="全部日期" Margin="302,10,0,0" VerticalAlignment="Top" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Height="24" Foreground="Black" Click="Button_AllDate_Click" HorizontalAlignment="Left" Width="75" Grid.ColumnSpan="2"/>
                 </Grid>
             </TabItem>
         </TabControl>
