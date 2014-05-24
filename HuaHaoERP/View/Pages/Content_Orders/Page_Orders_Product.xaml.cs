@@ -18,12 +18,22 @@ namespace HuaHaoERP.View.Pages.Content_Orders
     public partial class Page_Orders_Product : Page
     {
         Model.ProductOrderModel d = new Model.ProductOrderModel();
+        Model.ProductOrderModelForDataGrid dForDataGrid = new Model.ProductOrderModelForDataGrid();
         Guid Guid = Guid.NewGuid();
+        bool isNew = true;
 
         public Page_Orders_Product()
         {
             InitializeComponent();
             InitializeData();
+        }
+        public Page_Orders_Product(Model.ProductOrderModelForDataGrid d)
+        {
+            InitializeComponent();
+            this.dForDataGrid = d;
+            this.Guid = dForDataGrid.Guid;
+            isNew = false;
+            FillData();
         }
         private void InitializeData()
         {
@@ -38,6 +48,27 @@ namespace HuaHaoERP.View.Pages.Content_Orders
             this.ComboBox_Product.SelectedIndex = 0;
             this.DatePicker_OrderDate.SelectedDate = DateTime.Now;
             GenerateOrderNumber();
+        }
+        private void FillData()
+        {
+            this.ComboBox_Customer.ItemsSource = Helper.DataDefinition.ComboBoxList.CustomerListWithoutAll.DefaultView;
+            this.ComboBox_Customer.DisplayMemberPath = "Name";
+            this.ComboBox_Customer.SelectedValuePath = "GUID";//GUID四个字母要大写
+            this.ComboBox_Customer.Text = dForDataGrid.CustomerName;
+            this.ComboBox_Product.ItemsSource = Helper.DataDefinition.ComboBoxList.ProductListWithoutAll.DefaultView;
+            this.ComboBox_Product.DisplayMemberPath = "Name";
+            this.ComboBox_Product.SelectedValuePath = "GUID";//GUID四个字母要大写
+            this.ComboBox_Product.SelectedIndex = 0;
+            this.TextBox_OrderNumber.Text = dForDataGrid.OrderNumber;
+            if (dForDataGrid.DeliveryDate != "")
+            {
+                this.DatePicker_DeliveryDate.SelectedDate = Convert.ToDateTime(dForDataGrid.DeliveryDate + " 00:00:00");
+            }
+            this.DatePicker_OrderDate.SelectedDate = Convert.ToDateTime(dForDataGrid.OrderDate + " 00:00:00");
+            List<Model.ProductOrderDetailsModel> dDetails = new List<Model.ProductOrderDetailsModel>();
+            new ViewModel.Orders.ProductOrderConsole().GetOrderDetails(dForDataGrid.Guid, out dDetails);
+            d.Details = dDetails;
+            this.DataGrid_ProductDetails.ItemsSource = d.Details;
         }
         private bool CheckAndGetData()
         {
@@ -55,6 +86,7 @@ namespace HuaHaoERP.View.Pages.Content_Orders
             }
             catch(Exception)
             {
+                Console.WriteLine("已处理Exception：DatePicker无日期");
                 d.DeliveryDate = "0001-01-01 00:00:00";
             }
             d.OrderDate = ((DateTime)this.DatePicker_OrderDate.SelectedDate).ToString("yyyy-MM-dd HH:mm:ss");
@@ -62,14 +94,26 @@ namespace HuaHaoERP.View.Pages.Content_Orders
         }
         private void GenerateOrderNumber()
         {
-            this.TextBox_OrderNumber.Text = this.ComboBox_Customer.Text + "_" + ((DateTime)this.DatePicker_OrderDate.SelectedDate).ToString("yyyyMMdd") +DateTime.Now.ToString("HHmmss");
+            if(isNew)
+            {
+                this.TextBox_OrderNumber.Text = ((DateTime)this.DatePicker_OrderDate.SelectedDate).ToString("yyyyMMdd") + "_" + DateTime.Now.ToString("HHmmss");
+            }
         }
 
         private void Button_Commit_Click(object sender, RoutedEventArgs e)
         {
             if (CheckAndGetData())
             {
-                new ViewModel.Orders.ProductOrderConsole().Add(d);
+                if(isNew)
+                {
+                    new ViewModel.Orders.ProductOrderConsole().Add(d);
+                    StatusBarMessageEvent.OnUpdateMessage("新增订单：" + d.OrderNumber);
+                }
+                else
+                {
+                    new ViewModel.Orders.ProductOrderConsole().Update(d);
+                    StatusBarMessageEvent.OnUpdateMessage("修改订单：" + d.OrderNumber);
+                }
                 ProductOrderEvent.OnUpdateDataGrid();
                 Button_Cancel_Click(null, null);
             }
@@ -94,7 +138,8 @@ namespace HuaHaoERP.View.Pages.Content_Orders
             dd.Guid = Guid.NewGuid();
             dd.OrderID = Guid;
             dd.ProductID = (Guid)this.ComboBox_Product.SelectedValue;
-            dd.ProductName = this.ComboBox_Product.Text.Trim();
+            dd.ProductNumber = this.ComboBox_Product.Text.Split('_')[0].Trim();
+            dd.ProductName = this.ComboBox_Product.Text.Split('_')[1].Trim();
             dd.NumberOfItems = 0;
             dd.Quantity = 0;
             d.Details.Add(dd);

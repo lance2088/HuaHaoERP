@@ -118,6 +118,13 @@ namespace HuaHaoERP.Model
             get { return productID; }
             set { productID = value; }
         }
+        private string productNumber;
+
+        public string ProductNumber
+        {
+            get { return productNumber; }
+            set { productNumber = value; }
+        }
         private string productName;
 
         public string ProductName
@@ -177,7 +184,7 @@ namespace HuaHaoERP.Model
         #endregion
     }
 
-    class ProductOrderModelForDataGrid
+    public class ProductOrderModelForDataGrid
     {
         private Guid guid;
 

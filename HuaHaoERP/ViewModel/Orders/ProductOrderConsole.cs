@@ -27,7 +27,23 @@ namespace HuaHaoERP.ViewModel.Orders
         internal bool Update(Model.ProductOrderModel d)
         {
             bool flag = false;
-
+            List<string> sqls = new List<string>();
+            //删掉旧的
+            string sql_DelOrder = "Delete From T_Orders_Product where Guid='"+d.Guid+"'";
+            sqls.Add(sql_DelOrder);
+            string sql_DelDetails = "Delete From T_Orders_ProductDetails where OrderID='" + d.Guid + "'";
+            sqls.Add(sql_DelDetails);
+            //插入修改的
+            string sql_Order = "Insert into T_Orders_Product(Guid,OrderNumber,CustomerID,DeliveryDate,OrderDate) "
+                + "Values('" + d.Guid + "','" + d.OrderNumber + "','" + d.CustomerID + "','" + d.DeliveryDate + "','" + d.OrderDate + "')";
+            sqls.Add(sql_Order);
+            foreach (Model.ProductOrderDetailsModel dd in d.Details)
+            {
+                string sql_Details = "Insert into T_Orders_ProductDetails(Guid,OrderID,ProductID,NumberOfItems,Quantity,Unit,Remark) "
+                    + "Values('" + dd.Guid + "','" + dd.OrderID + "','" + dd.ProductID + "','" + dd.NumberOfItems + "','" + dd.Quantity + "','" + dd.Unit + "','" + dd.Remark + "')";
+                sqls.Add(sql_Details);
+            }
+            flag = new Helper.SQLite.DBHelper().Transaction(sqls);
             return flag;
         }
         internal bool MarkDelete(Model.ProductOrderModelForDataGrid d)
@@ -51,7 +67,7 @@ namespace HuaHaoERP.ViewModel.Orders
                        + " LEFT JOIN T_UserInfo_Customer c ON a.CustomerID=c.GUID                                   "
                        + " LEFT JOIN T_ProductInfo_Product d ON d.GUID=b.ProductID                                  "
                        + " WHERE a.DeleteMark IS NULL                                                               "
-                       + " ORDER BY b.rowid                                                                         ";
+                       + " ORDER BY a.OrderNumber,b.rowid                                                           ";
             DataSet ds = new DataSet();
             flag = new Helper.SQLite.DBHelper().QueryData(sql, out ds);
             if (flag)
@@ -92,6 +108,37 @@ namespace HuaHaoERP.ViewModel.Orders
                 if (LastOrderGuid != new Guid())
                 {
                     data.Add(d);
+                }
+            }
+            return flag;
+        }
+        internal bool GetOrderDetails(Guid OrderID, out List<Model.ProductOrderDetailsModel> dDetails)
+        {
+            bool flag = false;
+            dDetails = new List<Model.ProductOrderDetailsModel>();
+            string sql = " Select a.*,b.Number as ProductNumber,b.Name as ProductName"
+                       + " from T_Orders_ProductDetails a "
+                       + "   Left join T_ProductInfo_Product b ON a.ProductID=b.Guid"
+                       + " where OrderID='" + OrderID + "'";
+            DataSet ds = new DataSet();
+            flag = new Helper.SQLite.DBHelper().QueryData(sql, out ds);
+            if (flag)
+            {
+                int id = 1;
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    Model.ProductOrderDetailsModel d = new Model.ProductOrderDetailsModel();
+                    d.Guid = (Guid)dr["Guid"];
+                    d.Id = id;
+                    d.OrderID = OrderID;
+                    d.ProductID = (Guid)dr["ProductID"];
+                    d.ProductNumber = dr["ProductNumber"].ToString();
+                    d.ProductName = dr["ProductName"].ToString();
+                    d.NumberOfItems = int.Parse(dr["NumberOfItems"].ToString());
+                    d.Quantity = int.Parse(dr["Quantity"].ToString());
+                    d.Unit = dr["Unit"].ToString();
+                    d.Remark = dr["Remark"].ToString();
+                    dDetails.Add(d);
                 }
             }
             return flag;
