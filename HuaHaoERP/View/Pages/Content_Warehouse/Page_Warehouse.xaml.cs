@@ -49,7 +49,12 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         #region 原材料管理
         private void Button_RawMaterials_Out_Click(object sender, RoutedEventArgs e)
         {
-
+            if (DataGrid_RawMaterialsRecord.SelectedCells.Count != 0)
+            {
+                List<RawMaterialsDetailModel> list = new List<RawMaterialsDetailModel>();
+                list = DataGrid_RawMaterialsRecord.SelectedItems as List<RawMaterialsDetailModel>;
+                rmc.AddByBatch(list,false);
+            }
         }
 
         private void Button_RawMaterials_In_Click(object sender, RoutedEventArgs e)
@@ -75,6 +80,12 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         private void ComboBox_DropDownClosed(object sender, EventArgs e)
         {
             RefreshData_Scrap();
+        }
+
+        private void ComboBox_Name_DropDownOpened(object sender, EventArgs e)
+        {
+            ComboBox_Name.ItemsSource = sc.GetName(false);
+            ComboBox_Name.SelectedIndex = 0;
         }
         private bool CheckAndGetData()
         {
@@ -156,6 +167,8 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                 e.Handled = true;
             }
         }
+
+      
 
       
     }

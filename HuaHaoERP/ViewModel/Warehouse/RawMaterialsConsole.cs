@@ -9,13 +9,14 @@ namespace HuaHaoERP.ViewModel.Warehouse
 {
     class RawMaterialsConsole
     {
-        internal bool AddByBatch(List<Model.RawMaterialsDetailModel> list)
+        internal bool AddByBatch(List<Model.RawMaterialsDetailModel> list,bool bol)
         {
             List<string> sqlList = new List<string>();
+            string tag = bol?"":"-";
             foreach (RawMaterialsDetailModel d in list)
             {
                 string sql = "Insert into T_Warehouse_RawMaterials(Guid,RawMaterialsID,Date,Operator,Number,Remark) "
-                        + "values('" + d.Guid + "','" + d.Number + "','" + d.Date + "','" + d.Operator + "','" + d.Weight + "','" + d.Remark + "')";
+                        + "values('" + Guid.NewGuid() + "','" + tag + d.Number + "','" + d.Date + "','" + d.Operator + "','" + d.Weight + "','" + d.Remark + "')";
                 sqlList.Add(sql);
                
             }

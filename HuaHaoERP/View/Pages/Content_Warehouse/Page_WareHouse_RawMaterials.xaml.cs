@@ -36,7 +36,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             list = DataGrid_RawMaterials.ItemsSource as List<RawMaterialsDetailModel>;
             foreach (RawMaterialsDetailModel m in list)
             {
-                if (m.Id != null)
+                if (m.Id != 0) 
                 {
                     if (string.IsNullOrEmpty(m.RawMaterialsID))
                     {
@@ -66,7 +66,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                 list = DataGrid_RawMaterials.ItemsSource as List<RawMaterialsDetailModel>;
                 if (list.Count != 0)
                 {
-                    new ViewModel.Warehouse.RawMaterialsConsole().AddByBatch(list);
+                    new ViewModel.Warehouse.RawMaterialsConsole().AddByBatch(list,true);
                 }
             }
         }
