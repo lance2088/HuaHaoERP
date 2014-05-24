@@ -22,6 +22,13 @@ namespace HuaHaoERP.ViewModel.Warehouse
             return new Helper.SQLite.DBHelper().Transaction(sqlList);
         }
 
+        internal bool IsRawMaterialsIDExist(string rawMateriasID)
+        {
+            string sql = "select count(1) from T_ProductInfo_RawMaterials where number='" + rawMateriasID + "'";
+            object result = new object();
+            new Helper.SQLite.DBHelper().QuerySingleResult(sql, out result);
+            return result.ToString().Equals("0") ? false : true;
+        }
         internal bool ReadList(out List<RawMaterialsDetailModel> data)
         {
             bool flag = true;

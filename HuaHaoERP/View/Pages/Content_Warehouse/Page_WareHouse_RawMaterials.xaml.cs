@@ -18,6 +18,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
 {
     public partial class Page_Warehouse_RawMaterials : Page
     {
+        private ViewModel.Warehouse.RawMaterialsConsole vmc = new RawMaterialsConsole();
         public Page_Warehouse_RawMaterials()
         {
             InitializeComponent();
@@ -29,10 +30,45 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             };
             DataGrid_RawMaterials.ItemsSource = rawMaterials;
         }
-
+        private bool Validate()
+        {
+            List<RawMaterialsDetailModel> list = new List<RawMaterialsDetailModel>();
+            list = DataGrid_RawMaterials.ItemsSource as List<RawMaterialsDetailModel>;
+            foreach (RawMaterialsDetailModel m in list)
+            {
+                if (m.Id != null)
+                {
+                    if (string.IsNullOrEmpty(m.RawMaterialsID))
+                    {
+                        MessageBox.Show("第" + m.Id + "行原材料编号为空！");
+                        return false;
+                    }
+                    else if (!vmc.IsRawMaterialsIDExist(m.RawMaterialsID))
+                    {
+                        MessageBox.Show("第" + m.Id + "行原材料编号不存在系统中，请检查！");
+                        return false;
+                    }
+                    
+                    if (string.IsNullOrEmpty(m.Number))
+                    {
+                        MessageBox.Show("第" + m.Id + "行数量为空！");
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
         private void Button_Commit_Click(object sender, RoutedEventArgs e)
         {
-
+            if (Validate())
+            {
+                List<RawMaterialsDetailModel> list = new List<RawMaterialsDetailModel>();
+                list = DataGrid_RawMaterials.ItemsSource as List<RawMaterialsDetailModel>;
+                if (list.Count != 0)
+                {
+                    new ViewModel.Warehouse.RawMaterialsConsole().AddByBatch(list);
+                }
+            }
         }
 
         private void Button_Cancel_Click(object sender, RoutedEventArgs e)
