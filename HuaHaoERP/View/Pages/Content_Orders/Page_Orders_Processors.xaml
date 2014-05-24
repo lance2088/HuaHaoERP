@@ -3,11 +3,17 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      mc:Ignorable="d" FontFamily="SimSun" TextOptions.TextFormattingMode="Display"
+      d:DesignHeight="472" d:DesignWidth="880"
 	Title="Page_Orders_Processors">
 
-    <Grid>
-        
+    <Grid Background="White" HorizontalAlignment="Right" Width="790">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button FocusVisualStyle="{x:Null}" x:Name="Button_Commit" Content="确定" HorizontalAlignment="Right" Margin="0,0,20,20" VerticalAlignment="Bottom" Width="74" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_Commit_Click" Height="24" Foreground="White"/>
+        <Button FocusVisualStyle="{x:Null}" x:Name="Button_Cancel" Content="取消" HorizontalAlignment="Left" Margin="20,0,0,20" VerticalAlignment="Bottom" Width="76" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" IsCancel="True" Click="Button_Cancel_Click" Height="24" Grid.Column="1" Foreground="White"/>
+
     </Grid>
 </Page>

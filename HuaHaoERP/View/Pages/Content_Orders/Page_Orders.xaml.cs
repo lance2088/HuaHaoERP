@@ -61,5 +61,25 @@ namespace HuaHaoERP.View.Pages.Content_Orders
                 Helper.Events.PopUpEvent.OnShowPopUp(new Page_Orders_Product(data));
             }
         }
+
+        private void Button_AddSupplierOrder_Click(object sender, RoutedEventArgs e)
+        {
+            Helper.Events.PopUpEvent.OnShowPopUp(new Page_Orders_Supplier());
+        }
+
+        private void Button_DelSupplierOrder_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_AddProcessorsOrder_Click(object sender, RoutedEventArgs e)
+        {
+            Helper.Events.PopUpEvent.OnShowPopUp(new Page_Orders_Processors());
+        }
+
+        private void Button_DelProcessorsOrder_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
