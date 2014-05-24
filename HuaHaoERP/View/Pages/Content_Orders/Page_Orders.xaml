@@ -39,8 +39,18 @@
                 <Grid Background="White">
                     <DataGrid Margin="0,40,0,0" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderThickness="0,1,0,0" BorderBrush="#FF99CCFF">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Guid" Visibility="Hidden"/>
-                            <DataGridTextColumn Header="序号"/>
+                            <DataGridTextColumn Binding="{Binding Guid}" Header="Guid" Visibility="Hidden"/>
+                            <DataGridTextColumn Binding="{Binding Id}" Header="序号" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Binding="{Binding OrderNumber}" Header="订单编号" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Binding="{Binding CustomerName}" Header="供应商名称" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Binding="{Binding DeliveryDate}" Header="指定交货日期" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Binding="{Binding OrderDate}" Header="下单日期" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Binding="{Binding ProductName}" Header="原料名称" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Binding="{Binding NumberOfItems}" Header="重量（kg）" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Binding="{Binding Quantity}" Header="材质" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Binding="{Binding Unit}" Header="亮麻" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Binding="{Binding Unit}" Header="深浅" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Binding="{Binding Remark}" Header="备注"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <Button x:Name="Button_AddSupplierOrder" Content="添加订单" HorizontalAlignment="Right" Margin="0,10,90,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_AddSupplierOrder_Click"/>
@@ -51,8 +61,17 @@
                 <Grid Background="White">
                     <DataGrid Margin="0,40,0,0" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" BorderThickness="0,1,0,0">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Guid" Visibility="Hidden"/>
-                            <DataGridTextColumn Header="序号"/>
+                            <DataGridTextColumn Binding="{Binding Guid}" Header="Guid" Visibility="Hidden"/>
+                            <DataGridTextColumn Binding="{Binding Id}" Header="序号" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Binding="{Binding OrderNumber}" Header="订单编号" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Binding="{Binding CustomerName}" Header="外加工商名称" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Binding="{Binding DeliveryDate}" Header="指定交货日期" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Binding="{Binding OrderDate}" Header="下单日期" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Binding="{Binding ProductName}" Header="产品名称" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Binding="{Binding NumberOfItems}" Header="件数" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Binding="{Binding Quantity}" Header="数量" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Binding="{Binding Unit}" Header="单位" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Binding="{Binding Remark}" Header="备注"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <Button x:Name="Button_AddProcessorsOrder" Content="添加订单" HorizontalAlignment="Right" Margin="0,10,90,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_AddProcessorsOrder_Click"/>
