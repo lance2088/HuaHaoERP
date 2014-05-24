@@ -82,14 +82,14 @@ namespace HuaHaoERP.View.Pages.Content_Orders
             d.CustomerID = (Guid)this.ComboBox_Customer.SelectedValue;
             try
             {
-                d.DeliveryDate = ((DateTime)this.DatePicker_DeliveryDate.SelectedDate).ToString("yyyy-MM-dd HH:mm:ss");
+                d.DeliveryDate = ((DateTime)this.DatePicker_DeliveryDate.SelectedDate + DateTime.Now.TimeOfDay).ToString("yyyy-MM-dd HH:mm:ss");
             }
             catch(Exception)
             {
                 Console.WriteLine("已处理Exception：DatePicker无日期");
                 d.DeliveryDate = "0001-01-01 00:00:00";
             }
-            d.OrderDate = ((DateTime)this.DatePicker_OrderDate.SelectedDate).ToString("yyyy-MM-dd HH:mm:ss");
+            d.OrderDate = ((DateTime)this.DatePicker_OrderDate.SelectedDate + DateTime.Now.TimeOfDay).ToString("yyyy-MM-dd HH:mm:ss");
             return flag;
         }
         private void GenerateOrderNumber()
