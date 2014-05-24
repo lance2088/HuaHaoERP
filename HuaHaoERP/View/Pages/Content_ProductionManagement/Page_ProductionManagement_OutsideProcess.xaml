@@ -10,7 +10,7 @@
     <Grid HorizontalAlignment="Right" Width="400" Background="White">
         <Button x:Name="Button_Commit" Content="确定" HorizontalAlignment="Right" Margin="0,0,220,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" IsDefault="True" Click="Button_Commit_Click"/>
         <Button x:Name="Button_Cancel" Content="取消" HorizontalAlignment="Left" Margin="220,0,0,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" IsCancel="True" Click="Button_Cancel_Click"/>
-        <Label x:Name="Label_Title" Content="外加工单：" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label x:Name="Label_Title" Content="外加工单：" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
         <Label Content="日期*" HorizontalAlignment="Left" Margin="30,60,0,0" VerticalAlignment="Top" Height="24"/>
         <Label Content="产品*" HorizontalAlignment="Left" Margin="30,100,0,0" VerticalAlignment="Top" Height="24"/>
         <Label Content="外加工商*" HorizontalAlignment="Left" Margin="30,140,0,0" VerticalAlignment="Top" Height="24"/>
