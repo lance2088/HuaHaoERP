@@ -172,6 +172,13 @@ namespace HuaHaoERP.Model
             get { return isShow; }
             set { isShow = value; NotifyPropertyChanged("IsShow"); }
         }
+        private bool isDefault;
+
+        public bool IsDefault
+        {
+            get { return isDefault; }
+            set { isDefault = value; }
+        }
 
         #region INotifyPropertyChanged Members
 

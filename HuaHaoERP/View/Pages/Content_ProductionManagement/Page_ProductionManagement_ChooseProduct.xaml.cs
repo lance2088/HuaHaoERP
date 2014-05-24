@@ -27,9 +27,9 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         private void InitializeData()
         {
             new ViewModel.MeansOfProduction.ProductConsole().ReadList(out d);
+
             this.DataGrid_Product.ItemsSource = d;
         }
-
 
         private void Button_Cancel_Click(object sender, RoutedEventArgs e)
         {
