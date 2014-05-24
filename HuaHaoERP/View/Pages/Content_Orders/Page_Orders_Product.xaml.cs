@@ -96,7 +96,7 @@ namespace HuaHaoERP.View.Pages.Content_Orders
         {
             if(isNew)
             {
-                this.TextBox_OrderNumber.Text = ((DateTime)this.DatePicker_OrderDate.SelectedDate).ToString("yyyyMMdd") + "_" + DateTime.Now.ToString("HHmmss");
+                this.TextBox_OrderNumber.Text = ((DateTime)this.DatePicker_OrderDate.SelectedDate).ToString("yyyyMMdd") + DateTime.Now.ToString("HHmmss");
             }
         }
 
