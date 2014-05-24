@@ -16,7 +16,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
             foreach (RawMaterialsDetailModel d in list)
             {
                 string sql = "Insert into T_Warehouse_RawMaterials(Guid,RawMaterialsID,Date,Operator,Number,Remark) "
-                        + "values('" + Guid.NewGuid() + "','" + tag + d.Number + "','" + d.Date + "','" + d.Operator + "','" + d.Weight + "','" + d.Remark + "')";
+                        + "values('" + Guid.NewGuid() + "','" + tag + d.RawMaterialsID + "','" + d.Date + "','" + d.Operator + "','" + d.Number + "','" + d.Remark + "')";
                 sqlList.Add(sql);
                
             }
