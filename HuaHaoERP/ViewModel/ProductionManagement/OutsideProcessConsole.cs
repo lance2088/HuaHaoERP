@@ -30,7 +30,6 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                 sql_WhereParm += " AND a.ProcessorsID='" + ProcessorsID + "' ";
             }
             sql_WhereParm += " AND a.Date between '" + Start.ToString("yyyy-MM-dd HH:mm:ss") + "' and '" + End.ToString("yyyy-MM-dd HH:mm:ss") + "'";
-
             bool flag = false;
             data = new List<ProductionManagement_OutsideProcessModel>();
             Count = 0;

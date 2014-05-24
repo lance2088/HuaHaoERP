@@ -154,5 +154,19 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         {
             InitializeOutsideProcessDataGrid();
         }
+
+        private void Button_Today_Click(object sender, RoutedEventArgs e)
+        {
+            this.DatePicker_ProcessorsFirst.SelectedDate = DateTime.Now.Date;
+            this.DatePicker_ProcessorsEnd.SelectedDate = DateTime.Now.Date;
+            InitializeOutsideProcessDataGrid();
+        }
+
+        private void Button_AllDate_Click(object sender, RoutedEventArgs e)
+        {
+            this.DatePicker_ProcessorsFirst.SelectedDate = Convert.ToDateTime("2014-01-01 00:00:00");
+            this.DatePicker_ProcessorsEnd.SelectedDate = Convert.ToDateTime("2024-01-01 00:00:00");
+            InitializeOutsideProcessDataGrid();
+        }
     }
 }
