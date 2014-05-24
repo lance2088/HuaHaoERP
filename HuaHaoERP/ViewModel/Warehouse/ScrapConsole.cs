@@ -47,7 +47,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
         internal decimal GetAmountByName(string args)
         {
             args = args.Equals("全部") ? "" : "where Name='" + args + "'";
-            string sql = "select sum(Number) from T_Warehouse_Scrap " + args;
+            string sql = "select total(Number) from T_Warehouse_Scrap " + args;
             object d = 0;
             new Helper.SQLite.DBHelper().QuerySingleResult(sql, out d);
             return decimal.Parse(d.ToString());

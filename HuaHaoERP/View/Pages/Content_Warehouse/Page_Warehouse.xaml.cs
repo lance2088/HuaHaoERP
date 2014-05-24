@@ -91,7 +91,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             }
             m.Guid = Guid.NewGuid();
             m.Name = ComboBox_Name.Text;
-            m.Number = RadioButton_添加.IsChecked == true ? "" : "-" + TextBox_Number.Text;
+            m.Number = RadioButton_添加.IsChecked == true ? TextBox_Number.Text : "-" + TextBox_Number.Text;
             m.Remark = TextBox_Remark.Text;
             m.Date = DateTime.Parse(DatePicker_Date.Text).ToString("yyyy-MM-dd") + " " + DateTime.Now.ToString("T");
             m.Operator = TextBox_Operator.Text;
