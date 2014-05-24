@@ -34,6 +34,9 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             List<RawMaterialsDetailModel> rmm = new List<RawMaterialsDetailModel>();
             rmc.ReadList(out rmm);
             DataGrid_RawMaterialsQuantity.ItemsSource = rmm;
+
+            rmc.ReadRecordList(out rmm);
+            DataGrid_RawMaterialsRecord.ItemsSource = rmm;
             #endregion
             #region 余料管理
             ComboBox_DropDownOpened(this, null);

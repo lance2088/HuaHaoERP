@@ -36,6 +36,13 @@ namespace HuaHaoERP.Model
             get { return name; }
             set { name = value; }
         }
+        private string rawMaterialsID;
+
+        public string RawMaterialsID
+        {
+            get { return rawMaterialsID; }
+            set { rawMaterialsID = value; }
+        }
         private string weight;
 
         public string Weight

@@ -59,16 +59,20 @@
                     </Grid.ColumnDefinitions>
                     <DataGrid x:Name="DataGrid_RawMaterialsRecord" Margin="0,40,10,10" BorderThickness="1" Grid.Column="1" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" AutoGenerateColumns="False">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="编号" Binding="{Binding RawMaterialsID}"/>
-                            <DataGridTextColumn Header="名称" Binding="{Binding Name}"/>
-                            <DataGridTextColumn Header="数量" Binding="{Binding Amount}"/>
+                            <DataGridTextColumn Header="序号" Binding="{Binding Id}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Header="名称" Binding="{Binding Name}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Header="日期" Binding="{Binding Date}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Header="操作人" Binding="{Binding Operator}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Header="数量" Binding="{Binding Number}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Header="备注" Binding="{Binding Remark}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <DataGrid x:Name="DataGrid_RawMaterialsQuantity" Margin="10,40,10,10" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" IsReadOnly="True" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False" AutoGenerateColumns="False" SelectionMode="Single">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="编号" Binding="{Binding RawMaterialsID}"/>
-                            <DataGridTextColumn Header="名称" Binding="{Binding Name}"/>
-                            <DataGridTextColumn Header="数量" Binding="{Binding Amount}"/>
+                            <DataGridTextColumn Header="序号" Binding="{Binding Id}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Header="编号" Binding="{Binding RawMaterialsID}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Header="名称" Binding="{Binding Name}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Header="数量" Binding="{Binding Amount}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <Label Content="出入库记录：" Grid.Column="1" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Padding="0,5"/>
