@@ -12,8 +12,8 @@
             <TabItem FocusVisualStyle="{x:Null}" Header="库存管理" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Height="25" Margin="7,0,-7,0" Foreground="White">
                 <Grid Background="White">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="2*" MinWidth="200"/>
-                        <ColumnDefinition Width="2*" MinWidth="200"/>
+                        <ColumnDefinition Width="2*" MinWidth="200" MaxWidth="380"/>
+                        <ColumnDefinition Width="2*" MinWidth="200" MaxWidth="380"/>
                         <ColumnDefinition Width="5*"/>
                     </Grid.ColumnDefinitions>
                     <DataGrid Margin="0,80,10,10" BorderThickness="1" Grid.Column="2" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" IsReadOnly="True">
