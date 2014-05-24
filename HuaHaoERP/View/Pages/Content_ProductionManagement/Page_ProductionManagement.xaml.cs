@@ -88,7 +88,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             string RegisterName = "Grid_ALM_" + ProductGuid.ToString().Replace("-", "");
             if (this.WrapPanel_AssemblyLine.FindName(RegisterName) as Grid != null)
             {
-                return;
+                RemoveAssemblyLineModule(RegisterName);
             }
             Grid g = new Grid();
             this.WrapPanel_AssemblyLine.Children.Add(g);

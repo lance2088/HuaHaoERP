@@ -84,9 +84,33 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
         /// <param name="d"></param>
         private void CalculateProcessList(ref List<Model.AssemblyLineModuleProcessModel> d)
         {
-            for (int i = 0; i < d.Count - 1; i++)
+            int Out = 0, In = 0;
+            string sql = "select total(Quantity),OrderType from T_PM_ProcessSchedule where ProductID='6325ff9b-1069-4c72-9062-d452a4180545' GROUP BY OrderType ";
+            DataSet ds = new DataSet();
+            new Helper.SQLite.DBHelper().QueryData(sql, out ds);
+            foreach (DataRow dr in ds.Tables[0].Rows)
             {
-                d[i].Quantity -= d[i + 1].Quantity;
+                if (dr["OrderType"].ToString() == "入单")
+                {
+                    In = int.Parse(dr["total(Quantity)"].ToString());
+                }
+                else if (dr["OrderType"].ToString() == "出单")
+                {
+                    Out = int.Parse(dr["total(Quantity)"].ToString());
+                }
+            }
+
+            for (int i = 0; i <= d.Count - 1; i++)
+            {
+                if (i != d.Count - 1)
+                {
+                    d[i].Quantity -= d[i + 1].Quantity;
+                }
+                if(d[i].Process == "抛光")
+                {
+                    d[i].Quantity += In;
+                    d[i-1].Quantity -= Out;
+                }
             }
         }
     }
