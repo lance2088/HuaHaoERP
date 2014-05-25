@@ -14,6 +14,7 @@
         </Grid.ColumnDefinitions>
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_Commit" Content="确定" HorizontalAlignment="Right" Margin="0,0,20,20" VerticalAlignment="Bottom" Width="74" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_Commit_Click" Height="24" Foreground="White"/>
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_Cancel" Content="取消" HorizontalAlignment="Left" Margin="20,0,0,20" VerticalAlignment="Bottom" Width="76" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" IsCancel="True" Click="Button_Cancel_Click" Height="24" Grid.Column="1" Foreground="White"/>
+        <DataGrid HorizontalAlignment="Left" Margin="301,84,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="140" Width="253" CellStyle="{DynamicResource DataGridCellStyleCommon}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}"/>
 
     </Grid>
 </Page>

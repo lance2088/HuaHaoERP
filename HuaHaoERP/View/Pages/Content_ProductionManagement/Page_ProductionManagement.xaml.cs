@@ -133,8 +133,8 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         {
             this.ProcessorsID = (Guid)this.ComboBox_Processors.SelectedValue;
             this.ProductID = (Guid)this.ComboBox_Product.SelectedValue;
-            this.ProcessorsEnd = (DateTime)this.DatePicker_ProcessorsEnd.SelectedDate;
             this.ProcessorsFirst = (DateTime)this.DatePicker_ProcessorsFirst.SelectedDate;
+            this.ProcessorsEnd = ((DateTime)this.DatePicker_ProcessorsEnd.SelectedDate).AddDays(1);
 
             List<Model.ProductionManagement_OutsideProcessModel> data;
             new ViewModel.ProductionManagement.OutsideProcessConsole().ReadList("出单", ProcessorsFirst, ProcessorsEnd, ProductID, ProcessorsID, out data, out CountOutOrder);
