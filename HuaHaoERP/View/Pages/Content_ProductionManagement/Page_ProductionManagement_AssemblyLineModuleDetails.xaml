@@ -11,12 +11,12 @@
         <DataGrid x:Name="DataGrid_Detials" Margin="10,80,10,10" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" IsReadOnly="True" AutoGenerateColumns="False" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" SelectionMode="Single">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="GUID" Visibility="Hidden"/>
-                <DataGridTextColumn Header="序号" Binding="{Binding Id}"/>
-                <DataGridTextColumn Header="日期" Binding="{Binding Date}"/>
-                <DataGridTextColumn Header="产品名" Binding="{Binding ProductName}"/>
-                <DataGridTextColumn Header="工序" Binding="{Binding Process}"/>
-                <DataGridTextColumn Header="数量" Binding="{Binding Quantity}"/>
-                <DataGridTextColumn Header="员工" Binding="{Binding StaffName}"/>
+                <DataGridTextColumn Header="序号" Binding="{Binding Id}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn Header="日期" Binding="{Binding Date}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn Header="产品名" Binding="{Binding ProductName}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn Header="工序" Binding="{Binding Process}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" MinWidth="50"/>
+                <DataGridTextColumn Header="数量" Binding="{Binding Quantity}" ElementStyle="{DynamicResource TextBlockStyle_AlignRight}" MinWidth="50"/>
+                <DataGridTextColumn Header="员工" Binding="{Binding StaffName}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="Button_Cancel" Content="&lt;" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="30" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Height="30" Padding="0" IsCancel="True" Click="Button_Cancel_Click"/>
