@@ -9,7 +9,7 @@
 
     <Grid>
         <TabControl Margin="0" BorderThickness="0" Padding="0">
-            <TabItem FocusVisualStyle="{x:Null}" Header="流水线" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Height="25" Margin="7,0,-7,0" Foreground="White">
+            <TabItem FocusVisualStyle="{x:Null}" Header="流水线" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="7,0,-7,0" Foreground="White">
                 <Grid Background="White">
                     <ScrollViewer Margin="10,40,0,0">
                         <WrapPanel x:Name="WrapPanel_AssemblyLine"/>

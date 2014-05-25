@@ -9,7 +9,7 @@
 
     <Grid>
         <TabControl Margin="0" BorderThickness="0" Padding="0">
-            <TabItem FocusVisualStyle="{x:Null}" Header="综合设置" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Height="25" Margin="7,0,-7,0" Foreground="White">
+            <TabItem FocusVisualStyle="{x:Null}" Header="综合设置" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="7,0,-7,0" Foreground="White">
                 <Grid Background="#FFF0F0F0"/>
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="安全设置" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="17,0,-17,0" Foreground="White">

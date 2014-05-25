@@ -9,7 +9,7 @@
 
     <Grid>
         <TabControl Margin="0" BorderThickness="0" Padding="0">
-            <TabItem FocusVisualStyle="{x:Null}" Header="产品" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Height="25" Margin="7,0,-7,0" Foreground="White">
+            <TabItem FocusVisualStyle="{x:Null}" Header="产品" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="7,0,-7,0" Foreground="White">
                 <Grid Background="White">
                     <DataGrid x:Name="DataGrid_Product" Margin="0,40,0,0" BorderThickness="0" BorderBrush="{x:Null}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False">
                         <DataGrid.Resources>
