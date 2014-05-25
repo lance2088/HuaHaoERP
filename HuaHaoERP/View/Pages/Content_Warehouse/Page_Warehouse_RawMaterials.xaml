@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+       xmlns:sys="clr-namespace:System;assembly=mscorlib"
       mc:Ignorable="d" 
       d:DesignHeight="480" d:DesignWidth="840">
 
@@ -13,14 +14,14 @@
         </Grid.ColumnDefinitions>
         <DataGrid x:Name="DataGrid_RawMaterials" AutoGenerateColumns="False" Margin="20,41,0,49"
                   BorderThickness="1" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}"
-                  BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" Grid.ColumnSpan="2">
+                  BorderBrush="#FF99CCFF" BeginningEdit="DataGrid_RawMaterials_BeginningEdit" CellEditEnding="DataGrid_RawMaterials_CellEditEnding" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" Grid.ColumnSpan="2">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="序号" Binding="{Binding Id}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" />
                 <DataGridTextColumn Header="原材料编号" MinWidth="100" Binding="{Binding Number}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" />
-                <DataGridTextColumn Header="原材料名称"  MinWidth="100" Binding="{Binding Name}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" />
+                <DataGridTextColumn Header="原材料名称" IsReadOnly="True"  MinWidth="100" Binding="{Binding Name}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" />
                 <DataGridTextColumn Header="数量" MinWidth="100" Binding="{Binding Number}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                 <DataGridTextColumn Header="日期" MinWidth="80" Binding="{Binding Date}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" />
-                <DataGridTextColumn Header="操作员" MinWidth="80" Binding="{Binding Operator}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" />
+                <DataGridTextColumn Header="操作员" MinWidth="80" IsReadOnly="True" Binding="{Binding Operator}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" />
                 <DataGridTextColumn Header="备注" Width="Auto" Binding="{Binding Remark}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" />
             </DataGrid.Columns>
         </DataGrid>

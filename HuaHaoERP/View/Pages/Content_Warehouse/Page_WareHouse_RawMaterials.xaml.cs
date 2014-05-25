@@ -75,5 +75,25 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         {
             Helper.Events.PopUpEvent.OnHidePopUp();
         }
+        string preValue = "";
+        private void DataGrid_RawMaterials_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
+        {
+            preValue = (e.Column.GetCellContent(e.Row) as TextBlock).Text;
+        }
+
+        private void DataGrid_RawMaterials_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+        {
+            string newValue = (e.EditingElement as TextBox).Text;
+            if (!preValue.Equals(newValue))
+            {
+                if (e.Column.Header.ToString().Equals("原材料编号"))
+                {
+                }
+                else
+                {
+                    Console.WriteLine("BB");
+                }
+            }
+        }
     }
 }
