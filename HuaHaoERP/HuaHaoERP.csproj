@@ -253,6 +253,7 @@
     <Compile Include="ViewModel\ProductionManagement\AssemblyLineModuleConsole.cs" />
     <Compile Include="ViewModel\ProductionManagement\OutsideProcessConsole.cs" />
     <Compile Include="ViewModel\Security\LoginConsole.cs" />
+    <Compile Include="ViewModel\Settings\ChangePasswordConsole.cs" />
     <Compile Include="ViewModel\Warehouse\RawMaterialsConsole.cs" />
     <Compile Include="ViewModel\Warehouse\ScrapConsole.cs" />
     <Compile Include="ViewModel\Warehouse\WarehouseProductConsole.cs" />

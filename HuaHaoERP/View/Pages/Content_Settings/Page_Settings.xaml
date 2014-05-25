@@ -13,7 +13,30 @@
                 <Grid Background="#FFF0F0F0"/>
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="安全设置" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="17,0,-17,0" Foreground="White">
-                <Grid Background="#FFF0F0F0"/>
+                <Grid Background="White">
+                    <StackPanel Margin="10" Background="White">
+                        <Expander Header="新增用户">
+                            <Grid Background="#FFE5E5E5" MinHeight="200"/>
+                        </Expander>
+                        <Expander Header="修改密码">
+                            <Grid Background="White" MinHeight="200">
+                                <PasswordBox x:Name="PasswordBox_Old" HorizontalAlignment="Left" Margin="115,20,0,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center"/>
+                                <PasswordBox x:Name="PasswordBox_New" HorizontalAlignment="Left" Margin="115,60,0,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center"/>
+                                <PasswordBox x:Name="PasswordBox_NewRepeat" HorizontalAlignment="Left" Margin="115,100,0,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center"/>
+                                <Button x:Name="Button_ChangePassword" Content="修改" HorizontalAlignment="Left" Margin="59,145,0,0" VerticalAlignment="Top" Width="75" Height="24" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Click="Button_ChangePassword_Click"/>
+                                <Button Content="取消" HorizontalAlignment="Left" Margin="149,145,0,0" VerticalAlignment="Top" Width="75" Height="24" Template="{DynamicResource ButtonControlTemplate_CommonWhite}"/>
+                                <Label Content="旧密码" HorizontalAlignment="Left" Margin="40,20,0,0" VerticalAlignment="Top"/>
+                                <Label Content="新密码" HorizontalAlignment="Left" Margin="40,60,0,0" VerticalAlignment="Top"/>
+                                <Label Content="确认新密码" HorizontalAlignment="Left" Margin="40,100,0,0" VerticalAlignment="Top"/>
+                                <Label x:Name="Label_WrongPassword" Content="密码错误" HorizontalAlignment="Left" Margin="240,20,0,0" VerticalAlignment="Top" Foreground="Red"/>
+                                <Label x:Name="Label_NewPasswordNotTheSame" Content="新密码不一致" HorizontalAlignment="Left" Margin="240,100,0,0" VerticalAlignment="Top" Foreground="Red"/>
+                            </Grid>
+                        </Expander>
+                        <Expander Header="数据安全">
+                            <Grid Background="#FFE5E5E5" MinHeight="200"/>
+                        </Expander>
+                    </StackPanel>
+                </Grid>
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="关于我们" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="27,0,-27,0" Foreground="White">
                 <Grid Background="#FFF0F0F0">

@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using HuaHaoERP.Helper.Tools;
 
 namespace HuaHaoERP.View.Pages.Content_Settings
 {
@@ -19,6 +20,25 @@ namespace HuaHaoERP.View.Pages.Content_Settings
         public Page_Settings()
         {
             InitializeComponent();
+        }
+
+        private void Button_ChangePassword_Click(object sender, RoutedEventArgs e)
+        {
+            string PasswordOld = TranslatePassword.TranslateToString(this.PasswordBox_Old.SecurePassword);
+            string PasswordNew = TranslatePassword.TranslateToString(this.PasswordBox_New.SecurePassword);
+            string PasswordNewRepeat = TranslatePassword.TranslateToString(this.PasswordBox_NewRepeat.SecurePassword);
+            if(new ViewModel.Settings.ChangePasswordConsole().CheckPassword(Helper.DataDefinition.CommonParameters.LoginUserName, PasswordOld))
+            {
+
+            }
+            else if(PasswordNew != PasswordNewRepeat)
+            {
+
+            }
+            else
+            {
+
+            }
         }
     }
 }
