@@ -114,14 +114,29 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
             }
         }
 
-        internal void ReadHistory()
+        internal void ReadDetials(out List<Model.ProductionManagement.AssemblyLineDetailsModel> data)
         {
-            string sql = "";
+            data = new List<Model.ProductionManagement.AssemblyLineDetailsModel>();
+            string sql = " Select a.*,b.Name as StaffName,c.Name as ProductName "
+                       + " from T_PM_ProductionSchedule a"
+                       + " Left join T_UserInfo_Staff b ON a.StaffID=b.GUID"
+                       + " Left join T_ProductInfo_Product c ON a.ProductID=c.GUID";
             DataSet ds = new DataSet();
             new Helper.SQLite.DBHelper().QueryData(sql, out ds);
+            int id = 1;
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
-
+                Model.ProductionManagement.AssemblyLineDetailsModel d = new Model.ProductionManagement.AssemblyLineDetailsModel();
+                d.Guid = (Guid)dr["GUID"];
+                d.Id = id++;
+                d.StaffID = (Guid)dr["GUID"];
+                d.Date = Convert.ToDateTime(dr["Date"].ToString()).ToString("yyyy-MM-dd");
+                d.StaffName = dr["StaffName"].ToString();
+                d.ProductID = (Guid)dr["GUID"];
+                d.ProductName = dr["ProductName"].ToString();
+                d.Process = dr["Process"].ToString();
+                d.Quantity = int.Parse(dr["Number"].ToString());
+                data.Add(d);
             }
         }
     }

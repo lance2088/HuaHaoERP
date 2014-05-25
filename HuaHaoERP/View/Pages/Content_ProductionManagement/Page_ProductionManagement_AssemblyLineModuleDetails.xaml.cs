@@ -19,15 +19,18 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         public Page_ProductionManagement_AssemblyLineModuleDetails()
         {
             InitializeComponent();
+            this.ComboBox_Product.ItemsSource = Helper.DataDefinition.ComboBoxList.ProductListWithAll.DefaultView;
+            this.ComboBox_Product.DisplayMemberPath = "Name";
+            this.ComboBox_Product.SelectedValuePath = "GUID";//GUID四个字母要大写
+            this.ComboBox_Product.SelectedIndex = 0;
             InitializeData();
         }
 
         private void InitializeData()
         {
-            this.ComboBox_Product.ItemsSource = Helper.DataDefinition.ComboBoxList.ProductListWithAll.DefaultView;
-            this.ComboBox_Product.DisplayMemberPath = "Name";
-            this.ComboBox_Product.SelectedValuePath = "GUID";//GUID四个字母要大写
-            this.ComboBox_Product.SelectedIndex = 0;
+            List<Model.ProductionManagement.AssemblyLineDetailsModel> d = new List<Model.ProductionManagement.AssemblyLineDetailsModel>();
+            new ViewModel.ProductionManagement.AssemblyLineModuleConsole().ReadDetials(out d);
+            this.DataGrid_Detials.ItemsSource = d;
         }
 
         private void Button_Cancel_Click(object sender, RoutedEventArgs e)
