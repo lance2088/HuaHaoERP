@@ -136,5 +136,10 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
                 this.DatePicker_DepartureTime.IsEnabled = false;
             }
         }
+
+        private void DatePicker_EntryTime_CalendarClosed(object sender, RoutedEventArgs e)
+        {
+            this.TextBox_Seniority.Text = Helper.Tools.Seniority.SeniorityForMonth((DateTime)(sender as DatePicker).SelectedDate);
+        }
     }
 }

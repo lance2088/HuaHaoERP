@@ -63,11 +63,22 @@ namespace HuaHaoERP.ViewModel.Customer
                     d.Name = dr["Name"].ToString();
                     d.Jobs = dr["Jobs"].ToString();
                     d.EntryTime = Convert.ToDateTime(dr["EntryTime"]).ToString("yyyy-MM-dd");
+                    //d.Seniority = Helper.Tools.Seniority.SeniorityForMonth(Convert.ToDateTime(dr["EntryTime"]));
                     d.Contact = dr["Contact"].ToString();
                     d.IDNumber = dr["IDNumber"].ToString();
                     d.Remark = dr["Remark"].ToString();
-                    d.DepartureTime = (Convert.ToDateTime(dr["DepartureTime"]).Year > 10) ? Convert.ToDateTime(dr["DepartureTime"]).ToString("yyyy-MM-dd") : "";
+                    //d.DepartureTime = (Convert.ToDateTime(dr["DepartureTime"]).Year > 10) ? Convert.ToDateTime(dr["DepartureTime"]).ToString("yyyy-MM-dd") : "";
                     d.AddTime = Convert.ToDateTime(dr["AddTime"]);
+                    if (Convert.ToDateTime(dr["DepartureTime"]).Year > 10)
+                    {
+                        d.DepartureTime = Convert.ToDateTime(dr["DepartureTime"]).ToString("yyyy-MM-dd");
+                        d.Seniority = Helper.Tools.Seniority.SeniorityForMonth(Convert.ToDateTime(dr["EntryTime"]), Convert.ToDateTime(dr["DepartureTime"]));
+                    }
+                    else
+                    {
+                        d.DepartureTime = "";
+                        d.Seniority = Helper.Tools.Seniority.SeniorityForMonth(Convert.ToDateTime(dr["EntryTime"]));
+                    }
                     data.Add(d);
                 }
             }
