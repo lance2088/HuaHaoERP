@@ -38,7 +38,7 @@
     </ControlTemplate>
     <ControlTemplate x:Key="TabItemControlTemplate_LevelTwoTab" TargetType="{x:Type TabItem}">
         <Grid>
-            <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1,1,1,0" Margin="0" Background="#FF009AD9" Padding="10,2">
+            <Border x:Name="Bd" BorderThickness="1,1,1,0" Margin="0" Background="#FF009AD9" Padding="15,5" BorderBrush="White">
                 <ContentPresenter x:Name="Content" ContentSource="Header" HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
             </Border>
         </Grid>
@@ -49,6 +49,7 @@
                     <Condition Property="IsMouseOver" Value="False"/>
                 </MultiTrigger.Conditions>
                 <Setter Property="Background" TargetName="Bd" Value="#19009AD9"/>
+                <Setter Property="BorderBrush" TargetName="Bd" Value="#19009AD9"/>
             </MultiTrigger>
             <MultiTrigger>
                 <MultiTrigger.Conditions>
@@ -56,6 +57,7 @@
                     <Condition Property="IsMouseOver" Value="True"/>
                 </MultiTrigger.Conditions>
                 <Setter Property="Background" TargetName="Bd" Value="#FF009AD9"/>
+                <Setter Property="BorderBrush" TargetName="Bd" Value="#FF009AD9"/>
             </MultiTrigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
