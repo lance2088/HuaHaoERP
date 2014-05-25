@@ -13,16 +13,18 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using HuaHaoERP.ViewModel.Warehouse;
 using HuaHaoERP.Model;
+using System.Data;
 
 namespace HuaHaoERP.View.Pages.Content_Warehouse
 {
     public partial class Page_Warehouse_RawMaterials : Page
     {
         private ViewModel.Warehouse.RawMaterialsConsole vmc = new RawMaterialsConsole();
+        private List<RawMaterialsDetailModel> rawMaterials = new List<RawMaterialsDetailModel>();
         public Page_Warehouse_RawMaterials()
         {
             InitializeComponent();
-            var rawMaterials = new List<RawMaterialsDetailModel>()
+            rawMaterials = new List<RawMaterialsDetailModel>()
             {
                 new RawMaterialsDetailModel{
                     Id = 1
@@ -88,6 +90,8 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             {
                 if (e.Column.Header.ToString().Equals("原材料编号"))
                 {
+                    List<RawMaterialsDetailModel> dr = DataGrid_RawMaterials.ItemsSource as List<RawMaterialsDetailModel>;
+                    
                 }
                 else
                 {
