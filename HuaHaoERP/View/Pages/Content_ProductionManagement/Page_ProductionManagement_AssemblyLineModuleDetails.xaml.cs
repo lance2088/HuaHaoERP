@@ -14,11 +14,20 @@ using System.Windows.Shapes;
 
 namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 {
-    public partial class Page_ProductionManagement_AssemblyLineModuleHistory : Page
+    public partial class Page_ProductionManagement_AssemblyLineModuleDetails : Page
     {
-        public Page_ProductionManagement_AssemblyLineModuleHistory()
+        public Page_ProductionManagement_AssemblyLineModuleDetails()
         {
             InitializeComponent();
+            InitializeData();
+        }
+
+        private void InitializeData()
+        {
+            this.ComboBox_Product.ItemsSource = Helper.DataDefinition.ComboBoxList.ProductListWithAll.DefaultView;
+            this.ComboBox_Product.DisplayMemberPath = "Name";
+            this.ComboBox_Product.SelectedValuePath = "GUID";//GUID四个字母要大写
+            this.ComboBox_Product.SelectedIndex = 0;
         }
 
         private void Button_Cancel_Click(object sender, RoutedEventArgs e)

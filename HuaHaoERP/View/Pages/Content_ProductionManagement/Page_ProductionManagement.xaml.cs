@@ -182,7 +182,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void Button_AssemblyLineHistory_Click(object sender, RoutedEventArgs e)
         {
-            Helper.Events.PopUpEvent.OnShowPopUp(new Page_ProductionManagement_AssemblyLineModuleHistory());
+            Helper.Events.PopUpEvent.OnShowPopUp(new Page_ProductionManagement_AssemblyLineModuleDetails());
         }
     }
 }

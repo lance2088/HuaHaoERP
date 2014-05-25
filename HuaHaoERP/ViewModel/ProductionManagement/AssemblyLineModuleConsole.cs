@@ -113,5 +113,16 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                 }
             }
         }
+
+        internal void ReadHistory()
+        {
+            string sql = "";
+            DataSet ds = new DataSet();
+            new Helper.SQLite.DBHelper().QueryData(sql, out ds);
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+
+            }
+        }
     }
 }
