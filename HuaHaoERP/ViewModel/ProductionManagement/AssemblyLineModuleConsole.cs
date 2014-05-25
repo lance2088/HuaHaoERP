@@ -60,7 +60,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                         }
                     }
                 }
-                CalculateProcessList(ref ProcessList);
+                CalculateProcessList(ProductGuid, ref ProcessList);
                 d.ProcessList = ProcessList;
             }
             return flag;
@@ -82,10 +82,10 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
         /// 处理工序数量相减
         /// </summary>
         /// <param name="d"></param>
-        private void CalculateProcessList(ref List<Model.AssemblyLineModuleProcessModel> d)
+        private void CalculateProcessList(Guid ProductGuid, ref List<Model.AssemblyLineModuleProcessModel> d)
         {
             int Out = 0, In = 0;
-            string sql = "select total(Quantity),OrderType from T_PM_ProcessSchedule where ProductID='6325ff9b-1069-4c72-9062-d452a4180545' GROUP BY OrderType ";
+            string sql = "select total(Quantity),OrderType from T_PM_ProcessSchedule where ProductID='" + ProductGuid + "' GROUP BY OrderType ";
             DataSet ds = new DataSet();
             new Helper.SQLite.DBHelper().QueryData(sql, out ds);
             foreach (DataRow dr in ds.Tables[0].Rows)
