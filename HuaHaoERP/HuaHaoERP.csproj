@@ -132,6 +132,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Pages\Content_ProductionManagement\Page_ProductionManagement_AssemblyLineModuleHistory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Pages\Content_ProductionManagement\Page_ProductionManagement_ChooseProduct.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -288,6 +292,9 @@
     </Compile>
     <Compile Include="View\Pages\Content_ProductionManagement\Page_ProductionManagement_AssemblyLineModule.xaml.cs">
       <DependentUpon>Page_ProductionManagement_AssemblyLineModule.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\Content_ProductionManagement\Page_ProductionManagement_AssemblyLineModuleHistory.xaml.cs">
+      <DependentUpon>Page_ProductionManagement_AssemblyLineModuleHistory.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\Content_ProductionManagement\Page_ProductionManagement_ChooseProduct.xaml.cs">
       <DependentUpon>Page_ProductionManagement_ChooseProduct.xaml</DependentUpon>

@@ -179,5 +179,10 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             this.DatePicker_ProcessorsEnd.SelectedDate = Convert.ToDateTime("2024-01-01 00:00:00");
             InitializeOutsideProcessDataGrid();
         }
+
+        private void Button_AssemblyLineHistory_Click(object sender, RoutedEventArgs e)
+        {
+            Helper.Events.PopUpEvent.OnShowPopUp(new Page_ProductionManagement_AssemblyLineModuleHistory());
+        }
     }
 }
