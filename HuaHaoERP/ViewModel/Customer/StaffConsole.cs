@@ -77,7 +77,7 @@ namespace HuaHaoERP.ViewModel.Customer
         {
             bool flag = true;
             ds = new DataSet();
-            string sql = "select Guid,Number,Name From T_UserInfo_Staff Where DeleteMark is null order by AddTime";
+            string sql = "select Guid,Number,Name From T_UserInfo_Staff Where DeleteMark is null AND DepartureTime='0001-01-01 00:00:00' order by AddTime";
             flag = new Helper.SQLite.DBHelper().QueryData(sql, out ds);
             return flag;
         }

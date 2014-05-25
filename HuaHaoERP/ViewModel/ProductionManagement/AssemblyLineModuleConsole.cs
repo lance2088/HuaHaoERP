@@ -114,12 +114,17 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
             }
         }
 
-        internal void ReadDetials(Guid ProductID,string Process, DateTime Start, DateTime End, out List<Model.ProductionManagement.AssemblyLineDetailsModel> data)
+        internal int ReadDetials(Guid ProductID, string Process, Guid StaffID, DateTime Start, DateTime End, out List<Model.ProductionManagement.AssemblyLineDetailsModel> data)
         {
+            int Count = 0;
             string sql_Where = " Where a.Date Between '" + Start.ToString("yyyy-MM-dd HH:mm:ss") + "' AND '" + End.ToString("yyyy-MM-dd HH:mm:ss") + "' ";
             if(ProductID != new Guid())
             {
                 sql_Where += " AND a.ProductID='" + ProductID + "' ";
+            }
+            if(StaffID != new Guid())
+            {
+                sql_Where += " AND a.StaffID='" + StaffID + "' ";
             }
             if (Process != "全部工序")
             {
@@ -146,8 +151,10 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                 d.ProductName = dr["ProductName"].ToString();
                 d.Process = dr["Process"].ToString();
                 d.Quantity = int.Parse(dr["Number"].ToString());
+                Count += d.Quantity;
                 data.Add(d);
             }
+            return Count;
         }
     }
 }

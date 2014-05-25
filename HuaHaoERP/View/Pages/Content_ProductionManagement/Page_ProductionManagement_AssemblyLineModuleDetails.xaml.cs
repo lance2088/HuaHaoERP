@@ -25,6 +25,10 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             this.ComboBox_Product.DisplayMemberPath = "Name";
             this.ComboBox_Product.SelectedValuePath = "GUID";//GUID四个字母要大写
             this.ComboBox_Product.SelectedIndex = 0;
+            this.ComboBox_Staff.ItemsSource = Helper.DataDefinition.ComboBoxList.StaffListWithAll.DefaultView;
+            this.ComboBox_Staff.DisplayMemberPath = "Name";
+            this.ComboBox_Staff.SelectedValuePath = "GUID";//GUID四个字母要大写
+            this.ComboBox_Staff.SelectedIndex = 0;
             this.ComboBox_Process.ItemsSource = Helper.DataDefinition.Process.ProcessListWithAll;
             this.ComboBox_Process.SelectedIndex = 0;
             InitializeDataGrid();
@@ -34,12 +38,15 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         {
             Guid ProductID = (Guid)this.ComboBox_Product.SelectedValue;
             string Process = this.ComboBox_Process.Text;
+            Guid StaffID = (Guid)this.ComboBox_Staff.SelectedValue;
             DateTime Start = ((DateTime)this.DatePicker_Start.SelectedDate).Date;
             DateTime End = ((DateTime)this.DatePicker_End.SelectedDate).Date.AddDays(1);
 
             List<Model.ProductionManagement.AssemblyLineDetailsModel> d = new List<Model.ProductionManagement.AssemblyLineDetailsModel>();
-            new ViewModel.ProductionManagement.AssemblyLineModuleConsole().ReadDetials(ProductID, Process, Start, End, out d);
+            int Count = new ViewModel.ProductionManagement.AssemblyLineModuleConsole().ReadDetials(ProductID, Process, StaffID, Start, End, out d);
             this.DataGrid_Detials.ItemsSource = d;
+
+            this.Label_Count.Content = "统计数量：" + Count;
         }
 
         private void Button_Cancel_Click(object sender, RoutedEventArgs e)
@@ -76,8 +83,13 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void Button_AllDate_Click(object sender, RoutedEventArgs e)
         {
-            this.DatePicker_Start.SelectedDate = Convert.ToDateTime("2014-01-01 00:00:00");
+            this.DatePicker_Start.SelectedDate = Convert.ToDateTime("2010-01-01 00:00:00");
             this.DatePicker_End.SelectedDate = Convert.ToDateTime("2024-01-01 00:00:00");
+            InitializeDataGrid();
+        }
+
+        private void ComboBox_Staff_DropDownClosed(object sender, EventArgs e)
+        {
             InitializeDataGrid();
         }
     }
