@@ -45,7 +45,8 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                        + " LEFT JOIN T_UserInfo_Processors c ON a.ProcessorsID=c.GUID                "
                        + " WHERE                                                                     "
                        + "	OrderType = '" + OrderType + "'                                          "
-                       + sql_WhereParm;
+                       + sql_WhereParm
+                       + " Order By a.Date";
             DataSet ds = new DataSet();
             flag = new Helper.SQLite.DBHelper().QueryData(sql, out ds);
             if (flag)
