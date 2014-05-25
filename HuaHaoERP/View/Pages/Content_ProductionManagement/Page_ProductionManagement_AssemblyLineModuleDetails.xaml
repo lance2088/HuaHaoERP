@@ -19,13 +19,15 @@
                 <DataGridTextColumn Header="员工" Binding="{Binding StaffName}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="Button_Cancel" Content="&lt;" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="30" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Height="30" Padding="0" IsCancel="True" Click="Button_Cancel_Click"/>
+        <Button x:Name="Button_Cancel" Content="&lt;" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="30" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="30" Padding="0" IsCancel="True" Click="Button_Cancel_Click" Foreground="White" FontWeight="Bold" FontSize="16"/>
         <Label Content="返回" HorizontalAlignment="Left" Margin="45,10,0,0" VerticalAlignment="Top" Height="30" VerticalContentAlignment="Center" FontSize="16" FontWeight="Bold"/>
-        <ComboBox x:Name="ComboBox_Product" HorizontalAlignment="Right" Margin="0,10,162,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center"/>
-        <DatePicker x:Name="DatePicker_Start" HorizontalAlignment="Right" Margin="0,48,162,0" VerticalAlignment="Top" Width="120"/>
-        <DatePicker x:Name="DatePicker_End" HorizontalAlignment="Right" Margin="0,48,10,0" VerticalAlignment="Top" Width="120"/>
-        <Label Content="至" HorizontalAlignment="Right" Margin="0,48,135,0" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center"/>
+        <ComboBox x:Name="ComboBox_Product" HorizontalAlignment="Right" Margin="0,10,152,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center" DropDownClosed="ComboBox_Product_DropDownClosed"/>
+        <DatePicker x:Name="DatePicker_Start" HorizontalAlignment="Right" Margin="0,48,152,0" VerticalAlignment="Top" Width="120" CalendarClosed="DatePicker_Start_CalendarClosed"/>
+        <DatePicker x:Name="DatePicker_End" HorizontalAlignment="Right" Margin="0,48,10,0" VerticalAlignment="Top" Width="120" CalendarClosed="DatePicker_End_CalendarClosed"/>
+        <Label Content="至" HorizontalAlignment="Right" Margin="0,48,130,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="ComboBox_Process" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center" DropDownClosed="ComboBox_Process_DropDownClosed"/>
+        <Button x:Name="Button_Today" Content="当日" HorizontalAlignment="Right" Margin="0,48,332,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Height="24" Click="Button_Today_Click"/>
+        <Button x:Name="Button_AllDate" Content="全部" HorizontalAlignment="Right" Margin="0,48,277,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Height="24" Click="Button_AllDate_Click" ToolTip="2014-2024年"/>
 
     </Grid>
 </Page>

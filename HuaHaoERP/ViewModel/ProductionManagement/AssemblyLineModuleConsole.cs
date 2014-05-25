@@ -114,13 +114,23 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
             }
         }
 
-        internal void ReadDetials(out List<Model.ProductionManagement.AssemblyLineDetailsModel> data)
+        internal void ReadDetials(Guid ProductID,string Process, DateTime Start, DateTime End, out List<Model.ProductionManagement.AssemblyLineDetailsModel> data)
         {
+            string sql_Where = " Where a.Date Between '" + Start.ToString("yyyy-MM-dd HH:mm:ss") + "' AND '" + End.ToString("yyyy-MM-dd HH:mm:ss") + "' ";
+            if(ProductID != new Guid())
+            {
+                sql_Where += " AND a.ProductID='" + ProductID + "' ";
+            }
+            if (Process != "全部工序")
+            {
+                sql_Where += " AND a.Process='" + Process + "' ";
+            }
             data = new List<Model.ProductionManagement.AssemblyLineDetailsModel>();
             string sql = " Select a.*,b.Name as StaffName,c.Name as ProductName "
-                       + " from T_PM_ProductionSchedule a"
-                       + " Left join T_UserInfo_Staff b ON a.StaffID=b.GUID"
-                       + " Left join T_ProductInfo_Product c ON a.ProductID=c.GUID";
+                       + " from T_PM_ProductionSchedule a "
+                       + " Left join T_UserInfo_Staff b ON a.StaffID=b.GUID "
+                       + " Left join T_ProductInfo_Product c ON a.ProductID=c.GUID "
+                       + sql_Where;
             DataSet ds = new DataSet();
             new Helper.SQLite.DBHelper().QueryData(sql, out ds);
             int id = 1;

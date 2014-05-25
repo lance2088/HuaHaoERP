@@ -21,5 +21,19 @@ namespace HuaHaoERP.Helper.DataDefinition
                 return ProcessList; 
             }
         }
+        public static List<string> ProcessListWithAll
+        {
+            get
+            {
+                List<string> ProcessList = new List<string>();
+                ProcessList.Add("全部工序");
+                ProcessList.Add("冲版");
+                ProcessList.Add("拉伸");
+                ProcessList.Add("冲孔");
+                ProcessList.Add("卷边");
+                ProcessList.Add("抛光");
+                return ProcessList;
+            }
+        }
     }
 }
