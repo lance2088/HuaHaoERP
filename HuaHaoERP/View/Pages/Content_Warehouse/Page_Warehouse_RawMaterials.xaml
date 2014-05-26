@@ -16,7 +16,6 @@
                   BorderThickness="1" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}"
                   BorderBrush="#FF99CCFF" BeginningEdit="DataGrid_RawMaterials_BeginningEdit" CellEditEnding="DataGrid_RawMaterials_CellEditEnding" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" Grid.ColumnSpan="2" PreviewKeyDown="DataGrid_RawMaterials_PreviewKeyDown">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="序号" Binding="{Binding Id}" IsReadOnly="True" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" />
                 <DataGridTextColumn Header="原材料编号" Selector.IsSelected="True" MinWidth="100" Binding="{Binding Number}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" />
                 <DataGridTextColumn Header="原材料名称" IsReadOnly="True"  MinWidth="100" Binding="{Binding Name}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" />
                 <DataGridTextColumn Header="数量" MinWidth="100" Binding="{Binding Number}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>

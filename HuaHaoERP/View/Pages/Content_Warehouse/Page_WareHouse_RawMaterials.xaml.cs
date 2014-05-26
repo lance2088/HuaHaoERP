@@ -25,12 +25,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         {
             InitializeComponent();
             DataGrid_RawMaterials.LoadingRow += new EventHandler<DataGridRowEventArgs>(DataGrid_RawMaterials_LoadingRow);
-            rawMaterials = new List<RawMaterialsDetailModel>()
-            {
-                new RawMaterialsDetailModel{
-                    Id = 1
-                }
-            };
+            rawMaterials = new List<RawMaterialsDetailModel>(20);
             DataGrid_RawMaterials.ItemsSource = rawMaterials;
         }
 
@@ -99,9 +94,9 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             {
                 if (headerValue.Equals("原材料编号"))
                 {
-                    (DataGrid_RawMaterials.Columns[2].GetCellContent(DataGrid_RawMaterials.Items[e.Row.GetIndex()]) as TextBlock).Text = "222";
-                    (DataGrid_RawMaterials.Columns[4].GetCellContent(DataGrid_RawMaterials.Items[e.Row.GetIndex()]) as TextBlock).Text = DateTime.Now.ToString("yyyy.MM.dd");
-                    (DataGrid_RawMaterials.Columns[5].GetCellContent(DataGrid_RawMaterials.Items[e.Row.GetIndex()]) as TextBlock).Text = Helper.DataDefinition.CommonParameters.LoginUserName;
+                    (DataGrid_RawMaterials.Columns[1].GetCellContent(DataGrid_RawMaterials.Items[e.Row.GetIndex()]) as TextBlock).Text = "222";
+                    (DataGrid_RawMaterials.Columns[3].GetCellContent(DataGrid_RawMaterials.Items[e.Row.GetIndex()]) as TextBlock).Text = DateTime.Now.ToString("yyyy.MM.dd");
+                    (DataGrid_RawMaterials.Columns[4].GetCellContent(DataGrid_RawMaterials.Items[e.Row.GetIndex()]) as TextBlock).Text = Helper.DataDefinition.CommonParameters.LoginUserName;
                 }
             }
         }
@@ -110,8 +105,11 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         {
             if (e.Key == Key.Enter)
             {
-                (DataGrid_RawMaterials.Columns[0].GetCellContent(DataGrid_RawMaterials.Items[rowid]) as TextBlock).Text = "" + (rowid + 1);
-                (DataGrid_RawMaterials.Columns[0].GetCellContent(DataGrid_RawMaterials.Items[rowid]) as TextBlock).Focus();
+                (DataGrid_RawMaterials.Columns[1].GetCellContent(DataGrid_RawMaterials.Items[rowid]) as TextBlock).Focus();
+            }
+            if (e.Key == Key.Tab)
+            {
+
             }
         }
     }
