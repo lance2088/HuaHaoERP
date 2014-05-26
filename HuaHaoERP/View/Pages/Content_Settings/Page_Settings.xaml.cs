@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using HuaHaoERP.Helper.Tools;
+using HuaHaoERP.ViewModel.Settings;
 
 namespace HuaHaoERP.View.Pages.Content_Settings
 {
@@ -24,21 +25,37 @@ namespace HuaHaoERP.View.Pages.Content_Settings
 
         private void Button_ChangePassword_Click(object sender, RoutedEventArgs e)
         {
+            bool Check = true;
             string PasswordOld = TranslatePassword.TranslateToString(this.PasswordBox_Old.SecurePassword);
             string PasswordNew = TranslatePassword.TranslateToString(this.PasswordBox_New.SecurePassword);
             string PasswordNewRepeat = TranslatePassword.TranslateToString(this.PasswordBox_NewRepeat.SecurePassword);
-            if(new ViewModel.Settings.ChangePasswordConsole().CheckPassword(Helper.DataDefinition.CommonParameters.LoginUserName, PasswordOld))
+            if(!new ChangePasswordConsole().CheckPassword(Helper.DataDefinition.CommonParameters.LoginUserName, PasswordOld))
             {
-
+                this.Label_WrongPassword.Visibility = System.Windows.Visibility.Visible;
+                this.PasswordBox_Old.Clear();
+                this.PasswordBox_Old.Focus();
+                Check = false;
             }
-            else if(PasswordNew != PasswordNewRepeat)
+            if (PasswordNew != PasswordNewRepeat || PasswordNew.Length == 0)
             {
-
+                this.Label_NewPasswordNotTheSame.Visibility = System.Windows.Visibility.Visible;
+                Check = false;
             }
-            else
+            if(Check)
             {
-
+                if(new ChangePasswordConsole().ChangePassword(Helper.DataDefinition.CommonParameters.LoginUserName, PasswordNew))
+                {
+                    this.PasswordBox_Old.Clear();
+                    this.PasswordBox_New.Clear();
+                    this.PasswordBox_NewRepeat.Clear();
+                    this.Label_ChangePasswordSuccess.Visibility = System.Windows.Visibility.Visible;
+                }
             }
+        }
+
+        private void Label_MouseLeave(object sender, MouseEventArgs e)
+        {
+            (sender as Label).Visibility = System.Windows.Visibility.Hidden;
         }
     }
 }

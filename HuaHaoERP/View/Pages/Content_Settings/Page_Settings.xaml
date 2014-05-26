@@ -28,8 +28,9 @@
                                 <Label Content="旧密码" HorizontalAlignment="Left" Margin="40,20,0,0" VerticalAlignment="Top"/>
                                 <Label Content="新密码" HorizontalAlignment="Left" Margin="40,60,0,0" VerticalAlignment="Top"/>
                                 <Label Content="确认新密码" HorizontalAlignment="Left" Margin="40,100,0,0" VerticalAlignment="Top"/>
-                                <Label x:Name="Label_WrongPassword" Content="密码错误" HorizontalAlignment="Left" Margin="240,20,0,0" VerticalAlignment="Top" Foreground="Red"/>
-                                <Label x:Name="Label_NewPasswordNotTheSame" Content="新密码不一致" HorizontalAlignment="Left" Margin="240,100,0,0" VerticalAlignment="Top" Foreground="Red"/>
+                                <Label x:Name="Label_WrongPassword" Content="密码错误" HorizontalAlignment="Left" Margin="240,20,0,0" VerticalAlignment="Top" Foreground="Red" Visibility="Hidden" MouseLeave="Label_MouseLeave"/>
+                                <Label x:Name="Label_NewPasswordNotTheSame" Content="新密码不一致，（密码不能为空）" HorizontalAlignment="Left" Margin="240,100,0,0" VerticalAlignment="Top" Foreground="Red" MouseLeave="Label_MouseLeave" Visibility="Hidden"/>
+                                <Label x:Name="Label_ChangePasswordSuccess" Content="修改密码成功，请妥善保管新密码。" HorizontalAlignment="Left" Margin="240,145,0,0" VerticalAlignment="Top" Foreground="Green" Visibility="Hidden"/>
                             </Grid>
                         </Expander>
                         <Expander Header="数据安全">
