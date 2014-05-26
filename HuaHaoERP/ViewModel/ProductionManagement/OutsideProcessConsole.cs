@@ -18,6 +18,14 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
             return flag;
         }
 
+        internal bool Delete(Guid guid)
+        {
+            bool flag = false;
+            string sql = "Delete From T_PM_ProcessSchedule Where GUID='" + guid + "'";
+            flag = new Helper.SQLite.DBHelper().SingleExecution(sql);
+            return flag;
+        }
+
         internal bool ReadList(string OrderType, DateTime Start, DateTime End, Guid ProductID, Guid ProcessorsID, out List<ProductionManagement_OutsideProcessModel> data, out string strCount)
         {
             strCount = "";

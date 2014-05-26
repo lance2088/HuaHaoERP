@@ -184,5 +184,25 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         {
             Helper.Events.PopUpEvent.OnShowPopUp(new Page_ProductionManagement_AssemblyLineModuleDetails());
         }
+
+        private void MenuItem_dgmenu1_Del_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.DataGrid_ProcessOut.SelectedCells.Count > 0)
+            {
+                Model.ProductionManagement_OutsideProcessModel d = this.DataGrid_ProcessOut.SelectedCells[0].Item as Model.ProductionManagement_OutsideProcessModel;
+                new ViewModel.ProductionManagement.OutsideProcessConsole().Delete(d.Guid);
+                InitializeOutsideProcessDataGrid();
+            }
+        }
+
+        private void MenuItem_dgmenu2_Del_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.DataGrid_ProcessIn.SelectedCells.Count > 0)
+            {
+                Model.ProductionManagement_OutsideProcessModel d = this.DataGrid_ProcessIn.SelectedCells[0].Item as Model.ProductionManagement_OutsideProcessModel;
+                new ViewModel.ProductionManagement.OutsideProcessConsole().Delete(d.Guid);
+                InitializeOutsideProcessDataGrid();
+            }
+        }
     }
 }
