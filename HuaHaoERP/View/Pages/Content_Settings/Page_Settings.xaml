@@ -14,8 +14,8 @@
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="安全设置" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="17,0,-17,0" Foreground="White">
                 <Grid Background="White">
-                    <StackPanel Margin="10" Background="White">
-                        <Expander Header="用户安全">
+                    <StackPanel x:Name="StackPanel_SecuritySettings" Margin="10" Background="White">
+                        <Expander x:Name="Expander_SecuritySettings_User" Header="用户安全" Expanded="ExpanderSecuritySettings_Expanded">
                             <Grid Background="White">
                                 <GroupBox Header="修改密码" HorizontalAlignment="Left" Margin="10,10,0,10" Width="239" VerticalAlignment="Top" Height="217">
                                     <Grid>
@@ -32,7 +32,7 @@
                                 <GroupBox Header="添加用户" Margin="254,10,10,0" VerticalAlignment="Top" Height="217"/>
                             </Grid>
                         </Expander>
-                        <Expander Header="数据安全" IsExpanded="True">
+                        <Expander x:Name="Expander_SecuritySettings_DB" Header="数据安全" Expanded="ExpanderSecuritySettings_Expanded">
                             <Grid Background="White">
                                 <GroupBox Header="数据库安全" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="101" Width="151">
                                     <Grid>

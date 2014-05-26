@@ -62,5 +62,20 @@ namespace HuaHaoERP.View.Pages.Content_Settings
         {
 
         }
+
+        private void ExpanderSecuritySettings_Expanded(object sender, RoutedEventArgs e)
+        {
+            if (this.IsLoaded)
+            {
+                Expander ep = sender as Expander;
+                foreach(Expander epd in this.StackPanel_SecuritySettings.Children)
+                {
+                    if(epd != ep)
+                    {
+                        epd.IsExpanded = false;
+                    }
+                }
+            }
+        }
     }
 }
