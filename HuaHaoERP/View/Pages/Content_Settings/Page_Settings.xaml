@@ -23,14 +23,13 @@
                                 <PasswordBox x:Name="PasswordBox_Old" HorizontalAlignment="Left" Margin="115,20,0,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center"/>
                                 <PasswordBox x:Name="PasswordBox_New" HorizontalAlignment="Left" Margin="115,60,0,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center"/>
                                 <PasswordBox x:Name="PasswordBox_NewRepeat" HorizontalAlignment="Left" Margin="115,100,0,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center"/>
-                                <Button x:Name="Button_ChangePassword" Content="修改" HorizontalAlignment="Left" Margin="59,145,0,0" VerticalAlignment="Top" Width="75" Height="24" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Click="Button_ChangePassword_Click"/>
-                                <Button Content="取消" HorizontalAlignment="Left" Margin="149,145,0,0" VerticalAlignment="Top" Width="75" Height="24" Template="{DynamicResource ButtonControlTemplate_CommonWhite}"/>
+                                <Button x:Name="Button_ChangePassword" Content="修改" HorizontalAlignment="Left" Margin="160,140,0,0" VerticalAlignment="Top" Width="75" Height="24" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Click="Button_ChangePassword_Click"/>
                                 <Label Content="旧密码" HorizontalAlignment="Left" Margin="40,20,0,0" VerticalAlignment="Top"/>
                                 <Label Content="新密码" HorizontalAlignment="Left" Margin="40,60,0,0" VerticalAlignment="Top"/>
                                 <Label Content="确认新密码" HorizontalAlignment="Left" Margin="40,100,0,0" VerticalAlignment="Top"/>
                                 <Label x:Name="Label_WrongPassword" Content="密码错误" HorizontalAlignment="Left" Margin="240,20,0,0" VerticalAlignment="Top" Foreground="Red" Visibility="Hidden" MouseLeave="Label_MouseLeave"/>
                                 <Label x:Name="Label_NewPasswordNotTheSame" Content="新密码不一致，（密码不能为空）" HorizontalAlignment="Left" Margin="240,100,0,0" VerticalAlignment="Top" Foreground="Red" MouseLeave="Label_MouseLeave" Visibility="Hidden"/>
-                                <Label x:Name="Label_ChangePasswordSuccess" Content="修改密码成功，请妥善保管新密码。" HorizontalAlignment="Left" Margin="240,145,0,0" VerticalAlignment="Top" Foreground="Green" Visibility="Hidden"/>
+                                <Label x:Name="Label_ChangePasswordSuccess" Content="修改密码成功，请妥善保管新密码。" HorizontalAlignment="Left" Margin="240,140,0,0" VerticalAlignment="Top" Foreground="Green" Visibility="Hidden"/>
                             </Grid>
                         </Expander>
                         <Expander Header="数据安全">
