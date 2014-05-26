@@ -10,41 +10,48 @@
     <Grid>
         <TabControl Margin="0" BorderThickness="0" Padding="0">
             <TabItem FocusVisualStyle="{x:Null}" Header="综合设置" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="7,0,-7,0" Foreground="White">
-                <Grid Background="#FFF0F0F0"/>
+                <Grid Background="White"/>
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="安全设置" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="17,0,-17,0" Foreground="White">
                 <Grid Background="White">
                     <StackPanel Margin="10" Background="White">
-                        <Expander Header="新增用户">
-                            <Grid Background="#FFE5E5E5" MinHeight="200"/>
-                        </Expander>
-                        <Expander Header="修改密码">
-                            <Grid Background="White" MinHeight="200">
-                                <PasswordBox x:Name="PasswordBox_Old" HorizontalAlignment="Left" Margin="115,20,0,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center"/>
-                                <PasswordBox x:Name="PasswordBox_New" HorizontalAlignment="Left" Margin="115,60,0,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center"/>
-                                <PasswordBox x:Name="PasswordBox_NewRepeat" HorizontalAlignment="Left" Margin="115,100,0,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center"/>
-                                <Button x:Name="Button_ChangePassword" Content="修改" HorizontalAlignment="Left" Margin="160,140,0,0" VerticalAlignment="Top" Width="75" Height="24" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Click="Button_ChangePassword_Click"/>
-                                <Label Content="旧密码" HorizontalAlignment="Left" Margin="40,20,0,0" VerticalAlignment="Top"/>
-                                <Label Content="新密码" HorizontalAlignment="Left" Margin="40,60,0,0" VerticalAlignment="Top"/>
-                                <Label Content="确认新密码" HorizontalAlignment="Left" Margin="40,100,0,0" VerticalAlignment="Top"/>
-                                <Label x:Name="Label_WrongPassword" Content="密码错误" HorizontalAlignment="Left" Margin="240,20,0,0" VerticalAlignment="Top" Foreground="Red" Visibility="Hidden" MouseLeave="Label_MouseLeave"/>
-                                <Label x:Name="Label_NewPasswordNotTheSame" Content="新密码不一致，（密码不能为空）" HorizontalAlignment="Left" Margin="240,100,0,0" VerticalAlignment="Top" Foreground="Red" MouseLeave="Label_MouseLeave" Visibility="Hidden"/>
-                                <Label x:Name="Label_ChangePasswordSuccess" Content="修改密码成功，请妥善保管新密码。" HorizontalAlignment="Left" Margin="240,140,0,0" VerticalAlignment="Top" Foreground="Green" Visibility="Hidden"/>
+                        <Expander Header="用户安全">
+                            <Grid Background="White">
+                                <GroupBox Header="修改密码" HorizontalAlignment="Left" Margin="10,10,0,10" Width="239" VerticalAlignment="Top" Height="217">
+                                    <Grid>
+                                        <PasswordBox x:Name="PasswordBox_Old" HorizontalAlignment="Left" Margin="86,10,0,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center"/>
+                                        <PasswordBox x:Name="PasswordBox_New" HorizontalAlignment="Left" Margin="86,50,0,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center"/>
+                                        <PasswordBox x:Name="PasswordBox_NewRepeat" HorizontalAlignment="Left" Margin="86,90,0,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center"/>
+                                        <Button x:Name="Button_ChangePassword" Content="修改" HorizontalAlignment="Left" Margin="131,130,0,0" VerticalAlignment="Top" Width="75" Height="24" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Click="Button_ChangePassword_Click"/>
+                                        <Label Content="旧密码" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                                        <Label Content="新密码" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top"/>
+                                        <Label Content="确认新密码" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top"/>
+                                        <Label x:Name="Label_Message" Content="提示：密码不能为空" HorizontalAlignment="Left" Margin="10,159,0,0" VerticalAlignment="Top" Width="196" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                                    </Grid>
+                                </GroupBox>
+                                <GroupBox Header="添加用户" Margin="254,10,10,0" VerticalAlignment="Top" Height="217"/>
                             </Grid>
                         </Expander>
-                        <Expander Header="数据安全">
-                            <Grid Background="White" MinHeight="300">
-                                <Button x:Name="Button_EncryptedDB" Content="加密数据库" HorizontalAlignment="Left" Margin="137,68,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_EncryptedDB_Click"/>
+                        <Expander Header="数据安全" IsExpanded="True">
+                            <Grid Background="White">
+                                <GroupBox Header="数据库安全" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="101" Width="151">
+                                    <Grid>
+                                        <Button x:Name="Button_EncryptedDB" Content="加密数据库" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_EncryptedDB_Click"/>
+                                        <Button Content="拷贝无密码数据库" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Width="115" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White"/>
+                                    </Grid>
+                                </GroupBox>
+                                <GroupBox Header="数据备份" Margin="166,10,0,10" VerticalAlignment="Top" Height="180">
+                                    <Grid>
+
+                                    </Grid>
+                                </GroupBox>
                             </Grid>
                         </Expander>
                     </StackPanel>
                 </Grid>
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="关于我们" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="27,0,-27,0" Foreground="White">
-                <Grid Background="#FFF0F0F0">
-                    <Button FocusVisualStyle="{x:Null}" Content="Button" HorizontalAlignment="Left" Margin="487,268,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="135,269,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-                </Grid>
+                <Grid Background="White"/>
             </TabItem>
         </TabControl>
 

@@ -31,14 +31,14 @@ namespace HuaHaoERP.View.Pages.Content_Settings
             string PasswordNewRepeat = TranslatePassword.TranslateToString(this.PasswordBox_NewRepeat.SecurePassword);
             if(!new ChangePasswordConsole().CheckPassword(Helper.DataDefinition.CommonParameters.LoginUserName, PasswordOld))
             {
-                this.Label_WrongPassword.Visibility = System.Windows.Visibility.Visible;
+                this.Label_Message.Content = "错误：原始密码错误";
                 this.PasswordBox_Old.Clear();
                 this.PasswordBox_Old.Focus();
                 Check = false;
             }
             if (PasswordNew != PasswordNewRepeat || PasswordNew.Length == 0)
             {
-                this.Label_NewPasswordNotTheSame.Visibility = System.Windows.Visibility.Visible;
+                this.Label_Message.Content = "错误：新密码不一致";
                 Check = false;
             }
             if(Check)
@@ -48,7 +48,7 @@ namespace HuaHaoERP.View.Pages.Content_Settings
                     this.PasswordBox_Old.Clear();
                     this.PasswordBox_New.Clear();
                     this.PasswordBox_NewRepeat.Clear();
-                    this.Label_ChangePasswordSuccess.Visibility = System.Windows.Visibility.Visible;
+                    this.Label_Message.Content = "修改密码成功，请妥善保管新密码。";
                 }
             }
         }
