@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using HuaHaoERP.ViewModel.Warehouse;
 using HuaHaoERP.Model;
 using System.Data;
+using HuaHaoERP.Helper.Events.UpdateEvent;
 
 namespace HuaHaoERP.View.Pages.Content_Warehouse
 {
@@ -84,6 +85,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                     bool flag = new ViewModel.Warehouse.RawMaterialsConsole().AddByBatch(commitResultList,true);
                     if (flag)
                     {
+                        WarehouseRawMaterialsEvent.OnUpdateDataGrid();
                         Helper.Events.PopUpEvent.OnHidePopUp();
                     }
                 }

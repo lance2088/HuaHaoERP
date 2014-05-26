@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using HuaHaoERP.ViewModel.Warehouse;
 using HuaHaoERP.Model;
 using HuaHaoERP.Helper.Events;
+using HuaHaoERP.Helper.Events.UpdateEvent;
 
 namespace HuaHaoERP.View.Pages.Content_Warehouse
 {
@@ -25,20 +26,25 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         public Page_Warehouse()
         {
             InitializeComponent();
+            SubscribeToEvent();
+            InitializeRawMaterialsDataGrid();
             InitPage();
         }
 
-        private void InitPage()
+        private void InitializeRawMaterialsDataGrid()
         {
-            #region 原材料管理
             List<RawMaterialsDetailModel> rmm = new List<RawMaterialsDetailModel>();
             rmc.ReadList(out rmm);
             DataGrid_RawMaterialsQuantity.ItemsSource = rmm;
-            Console.WriteLine(rmm.Count);
-
             rmc.ReadRecordList(out rmm);
             DataGrid_RawMaterialsRecord.ItemsSource = rmm;
-            #endregion
+        }
+        private void SubscribeToEvent()
+        {
+            WarehouseRawMaterialsEvent.EUpdateDataGrid += (sender, e) => { InitializeRawMaterialsDataGrid(); };
+        }
+        private void InitPage()
+        {
             #region 余料管理
             ComboBox_DropDownOpened(this, null);
             RefreshData_Scrap();

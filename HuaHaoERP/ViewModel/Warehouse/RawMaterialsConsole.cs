@@ -35,7 +35,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
         {
             bool flag = true;
             data = new List<RawMaterialsDetailModel>();
-            string sql = "select b.Number as Code,b.Name as Name,count(1) as Amount from T_Warehouse_RawMaterials a left join T_ProductInfo_RawMaterials b on a.RawMaterialsID = b.GUID group by a.RawMaterialsID";
+            string sql = "select b.Number as Code,b.Name as Name,total(a.Number) as Amount from T_Warehouse_RawMaterials a left join T_ProductInfo_RawMaterials b on a.RawMaterialsID = b.GUID group by a.RawMaterialsID";
             DataSet ds = new DataSet();
             flag = new Helper.SQLite.DBHelper().QueryData(sql, out ds);
             if (flag)
