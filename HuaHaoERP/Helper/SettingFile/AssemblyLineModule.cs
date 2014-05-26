@@ -6,6 +6,9 @@ using System.IO;
 
 namespace HuaHaoERP.Helper.SettingFile
 {
+    /// <summary>
+    /// 记录流水线模块的默认显示产品GUID
+    /// </summary>
     internal class AssemblyLineModule
     {
         private static string SettingFile = AppDomain.CurrentDomain.BaseDirectory + "Data\\AssemblyLineModule.data";

@@ -225,6 +225,7 @@
     <Compile Include="Helper\Excel\Reader.cs" />
     <Compile Include="Helper\LogHelper\FileLog.cs" />
     <Compile Include="Helper\SettingFile\AssemblyLineModule.cs" />
+    <Compile Include="Helper\SettingFile\DatabaseEncryption.cs" />
     <Compile Include="Helper\SQLite\DBHelper.cs" />
     <Compile Include="Helper\Tools\Seniority.cs" />
     <Compile Include="Helper\Tools\TranslatePassword.cs" />
