@@ -57,5 +57,10 @@ namespace HuaHaoERP.View.Pages.Content_Settings
         {
             (sender as Label).Visibility = System.Windows.Visibility.Hidden;
         }
+
+        private void Button_EncryptedDB_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

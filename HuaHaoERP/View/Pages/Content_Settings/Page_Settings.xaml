@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" FontFamily="SimSun" TextOptions.TextFormattingMode="Display"
-      d:DesignHeight="434" d:DesignWidth="730"
+      d:DesignHeight="463" d:DesignWidth="802"
 	Title="Page_Settings">
 
     <Grid>
@@ -33,7 +33,9 @@
                             </Grid>
                         </Expander>
                         <Expander Header="数据安全">
-                            <Grid Background="#FFE5E5E5" MinHeight="200"/>
+                            <Grid Background="White" MinHeight="300">
+                                <Button x:Name="Button_EncryptedDB" Content="加密数据库" HorizontalAlignment="Left" Margin="137,68,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_EncryptedDB_Click"/>
+                            </Grid>
                         </Expander>
                     </StackPanel>
                 </Grid>
