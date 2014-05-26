@@ -59,8 +59,16 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             if (DataGrid_RawMaterialsRecord.SelectedCells.Count != 0)
             {
                 List<RawMaterialsDetailModel> list = new List<RawMaterialsDetailModel>();
-                list = DataGrid_RawMaterialsRecord.SelectedItems as List<RawMaterialsDetailModel>;
-                rmc.AddByBatch(list,false);
+                for (int i = 0; i < DataGrid_RawMaterialsRecord.SelectedItems.Count; i++) 
+                {
+                    RawMaterialsDetailModel m = DataGrid_RawMaterialsRecord.SelectedItems[i] as RawMaterialsDetailModel;
+                    list.Add(m);
+                }
+                bool flag  = rmc.AddByBatch(list,false);
+                if (flag)
+                {
+                    InitializeRawMaterialsDataGrid();
+                }
             }
         }
 
