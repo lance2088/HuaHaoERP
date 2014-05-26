@@ -45,6 +45,7 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             this.TextBox_Name.Text = d.Name;
             this.TextBox_Jobs.Text = d.Jobs;
             this.DatePicker_EntryTime.SelectedDate = Convert.ToDateTime(d.EntryTime);
+            this.TextBox_Seniority.Text = d.Seniority;
             this.TextBox_Contact.Text = d.Contact;
             this.TextBox_IDNumber.Text = d.IDNumber;
             this.TextBox_Remark.Text = d.Remark;
