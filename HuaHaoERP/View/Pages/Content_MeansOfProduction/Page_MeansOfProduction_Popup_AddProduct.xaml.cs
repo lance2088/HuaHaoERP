@@ -57,7 +57,7 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
             this.TextBox_Number.Text = d.Number;
             this.TextBox_Name.Text = d.Name;
             this.TextBox_Material.Text = d.Material;
-            this.TextBox_Type.Text = d.Type;
+            this.ComboBox_Type.Text = d.Type;
             this.TextBox_Specification.Text = d.Specification;
             this.ComboBox_P1.Text = d.P1;
             this.ComboBox_P2.Text = d.P2;
@@ -88,7 +88,7 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
             d.Number = this.TextBox_Number.Text.Trim();
             d.Name = this.TextBox_Name.Text.Trim();
             d.Material = this.TextBox_Material.Text.Trim();
-            d.Type = this.TextBox_Type.Text.Trim();
+            d.Type = this.ComboBox_Type.Text.Trim();
             d.Specification = this.TextBox_Specification.Text.Trim();
             d.P1 = this.ComboBox_P1.Text;
             d.P2 = this.ComboBox_P2.Text;

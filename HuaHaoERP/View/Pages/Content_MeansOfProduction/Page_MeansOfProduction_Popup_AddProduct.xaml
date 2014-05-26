@@ -17,7 +17,12 @@
         <TextBox x:Name="TextBox_Number" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="24" Margin="85,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
         <TextBox x:Name="TextBox_Name" HorizontalAlignment="Left" Height="24" Margin="70,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" Grid.Column="1"/>
         <TextBox x:Name="TextBox_Material" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="24" Margin="85,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="TextBox_Type" HorizontalAlignment="Left" Height="24" Margin="70,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" Grid.Column="1"/>
+        <ComboBox x:Name="ComboBox_Type" Grid.Column="1" HorizontalAlignment="Left" Margin="70,60,0,0" VerticalAlignment="Top" Width="120" Height="24" IsEditable="True" VerticalContentAlignment="Center">
+            <ComboBoxItem Content="鼎盖" IsSelected="True"/>
+            <ComboBoxItem Content="蒸片"/>
+            <ComboBoxItem Content="斗盆"/>
+            <ComboBoxItem Content="大锅"/>
+        </ComboBox>
         <TextBox x:Name="TextBox_Specification" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="24" Margin="85,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
         <ComboBox x:Name="ComboBox_P1" HorizontalAlignment="Left" Margin="85,140,0,0" VerticalAlignment="Top" Width="80" Height="24" VerticalContentAlignment="Center"/>
         <ComboBox x:Name="ComboBox_P2" HorizontalAlignment="Left" Margin="85,180,0,0" VerticalAlignment="Top" Width="80" Height="24" VerticalContentAlignment="Center"/>
@@ -42,6 +47,5 @@
         <Label Content="3" HorizontalAlignment="Left" Margin="64,220,0,0" VerticalAlignment="Top"/>
         <Label Content="6" HorizontalAlignment="Left" Margin="49,220,0,0" VerticalAlignment="Top" Grid.Column="1"/>
         <Label Content="（数字）" Grid.Column="1" HorizontalAlignment="Left" Margin="5,306,0,0" VerticalAlignment="Top" Padding="0,5"/>
-
     </Grid>
 </Page>
