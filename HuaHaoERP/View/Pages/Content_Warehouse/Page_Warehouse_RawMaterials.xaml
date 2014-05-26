@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:sys="clr-namespace:System;assembly=mscorlib"
-      mc:Ignorable="d" 
+      mc:Ignorable="d" FontFamily="SimSun" TextOptions.TextFormattingMode="Display"
       d:DesignHeight="480" d:DesignWidth="840">
 
     <Grid Background="White" Margin="0" HorizontalAlignment="Right" Width="600">
@@ -12,7 +12,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="DataGrid_RawMaterials" AutoGenerateColumns="False" Margin="20,41,0,49" CanUserAddRows="False"
+        <DataGrid x:Name="DataGrid_RawMaterials" AutoGenerateColumns="False" Margin="10,40,10,50" CanUserAddRows="False"
                   BorderThickness="1" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}"
                   BorderBrush="#FF99CCFF" BeginningEdit="DataGrid_RawMaterials_BeginningEdit" CellEditEnding="DataGrid_RawMaterials_CellEditEnding" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" Grid.ColumnSpan="2">
             <DataGrid.Columns>

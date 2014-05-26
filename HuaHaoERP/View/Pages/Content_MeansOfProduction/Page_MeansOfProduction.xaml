@@ -45,11 +45,11 @@
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Guid}" Header="GUID" Visibility="Hidden" ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}"/>
                             <DataGridTextColumn Binding="{Binding Id}" Header="序号" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                            <DataGridTextColumn Binding="{Binding Number}" Header="材料编号" ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}"/>
-                            <DataGridTextColumn Binding="{Binding Name}" Header="材料名称" ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}"/>
-                            <DataGridTextColumn Binding="{Binding Weight}" Header="重量" ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}"/>
-                            <DataGridTextColumn Binding="{Binding Material}" Header="材质" ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}"/>
-                            <DataGridTextColumn Binding="{Binding SupplierName}" Header="供应商" ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}"/>
+                            <DataGridTextColumn Binding="{Binding Number}" Header="材料编号" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Binding="{Binding Name}" Header="材料名称" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Binding="{Binding Weight}" Header="重量" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Binding="{Binding Material}" Header="材质" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Binding="{Binding SupplierName}" Header="供应商" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                             <DataGridTextColumn Binding="{Binding Sp1}" Header="亮麻版" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                             <DataGridTextColumn Binding="{Binding Sp2}" Header="深浅拉" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                             <DataGridTextColumn Binding="{Binding Remark}" Header="备注" ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}"/>
