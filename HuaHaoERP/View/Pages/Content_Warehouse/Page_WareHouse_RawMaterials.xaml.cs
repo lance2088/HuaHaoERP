@@ -89,10 +89,12 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             preValue = (e.Column.GetCellContent(e.Row) as TextBlock).Text;
         }
 
+        int rowid = 0;
         private void DataGrid_RawMaterials_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
             string newValue = (e.EditingElement as TextBox).Text;
             string headerValue = e.Column.Header.ToString();
+            rowid = e.Row.GetIndex() + 1;
             if (!preValue.Equals(newValue))
             {
                 if (headerValue.Equals("原材料编号"))
@@ -102,10 +104,15 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                     (DataGrid_RawMaterials.Columns[5].GetCellContent(DataGrid_RawMaterials.Items[e.Row.GetIndex()]) as TextBlock).Text = Helper.DataDefinition.CommonParameters.LoginUserName;
                 }
             }
-            //if (headerValue.Equals("备注"))
-            //{
-            //    (DataGrid_RawMaterials.Columns[0].GetCellContent(DataGrid_RawMaterials.Items[e.Row.GetIndex() + 1]) as TextBlock).Text = "" + (e.Row.GetIndex() + 2);
-            //}    
+        }
+
+        private void DataGrid_RawMaterials_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                (DataGrid_RawMaterials.Columns[0].GetCellContent(DataGrid_RawMaterials.Items[rowid]) as TextBlock).Text = "" + (rowid + 1);
+                (DataGrid_RawMaterials.Columns[0].GetCellContent(DataGrid_RawMaterials.Items[rowid]) as TextBlock).Focus();
+            }
         }
     }
 }
