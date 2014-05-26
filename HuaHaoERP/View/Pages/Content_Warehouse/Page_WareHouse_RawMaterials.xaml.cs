@@ -24,6 +24,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         public Page_Warehouse_RawMaterials()
         {
             InitializeComponent();
+            DataGrid_RawMaterials.LoadingRow += new EventHandler<DataGridRowEventArgs>(DataGrid_RawMaterials_LoadingRow);
             rawMaterials = new List<RawMaterialsDetailModel>()
             {
                 new RawMaterialsDetailModel{
@@ -31,6 +32,11 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                 }
             };
             DataGrid_RawMaterials.ItemsSource = rawMaterials;
+        }
+
+        private void DataGrid_RawMaterials_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            e.Row.Header = e.Row.GetIndex() + 1;
         }
         private bool Validate()
         {
@@ -86,18 +92,20 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         private void DataGrid_RawMaterials_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
             string newValue = (e.EditingElement as TextBox).Text;
+            string headerValue = e.Column.Header.ToString();
             if (!preValue.Equals(newValue))
             {
-                if (e.Column.Header.ToString().Equals("原材料编号"))
+                if (headerValue.Equals("原材料编号"))
                 {
-                    List<RawMaterialsDetailModel> dr = DataGrid_RawMaterials.ItemsSource as List<RawMaterialsDetailModel>;
-                    
-                }
-                else
-                {
-                    Console.WriteLine("BB");
+                    (DataGrid_RawMaterials.Columns[2].GetCellContent(DataGrid_RawMaterials.Items[e.Row.GetIndex()]) as TextBlock).Text = "222";
+                    (DataGrid_RawMaterials.Columns[4].GetCellContent(DataGrid_RawMaterials.Items[e.Row.GetIndex()]) as TextBlock).Text = DateTime.Now.ToString("yyyy.MM.dd");
+                    (DataGrid_RawMaterials.Columns[5].GetCellContent(DataGrid_RawMaterials.Items[e.Row.GetIndex()]) as TextBlock).Text = Helper.DataDefinition.CommonParameters.LoginUserName;
                 }
             }
+            //if (headerValue.Equals("备注"))
+            //{
+            //    (DataGrid_RawMaterials.Columns[0].GetCellContent(DataGrid_RawMaterials.Items[e.Row.GetIndex() + 1]) as TextBlock).Text = "" + (e.Row.GetIndex() + 2);
+            //}    
         }
     }
 }

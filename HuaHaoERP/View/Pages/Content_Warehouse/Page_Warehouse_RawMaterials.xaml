@@ -16,11 +16,11 @@
                   BorderThickness="1" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}"
                   BorderBrush="#FF99CCFF" BeginningEdit="DataGrid_RawMaterials_BeginningEdit" CellEditEnding="DataGrid_RawMaterials_CellEditEnding" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" Grid.ColumnSpan="2">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="序号" Binding="{Binding Id}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" />
+                <DataGridTextColumn Header="序号" Binding="{Binding Id}" IsReadOnly="True" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" />
                 <DataGridTextColumn Header="原材料编号" MinWidth="100" Binding="{Binding Number}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" />
                 <DataGridTextColumn Header="原材料名称" IsReadOnly="True"  MinWidth="100" Binding="{Binding Name}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" />
                 <DataGridTextColumn Header="数量" MinWidth="100" Binding="{Binding Number}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                <DataGridTextColumn Header="日期" MinWidth="80" Binding="{Binding Date}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" />
+                <DataGridTextColumn Header="日期" MinWidth="80" IsReadOnly="True" Binding="{Binding Date}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" />
                 <DataGridTextColumn Header="操作员" MinWidth="80" IsReadOnly="True" Binding="{Binding Operator}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" />
                 <DataGridTextColumn Header="备注" Width="Auto" Binding="{Binding Remark}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" />
             </DataGrid.Columns>
