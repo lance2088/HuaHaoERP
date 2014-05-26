@@ -26,6 +26,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         public Page_Warehouse()
         {
             InitializeComponent();
+            this.Grid_Packing.Visibility = System.Windows.Visibility.Hidden;
             SubscribeToEvent();
             InitializeRawMaterialsDataGrid();
             InitPage();
