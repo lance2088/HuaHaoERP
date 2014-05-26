@@ -182,5 +182,15 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                 e.Handled = true;
             }
         }
+
+        private void Button_Packing_Click(object sender, RoutedEventArgs e)
+        {
+            this.Grid_Packing.Visibility = System.Windows.Visibility.Visible;
+        }
+
+        private void Button_ClosePacking_Click(object sender, RoutedEventArgs e)
+        {
+            this.Grid_Packing.Visibility = System.Windows.Visibility.Collapsed;
+        }
     }
 }
