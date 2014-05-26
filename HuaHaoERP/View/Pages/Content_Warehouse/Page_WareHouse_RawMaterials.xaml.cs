@@ -49,14 +49,14 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             list = DataGrid_RawMaterials.ItemsSource as List<RawMaterialsDetailModel>;
             foreach (RawMaterialsDetailModel m in list)
             {
-                if (string.IsNullOrEmpty(m.RawMaterialsID))
+                if (string.IsNullOrEmpty(m.Code))
                 {
                     //MessageBox.Show("第" + m.Id + "行原材料编号为空！");
                     //return false;
                 }
                 else
                 {
-                    if (!vmc.IsRawMaterialsIDExist(m.RawMaterialsID))
+                    if (!vmc.IsCodeExist(m.Code))
                     {
                         MessageBox.Show("第" + m.Id + "行原材料编号不存在系统中，请检查！");
                         return false;
@@ -68,6 +68,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                     }
                     else
                     {
+                        m.RawMaterialsID = vmc.GetGuid(m.Code);
                         commitResultList.Add(m);
                     }
                 }

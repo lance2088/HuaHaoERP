@@ -221,6 +221,7 @@
     <Compile Include="Helper\Events\ProductionManagement\AssemblyLineEvent.cs" />
     <Compile Include="Helper\Events\ProductionManagement\AssemblyLineEventArgs.cs" />
     <Compile Include="Helper\Events\UpdateEvent\ProductOrderEvent.cs" />
+    <Compile Include="Helper\Events\UpdateEvent\WarehouseRawMaterialsEvent.cs" />
     <Compile Include="Helper\Excel\Reader.cs" />
     <Compile Include="Helper\LogHelper\FileLog.cs" />
     <Compile Include="Helper\SettingFile\AssemblyLineModule.cs" />

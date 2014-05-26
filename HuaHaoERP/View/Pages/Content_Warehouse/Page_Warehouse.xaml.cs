@@ -34,6 +34,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             List<RawMaterialsDetailModel> rmm = new List<RawMaterialsDetailModel>();
             rmc.ReadList(out rmm);
             DataGrid_RawMaterialsQuantity.ItemsSource = rmm;
+            Console.WriteLine(rmm.Count);
 
             rmc.ReadRecordList(out rmm);
             DataGrid_RawMaterialsRecord.ItemsSource = rmm;

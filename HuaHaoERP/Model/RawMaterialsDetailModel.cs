@@ -36,9 +36,9 @@ namespace HuaHaoERP.Model
             get { return name; }
             set { name = value; }
         }
-        private string rawMaterialsID;
+        private Guid rawMaterialsID;
 
-        public string RawMaterialsID
+        public Guid RawMaterialsID
         {
             get { return rawMaterialsID; }
             set { rawMaterialsID = value; }
@@ -81,6 +81,14 @@ namespace HuaHaoERP.Model
         {
             get { return amount; }
             set { amount = value; }
+        }
+
+        private string code;
+
+        public string Code
+        {
+            get { return code; }
+            set { code = value; }
         }
     }
 }

@@ -24,9 +24,9 @@ namespace HuaHaoERP.ViewModel.Warehouse
             return new Helper.SQLite.DBHelper().Transaction(sqlList);
         }
 
-        internal bool IsRawMaterialsIDExist(string rawMateriasID)
+        internal bool IsCodeExist(string Code)
         {
-            string sql = "select count(1) from T_ProductInfo_RawMaterials where number='" + rawMateriasID + "'";
+            string sql = "select count(1) from T_ProductInfo_RawMaterials where number='" + Code + "'";
             object result = new object();
             new Helper.SQLite.DBHelper().QuerySingleResult(sql, out result);
             return result.ToString().Equals("0") ? false : true;
@@ -35,7 +35,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
         {
             bool flag = true;
             data = new List<RawMaterialsDetailModel>();
-            string sql = "select a.RawMaterialsID as RawMaterialsID,b.Name as Name,count(1) as Amount from T_Warehouse_RawMaterials a left join T_ProductInfo_RawMaterials b on a.RawMaterialsID = b.Number group by RawMaterialsID";
+            string sql = "select b.Number as Code,b.Name as Name,count(1) as Amount from T_Warehouse_RawMaterials a left join T_ProductInfo_RawMaterials b on a.RawMaterialsID = b.GUID group by a.RawMaterialsID";
             DataSet ds = new DataSet();
             flag = new Helper.SQLite.DBHelper().QueryData(sql, out ds);
             if (flag)
@@ -46,7 +46,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
                     RawMaterialsDetailModel d = new RawMaterialsDetailModel();
                     d.Id = id;
                     id++;
-                    d.RawMaterialsID = dr["RawMaterialsID"].ToString();
+                    d.Code = dr["Code"].ToString();
                     d.Name = dr["Name"].ToString();
                     d.Amount = dr["Amount"].ToString();
                     data.Add(d);
@@ -59,7 +59,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
         {
             bool flag = true;
             data = new List<RawMaterialsDetailModel>();
-            string sql = "select a.Guid as Guid,a.RawMaterialsID as RawMaterialsID,b.Name as Name,strftime(a.Date) as Date,a.Operator as Operator,a.Number as Number,a.Remark as Remark from T_Warehouse_RawMaterials a left join T_ProductInfo_RawMaterials b on a.RawMaterialsID = b.Number order by a.Date desc";
+            string sql = "select a.Guid as Guid,a.RawMaterialsID as RawMaterialsID,b.Name as Name,strftime(a.Date) as Date,a.Operator as Operator,a.Number as Number,a.Remark as Remark from T_Warehouse_RawMaterials a left join T_ProductInfo_RawMaterials b on a.RawMaterialsID = b.Guid order by a.Date desc";
             DataSet ds = new DataSet();
             flag = new Helper.SQLite.DBHelper().QueryData(sql, out ds);
             if (flag)
@@ -71,7 +71,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
                     d.Id = id;
                     id++;
                     d.Guid = Guid.Parse(dr["Guid"].ToString());
-                    d.RawMaterialsID = dr["RawMaterialsID"].ToString();
+                    d.RawMaterialsID = Guid.Parse(dr["RawMaterialsID"].ToString());
                     d.Date = dr["Date"].ToString();
                     decimal dd = 0;
                     decimal.TryParse(dr["Number"].ToString(), out dd);
@@ -91,6 +91,13 @@ namespace HuaHaoERP.ViewModel.Warehouse
             object obj = new object();
             new Helper.SQLite.DBHelper().QuerySingleResult(sql, out obj);
             return obj.ToString();
+        }
+        internal Guid GetGuid(string number)
+        {
+            string sql = "select Guid From T_ProductInfo_RawMaterials Where Number='" + number + "' and DeleteMark is null order by AddTime";
+            object obj = new object();
+            new Helper.SQLite.DBHelper().QuerySingleResult(sql, out obj);
+            return Guid.Parse(obj.ToString());
         }
     }
 }
