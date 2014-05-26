@@ -112,8 +112,12 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             {
                 if (headerValue.Equals("原材料编号"))
                 {
-                    (DataGrid_RawMaterials.Columns[2].GetCellContent(DataGrid_RawMaterials.Items[e.Row.GetIndex()]) as TextBlock).Text = vmc.GetName(newValue);
-                    
+                    string result = vmc.GetName(newValue);
+                    if (result.Equals(new object().ToString()))
+                    {
+                        result = "";
+                    }
+                    (DataGrid_RawMaterials.Columns[2].GetCellContent(DataGrid_RawMaterials.Items[e.Row.GetIndex()]) as TextBlock).Text = result;
                 }
             }
         }
