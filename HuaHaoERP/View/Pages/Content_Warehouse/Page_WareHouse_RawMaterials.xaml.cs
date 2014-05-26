@@ -31,6 +31,8 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             {
                 RawMaterialsDetailModel m = new RawMaterialsDetailModel();
                 m.Id = i+1;
+                m.Date = DateTime.Now.ToString("yyyy.MM.dd");
+                m.Operator = Helper.DataDefinition.CommonParameters.LoginUserName;
                 rawMaterials.Add(m);
             }
             DataGrid_RawMaterials.ItemsSource = rawMaterials;
@@ -49,8 +51,8 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             {
                 if (string.IsNullOrEmpty(m.RawMaterialsID))
                 {
-                    MessageBox.Show("第" + m.Id + "行原材料编号为空！");
-                    return false;
+                    //MessageBox.Show("第" + m.Id + "行原材料编号为空！");
+                    //return false;
                 }
                 else
                 {
@@ -78,7 +80,11 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             {
                 if (commitResultList.Count != 0)
                 {
-                    new ViewModel.Warehouse.RawMaterialsConsole().AddByBatch(commitResultList,true);
+                    bool flag = new ViewModel.Warehouse.RawMaterialsConsole().AddByBatch(commitResultList,true);
+                    if (flag)
+                    {
+                        Helper.Events.PopUpEvent.OnHidePopUp();
+                    }
                 }
             }
         }
@@ -104,8 +110,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                 if (headerValue.Equals("原材料编号"))
                 {
                     (DataGrid_RawMaterials.Columns[2].GetCellContent(DataGrid_RawMaterials.Items[e.Row.GetIndex()]) as TextBlock).Text = vmc.GetName(newValue);
-                    (DataGrid_RawMaterials.Columns[4].GetCellContent(DataGrid_RawMaterials.Items[e.Row.GetIndex()]) as TextBlock).Text = DateTime.Now.ToString("yyyy.MM.dd");
-                    (DataGrid_RawMaterials.Columns[5].GetCellContent(DataGrid_RawMaterials.Items[e.Row.GetIndex()]) as TextBlock).Text = Helper.DataDefinition.CommonParameters.LoginUserName;
+                    
                 }
             }
         }

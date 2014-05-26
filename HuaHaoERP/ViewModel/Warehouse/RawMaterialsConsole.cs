@@ -15,8 +15,9 @@ namespace HuaHaoERP.ViewModel.Warehouse
             string tag = bol?"":"-";
             foreach (RawMaterialsDetailModel d in list)
             {
+                Console.WriteLine(d.Operator);
                 string sql = "Insert into T_Warehouse_RawMaterials(Guid,RawMaterialsID,Date,Operator,Number,Remark) "
-                        + "values('" + Guid.NewGuid() + "','" + d.RawMaterialsID + "','" + d.Date + "','" + d.Operator + "','" + tag + d.Number + "','" + d.Remark + "')";
+                        + "values('" + Guid.NewGuid() + "','" + d.RawMaterialsID + "','" + DateTime.Parse(d.Date).ToString("yyyy-MM-dd") + " " + DateTime.Now.ToString("T") + "','" + d.Operator + "','" + tag + d.Number + "','" + d.Remark + "')";
                 sqlList.Add(sql);
                
             }
@@ -86,7 +87,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
 
         internal string GetName(string number)
         {
-            string sql = "select Name From T_ProductInfo_RawMaterials Where Nubmer='" + number + " and DeleteMark is null order by AddTime";
+            string sql = "select Name From T_ProductInfo_RawMaterials Where Number='" + number + "' and DeleteMark is null order by AddTime";
             object obj = new object();
             new Helper.SQLite.DBHelper().QuerySingleResult(sql, out obj);
             return obj.ToString();
