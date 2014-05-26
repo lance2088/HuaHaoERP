@@ -19,19 +19,20 @@
                         </DataGrid.Resources>
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Guid}" Header="GUID" Visibility="Hidden"/>
-                            <DataGridTextColumn Binding="{Binding Id}" Header="序号"/>
-                            <DataGridTextColumn Binding="{Binding Number}" Header="产品编号"/>
-                            <DataGridTextColumn Binding="{Binding Name}" Header="产品名称"/>
-                            <DataGridTextColumn Binding="{Binding Material}" Header="产品材质"/>
-                            <DataGridTextColumn Binding="{Binding Type}" Header="产品类型"/>
-                            <DataGridTextColumn Binding="{Binding Specification}" Header="规格"/>
+                            <DataGridTextColumn Binding="{Binding Id}" Header="序号" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Binding="{Binding Number}" Header="产品编号" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Binding="{Binding Name}" Header="产品名称" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Binding="{Binding Material}" Header="产品材质" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Binding="{Binding Type}" Header="产品类型" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Binding="{Binding Specification}" Header="规格" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                             <DataGridTextColumn Binding="{Binding Process}" Header="工序"/>
-                            <DataGridTextColumn Binding="{Binding PackageNumber}" Header="包装个数"/>
+                            <DataGridTextColumn Binding="{Binding PackageNumber}" Header="包装个数" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                             <DataGridTextColumn Binding="{Binding Remark}" Header="备注"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_AddProduct" Content="添加" HorizontalAlignment="Right" Margin="0,10,90,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_AddProduct_Click" Height="24" Foreground="White"/>
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_DeleteProduct" Content="删除" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_DeleteProduct_Click" Height="24" Foreground="White"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" Height="24" IsEditable="True" VerticalContentAlignment="Center"/>
                 </Grid>
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="原材料" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="17,0,-17,0" Foreground="White">
