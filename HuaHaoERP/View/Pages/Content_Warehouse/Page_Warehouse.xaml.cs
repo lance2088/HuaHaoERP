@@ -167,9 +167,5 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                 e.Handled = true;
             }
         }
-
-      
-
-      
     }
 }

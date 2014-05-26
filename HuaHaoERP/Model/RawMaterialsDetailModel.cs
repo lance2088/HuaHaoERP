@@ -22,9 +22,9 @@ namespace HuaHaoERP.Model
             get { return id; }
             set { id = value; }
         }
-        private string number;
+        private decimal number;
 
-        public string Number
+        public decimal Number
         {
             get { return number; }
             set { number = value; }

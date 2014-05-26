@@ -72,7 +72,9 @@ namespace HuaHaoERP.ViewModel.Warehouse
                     d.Guid = Guid.Parse(dr["Guid"].ToString());
                     d.RawMaterialsID = dr["RawMaterialsID"].ToString();
                     d.Date = dr["Date"].ToString();
-                    d.Number = dr["Number"].ToString();
+                    decimal dd = 0;
+                    decimal.TryParse(dr["Number"].ToString(), out dd);
+                    d.Number = dd;
                     d.Name = dr["Name"].ToString();
                     d.Remark = dr["Remark"].ToString();
                     d.Operator = dr["Operator"].ToString();
@@ -80,6 +82,14 @@ namespace HuaHaoERP.ViewModel.Warehouse
                 }
             }
             return flag;
+        }
+
+        internal string GetName(string number)
+        {
+            string sql = "select Name From T_ProductInfo_RawMaterials Where Nubmer='" + number + " and DeleteMark is null order by AddTime";
+            object obj = new object();
+            new Helper.SQLite.DBHelper().QuerySingleResult(sql, out obj);
+            return obj.ToString();
         }
     }
 }
