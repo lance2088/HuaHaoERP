@@ -22,6 +22,7 @@ namespace HuaHaoERP.View.Windows
         public Login()
         {
             InitializeComponent();
+            new Helper.AppStart().Init();
             this.PasswordBox_LoginPassword.Focus();
             timer.Tick += timer_Tick;
             timer.Interval = TimeSpan.FromSeconds(1);//设置刷新的间隔时间

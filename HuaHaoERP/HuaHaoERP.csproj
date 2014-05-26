@@ -204,6 +204,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Helper\AppStart.cs" />
     <Compile Include="Helper\DataDefinition\CommonParameters.cs" />
     <Compile Include="Helper\DataDefinition\ComboBoxList.cs" />
     <Compile Include="Helper\DataDefinition\Process.cs" />

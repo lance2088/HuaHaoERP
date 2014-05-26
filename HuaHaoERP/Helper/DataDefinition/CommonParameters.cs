@@ -36,5 +36,13 @@ namespace HuaHaoERP.Helper.DataDefinition
             }
             set { CommonParameters.assemblyLineModuleShow = value; }
         }
+
+        private static string dbPassword = "";
+
+        public static string DbPassword
+        {
+            get { return CommonParameters.dbPassword; }
+            set { CommonParameters.dbPassword = value; }
+        }
     }
 }

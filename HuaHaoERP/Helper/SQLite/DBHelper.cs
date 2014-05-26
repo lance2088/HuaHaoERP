@@ -18,12 +18,28 @@ namespace HuaHaoERP.Helper.SQLite
             InitializeDbConnect();
         }
 
+        internal void ChangeDBPassword(string Password)
+        {
+            conn.ChangePassword(Password);
+        }
+        internal void ClearDBPassword()
+        {
+            ChangeDBPassword("");
+        }
+
         /// <summary>
         /// 初始化数据库连接
         /// </summary>
         private void InitializeDbConnect()
         {
-            InitializeDbConnect("");
+            if(Helper.DataDefinition.CommonParameters.DbPassword == "")
+            {
+                InitializeDbConnect("");
+            }
+            else
+            {
+                InitializeDbConnect(Helper.DataDefinition.CommonParameters.DbPassword);
+            }
         }
         /// <summary>
         /// 初始化数据库连接 With Password

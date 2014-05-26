@@ -34,7 +34,7 @@
                         </Expander>
                         <Expander x:Name="Expander_SecuritySettings_DB" Header="数据安全" Expanded="ExpanderSecuritySettings_Expanded">
                             <Grid Background="White">
-                                <GroupBox Header="数据库安全" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="101" Width="151">
+                                <GroupBox Header="数据库安全" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="149" Width="151">
                                     <Grid>
                                         <Button x:Name="Button_EncryptedDB" Content="加密数据库" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_EncryptedDB_Click"/>
                                         <Button Content="拷贝无密码数据库" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Width="115" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White"/>

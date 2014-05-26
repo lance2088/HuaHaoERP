@@ -21,6 +21,10 @@ namespace HuaHaoERP.View.Pages.Content_Settings
         public Page_Settings()
         {
             InitializeComponent();
+            if(Helper.DataDefinition.CommonParameters.DbPassword != "")
+            {
+                this.Button_EncryptedDB.Content = "解密数据库";
+            }
         }
 
         private void Button_ChangePassword_Click(object sender, RoutedEventArgs e)
@@ -60,7 +64,16 @@ namespace HuaHaoERP.View.Pages.Content_Settings
 
         private void Button_EncryptedDB_Click(object sender, RoutedEventArgs e)
         {
-
+            if(Helper.DataDefinition.CommonParameters.DbPassword == "")
+            {
+                new ViewModel.Settings.EncryptedDBConsole().Encrypted("asd");
+                this.Button_EncryptedDB.Content = "解密数据库";
+            }
+            else
+            {
+                new ViewModel.Settings.EncryptedDBConsole().Decryption();
+                this.Button_EncryptedDB.Content = "加密数据库";
+            }
         }
 
         private void ExpanderSecuritySettings_Expanded(object sender, RoutedEventArgs e)

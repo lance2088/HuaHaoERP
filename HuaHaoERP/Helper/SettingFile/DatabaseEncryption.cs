@@ -10,10 +10,10 @@ namespace HuaHaoERP.Helper.SettingFile
     {
         private static string SettingFile = AppDomain.CurrentDomain.BaseDirectory + "Data\\Encryption.data";
 
-        internal bool Read()
+        internal bool Read(out string Password)
         {
             bool flag = true;
-            List<string> d = new List<string>();
+            Password = "";
             if (!File.Exists(SettingFile))
             {
                 return false;
@@ -27,7 +27,7 @@ namespace HuaHaoERP.Helper.SettingFile
                     // the file is reached.
                     while ((line = sr.ReadLine()) != null)
                     {
-                        d.Add(line);
+                        Password = line;
                     }
                 }
             }
@@ -41,15 +41,24 @@ namespace HuaHaoERP.Helper.SettingFile
             return flag;
         }
 
-        internal void Write()
+        internal void Write(string str)
         {
+            Clear();
             FileStream fs = new FileStream(SettingFile, FileMode.Append);
             StreamWriter sw = new StreamWriter(fs);
-            string asd = "True" + "\n";
+            string asd = str + "\n";
             sw.Write(asd);
             sw.Flush();//清空缓冲区  
             sw.Close();//关闭流  
             fs.Close();
+        }
+
+        internal void Clear()
+        {
+            if (File.Exists(SettingFile))
+            {
+                File.Delete(SettingFile);
+            }
         }
     }
 }
