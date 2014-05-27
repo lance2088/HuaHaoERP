@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      mc:Ignorable="d" FontFamily="SimSun" TextOptions.TextFormattingMode="Display"
+      mc:Ignorable="d" FontFamily="SimSun" FontSize="14" TextOptions.TextFormattingMode="Display"
       d:DesignHeight="466" d:DesignWidth="862"
 	Title="Page2_Popup_AddProduct">
 
@@ -38,7 +38,7 @@
         <Label Content="工序" HorizontalAlignment="Left" Margin="10,140,0,0" VerticalAlignment="Top"/>
         <Label Content="包装个数" HorizontalAlignment="Left" Margin="10,306,0,0" VerticalAlignment="Top"/>
         <Label Content="备注" HorizontalAlignment="Left" Margin="10,346,0,0" VerticalAlignment="Top"/>
-        <Label Content="产品名称*" Grid.Column="1" HorizontalAlignment="Left" Margin="11,20,0,0" VerticalAlignment="Top" Padding="0,5"/>
+        <Label Content="产品名称" Grid.Column="1" HorizontalAlignment="Left" Margin="11,20,0,0" VerticalAlignment="Top" Padding="0,5"/>
         <Label Content="产品类型" Grid.Column="1" HorizontalAlignment="Left" Margin="11,60,0,0" VerticalAlignment="Top" Padding="0,5"/>
         <Label Content="1" HorizontalAlignment="Left" Margin="64,140,0,0" VerticalAlignment="Top"/>
         <Label Content="4" HorizontalAlignment="Left" Margin="49,140,0,0" VerticalAlignment="Top" Grid.Column="1"/>

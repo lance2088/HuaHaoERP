@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:input="clr-namespace:System.Windows.Input;assembly=PresentationCore"
-      mc:Ignorable="d" FontFamily="SimSun" TextOptions.TextFormattingMode="Display"
+      mc:Ignorable="d" FontFamily="SimSun" TextOptions.TextFormattingMode="Display" FontSize="14"
       d:DesignHeight="485" d:DesignWidth="914"
 	Title="Page4">
 

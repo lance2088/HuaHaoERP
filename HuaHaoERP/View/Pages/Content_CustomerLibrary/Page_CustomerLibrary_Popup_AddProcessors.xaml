@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      mc:Ignorable="d" FontFamily="SimSun" TextOptions.TextFormattingMode="Display"
+      mc:Ignorable="d" FontFamily="SimSun" FontSize="14" TextOptions.TextFormattingMode="Display"
       d:DesignHeight="480" d:DesignWidth="723"
 	Title="Page_CustomerLibrary_Popup_AddProcessors">
 
@@ -14,19 +14,19 @@
         </Grid.ColumnDefinitions>
         <Button x:Name="Button_Commit" Content="确定" HorizontalAlignment="Right" Margin="0,0,20,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_Commit_Click" Height="24" Foreground="White" IsDefault="True"/>
         <Button x:Name="Button_Cancel" Content="取消" Grid.Column="1" HorizontalAlignment="Left" Margin="20,0,0,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_Cancel_Click" IsCancel="True" Height="24" Foreground="White"/>
-        <TextBox x:Name="TextBox_Number" Height="24" Margin="85,20,195,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="TextBox_Number" Height="24" Margin="93,20,187,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
         <TextBox x:Name="TextBox_Name" Height="24" Margin="70,20,10,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.Column="1"/>
-        <TextBox x:Name="TextBox_Address" Height="24" Margin="85,60,10,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="TextBox_Area" Height="24" Margin="85,100,195,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="TextBox_Phone" Height="24" Margin="85,140,195,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="TextBox_Address" Height="24" Margin="93,60,10,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="TextBox_Area" Height="24" Margin="93,100,187,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="TextBox_Phone" Height="24" Margin="93,140,187,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
         <TextBox x:Name="TextBox_MobilePhone" Height="24" Margin="70,140,10,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.Column="1"/>
-        <TextBox x:Name="TextBox_Fax" Height="24" Margin="85,180,195,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="TextBox_Business" Height="24" Margin="85,220,10,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="TextBox_Clerk" Height="24" Margin="85,260,195,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="TextBox_OpeningBank" Height="24" Margin="85,300,195,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="TextBox_Fax" Height="24" Margin="93,180,187,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="TextBox_Business" Height="24" Margin="93,220,10,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="TextBox_Clerk" Height="24" Margin="93,260,187,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="TextBox_OpeningBank" Height="24" Margin="93,300,187,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
         <TextBox x:Name="TextBox_BankCardName" Height="24" Margin="90,300,10,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.Column="1"/>
-        <TextBox x:Name="TextBox_BankCardNo" Height="24" Margin="85,340,137,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="TextBox_Remark" Height="48" Margin="85,380,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="2" AcceptsReturn="True"/>
+        <TextBox x:Name="TextBox_BankCardNo" Height="24" Margin="93,340,129,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="TextBox_Remark" Height="48" Margin="93,380,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="2" AcceptsReturn="True"/>
         <Label Content="加工商编号*" HorizontalAlignment="Left" Margin="10,20,0,0" VerticalAlignment="Top"/>
         <Label Content="地址" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top"/>
         <Label Content="区域" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top"/>

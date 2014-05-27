@@ -3,12 +3,12 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      mc:Ignorable="d" FontFamily="SimSun" TextOptions.TextFormattingMode="Display"
+      mc:Ignorable="d" FontFamily="SimSun" FontSize="14" TextOptions.TextFormattingMode="Display"
       d:DesignHeight="526" d:DesignWidth="1070"
 	Title="Page1">
 
     <Grid>
-        <TabControl Margin="0" BorderThickness="0" Padding="0">
+        <TabControl Margin="0" BorderThickness="0" Padding="0" >
             <TabItem FocusVisualStyle="{x:Null}" Header="客户管理" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="7,0,-7,0" Foreground="White">
                 <Grid Background="White">
                     <DataGrid x:Name="DataGrid_Customer" Margin="0,40,0,0" BorderThickness="0" AutoGenerateColumns="False" CanUserDeleteRows="False" CanUserResizeRows="False" HeadersVisibility="Column" IsReadOnly="True" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" BorderBrush="{x:Null}" CellStyle="{DynamicResource DataGridCellStyleCommon}" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" CanUserAddRows="False">

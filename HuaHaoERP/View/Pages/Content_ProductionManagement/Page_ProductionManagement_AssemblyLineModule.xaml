@@ -3,13 +3,13 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" FontFamily="SimSun" TextOptions.TextFormattingMode="Display"
-      mc:Ignorable="d" d:DesignWidth="300"
+      mc:Ignorable="d" d:DesignWidth="300" FontSize="14"
 	Title="Page_ProductionManagement_AssemblyLineModule" Loaded="Page_Loaded" Width="300" Height="253">
 
     <Grid Background="LightBlue">
         <Rectangle Margin="5" Stroke="White" StrokeThickness="2"/>
 
-        <DataGrid x:Name="DataGrid" HorizontalAlignment="Left" Margin="20,41,0,20" Width="146" AutoGenerateColumns="False" HeadersVisibility="Column" IsReadOnly="True" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False" CellStyle="{DynamicResource DataGridCellStyleCommon}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" BorderBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" Background="White" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" SelectedCellsChanged="DataGrid_SelectedCellsChanged" SelectionMode="Single" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled">
+        <DataGrid x:Name="DataGrid" HorizontalAlignment="Left" Margin="20,41,0,20" Width="146" AutoGenerateColumns="False" HeadersVisibility="Column" IsReadOnly="True" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False" CellStyle="{DynamicResource DataGridCellStyleCommon}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" BorderBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" Background="White" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" SelectedCellsChanged="DataGrid_SelectedCellsChanged" SelectionMode="Single" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled" FontSize="14">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="工序" Width="46" Binding="{Binding Process}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                 <DataGridTextColumn Header="数量" Width="100" Binding="{Binding Quantity}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>

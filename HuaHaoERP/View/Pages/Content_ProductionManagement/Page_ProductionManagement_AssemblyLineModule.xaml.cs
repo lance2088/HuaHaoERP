@@ -97,6 +97,14 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             {
                 Model.AssemblyLineModuleProcessModel dp = this.DataGrid.SelectedCells[0].Item as Model.AssemblyLineModuleProcessModel;
                 this.Label_Process.Content = dp.Process;
+                if (dp.Process == "抛光")
+                {
+                    this.Button_Add.IsEnabled = false;
+                }
+                else
+                {
+                    this.Button_Add.IsEnabled = true;
+                }
             }
         }
 
