@@ -56,7 +56,7 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
             OldGuid = d.Guid;
             this.TextBox_Number.Text = d.Number;
             this.TextBox_Name.Text = d.Name;
-            this.TextBox_Material.Text = d.Material;
+            this.ComboBox_Material.Text = d.Material;
             this.ComboBox_Type.Text = d.Type;
             this.TextBox_Specification.Text = d.Specification;
             this.ComboBox_P1.Text = d.P1;
@@ -87,7 +87,7 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
             }
             d.Number = this.TextBox_Number.Text.Trim();
             d.Name = this.TextBox_Name.Text.Trim();
-            d.Material = this.TextBox_Material.Text.Trim();
+            d.Material = this.ComboBox_Material.Text.Trim();
             d.Type = this.ComboBox_Type.Text.Trim();
             d.Specification = this.TextBox_Specification.Text.Trim();
             d.P1 = this.ComboBox_P1.Text;

@@ -49,7 +49,7 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
             this.TextBox_Number.Text = d.Number;
             this.TextBox_Name.Text = d.Name;
             this.TextBox_Weight.Text = d.Weight;
-            this.TextBox_Material.Text = d.Material;
+            this.ComboBox_Material.Text = d.Material;
             this.ComboBox_Supplier.Text = d.SupplierName;
             this.ComboBox_Sp1.Text = d.Sp1;
             this.ComboBox_Sp2.Text = d.Sp2;
@@ -76,7 +76,7 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
             d.Number = this.TextBox_Number.Text.Trim();
             d.Name = this.TextBox_Name.Text.Trim();
             d.Weight = this.TextBox_Weight.Text.Trim();
-            d.Material = this.TextBox_Material.Text.Trim();
+            d.Material = this.ComboBox_Material.Text.Trim();
             if (this.ComboBox_Supplier.Text != "")
             {
                 d.Supplier = (Guid)this.ComboBox_Supplier.SelectedValue;

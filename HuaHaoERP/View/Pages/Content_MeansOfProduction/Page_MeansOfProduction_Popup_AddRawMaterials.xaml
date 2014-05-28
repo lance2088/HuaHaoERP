@@ -17,7 +17,12 @@
         <TextBox x:Name="TextBox_Number" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="24" Margin="85,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
         <TextBox x:Name="TextBox_Name" HorizontalAlignment="Left" Height="24" Margin="85,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
         <TextBox x:Name="TextBox_Weight" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="24" Margin="85,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="TextBox_Material" HorizontalAlignment="Left" Height="24" Margin="85,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="ComboBox_Material" HorizontalAlignment="Left" Margin="85,140,0,0" VerticalAlignment="Top" Width="120" IsEditable="True" Grid.ColumnSpan="2">
+            <ComboBoxItem Content="410" IsSelected="True"/>
+            <ComboBoxItem Content="201"/>
+            <ComboBoxItem Content="304"/>
+            <ComboBoxItem Content="430"/>
+        </ComboBox>
         <ComboBox x:Name="ComboBox_Supplier" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="85,180,0,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center"/>
         <ComboBox x:Name="ComboBox_Sp1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="85,220,0,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center">
             <ComboBoxItem Content="亮版" IsSelected="True"/>
@@ -37,6 +42,7 @@
         <Label Content="深浅拉" HorizontalAlignment="Left" Margin="10,260,0,0" VerticalAlignment="Top"/>
         <Label Content="备注" HorizontalAlignment="Left" Margin="10,300,0,0" VerticalAlignment="Top"/>
         <Button x:Name="Button_ClearComboBoxSupplier" Content="-" Grid.Column="1" HorizontalAlignment="Left" Margin="20,182,0,0" VerticalAlignment="Top" Width="20" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Height="20" Click="Button_ClearComboBoxSupplier_Click" ToolTip="清选供应商" Padding="0"/>
+        
 
     </Grid>
 </Page>
