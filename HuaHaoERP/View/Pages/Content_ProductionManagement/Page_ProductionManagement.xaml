@@ -20,7 +20,18 @@
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="生产统计" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Foreground="White" Margin="17,0,-17,0">
                 <Grid Background="White">
-                    <DataGrid Margin="0,40,0,0" CellStyle="{DynamicResource DataGridCellStyleCommon}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" SelectionMode="Single" BorderThickness="0"/>
+                    <DataGrid Margin="0,40,0,0" CellStyle="{DynamicResource DataGridCellStyleCommon}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" SelectionMode="Single" BorderThickness="0" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="序号"/>
+                            <DataGridTextColumn Header="产品编号"/>
+                            <DataGridTextColumn Header="产品名称"/>
+                            <DataGridTextColumn Header="冲版"/>
+                            <DataGridTextColumn Header="拉伸"/>
+                            <DataGridTextColumn Header="冲孔"/>
+                            <DataGridTextColumn Header="卷边"/>
+                            <DataGridTextColumn Header="抛光"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </Grid>
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="外加工" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="27,0,-27,0" Foreground="White">
@@ -72,7 +83,7 @@
                         </DataGrid.Columns>
                     </DataGrid>
                     <ComboBox x:Name="ComboBox_Product" HorizontalAlignment="Left" Margin="50,10,0,0" VerticalAlignment="Top" Width="100" VerticalContentAlignment="Center" Height="24" Grid.Column="1" DropDownClosed="ComboBox_Product_DropDownClosed"/>
-                    <ComboBox x:Name="ComboBox_Processors" HorizontalAlignment="Left" Margin="155,10,0,0" VerticalAlignment="Top" Width="100" VerticalContentAlignment="Center" Height="24" Grid.Column="1" DropDownClosed="ComboBox_Processors_DropDownClosed"/>
+                    <ComboBox x:Name="ComboBox_Processors" HorizontalAlignment="Left" Margin="155,10,0,0" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" Height="24" Grid.Column="1" DropDownClosed="ComboBox_Processors_DropDownClosed"/>
                     <Label x:Name="Label_CountOutOrder" Content="0" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="80" BorderThickness="0,0,0,1" BorderBrush="Black" HorizontalContentAlignment="Center" Padding="5,5,5,2" Height="22" Grid.Row="1" FontSize="14"/>
                     <Label x:Name="Label_CountInOrder" Content="0" HorizontalAlignment="Left" Margin="75,0,0,10" VerticalAlignment="Bottom" Grid.Column="1" BorderThickness="0,0,0,1" BorderBrush="Black" HorizontalContentAlignment="Center" Padding="10,5,10,2" Height="22" Grid.Row="1" FontSize="14" ToolTip="（数量，轻伤，重伤，丢失）"/>
                     <Label Content="出单统计：" HorizontalAlignment="Right" Margin="0,0,95,10" VerticalAlignment="Bottom" Padding="5,5,5,3" Height="22" Width="70" Grid.Row="1"/>

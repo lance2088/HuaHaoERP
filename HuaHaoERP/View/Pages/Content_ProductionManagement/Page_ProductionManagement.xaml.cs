@@ -97,6 +97,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             this.WrapPanel_AssemblyLine.Children.Add(g);
             this.WrapPanel_AssemblyLine.RegisterName(RegisterName, g);
             Frame f = new Frame();
+            f.FocusVisualStyle = null;
             f.Content = new Page_ProductionManagement_AssemblyLineModule(RegisterName, ProductGuid);
             g.Children.Add(f);
         }
