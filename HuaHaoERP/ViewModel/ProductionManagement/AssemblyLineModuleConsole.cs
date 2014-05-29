@@ -156,5 +156,14 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
             }
             return Count;
         }
+
+        internal void Storage()
+        {
+            List<string> sqls = new List<string>();
+
+
+            string sql1 = "";
+            string sql2 = "Insert into T_Warehouse_Product";
+        }
     }
 }

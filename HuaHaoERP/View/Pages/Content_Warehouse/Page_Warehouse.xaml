@@ -54,6 +54,9 @@
                         </Grid.Effect>
                         <Button x:Name="Button_ClosePacking" Content="×" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Top" Width="20" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="20" Foreground="White" Click="Button_ClosePacking_Click"/>
                         <Button Content="包装" HorizontalAlignment="Center" Margin="0,176,0,0" Width="74" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" VerticalAlignment="Top"/>
+                        <ComboBox HorizontalAlignment="Center" Margin="0,40,0,0" VerticalAlignment="Top" Width="120" Height="24" IsEditable="True"/>
+                        <TextBox HorizontalAlignment="Center" Height="24" Margin="0,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <Label Content="Label" HorizontalAlignment="Left" Margin="110,133,0,0" VerticalAlignment="Top"/>
                     </Grid>
                 </Grid>
             </TabItem>

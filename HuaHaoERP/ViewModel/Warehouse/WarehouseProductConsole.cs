@@ -8,5 +8,6 @@ namespace HuaHaoERP.ViewModel.Warehouse
 {
     class WarehouseProductConsole
     {
+
     }
 }
