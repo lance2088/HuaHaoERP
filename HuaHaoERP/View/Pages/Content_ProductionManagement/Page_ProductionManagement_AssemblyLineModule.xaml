@@ -25,7 +25,7 @@
         <Label Content="当前工序：" HorizontalAlignment="Left" Margin="170,40,0,0" VerticalAlignment="Top" Padding="0,0,5,0"/>
         <Label x:Name="Label_Process" Content="" HorizontalAlignment="Left" Margin="170,60,0,0" VerticalAlignment="Top" Height="37" Width="90" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="16" FontWeight="Bold" BorderThickness="1" BorderBrush="White"/>
         <Button x:Name="Button_Add" Content="+" Margin="0,0,16,13" VerticalAlignment="Bottom" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_Add_Click" Height="24" Foreground="White" HorizontalAlignment="Right" Width="89"/>
-        <Button Content="成品入库" HorizontalAlignment="Left" Margin="15,208,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White"/>
+        <Button x:Name="Button_Storage" Content="成品入库" HorizontalAlignment="Left" Margin="15,208,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_Storage_Click"/>
 
     </Grid>
 </Page>

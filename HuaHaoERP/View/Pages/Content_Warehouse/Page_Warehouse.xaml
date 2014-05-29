@@ -47,8 +47,7 @@
                     <Button x:Name="Button_Packing" FocusVisualStyle="{x:Null}" Content="包装" Grid.Column="1" Margin="119,45,0,0" VerticalAlignment="Top" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" ToolTip="点击将散件包装成件" HorizontalAlignment="Left" Width="74" Height="24" Foreground="White" Click="Button_Packing_Click"/>
                     <DatePicker Grid.Column="2" HorizontalAlignment="Left" Margin="122,10,0,0" VerticalAlignment="Top" Width="100" Height="24"/>
                     <Label Content="至" Grid.Column="2" HorizontalAlignment="Left" Margin="100,9,0,0" VerticalAlignment="Top"/>
-                    <Button FocusVisualStyle="{x:Null}" Content="出库" Grid.Column="2" HorizontalAlignment="Right" Margin="0,45,90,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White"/>
-                    <Button FocusVisualStyle="{x:Null}" Content="入库" Grid.Column="2" HorizontalAlignment="Right" Margin="0,45,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24"/>
+                    <Button FocusVisualStyle="{x:Null}" Content="出库" Grid.Column="2" HorizontalAlignment="Right" Margin="0,45,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White"/>
                     <Grid x:Name="Grid_Packing" Grid.Column="1" HorizontalAlignment="Left" Height="210" Margin="61,74,0,0" VerticalAlignment="Top" Width="190" Grid.ColumnSpan="2" Background="White">
                         <Grid.Effect>
                             <DropShadowEffect ShadowDepth="0"/>

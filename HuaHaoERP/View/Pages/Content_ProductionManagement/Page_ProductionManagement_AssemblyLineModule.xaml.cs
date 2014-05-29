@@ -108,5 +108,10 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             }
         }
 
+        private void Button_Storage_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }
