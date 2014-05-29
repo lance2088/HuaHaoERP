@@ -17,12 +17,12 @@
                         <ColumnDefinition Width="2*" MinWidth="200" MaxWidth="380"/>
                         <ColumnDefinition Width="5*"/>
                     </Grid.ColumnDefinitions>
-                    <DataGrid Margin="0,74,10,10" BorderThickness="1" Grid.Column="2" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" IsReadOnly="True">
+                    <DataGrid x:Name="DataGrid_Details" Margin="0,74,10,10" BorderThickness="1" Grid.Column="2" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" IsReadOnly="True">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="序号"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <DataGrid Margin="10,74,10,10" BorderThickness="1" IsReadOnly="True" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" HeadersVisibility="Column" VerticalGridLinesBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False">
+                    <DataGrid x:Name="DataGrid_PackingNum" Margin="10,74,10,10" BorderThickness="1" IsReadOnly="True" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" HeadersVisibility="Column" VerticalGridLinesBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="编号"/>
                             <DataGridTextColumn Header="名称"/>
@@ -36,7 +36,7 @@
                         <ComboBoxItem Content="入库记录" />
                         <ComboBoxItem Content="出库记录" />
                     </ComboBox>
-                    <DataGrid Grid.Column="1" Margin="0,74,10,10" HorizontalContentAlignment="Stretch" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" IsReadOnly="True" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False">
+                    <DataGrid x:Name="DataGrid_Num" Grid.Column="1" Margin="0,74,10,10" HorizontalContentAlignment="Stretch" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" IsReadOnly="True" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="编号"/>
                             <DataGridTextColumn Header="名称"/>
@@ -53,7 +53,7 @@
                             <DropShadowEffect ShadowDepth="0"/>
                         </Grid.Effect>
                         <Button x:Name="Button_ClosePacking" Content="×" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Top" Width="20" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="20" Foreground="White" Click="Button_ClosePacking_Click"/>
-                        <Button Content="包装" HorizontalAlignment="Center" Margin="0,176,0,0" Width="74" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" VerticalAlignment="Top"/>
+                        <Button x:Name="Button_Packed" Content="包装" HorizontalAlignment="Center" Margin="0,176,0,0" Width="74" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" VerticalAlignment="Top"/>
                         <ComboBox HorizontalAlignment="Center" Margin="0,40,0,0" VerticalAlignment="Top" Width="120" Height="24" IsEditable="True"/>
                         <TextBox HorizontalAlignment="Center" Height="24" Margin="0,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
                         <Label Content="Label" HorizontalAlignment="Left" Margin="110,133,0,0" VerticalAlignment="Top"/>
