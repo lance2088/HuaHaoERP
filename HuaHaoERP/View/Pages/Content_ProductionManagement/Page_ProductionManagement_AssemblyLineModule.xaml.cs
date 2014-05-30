@@ -110,7 +110,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void Button_Storage_Click(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine(d.ProcessList[d.ProcessList.Count-1].Quantity);
+            //Console.WriteLine(d.ProcessList[d.ProcessList.Count-1].Quantity);
             new ViewModel.ProductionManagement.AssemblyLineModuleConsole().Storage();
         }
 
