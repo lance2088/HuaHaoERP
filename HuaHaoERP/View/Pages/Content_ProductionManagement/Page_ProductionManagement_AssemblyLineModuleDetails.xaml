@@ -16,6 +16,7 @@
                 <DataGridTextColumn Header="产品名" Binding="{Binding ProductName}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                 <DataGridTextColumn Header="工序" Binding="{Binding Process}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" MinWidth="50"/>
                 <DataGridTextColumn Header="数量" Binding="{Binding Quantity}" ElementStyle="{DynamicResource TextBlockStyle_AlignRight}" MinWidth="50"/>
+                <DataGridTextColumn Header="损坏" Binding="{Binding BreakNum}" ElementStyle="{DynamicResource TextBlockStyle_AlignRight}" MinWidth="50"/>
                 <DataGridTextColumn Header="员工" Binding="{Binding StaffName}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                 <DataGridTextColumn Header="备注" Binding="{Binding Remark}"/>
             </DataGrid.Columns>

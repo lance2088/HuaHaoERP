@@ -16,7 +16,7 @@
             <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_Head" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
         </Grid>
         <Grid x:Name="Grid_Popup" Margin="0" Background="#7F000000" Visibility="Collapsed">
-            <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_Popup" Content="" Margin="0,87,5,30" NavigationUIVisibility="Hidden"/>
+            <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_Popup" Content="" Margin="0,89,5,30" NavigationUIVisibility="Hidden"/>
         </Grid>
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_Close" Content="X" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top" Width="28" Height="20" Click="Button_Close_Click" Template="{DynamicResource ButtonControlTemplate_CloseButton}"/>
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_Min" Content="-" HorizontalAlignment="Right" Margin="0,0,66,0" VerticalAlignment="Top" Width="28" Height="20" Click="Button_Min_Click" Template="{DynamicResource ButtonControlTemplate_MinButton}"/>

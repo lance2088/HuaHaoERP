@@ -180,6 +180,9 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                 d.ProductName = dr["ProductName"].ToString();
                 d.Process = dr["Process"].ToString();
                 d.Quantity = int.Parse(dr["Number"].ToString());
+                int Break = 0;
+                int.TryParse(dr["Break"].ToString(), out Break);
+                d.BreakNum = Break;
                 d.Remark = dr["Remark"].ToString();
                 Count += d.Quantity;
                 data.Add(d);
