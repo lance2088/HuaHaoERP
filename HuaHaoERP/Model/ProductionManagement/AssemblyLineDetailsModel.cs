@@ -70,5 +70,12 @@ namespace HuaHaoERP.Model.ProductionManagement
             get { return quantity; }
             set { quantity = value; }
         }
+        private string remark;
+
+        public string Remark
+        {
+            get { return remark; }
+            set { remark = value; }
+        }
     }
 }

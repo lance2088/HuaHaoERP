@@ -17,6 +17,7 @@
                 <DataGridTextColumn Header="工序" Binding="{Binding Process}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" MinWidth="50"/>
                 <DataGridTextColumn Header="数量" Binding="{Binding Quantity}" ElementStyle="{DynamicResource TextBlockStyle_AlignRight}" MinWidth="50"/>
                 <DataGridTextColumn Header="员工" Binding="{Binding StaffName}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn Header="备注" Binding="{Binding Remark}"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="Button_Cancel" Content="&lt;" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="30" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="30" Padding="0" IsCancel="True" Click="Button_Cancel_Click" Foreground="White" FontWeight="Bold" FontSize="16"/>

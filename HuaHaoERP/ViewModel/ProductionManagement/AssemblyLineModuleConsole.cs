@@ -157,7 +157,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                 sql_Where += " AND a.Process='" + Process + "' ";
             }
             data = new List<Model.ProductionManagement.AssemblyLineDetailsModel>();
-            string sql = " Select a.*,b.Name as StaffName,c.Name as ProductName "
+            string sql = " Select a.*,b.Name as StaffName,c.Name as ProductName,a.Remark "
                        + " from T_PM_ProductionSchedule a "
                        + " Left join T_UserInfo_Staff b ON a.StaffID=b.GUID "
                        + " Left join T_ProductInfo_Product c ON a.ProductID=c.GUID "
@@ -177,6 +177,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                 d.ProductName = dr["ProductName"].ToString();
                 d.Process = dr["Process"].ToString();
                 d.Quantity = int.Parse(dr["Number"].ToString());
+                d.Remark = dr["Remark"].ToString();
                 Count += d.Quantity;
                 data.Add(d);
             }
