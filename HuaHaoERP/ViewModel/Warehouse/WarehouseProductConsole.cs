@@ -11,8 +11,8 @@ namespace HuaHaoERP.ViewModel.Warehouse
     {
         internal bool Add(Guid ProductID, string StaffName, int Quantity)
         {
-            string sql = " Insert into T_Warehouse_Product(Guid,ProductID,Date,Operator,Number) "
-                       + " values('" + Guid.NewGuid() + "','" + ProductID + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + StaffName + "','" + Quantity + "')";
+            string sql = " Insert into T_Warehouse_Product(Guid,ProductID,Date,Operator,Number,Remark) "
+                       + " values('" + Guid.NewGuid() + "','" + ProductID + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + StaffName + "','" + Quantity + "','入库')";
             return new Helper.SQLite.DBHelper().SingleExecution(sql);
         }
 

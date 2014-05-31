@@ -6,7 +6,7 @@
       xmlns:input="clr-namespace:System.Windows.Input;assembly=PresentationCore"
       mc:Ignorable="d" FontFamily="SimSun" TextOptions.TextFormattingMode="Display" FontSize="14"
       d:DesignHeight="485" d:DesignWidth="914"
-	Title="Page4">
+	Title="Page4" Loaded="Page_Loaded">
 
     <Grid>
         <TabControl Margin="0" BorderThickness="0" Padding="0">

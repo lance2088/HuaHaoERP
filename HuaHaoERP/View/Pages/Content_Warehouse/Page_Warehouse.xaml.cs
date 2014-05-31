@@ -38,7 +38,10 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         {
             WarehouseRawMaterialsEvent.EUpdateDataGrid += (sender, e) => { InitializeRawMaterialsDataGrid(); };
         }
-
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            InitializeProductDataGrid();
+        }
         private void InitPage()
         {
             this.ComboBox_ProductList.ItemsSource = Helper.DataDefinition.ComboBoxList.ProductListWithoutAll.DefaultView;
@@ -257,8 +260,6 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         }
 
         #endregion
-
-
 
     }
 }
