@@ -41,6 +41,11 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
 
         private void InitPage()
         {
+            this.ComboBox_ProductList.ItemsSource = Helper.DataDefinition.ComboBoxList.ProductListWithoutAll.DefaultView;
+            this.ComboBox_ProductList.DisplayMemberPath = "Name";
+            this.ComboBox_ProductList.SelectedValuePath = "GUID";//GUID四个字母要大写
+            this.ComboBox_ProductList.SelectedIndex = 0;
+            ComboBox_ProductList_DropDownClosed(null, null);
             InitializeProductDataGrid();
             #region 余料管理
             ComboBox_DropDownOpened(this, null);
@@ -69,8 +74,49 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             {
                 this.DataGrid_ProductDetails.ItemsSource = d;
             }
+            List<WarehouseProductNumModel> dn = new List<WarehouseProductNumModel>();
+            if(new ViewModel.Warehouse.WarehouseProductConsole().ReadNumList(out dn))
+            {
+                this.DataGrid_Num.ItemsSource = dn;
+            }
+            List<WarehouseProductNumModel> dnPack = new List<WarehouseProductNumModel>();
+            if(new ViewModel.Warehouse.WarehouseProductConsole().ReadPackingNumList(out dnPack))
+            {
+                this.DataGrid_PackingNum.ItemsSource = dnPack;
+            }
         }
 
+        private void Button_Packed_Click(object sender, RoutedEventArgs e)
+        {
+            Guid ProductID = (Guid)this.ComboBox_ProductList.SelectedValue;
+            int PackedQuantity = 0;
+            int.TryParse(this.TextBox_PackQuantity.Text, out PackedQuantity);
+            int Quantity = 0;
+            int.TryParse(this.TextBox_Quantity.Text, out Quantity);
+            if (new ViewModel.Warehouse.WarehouseProductConsole().Packing(ProductID, Quantity, PackedQuantity))
+            {
+                InitializeProductDataGrid();
+                this.TextBox_PackQuantity.Clear();
+                this.TextBox_Quantity.Clear();
+            }
+        }
+
+        private void TextBox_PackQuantity_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            CountQuantity();
+        }
+        int PerPackQuantity = 1;
+        private void ComboBox_ProductList_DropDownClosed(object sender, EventArgs e)
+        {
+            PerPackQuantity = new ViewModel.Warehouse.WarehouseProductConsole().ReadProductPackingNum((Guid)this.ComboBox_ProductList.SelectedValue);
+            CountQuantity();
+        }
+        private void CountQuantity()
+        {
+            int PackQuantity = 0;
+            int.TryParse(this.TextBox_PackQuantity.Text, out PackQuantity);
+            this.TextBox_Quantity.Text = (PackQuantity * PerPackQuantity).ToString();
+        }
         #endregion
 
         #region 原材料管理
@@ -211,6 +257,8 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         }
 
         #endregion
+
+
 
     }
 }
