@@ -17,9 +17,16 @@
                         <ColumnDefinition Width="2*" MinWidth="200" MaxWidth="380"/>
                         <ColumnDefinition Width="5*"/>
                     </Grid.ColumnDefinitions>
-                    <DataGrid x:Name="DataGrid_Details" Margin="0,74,10,10" BorderThickness="1" Grid.Column="2" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" IsReadOnly="True">
+                    <DataGrid x:Name="DataGrid_ProductDetails" Margin="0,74,10,10" BorderThickness="1" Grid.Column="2" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" IsReadOnly="True" SelectionMode="Single" AutoGenerateColumns="False">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="序号"/>
+                            <DataGridTextColumn Header="Guid" Visibility="Hidden" Binding="{Binding Guid}"/>
+                            <DataGridTextColumn Header="序号" Binding="{Binding Id}"/>
+                            <DataGridTextColumn Header="产品ID" Visibility="Hidden" Binding="{Binding ProductId}"/>
+                            <DataGridTextColumn Header="产品名称" Binding="{Binding ProductName}"/>
+                            <DataGridTextColumn Header="日期" Binding="{Binding Date}"/>
+                            <DataGridTextColumn Header="操作人" Binding="{Binding Operator}"/>
+                            <DataGridTextColumn Header="数量" Binding="{Binding Number}"/>
+                            <DataGridTextColumn Header="备注" Binding="{Binding Remark}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <DataGrid x:Name="DataGrid_PackingNum" Margin="10,74,10,10" BorderThickness="1" IsReadOnly="True" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" HeadersVisibility="Column" VerticalGridLinesBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False">

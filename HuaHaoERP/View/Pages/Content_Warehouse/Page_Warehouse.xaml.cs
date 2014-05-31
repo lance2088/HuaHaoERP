@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using HuaHaoERP.ViewModel.Warehouse;
 using HuaHaoERP.Model;
+using HuaHaoERP.Model.Warehouse;
 using HuaHaoERP.Helper.Events;
 using HuaHaoERP.Helper.Events.UpdateEvent;
 
@@ -20,9 +21,11 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
 {
     public partial class Page_Warehouse : Page
     {
+        private WarehouseProductModel ProductModel = new WarehouseProductModel();
         private ScrapConsole sc = new ScrapConsole();
         private RawMaterialsConsole rmc = new RawMaterialsConsole();
         private ScrapModel m = new ScrapModel();
+
         public Page_Warehouse()
         {
             InitializeComponent();
@@ -31,21 +34,14 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             InitializeRawMaterialsDataGrid();
             InitPage();
         }
-
-        private void InitializeRawMaterialsDataGrid()
-        {
-            List<RawMaterialsDetailModel> rmm = new List<RawMaterialsDetailModel>();
-            rmc.ReadList(out rmm);
-            DataGrid_RawMaterialsQuantity.ItemsSource = rmm;
-            rmc.ReadRecordList(out rmm);
-            DataGrid_RawMaterialsRecord.ItemsSource = rmm;
-        }
         private void SubscribeToEvent()
         {
             WarehouseRawMaterialsEvent.EUpdateDataGrid += (sender, e) => { InitializeRawMaterialsDataGrid(); };
         }
+
         private void InitPage()
         {
+            InitializeProductDataGrid();
             #region 余料管理
             ComboBox_DropDownOpened(this, null);
             RefreshData_Scrap();
@@ -54,7 +50,38 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             DatePicker_Date.Text = DateTime.Now.ToShortDateString();
             #endregion 
         }
+
+        #region 产品仓库
+
+        private void Button_Packing_Click(object sender, RoutedEventArgs e)
+        {
+            this.Grid_Packing.Visibility = System.Windows.Visibility.Visible;
+        }
+        private void Button_ClosePacking_Click(object sender, RoutedEventArgs e)
+        {
+            this.Grid_Packing.Visibility = System.Windows.Visibility.Collapsed;
+        }
+
+        private void InitializeProductDataGrid()
+        {
+            List<WarehouseProductModel> d = new List<WarehouseProductModel>();
+            if(new ViewModel.Warehouse.WarehouseProductConsole().ReadDetailsList(out d))
+            {
+                this.DataGrid_ProductDetails.ItemsSource = d;
+            }
+        }
+
+        #endregion
+
         #region 原材料管理
+        private void InitializeRawMaterialsDataGrid()
+        {
+            List<RawMaterialsDetailModel> rmm = new List<RawMaterialsDetailModel>();
+            rmc.ReadList(out rmm);
+            DataGrid_RawMaterialsQuantity.ItemsSource = rmm;
+            rmc.ReadRecordList(out rmm);
+            DataGrid_RawMaterialsRecord.ItemsSource = rmm;
+        }
         private void Button_RawMaterials_Out_Click(object sender, RoutedEventArgs e)
         {
             if (DataGrid_RawMaterialsRecord.SelectedCells.Count != 0)
@@ -78,6 +105,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             Helper.Events.PopUpEvent.OnShowPopUp(new Page_Warehouse_RawMaterials());
         }
         #endregion
+
         #region 余料管理
 
         private void RefreshData_Scrap()
@@ -155,8 +183,6 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             }
         }
 
-        #endregion
-
         private void TextBox_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             TextBox txt = sender as TextBox;
@@ -184,14 +210,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             }
         }
 
-        private void Button_Packing_Click(object sender, RoutedEventArgs e)
-        {
-            this.Grid_Packing.Visibility = System.Windows.Visibility.Visible;
-        }
+        #endregion
 
-        private void Button_ClosePacking_Click(object sender, RoutedEventArgs e)
-        {
-            this.Grid_Packing.Visibility = System.Windows.Visibility.Collapsed;
-        }
     }
 }

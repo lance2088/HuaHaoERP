@@ -54,11 +54,15 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         {
             if (this.DataGrid.SelectedCells.Count > 0)
             {
-                Model.AssemblyLineModuleProcessModel dp = this.DataGrid.SelectedCells[0].Item as Model.AssemblyLineModuleProcessModel;
-                string pro = dp.Process;
                 int Quantity = 0;
                 if (int.TryParse(this.TextBox_Quantity.Text, out Quantity))
                 {
+                    if (Quantity == 0)
+                    {
+                        return;
+                    }
+                    Model.AssemblyLineModuleProcessModel dp = this.DataGrid.SelectedCells[0].Item as Model.AssemblyLineModuleProcessModel;
+                    string pro = dp.Process;
                     dp.Guid = Guid.NewGuid();
                     dp.StaffID = (Guid)this.ComboBox_StaffList.SelectedValue;
                     dp.ProductID = this.ProductGuid;
@@ -110,9 +114,20 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void Button_Storage_Click(object sender, RoutedEventArgs e)
         {
-            //Console.WriteLine(d.ProcessList[d.ProcessList.Count-1].Quantity);
-            new ViewModel.ProductionManagement.AssemblyLineModuleConsole().Storage();
+            int Quantity = d.ProcessList[d.ProcessList.Count - 1].Quantity;
+            if (Quantity > 0)
+            {
+                Guid StaffID = (Guid)this.ComboBox_StaffList.SelectedValue;
+                string StaffName = this.ComboBox_StaffList.Text;
+                string ProcessName = d.ProcessList[d.ProcessList.Count - 1].Process;
+                if(new ViewModel.ProductionManagement.AssemblyLineModuleConsole().Storage(StaffID, ProductGuid, ProcessName, Quantity))
+                {
+                    if(new ViewModel.Warehouse.WarehouseProductConsole().Add(ProductGuid, StaffName, Quantity))
+                    {
+                        InitializeData();
+                    }
+                }
+            }
         }
-
     }
 }

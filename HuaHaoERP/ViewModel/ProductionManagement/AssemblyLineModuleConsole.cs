@@ -156,14 +156,14 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
             }
             return Count;
         }
-
-        internal void Storage()
+        /// <summary>
+        /// 入库
+        /// </summary>
+        internal bool Storage(Guid StaffID, Guid ProductID, string Process, int Number)
         {
-            List<string> sqls = new List<string>();
-
-
-            string sql1 = "";
-            string sql2 = "Insert into T_Warehouse_Product";
+            string sql = " Insert into T_PM_ProductionSchedule(Guid,Date,StaffID,ProductID,Process,Number,Remark) "
+                       + " values('" + Guid.NewGuid() + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + StaffID + "','" + ProductID + "','" + Process + "','-" + Number + "','入库')";
+            return new Helper.SQLite.DBHelper().SingleExecution(sql);
         }
     }
 }

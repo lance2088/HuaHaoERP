@@ -10,15 +10,15 @@
     <Grid HorizontalAlignment="Right" Width="400" Background="White">
         <Button x:Name="Button_Commit" Content="确定" HorizontalAlignment="Right" Margin="0,0,220,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" IsDefault="True" Click="Button_Commit_Click"/>
         <Button x:Name="Button_Cancel" Content="取消" HorizontalAlignment="Left" Margin="220,0,0,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" IsCancel="True" Click="Button_Cancel_Click"/>
-        <Label x:Name="Label_Title" Content="外加工单：" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-        <Label Content="日期*" HorizontalAlignment="Left" Margin="30,60,0,0" VerticalAlignment="Top" Height="24"/>
-        <Label Content="产品*" HorizontalAlignment="Left" Margin="30,100,0,0" VerticalAlignment="Top" Height="24"/>
-        <Label Content="外加工商*" HorizontalAlignment="Left" Margin="30,140,0,0" VerticalAlignment="Top" Height="24"/>
-        <Label Content="收货数量*" HorizontalAlignment="Left" Margin="30,180,0,0" VerticalAlignment="Top" Height="24"/>
-        <Label x:Name="Label_MinorInjuries" Content="轻伤" HorizontalAlignment="Left" Margin="30,220,0,0" VerticalAlignment="Top" Height="24"/>
-        <Label x:Name="Label_Injuries" Content="重伤" HorizontalAlignment="Left" Margin="30,260,0,0" VerticalAlignment="Top" Height="24"/>
-        <Label x:Name="Label_Lose" Content="丢失" HorizontalAlignment="Left" Margin="30,300,0,0" VerticalAlignment="Top" Height="24"/>
-        <Label x:Name="Label_Remark" Content="备注" HorizontalAlignment="Left" Margin="30,340,0,0" VerticalAlignment="Top" Height="24"/>
+        <Label x:Name="Label_Title" Content="外加工单：" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Padding="5,0" VerticalContentAlignment="Center" Height="24"/>
+        <Label Content="日期*" HorizontalAlignment="Left" Margin="30,60,0,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" Padding="5,0"/>
+        <Label Content="产品*" HorizontalAlignment="Left" Margin="30,100,0,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" Padding="5,0"/>
+        <Label Content="外加工商*" HorizontalAlignment="Left" Margin="30,140,0,0" VerticalAlignment="Top" Height="24" Padding="5,0" VerticalContentAlignment="Center"/>
+        <Label Content="收货数量*" HorizontalAlignment="Left" Margin="30,180,0,0" VerticalAlignment="Top" Height="24" Padding="5,0" VerticalContentAlignment="Center"/>
+        <Label x:Name="Label_MinorInjuries" Content="轻伤" HorizontalAlignment="Left" Margin="30,220,0,0" VerticalAlignment="Top" Height="24" Padding="5,0" VerticalContentAlignment="Center"/>
+        <Label x:Name="Label_Injuries" Content="重伤" HorizontalAlignment="Left" Margin="30,260,0,0" VerticalAlignment="Top" Height="24" Padding="5,0" VerticalContentAlignment="Center"/>
+        <Label x:Name="Label_Lose" Content="丢失" HorizontalAlignment="Left" Margin="30,300,0,0" VerticalAlignment="Top" Height="24" Padding="5,0" VerticalContentAlignment="Center"/>
+        <Label x:Name="Label_Remark" Content="备注" HorizontalAlignment="Left" Margin="30,340,0,0" VerticalAlignment="Top" Height="24" Padding="5,0" VerticalContentAlignment="Center"/>
         <DatePicker x:Name="DatePicker_OrderDate" HorizontalAlignment="Left" Margin="120,60,0,0" VerticalAlignment="Top" Width="120"/>
         <ComboBox x:Name="ComboBox_Product" HorizontalAlignment="Left" Margin="120,100,0,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center"/>
         <ComboBox x:Name="ComboBox_Processors" HorizontalAlignment="Left" Margin="120,140,0,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center"/>

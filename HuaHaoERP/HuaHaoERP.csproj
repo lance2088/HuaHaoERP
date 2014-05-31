@@ -239,7 +239,7 @@
     <Compile Include="Model\ScrapModel.cs" />
     <Compile Include="Model\StaffModel.cs" />
     <Compile Include="Model\SupplierModel.cs" />
-    <Compile Include="Model\WarehouseProductModel.cs" />
+    <Compile Include="Model\Warehouse\WarehouseProductModel.cs" />
     <Compile Include="ViewModel\Customer\ProcessorsConsole.cs" />
     <Compile Include="ViewModel\Customer\StaffConsole.cs" />
     <Compile Include="ViewModel\Customer\SupplierConsole.cs" />

@@ -3,24 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace HuaHaoERP.Model
+namespace HuaHaoERP.Model.Warehouse
 {
     class WarehouseProductModel
     {
         private int id;
-        private string productID;
+        private Guid guid;
+        private Guid productID;
+        private string productName;
         private string date;
         private string optor;
-        private string number;
+        private int number;
         private string remark;
 
+        public string ProductName
+        {
+            get { return productName; }
+            set { productName = value; }
+        }
+        public Guid Guid
+        {
+            get { return guid; }
+            set { guid = value; }
+        }
         public string Remark
         {
             get { return remark; }
             set { remark = value; }
         }
-
-        public string Number
+        public int Number
         {
             get { return number; }
             set { number = value; }
@@ -38,7 +49,7 @@ namespace HuaHaoERP.Model
             set { date = value; }
         }
 
-        public string ProductID
+        public Guid ProductID
         {
             get { return productID; }
             set { productID = value; }
