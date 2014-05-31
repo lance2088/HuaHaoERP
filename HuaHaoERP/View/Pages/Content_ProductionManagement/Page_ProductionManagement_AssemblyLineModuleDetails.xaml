@@ -7,7 +7,7 @@
       d:DesignHeight="354.231" d:DesignWidth="690"
 	Title="Page_ProductionManagement_AssemblyLineModuleDetails">
 
-    <Grid Background="White" HorizontalAlignment="Right" Width="400">
+    <Grid Background="White" HorizontalAlignment="Right" Width="500">
         <DataGrid x:Name="DataGrid_Detials" Margin="10,110,10,10" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" IsReadOnly="True" AutoGenerateColumns="False" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" SelectionMode="Single">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="GUID" Visibility="Hidden"/>
