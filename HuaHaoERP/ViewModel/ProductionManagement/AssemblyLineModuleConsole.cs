@@ -11,8 +11,8 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
         internal bool Add(Model.AssemblyLineModuleProcessModel d)
         {
             bool flag = true;
-            string sql = "Insert into T_PM_ProductionSchedule(Guid,Date,StaffID,ProductID,Process,Number) "
-                        + "values('" + d.Guid + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + d.StaffID + "','" + d.ProductID + "','" + d.Process + "'," + d.Quantity + ")";
+            string sql = "Insert into T_PM_ProductionSchedule(Guid,Date,StaffID,ProductID,Process,Number,Break) "
+                        + "values('" + d.Guid + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + d.StaffID + "','" + d.ProductID + "','" + d.Process + "'," + d.Quantity + ","+d.BreakNum+")";
             flag = new Helper.SQLite.DBHelper().SingleExecution(sql);
             return flag;
         }
@@ -86,7 +86,8 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
         private void CalculateProcessList(Guid ProductGuid, ref List<Model.AssemblyLineModuleProcessModel> d)
         {
             int Out = 0, In = 0;
-            string sql = "select total(Quantity),OrderType from T_PM_ProcessSchedule where ProductID='" + ProductGuid + "' GROUP BY OrderType ";
+            int Break = 0;
+            string sql = "select total(Quantity),total(MinorInjuries+Injuries+Lose) as Break,OrderType from T_PM_ProcessSchedule where ProductID='" + ProductGuid + "' GROUP BY OrderType ";
             DataSet ds = new DataSet();
             new Helper.SQLite.DBHelper().QueryData(sql, out ds);
             foreach (DataRow dr in ds.Tables[0].Rows)
@@ -94,6 +95,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                 if (dr["OrderType"].ToString() == "入单")
                 {
                     In = int.Parse(dr["total(Quantity)"].ToString());
+                    Break = int.Parse(dr["Break"].ToString());
                 }
                 else if (dr["OrderType"].ToString() == "出单")
                 {
@@ -124,6 +126,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                 if(d[i].Process == "抛光")
                 {
                     d[i].Quantity += In;
+                    d[i].BreakNum += Break;
                     d[i-1].Quantity -= Out;
                 }
             }

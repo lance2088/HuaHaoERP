@@ -55,18 +55,21 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             if (this.DataGrid.SelectedCells.Count > 0)
             {
                 int Quantity = 0;
+                int Break = 0;
                 if (int.TryParse(this.TextBox_Quantity.Text, out Quantity))
                 {
                     if (Quantity == 0)
                     {
                         return;
                     }
+                    int.TryParse(this.TextBox_Break.Text, out Break);
                     Model.AssemblyLineModuleProcessModel dp = this.DataGrid.SelectedCells[0].Item as Model.AssemblyLineModuleProcessModel;
                     string pro = dp.Process;
                     dp.Guid = Guid.NewGuid();
                     dp.StaffID = (Guid)this.ComboBox_StaffList.SelectedValue;
                     dp.ProductID = this.ProductGuid;
                     dp.Quantity = parm * Quantity;
+                    dp.BreakNum = Break;
                     if(new ViewModel.ProductionManagement.AssemblyLineModuleConsole().Add(dp))
                     {
                         InitializeData();
