@@ -46,5 +46,12 @@ namespace HuaHaoERP.ViewModel.Warehouse
             }
             return false;
         }
+
+        internal bool ReadNumList(out List<WarehouseProductNumModel> data)
+        {
+            data = new List<WarehouseProductNumModel>();
+
+            return false;
+        }
     }
 }

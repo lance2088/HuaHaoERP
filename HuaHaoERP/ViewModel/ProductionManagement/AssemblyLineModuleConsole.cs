@@ -33,7 +33,8 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                        + "   a.P5,"
                        + "   a.P6,"
                        + "   b.Process,"
-                       + "   total(b.Number) as Quantity "
+                       + "   total(b.Number) as Quantity, "
+                       + "   total(b.Break) as BreakNum "
                        + " from T_ProductInfo_Product a "
                        + " LEFT JOIN T_PM_ProductionSchedule b "
                        + "   ON b.ProductID = a.GUID "
@@ -57,6 +58,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                         if (ProcessList[i].Process == dr["Process"].ToString())
                         {
                             ProcessList[i].Quantity = Convert.ToInt32(dr["Quantity"].ToString());
+                            ProcessList[i].BreakNum = Convert.ToInt32(dr["BreakNum"].ToString());
                         }
                     }
                 }

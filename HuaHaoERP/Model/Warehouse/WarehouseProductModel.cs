@@ -62,4 +62,41 @@ namespace HuaHaoERP.Model.Warehouse
         }
 
     }
+
+    class WarehouseProductNumModel
+    {
+        private int id;
+
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+        private Guid productID;
+
+        public Guid ProductID
+        {
+            get { return productID; }
+            set { productID = value; }
+        }
+        private string productName;
+
+        public string ProductName
+        {
+            get { return productName; }
+            set { productName = value; }
+        }
+        private int quantity;
+
+        public int Quantity
+        {
+            get { return quantity; }
+            set { quantity = value; }
+        }
+    }
+
+    class WarehouseProductPackingNumModel
+    {
+
+    }
 }
