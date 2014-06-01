@@ -73,7 +73,8 @@
                         <Button x:Name="Button_CloseOutbound" Content="×" HorizontalAlignment="Right" VerticalAlignment="Top" Width="24" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="20" Foreground="White" Click="Button_CloseOutbound_Click"/>
                         <Button x:Name="Button_Outbound" Content="出库" HorizontalAlignment="Center" Margin="0,175,0,0" VerticalAlignment="Top" Width="74" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_Outbound_Click"/>
                         <ComboBox x:Name="ComboBox_ProductList_Outbound" HorizontalAlignment="Center" Margin="0,32,0,0" VerticalAlignment="Top" Width="120" IsEditable="True"/>
-                        <TextBox x:Name="TextBox_Quantity_Outbound" HorizontalAlignment="Center" Height="23" Margin="0,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <TextBox x:Name="TextBox_Quantity_Outbound" HorizontalAlignment="Center" Height="23" Margin="0,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextChanged="TextBox_Quantity_Outbound_TextChanged"/>
+                        <Label x:Name="Label_ShowOutboundWarnMessage" Content="Label" HorizontalAlignment="Left" Margin="30,144,0,0" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="Red"/>
                     </Grid>
                 </Grid>
             </TabItem>

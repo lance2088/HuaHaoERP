@@ -29,6 +29,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         /// 库存
         /// </summary>
         int Stock = 0;
+        int PackStock = 0;
 
         public Page_Warehouse()
         {
@@ -178,9 +179,12 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                 (s as DataGridRow).Focus();
                 WarehouseProductNumModel d = this.DataGrid_PackingNum.SelectedCells[0].Item as WarehouseProductNumModel;
                 //show Packing Grid
+                this.Label_ShowOutboundWarnMessage.Content = "";
                 this.Grid_Outbound.Visibility = System.Windows.Visibility.Visible;
                 this.Grid_Packing.Visibility = System.Windows.Visibility.Hidden;
                 this.ComboBox_ProductList_Outbound.Text = d.ProductName;
+                PackStock = d.Quantity;
+                this.TextBox_Quantity_Outbound.Focus();
             };
         }
         private void Button_Outbound_Click(object sender, RoutedEventArgs e)
@@ -195,7 +199,17 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         }
         private void Button_CloseOutbound_Click(object sender, RoutedEventArgs e)
         {
-            this.Grid_Outbound.Visibility = System.Windows.Visibility.Hidden;
+            this.Grid_Outbound.Visibility = System.Windows.Visibility.Collapsed;
+        }
+        private void TextBox_Quantity_Outbound_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            this.Label_ShowOutboundWarnMessage.Content = "";
+            int Quantity = 0;
+            int.TryParse(this.TextBox_Quantity_Outbound.Text, out Quantity);
+            if(Quantity > PackStock)
+            {
+                this.Label_ShowOutboundWarnMessage.Content = "超出库存";
+            }
         }
         #endregion
 
@@ -337,6 +351,8 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         }
 
         #endregion
+
+
 
 
 

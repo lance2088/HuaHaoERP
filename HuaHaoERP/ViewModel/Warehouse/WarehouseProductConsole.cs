@@ -17,8 +17,8 @@ namespace HuaHaoERP.ViewModel.Warehouse
         }
         internal bool Outbound(Guid ProductID, int Quantity)
         {
-            string sql = " Insert into T_Warehouse_ProductPacking(Guid,ProductID,Date,Quantity,Remark) "
-                       + " values('" + Guid.NewGuid() + "','" + ProductID + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','-" + Quantity + "','出库')";
+            string sql = " Insert into T_Warehouse_ProductPacking(Guid,ProductID,Date,Operator,Quantity,Remark) "
+                       + " values('" + Guid.NewGuid() + "','" + ProductID + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + Helper.DataDefinition.CommonParameters.LoginUserName + "','-" + Quantity + "','出库')";
             return new Helper.SQLite.DBHelper().SingleExecution(sql);
         }
         internal bool ReadDetailsList(out List<WarehouseProductModel> data)
