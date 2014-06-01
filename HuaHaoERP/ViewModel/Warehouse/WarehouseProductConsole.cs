@@ -117,7 +117,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
         {
             List<string> sqls = new List<string>();
             string sql1 = " Insert into T_Warehouse_Product(Guid,ProductID,Date,Operator,Number,Remark) "
-                        + " values('" + Guid.NewGuid() + "','" + ProductID + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + Helper.DataDefinition.CommonParameters.LoginUserName + "','-" + Quantity + "','包装')";
+                        + " values('" + Guid.NewGuid() + "','" + ProductID + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + Helper.DataDefinition.CommonParameters.LoginUserName + "','-" + Quantity + "','包装*" + PackedQuantity + "')";
             string sql2 = " Insert into T_Warehouse_ProductPacking(Guid,ProductID,Date,Operator,Quantity) "
                         + " values('" + Guid.NewGuid() + "','" + ProductID + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + Helper.DataDefinition.CommonParameters.LoginUserName + "','" + PackedQuantity + "')";
             sqls.Add(sql1);
