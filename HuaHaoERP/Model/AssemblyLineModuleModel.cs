@@ -58,6 +58,15 @@ namespace HuaHaoERP.Model
             get { return productID; }
             set { productID = value; }
         }
+        private string lastProcess;
+        /// <summary>
+        /// 上一道工序
+        /// </summary>
+        public string LastProcess
+        {
+            get { return lastProcess; }
+            set { lastProcess = value; }
+        }
         private string process;
 
         public string Process

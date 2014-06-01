@@ -46,11 +46,9 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             this.ComboBox_StaffList.SelectedIndex = 0;
         }
         /// <summary>
-        /// 加/减工序的半成品数量
-        /// parm=1 加， -1减
+        /// 加工序的半成品数量
         /// </summary>
-        /// <param name="parm"></param>
-        private void ChangeQuantity(int parm)
+        private void ChangeQuantity()
         {
             if (this.DataGrid.SelectedCells.Count > 0)
             {
@@ -64,11 +62,10 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                     }
                     int.TryParse(this.TextBox_Break.Text, out Break);
                     Model.AssemblyLineModuleProcessModel dp = this.DataGrid.SelectedCells[0].Item as Model.AssemblyLineModuleProcessModel;
-                    string pro = dp.Process;
                     dp.Guid = Guid.NewGuid();
                     dp.StaffID = (Guid)this.ComboBox_StaffList.SelectedValue;
                     dp.ProductID = this.ProductGuid;
-                    dp.Quantity = parm * Quantity;
+                    dp.Quantity = Quantity;
                     dp.BreakNum = Break;
                     if(new ViewModel.ProductionManagement.AssemblyLineModuleConsole().Add(dp))
                     {
@@ -95,7 +92,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void Button_Add_Click(object sender, RoutedEventArgs e)
         {
-            ChangeQuantity(1);
+            ChangeQuantity();
         }
 
         private void DataGrid_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)

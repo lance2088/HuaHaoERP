@@ -10,11 +10,18 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
     {
         internal bool Add(Model.AssemblyLineModuleProcessModel d)
         {
-            bool flag = true;
-            string sql = "Insert into T_PM_ProductionSchedule(Guid,Date,StaffID,ProductID,Process,Number,Break) "
-                        + "values('" + d.Guid + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + d.StaffID + "','" + d.ProductID + "','" + d.Process + "'," + d.Quantity + ","+d.BreakNum+")";
-            flag = new Helper.SQLite.DBHelper().SingleExecution(sql);
-            return flag;
+            string DateTimeNow = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            List<string> sqls = new List<string>();
+            string sql_subtract = "Insert into T_PM_ProductionSchedule(Guid,Date,StaffID,ProductID,Process,Number,Remark) "
+                                + "values('" + Guid.NewGuid() + "','" + DateTimeNow + "','" + d.StaffID + "','" + d.ProductID + "','" + d.LastProcess + "',-" + (d.Quantity + d.BreakNum) + ",'自动扣半成品原料')";
+            string sql_add = "Insert into T_PM_ProductionSchedule(Guid,Date,StaffID,ProductID,Process,Number,Break) "
+                        + "values('" + d.Guid + "','" + DateTimeNow + "','" + d.StaffID + "','" + d.ProductID + "','" + d.Process + "'," + d.Quantity + "," + d.BreakNum + ")";
+            if (d.LastProcess != "")
+            {
+                sqls.Add(sql_subtract);
+            }
+            sqls.Add(sql_add);
+            return new Helper.SQLite.DBHelper().Transaction(sqls);
         }
 
         internal bool ReadList(Guid ProductGuid, out Model.AssemblyLineModuleModel d)
@@ -73,6 +80,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                 if (dr["P" + i].ToString() != "无")
                 {
                     Model.AssemblyLineModuleProcessModel dp = new Model.AssemblyLineModuleProcessModel();
+                    dp.LastProcess = (i == 1) ? "" : dr["P" + (i - 1)].ToString();//赋值上一道工序，以供后面使用
                     dp.Process = dr["P" + i].ToString();
                     dp.Quantity = 0;
                     d.Add(dp);
@@ -103,26 +111,26 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                 }
             }
             //补全入库扣掉的数量，使计算不出错。
-            string sql2 = "Select total(Number) as Num,Process from T_PM_ProductionSchedule where ProductID='" + ProductGuid + "' AND Remark='入库' GROUP BY Process";
-            DataSet ds2 = new DataSet();
-            new Helper.SQLite.DBHelper().QueryData(sql2, out ds2);
-            foreach (DataRow dr in ds2.Tables[0].Rows)
-            {
-                for (int i = 0; i <= d.Count - 1; i++)
-                {
-                    if (d[i].Process == dr["Process"].ToString())
-                    {
-                        d[i].Quantity -= int.Parse(dr["Num"].ToString());
-                    }
-                }
-            }
+            //string sql2 = "Select total(Number) as Num,Process from T_PM_ProductionSchedule where ProductID='" + ProductGuid + "' AND Remark='入库' GROUP BY Process";
+            //DataSet ds2 = new DataSet();
+            //new Helper.SQLite.DBHelper().QueryData(sql2, out ds2);
+            //foreach (DataRow dr in ds2.Tables[0].Rows)
+            //{
+            //    for (int i = 0; i <= d.Count - 1; i++)
+            //    {
+            //        if (d[i].Process == dr["Process"].ToString())
+            //        {
+            //            d[i].Quantity -= int.Parse(dr["Num"].ToString());
+            //        }
+            //    }
+            //}
             //计算
             for (int i = 0; i <= d.Count - 1; i++)
             {
-                if (i != d.Count - 1)
-                {
-                    d[i].Quantity -= d[i + 1].Quantity;
-                }
+                //if (i != d.Count - 1)
+                //{
+                //    d[i].Quantity -= d[i + 1].Quantity;
+                //}
                 if(d[i].Process == "抛光")
                 {
                     d[i].Quantity += In;
@@ -131,16 +139,16 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                 }
             }
             //计算后去掉入库的，使最终结果是正确的
-            foreach (DataRow dr in ds2.Tables[0].Rows)
-            {
-                for (int i = 0; i <= d.Count - 1; i++)
-                {
-                    if (d[i].Process == dr["Process"].ToString())
-                    {
-                        d[i].Quantity += int.Parse(dr["Num"].ToString());
-                    }
-                }
-            }
+            //foreach (DataRow dr in ds2.Tables[0].Rows)
+            //{
+            //    for (int i = 0; i <= d.Count - 1; i++)
+            //    {
+            //        if (d[i].Process == dr["Process"].ToString())
+            //        {
+            //            d[i].Quantity += int.Parse(dr["Num"].ToString());
+            //        }
+            //    }
+            //}
         }
 
         internal int ReadDetials(Guid ProductID, string Process, Guid StaffID, DateTime Start, DateTime End, out List<Model.ProductionManagement.AssemblyLineDetailsModel> data)
