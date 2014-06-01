@@ -25,6 +25,10 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         private ScrapConsole sc = new ScrapConsole();
         private RawMaterialsConsole rmc = new RawMaterialsConsole();
         private ScrapModel m = new ScrapModel();
+        /// <summary>
+        /// 库存
+        /// </summary>
+        int Stock = 0;
 
         public Page_Warehouse()
         {
@@ -122,7 +126,12 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             int PackQuantity = 0;
             int.TryParse(this.TextBox_PackQuantity.Text, out PackQuantity);
             this.TextBox_Quantity.Text = (PackQuantity * PerPackQuantity).ToString();
+            if (Stock < PackQuantity * PerPackQuantity)
+            {
+                this.Label_ShowPackWarnMessage.Content = "库存不够包装";
+            }
         }
+
         /// <summary>
         /// DataGrid右键
         /// </summary>
@@ -140,9 +149,10 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                 this.Label_ShowPackWarnMessage.Content = "";
                 this.Grid_Packing.Visibility = System.Windows.Visibility.Visible;
                 this.ComboBox_ProductList.Text = d.ProductName;
+                Stock = d.Quantity;
                 this.TextBox_PackQuantity.Focus();
                 CountQuantity();
-                if (d.Quantity < PerPackQuantity)
+                if (Stock < PerPackQuantity)
                 {
                     this.Label_ShowPackWarnMessage.Content = "库存不够包装";
                 }
