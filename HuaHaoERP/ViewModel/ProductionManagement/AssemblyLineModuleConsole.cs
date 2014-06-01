@@ -110,27 +110,9 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                     Out = int.Parse(dr["total(Quantity)"].ToString());
                 }
             }
-            //补全入库扣掉的数量，使计算不出错。
-            //string sql2 = "Select total(Number) as Num,Process from T_PM_ProductionSchedule where ProductID='" + ProductGuid + "' AND Remark='入库' GROUP BY Process";
-            //DataSet ds2 = new DataSet();
-            //new Helper.SQLite.DBHelper().QueryData(sql2, out ds2);
-            //foreach (DataRow dr in ds2.Tables[0].Rows)
-            //{
-            //    for (int i = 0; i <= d.Count - 1; i++)
-            //    {
-            //        if (d[i].Process == dr["Process"].ToString())
-            //        {
-            //            d[i].Quantity -= int.Parse(dr["Num"].ToString());
-            //        }
-            //    }
-            //}
-            //计算
+
             for (int i = 0; i <= d.Count - 1; i++)
             {
-                //if (i != d.Count - 1)
-                //{
-                //    d[i].Quantity -= d[i + 1].Quantity;
-                //}
                 if(d[i].Process == "抛光")
                 {
                     d[i].Quantity += In;
@@ -138,17 +120,6 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                     d[i-1].Quantity -= Out;
                 }
             }
-            //计算后去掉入库的，使最终结果是正确的
-            //foreach (DataRow dr in ds2.Tables[0].Rows)
-            //{
-            //    for (int i = 0; i <= d.Count - 1; i++)
-            //    {
-            //        if (d[i].Process == dr["Process"].ToString())
-            //        {
-            //            d[i].Quantity += int.Parse(dr["Num"].ToString());
-            //        }
-            //    }
-            //}
         }
 
         internal int ReadDetials(Guid ProductID, string Process, Guid StaffID, DateTime Start, DateTime End, out List<Model.ProductionManagement.AssemblyLineDetailsModel> data)
