@@ -26,12 +26,14 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
         public Page_CustomerLibrary_Popup_AddProcessors()
         {
             InitializeComponent();
+            this.TextBox_Number.Focus();
         }
         public Page_CustomerLibrary_Popup_AddProcessors(object data)
         {
             InitializeComponent();
             isNew = false;
             InitializeData((Model.ProcessorsModel)data);
+            this.TextBox_Number.Focus();
         }
         private void InitializeData(Model.ProcessorsModel d)
         {

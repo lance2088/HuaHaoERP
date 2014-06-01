@@ -26,18 +26,16 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
         public Page_CustomerLibrary_Popup_AddCustomer()
         {
             InitializeComponent();
-            InitializeData();
+            this.TextBox_Customer_Number.Focus();
         }
         public Page_CustomerLibrary_Popup_AddCustomer(object data)
         {
             InitializeComponent();
             isNew = false;
             InitializeData((Model.CustomerModel)data);
+            this.TextBox_Customer_Number.Focus();
         }
-        private void InitializeData()
-        {
-            
-        }
+
         private void InitializeData(Model.CustomerModel d)
         {
             this.d = d;

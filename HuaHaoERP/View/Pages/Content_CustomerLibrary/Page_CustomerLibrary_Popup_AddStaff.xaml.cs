@@ -28,6 +28,7 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             this.DatePicker_DepartureTime.IsEnabled = false;
             this.DatePicker_EntryTime.SelectedDate = DateTime.Now;
             this.DatePicker_DepartureTime.SelectedDate = DateTime.Now;
+            this.TextBox_Number.Focus();
         }
         public Page_CustomerLibrary_Popup_AddStaff(object data)
         {
@@ -36,6 +37,7 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             this.DatePicker_DepartureTime.SelectedDate = DateTime.Now;
             isNew = false;
             InitializeData((Model.StaffModel)data);
+            this.TextBox_Number.Focus();
         }
         private void InitializeData(Model.StaffModel d)
         {

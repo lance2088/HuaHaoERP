@@ -28,12 +28,14 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
         {
             InitializeComponent();
             InitializeData();
+            this.TextBox_Number.Focus();
         }
         public Page_MeansOfProduction_Popup_AddRawMaterials(object data)
         {
             InitializeComponent();
             isNew = false;
             InitializeData((Model.RawMaterialsModel)data);
+            this.TextBox_Number.Focus();
         }
         private void InitializeData()
         {

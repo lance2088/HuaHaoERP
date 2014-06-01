@@ -25,12 +25,14 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
         public Page_CustomerLibrary_Popup_AddSupplier()
         {
             InitializeComponent();
+            this.TextBox_Number.Focus();
         }
         public Page_CustomerLibrary_Popup_AddSupplier(object data)
         {
             InitializeComponent();
             isNew = false;
             InitializeData((Model.SupplierModel)data);
+            this.TextBox_Number.Focus();
         }
         private void InitializeData(Model.SupplierModel d)
         {
