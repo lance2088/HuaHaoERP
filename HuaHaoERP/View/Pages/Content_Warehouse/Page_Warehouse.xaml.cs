@@ -37,7 +37,6 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             this.Grid_Outbound.Visibility = System.Windows.Visibility.Hidden;
             this.Grid_Packing.Visibility = System.Windows.Visibility.Hidden;
             SubscribeToEvent();
-            InitializeRawMaterialsDataGrid();
             InitPage();
         }
         private void SubscribeToEvent()
@@ -46,7 +45,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            InitializeProductDataGrid();
+            Button_Today_Click(null, null);
         }
         private void InitPage()
         {
@@ -58,8 +57,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             this.ComboBox_ProductList.DisplayMemberPath = "Name";
             this.ComboBox_ProductList.SelectedValuePath = "GUID";//GUID四个字母要大写
             this.ComboBox_ProductList.SelectedIndex = 0;
-            //ComboBox_ProductList_DropDownClosed(null, null);
-            InitializeProductDataGrid();
+
             #region 余料管理
             ComboBox_DropDownOpened(this, null);
             RefreshData_Scrap();
@@ -67,6 +65,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             ComboBox_Name.SelectedIndex = 0;
             DatePicker_Date.Text = DateTime.Now.ToShortDateString();
             #endregion 
+            InitializeRawMaterialsDataGrid();
         }
 
         #region 产品仓库
@@ -77,16 +76,23 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
 
         private void InitializeProductDataGrid()
         {
+            DateTime Start = ((DateTime)this.DatePicker_Start.SelectedDate).Date;
+            DateTime End = ((DateTime)this.DatePicker_End.SelectedDate).Date.AddDays(1);
+            string HistoryType = this.ComboBox_ShowHistory.Text.Substring(0,2);
+
+            //明细
             List<WarehouseProductModel> d = new List<WarehouseProductModel>();
-            if(new ViewModel.Warehouse.WarehouseProductConsole().ReadDetailsList(out d))
+            if(new ViewModel.Warehouse.WarehouseProductConsole().ReadDetailsList(Start, End, HistoryType, out d))
             {
                 this.DataGrid_ProductDetails.ItemsSource = d;
             }
+            //散件
             List<WarehouseProductNumModel> dn = new List<WarehouseProductNumModel>();
             if(new ViewModel.Warehouse.WarehouseProductConsole().ReadNumList(out dn))
             {
                 this.DataGrid_Num.ItemsSource = dn;
             }
+            //已包装
             List<WarehouseProductNumModel> dnPack = new List<WarehouseProductNumModel>();
             if(new ViewModel.Warehouse.WarehouseProductConsole().ReadPackingNumList(out dnPack))
             {
@@ -168,7 +174,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
 
         private void ComboBox_ShowHistory_DropDownClosed(object sender, EventArgs e)
         {
-
+            InitializeProductDataGrid();
         }
         private void DataGrid_PackingNum_LoadingRow(object sender, DataGridRowEventArgs e)
         {
@@ -210,6 +216,18 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             {
                 this.Label_ShowOutboundWarnMessage.Content = "超出库存";
             }
+        }
+        private void Button_Today_Click(object sender, RoutedEventArgs e)
+        {
+            this.DatePicker_Start.SelectedDate = DateTime.Now;
+            this.DatePicker_End.SelectedDate = DateTime.Now;
+            InitializeProductDataGrid();
+        }
+        private void Button_AllDate_Click(object sender, RoutedEventArgs e)
+        {
+            this.DatePicker_Start.SelectedDate = Convert.ToDateTime("2010-01-01 00:00:00");
+            this.DatePicker_End.SelectedDate = Convert.ToDateTime("2024-01-01 00:00:00");
+            InitializeProductDataGrid();
         }
         #endregion
 
@@ -351,6 +369,8 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         }
 
         #endregion
+
+
 
 
 

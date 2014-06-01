@@ -11,7 +11,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
     {
         internal bool Add(Guid ProductID, string StaffName, int Quantity)
         {
-            string sql = " Insert into T_Warehouse_Product(Guid,ProductID,Date,Operator,Number,Remark) "
+            string sql = " Insert into T_Warehouse_Product(Guid,ProductID,Date,Operator,Quantity,Remark) "
                        + " values('" + Guid.NewGuid() + "','" + ProductID + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + StaffName + "','" + Quantity + "','入库')";
             return new Helper.SQLite.DBHelper().SingleExecution(sql);
         }
@@ -21,15 +21,26 @@ namespace HuaHaoERP.ViewModel.Warehouse
                        + " values('" + Guid.NewGuid() + "','" + ProductID + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + Helper.DataDefinition.CommonParameters.LoginUserName + "','-" + Quantity + "','出库')";
             return new Helper.SQLite.DBHelper().SingleExecution(sql);
         }
-        internal bool ReadDetailsList(out List<WarehouseProductModel> data)
+        internal bool ReadDetailsList(DateTime Start, DateTime End,string Type, out List<WarehouseProductModel> data)
         {
+            string TableName = "T_Warehouse_Product";
+            if(Type.Equals("全部"))
+            {
+                Type = "";
+            }
+            else if(Type.Equals("出库"))
+            {
+                TableName = "T_Warehouse_ProductPacking";
+            }
             data = new List<WarehouseProductModel>();
             string sql = " SELECT                                                            "
                        + "	 a.*,                                                            "
                        + "   b.Name                                                          "
                        + " FROM                                                              "
-                       + "	 T_Warehouse_Product a                                           "
-                       + " LEFT JOIN T_ProductInfo_Product b ON a.ProductID=b.GUID           ";
+                       + " " + TableName + " a                                           "
+                       + " LEFT JOIN T_ProductInfo_Product b ON a.ProductID=b.GUID           "
+                       + " WHERE a.Date BETWEEN '" + Start.ToString("yyyy-MM-dd HH:mm:ss") + "' AND '" + End.ToString("yyyy-MM-dd HH:mm:ss") + "'"
+                       + " AND a.Remark LIKE '"+Type+"%'";
             DataSet ds = new DataSet();
             if(new Helper.SQLite.DBHelper().QueryData(sql, out ds))
             {
@@ -43,7 +54,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
                     d.ProductName = dr["Name"].ToString();
                     d.Date = dr["Date"].ToString();
                     d.Operator = dr["Operator"].ToString();
-                    d.Number = int.Parse(dr["Number"].ToString());
+                    d.Number = int.Parse(dr["Quantity"].ToString());
                     d.Remark = dr["Remark"].ToString();
                     data.Add(d);
                 }
@@ -57,7 +68,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
             data = new List<WarehouseProductNumModel>();
             string sql = "SELECT                                                  "
                        + "	a.ProductID,                                                  "
-                       + "	total(a.Number) as Quantity,                            "
+                       + "	total(a.Quantity) as Quantity,                            "
                        + "	b.Name as ProductName                                 "
                        + "FROM                                                    "
                        + "	T_Warehouse_Product a                                 "
@@ -121,7 +132,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
         internal bool Packing(Guid ProductID, int Quantity, int PackedQuantity)
         {
             List<string> sqls = new List<string>();
-            string sql1 = " Insert into T_Warehouse_Product(Guid,ProductID,Date,Operator,Number,Remark) "
+            string sql1 = " Insert into T_Warehouse_Product(Guid,ProductID,Date,Operator,Quantity,Remark) "
                         + " values('" + Guid.NewGuid() + "','" + ProductID + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + Helper.DataDefinition.CommonParameters.LoginUserName + "','-" + Quantity + "','包装*" + PackedQuantity + "')";
             string sql2 = " Insert into T_Warehouse_ProductPacking(Guid,ProductID,Date,Operator,Quantity) "
                         + " values('" + Guid.NewGuid() + "','" + ProductID + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + Helper.DataDefinition.CommonParameters.LoginUserName + "','" + PackedQuantity + "')";
