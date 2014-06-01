@@ -33,6 +33,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         public Page_Warehouse()
         {
             InitializeComponent();
+            this.Grid_Outbound.Visibility = System.Windows.Visibility.Hidden;
             this.Grid_Packing.Visibility = System.Windows.Visibility.Hidden;
             SubscribeToEvent();
             InitializeRawMaterialsDataGrid();
@@ -48,6 +49,10 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         }
         private void InitPage()
         {
+            this.ComboBox_ProductList_Outbound.ItemsSource = Helper.DataDefinition.ComboBoxList.ProductListWithoutAll.DefaultView;
+            this.ComboBox_ProductList_Outbound.DisplayMemberPath = "Name";
+            this.ComboBox_ProductList_Outbound.SelectedValuePath = "GUID";//GUID四个字母要大写
+            this.ComboBox_ProductList_Outbound.SelectedIndex = 0;
             this.ComboBox_ProductList.ItemsSource = Helper.DataDefinition.ComboBoxList.ProductListWithoutAll.DefaultView;
             this.ComboBox_ProductList.DisplayMemberPath = "Name";
             this.ComboBox_ProductList.SelectedValuePath = "GUID";//GUID四个字母要大写
@@ -148,6 +153,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                 //show Packing Grid
                 this.Label_ShowPackWarnMessage.Content = "";
                 this.Grid_Packing.Visibility = System.Windows.Visibility.Visible;
+                this.Grid_Outbound.Visibility = System.Windows.Visibility.Hidden;
                 this.ComboBox_ProductList.Text = d.ProductName;
                 Stock = d.Quantity;
                 this.TextBox_PackQuantity.Focus();
@@ -157,6 +163,39 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                     this.Label_ShowPackWarnMessage.Content = "库存不够包装";
                 }
             };
+        }
+
+        private void ComboBox_ShowHistory_DropDownClosed(object sender, EventArgs e)
+        {
+
+        }
+        private void DataGrid_PackingNum_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            e.Row.MouseRightButtonDown += (s, a) =>
+            {
+                a.Handled = true;
+                (sender as DataGrid).SelectedIndex = (s as DataGridRow).GetIndex();
+                (s as DataGridRow).Focus();
+                WarehouseProductNumModel d = this.DataGrid_PackingNum.SelectedCells[0].Item as WarehouseProductNumModel;
+                //show Packing Grid
+                this.Grid_Outbound.Visibility = System.Windows.Visibility.Visible;
+                this.Grid_Packing.Visibility = System.Windows.Visibility.Hidden;
+                this.ComboBox_ProductList_Outbound.Text = d.ProductName;
+            };
+        }
+        private void Button_Outbound_Click(object sender, RoutedEventArgs e)
+        {
+            Guid ProductID = (Guid)this.ComboBox_ProductList_Outbound.SelectedValue;
+            int Quantity = 0;
+            int.TryParse(this.TextBox_Quantity_Outbound.Text, out Quantity);
+            if(new ViewModel.Warehouse.WarehouseProductConsole().Outbound(ProductID, Quantity))
+            {
+                InitializeProductDataGrid();
+            }
+        }
+        private void Button_CloseOutbound_Click(object sender, RoutedEventArgs e)
+        {
+            this.Grid_Outbound.Visibility = System.Windows.Visibility.Hidden;
         }
         #endregion
 
@@ -298,6 +337,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         }
 
         #endregion
+
 
 
 
