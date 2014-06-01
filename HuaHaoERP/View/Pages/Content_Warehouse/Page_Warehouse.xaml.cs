@@ -45,10 +45,6 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            Button_Today_Click(null, null);
-        }
-        private void InitPage()
-        {
             this.ComboBox_ProductList_Outbound.ItemsSource = Helper.DataDefinition.ComboBoxList.ProductListWithoutAll.DefaultView;
             this.ComboBox_ProductList_Outbound.DisplayMemberPath = "Name";
             this.ComboBox_ProductList_Outbound.SelectedValuePath = "GUID";//GUID四个字母要大写
@@ -57,7 +53,10 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             this.ComboBox_ProductList.DisplayMemberPath = "Name";
             this.ComboBox_ProductList.SelectedValuePath = "GUID";//GUID四个字母要大写
             this.ComboBox_ProductList.SelectedIndex = 0;
-
+            Button_Today_Click(null, null);
+        }
+        private void InitPage()
+        {
             #region 余料管理
             ComboBox_DropDownOpened(this, null);
             RefreshData_Scrap();
