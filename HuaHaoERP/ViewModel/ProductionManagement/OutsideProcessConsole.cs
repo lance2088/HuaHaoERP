@@ -11,11 +11,9 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
     {
         internal bool Add(ProductionManagement_OutsideProcessModel d)
         {
-            bool flag = false;
             string sql = "Insert into T_PM_ProcessSchedule(Guid,Date,ProductID,ProcessorsID,Quantity,MinorInjuries,Injuries,Lose,OrderType,Remark) "
                        + " values('"+d.Guid+"','"+d.OrderDate+"','"+d.ProductGuid+"','"+d.ProcessorsGuid+"','"+d.Quantity+"','"+d.MinorInjuries+"','"+d.Injuries+"','"+d.Lose+"','"+d.OrderType+"','"+d.Remark+"')";
-            flag = new Helper.SQLite.DBHelper().SingleExecution(sql);
-            return flag;
+            return new Helper.SQLite.DBHelper().SingleExecution(sql);
         }
 
         internal bool Delete(Guid guid)
