@@ -43,7 +43,7 @@
                         <ComboBoxItem Content="入库记录" />
                         <ComboBoxItem Content="出库记录" />
                     </ComboBox>
-                    <DataGrid x:Name="DataGrid_Num" Grid.Column="1" Margin="0,74,10,10" HorizontalContentAlignment="Stretch" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" IsReadOnly="True" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False" AutoGenerateColumns="False">
+                    <DataGrid x:Name="DataGrid_Num" Grid.Column="1" Margin="0,74,10,10" HorizontalContentAlignment="Stretch" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" IsReadOnly="True" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False" AutoGenerateColumns="False" LoadingRow="DataGrid_Num_LoadingRow">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="编号" Binding="{Binding Id}"/>
                             <DataGridTextColumn Header="名称" Binding="{Binding ProductName}"/>
@@ -51,19 +51,20 @@
                         </DataGrid.Columns>
                     </DataGrid>
                     <Label Content="散件数量：" Grid.Column="1" HorizontalAlignment="Left" Margin="0,45,0,0" VerticalAlignment="Top" Padding="0,2" Height="24" VerticalContentAlignment="Center"/>
-                    <Button x:Name="Button_Packing" FocusVisualStyle="{x:Null}" Content="包装" Grid.Column="1" Margin="0,45,10,0" VerticalAlignment="Top" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" ToolTip="点击将散件包装成件" Height="24" Foreground="White" Click="Button_Packing_Click" HorizontalAlignment="Right" Width="74"/>
                     <DatePicker Grid.Column="2" HorizontalAlignment="Left" Margin="122,10,0,0" VerticalAlignment="Top" Width="100" Height="24"/>
                     <Label Content="至" Grid.Column="2" HorizontalAlignment="Left" Margin="100,9,0,0" VerticalAlignment="Top"/>
                     <Button FocusVisualStyle="{x:Null}" Content="出库" HorizontalAlignment="Right" Margin="0,45,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White"/>
-                    <Grid x:Name="Grid_Packing" Grid.Column="2" HorizontalAlignment="Left" Height="210" Margin="0,45,0,0" VerticalAlignment="Top" Width="190" Background="White">
+                    <Grid x:Name="Grid_Packing" Grid.Column="2" HorizontalAlignment="Left" Height="210" Margin="0,74,0,0" VerticalAlignment="Top" Width="190" Background="White">
                         <Grid.Effect>
                             <DropShadowEffect ShadowDepth="0"/>
                         </Grid.Effect>
-                        <Button x:Name="Button_ClosePacking" Content="×" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Top" Width="20" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="20" Foreground="White" Click="Button_ClosePacking_Click"/>
-                        <Button x:Name="Button_Packed" Content="包装" HorizontalAlignment="Center" Margin="0,176,0,0" Width="74" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" VerticalAlignment="Top" Click="Button_Packed_Click"/>
-                        <ComboBox x:Name="ComboBox_ProductList" HorizontalAlignment="Center" Margin="0,40,0,0" VerticalAlignment="Top" Width="120" Height="24" IsEditable="True" VerticalContentAlignment="Center" DropDownClosed="ComboBox_ProductList_DropDownClosed"/>
-                        <TextBox x:Name="TextBox_PackQuantity" HorizontalAlignment="Center" Height="24" Margin="0,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextChanged="TextBox_PackQuantity_TextChanged"/>
-                        <TextBox x:Name="TextBox_Quantity" HorizontalAlignment="Left" Height="24" Margin="35,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <Button x:Name="Button_ClosePacking" Content="×" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Top" Width="24" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="20" Foreground="White" Click="Button_ClosePacking_Click"/>
+                        <Button x:Name="Button_Packed" Content="包装" HorizontalAlignment="Center" Margin="58,175,58,0" Width="74" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" VerticalAlignment="Top" Click="Button_Packed_Click"/>
+                        <ComboBox x:Name="ComboBox_ProductList" HorizontalAlignment="Center" Margin="0,32,0,0" VerticalAlignment="Top" Width="120" Height="24" IsEditable="True" VerticalContentAlignment="Center" DropDownClosed="ComboBox_ProductList_DropDownClosed"/>
+                        <TextBox x:Name="TextBox_PackQuantity" HorizontalAlignment="Center" Height="24" Margin="35,87,35,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextChanged="TextBox_PackQuantity_TextChanged"/>
+                        <TextBox x:Name="TextBox_Quantity" HorizontalAlignment="Center" Height="24" Margin="35,123,35,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <Label x:Name="Label_ShowPackMessage" Content="Label" HorizontalAlignment="Right" Margin="0,56,35,0" VerticalAlignment="Top" Padding="0,5"/>
+                        <Label x:Name="Label_ShowPackWarnMessage" Content="Label" HorizontalAlignment="Center" Margin="0,147,0,0" VerticalAlignment="Top" Padding="0,5" Width="120" HorizontalContentAlignment="Center" Foreground="Red"/>
                     </Grid>
                 </Grid>
             </TabItem>

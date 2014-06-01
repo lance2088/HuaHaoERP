@@ -48,7 +48,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             this.ComboBox_ProductList.DisplayMemberPath = "Name";
             this.ComboBox_ProductList.SelectedValuePath = "GUID";//GUID四个字母要大写
             this.ComboBox_ProductList.SelectedIndex = 0;
-            ComboBox_ProductList_DropDownClosed(null, null);
+            //ComboBox_ProductList_DropDownClosed(null, null);
             InitializeProductDataGrid();
             #region 余料管理
             ComboBox_DropDownOpened(this, null);
@@ -60,11 +60,6 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         }
 
         #region 产品仓库
-
-        private void Button_Packing_Click(object sender, RoutedEventArgs e)
-        {
-            this.Grid_Packing.Visibility = System.Windows.Visibility.Visible;
-        }
         private void Button_ClosePacking_Click(object sender, RoutedEventArgs e)
         {
             this.Grid_Packing.Visibility = System.Windows.Visibility.Collapsed;
@@ -96,6 +91,12 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             int.TryParse(this.TextBox_PackQuantity.Text, out PackedQuantity);
             int Quantity = 0;
             int.TryParse(this.TextBox_Quantity.Text, out Quantity);
+            if (PackedQuantity == 0 || Quantity == 0)
+            {
+                this.Label_ShowPackWarnMessage.Content = "请输入包装件数";
+                this.TextBox_PackQuantity.Focus();
+                return;
+            }
             if (new ViewModel.Warehouse.WarehouseProductConsole().Packing(ProductID, Quantity, PackedQuantity))
             {
                 InitializeProductDataGrid();
@@ -106,19 +107,46 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
 
         private void TextBox_PackQuantity_TextChanged(object sender, TextChangedEventArgs e)
         {
+            this.Label_ShowPackWarnMessage.Content = "";
             CountQuantity();
         }
         int PerPackQuantity = 1;
         private void ComboBox_ProductList_DropDownClosed(object sender, EventArgs e)
         {
-            PerPackQuantity = new ViewModel.Warehouse.WarehouseProductConsole().ReadProductPackingNum((Guid)this.ComboBox_ProductList.SelectedValue);
             CountQuantity();
         }
         private void CountQuantity()
         {
+            PerPackQuantity = new ViewModel.Warehouse.WarehouseProductConsole().ReadProductPackingNum((Guid)this.ComboBox_ProductList.SelectedValue);
+            this.Label_ShowPackMessage.Content = PerPackQuantity + "个/包";
             int PackQuantity = 0;
             int.TryParse(this.TextBox_PackQuantity.Text, out PackQuantity);
             this.TextBox_Quantity.Text = (PackQuantity * PerPackQuantity).ToString();
+        }
+        /// <summary>
+        /// DataGrid右键
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DataGrid_Num_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            e.Row.MouseRightButtonDown += (s, a) =>
+            {
+                a.Handled = true;
+                (sender as DataGrid).SelectedIndex = (s as DataGridRow).GetIndex();
+                (s as DataGridRow).Focus();
+                WarehouseProductNumModel d = this.DataGrid_Num.SelectedCells[0].Item as WarehouseProductNumModel;
+                //show Packing Grid
+                this.Label_ShowPackWarnMessage.Content = "";
+                this.Grid_Packing.Visibility = System.Windows.Visibility.Visible;
+                this.ComboBox_ProductList.Text = d.ProductName;
+                this.TextBox_PackQuantity.Focus();
+                CountQuantity();
+                if (d.Quantity < PerPackQuantity)
+                {
+                    this.Label_ShowPackWarnMessage.Content = "库存不够包装";
+                }
+            };
         }
         #endregion
 
@@ -260,6 +288,8 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         }
 
         #endregion
+
+
 
     }
 }
