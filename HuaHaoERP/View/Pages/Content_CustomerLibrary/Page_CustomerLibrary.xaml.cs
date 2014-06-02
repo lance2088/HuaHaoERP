@@ -71,8 +71,11 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             if (this.DataGrid_Customer.SelectedCells.Count > 0)
             {
                 HuaHaoERP.Model.CustomerModel data = this.DataGrid_Customer.SelectedCells[0].Item as HuaHaoERP.Model.CustomerModel;
-                new ViewModel.Customer.CustomerConsole().MarkDelete(data);
-                CustomerEvent.OnUpdateDataGrid();
+                if(MessageBox.Show("确认删除用户："+data.Name+"？","警告",MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    new ViewModel.Customer.CustomerConsole().MarkDelete(data);
+                    CustomerEvent.OnUpdateDataGrid();
+                }
             }
         }
         #endregion
@@ -102,8 +105,11 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             if (this.DataGrid_Supplier.SelectedCells.Count > 0)
             {
                 HuaHaoERP.Model.SupplierModel data = this.DataGrid_Supplier.SelectedCells[0].Item as HuaHaoERP.Model.SupplierModel;
-                new ViewModel.Customer.SupplierConsole().MarkDelete(data);
-                Helper.Events.SupplierEvent.OnUpdateDataGrid();
+                if (MessageBox.Show("确认删除供应商：" + data.Name + "？", "警告", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    new ViewModel.Customer.SupplierConsole().MarkDelete(data);
+                    Helper.Events.SupplierEvent.OnUpdateDataGrid();
+                }
             }
         }
         #endregion
@@ -133,8 +139,11 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             if (this.DataGrid_Staff.SelectedCells.Count > 0)
             {
                 HuaHaoERP.Model.StaffModel data = this.DataGrid_Staff.SelectedCells[0].Item as HuaHaoERP.Model.StaffModel;
-                new ViewModel.Customer.StaffConsole().MarkDelete(data);
-                Helper.Events.StaffEvent.OnUpdateDataGrid();
+                if (MessageBox.Show("确认删除员工：" + data.Name + "？", "警告", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    new ViewModel.Customer.StaffConsole().MarkDelete(data);
+                    Helper.Events.StaffEvent.OnUpdateDataGrid();
+                }
             }
         }
         #endregion
@@ -163,8 +172,11 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             if (this.DataGrid_Processors.SelectedCells.Count > 0)
             {
                 HuaHaoERP.Model.ProcessorsModel data = this.DataGrid_Processors.SelectedCells[0].Item as HuaHaoERP.Model.ProcessorsModel;
-                new ViewModel.Customer.ProcessorsConsole().MarkDelete(data);
-                ProcessorsEvent.OnUpdateDataGrid();
+                if (MessageBox.Show("确认删除加工商：" + data.Name + "？", "警告", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    new ViewModel.Customer.ProcessorsConsole().MarkDelete(data);
+                    ProcessorsEvent.OnUpdateDataGrid();
+                }
             }
         }
         #endregion

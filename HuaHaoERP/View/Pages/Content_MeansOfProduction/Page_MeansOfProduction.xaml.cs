@@ -53,8 +53,11 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
             if (this.DataGrid_Product.SelectedCells.Count > 0)
             {
                 HuaHaoERP.Model.ProductModel data = this.DataGrid_Product.SelectedCells[0].Item as HuaHaoERP.Model.ProductModel;
-                new ViewModel.MeansOfProduction.ProductConsole().MarkDelete(data);
-                Helper.Events.ProductEvent.OnUpdateDataGrid();
+                if (MessageBox.Show("确认删除产品：" + data.Name + "？", "警告", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    new ViewModel.MeansOfProduction.ProductConsole().MarkDelete(data);
+                    Helper.Events.ProductEvent.OnUpdateDataGrid();
+                }
             }
         }
         private void DataGrid_Product_Row_MouseDoubleClick(object sender, RoutedEventArgs e)
@@ -92,8 +95,11 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
             if (this.DataGrid_RawMaterials.SelectedCells.Count > 0)
             {
                 HuaHaoERP.Model.RawMaterialsModel data = this.DataGrid_RawMaterials.SelectedCells[0].Item as HuaHaoERP.Model.RawMaterialsModel;
-                new ViewModel.MeansOfProduction.RawMaterialsConsole().MarkDelete(data);
-                Helper.Events.RawMaterialsEvent.OnUpdateDataGrid();
+                if (MessageBox.Show("确认删除原料：" + data.Name + "？", "警告", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    new ViewModel.MeansOfProduction.RawMaterialsConsole().MarkDelete(data);
+                    Helper.Events.RawMaterialsEvent.OnUpdateDataGrid();
+                }
             }
         }
         #endregion

@@ -189,8 +189,11 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             if (this.DataGrid_ProcessOut.SelectedCells.Count > 0)
             {
                 Model.ProductionManagement_OutsideProcessModel d = this.DataGrid_ProcessOut.SelectedCells[0].Item as Model.ProductionManagement_OutsideProcessModel;
-                new ViewModel.ProductionManagement.OutsideProcessConsole().Delete(d.Guid);
-                InitializeOutsideProcessDataGrid();
+                if (MessageBox.Show("确认删除出单：" + d.Id + "？", "警告", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    new ViewModel.ProductionManagement.OutsideProcessConsole().Delete(d.Guid);
+                    InitializeOutsideProcessDataGrid();
+                }
             }
         }
 
@@ -199,8 +202,11 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             if (this.DataGrid_ProcessIn.SelectedCells.Count > 0)
             {
                 Model.ProductionManagement_OutsideProcessModel d = this.DataGrid_ProcessIn.SelectedCells[0].Item as Model.ProductionManagement_OutsideProcessModel;
-                new ViewModel.ProductionManagement.OutsideProcessConsole().Delete(d.Guid);
-                InitializeOutsideProcessDataGrid();
+                if (MessageBox.Show("确认删除入单：" + d.Id + "？", "警告", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    new ViewModel.ProductionManagement.OutsideProcessConsole().Delete(d.Guid);
+                    InitializeOutsideProcessDataGrid();
+                }
             }
         }
 
