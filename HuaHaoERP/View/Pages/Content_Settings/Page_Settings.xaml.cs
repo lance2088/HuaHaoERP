@@ -66,7 +66,7 @@ namespace HuaHaoERP.View.Pages.Content_Settings
         {
             if(Helper.DataDefinition.CommonParameters.DbPassword == "")
             {
-                new ViewModel.Settings.EncryptedDBConsole().Encrypted("asd");
+                new ViewModel.Settings.EncryptedDBConsole().Encrypted(Guid.NewGuid().ToString());
                 this.Button_EncryptedDB.Content = "解密数据库";
             }
             else
