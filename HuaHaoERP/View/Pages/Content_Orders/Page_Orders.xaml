@@ -37,7 +37,7 @@
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="供应商订单" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="17,0,-17,0" Foreground="White">
                 <Grid Background="White">
-                    <DataGrid Margin="0,40,0,0" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderThickness="0,1,0,0" BorderBrush="#FF99CCFF" AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False">
+                    <DataGrid Margin="0,40,0,0" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderThickness="0,1,0,0" BorderBrush="#FF99CCFF" AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False" IsEnabled="False">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Guid}" Header="Guid" Visibility="Hidden"/>
                             <DataGridTextColumn Binding="{Binding Id}" Header="序号" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
@@ -53,13 +53,13 @@
                             <DataGridTextColumn Binding="{Binding Remark}" Header="备注"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button x:Name="Button_AddSupplierOrder" Content="添加订单" HorizontalAlignment="Right" Margin="0,10,90,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_AddSupplierOrder_Click"/>
-                    <Button x:Name="Button_DelSupplierOrder" Content="删除" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_DelSupplierOrder_Click"/>
+                    <Button x:Name="Button_AddSupplierOrder" Content="添加订单" HorizontalAlignment="Right" Margin="0,10,90,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_AddSupplierOrder_Click" IsEnabled="False"/>
+                    <Button x:Name="Button_DelSupplierOrder" Content="删除" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_DelSupplierOrder_Click" IsEnabled="False"/>
                 </Grid>
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="外加工订单" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="27,0,-27,0" Foreground="White">
                 <Grid Background="White">
-                    <DataGrid Margin="0,40,0,0" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" BorderThickness="0,1,0,0" CanUserDeleteRows="False" CanUserAddRows="False" CanUserResizeRows="False" IsReadOnly="True" AutoGenerateColumns="False">
+                    <DataGrid Margin="0,40,0,0" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" BorderThickness="0,1,0,0" CanUserDeleteRows="False" CanUserAddRows="False" CanUserResizeRows="False" IsReadOnly="True" AutoGenerateColumns="False" IsEnabled="False">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Guid}" Header="Guid" Visibility="Hidden"/>
                             <DataGridTextColumn Binding="{Binding Id}" Header="序号" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
@@ -74,8 +74,8 @@
                             <DataGridTextColumn Binding="{Binding Remark}" Header="备注"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button x:Name="Button_AddProcessorsOrder" Content="添加订单" HorizontalAlignment="Right" Margin="0,10,90,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_AddProcessorsOrder_Click"/>
-                    <Button x:Name="Button_DelProcessorsOrder" Content="删除" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_DelProcessorsOrder_Click"/>
+                    <Button x:Name="Button_AddProcessorsOrder" Content="添加订单" HorizontalAlignment="Right" Margin="0,10,90,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_AddProcessorsOrder_Click" IsEnabled="False"/>
+                    <Button x:Name="Button_DelProcessorsOrder" Content="删除" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_DelProcessorsOrder_Click" IsEnabled="False"/>
                 </Grid>
             </TabItem>
         </TabControl>
