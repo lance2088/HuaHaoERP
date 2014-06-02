@@ -53,7 +53,7 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
             if (this.DataGrid_Product.SelectedCells.Count > 0)
             {
                 HuaHaoERP.Model.ProductModel data = this.DataGrid_Product.SelectedCells[0].Item as HuaHaoERP.Model.ProductModel;
-                if (MessageBox.Show("确认删除产品：" + data.Name + "？", "警告", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                if (MessageBox.Show("确认删除产品：" + data.Name + "？\n删除产品可能导致仓库中该产品无法打包和出库", "警告", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
                     new ViewModel.MeansOfProduction.ProductConsole().MarkDelete(data);
                     Helper.Events.ProductEvent.OnUpdateDataGrid();
