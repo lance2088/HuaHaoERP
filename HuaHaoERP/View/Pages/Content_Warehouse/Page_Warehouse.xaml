@@ -29,7 +29,7 @@
                             <DataGridTextColumn Header="备注" Binding="{Binding Remark}"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <DataGrid x:Name="DataGrid_PackingNum" Margin="10,39,10,10" BorderThickness="1" IsReadOnly="True" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" HeadersVisibility="Column" VerticalGridLinesBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" AutoGenerateColumns="False" LoadingRow="DataGrid_PackingNum_LoadingRow">
+                    <DataGrid x:Name="DataGrid_PackingNum" Margin="10,39,10,10" BorderThickness="1" IsReadOnly="True" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" HeadersVisibility="Column" VerticalGridLinesBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" AutoGenerateColumns="False" LoadingRow="DataGrid_PackingNum_LoadingRow" SelectionMode="Single">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="编号" Binding="{Binding Id}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                             <DataGridTextColumn Header="名称" Binding="{Binding ProductName}"/>
@@ -44,7 +44,7 @@
                         <ComboBoxItem Content="出库记录" />
                         <ComboBoxItem Content="包装记录" />
                     </ComboBox>
-                    <DataGrid x:Name="DataGrid_Num" Grid.Column="1" Margin="0,39,10,10" HorizontalContentAlignment="Stretch" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" IsReadOnly="True" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False" AutoGenerateColumns="False" LoadingRow="DataGrid_Num_LoadingRow">
+                    <DataGrid x:Name="DataGrid_Num" Grid.Column="1" Margin="0,39,10,10" HorizontalContentAlignment="Stretch" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" IsReadOnly="True" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False" AutoGenerateColumns="False" LoadingRow="DataGrid_Num_LoadingRow" SelectionMode="Single">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="编号" Binding="{Binding Id}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                             <DataGridTextColumn Header="名称" Binding="{Binding ProductName}"/>
