@@ -4,20 +4,20 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d"  FontFamily="SimSun" TextOptions.TextFormattingMode="Display" FontSize="14"
-      d:DesignHeight="354.231" d:DesignWidth="690"
+      d:DesignHeight="482.231" d:DesignWidth="828"
 	Title="Page_ProductionManagement_AssemblyLineModuleDetails">
 
-    <Grid Background="White" HorizontalAlignment="Right" Width="500">
+    <Grid Background="White" HorizontalAlignment="Right" Width="800">
         <DataGrid x:Name="DataGrid_Detials" Margin="10,110,10,10" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" IsReadOnly="True" AutoGenerateColumns="False" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" SelectionMode="Single">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="GUID" Visibility="Hidden"/>
                 <DataGridTextColumn Header="序号" Binding="{Binding Id}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                <DataGridTextColumn Header="日期" Binding="{Binding Date}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                <DataGridTextColumn Header="产品名" Binding="{Binding ProductName}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                <DataGridTextColumn Header="工序" Binding="{Binding Process}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" MinWidth="50"/>
-                <DataGridTextColumn Header="数量" Binding="{Binding Quantity}" ElementStyle="{DynamicResource TextBlockStyle_AlignRight}" MinWidth="50"/>
+                <DataGridTextColumn Header="日期" Binding="{Binding Date}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" MinWidth="100"/>
+                <DataGridTextColumn Header="产品名" Binding="{Binding ProductName}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" MinWidth="80"/>
+                <DataGridTextColumn Header="工序" Binding="{Binding Process}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" MinWidth="80"/>
+                <DataGridTextColumn Header="数量" Binding="{Binding Quantity}" ElementStyle="{DynamicResource TextBlockStyle_AlignRight}" MinWidth="80"/>
                 <DataGridTextColumn Header="损坏" Binding="{Binding BreakNum}" ElementStyle="{DynamicResource TextBlockStyle_AlignRight}" MinWidth="50"/>
-                <DataGridTextColumn Header="员工" Binding="{Binding StaffName}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn Header="员工" Binding="{Binding StaffName}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" MinWidth="80"/>
                 <DataGridTextColumn Header="备注" Binding="{Binding Remark}"/>
             </DataGrid.Columns>
         </DataGrid>
@@ -31,7 +31,8 @@
         <Button x:Name="Button_Today" Content="当日" HorizontalAlignment="Right" Margin="0,80,340,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Height="24" Click="Button_Today_Click"/>
         <Button x:Name="Button_AllDate" Content="全日期" HorizontalAlignment="Right" Margin="0,80,277,0" VerticalAlignment="Top" Width="58" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Height="24" Click="Button_AllDate_Click"/>
         <ComboBox x:Name="ComboBox_Staff" HorizontalAlignment="Right" Margin="0,51,10,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center" DropDownClosed="ComboBox_Staff_DropDownClosed"/>
-        <Label x:Name="Label_Count" Content="Label" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top"/>
+        <Label x:Name="Label_Count" Content="Label" Margin="10,80,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <CheckBox x:Name="CHeckBox_IsShowAutoDeduction" Content="不显示自动扣半成品原料" HorizontalAlignment="Left" Margin="231,80,0,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" IsChecked="True" Click="CHeckBox_IsShowAutoDeduction_Click"/>
 
     </Grid>
 </Page>

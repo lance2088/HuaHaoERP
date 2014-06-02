@@ -36,17 +36,21 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void InitializeDataGrid()
         {
-            Guid ProductID = (Guid)this.ComboBox_Product.SelectedValue;
-            string Process = this.ComboBox_Process.Text;
-            Guid StaffID = (Guid)this.ComboBox_Staff.SelectedValue;
-            DateTime Start = ((DateTime)this.DatePicker_Start.SelectedDate).Date;
-            DateTime End = ((DateTime)this.DatePicker_End.SelectedDate).Date.AddDays(1);
+            //if(this.IsLoaded)
+            {
+                bool IsShowAutoDeduction = (bool)this.CHeckBox_IsShowAutoDeduction.IsChecked;
+                Guid ProductID = (Guid)this.ComboBox_Product.SelectedValue;
+                string Process = this.ComboBox_Process.Text;
+                Guid StaffID = (Guid)this.ComboBox_Staff.SelectedValue;
+                DateTime Start = ((DateTime)this.DatePicker_Start.SelectedDate).Date;
+                DateTime End = ((DateTime)this.DatePicker_End.SelectedDate).Date.AddDays(1);
 
-            List<Model.ProductionManagement.AssemblyLineDetailsModel> d = new List<Model.ProductionManagement.AssemblyLineDetailsModel>();
-            int Count = new ViewModel.ProductionManagement.AssemblyLineModuleConsole().ReadDetials(ProductID, Process, StaffID, Start, End, out d);
-            this.DataGrid_Detials.ItemsSource = d;
+                List<Model.ProductionManagement.AssemblyLineDetailsModel> d = new List<Model.ProductionManagement.AssemblyLineDetailsModel>();
+                int Count = new ViewModel.ProductionManagement.AssemblyLineModuleConsole().ReadDetials(IsShowAutoDeduction, ProductID, Process, StaffID, Start, End, out d);
+                this.DataGrid_Detials.ItemsSource = d;
 
-            this.Label_Count.Content = "统计数量：" + Count;
+                this.Label_Count.Content = "统计数量：" + Count;
+            }
         }
 
         private void Button_Cancel_Click(object sender, RoutedEventArgs e)
@@ -89,6 +93,11 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         }
 
         private void ComboBox_Staff_DropDownClosed(object sender, EventArgs e)
+        {
+            InitializeDataGrid();
+        }
+
+        private void CHeckBox_IsShowAutoDeduction_Click(object sender, RoutedEventArgs e)
         {
             InitializeDataGrid();
         }

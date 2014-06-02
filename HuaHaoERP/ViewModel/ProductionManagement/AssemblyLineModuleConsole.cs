@@ -122,10 +122,14 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
             }
         }
 
-        internal int ReadDetials(Guid ProductID, string Process, Guid StaffID, DateTime Start, DateTime End, out List<Model.ProductionManagement.AssemblyLineDetailsModel> data)
+        internal int ReadDetials(bool IsShowAuto, Guid ProductID, string Process, Guid StaffID, DateTime Start, DateTime End, out List<Model.ProductionManagement.AssemblyLineDetailsModel> data)
         {
             int Count = 0;
-            string sql_Where = " Where a.Date Between '" + Start.ToString("yyyy-MM-dd HH:mm:ss") + "' AND '" + End.ToString("yyyy-MM-dd HH:mm:ss") + "' ";
+            string sql_Where = " Where a.Date Between '" + Start.ToString("yyyy-MM-dd HH:mm:ss") + "' AND '" + End.ToString("yyyy-MM-dd HH:mm:ss") + "'  ";
+            if (IsShowAuto)
+            {
+                sql_Where += " AND a.Remark IS NOT '自动扣半成品原料' ";
+            }
             if(ProductID != new Guid())
             {
                 sql_Where += " AND a.ProductID='" + ProductID + "' ";
