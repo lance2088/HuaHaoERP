@@ -30,11 +30,13 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                        + " 	  total(a.Number),                                                "
                        + "    total(a.Break)                                                   "
                        + " FROM                                                               "
-                       + " 	  T_PM_ProductionSchedule a                                       "
-                       + " left join T_ProductInfo_Product b ON a.ProductID=b.Guid            "
+                       + " 	  T_ProductInfo_Product b                                       "
+                       + " left join T_PM_ProductionSchedule a ON a.ProductID=b.Guid            "
+                       + " WHERE b.DeleteMark IS NULL "
                        + " GROUP BY                                                           "
                        + " 	  a.ProductID,                                                    "
-                       + " 	  a.Process                                                       ";
+                       + " 	  a.Process                                                       "
+                       ;
             DataSet ds = new DataSet();
             if(new Helper.SQLite.DBHelper().QueryData(sql, out ds))
             {
