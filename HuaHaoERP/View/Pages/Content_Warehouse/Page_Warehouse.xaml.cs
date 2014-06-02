@@ -29,7 +29,15 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         /// 库存
         /// </summary>
         int Stock = 0;
-        int PackStock = 0;
+        int PackStock = 0;//包装后库存
+        /// <summary>
+        /// 右键点击出库DataGrid时，存储该行的产品Guid
+        /// </summary>
+        Guid PackingProductID = new Guid();
+        /// <summary>
+        /// 右键点击散件DataGrid时，存储该行的产品Guid
+        /// </summary>
+        Guid SparePartsProductID = new Guid();
 
         public Page_Warehouse()
         {
@@ -102,7 +110,15 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
 
         private void Button_Packed_Click(object sender, RoutedEventArgs e)
         {
-            Guid ProductID = (Guid)this.ComboBox_ProductList.SelectedValue;
+            Guid ProductID;
+            if (this.ComboBox_ProductList.SelectedValue == null)
+            {
+                ProductID = SparePartsProductID;
+            }
+            else
+            {
+                ProductID = (Guid)this.ComboBox_ProductList.SelectedValue;
+            }
             int PackedQuantity = 0;
             int.TryParse(this.TextBox_PackQuantity.Text, out PackedQuantity);
             int Quantity = 0;
@@ -137,11 +153,16 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         {
             if (this.ComboBox_ProductList.SelectedValue == null)
             {
-                MessageBox.Show("该产品不存在产品库中","警告");
-                this.Grid_Packing.Visibility = System.Windows.Visibility.Collapsed;
-                return;
+                //MessageBox.Show("该产品不存在产品库中","警告");
+                //this.Grid_Packing.Visibility = System.Windows.Visibility.Collapsed;
+                //return;
+                PerPackQuantity = new ViewModel.Warehouse.WarehouseProductConsole().ReadProductPackingNum(SparePartsProductID);
             }
-            PerPackQuantity = new ViewModel.Warehouse.WarehouseProductConsole().ReadProductPackingNum((Guid)this.ComboBox_ProductList.SelectedValue);
+            else
+            {
+                PerPackQuantity = new ViewModel.Warehouse.WarehouseProductConsole().ReadProductPackingNum((Guid)this.ComboBox_ProductList.SelectedValue);
+            }
+            
             this.Label_ShowPackMessage.Content = PerPackQuantity + "个/包";
             int PackQuantity = 0;
             int.TryParse(this.TextBox_PackQuantity.Text, out PackQuantity);
@@ -170,6 +191,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                 this.Grid_Packing.Visibility = System.Windows.Visibility.Visible;
                 this.Grid_Outbound.Visibility = System.Windows.Visibility.Hidden;
                 this.ComboBox_ProductList.Text = d.ProductName;
+                SparePartsProductID = d.ProductID;
                 Stock = d.Quantity;
                 this.TextBox_PackQuantity.Focus();
                 CountQuantity();
@@ -185,7 +207,6 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             InitializeProductDataGrid();
         }
 
-        Guid PackingProductID = new Guid();
         private void DataGrid_PackingNum_LoadingRow(object sender, DataGridRowEventArgs e)
         {
             e.Row.MouseRightButtonDown += (s, a) =>
@@ -209,7 +230,6 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             Guid ProductID;
             if (this.ComboBox_ProductList_Outbound.SelectedValue == null)
             {
-                MessageBox.Show("由于在产品库中找不到该产品，将看不见该产品的操作记录。","警告");
                 ProductID = PackingProductID;
             }
             else
