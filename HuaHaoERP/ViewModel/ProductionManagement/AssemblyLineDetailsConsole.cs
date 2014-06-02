@@ -45,7 +45,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                     {
                         if (LastGuid != new Guid())
                         {
-                            
+                            CalculateProcessList(ProcessList, LastGuid, ref LastD);
                             data.Add(LastD);
                         }
                         ProcessList.Clear();
@@ -81,6 +81,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                 }
                 if (ds.Tables[0].Rows.Count != 0)
                 {
+                    CalculateProcessList(ProcessList, LastGuid, ref LastD);
                     data.Add(LastD);
                 }
                 return true;
@@ -94,23 +95,80 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
             switch (p)
             {
                 case 1:
-                    d.P1Num = Quantity+"/"+BreakNum;
+                    d.P1Num = Quantity;
                     break;
                 case 2:
-                    d.P2Num = Quantity + "/" + BreakNum;
+                    d.P2Num = Quantity;
                     break;
                 case 3:
-                    d.P3Num = Quantity + "/" + BreakNum;
+                    d.P3Num = Quantity;
                     break;
                 case 4:
-                    d.P4Num = Quantity + "/" + BreakNum;
+                    d.P4Num = Quantity;
                     break;
                 case 5:
-                    d.P5Num = Quantity + "/" + BreakNum;
+                    d.P5Num = Quantity;
                     break;
                 case 6:
-                    d.P6Num = Quantity + "/" + BreakNum;
+                    d.P6Num = Quantity;
                     break;
+            }
+        }
+
+        /// <summary>
+        /// 处理外加工数量相减
+        /// </summary>
+        /// <param name="d"></param>
+        private void CalculateProcessList(List<string> ProcessList, Guid ProductGuid, ref AssemblyLineDetailsListModel d)
+        {
+            int Out = 0, In = 0;
+            int Break = 0;
+            string sql = "select total(Quantity),total(MinorInjuries+Injuries+Lose) as Break,OrderType from T_PM_ProcessSchedule where ProductID='" + ProductGuid + "' GROUP BY OrderType ";
+            DataSet ds = new DataSet();
+            new Helper.SQLite.DBHelper().QueryData(sql, out ds);
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                if (dr["OrderType"].ToString() == "入单")
+                {
+                    In = int.Parse(dr["total(Quantity)"].ToString());
+                    Break = int.Parse(dr["Break"].ToString());
+                }
+                else if (dr["OrderType"].ToString() == "出单")
+                {
+                    Out = int.Parse(dr["total(Quantity)"].ToString());
+                }
+            }
+            for (int i = 0; i < 6; i++ )
+            {
+                if(ProcessList[i] == "抛光")
+                {
+                    switch (i + 1)
+                    {
+                        case 1:
+                            d.P1Num += In;
+                            break;
+                        case 2:
+                            d.P1Num -= Out;
+                            d.P2Num += In;
+                            break;
+                        case 3:
+                            d.P2Num -= Out;
+                            d.P3Num += In;
+                            break;
+                        case 4:
+                            d.P3Num -= Out;
+                            d.P4Num += In;
+                            break;
+                        case 5:
+                            d.P4Num -= Out;
+                            d.P5Num += In;
+                            break;
+                        case 6:
+                            d.P5Num -= Out;
+                            d.P6Num += In;
+                            break;
+                    }
+                }
             }
         }
     }

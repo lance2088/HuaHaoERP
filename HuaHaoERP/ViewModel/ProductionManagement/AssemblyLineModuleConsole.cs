@@ -88,7 +88,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
             }
         }
         /// <summary>
-        /// 处理工序数量相减
+        /// 处理外加工数量相减
         /// </summary>
         /// <param name="d"></param>
         private void CalculateProcessList(Guid ProductGuid, ref List<Model.AssemblyLineModuleProcessModel> d)

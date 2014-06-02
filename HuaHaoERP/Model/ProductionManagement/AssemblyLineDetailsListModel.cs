@@ -35,44 +35,44 @@ namespace HuaHaoERP.Model.ProductionManagement
             get { return productName; }
             set { productName = value; }
         }
-        private string p1Num;
+        private int p1Num;
 
-        public string P1Num
+        public int P1Num
         {
             get { return p1Num; }
             set { p1Num = value; }
         }
-        private string p2Num;
+        private int p2Num;
 
-        public string P2Num
+        public int P2Num
         {
             get { return p2Num; }
             set { p2Num = value; }
         }
-        private string p3Num;
+        private int p3Num;
 
-        public string P3Num
+        public int P3Num
         {
             get { return p3Num; }
             set { p3Num = value; }
         }
-        private string p4Num;
+        private int p4Num;
 
-        public string P4Num
+        public int P4Num
         {
             get { return p4Num; }
             set { p4Num = value; }
         }
-        private string p5Num;
+        private int p5Num;
 
-        public string P5Num
+        public int P5Num
         {
             get { return p5Num; }
             set { p5Num = value; }
         }
-        private string p6Num;
+        private int p6Num;
 
-        public string P6Num
+        public int P6Num
         {
             get { return p6Num; }
             set { p6Num = value; }
