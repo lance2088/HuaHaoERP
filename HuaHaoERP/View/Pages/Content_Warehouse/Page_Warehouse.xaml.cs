@@ -278,6 +278,8 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         {
             this.Grid_OutGrid.Visibility = System.Windows.Visibility.Collapsed;
         }
+
+        string PCode = string.Empty;
         private void DataGrid_RawMaterialsQuantity_LoadingRow(object sender, DataGridRowEventArgs e)
         {
             e.Row.MouseRightButtonDown += (s, a) =>
@@ -292,19 +294,23 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                 int count = 0;
                 int.TryParse(d.Amount, out count);
                 PackStock = count;
+                PCode = d.Code;
                 this.TextBox_Quantity_OutGrid.Focus();
             };
         }
         private void Button_OutGrid_Click(object sender, RoutedEventArgs e)
         {
-            //Guid ProductID = (Guid)this.ComboBox_ProductList_Outbound.SelectedValue;
-            //int Quantity = 0;
-            //int.TryParse(this.TextBox_Quantity_Outbound.Text, out Quantity);
-            //if (new ViewModel.Warehouse.WarehouseProductConsole().Outbound(ProductID, Quantity))
-            //{
-            //    InitializeProductDataGrid();
-            //    this.Grid_Outbound.Visibility = System.Windows.Visibility.Collapsed;
-            //}
+
+            List<RawMaterialsDetailModel> list = new List<RawMaterialsDetailModel>();
+            RawMaterialsDetailModel m = new RawMaterialsDetailModel();
+            m.RawMaterialsID = rmc.GetGuid(PCode);
+            m.Type = RadioButton_生产.IsChecked == true ? "生产" : "出库";
+            list.Add(m);
+            if (rmc.AddByBatch(list,false))
+            {
+                InitializeRawMaterialsDataGrid();
+                this.Grid_OutGrid.Visibility = System.Windows.Visibility.Collapsed;
+            }
         }
         private void TextBox_Quantity_OutGrid_TextChanged(object sender, TextChangedEventArgs e)
         {

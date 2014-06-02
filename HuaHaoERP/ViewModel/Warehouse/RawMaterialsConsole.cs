@@ -10,7 +10,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
     class RawMaterialsConsole
     {
         /// <summary>
-        /// 批量入库
+        /// 批量入库,true为入库，false为出库或生产
         /// </summary>
         /// <param name="list"></param>
         /// <param name="bol"></param>
