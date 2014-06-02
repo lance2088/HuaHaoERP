@@ -72,7 +72,11 @@ namespace HuaHaoERP.ViewModel.Warehouse
             }
             return false;
         }
-
+        /// <summary>
+        /// 散件
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
         internal bool ReadNumList(out List<WarehouseProductNumModel> data)
         {
             data = new List<WarehouseProductNumModel>();
