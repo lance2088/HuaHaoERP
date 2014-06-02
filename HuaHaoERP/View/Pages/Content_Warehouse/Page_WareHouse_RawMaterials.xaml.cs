@@ -28,7 +28,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             InitializeComponent();
             DataGrid_RawMaterials.LoadingRow += new EventHandler<DataGridRowEventArgs>(DataGrid_RawMaterials_LoadingRow);
             rawMaterials = new List<RawMaterialsDetailModel>();
-            for (int i = 0; i < 20;i++ )
+            for (int i = 0; i < 18;i++ )
             {
                 RawMaterialsDetailModel m = new RawMaterialsDetailModel();
                 m.Id = i+1;
