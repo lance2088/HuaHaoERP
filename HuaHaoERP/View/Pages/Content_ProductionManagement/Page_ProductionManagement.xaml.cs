@@ -29,11 +29,9 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         {
             InitializeComponent();
             SubscribeToEvent();
-        }
-        private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
             InitializeData();
         }
+
         private void SubscribeToEvent()
         {
             AssemblyLineEvent.EShowAssemblyLineModule += (s, e) =>

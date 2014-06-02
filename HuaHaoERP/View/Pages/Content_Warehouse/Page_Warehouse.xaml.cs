@@ -114,6 +114,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             }
             if (new ViewModel.Warehouse.WarehouseProductConsole().Packing(ProductID, Quantity, PackedQuantity))
             {
+                Stock -= Quantity;
                 InitializeProductDataGrid();
                 this.TextBox_PackQuantity.Clear();
                 this.TextBox_Quantity.Clear();
@@ -200,6 +201,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             if(new ViewModel.Warehouse.WarehouseProductConsole().Outbound(ProductID, Quantity))
             {
                 InitializeProductDataGrid();
+                this.Grid_Outbound.Visibility = System.Windows.Visibility.Collapsed;
             }
         }
         private void Button_CloseOutbound_Click(object sender, RoutedEventArgs e)
