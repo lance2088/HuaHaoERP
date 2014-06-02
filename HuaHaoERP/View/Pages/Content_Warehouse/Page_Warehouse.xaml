@@ -96,7 +96,7 @@
                             <DataGridTextColumn Header="备注" Binding="{Binding Remark}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <DataGrid x:Name="DataGrid_RawMaterialsQuantity" Margin="10,40,10,10" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" IsReadOnly="True" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False" AutoGenerateColumns="False" SelectionMode="Single">
+                    <DataGrid x:Name="DataGrid_RawMaterialsQuantity" Margin="10,40,10,10" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" IsReadOnly="True" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False" AutoGenerateColumns="False" SelectionMode="Single" LoadingRow="DataGrid_RawMaterialsQuantity_LoadingRow">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="序号" Binding="{Binding Id}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                             <DataGridTextColumn Header="编号" Binding="{Binding Code}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
@@ -104,6 +104,23 @@
                             <DataGridTextColumn Header="数量" Binding="{Binding Amount}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                         </DataGrid.Columns>
                     </DataGrid>
+                    <Grid x:Name="Grid_OutGrid" Grid.Column="1" HorizontalAlignment="Left" Height="210" Margin="0,40,0,0" VerticalAlignment="Top" Width="180" Background="White">
+                        <Grid.Effect>
+                            <DropShadowEffect ShadowDepth="0"/>
+                        </Grid.Effect>
+                        <Button x:Name="Button_CloseOutGrid" Content="×" HorizontalAlignment="Right" VerticalAlignment="Top" Width="24" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="20" Foreground="White" Click="Button_CloseOutGrid_Click"/>
+                        <Button x:Name="Button_OutGrid" Content="确定" HorizontalAlignment="Center" Margin="0,175,0,0" VerticalAlignment="Top" Width="74" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_OutGrid_Click"/>
+                        <TextBox x:Name="TextBox_Quantity_OutGrid" HorizontalAlignment="Center" Height="23" Margin="0,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextChanged="TextBox_Quantity_OutGrid_TextChanged" Text="1"/>
+                        <Label x:Name="Label_ShowWarnMessage" Content="Label" HorizontalAlignment="Left" Margin="30,144,0,0" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="Red"/>
+                        <Grid Grid.ColumnSpan="2" HorizontalAlignment="Center" Height="44" Margin="0,90,0,0" VerticalAlignment="Top" Width="200">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <RadioButton x:Name="RadioButton_生产" Content="生产" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Center" IsChecked="True"/>
+                            <RadioButton x:Name="RadioButton_出库" Content="出库" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Grid.Column="1"/>
+                        </Grid>
+                    </Grid>
                     <Label Content="出入库记录：" Grid.Column="1" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Padding="0,5"/>
                     <Label Content="库存数量：" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Padding="0,5"/>
                     <Button x:Name="Button_RawMaterials_Out" FocusVisualStyle="{x:Null}" Content="出库" Grid.Column="1" HorizontalAlignment="Right" Margin="0,10,90,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_RawMaterials_Out_Click"/>

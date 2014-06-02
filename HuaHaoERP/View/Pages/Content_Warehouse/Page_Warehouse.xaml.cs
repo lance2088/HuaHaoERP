@@ -233,6 +233,52 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         #endregion
 
         #region 原材料管理
+
+        private void Button_CloseOutGrid_Click(object sender, RoutedEventArgs e)
+        {
+            this.Grid_OutGrid.Visibility = System.Windows.Visibility.Collapsed;
+        }
+        private void DataGrid_RawMaterialsQuantity_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            e.Row.MouseRightButtonDown += (s, a) =>
+            {
+                a.Handled = true;
+                (sender as DataGrid).SelectedIndex = (s as DataGridRow).GetIndex();
+                (s as DataGridRow).Focus();
+                RawMaterialsDetailModel d = this.DataGrid_RawMaterialsQuantity.SelectedCells[0].Item as RawMaterialsDetailModel;
+                //show Packing Grid
+                this.Label_ShowWarnMessage.Content = "";
+                this.Grid_OutGrid.Visibility = System.Windows.Visibility.Visible;
+                int count = 0;
+                int.TryParse(d.Amount, out count);
+                PackStock = count;
+                this.TextBox_Quantity_OutGrid.Focus();
+            };
+        }
+        private void Button_OutGrid_Click(object sender, RoutedEventArgs e)
+        {
+            //Guid ProductID = (Guid)this.ComboBox_ProductList_Outbound.SelectedValue;
+            //int Quantity = 0;
+            //int.TryParse(this.TextBox_Quantity_Outbound.Text, out Quantity);
+            //if (new ViewModel.Warehouse.WarehouseProductConsole().Outbound(ProductID, Quantity))
+            //{
+            //    InitializeProductDataGrid();
+            //    this.Grid_Outbound.Visibility = System.Windows.Visibility.Collapsed;
+            //}
+        }
+        private void TextBox_Quantity_OutGrid_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (this.IsLoaded)
+            {
+                this.Label_ShowWarnMessage.Content = "";
+                int Quantity = 0;
+                int.TryParse(this.TextBox_Quantity_OutGrid.Text, out Quantity);
+                if (Quantity > PackStock)
+                {
+                    this.Label_ShowWarnMessage.Content = "超出库存";
+                }
+            }
+        }
         private void InitializeRawMaterialsDataGrid()
         {
             List<RawMaterialsDetailModel> rmm = new List<RawMaterialsDetailModel>();
@@ -370,6 +416,14 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         }
 
         #endregion
+
+        
+
+       
+
+   
+
+       
 
 
 
