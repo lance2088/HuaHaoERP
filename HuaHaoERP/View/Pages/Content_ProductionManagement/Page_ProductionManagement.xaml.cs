@@ -81,7 +81,6 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             this.ComboBox_Processors.SelectedIndex = 0;
 
             InitializeOutsideProcessDataGrid();
-            InitializeAssemblyLineDetailsDataGrid();
         }
         /// <summary>
         /// 添加流水线模块
@@ -216,6 +215,12 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 this.DataGrid_AssemblyLineDetails.ItemsSource = d;
             }
         }
+        private void Button_Reflash_Click(object sender, RoutedEventArgs e)
+        {
+            InitializeAssemblyLineDetailsDataGrid();
+        }
         #endregion
+
+
     }
 }
