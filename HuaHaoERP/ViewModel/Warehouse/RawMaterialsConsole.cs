@@ -9,15 +9,20 @@ namespace HuaHaoERP.ViewModel.Warehouse
 {
     class RawMaterialsConsole
     {
+        /// <summary>
+        /// 批量入库
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="bol"></param>
+        /// <returns></returns>
         internal bool AddByBatch(List<Model.RawMaterialsDetailModel> list,bool bol)
         {
             List<string> sqlList = new List<string>();
             string tag = bol?"":"-";
             foreach (RawMaterialsDetailModel d in list)
             {
-                Console.WriteLine(d.Operator);
-                string sql = "Insert into T_Warehouse_RawMaterials(Guid,RawMaterialsID,Date,Operator,Number,Remark) "
-                        + "values('" + Guid.NewGuid() + "','" + d.RawMaterialsID + "','" + DateTime.Parse(d.Date).ToString("yyyy-MM-dd") + " " + DateTime.Now.ToString("T") + "','" + d.Operator + "','" + tag + d.Number + "','" + d.Remark + "')";
+                string sql = "Insert into T_Warehouse_RawMaterials(Guid,RawMaterialsID,Date,Operator,Number,Remark,Type) "
+                        + "values('" + Guid.NewGuid() + "','" + d.RawMaterialsID + "','" + DateTime.Parse(d.Date).ToString("yyyy-MM-dd") + " " + DateTime.Now.ToString("T") + "','" + d.Operator + "','" + tag + d.Number + "','" + d.Remark + "','" + d.Type + "')";
                 sqlList.Add(sql);
                
             }
@@ -59,7 +64,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
         {
             bool flag = true;
             data = new List<RawMaterialsDetailModel>();
-            string sql = "select a.Guid as Guid,a.RawMaterialsID as RawMaterialsID,b.Name as Name,strftime(a.Date) as Date,a.Operator as Operator,a.Number as Number,a.Remark as Remark from T_Warehouse_RawMaterials a left join T_ProductInfo_RawMaterials b on a.RawMaterialsID = b.Guid order by a.Date desc";
+            string sql = "select a.Guid as Guid,a.RawMaterialsID as RawMaterialsID,b.Name as Name,strftime(a.Date) as Date,a.Operator as Operator,a.Number as Number,a.Remark as Remark,a.Type as Type from T_Warehouse_RawMaterials a left join T_ProductInfo_RawMaterials b on a.RawMaterialsID = b.Guid order by a.Date desc";
             DataSet ds = new DataSet();
             flag = new Helper.SQLite.DBHelper().QueryData(sql, out ds);
             if (flag)
@@ -79,6 +84,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
                     d.Name = dr["Name"].ToString();
                     d.Remark = dr["Remark"].ToString();
                     d.Operator = dr["Operator"].ToString();
+                    d.Type = dr["Type"].ToString();
                     data.Add(d);
                 }
             }

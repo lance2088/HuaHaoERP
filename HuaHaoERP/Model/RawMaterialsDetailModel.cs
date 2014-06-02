@@ -90,5 +90,13 @@ namespace HuaHaoERP.Model
             get { return code; }
             set { code = value; }
         }
+
+        private string type;
+
+        public string Type
+        {
+            get { return type; }
+            set { type = value; }
+        }
     }
 }

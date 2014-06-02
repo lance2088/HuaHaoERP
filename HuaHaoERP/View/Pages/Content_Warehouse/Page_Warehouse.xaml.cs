@@ -36,6 +36,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             InitializeComponent();
             this.Grid_Outbound.Visibility = System.Windows.Visibility.Hidden;
             this.Grid_Packing.Visibility = System.Windows.Visibility.Hidden;
+            this.Grid_OutGrid.Visibility = Visibility.Hidden;
             SubscribeToEvent();
             InitPage();
         }

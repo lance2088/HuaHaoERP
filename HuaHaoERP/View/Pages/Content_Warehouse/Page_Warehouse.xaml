@@ -93,6 +93,7 @@
                             <DataGridTextColumn Header="日期" Binding="{Binding Date}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                             <DataGridTextColumn Header="操作人" Binding="{Binding Operator}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                             <DataGridTextColumn Header="数量" Binding="{Binding Number}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Header="操作类型" Binding="{Binding Type}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                             <DataGridTextColumn Header="备注" Binding="{Binding Remark}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                         </DataGrid.Columns>
                     </DataGrid>

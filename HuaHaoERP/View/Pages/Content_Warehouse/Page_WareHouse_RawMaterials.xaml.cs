@@ -70,6 +70,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                     else
                     {
                         m.RawMaterialsID = vmc.GetGuid(m.Code);
+                        m.Type = "入库";
                         commitResultList.Add(m);
                     }
                 }
