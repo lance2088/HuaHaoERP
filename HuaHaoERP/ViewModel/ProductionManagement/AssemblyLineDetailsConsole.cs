@@ -13,6 +13,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
         {
             Guid LastGuid = new Guid();
             AssemblyLineDetailsListModel LastD = new AssemblyLineDetailsListModel();
+            List<string> ProcessList = new List<string>();
 
             data = new List<AssemblyLineDetailsListModel>();
             string sql = " SELECT                                                             "
@@ -44,20 +45,38 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                     {
                         if (LastGuid != new Guid())
                         {
+                            
                             data.Add(LastD);
                         }
+                        ProcessList.Clear();
+                        for (int i = 1; i < 7; i++)
+                        {
+                            ProcessList.Add(dr["P"+i].ToString());
+                        }
                         AssemblyLineDetailsListModel d = new AssemblyLineDetailsListModel();
+                        LastGuid = (Guid)dr["ProductID"];
                         LastD = d;
                         LastD.Id = id++;
                         LastD.ProductID = (Guid)dr["ProductID"];
                         LastD.ProductNumber = dr["Number"].ToString();
                         LastD.ProductName = dr["Name"].ToString();
-
-                        LastGuid = (Guid)dr["ProductID"];
+                        for (int i = 1; i < 7; i++)
+                        {
+                            if (dr["Process"].ToString() == dr["P" + i].ToString())
+                            {
+                                SetPNum(i, int.Parse(dr["total(a.Number)"].ToString()), int.Parse(dr["total(a.Break)"].ToString()), ref LastD);
+                            }
+                        }
                     }
                     else//旧的Product，累加
                     {
-
+                        for (int i = 1; i < 7; i++)
+                        {
+                            if (dr["Process"].ToString() == dr["P" + i].ToString())
+                            {
+                                SetPNum(i, int.Parse(dr["total(a.Number)"].ToString()), int.Parse(dr["total(a.Break)"].ToString()), ref LastD);
+                            }
+                        }
                     }
                 }
                 if (ds.Tables[0].Rows.Count != 0)
@@ -68,6 +87,31 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
             }
 
             return false;
+        }
+
+        private void SetPNum(int p,int Quantity,int BreakNum, ref AssemblyLineDetailsListModel d)
+        {
+            switch (p)
+            {
+                case 1:
+                    d.P1Num = Quantity+"/"+BreakNum;
+                    break;
+                case 2:
+                    d.P2Num = Quantity + "/" + BreakNum;
+                    break;
+                case 3:
+                    d.P3Num = Quantity + "/" + BreakNum;
+                    break;
+                case 4:
+                    d.P4Num = Quantity + "/" + BreakNum;
+                    break;
+                case 5:
+                    d.P5Num = Quantity + "/" + BreakNum;
+                    break;
+                case 6:
+                    d.P6Num = Quantity + "/" + BreakNum;
+                    break;
+            }
         }
     }
 }
