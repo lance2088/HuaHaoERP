@@ -305,6 +305,11 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             RawMaterialsDetailModel m = new RawMaterialsDetailModel();
             m.RawMaterialsID = rmc.GetGuid(PCode);
             m.Type = RadioButton_生产.IsChecked == true ? "生产" : "出库";
+            m.Date = DateTime.Now.ToString();
+            int Number = 0;
+            int.TryParse(this.TextBox_Quantity_OutGrid.Text, out Number);
+            m.Number = Number;
+            m.Operator = Helper.DataDefinition.CommonParameters.LoginUserName;
             list.Add(m);
             if (rmc.AddByBatch(list,false))
             {
