@@ -21,6 +21,14 @@ namespace HuaHaoERP.ViewModel.Warehouse
                        + " values('" + Guid.NewGuid() + "','" + ProductID + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + Helper.DataDefinition.CommonParameters.LoginUserName + "','-" + Quantity + "','出库')";
             return new Helper.SQLite.DBHelper().SingleExecution(sql);
         }
+        /// <summary>
+        /// 明细
+        /// </summary>
+        /// <param name="Start"></param>
+        /// <param name="End"></param>
+        /// <param name="Type"></param>
+        /// <param name="data"></param>
+        /// <returns></returns>
         internal bool ReadDetailsList(DateTime Start, DateTime End,string Type, out List<WarehouseProductModel> data)
         {
             string TableName = "T_Warehouse_Product";
@@ -40,7 +48,9 @@ namespace HuaHaoERP.ViewModel.Warehouse
                        + " " + TableName + " a                                           "
                        + " LEFT JOIN T_ProductInfo_Product b ON a.ProductID=b.GUID           "
                        + " WHERE a.Date BETWEEN '" + Start.ToString("yyyy-MM-dd HH:mm:ss") + "' AND '" + End.ToString("yyyy-MM-dd HH:mm:ss") + "'"
-                       + " AND a.Remark LIKE '"+Type+"%'";
+                       + " AND a.Remark LIKE '"+Type+"%'"
+                       + " Order BY a.Date DESC"
+                       ;
             DataSet ds = new DataSet();
             if(new Helper.SQLite.DBHelper().QueryData(sql, out ds))
             {
