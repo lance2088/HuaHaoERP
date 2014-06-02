@@ -147,7 +147,8 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                        + " from T_PM_ProductionSchedule a "
                        + " Left join T_UserInfo_Staff b ON a.StaffID=b.GUID "
                        + " Left join T_ProductInfo_Product c ON a.ProductID=c.GUID "
-                       + sql_Where;
+                       + sql_Where
+                       + " Order by a.Date DESC";
             DataSet ds = new DataSet();
             new Helper.SQLite.DBHelper().QueryData(sql, out ds);
             int id = 1;
@@ -157,7 +158,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                 d.Guid = (Guid)dr["GUID"];
                 d.Id = id++;
                 d.StaffID = (Guid)dr["GUID"];
-                d.Date = Convert.ToDateTime(dr["Date"].ToString()).ToString("yyyy-MM-dd");
+                d.Date = Convert.ToDateTime(dr["Date"].ToString()).ToString("yyyy-MM-dd HH:mm:ss");
                 d.StaffName = dr["StaffName"].ToString();
                 d.ProductID = (Guid)dr["GUID"];
                 d.ProductName = dr["ProductName"].ToString();
