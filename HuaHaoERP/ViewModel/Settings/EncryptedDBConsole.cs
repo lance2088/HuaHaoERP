@@ -18,6 +18,7 @@ namespace HuaHaoERP.ViewModel.Settings
         {
             new Helper.SettingFile.DatabaseEncryption().Clear();
             new Helper.SQLite.DBHelper().ClearDBPassword();
+            Helper.DataDefinition.CommonParameters.DbPassword = "";
         }
     }
 }
