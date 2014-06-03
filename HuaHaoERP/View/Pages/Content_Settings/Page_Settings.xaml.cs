@@ -22,6 +22,7 @@ namespace HuaHaoERP.View.Pages.Content_Settings
         public Page_Settings()
         {
             InitializeComponent();
+            SubscribeToEvent();
             if(Helper.DataDefinition.CommonParameters.DbPassword != "")
             {
                 this.Button_EncryptedDB.Content = "解密数据库";
