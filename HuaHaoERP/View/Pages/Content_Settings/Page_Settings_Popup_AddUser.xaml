@@ -1,0 +1,18 @@
+﻿<Page x:Class="HuaHaoERP.View.Pages.Content_Settings.Page_Settings_Popup_AddUser"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="550" d:DesignWidth="600" FontFamily="NSimSun" TextOptions.TextFormattingMode="Display"
+	Title="Page_Settings_Popup_AddUser">
+
+    <Grid Background="White" Margin="0" HorizontalAlignment="Right" Width="400">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="Button_Commit" Content="确定" HorizontalAlignment="Right" Margin="0,0,20,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_Commit_Click" Height="24" Foreground="White" IsDefault="True"/>
+        <Button x:Name="Button_Cancel" Content="取消" HorizontalAlignment="Left" Margin="20,0,0,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_Cancel_Click" Grid.Column="1" Height="24" IsCancel="True" Foreground="White"/>
+    </Grid>
+</Page>
