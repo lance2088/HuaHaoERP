@@ -64,6 +64,10 @@ namespace HuaHaoERP.ViewModel.Settings
         {
             List<UserModel> list = new List<UserModel>();
             UserModel m = new UserModel();
+            m.Permissions = -1;
+            m.DisplayPermissions = "请选择";
+            list.Add(m);
+            m = new UserModel();
             m.Permissions = (int)ENUM.ENUM_PERMISSIONS.仓库记录员;
             m.DisplayPermissions = "仓库记录员";
             list.Add(m);

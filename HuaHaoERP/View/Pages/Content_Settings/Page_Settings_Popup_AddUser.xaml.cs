@@ -19,9 +19,14 @@ namespace HuaHaoERP.View.Pages.Content_Settings
     /// </summary>
     public partial class Page_Settings_Popup_AddUser : Page
     {
+        private ViewModel.Settings.UserConsole uc = new ViewModel.Settings.UserConsole();
         public Page_Settings_Popup_AddUser()
         {
             InitializeComponent();
+            ComboBox_用户权限.ItemsSource = uc.GetComboBoxPermissions();
+            ComboBox_用户权限.DisplayMemberPath = "DisplayPermissions";
+            ComboBox_用户权限.SelectedValuePath = "Permissions";
+            ComboBox_用户权限.SelectedIndex = 0;
         }
 
         private void Button_Commit_Click(object sender, RoutedEventArgs e)

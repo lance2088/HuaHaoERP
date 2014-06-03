@@ -96,7 +96,7 @@ namespace HuaHaoERP.View.Pages.Content_Settings
         }
         private void Button_AddUser_Click(object sender, RoutedEventArgs e)
         {
-
+            Helper.Events.PopUpEvent.OnShowPopUp(new Page_Settings_Popup_AddUser());
         }
 
         private void TextBox_用户名_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)

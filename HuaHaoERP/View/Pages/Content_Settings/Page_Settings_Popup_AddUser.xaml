@@ -7,9 +7,9 @@
       d:DesignHeight="350" d:DesignWidth="600" FontFamily="NSimSun" TextOptions.TextFormattingMode="Display"
 	Title="Page_Settings_Popup_AddUser">
 
-    <Grid Background="White" Margin="0" HorizontalAlignment="Right" Width="400">
+    <Grid Background="White" Margin="0" HorizontalAlignment="Right" Width="400" Height="350">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="150"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Label Content="用户名：" HorizontalAlignment="Right" Margin="20,25,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
