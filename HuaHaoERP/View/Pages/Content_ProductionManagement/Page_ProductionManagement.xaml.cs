@@ -223,6 +223,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         private void Button_Reflash_Click(object sender, RoutedEventArgs e)
         {
             InitializeAssemblyLineDetailsDataGrid();
+            Helper.Events.StatusBarMessageEvent.OnUpdateMessage("刷新生产统计成功");
         }
         #endregion
 

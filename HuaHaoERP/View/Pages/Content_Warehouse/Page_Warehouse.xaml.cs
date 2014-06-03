@@ -332,12 +332,14 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         }
         private void InitializeRawMaterialsDataGrid()
         {
+            string Type = this.ComboBox_RawMaterialsRecord.Text;
             List<RawMaterialsDetailModel> rmm = new List<RawMaterialsDetailModel>();
             rmc.ReadList(out rmm);
             DataGrid_RawMaterialsQuantity.ItemsSource = rmm;
-            rmc.ReadRecordList(out rmm);
+            rmc.ReadRecordList(Type, out rmm);
             DataGrid_RawMaterialsRecord.ItemsSource = rmm;
         }
+
         //private void Button_RawMaterials_Out_Click(object sender, RoutedEventArgs e)
         //{
         //    if (DataGrid_RawMaterialsRecord.SelectedCells.Count != 0)
@@ -359,6 +361,11 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         private void Button_RawMaterials_In_Click(object sender, RoutedEventArgs e)
         {
             Helper.Events.PopUpEvent.OnShowPopUp(new Page_Warehouse_RawMaterials());
+        }
+
+        private void ComboBox_RawMaterialsRecord_DropDownClosed(object sender, EventArgs e)
+        {
+            InitializeRawMaterialsDataGrid();
         }
         #endregion
 
@@ -467,19 +474,6 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         }
 
         #endregion
-
-        
-
-       
-
-   
-
-       
-
-
-
-
-
 
 
 

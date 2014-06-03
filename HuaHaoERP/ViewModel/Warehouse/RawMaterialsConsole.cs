@@ -60,11 +60,20 @@ namespace HuaHaoERP.ViewModel.Warehouse
             return flag;
         }
 
-        internal bool ReadRecordList(out List<RawMaterialsDetailModel> data)
+        internal bool ReadRecordList(string Type, out List<RawMaterialsDetailModel> data)
         {
+            string sql_Where = "";
+            if(!Type.StartsWith("全部"))
+            {
+                sql_Where += " Where a.Type='" + Type + "' ";
+            }
             bool flag = true;
             data = new List<RawMaterialsDetailModel>();
-            string sql = "select a.Guid as Guid,a.RawMaterialsID as RawMaterialsID,b.Name as Name,strftime(a.Date) as Date,a.Operator as Operator,a.Number as Number,a.Remark as Remark,a.Type as Type from T_Warehouse_RawMaterials a left join T_ProductInfo_RawMaterials b on a.RawMaterialsID = b.Guid order by a.Date desc";
+            string sql = " select a.Guid as Guid,a.RawMaterialsID as RawMaterialsID,b.Name as Name,strftime(a.Date) as Date,a.Operator as Operator,a.Number as Number,a.Remark as Remark,a.Type as Type "
+                       + " from T_Warehouse_RawMaterials a "
+                       + " left join T_ProductInfo_RawMaterials b on a.RawMaterialsID = b.Guid "
+                       + sql_Where
+                       + " order by a.Date desc ";
             DataSet ds = new DataSet();
             flag = new Helper.SQLite.DBHelper().QueryData(sql, out ds);
             if (flag)
