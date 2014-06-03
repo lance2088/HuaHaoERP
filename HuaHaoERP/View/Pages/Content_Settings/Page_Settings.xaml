@@ -26,7 +26,7 @@
                                         <Label Content="旧密码" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
                                         <Label Content="新密码" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top"/>
                                         <Label Content="确认新密码" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top"/>
-                                        <Label x:Name="Label_Message" Content="提示：密码不能为空" HorizontalAlignment="Left" Margin="10,159,0,0" VerticalAlignment="Top" Width="196" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                                        <Label x:Name="Label_Message" Content="提示：密码不能为空" Margin="0,159,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                                     </Grid>
                                 </GroupBox>
                                 <GroupBox x:Name="GroupBox_UserInfo" Header="用户资料" Margin="254,10,10,0" VerticalAlignment="Top">

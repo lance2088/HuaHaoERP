@@ -22,6 +22,7 @@ namespace HuaHaoERP.View.Pages.Content_Settings
         public Page_Settings()
         {
             InitializeComponent();
+            PermissionsSettings();
             SubscribeToEvent();
             if(Helper.DataDefinition.CommonParameters.DbPassword != "")
             {
@@ -29,6 +30,16 @@ namespace HuaHaoERP.View.Pages.Content_Settings
             }
             RefreshDataGrid_UserControl();
         }
+
+        private void PermissionsSettings()
+        {
+            int Permissions = Helper.DataDefinition.CommonParameters.Permissions;
+            if (Permissions < 8)
+            {
+                this.GroupBox_UserInfo.Visibility = System.Windows.Visibility.Collapsed;
+            }
+        }
+
         private void RefreshDataGrid_UserControl()
         {
             List<Model.UserModel> data = new List<Model.UserModel>();
@@ -68,6 +79,7 @@ namespace HuaHaoERP.View.Pages.Content_Settings
                     this.PasswordBox_New.Clear();
                     this.PasswordBox_NewRepeat.Clear();
                     this.Label_Message.Content = "修改密码成功，请妥善保管新密码。";
+                    MessageBox.Show("修改密码成功，请妥善保管新密码。", "提示");
                 }
             }
         }
