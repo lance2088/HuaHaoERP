@@ -19,7 +19,7 @@ namespace HuaHaoERP.View.Pages
         public Page_Head()
         {
             InitializeComponent();
-            this.Label_LoginUser.Content += Helper.DataDefinition.CommonParameters.LoginUserName;
+            this.Label_LoginUser.Content += Helper.DataDefinition.CommonParameters.RealName;
         }
     }
 }
