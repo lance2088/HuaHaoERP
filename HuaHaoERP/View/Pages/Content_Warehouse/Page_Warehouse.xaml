@@ -111,7 +111,7 @@
                         </Grid.Effect>
                         <Button x:Name="Button_CloseOutGrid" Content="×" HorizontalAlignment="Right" VerticalAlignment="Top" Width="24" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="20" Foreground="White" Click="Button_CloseOutGrid_Click"/>
                         <Button x:Name="Button_OutGrid" Content="确定" HorizontalAlignment="Center" Margin="0,175,0,0" VerticalAlignment="Top" Width="74" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_OutGrid_Click"/>
-                        <TextBox x:Name="TextBox_Quantity_OutGrid" HorizontalAlignment="Center" Height="24" Margin="0,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextChanged="TextBox_Quantity_OutGrid_TextChanged"/>
+                        <TextBox x:Name="TextBox_Quantity_OutGrid" HorizontalAlignment="Center" Height="24" Margin="30,61,30,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextChanged="TextBox_Quantity_OutGrid_TextChanged"/>
                         <Label x:Name="Label_ShowWarnMessage" Content="Label" HorizontalAlignment="Left" Margin="0,144,0,0" VerticalAlignment="Top" Width="180" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="Red"/>
                         <Grid Grid.ColumnSpan="2" Height="44" Margin="0,90,0,0" VerticalAlignment="Top">
                             <Grid.ColumnDefinitions>
@@ -121,6 +121,7 @@
                             <RadioButton x:Name="RadioButton_生产" Content="生产" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Center" IsChecked="True"/>
                             <RadioButton x:Name="RadioButton_出库" Content="出库" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Grid.Column="1"/>
                         </Grid>
+                        <Label x:Name="Label_RawMaterialsName" Content="Label" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                     </Grid>
                     <Label Content="出入库记录：" Grid.Column="1" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Padding="0,5"/>
                     <Label Content="库存数量：（右键出库）" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Padding="0,5"/>

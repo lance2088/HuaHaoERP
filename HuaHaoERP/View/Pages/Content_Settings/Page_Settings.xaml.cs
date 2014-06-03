@@ -78,7 +78,7 @@ namespace HuaHaoERP.View.Pages.Content_Settings
                     this.PasswordBox_Old.Clear();
                     this.PasswordBox_New.Clear();
                     this.PasswordBox_NewRepeat.Clear();
-                    this.Label_Message.Content = "修改密码成功，请妥善保管新密码。";
+                    //this.Label_Message.Content = "修改密码成功，请妥善保管新密码。";
                     MessageBox.Show("修改密码成功，请妥善保管新密码。", "提示");
                 }
             }

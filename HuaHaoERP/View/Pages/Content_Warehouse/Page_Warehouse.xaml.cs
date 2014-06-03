@@ -296,6 +296,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                 PackStock = count;
                 PCode = d.Code;
                 this.TextBox_Quantity_OutGrid.Focus();
+                this.Label_RawMaterialsName.Content = d.Name;
             };
         }
         private void Button_OutGrid_Click(object sender, RoutedEventArgs e)
