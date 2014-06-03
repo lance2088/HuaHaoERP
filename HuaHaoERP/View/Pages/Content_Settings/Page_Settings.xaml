@@ -29,28 +29,8 @@
                                         <Label x:Name="Label_Message" Content="提示：密码不能为空" HorizontalAlignment="Left" Margin="10,159,0,0" VerticalAlignment="Top" Width="196" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                                     </Grid>
                                 </GroupBox>
-                                <GroupBox Header="添加用户" Margin="254,10,10,0" VerticalAlignment="Top" Height="217">
-                                    <Grid Background="White">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="100"/>
-                                            <ColumnDefinition Width="120*"/>
-                                            <ColumnDefinition Width="100*"/>
-                                            <ColumnDefinition Width="120*"/>
-                                        </Grid.ColumnDefinitions>
-                                        <Label Content="用户名：" HorizontalAlignment="Right" Margin="0,25,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
-                                        <Label Content="用户密码：" HorizontalAlignment="Right" Margin="0,75,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-                                        <Label Content="真实姓名：" HorizontalAlignment="Right" Margin="0,125,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
-                                        <Label Content="用户权限：" HorizontalAlignment="Right" Margin="0,25,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.Column="2" Grid.ColumnSpan="1"/>
-                                        <Label Content="用户说明：" HorizontalAlignment="Right" Margin="0,75,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.Column="2" Grid.ColumnSpan="1"/>
-                                        <TextBox x:Name="TextBox_用户名" HorizontalAlignment="Left" Height="23" Margin="5,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostKeyboardFocus="TextBox_用户名_LostKeyboardFocus" VerticalContentAlignment="Center" Grid.Column="1"/>
-                                        <PasswordBox x:Name="TextBox_用户密码" HorizontalAlignment="Left" Height="23" Margin="5,76,0,0" VerticalAlignment="Top" Width="120" LostKeyboardFocus="TextBox_用户密码_LostKeyboardFocus" VerticalContentAlignment="Center" Grid.Column="1"/>
-                                        <TextBox x:Name="TextBox_真实姓名" HorizontalAlignment="Left" Height="23" Margin="5,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" Grid.Column="1"/>
-                                        <ComboBox x:Name="ComboBox_用户权限" HorizontalAlignment="Left" Margin="5.478,25,0,0" VerticalAlignment="Top" Width="120" Grid.Column="3"/>
-                                        <TextBox x:Name="TextBox_用户说明" HorizontalAlignment="Left" Height="23" Margin="5,76,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" Grid.Column="3"/>
-                                        <TextBlock x:Name="TextBlock_用户名" HorizontalAlignment="Left" Margin="19,30,0,0"  Foreground="Red"  TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="2"/>
-                                        <TextBlock x:Name="TextBlock_密码" HorizontalAlignment="Left" Margin="19,80,0,0" TextWrapping="Wrap" Foreground="Red" VerticalAlignment="Top" Grid.Column="2"/>
-                                        <Button x:Name="Button_AddUser" Content="添加" HorizontalAlignment="Left" Margin="6.478,125,0,0" VerticalAlignment="Top" Width="75" Height="24" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Click="Button_AddUser_Click" Grid.Column="3"/>
-                                    </Grid>
+                                <GroupBox Header="用户资料" Margin="254,10,10,0" VerticalAlignment="Top" Height="217">
+                                    
                                 </GroupBox>
                             </Grid>
                         </Expander>
