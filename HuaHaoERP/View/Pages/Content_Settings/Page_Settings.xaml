@@ -29,7 +29,7 @@
                                         <Label x:Name="Label_Message" Content="提示：密码不能为空" HorizontalAlignment="Left" Margin="10,159,0,0" VerticalAlignment="Top" Width="196" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                                     </Grid>
                                 </GroupBox>
-                                <GroupBox x:Name="GroupBox_UserInfo" Header="用户资料" Margin="254,10,10,0" VerticalAlignment="Top" Height="217">
+                                <GroupBox x:Name="GroupBox_UserInfo" Header="用户资料" Margin="254,10,10,0" VerticalAlignment="Top">
                                     <Grid Height="280" Background="White">
                                         <Button FocusVisualStyle="{x:Null}" x:Name="Button_AddUser" Content="新增" HorizontalAlignment="Right" Margin="0,15,90,0" VerticalAlignment="Top" Width="70" Click="Button_AddUser_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="20" Foreground="White" />
                                         <Button FocusVisualStyle="{x:Null}" x:Name="Button_DelUser" Content="删除" HorizontalAlignment="Right" Margin="0,15,10,0" VerticalAlignment="Top" Width="70" Click="Button_DelUser_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="20" Foreground="White"/>
