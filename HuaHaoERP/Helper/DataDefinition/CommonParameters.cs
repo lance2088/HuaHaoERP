@@ -23,6 +23,14 @@ namespace HuaHaoERP.Helper.DataDefinition
             get { return permissions; }
             set { permissions = value; }
         }
+        private static string realName;
+
+        public static string RealName
+        {
+            get { return CommonParameters.realName; }
+            set { CommonParameters.realName = value; }
+        }
+
 
         private static List<Guid> assemblyLineModuleShow;
 
