@@ -20,8 +20,8 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         private bool isOut = true;
         private Model.ProductionManagement_OutsideProcessModel d = new Model.ProductionManagement_OutsideProcessModel();
         private Guid Guid;
-        private Guid OldGuid;
-        private bool isNew = true;
+        //private Guid OldGuid;
+        //private bool isNew = true;
 
         public Page_ProductionManagement_OutsideProcess(bool isOut)
         {
