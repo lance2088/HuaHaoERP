@@ -240,6 +240,7 @@
     <Compile Include="Model\ScrapModel.cs" />
     <Compile Include="Model\StaffModel.cs" />
     <Compile Include="Model\SupplierModel.cs" />
+    <Compile Include="Model\UserModel.cs" />
     <Compile Include="Model\Warehouse\WarehouseProductModel.cs" />
     <Compile Include="ViewModel\Customer\ProcessorsConsole.cs" />
     <Compile Include="ViewModel\Customer\StaffConsole.cs" />
@@ -256,6 +257,7 @@
     <Compile Include="ViewModel\Security\LoginConsole.cs" />
     <Compile Include="ViewModel\Settings\ChangePasswordConsole.cs" />
     <Compile Include="ViewModel\Settings\EncryptedDBConsole.cs" />
+    <Compile Include="ViewModel\Settings\UserConsole.cs" />
     <Compile Include="ViewModel\Warehouse\RawMaterialsConsole.cs" />
     <Compile Include="ViewModel\Warehouse\ScrapConsole.cs" />
     <Compile Include="ViewModel\Warehouse\WarehouseProductConsole.cs" />

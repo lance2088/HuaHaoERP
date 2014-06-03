@@ -29,7 +29,7 @@
                                         <Label x:Name="Label_Message" Content="提示：密码不能为空" HorizontalAlignment="Left" Margin="10,159,0,0" VerticalAlignment="Top" Width="196" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                                     </Grid>
                                 </GroupBox>
-                                <GroupBox Header="用户资料" Margin="254,10,10,0" VerticalAlignment="Top" Height="217">
+                                <GroupBox x:Name="GroupBox_UserInfo" Header="用户资料" Margin="254,10,10,0" VerticalAlignment="Top" Height="217">
                                     
                                 </GroupBox>
                             </Grid>
