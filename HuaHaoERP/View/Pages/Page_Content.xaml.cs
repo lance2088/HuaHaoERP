@@ -60,7 +60,6 @@ namespace HuaHaoERP.View.Pages
             this.Frame_Content_MeansOfProduction.Content = new Content_MeansOfProduction.Page_MeansOfProduction();//实例化生产资料
             this.Frame_Content_Settings.Content = new Content_Settings.Page_Settings();//实例化设置
             //this.Frame_Content_Orders.Content = new Content_Orders.Page_Orders();
-            this.Frame_Content_Orders.Content = new Content_Others.Page_Expect();
         }
         
     }
