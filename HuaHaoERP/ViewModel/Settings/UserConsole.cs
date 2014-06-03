@@ -76,7 +76,7 @@ namespace HuaHaoERP.ViewModel.Settings
             list.Add(m);
             m = new UserModel();
             m.Permissions = (int)ENUM.ENUM_PERMISSIONS.流水线记录员;
-            m.DisplayPermissions = "流水线记录员员";
+            m.DisplayPermissions = "流水线记录员";
             list.Add(m);
             m = new UserModel();
             m.Permissions = (int)ENUM.ENUM_PERMISSIONS.软件记录员;
