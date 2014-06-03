@@ -153,7 +153,7 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
                         <Rectangle Fill="#FFF4F4F5" Margin="0" Stroke="#FF99CCFF" Grid.ColumnSpan="2"/>
-                        <Button FocusVisualStyle="{x:Null}" x:Name="Button_Commit" Content="确定" HorizontalAlignment="Right" Margin="0,330,20,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_Commit_Click" Height="24" Foreground="White"/>
+                        <Button FocusVisualStyle="{x:Null}" x:Name="Button_Commit" Content="确定" Margin="0,329,0,0" VerticalAlignment="Top" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_Commit_Click" Height="24" Foreground="White" Grid.ColumnSpan="2" HorizontalAlignment="Center" Width="74"/>
                         <Label Content="操作日期" HorizontalAlignment="Left" Margin="20,30,0,0" VerticalAlignment="Top"/>
                         <DatePicker x:Name="DatePicker_Date" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="100,30,0,0" VerticalAlignment="Top" Width="120"/>
                         <ComboBox x:Name="ComboBox_Name" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="100,80,0,0" VerticalAlignment="Top" Width="120" IsEditable="True" Height="24" VerticalContentAlignment="Center" DropDownOpened="ComboBox_Name_DropDownOpened"/>
