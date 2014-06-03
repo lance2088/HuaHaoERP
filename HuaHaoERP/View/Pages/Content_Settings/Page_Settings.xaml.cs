@@ -90,5 +90,20 @@ namespace HuaHaoERP.View.Pages.Content_Settings
                 }
             }
         }
+
+        private void Button_AddUser_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TextBox_用户名_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+
+        }
+
+        private void TextBox_用户密码_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+
+        }
     }
 }
