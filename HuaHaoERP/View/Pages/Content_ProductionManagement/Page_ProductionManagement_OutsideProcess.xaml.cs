@@ -35,6 +35,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             this.isOut = true;
             InitializeData();
             this.ComboBox_Product.Text = ProductName;
+            this.TextBox_Quantity.Focus();
         }
 
         private void InitializeData()
