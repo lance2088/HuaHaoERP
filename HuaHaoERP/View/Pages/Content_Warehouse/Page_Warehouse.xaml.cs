@@ -338,23 +338,23 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             rmc.ReadRecordList(out rmm);
             DataGrid_RawMaterialsRecord.ItemsSource = rmm;
         }
-        private void Button_RawMaterials_Out_Click(object sender, RoutedEventArgs e)
-        {
-            if (DataGrid_RawMaterialsRecord.SelectedCells.Count != 0)
-            {
-                List<RawMaterialsDetailModel> list = new List<RawMaterialsDetailModel>();
-                for (int i = 0; i < DataGrid_RawMaterialsRecord.SelectedItems.Count; i++) 
-                {
-                    RawMaterialsDetailModel m = DataGrid_RawMaterialsRecord.SelectedItems[i] as RawMaterialsDetailModel;
-                    list.Add(m);
-                }
-                bool flag  = rmc.AddByBatch(list,false);
-                if (flag)
-                {
-                    InitializeRawMaterialsDataGrid();
-                }
-            }
-        }
+        //private void Button_RawMaterials_Out_Click(object sender, RoutedEventArgs e)
+        //{
+        //    if (DataGrid_RawMaterialsRecord.SelectedCells.Count != 0)
+        //    {
+        //        List<RawMaterialsDetailModel> list = new List<RawMaterialsDetailModel>();
+        //        for (int i = 0; i < DataGrid_RawMaterialsRecord.SelectedItems.Count; i++) 
+        //        {
+        //            RawMaterialsDetailModel m = DataGrid_RawMaterialsRecord.SelectedItems[i] as RawMaterialsDetailModel;
+        //            list.Add(m);
+        //        }
+        //        bool flag  = rmc.AddByBatch(list,false);
+        //        if (flag)
+        //        {
+        //            InitializeRawMaterialsDataGrid();
+        //        }
+        //    }
+        //}
 
         private void Button_RawMaterials_In_Click(object sender, RoutedEventArgs e)
         {
