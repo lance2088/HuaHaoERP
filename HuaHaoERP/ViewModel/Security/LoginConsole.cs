@@ -18,7 +18,7 @@ namespace HuaHaoERP.ViewModel.Security
             if (flag)
             {
                 Helper.DataDefinition.CommonParameters.LoginUserName = UserName;
-                Helper.DataDefinition.CommonParameters.Permissions = Permissions.ToString();
+                Helper.DataDefinition.CommonParameters.Permissions = Int32.Parse(Permissions.ToString());
             }
             return flag;
         }

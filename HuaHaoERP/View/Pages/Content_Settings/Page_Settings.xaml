@@ -30,7 +30,25 @@
                                     </Grid>
                                 </GroupBox>
                                 <GroupBox x:Name="GroupBox_UserInfo" Header="用户资料" Margin="254,10,10,0" VerticalAlignment="Top" Height="217">
-                                    
+                                    <Grid Height="280" Background="White">
+                                        <Button FocusVisualStyle="{x:Null}" x:Name="Button_AddUser" Content="新增" HorizontalAlignment="Right" Margin="0,15,90,0" VerticalAlignment="Top" Width="70" Click="Button_AddUser_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="20" Foreground="White" />
+                                        <Button FocusVisualStyle="{x:Null}" x:Name="Button_DelUser" Content="删除" HorizontalAlignment="Right" Margin="0,15,10,0" VerticalAlignment="Top" Width="70" Click="Button_DelUser_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="20" Foreground="White"/>
+                                        <DataGrid x:Name="DataGrid_UserControl" IsReadOnly="True" HorizontalAlignment="Stretch" AutoGenerateColumns="False" Margin="10,40,10,10"
+                                                  ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" SelectionMode="Single" Background="White">
+                                            <DataGrid.Resources>
+                                                <Style TargetType="DataGridRow">
+                                                    <EventSetter Event="MouseDoubleClick" Handler="DataGrid_UserControl_Row_MouseDoubleClick" />
+                                                </Style>
+                                            </DataGrid.Resources>
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Binding="{Binding Rowid}" Header="序号" />
+                                                <DataGridTextColumn Binding="{Binding Username}" Header="用户名"/>
+                                                <DataGridTextColumn Binding="{Binding Realname}" Header="真实姓名"/>
+                                                <DataGridTextColumn Binding="{Binding Permissions}" Header="权限"/>
+                                                <DataGridTextColumn Binding="{Binding Remark}" Header="用户说明" />
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                    </Grid>
                                 </GroupBox>
                             </Grid>
                         </Expander>

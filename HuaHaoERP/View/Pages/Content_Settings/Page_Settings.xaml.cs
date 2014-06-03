@@ -90,7 +90,10 @@ namespace HuaHaoERP.View.Pages.Content_Settings
                 }
             }
         }
+        private void DataGrid_UserControl_Row_MouseDoubleClick(object sender, RoutedEventArgs e)
+        {
 
+        }
         private void Button_AddUser_Click(object sender, RoutedEventArgs e)
         {
 
@@ -102,6 +105,11 @@ namespace HuaHaoERP.View.Pages.Content_Settings
         }
 
         private void TextBox_用户密码_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_DelUser_Click(object sender, RoutedEventArgs e)
         {
 
         }

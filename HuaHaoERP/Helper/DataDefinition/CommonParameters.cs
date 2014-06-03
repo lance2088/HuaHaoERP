@@ -16,9 +16,9 @@ namespace HuaHaoERP.Helper.DataDefinition
         }
 
 
-        private static string permissions;
+        private static int permissions;
 
-        public static string Permissions
+        public static int Permissions
         {
             get { return permissions; }
             set { permissions = value; }
