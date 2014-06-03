@@ -132,7 +132,9 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             if (new ViewModel.Warehouse.WarehouseProductConsole().Packing(ProductID, Quantity, PackedQuantity))
             {
                 Stock -= Quantity;
-                InitializeProductDataGrid();
+                this.ComboBox_ShowHistory.SelectedIndex = 0;
+                ComboBox_ShowHistory_DropDownClosed(null, null);
+                //InitializeProductDataGrid();
                 this.Grid_Packing.Visibility = System.Windows.Visibility.Collapsed;
                 this.TextBox_PackQuantity.Clear();
                 this.TextBox_Quantity.Clear();
@@ -240,7 +242,9 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             int.TryParse(this.TextBox_Quantity_Outbound.Text, out Quantity);
             if(new ViewModel.Warehouse.WarehouseProductConsole().Outbound(ProductID, Quantity))
             {
-                InitializeProductDataGrid();
+                this.ComboBox_ShowHistory.SelectedIndex = 2;
+                ComboBox_ShowHistory_DropDownClosed(null,null);
+                //InitializeProductDataGrid();
                 this.Grid_Outbound.Visibility = System.Windows.Visibility.Collapsed;
             }
         }
@@ -310,7 +314,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             int Number = 0;
             int.TryParse(this.TextBox_Quantity_OutGrid.Text, out Number);
             m.Number = Number;
-            m.Operator = Helper.DataDefinition.CommonParameters.LoginUserName;
+            m.Operator = Helper.DataDefinition.CommonParameters.RealName;
             list.Add(m);
             if (rmc.AddByBatch(list,false))
             {

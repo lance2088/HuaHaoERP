@@ -18,7 +18,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
         internal bool Outbound(Guid ProductID, int Quantity)
         {
             string sql = " Insert into T_Warehouse_ProductPacking(Guid,ProductID,Date,Operator,Quantity,Remark) "
-                       + " values('" + Guid.NewGuid() + "','" + ProductID + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + Helper.DataDefinition.CommonParameters.LoginUserName + "','" + -Quantity + "','出库')";
+                       + " values('" + Guid.NewGuid() + "','" + ProductID + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + Helper.DataDefinition.CommonParameters.RealName + "','" + -Quantity + "','出库')";
             return new Helper.SQLite.DBHelper().SingleExecution(sql);
         }
         /// <summary>
@@ -147,9 +147,9 @@ namespace HuaHaoERP.ViewModel.Warehouse
         {
             List<string> sqls = new List<string>();
             string sql1 = " Insert into T_Warehouse_Product(Guid,ProductID,Date,Operator,Quantity,Remark) "
-                        + " values('" + Guid.NewGuid() + "','" + ProductID + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + Helper.DataDefinition.CommonParameters.LoginUserName + "','" + -Quantity + "','包装*" + PackedQuantity + "')";
+                        + " values('" + Guid.NewGuid() + "','" + ProductID + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + Helper.DataDefinition.CommonParameters.RealName + "','" + -Quantity + "','包装*" + PackedQuantity + "')";
             string sql2 = " Insert into T_Warehouse_ProductPacking(Guid,ProductID,Date,Operator,Quantity) "
-                        + " values('" + Guid.NewGuid() + "','" + ProductID + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + Helper.DataDefinition.CommonParameters.LoginUserName + "','" + PackedQuantity + "')";
+                        + " values('" + Guid.NewGuid() + "','" + ProductID + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + Helper.DataDefinition.CommonParameters.RealName + "','" + PackedQuantity + "')";
             sqls.Add(sql1);
             sqls.Add(sql2);
             return new Helper.SQLite.DBHelper().Transaction(sqls);

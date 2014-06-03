@@ -33,7 +33,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                 RawMaterialsDetailModel m = new RawMaterialsDetailModel();
                 m.Id = i+1;
                 m.Date = DateTime.Now.ToString("yyyy.MM.dd");
-                m.Operator = Helper.DataDefinition.CommonParameters.LoginUserName;
+                m.Operator = Helper.DataDefinition.CommonParameters.RealName;
                 rawMaterials.Add(m);
             }
             DataGrid_RawMaterials.ItemsSource = rawMaterials;
