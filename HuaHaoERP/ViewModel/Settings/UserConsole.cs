@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using HuaHaoERP.Model;
 using System.Data;
+using HuaHaoERP.Helper.DataDefinition;
 
 namespace HuaHaoERP.ViewModel.Settings
 {
@@ -57,6 +58,24 @@ namespace HuaHaoERP.ViewModel.Settings
                 }
             }
             return flag;
+        }
+
+        internal List<UserModel> GetComboBoxPermissions()
+        {
+            List<UserModel> list = new List<UserModel>();
+            UserModel m = new UserModel();
+            m.Permissions = (int)ENUM.ENUM_PERMISSIONS.仓库记录员;
+            m.DisplayPermissions = "仓库记录员";
+            list.Add(m);
+            m = new UserModel();
+            m.Permissions = (int)ENUM.ENUM_PERMISSIONS.流水线记录员员;
+            m.DisplayPermissions = "流水线记录员员";
+            list.Add(m);
+            m = new UserModel();
+            m.Permissions = (int)ENUM.ENUM_PERMISSIONS.软件记录员;
+            m.DisplayPermissions = "软件记录员";
+            list.Add(m);
+            return list;
         }
     }
 }
