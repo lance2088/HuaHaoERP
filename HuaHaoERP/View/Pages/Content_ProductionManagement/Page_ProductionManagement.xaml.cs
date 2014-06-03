@@ -79,6 +79,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             this.ComboBox_Processors.SelectedIndex = 0;
 
             InitializeOutsideProcessDataGrid();
+            Button_Reflash_Click(null,null);
         }
         /// <summary>
         /// 添加流水线模块
