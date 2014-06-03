@@ -23,5 +23,25 @@ namespace HuaHaoERP.View.Pages.Content_Settings
         {
             InitializeComponent();
         }
+
+        private void Button_Commit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Cancel_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TextBox_用户名_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+
+        }
+
+        private void TextBox_用户密码_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+
+        }
     }
 }
