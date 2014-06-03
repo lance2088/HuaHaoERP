@@ -19,6 +19,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
     {
         private string GridName;
         private Guid ProductGuid;
+        private string ProductName;
         private Model.AssemblyLineModuleModel d;
 
         public Page_ProductionManagement_AssemblyLineModule(string Name, Guid ProductGuid)
@@ -33,6 +34,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             this.DataGrid.ItemsSource = null;
             if(new ViewModel.ProductionManagement.AssemblyLineModuleConsole().ReadList(ProductGuid, out d))
             {
+                ProductName = d.Name;
                 this.Label_ProductName.Content = d.Name;
                 this.DataGrid.ItemsSource = d.ProcessList;
                 this.Label_Process.Content = "";
@@ -128,6 +130,11 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                     }
                 }
             }
+        }
+
+        private void Button_Processing_Click(object sender, RoutedEventArgs e)
+        {
+            Helper.Events.PopUpEvent.OnShowPopUp(new Page_ProductionManagement_OutsideProcess(ProductName));
         }
     }
 }
