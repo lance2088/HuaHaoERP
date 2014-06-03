@@ -9,7 +9,7 @@ namespace HuaHaoERP.Model
     /// 流水线模块的Model
     /// 产品每个工序的半成品统计
     /// </summary>
-    class AssemblyLineModuleModel
+    public class AssemblyLineModuleModel
     {
         private Guid guid;
 
@@ -35,7 +35,7 @@ namespace HuaHaoERP.Model
 
     }
 
-    class AssemblyLineModuleProcessModel
+    public class AssemblyLineModuleProcessModel
     {
         private Guid guid;
 

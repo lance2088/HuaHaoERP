@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using HuaHaoERP.Helper.Events;
+using HuaHaoERP.Model;
 
 namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 {
@@ -38,6 +39,14 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 this.Label_ProductName.Content = d.Name;
                 this.DataGrid.ItemsSource = d.ProcessList;
                 this.Label_Process.Content = "";
+                this.Button_Processing.Visibility = System.Windows.Visibility.Collapsed;
+                foreach(AssemblyLineModuleProcessModel dpm in d.ProcessList)
+                {
+                    if(dpm.Process == "抛光")
+                    {
+                        this.Button_Processing.Visibility = System.Windows.Visibility.Visible;
+                    }
+                }
             }
         }
         private void InitializeStaffComboBox()
