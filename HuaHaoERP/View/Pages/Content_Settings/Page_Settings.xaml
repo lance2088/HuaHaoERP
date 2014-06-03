@@ -44,7 +44,7 @@
                                                 <DataGridTextColumn Binding="{Binding Rowid}" Header="序号" />
                                                 <DataGridTextColumn Binding="{Binding Username}" Header="用户名"/>
                                                 <DataGridTextColumn Binding="{Binding Realname}" Header="真实姓名"/>
-                                                <DataGridTextColumn Binding="{Binding Permissions}" Header="权限"/>
+                                                <DataGridTextColumn Binding="{Binding DisplayPermissions}" Header="权限"/>
                                                 <DataGridTextColumn Binding="{Binding Remark}" Header="用户说明" />
                                             </DataGrid.Columns>
                                         </DataGrid>

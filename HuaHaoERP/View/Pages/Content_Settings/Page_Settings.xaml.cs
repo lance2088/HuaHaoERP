@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using HuaHaoERP.Helper.Tools;
 using HuaHaoERP.ViewModel.Settings;
+using HuaHaoERP.Helper.Events.UpdateEvent;
 
 namespace HuaHaoERP.View.Pages.Content_Settings
 {
@@ -25,8 +26,21 @@ namespace HuaHaoERP.View.Pages.Content_Settings
             {
                 this.Button_EncryptedDB.Content = "解密数据库";
             }
+            RefreshDataGrid_UserControl();
         }
-
+        private void RefreshDataGrid_UserControl()
+        {
+            List<Model.UserModel> data = new List<Model.UserModel>();
+            new ViewModel.Settings.UserConsole().ReadList(out data);
+            DataGrid_UserControl.ItemsSource = data;
+        }
+        private void SubscribeToEvent()
+        {
+            UserEvent.EUpdateDataGrid += (sender, e) =>
+            {
+                RefreshDataGrid_UserControl();
+            };
+        }
         private void Button_ChangePassword_Click(object sender, RoutedEventArgs e)
         {
             bool Check = true;
@@ -88,30 +102,33 @@ namespace HuaHaoERP.View.Pages.Content_Settings
                         epd.IsExpanded = false;
                     }
                 }
+                
             }
         }
         private void DataGrid_UserControl_Row_MouseDoubleClick(object sender, RoutedEventArgs e)
         {
-
+            if (this.DataGrid_UserControl.SelectedCells.Count != 0)
+            {
+                HuaHaoERP.Model.UserModel data = this.DataGrid_UserControl.SelectedCells[0].Item as HuaHaoERP.Model.UserModel;
+                Helper.Events.PopUpEvent.OnShowPopUp(new Page_Settings_Popup_AddUser(data));
+            }
         }
         private void Button_AddUser_Click(object sender, RoutedEventArgs e)
         {
             Helper.Events.PopUpEvent.OnShowPopUp(new Page_Settings_Popup_AddUser());
         }
 
-        private void TextBox_用户名_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-        {
-
-        }
-
-        private void TextBox_用户密码_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-        {
-
-        }
-
         private void Button_DelUser_Click(object sender, RoutedEventArgs e)
         {
-
+            if (this.DataGrid_UserControl.SelectedCells.Count > 0)
+            {
+                HuaHaoERP.Model.UserModel data = this.DataGrid_UserControl.SelectedCells[0].Item as HuaHaoERP.Model.UserModel;
+                if (MessageBox.Show("确认删除用户：" + data.Username + "？", "警告", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    new ViewModel.Settings.UserConsole().MarkDelete(data);
+                    RefreshDataGrid_UserControl();
+                }
+            }
         }
     }
 }
