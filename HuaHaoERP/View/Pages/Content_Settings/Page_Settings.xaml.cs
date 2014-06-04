@@ -37,6 +37,7 @@ namespace HuaHaoERP.View.Pages.Content_Settings
             if (Permissions < 8)
             {
                 this.GroupBox_UserInfo.Visibility = System.Windows.Visibility.Collapsed;
+                this.Expander_SecuritySettings_DB.Visibility = System.Windows.Visibility.Collapsed;
             }
         }
 

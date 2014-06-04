@@ -21,10 +21,18 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
         {
             InitializeComponent();
             SubscribeToEvent();
+            PermissionsSettings();
             InitializeProductDataGrid();
             InitializeRawMaterialsDataGrid();
         }
-
+        private void PermissionsSettings()
+        {
+            if (Helper.DataDefinition.CommonParameters.Permissions < 8)
+            {
+                this.Button_DeleteProduct.IsEnabled = false;
+                this.Button_DeleteRawMaterials.IsEnabled = false;
+            }
+        }
         private void SubscribeToEvent()
         {
             ProductEvent.EUpdateDataGrid += (s, e) =>

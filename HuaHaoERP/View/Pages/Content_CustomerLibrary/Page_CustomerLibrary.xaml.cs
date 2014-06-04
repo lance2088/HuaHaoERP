@@ -26,6 +26,7 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             InitializeStaffDataGrid();
             InitializeProcessorsDataGrid();
         }
+
         private void SubscribeToEvent()
         {
             CustomerEvent.EUpdateDataGrid += (sender, e) => 
