@@ -94,5 +94,31 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         {
             InitializeData();
         }
+        /// <summary>
+        /// Cell切换时才触发
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DataGrid_Product_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (this.DataGrid_Product.SelectedCells.Count > 0)
+            {
+                Model.ProductModel TempD = this.DataGrid_Product.SelectedCells[0].Item as Model.ProductModel;
+                TempD.IsShow = !TempD.IsShow;
+            }
+        }
+        /// <summary>
+        /// 在某个Cell里面一直点才触发
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DataGrid_Product_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (this.DataGrid_Product.SelectedCells.Count > 0)
+            {
+                Model.ProductModel TempD = this.DataGrid_Product.SelectedCells[0].Item as Model.ProductModel;
+                TempD.IsShow = !TempD.IsShow;
+            }
+        }
     }
 }
