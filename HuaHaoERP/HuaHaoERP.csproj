@@ -399,9 +399,6 @@
     <Resource Include="View\Resources\Images\MaxMinCloseButtonPic\MinSel.png" />
     <Resource Include="View\Resources\Ico\Pyramid_Logo_white_128x128.ico" />
     <Resource Include="View\Resources\Images\Pyramid_Logo_white_128x128.png" />
-    <None Include="Readme.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <Content Include="InternalDoc\DataBase.sql" />
     <Content Include="ThirdPartyLib\System.Data.SQLite.dll" />
   </ItemGroup>
