@@ -48,6 +48,8 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                     }
                 }
             }
+            this.TextBox_Quantity.Clear();
+            this.TextBox_Break.Clear();
         }
         private void InitializeStaffComboBox()
         {
@@ -143,7 +145,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void Button_Processing_Click(object sender, RoutedEventArgs e)
         {
-            Helper.Events.PopUpEvent.OnShowPopUp(new Page_ProductionManagement_OutsideProcess(ProductName));
+            Helper.Events.PopUpEvent.OnShowPopUp(new Page_ProductionManagement_OutsideProcess(true, ProductName));
         }
     }
 }

@@ -48,8 +48,8 @@
                     <DataGrid x:Name="DataGrid_ProcessOut" Margin="10,0,10,40" BorderThickness="1" CellStyle="{DynamicResource DataGridCellStyleCommon}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" BorderBrush="#FF99CCFF" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" AutoGenerateColumns="False" Grid.Row="1" SelectionMode="Single">
                         <DataGrid.ContextMenu>
                             <ContextMenu Name="dgmenu1" StaysOpen="true">
-                                <MenuItem x:Name="MenuItem_dgmenu1_Del" Header="删除" Click="MenuItem_dgmenu1_Del_Click">
-                                </MenuItem>
+                                <MenuItem x:Name="MenuItem_dgmenu1_InOrder" Header="入单" Click="MenuItem_dgmenu1_InOrder_Click"/>
+                                <MenuItem x:Name="MenuItem_dgmenu1_Del" Header="删除" Click="MenuItem_dgmenu1_Del_Click"/>
                             </ContextMenu>
                         </DataGrid.ContextMenu>
                         <DataGrid.Columns>

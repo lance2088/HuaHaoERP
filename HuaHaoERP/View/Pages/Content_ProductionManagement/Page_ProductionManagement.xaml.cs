@@ -227,6 +227,16 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         }
         #endregion
 
+        private void MenuItem_dgmenu1_InOrder_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.DataGrid_ProcessOut.SelectedCells.Count > 0)
+            {
+                Model.ProductionManagement_OutsideProcessModel d = this.DataGrid_ProcessOut.SelectedCells[0].Item as Model.ProductionManagement_OutsideProcessModel;
+                PopUpEvent.OnShowPopUp(new Page_ProductionManagement_OutsideProcess(false, d.ProductName));
+            }
+           
+        }
+
 
     }
 }

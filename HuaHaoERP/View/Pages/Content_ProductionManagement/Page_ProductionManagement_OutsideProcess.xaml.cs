@@ -29,10 +29,14 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             this.isOut = isOut;
             InitializeData();
         }
-        public Page_ProductionManagement_OutsideProcess(string ProductName)
+        /// <summary>
+        /// 目标入单
+        /// </summary>
+        /// <param name="ProductName"></param>
+        public Page_ProductionManagement_OutsideProcess(bool isOut, string ProductName)
         {
             InitializeComponent();
-            this.isOut = true;
+            this.isOut = isOut;
             InitializeData();
             this.ComboBox_Product.Text = ProductName;
             this.TextBox_Quantity.Focus();
