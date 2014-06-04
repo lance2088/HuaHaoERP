@@ -91,6 +91,7 @@
                     </DataGrid>
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_AddStaff" Content="添加" HorizontalAlignment="Right" Margin="0,10,90,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_AddStaff_Click" Height="24" Foreground="White"/>
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_DeleteStaff" Content="删除" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_DeleteStaff_Click" Height="24" Foreground="White"/>
+                    <CheckBox x:Name="CheckBox_ShowDepartureStaff" Content="显示离职员工" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" Click="CheckBox_ShowDepartureStaff_Click"/>
                 </Grid>
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="外加工商管理" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="37,0,-37,0" Foreground="White">

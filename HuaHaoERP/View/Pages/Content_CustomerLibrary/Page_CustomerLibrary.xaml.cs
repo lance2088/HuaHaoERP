@@ -116,11 +116,15 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
         #endregion
 
         #region Staff 员工
-
+        private void CheckBox_ShowDepartureStaff_Click(object sender, RoutedEventArgs e)
+        {
+            InitializeStaffDataGrid();
+        }
         private void InitializeStaffDataGrid()
         {
+            bool ShowDeparture = (bool)this.CheckBox_ShowDepartureStaff.IsChecked;
             List<Model.StaffModel> data;
-            new ViewModel.Customer.StaffConsole().ReadList(out data);
+            new ViewModel.Customer.StaffConsole().ReadList(ShowDeparture, out data);
             this.DataGrid_Staff.ItemsSource = data;
         }
         private void Button_AddStaff_Click(object sender, RoutedEventArgs e)
@@ -181,6 +185,8 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             }
         }
         #endregion
+
+
 
         
     }
