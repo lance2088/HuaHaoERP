@@ -48,12 +48,12 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
         #region Product 产品
         private void InitializeProductDataGrid()
         {
+            this.ComboBox_ProductType.ItemsSource = Helper.DataDefinition.ComboBoxList.ProductTypeListWithAll;
+            this.ComboBox_ProductType.SelectedIndex = 0;
             string ProductType = this.ComboBox_ProductType.Text;
             List<Model.ProductModel> data;
             new ViewModel.MeansOfProduction.ProductConsole().ReadList(ProductType, out data);
             this.DataGrid_Product.ItemsSource = data;
-            this.ComboBox_ProductType.ItemsSource = Helper.DataDefinition.ComboBoxList.ProductTypeListWithAll;
-            this.ComboBox_ProductType.SelectedIndex = 0;
         }
         private void Button_AddProduct_Click(object sender, RoutedEventArgs e)
         {
