@@ -22,6 +22,9 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
             InitializeComponent();
             SubscribeToEvent();
             PermissionsSettings();
+            this.ComboBox_ProductType.ItemsSource = Helper.DataDefinition.ComboBoxList.ProductTypeListWithAll;
+            this.ComboBox_ProductType.SelectedIndex = 0;
+
             InitializeProductDataGrid();
             InitializeRawMaterialsDataGrid();
         }
@@ -48,8 +51,6 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
         #region Product 产品
         private void InitializeProductDataGrid()
         {
-            this.ComboBox_ProductType.ItemsSource = Helper.DataDefinition.ComboBoxList.ProductTypeListWithAll;
-            this.ComboBox_ProductType.SelectedIndex = 0;
             string ProductType = this.ComboBox_ProductType.Text;
             List<Model.ProductModel> data;
             new ViewModel.MeansOfProduction.ProductConsole().ReadList(ProductType, out data);

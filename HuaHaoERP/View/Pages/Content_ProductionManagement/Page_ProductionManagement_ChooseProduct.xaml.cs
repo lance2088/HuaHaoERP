@@ -22,13 +22,13 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         public Page_ProductionManagement_ChooseProduct()
         {
             InitializeComponent();
+            this.ComboBox_ProductType.ItemsSource = Helper.DataDefinition.ComboBoxList.ProductTypeListWithAll;
+            this.ComboBox_ProductType.SelectedIndex = 0;
             InitializeData();
         }
 
         private void InitializeData()
         {
-            this.ComboBox_ProductType.ItemsSource = Helper.DataDefinition.ComboBoxList.ProductTypeListWithAll;
-            this.ComboBox_ProductType.SelectedIndex = 0;
             string ProductType = this.ComboBox_ProductType.Text;
             new ViewModel.MeansOfProduction.ProductConsole().ReadList(ProductType, out d);
             foreach(Model.ProductModel dm in d)
