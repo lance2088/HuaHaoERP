@@ -237,6 +237,12 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
            
         }
 
+        private void Button_ClearModule_Click(object sender, RoutedEventArgs e)
+        {
+            this.WrapPanel_AssemblyLine.Children.Clear();
+            new Helper.SettingFile.AssemblyLineModule().Clear();
+        }
+
 
     }
 }
