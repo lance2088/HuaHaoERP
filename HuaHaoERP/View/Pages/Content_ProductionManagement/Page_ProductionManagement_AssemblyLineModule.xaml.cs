@@ -76,6 +76,11 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                     int.TryParse(this.TextBox_Break.Text, out Break);
                     Model.AssemblyLineModuleProcessModel dp = this.DataGrid.SelectedCells[0].Item as Model.AssemblyLineModuleProcessModel;
                     dp.Guid = Guid.NewGuid();
+                    if (this.ComboBox_StaffList.SelectedValue == null)
+                    {
+                        MessageBox.Show("请至少录入一个员工","错误");
+                        return;
+                    }
                     dp.StaffID = (Guid)this.ComboBox_StaffList.SelectedValue;
                     dp.ProductID = this.ProductGuid;
                     dp.Quantity = Quantity;

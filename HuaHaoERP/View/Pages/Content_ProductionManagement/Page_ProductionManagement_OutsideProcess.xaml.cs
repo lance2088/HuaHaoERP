@@ -78,7 +78,17 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             this.Guid = Guid.NewGuid();
             d.Guid = this.Guid;
             d.OrderDate = ((DateTime)this.DatePicker_OrderDate.SelectedDate + DateTime.Now.TimeOfDay).ToString("yyyy-MM-dd HH:mm:ss");
+            if (this.ComboBox_Product.SelectedValue == null)
+            {
+                MessageBox.Show("请录入至少一个产品","错误");
+                return false;
+            }
             d.ProductGuid = (Guid)this.ComboBox_Product.SelectedValue;
+            if (this.ComboBox_Processors.SelectedValue == null)
+            {
+                MessageBox.Show("请录入至少一个加工商", "错误");
+                return false;
+            }
             d.ProcessorsGuid = (Guid)this.ComboBox_Processors.SelectedValue;
             int Quantity = 0;
             if(!int.TryParse(this.TextBox_Quantity.Text.Trim(), out Quantity))
