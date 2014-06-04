@@ -77,6 +77,21 @@ namespace HuaHaoERP.Helper.DataDefinition
                 return AddAll(ds, "产品");
             }
         }
+        public static List<string> ProductTypeListWithAll
+        {
+            get
+            {
+                List<string> ls = new List<string>();
+                ls.Add("全部类型");
+                DataSet ds = new DataSet();
+                new ViewModel.MeansOfProduction.ProductConsole().GetTypeList(out ds);
+                foreach(DataRow dr in ds.Tables[0].Rows)
+                {
+                    ls.Add(dr[0].ToString());
+                }
+                return ls;
+            }
+        }
         public static DataTable StaffListWithoutAll
         {
             get

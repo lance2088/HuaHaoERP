@@ -27,7 +27,8 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void InitializeData()
         {
-            new ViewModel.MeansOfProduction.ProductConsole().ReadList(out d);
+            string ProductType = this.ComboBox_ProductType.Text;
+            new ViewModel.MeansOfProduction.ProductConsole().ReadList(ProductType, out d);
             foreach(Model.ProductModel dm in d)
             {
                 if(Helper.DataDefinition.CommonParameters.AssemblyLineModuleShow.Contains(dm.Guid))
@@ -36,6 +37,8 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 }
             }
             this.DataGrid_Product.ItemsSource = d;
+            this.ComboBox_ProductType.ItemsSource = Helper.DataDefinition.ComboBoxList.ProductTypeListWithAll;
+            this.ComboBox_ProductType.SelectedIndex = 0;
         }
 
         private void Button_Cancel_Click(object sender, RoutedEventArgs e)
@@ -85,6 +88,11 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             {
                 md.IsShow = !md.IsShow;
             }
+        }
+
+        private void ComboBox_ProductType_DropDownClosed(object sender, EventArgs e)
+        {
+            InitializeData();
         }
     }
 }

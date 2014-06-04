@@ -36,11 +36,20 @@ namespace HuaHaoERP.ViewModel.MeansOfProduction
             flag = new Helper.SQLite.DBHelper().SingleExecution(sql);
             return flag;
         }
-        internal bool ReadList(out List<ProductModel> data)
+        internal bool ReadList(string ProductType, out List<ProductModel> data)
         {
+            string Sql_Where = "";
+            if(!ProductType.StartsWith("全部"))
+            {
+                Sql_Where += " AND Type='" + ProductType + "' ";
+            }
             bool flag = true;
             data = new List<ProductModel>();
-            string sql = "select * from T_ProductInfo_Product Where DeleteMark is null order by AddTime";
+            string sql = " select * "
+                       + " from T_ProductInfo_Product "
+                       + " Where DeleteMark is null "
+                       + Sql_Where
+                       + " order by AddTime";
             DataSet ds = new DataSet();
             flag = new Helper.SQLite.DBHelper().QueryData(sql, out ds);
             if (flag)
@@ -101,11 +110,16 @@ namespace HuaHaoERP.ViewModel.MeansOfProduction
 
         internal bool GetNameList(out DataSet ds)
         {
-            bool flag = true;
             ds = new DataSet();
             string sql = "select Guid,Number,Name From T_ProductInfo_Product Where DeleteMark is null order by AddTime";
-            flag = new Helper.SQLite.DBHelper().QueryData(sql, out ds);
-            return flag;
+            return new Helper.SQLite.DBHelper().QueryData(sql, out ds);
+        }
+
+        internal bool GetTypeList(out DataSet ds)
+        {
+            ds = new DataSet();
+            string sql = "select Type From T_ProductInfo_Product Group by Type";
+            return new Helper.SQLite.DBHelper().QueryData(sql, out ds);
         }
     }
 }

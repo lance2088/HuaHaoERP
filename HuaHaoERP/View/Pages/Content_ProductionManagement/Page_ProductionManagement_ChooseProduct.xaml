@@ -21,6 +21,6 @@
         </DataGrid>
         <Button x:Name="Button_SelectAll" Content="全选" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_SelectAll_Click"/>
         <Button x:Name="Button_Anti_electionDefault" Content="反选" HorizontalAlignment="Left" Margin="100,20,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_Anti_electionDefault_Click"/>
-
+        <ComboBox x:Name="ComboBox_ProductType" HorizontalAlignment="Left" Margin="260,20,0,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center" DropDownClosed="ComboBox_ProductType_DropDownClosed"/>
     </Grid>
 </Page>
