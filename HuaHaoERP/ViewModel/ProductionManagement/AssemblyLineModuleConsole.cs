@@ -13,7 +13,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
             string DateTimeNow = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             List<string> sqls = new List<string>();
             string sql_subtract = "Insert into T_PM_ProductionSchedule(Guid,Date,StaffID,ProductID,Process,Number,Remark) "
-                                + "values('" + Guid.NewGuid() + "','" + DateTimeNow + "','" + d.StaffID + "','" + d.ProductID + "','" + d.LastProcess + "',-" + (d.Quantity + d.BreakNum) + ",'自动扣半成品原料')";
+                                + "values('" + Guid.NewGuid() + "','" + DateTimeNow + "','" + d.StaffID + "','" + d.ProductID + "','" + d.LastProcess + "'," + -(d.Quantity + d.BreakNum) + ",'自动扣半成品原料')";
             string sql_add = "Insert into T_PM_ProductionSchedule(Guid,Date,StaffID,ProductID,Process,Number,Break) "
                         + "values('" + d.Guid + "','" + DateTimeNow + "','" + d.StaffID + "','" + d.ProductID + "','" + d.Process + "'," + d.Quantity + "," + d.BreakNum + ")";
             if (d.LastProcess != "")
