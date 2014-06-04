@@ -101,5 +101,21 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         {
             InitializeDataGrid();
         }
+
+        private void MenuItem__Del_Click(object sender, RoutedEventArgs e)
+        {
+            if(this.DataGrid_Detials.SelectedCells.Count > 0)
+            {
+                Model.ProductionManagement.AssemblyLineDetailsModel d = this.DataGrid_Detials.SelectedCells[0].Item as Model.ProductionManagement.AssemblyLineDetailsModel;
+                if (MessageBox.Show("确认删除生产记录？这是危险操作，可能导致数据混乱\n序号\t"+d.Id+"\n日期\t"+d.Date+"\n产品\t"+d.ProductName+"\n工序\t"+d.Process+"\n数量\t"+d.Quantity, "警告", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    if (new ViewModel.ProductionManagement.AssemblyLineDetailsConsole().DeleteDetails(d.Guid))
+                    {
+                        InitializeDataGrid();
+                        Helper.Events.ProductionManagement_AssemblyLineEvent.OnUpdateDataGrid();
+                    }
+                }
+            }
+        }
     }
 }

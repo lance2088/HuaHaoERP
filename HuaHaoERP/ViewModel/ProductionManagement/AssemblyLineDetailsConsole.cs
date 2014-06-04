@@ -32,7 +32,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                        + " FROM                                                                 "
                        + "    T_PM_ProductionSchedule a                                           "
                        + " left join T_ProductInfo_Product b ON a.ProductID=b.Guid            "
-                       + " WHERE b.DeleteMark IS NULL                                           "
+                       + " WHERE b.DeleteMark IS NULL AND a.DeleteMark IS NULL                   "
                        + " GROUP BY                                                             "
                        + "    a.ProductID,                                                      "
                        + "    a.Process                                                         "
@@ -125,7 +125,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
         {
             int Out = 0, In = 0;
             int Break = 0;
-            string sql = "select total(Quantity),total(MinorInjuries+Injuries+Lose) as Break,OrderType from T_PM_ProcessSchedule where ProductID='" + ProductGuid + "' GROUP BY OrderType ";
+            string sql = "select total(Quantity),total(MinorInjuries+Injuries+Lose) as Break,OrderType from T_PM_ProcessSchedule where DeleteMark IS NULL AND ProductID='" + ProductGuid + "' GROUP BY OrderType ";
             DataSet ds = new DataSet();
             new Helper.SQLite.DBHelper().QueryData(sql, out ds);
             foreach (DataRow dr in ds.Tables[0].Rows)
@@ -173,5 +173,13 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                 }
             }
         }
+    
+        internal bool DeleteDetails(Guid DetailsGuid)
+        {
+            string sql = " Update T_PM_ProductionSchedule SET DeleteMark='"+DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")+"' "
+                       + " WHERE Guid='" + DetailsGuid + "' OR ParentGuid='" + DetailsGuid + "'";
+            return new Helper.SQLite.DBHelper().SingleExecution(sql);
+        }
+
     }
 }

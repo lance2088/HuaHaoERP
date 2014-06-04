@@ -11,11 +11,12 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
         internal bool Add(Model.AssemblyLineModuleProcessModel d)
         {
             string DateTimeNow = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            Guid TempGuid = Guid.NewGuid();
             List<string> sqls = new List<string>();
-            string sql_subtract = "Insert into T_PM_ProductionSchedule(Guid,Date,StaffID,ProductID,Process,Number,Remark) "
-                                + "values('" + Guid.NewGuid() + "','" + DateTimeNow + "','" + d.StaffID + "','" + d.ProductID + "','" + d.LastProcess + "'," + -(d.Quantity + d.BreakNum) + ",'自动扣半成品原料')";
-            string sql_add = "Insert into T_PM_ProductionSchedule(Guid,Date,StaffID,ProductID,Process,Number,Break) "
-                        + "values('" + d.Guid + "','" + DateTimeNow + "','" + d.StaffID + "','" + d.ProductID + "','" + d.Process + "'," + d.Quantity + "," + d.BreakNum + ")";
+            string sql_subtract = "Insert into T_PM_ProductionSchedule(Guid,Date,StaffID,ProductID,Process,Number,Remark,ParentGuid) "
+                                + "values('" + TempGuid + "','" + DateTimeNow + "','" + d.StaffID + "','" + d.ProductID + "','" + d.LastProcess + "'," + -(d.Quantity + d.BreakNum) + ",'自动扣半成品原料','" + d.Guid + "')";
+            string sql_add = "Insert into T_PM_ProductionSchedule(Guid,Date,StaffID,ProductID,Process,Number,Break,ParentGuid) "
+                        + "values('" + d.Guid + "','" + DateTimeNow + "','" + d.StaffID + "','" + d.ProductID + "','" + d.Process + "'," + d.Quantity + "," + d.BreakNum + ",'" + TempGuid + "')";
             if (d.LastProcess != "")
             {
                 sqls.Add(sql_subtract);
@@ -43,7 +44,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                        + "   total(b.Number) as Quantity, "
                        + "   total(b.Break) as BreakNum "
                        + " from T_ProductInfo_Product a "
-                       + " LEFT JOIN T_PM_ProductionSchedule b ON b.ProductID = a.GUID "
+                       + " LEFT JOIN T_PM_ProductionSchedule b ON b.ProductID = a.GUID AND b.DeleteMark IS NULL"
                        + " where a.GUID='" + ProductGuid + "' "
                        + " GROUP BY b.Process";
             DataSet ds = new DataSet();
@@ -125,7 +126,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
         internal int ReadDetials(bool IsShowAuto, Guid ProductID, string Process, Guid StaffID, DateTime Start, DateTime End, out List<Model.ProductionManagement.AssemblyLineDetailsModel> data)
         {
             int Count = 0;
-            string sql_Where = " Where a.Date Between '" + Start.ToString("yyyy-MM-dd HH:mm:ss") + "' AND '" + End.ToString("yyyy-MM-dd HH:mm:ss") + "'  ";
+            string sql_Where = " Where a.DeleteMark IS NULL AND a.Date Between '" + Start.ToString("yyyy-MM-dd HH:mm:ss") + "' AND '" + End.ToString("yyyy-MM-dd HH:mm:ss") + "'  ";
             if (IsShowAuto)
             {
                 sql_Where += " AND a.Remark IS NOT '自动扣半成品原料' ";
