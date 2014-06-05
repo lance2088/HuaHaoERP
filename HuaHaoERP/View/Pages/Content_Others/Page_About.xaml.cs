@@ -14,14 +14,12 @@ using System.Windows.Shapes;
 
 namespace HuaHaoERP.View.Pages.Content_Others
 {
-    /// <summary>
-    /// Interaction logic for Page_About.xaml
-    /// </summary>
     public partial class Page_About : Page
     {
         public Page_About()
         {
             InitializeComponent();
+            this.Label_Version.Content += Application.ResourceAssembly.GetName().Version.ToString();
         }
     }
 }

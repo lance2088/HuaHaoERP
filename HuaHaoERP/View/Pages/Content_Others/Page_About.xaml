@@ -22,7 +22,6 @@
         <Label Content="客服热线：0754-85837039" HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top" Grid.Column="1" FontSize="16" Grid.Row="1" Height="30"/>
         <Label Content="企业QQ：2095250852" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top" Grid.Column="1" FontSize="16" Grid.Row="1" Height="30"/>
         <Label Content="Copyright © 2014 StoneAnt. All Rights Reserved" HorizontalAlignment="Left" Margin="10,200,0,0" VerticalAlignment="Top" Grid.Column="1" FontSize="16" Grid.Row="1" Height="30"/>
-        <Label Content="Label" Grid.Column="1" HorizontalAlignment="Left" Margin="10,260,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="16"/>
 
     </Grid>
 </Page>
