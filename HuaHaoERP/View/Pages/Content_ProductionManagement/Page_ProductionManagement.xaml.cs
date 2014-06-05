@@ -232,7 +232,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             if (this.DataGrid_ProcessOut.SelectedCells.Count > 0)
             {
                 Model.ProductionManagement_OutsideProcessModel d = this.DataGrid_ProcessOut.SelectedCells[0].Item as Model.ProductionManagement_OutsideProcessModel;
-                PopUpEvent.OnShowPopUp(new Page_ProductionManagement_OutsideProcess(false, d.ProductName));
+                PopUpEvent.OnShowPopUp(new Page_ProductionManagement_OutsideProcess(false, d.ProductName, d.ProcessorsName));
             }
            
         }

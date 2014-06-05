@@ -41,7 +41,15 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             this.ComboBox_Product.Text = ProductName;
             this.TextBox_Quantity.Focus();
         }
-
+        public Page_ProductionManagement_OutsideProcess(bool isOut, string ProductName, string ProcessorsName)
+        {
+            InitializeComponent();
+            this.isOut = isOut;
+            InitializeData();
+            this.ComboBox_Product.Text = ProductName;
+            this.ComboBox_Processors.Text = ProcessorsName;
+            this.TextBox_Quantity.Focus();
+        }
         private void InitializeData()
         {
             this.DatePicker_OrderDate.SelectedDate = DateTime.Now;
