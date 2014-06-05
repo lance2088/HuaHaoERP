@@ -288,14 +288,19 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void ComboBox_Product_DropDownOpened(object sender, EventArgs e)
         {
-            InitProductComboBox();
+            if(this.ComboBox_Product.SelectedValue != null)
+            {
+                InitProductComboBox();
+            }
         }
 
         private void ComboBox_Processors_DropDownOpened(object sender, EventArgs e)
         {
-            InitProcessorsComboBox();
+            if(this.ComboBox_Processors.SelectedValue != null)
+            {
+                InitProcessorsComboBox();
+            }
         }
-
 
     }
 }

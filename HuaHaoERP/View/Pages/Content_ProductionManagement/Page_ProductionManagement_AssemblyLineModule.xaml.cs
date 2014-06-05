@@ -169,7 +169,10 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void ComboBox_StaffList_DropDownOpened(object sender, EventArgs e)
         {
-            InitializeStaffComboBox();
+            if(this.ComboBox_StaffList.SelectedValue != null)
+            {
+                InitializeStaffComboBox();
+            }
         }
     }
 }
