@@ -37,6 +37,11 @@ namespace HuaHaoERP.View.Pages.Content_Settings
         private void PermissionsSettings()
         {
             int Permissions = Helper.DataDefinition.CommonParameters.Permissions;
+            if (Permissions < 9)
+            {
+                this.Button_EncryptedDB.Visibility = System.Windows.Visibility.Collapsed;
+                this.GroupBox_EncryptedDB.Visibility = System.Windows.Visibility.Collapsed;
+            }
             if (Permissions < 8)
             {
                 this.GroupBox_UserInfo.Visibility = System.Windows.Visibility.Collapsed;

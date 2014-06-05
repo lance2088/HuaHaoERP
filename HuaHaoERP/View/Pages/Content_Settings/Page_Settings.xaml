@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" FontFamily="SimSun" TextOptions.TextFormattingMode="Display" FontSize="14"
-      d:DesignHeight="463" d:DesignWidth="802"
+      d:DesignHeight="1063" d:DesignWidth="802"
 	Title="Page_Settings">
 
     <Grid>
@@ -33,9 +33,9 @@
                                 </GroupBox>
                                 <GroupBox x:Name="GroupBox_UserInfo" Header="用户资料" Margin="254,10,10,0" VerticalAlignment="Top">
                                     <Grid Height="280" Background="White">
-                                        <Button FocusVisualStyle="{x:Null}" x:Name="Button_AddUser" Content="新增" HorizontalAlignment="Right" Margin="0,15,90,0" VerticalAlignment="Top" Width="70" Click="Button_AddUser_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="20" Foreground="White" />
-                                        <Button FocusVisualStyle="{x:Null}" x:Name="Button_DelUser" Content="删除" HorizontalAlignment="Right" Margin="0,15,10,0" VerticalAlignment="Top" Width="70" Click="Button_DelUser_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="20" Foreground="White"/>
-                                        <DataGrid x:Name="DataGrid_UserControl" IsReadOnly="True" HorizontalAlignment="Stretch" AutoGenerateColumns="False" Margin="10,40,10,10"
+                                        <Button FocusVisualStyle="{x:Null}" x:Name="Button_AddUser" Content="新增" HorizontalAlignment="Right" Margin="0,10,90,0" VerticalAlignment="Top" Width="70" Click="Button_AddUser_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="20" Foreground="White" />
+                                        <Button FocusVisualStyle="{x:Null}" x:Name="Button_DelUser" Content="删除" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="70" Click="Button_DelUser_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="20" Foreground="White"/>
+                                        <DataGrid x:Name="DataGrid_UserControl" IsReadOnly="True" HorizontalAlignment="Stretch" AutoGenerateColumns="False" Margin="10,35,10,10"
                                                   ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" SelectionMode="Single" Background="White">
                                             <DataGrid.Resources>
                                                 <Style TargetType="DataGridRow">
@@ -56,13 +56,12 @@
                         </Expander>
                         <Expander x:Name="Expander_SecuritySettings_DB" Header="数据安全" Expanded="ExpanderSecuritySettings_Expanded">
                             <Grid Background="White">
-                                <GroupBox Header="数据库安全" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="149" Width="151">
+                                <GroupBox x:Name="GroupBox_EncryptedDB" Header="数据库安全" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Height="149" Width="151">
                                     <Grid>
                                         <Button x:Name="Button_EncryptedDB" Content="加密数据库" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_EncryptedDB_Click"/>
-                                        <Button Content="拷贝无密码数据库" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Width="115" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White"/>
                                     </Grid>
                                 </GroupBox>
-                                <GroupBox Header="数据备份" Margin="166,10,0,10" VerticalAlignment="Top" Height="180">
+                                <GroupBox Header="数据备份" Margin="10,10,166,0" VerticalAlignment="Top" Height="180">
                                     <Grid>
 
                                     </Grid>
