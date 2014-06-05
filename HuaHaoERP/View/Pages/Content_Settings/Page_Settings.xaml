@@ -8,9 +8,11 @@
 	Title="Page_Settings">
 
     <Grid>
-        <TabControl Margin="0" BorderThickness="0" Padding="0">
+        <TabControl x:Name="TabControl_Settings" Margin="0" BorderThickness="0" Padding="0">
             <TabItem FocusVisualStyle="{x:Null}" Header="综合设置" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="7,0,-7,0" Foreground="White">
-                <Grid Background="White"/>
+                <Grid Background="White">
+                    <Frame x:Name="Frame_Settings" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
+                </Grid>
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="安全设置" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="17,0,-17,0" Foreground="White">
                 <Grid Background="White">

@@ -10,10 +10,11 @@
         <Button x:Name="Button_Close" Content="X" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top" Width="28" Height="20" Click="Button_Close_Click" Template="{DynamicResource ButtonControlTemplate_CloseButton}"/>
         <TextBox x:Name="TextBox_LoginUserName" HorizontalAlignment="Left" Height="24" Margin="290,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" VerticalContentAlignment="Center" FontSize="14"/>
         <PasswordBox x:Name="PasswordBox_LoginPassword" HorizontalAlignment="Left" Margin="290,130,0,0" VerticalAlignment="Top" Width="150" Height="24" VerticalContentAlignment="Center" FontSize="14"/>
-        <Image HorizontalAlignment="Left" Height="105" Margin="55,55,0,0" VerticalAlignment="Top" Width="105" Source="/HuaHaoERP;component/View/Resources/Images/Pyramid_Logo_white_128x128.png"/>
+        <Image HorizontalAlignment="Left" Height="105" Margin="68,65,0,0" VerticalAlignment="Top" Width="105" Source="/HuaHaoERP;component/View/Resources/Images/Pyramid_Logo_white_128x128.png"/>
         <Label x:Name="Label_Message" Content="" HorizontalAlignment="Left" Margin="290,159,0,0" VerticalAlignment="Top" Foreground="White" Padding="1,0,0,0" Width="150" VerticalContentAlignment="Center" Height="24" FontSize="14"/>
         <Label Content="用户名" HorizontalAlignment="Left" Margin="233,80,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14" Padding="5,0" Height="24" VerticalContentAlignment="Center"/>
         <Label Content="密　码" HorizontalAlignment="Left" Margin="233,130,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="24" Padding="5,0"/>
+        <Label Content="金字塔企业管理系统" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16" FontWeight="Bold"/>
 
     </Grid>
 </Window>
