@@ -1,0 +1,27 @@
+﻿<Page x:Class="HuaHaoERP.View.Pages.Content_Others.Page_About"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="456" d:DesignWidth="662"
+	Title="Page_About">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="50*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="42*"/>
+            <ColumnDefinition Width="289*"/>
+        </Grid.ColumnDefinitions>
+        <Image Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Source="/HuaHaoERP;component/View/Resources/Images/stoneantLogo.png" Grid.Row="1" Height="178" Width="188"/>
+        <Label Content="金字塔企业管理软件" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="36" Grid.Column="1" Grid.Row="1" Height="56" Width="334"/>
+        <Label Content="版本：" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Grid.Column="1" FontSize="16" Grid.Row="1" Height="30" Width="58"/>
+        <Label Content="客服热线：0754-85837039" HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top" Grid.Column="1" FontSize="16" Grid.Row="1" Height="30" Width="210"/>
+        <Label Content="企业QQ：2095250852" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top" Grid.Column="1" FontSize="16" Grid.Row="1" Height="30" Width="178"/>
+        <Label Content="Copyright © 2014 StoneAnt. All Rights Reserved" HorizontalAlignment="Left" Margin="10,200,0,0" VerticalAlignment="Top" Grid.Column="1" FontSize="16" Grid.Row="1" Height="30" Width="380"/>
+
+    </Grid>
+</Page>

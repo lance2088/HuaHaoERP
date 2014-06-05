@@ -29,6 +29,7 @@ namespace HuaHaoERP.View.Pages.Content_Settings
                 this.Button_EncryptedDB.Content = "解密数据库";
             }
             RefreshDataGrid_UserControl();
+            this.Frame_About.Content = new View.Pages.Content_Others.Page_About();
         }
 
         private void PermissionsSettings()
