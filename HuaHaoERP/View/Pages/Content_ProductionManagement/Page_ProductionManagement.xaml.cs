@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data;
 using HuaHaoERP.Helper.Events;
 
 namespace HuaHaoERP.View.Pages.Content_ProductionManagement
@@ -69,18 +70,26 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             }
             this.DatePicker_ProcessorsFirst.SelectedDate = DateTime.Now.Date;
             this.DatePicker_ProcessorsEnd.SelectedDate = DateTime.Now.Date;
+            InitProductComboBox();
+            InitProcessorsComboBox();
+            InitializeOutsideProcessDataGrid();
+            Button_Reflash_Click(null,null);
+        }
+        private void InitProductComboBox()
+        {
             this.ComboBox_Product.ItemsSource = Helper.DataDefinition.ComboBoxList.ProductListWithAll.DefaultView;
             this.ComboBox_Product.DisplayMemberPath = "Name";
             this.ComboBox_Product.SelectedValuePath = "GUID";//GUID四个字母要大写
             this.ComboBox_Product.SelectedIndex = 0;
+        }
+        private void InitProcessorsComboBox()
+        {
             this.ComboBox_Processors.ItemsSource = Helper.DataDefinition.ComboBoxList.ProcessorsListWithAll.DefaultView;
             this.ComboBox_Processors.DisplayMemberPath = "Name";
             this.ComboBox_Processors.SelectedValuePath = "GUID";//GUID四个字母要大写
             this.ComboBox_Processors.SelectedIndex = 0;
-
-            InitializeOutsideProcessDataGrid();
-            Button_Reflash_Click(null,null);
         }
+
         /// <summary>
         /// 添加流水线模块
         /// </summary>
@@ -131,7 +140,15 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void InitializeOutsideProcessDataGrid()
         {
+            if (this.ComboBox_Processors.SelectedValue == null)
+            {
+                return;
+            }
             this.ProcessorsID = (Guid)this.ComboBox_Processors.SelectedValue;
+            if (this.ComboBox_Product.SelectedValue == null)
+            {
+                return;
+            }
             this.ProductID = (Guid)this.ComboBox_Product.SelectedValue;
             this.ProcessorsFirst = (DateTime)this.DatePicker_ProcessorsFirst.SelectedDate;
             this.ProcessorsEnd = ((DateTime)this.DatePicker_ProcessorsEnd.SelectedDate).AddDays(1);
@@ -241,6 +258,42 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         {
             this.WrapPanel_AssemblyLine.Children.Clear();
             new Helper.SettingFile.AssemblyLineModule().Clear();
+        }
+
+        private void ComboBox_Product_KeyUp(object sender, KeyEventArgs e)
+        {
+            this.ComboBox_Product.IsDropDownOpen = true;
+            string Parm = this.ComboBox_Product.Text;
+            DataSet ds = new DataSet();
+            if (new ViewModel.MeansOfProduction.ProductConsole().GetNameList(Parm, out ds))
+            {
+                this.ComboBox_Product.ItemsSource = ds.Tables[0].DefaultView;
+                this.ComboBox_Product.DisplayMemberPath = "Name";
+                this.ComboBox_Product.SelectedValuePath = "GUID";//GUID四个字母要大写
+            }
+        }
+
+        private void ComboBox_Processors_KeyUp(object sender, KeyEventArgs e)
+        {
+            this.ComboBox_Processors.IsDropDownOpen = true;
+            string Parm = this.ComboBox_Processors.Text;
+            DataSet ds = new DataSet();
+            if (new ViewModel.Customer.ProcessorsConsole().GetNameList(Parm, out ds))
+            {
+                this.ComboBox_Processors.ItemsSource = ds.Tables[0].DefaultView;
+                this.ComboBox_Processors.DisplayMemberPath = "Name";
+                this.ComboBox_Processors.SelectedValuePath = "GUID";//GUID四个字母要大写
+            }
+        }
+
+        private void ComboBox_Product_DropDownOpened(object sender, EventArgs e)
+        {
+            InitProductComboBox();
+        }
+
+        private void ComboBox_Processors_DropDownOpened(object sender, EventArgs e)
+        {
+            InitProcessorsComboBox();
         }
 
 

@@ -75,5 +75,14 @@ namespace HuaHaoERP.ViewModel.MeansOfProduction
             flag = new Helper.SQLite.DBHelper().QueryData(sql, out ds);
             return flag;
         }
+        internal bool GetNameList(string Parm, out DataSet ds)
+        {
+            bool flag = true;
+            ds = new DataSet();
+            string sql = "select Guid,Number,Name From T_ProductInfo_RawMaterials "
+                       + " Where (Number LIKE '%" + Parm + "%' OR Name LIKE '%" + Parm + "%') AND DeleteMark is null order by AddTime";
+            flag = new Helper.SQLite.DBHelper().QueryData(sql, out ds);
+            return flag;
+        }
     }
 }

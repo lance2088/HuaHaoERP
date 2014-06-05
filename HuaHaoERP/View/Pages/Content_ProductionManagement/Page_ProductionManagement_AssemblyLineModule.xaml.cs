@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data;
 using HuaHaoERP.Helper.Events;
 using HuaHaoERP.Model;
 
@@ -151,6 +152,24 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         private void Button_Processing_Click(object sender, RoutedEventArgs e)
         {
             Helper.Events.PopUpEvent.OnShowPopUp(new Page_ProductionManagement_OutsideProcess(true, ProductName));
+        }
+
+        private void ComboBox_StaffList_KeyUp(object sender, KeyEventArgs e)
+        {
+            this.ComboBox_StaffList.IsDropDownOpen = true;
+            string Parm = this.ComboBox_StaffList.Text;
+            DataSet ds = new DataSet();
+            if (new ViewModel.Customer.StaffConsole().GetNameList(Parm, out ds))
+            {
+                this.ComboBox_StaffList.ItemsSource = ds.Tables[0].DefaultView;
+                this.ComboBox_StaffList.DisplayMemberPath = "Name";
+                this.ComboBox_StaffList.SelectedValuePath = "GUID";//GUID四个字母要大写
+            }
+        }
+
+        private void ComboBox_StaffList_DropDownOpened(object sender, EventArgs e)
+        {
+            InitializeStaffComboBox();
         }
     }
 }
