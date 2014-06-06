@@ -28,7 +28,7 @@ namespace HuaHaoERP.View.Pages.Content_Others
         {
             Microsoft.Win32.OpenFileDialog open = new Microsoft.Win32.OpenFileDialog();
             open.Title = "请选择要导入的License文件";
-            open.Filter = "石蚁License文件|*.license";
+            open.Filter = "石蚁License文件|*.key";
             open.RestoreDirectory = true;
             if ((bool)open.ShowDialog().GetValueOrDefault())
             {
