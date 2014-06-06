@@ -64,7 +64,8 @@ namespace HuaHaoERP.View.Pages.Content_Others
             }
             else
             {
-                this.Label_Authorize.Content += "有效期：" + Helper.DataDefinition.CommonParameters.LicenseModel.PeriodOfValidity + "天";
+                this.Label_Authorize.Content += "有效期：" + Helper.DataDefinition.CommonParameters.LicenseModel.PeriodOfValidity + "天"
+                                              + "（剩余"+Helper.DataDefinition.CommonParameters.PeriodOfValidity+"天）";
             }
         }
     }

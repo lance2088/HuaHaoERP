@@ -19,10 +19,6 @@ namespace HuaHaoERP.Helper
             {
                 new Helper.License.FillLicense().Fill(AppDomain.CurrentDomain.BaseDirectory + "License.key");
             }
-            else
-            {
-                Helper.DataDefinition.CommonParameters.LicenseModel = new StoneAnt.License.Model.LicenseModel();
-            }
         }
     }
 }
