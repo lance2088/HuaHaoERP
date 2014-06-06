@@ -25,9 +25,10 @@ namespace HuaHaoERP.Helper.License
 
         private void CalculatePeriodOfValidity()
         {
-            if(Helper.DataDefinition.CommonParameters.LicenseModel.PeriodOfValidity != -1)
+            if(Helper.DataDefinition.CommonParameters.LicenseModel.PeriodOfValidity > 0)
             {
-                Helper.DataDefinition.CommonParameters.PeriodOfValidity = DateTime.Now.Subtract(Helper.DataDefinition.CommonParameters.LicenseModel.CreationDate).Days;
+                Helper.DataDefinition.CommonParameters.PeriodOfValidity = Helper.DataDefinition.CommonParameters.LicenseModel.PeriodOfValidity 
+                                                                        - DateTime.Now.Subtract(Helper.DataDefinition.CommonParameters.LicenseModel.CreationDate).Days;
             }
         }
     }
