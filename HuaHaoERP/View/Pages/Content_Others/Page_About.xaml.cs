@@ -57,8 +57,15 @@ namespace HuaHaoERP.View.Pages.Content_Others
         private void AuthorizeLabel()
         {
             this.Label_Authorize.Content = "授权于：" + Helper.DataDefinition.CommonParameters.LicenseModel.Target
-                                         + "（" + Helper.DataDefinition.CommonParameters.LicenseModel.UsersNumber + "用户）"
-                                         + "有效期：" + Helper.DataDefinition.CommonParameters.LicenseModel.PeriodOfValidity + "天";
+                                         + "（" + Helper.DataDefinition.CommonParameters.LicenseModel.UsersNumber + "用户）";
+            if (Helper.DataDefinition.CommonParameters.LicenseModel.PeriodOfValidity == -1)
+            {
+                this.Label_Authorize.Content += "终身授权";
+            }
+            else
+            {
+                this.Label_Authorize.Content += "有效期：" + Helper.DataDefinition.CommonParameters.LicenseModel.PeriodOfValidity + "天";
+            }
         }
     }
 }

@@ -20,6 +20,7 @@ namespace HuaHaoERP.View.Pages
         {
             InitializeComponent();
             this.Label_LoginUser.Content += Helper.DataDefinition.CommonParameters.RealName;
+            this.Label_Title.Content += " " + Helper.DataDefinition.CommonParameters.LicenseModel.Target;
         }
     }
 }
