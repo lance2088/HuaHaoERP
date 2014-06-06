@@ -11,12 +11,13 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace HuaHaoERP.View.Pages.Content_Others
 {
     public partial class Page_About : Page
     {
-        private string FileName;
+        private string LicenseFile;
 
         public Page_About()
         {
@@ -32,8 +33,14 @@ namespace HuaHaoERP.View.Pages.Content_Others
             open.RestoreDirectory = true;
             if ((bool)open.ShowDialog().GetValueOrDefault())
             {
-                FileName = open.FileName;
-
+                LicenseFile = open.FileName;
+                StoneAnt.License.Model.LicenseModel m = new StoneAnt.License.Model.LicenseModel();
+                if (new StoneAnt.License.Verify.Term().VerfyLicense(LicenseFile, out m))
+                {
+                    MessageBox.Show("许可验证成功，感谢支持石蚁软件","通知");
+                    Helper.DataDefinition.CommonParameters.LicenseModel = m;
+                    File.Copy(LicenseFile, AppDomain.CurrentDomain.BaseDirectory + "License.key", true);
+                }
             }
         }
     }

@@ -52,5 +52,13 @@ namespace HuaHaoERP.Helper.DataDefinition
             get { return CommonParameters.dbPassword; }
             set { CommonParameters.dbPassword = value; }
         }
+
+        private static StoneAnt.License.Model.LicenseModel licenseModel;
+
+        public static StoneAnt.License.Model.LicenseModel LicenseModel
+        {
+            get { return CommonParameters.licenseModel; }
+            set { CommonParameters.licenseModel = value; }
+        }
     }
 }

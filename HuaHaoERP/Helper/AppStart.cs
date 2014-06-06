@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 
 namespace HuaHaoERP.Helper
 {
@@ -13,6 +14,10 @@ namespace HuaHaoERP.Helper
             if(new SettingFile.DatabaseEncryption().Read(out DBPassword))
             {
                 Helper.DataDefinition.CommonParameters.DbPassword = DBPassword;
+            }
+            if(File.Exists(AppDomain.CurrentDomain.BaseDirectory + "License.key"))
+            {
+                
             }
         }
     }
