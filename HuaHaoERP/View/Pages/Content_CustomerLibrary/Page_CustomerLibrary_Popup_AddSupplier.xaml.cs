@@ -105,7 +105,11 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
                 }
                 else
                 {
-                    new ViewModel.Customer.SupplierConsole().Add(d);
+                    if(!new ViewModel.Customer.SupplierConsole().Add(d))
+                    {
+                        MessageBox.Show("编号或名称重复","错误");
+                        return;
+                    }
                     Helper.Events.SupplierEvent.OnUpdateDataGrid();
                     Helper.Events.StatusBarMessageEvent.OnUpdateMessage("添加供应商：" + d.Name);
                 }

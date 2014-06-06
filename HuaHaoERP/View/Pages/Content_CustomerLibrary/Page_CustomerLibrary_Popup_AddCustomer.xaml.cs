@@ -102,7 +102,11 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
                 }
                 else
                 {
-                    new ViewModel.Customer.CustomerConsole().Add(d);
+                    if(!new ViewModel.Customer.CustomerConsole().Add(d))
+                    {
+                        MessageBox.Show("编号或名称重复", "错误");
+                        return;
+                    }
                     CustomerEvent.OnUpdateDataGrid();
                     StatusBarMessageEvent.OnUpdateMessage("添加用户：" + d.Name);
                 }

@@ -103,7 +103,11 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
                 }
                 else
                 {
-                    new ViewModel.Customer.ProcessorsConsole().Add(d);
+                    if(!new ViewModel.Customer.ProcessorsConsole().Add(d))
+                    {
+                        MessageBox.Show("编号或名称重复", "错误");
+                        return;
+                    }
                     ProcessorsEvent.OnUpdateDataGrid();
                     Helper.Events.StatusBarMessageEvent.OnUpdateMessage("添加外加工商：" + d.Name);
                 }

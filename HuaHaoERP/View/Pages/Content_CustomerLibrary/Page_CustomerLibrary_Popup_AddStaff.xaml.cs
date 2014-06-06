@@ -110,7 +110,11 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
                 }
                 else
                 {
-                    new ViewModel.Customer.StaffConsole().Add(d);
+                    if(!new ViewModel.Customer.StaffConsole().Add(d))
+                    {
+                        MessageBox.Show("编号或名称重复（请勿遗漏离职员工）", "错误");
+                        return;
+                    }
                     Helper.Events.StaffEvent.OnUpdateDataGrid();
                     Helper.Events.StatusBarMessageEvent.OnUpdateMessage("添加员工：" + d.Name);
                 }

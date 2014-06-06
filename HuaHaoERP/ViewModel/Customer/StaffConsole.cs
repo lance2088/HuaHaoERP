@@ -11,6 +11,12 @@ namespace HuaHaoERP.ViewModel.Customer
     {
         internal bool Add(StaffModel d)
         {
+            object oTemp;
+            string sql_Repeat = "select 1 from T_UserInfo_Staff where (Number='" + d.Number + "' OR Name='" + d.Name + "') AND DeleteMark IS NULL";
+            if (new Helper.SQLite.DBHelper().QuerySingleResult(sql_Repeat, out oTemp))
+            {
+                return false;
+            }
             if(d.DepartureTime == null)
             {
                 d.DepartureTime = "0001-01-01 00:00:00";
