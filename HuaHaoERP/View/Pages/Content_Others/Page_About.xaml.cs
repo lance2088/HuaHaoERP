@@ -23,6 +23,7 @@ namespace HuaHaoERP.View.Pages.Content_Others
         {
             InitializeComponent();
             this.Label_Version.Content += Application.ResourceAssembly.GetName().Version.ToString();
+            AuthorizeLabel();
         }
 
         private void Button_ImportLicense_Click(object sender, RoutedEventArgs e)
@@ -40,8 +41,16 @@ namespace HuaHaoERP.View.Pages.Content_Others
                     MessageBox.Show("许可验证成功，感谢支持石蚁软件","通知");
                     Helper.DataDefinition.CommonParameters.LicenseModel = m;
                     File.Copy(LicenseFile, AppDomain.CurrentDomain.BaseDirectory + "License.key", true);
+                    AuthorizeLabel();
                 }
             }
+        }
+
+        private void AuthorizeLabel()
+        {
+            this.Label_Authorize.Content = "授权于：" + Helper.DataDefinition.CommonParameters.LicenseModel.Target
+                                         + "（" + Helper.DataDefinition.CommonParameters.LicenseModel.UsersNumber + "用户）"
+                                         + "有效期：" + Helper.DataDefinition.CommonParameters.LicenseModel.PeriodOfValidity + "天";
         }
     }
 }
