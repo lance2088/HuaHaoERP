@@ -11,6 +11,12 @@ namespace HuaHaoERP.ViewModel.MeansOfProduction
     {
         internal bool Add(RawMaterialsModel d)
         {
+            object oTemp;
+            string sql_Repeat = "select 1 from T_ProductInfo_RawMaterials where (Number='" + d.Number + "' OR Name='" + d.Name + "') AND DeleteMark IS NULL";
+            if (new Helper.SQLite.DBHelper().QuerySingleResult(sql_Repeat, out oTemp))
+            {
+                return false;
+            }
             bool flag = true;
             string sql = "Insert Into T_ProductInfo_RawMaterials (GUID,Number,Name,Weight,Material,Supplier,Sp1,Sp2,Remark,AddTime) "
                        + " values('" + d.Guid + "','" + d.Number + "','" + d.Name + "','" + d.Weight + "','" + d.Material + "','" + d.Supplier + "','" + d.Sp1 + "','" + d.Sp2 + "','" + d.Remark + "','" + d.AddTime.ToString("yyyy-MM-dd HH:mm:ss") + "')";

@@ -104,7 +104,11 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
             {
                 if(isNew)
                 {
-                    new ViewModel.MeansOfProduction.RawMaterialsConsole().Add(d);
+                    if(!new ViewModel.MeansOfProduction.RawMaterialsConsole().Add(d))
+                    {
+                        MessageBox.Show("编号或名称重复", "错误");
+                        return;
+                    }
                     RawMaterialsEvent.OnUpdateDataGrid();
                     StatusBarMessageEvent.OnUpdateMessage("添加原材料：" + d.Name);
                 }

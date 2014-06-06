@@ -119,7 +119,11 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
             {
                 if (isNew)
                 {
-                    new ViewModel.MeansOfProduction.ProductConsole().Add(d);
+                    if(!new ViewModel.MeansOfProduction.ProductConsole().Add(d))
+                    {
+                        MessageBox.Show("编号或名称重复","错误");
+                        return;
+                    }
                     ProductEvent.OnUpdateDataGrid();
                     StatusBarMessageEvent.OnUpdateMessage("添加产品：" + d.Name);
                 }
