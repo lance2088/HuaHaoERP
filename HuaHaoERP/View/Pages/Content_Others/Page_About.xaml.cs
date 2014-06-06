@@ -38,10 +38,18 @@ namespace HuaHaoERP.View.Pages.Content_Others
                 StoneAnt.License.Model.LicenseModel m = new StoneAnt.License.Model.LicenseModel();
                 if (new StoneAnt.License.Verify.Term().VerfyLicense(LicenseFile, out m))
                 {
-                    MessageBox.Show("许可验证成功，感谢支持石蚁软件","通知");
-                    Helper.DataDefinition.CommonParameters.LicenseModel = m;
-                    File.Copy(LicenseFile, AppDomain.CurrentDomain.BaseDirectory + "License.key", true);
-                    AuthorizeLabel();
+
+                    if(DateTime.Now.Subtract(m.CreationDate).Days > 7)
+                    {
+                        MessageBox.Show("许可有误或已过期，请联系开发商", "错误");
+                    }
+                    else
+                    {
+                        MessageBox.Show("许可验证成功，感谢支持石蚁软件", "通知");
+                        Helper.DataDefinition.CommonParameters.LicenseModel = m;
+                        File.Copy(LicenseFile, AppDomain.CurrentDomain.BaseDirectory + "License.key", true);
+                        AuthorizeLabel();
+                    }
                 }
             }
         }
