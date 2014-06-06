@@ -21,6 +21,7 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
         {
             InitializeComponent();
             SubscribeToEvent();
+            FunctionalLimitation();
             PermissionsSettings();
             this.ComboBox_ProductType.ItemsSource = Helper.DataDefinition.ComboBoxList.ProductTypeListWithAll;
             this.ComboBox_ProductType.SelectedIndex = 0;
@@ -28,6 +29,18 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
             InitializeProductDataGrid();
             InitializeRawMaterialsDataGrid();
         }
+        /// <summary>
+        /// 功能限制
+        /// </summary>
+        private void FunctionalLimitation()
+        {
+            if (Helper.DataDefinition.CommonParameters.PeriodOfValidity < 0)
+            {
+                this.Button_AddProduct.IsEnabled = false;
+                this.Button_AddRawMaterials.IsEnabled = false;
+            }
+        }
+
         private void PermissionsSettings()
         {
             if (Helper.DataDefinition.CommonParameters.Permissions < 8)

@@ -21,6 +21,7 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
         {
             InitializeComponent();
             SubscribeToEvent();
+            FunctionalLimitation();
             InitializeCustomerDataGrid();
             InitializeSupplierDataGrid();
             InitializeStaffDataGrid();
@@ -45,6 +46,19 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             {
                 InitializeProcessorsDataGrid();
             };
+        }
+        /// <summary>
+        /// 功能限制
+        /// </summary>
+        private void FunctionalLimitation()
+        {
+            if(Helper.DataDefinition.CommonParameters.PeriodOfValidity < 0)
+            {
+                this.Button_Add_Processors.IsEnabled = false;
+                this.Button_AddCustomer.IsEnabled = false;
+                this.Button_AddStaff.IsEnabled = false;
+                this.Button_AddSupplier.IsEnabled = false;
+            }
         }
 
         #region Customer 客户

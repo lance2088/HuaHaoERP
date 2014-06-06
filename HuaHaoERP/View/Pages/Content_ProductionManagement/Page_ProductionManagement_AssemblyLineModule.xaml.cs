@@ -27,9 +27,21 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         public Page_ProductionManagement_AssemblyLineModule(string Name, Guid ProductGuid)
         {
             InitializeComponent();
+            FunctionalLimitation();
             this.GridName = Name;
             this.ProductGuid = ProductGuid;
             InitializeData();
+        }
+
+        /// <summary>
+        /// 功能限制
+        /// </summary>
+        private void FunctionalLimitation()
+        {
+            if (Helper.DataDefinition.CommonParameters.PeriodOfValidity < 0)
+            {
+                this.Button_Add.IsEnabled = false;
+            }
         }
         private void InitializeData()
         {
@@ -127,6 +139,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 else
                 {
                     this.Button_Add.IsEnabled = true;
+                    FunctionalLimitation();
                 }
             }
         }
