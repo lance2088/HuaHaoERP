@@ -24,7 +24,7 @@
         <TextBlock x:Name="TextBlock_用户名" HorizontalAlignment="Left" Margin="251,30,0,0"  Foreground="Red"  TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock x:Name="TextBlock_密码" HorizontalAlignment="Left" Margin="251,80,0,0" TextWrapping="Wrap" Foreground="Red" VerticalAlignment="Top"/>
         <TextBlock x:Name="TextBlock_Permissions" HorizontalAlignment="Left" Margin="251,180,0,0" TextWrapping="Wrap" Foreground="Red" VerticalAlignment="Top"/>
-        <Button x:Name="Button_Commit" Content="确定" HorizontalAlignment="Left" Margin="105,306,0,0" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_Commit_Click" Foreground="White" IsDefault="True" Height="24" VerticalAlignment="Top"/>
-        <Button x:Name="Button_Cancel" Content="取消" HorizontalAlignment="Left" Margin="220,306,0,0" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_Cancel_Click" IsCancel="True" Foreground="White" Height="24" VerticalAlignment="Top"/>
+        <Button FocusVisualStyle="{x:Null}" x:Name="Button_Commit" Content="确定" HorizontalAlignment="Left" Margin="105,306,0,0" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_Commit_Click" Foreground="White" IsDefault="True" Height="24" VerticalAlignment="Top"/>
+        <Button FocusVisualStyle="{x:Null}" x:Name="Button_Cancel" Content="取消" HorizontalAlignment="Left" Margin="220,306,0,0" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_Cancel_Click" IsCancel="True" Foreground="White" Height="24" VerticalAlignment="Top"/>
     </Grid>
 </Page>

@@ -26,15 +26,15 @@
                 <DataGridTextColumn Header="备注" Binding="{Binding Remark}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="Button_Cancel" Content="&lt;" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="30" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="30" Padding="0" IsCancel="True" Click="Button_Cancel_Click" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Button FocusVisualStyle="{x:Null}" x:Name="Button_Cancel" Content="&lt;" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="30" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="30" Padding="0" IsCancel="True" Click="Button_Cancel_Click" Foreground="White" FontWeight="Bold" FontSize="16"/>
         <Label Content="返回" HorizontalAlignment="Left" Margin="45,10,0,0" VerticalAlignment="Top" Height="30" VerticalContentAlignment="Center" FontSize="16" FontWeight="Bold"/>
         <ComboBox x:Name="ComboBox_Product" HorizontalAlignment="Right" Margin="0,51,270,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center" DropDownClosed="ComboBox_Product_DropDownClosed"/>
         <DatePicker x:Name="DatePicker_Start" HorizontalAlignment="Right" Margin="0,80,152,0" VerticalAlignment="Top" Width="120" CalendarClosed="DatePicker_Start_CalendarClosed"/>
         <DatePicker x:Name="DatePicker_End" HorizontalAlignment="Right" Margin="0,80,10,0" VerticalAlignment="Top" Width="120" CalendarClosed="DatePicker_End_CalendarClosed"/>
         <Label Content="至" HorizontalAlignment="Right" Margin="0,80,130,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="ComboBox_Process" HorizontalAlignment="Right" Margin="0,51,140,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center" DropDownClosed="ComboBox_Process_DropDownClosed" RenderTransformOrigin="-0.45,0.958"/>
-        <Button x:Name="Button_Today" Content="当日" HorizontalAlignment="Right" Margin="0,80,340,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Height="24" Click="Button_Today_Click"/>
-        <Button x:Name="Button_AllDate" Content="全日期" HorizontalAlignment="Right" Margin="0,80,277,0" VerticalAlignment="Top" Width="58" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Height="24" Click="Button_AllDate_Click"/>
+        <Button FocusVisualStyle="{x:Null}" x:Name="Button_Today" Content="当日" HorizontalAlignment="Right" Margin="0,80,340,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Height="24" Click="Button_Today_Click"/>
+        <Button FocusVisualStyle="{x:Null}" x:Name="Button_AllDate" Content="全日期" HorizontalAlignment="Right" Margin="0,80,277,0" VerticalAlignment="Top" Width="58" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Height="24" Click="Button_AllDate_Click"/>
         <ComboBox x:Name="ComboBox_Staff" HorizontalAlignment="Right" Margin="0,51,10,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center" DropDownClosed="ComboBox_Staff_DropDownClosed"/>
         <Label x:Name="Label_Count" Content="Label" Margin="10,80,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         <CheckBox x:Name="CHeckBox_IsShowAutoDeduction" Content="不显示自动扣半成品原料" HorizontalAlignment="Left" Margin="231,80,0,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" IsChecked="True" Click="CHeckBox_IsShowAutoDeduction_Click"/>
