@@ -23,7 +23,7 @@ namespace HuaHaoERP.Helper.License
             }
         }
 
-        private void CalculatePeriodOfValidity()
+        public void CalculatePeriodOfValidity()
         {
             if(Helper.DataDefinition.CommonParameters.LicenseModel.PeriodOfValidity > 0)
             {

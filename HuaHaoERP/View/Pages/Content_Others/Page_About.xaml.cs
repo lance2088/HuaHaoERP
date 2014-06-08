@@ -45,10 +45,15 @@ namespace HuaHaoERP.View.Pages.Content_Others
                     }
                     else
                     {
-                        MessageBox.Show("许可验证成功，感谢支持石蚁软件", "通知");
                         Helper.DataDefinition.CommonParameters.LicenseModel = m;
+                        new Helper.License.FillLicense().CalculatePeriodOfValidity();
+                        if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "License.key"))
+                        {
+                            File.Copy(AppDomain.CurrentDomain.BaseDirectory + "License.key", AppDomain.CurrentDomain.BaseDirectory + "License.key.bak", true);
+                        }
                         File.Copy(LicenseFile, AppDomain.CurrentDomain.BaseDirectory + "License.key", true);
                         AuthorizeLabel();
+                        MessageBox.Show("许可验证成功，感谢支持石蚁软件\n重启软件后生效", "通知");
                     }
                 }
             }
