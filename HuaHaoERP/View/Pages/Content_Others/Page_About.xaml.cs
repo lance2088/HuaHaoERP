@@ -51,9 +51,24 @@ namespace HuaHaoERP.View.Pages.Content_Others
                         {
                             File.Copy(AppDomain.CurrentDomain.BaseDirectory + "License.key", AppDomain.CurrentDomain.BaseDirectory + "License.key.bak", true);
                         }
-                        File.Copy(LicenseFile, AppDomain.CurrentDomain.BaseDirectory + "License.key", true);
+                        try
+                        {
+                            File.Copy(LicenseFile, AppDomain.CurrentDomain.BaseDirectory + "License.key", true);
+                        }
+                        catch(Exception)
+                        {
+                            MessageBox.Show("注册失败，请勿重复注册", "错误");
+                            return;
+                        }
                         AuthorizeLabel();
-                        MessageBox.Show("许可验证成功，感谢支持石蚁软件\n重启软件后生效", "通知");
+                        if(new ViewModel.Security.LicenseConsole().RegisterInDB(m.Key))
+                        {
+                            MessageBox.Show("许可验证成功，感谢支持石蚁软件\n重启软件后生效", "通知");
+                        }
+                        else
+                        {
+                            MessageBox.Show("注册失败，请联系开发商", "错误");
+                        }
                     }
                 }
                 else

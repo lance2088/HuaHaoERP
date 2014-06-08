@@ -12,14 +12,21 @@ namespace HuaHaoERP.Helper.License
             StoneAnt.License.Model.LicenseModel m = new StoneAnt.License.Model.LicenseModel();
             if (new StoneAnt.License.Verify.Term().VerfyLicense(LicenseFile, out m))
             {
-                Helper.DataDefinition.CommonParameters.LicenseModel = m;
-                CalculatePeriodOfValidity();
-            }
-            else
-            {
-                Helper.DataDefinition.CommonParameters.PeriodOfValidity = -1;
-                Helper.DataDefinition.CommonParameters.LicenseModel = new StoneAnt.License.Model.LicenseModel();
-                System.Windows.MessageBox.Show("许可有误，请联系开发商","错误");
+                string KeyInDB = "";
+                if(new ViewModel.Security.LicenseConsole().ReadKeyFromDB(out KeyInDB))
+                {
+                    if (KeyInDB == m.Key)
+                    {
+                        Helper.DataDefinition.CommonParameters.LicenseModel = m;
+                        CalculatePeriodOfValidity();
+                    }
+                    else
+                    {
+                        Helper.DataDefinition.CommonParameters.PeriodOfValidity = -1;
+                        Helper.DataDefinition.CommonParameters.LicenseModel = new StoneAnt.License.Model.LicenseModel();
+                        System.Windows.MessageBox.Show("许可有误，请联系开发商", "错误");
+                    }
+                }
             }
         }
 

@@ -274,6 +274,7 @@
     <Compile Include="ViewModel\ProductionManagement\AssemblyLineDetailsConsole.cs" />
     <Compile Include="ViewModel\ProductionManagement\AssemblyLineModuleConsole.cs" />
     <Compile Include="ViewModel\ProductionManagement\OutsideProcessConsole.cs" />
+    <Compile Include="ViewModel\Security\LicenseConsole.cs" />
     <Compile Include="ViewModel\Security\LoginConsole.cs" />
     <Compile Include="ViewModel\Settings\ChangePasswordConsole.cs" />
     <Compile Include="ViewModel\Settings\EncryptedDBConsole.cs" />
