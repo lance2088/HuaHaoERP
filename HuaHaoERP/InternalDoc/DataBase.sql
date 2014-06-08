@@ -9,7 +9,7 @@ Target Server Type    : SQLite
 Target Server Version : 30714
 File Encoding         : 65001
 
-Date: 2014-06-04 20:25:21
+Date: 2014-06-08 11:09:17
 */
 
 
@@ -144,6 +144,7 @@ CREATE TABLE "T_PM_ProcessSchedule" (
 "Lose"  INTEGER,
 "OrderType"  TEXT,
 "Remark"  TEXT,
+"DeleteMark"  DateTime,
 "Obligate1"  TEXT,
 "Obligate2"  TEXT,
 PRIMARY KEY ("Guid" ASC)
@@ -165,6 +166,8 @@ CREATE TABLE "T_PM_ProductionSchedule" (
 "Number"  INTEGER,
 "Break"  INTEGER DEFAULT 0,
 "Remark"  TEXT,
+"DeleteMark"  DateTime,
+"ParentGuid"  Guid,
 "Obligate1"  TEXT,
 "Obligate2"  TEXT,
 PRIMARY KEY ("Guid" ASC)
