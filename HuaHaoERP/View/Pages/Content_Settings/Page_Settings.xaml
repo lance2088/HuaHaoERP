@@ -13,8 +13,8 @@
                 <Grid Background="White">
                     <GroupBox Header="更换背景图片" Margin="10" VerticalAlignment="Top" Height="162" Foreground="Black">
                         <Grid Margin="0">
-                            <Button x:Name="Button_ChangeLoginBackground" Content="更换登陆界面背景" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_ChangeLoginBackground_Click"/>
-                            <Button x:Name="Button_ChangeMainBackground" Content="更换主界面背景" HorizontalAlignment="Left" Margin="10,48,0,0" VerticalAlignment="Top" Width="120" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_ChangeMainBackground_Click"/>
+                            <Button FocusVisualStyle="{x:Null}" x:Name="Button_ChangeLoginBackground" Content="更换登陆界面背景" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_ChangeLoginBackground_Click"/>
+                            <Button FocusVisualStyle="{x:Null}" x:Name="Button_ChangeMainBackground" Content="更换主界面背景" HorizontalAlignment="Left" Margin="10,48,0,0" VerticalAlignment="Top" Width="120" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_ChangeMainBackground_Click"/>
                         </Grid>
                     </GroupBox>
                 </Grid>
