@@ -10,7 +10,7 @@
     <Grid>
         <TabControl Margin="5" TabStripPlacement="Left" BorderThickness="0" Background="{x:Null}" Padding="0">
             <TabControl.Effect>
-                <DropShadowEffect ShadowDepth="0" Color="#FF97CAE3" BlurRadius="10"/>
+                <DropShadowEffect ShadowDepth="0" Color="#FFBBE1F1" BlurRadius="10"/>
             </TabControl.Effect>
             <TabItem x:Name="TabItem_CustomerLibrary" FocusVisualStyle="{x:Null}" Header="客 户 库" Template="{DynamicResource TabItemControlTemplate_CommonMain}" Width="150" Height="40" Margin="0,27,5,-27" Foreground="White" FontSize="14">
                 <Grid>
