@@ -41,6 +41,7 @@ namespace HuaHaoERP.View.Pages.Content_Settings
             {
                 this.Button_EncryptedDB.Visibility = System.Windows.Visibility.Collapsed;
                 this.GroupBox_EncryptedDB.Visibility = System.Windows.Visibility.Collapsed;
+                this.Expander_SecuritySettings_DB.Visibility = System.Windows.Visibility.Collapsed;
             }
             if (Permissions < 8)
             {
