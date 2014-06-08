@@ -132,7 +132,7 @@ namespace HuaHaoERP.ViewModel.MeansOfProduction
         internal bool GetTypeList(out DataSet ds)
         {
             ds = new DataSet();
-            string sql = "select Type From T_ProductInfo_Product Group by Type";
+            string sql = "select Type From T_ProductInfo_Product Where DeleteMark IS NULL Group by Type";
             return new Helper.SQLite.DBHelper().QueryData(sql, out ds);
         }
     }

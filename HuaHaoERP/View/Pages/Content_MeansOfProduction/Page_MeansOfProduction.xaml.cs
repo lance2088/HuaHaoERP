@@ -62,9 +62,15 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
         }
 
         #region Product 产品
+        private void ComboBox_ProductType_DropDownClosed(object sender, EventArgs e)
+        {
+            InitializeProductDataGrid();
+        }
         private void InitializeProductDataGrid()
         {
             string ProductType = this.ComboBox_ProductType.Text;
+            this.ComboBox_ProductType.ItemsSource = Helper.DataDefinition.ComboBoxList.ProductTypeListWithAll;
+            this.ComboBox_ProductType.Text = ProductType;
             List<Model.ProductModel> data;
             new ViewModel.MeansOfProduction.ProductConsole().ReadList(ProductType, out data);
             this.DataGrid_Product.ItemsSource = data;
@@ -129,9 +135,6 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
         }
         #endregion
 
-        private void ComboBox_ProductType_DropDownClosed(object sender, EventArgs e)
-        {
-            InitializeProductDataGrid();
-        }
+
     }
 }
