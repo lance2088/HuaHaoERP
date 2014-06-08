@@ -66,7 +66,7 @@
                                         <Button FocusVisualStyle="{x:Null}" x:Name="Button_EncryptedDB" Content="加密数据库" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_EncryptedDB_Click"/>
                                     </Grid>
                                 </GroupBox>
-                                <GroupBox Header="数据备份" Margin="10,10,166,0" VerticalAlignment="Top" Height="180">
+                                <GroupBox Header="数据备份" Margin="10,10,166,0" VerticalAlignment="Top" Height="180" Visibility="Collapsed">
                                     <Grid>
 
                                     </Grid>
