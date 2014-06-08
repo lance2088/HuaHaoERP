@@ -11,7 +11,12 @@
         <TabControl x:Name="TabControl_Settings" Margin="0" BorderThickness="0" Padding="0">
             <TabItem FocusVisualStyle="{x:Null}" Header="综合设置" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="7,0,-7,0" Foreground="White">
                 <Grid Background="White">
-                    <Frame x:Name="Frame_Settings" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
+                    <GroupBox Header="更换背景图片" Margin="10" VerticalAlignment="Top" Height="162" Foreground="Black">
+                        <Grid Margin="0">
+                            <Button x:Name="Button_ChangeLoginBackground" Content="更换登陆界面背景" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_ChangeLoginBackground_Click"/>
+                            <Button x:Name="Button_ChangeMainBackground" Content="更换主界面背景" HorizontalAlignment="Left" Margin="10,48,0,0" VerticalAlignment="Top" Width="120" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_ChangeMainBackground_Click"/>
+                        </Grid>
+                    </GroupBox>
                 </Grid>
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="安全设置" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="17,0,-17,0" Foreground="White">

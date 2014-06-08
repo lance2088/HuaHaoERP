@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using System.IO;
 
 namespace HuaHaoERP.View.Windows
 {
@@ -26,7 +27,40 @@ namespace HuaHaoERP.View.Windows
             this.TextBox_LoginUserName.Focus();
             timer.Tick += timer_Tick;
             timer.Interval = TimeSpan.FromSeconds(1);//设置刷新的间隔时间
+            UpdateBackground();
+            Helper.Events.UpdateEvent.BackgroundEvent.EUpdateLoginBackground += (s, e) =>
+            {
+                UpdateBackground();
+            };
         }
+
+        private void UpdateBackground()
+        {
+            string filePath = AppDomain.CurrentDomain.BaseDirectory + "Background\\LoginBackground.jpg";
+            if (File.Exists(filePath))
+            {
+                BitmapImage bitmapImage;
+                Image image;
+                using (BinaryReader reader = new BinaryReader(File.Open(filePath, FileMode.Open)))
+                {
+                    FileInfo fi = new FileInfo(filePath);
+                    byte[] bytes = reader.ReadBytes((int)fi.Length);
+                    reader.Close();
+
+                    image = new Image();
+                    bitmapImage = new BitmapImage();
+                    bitmapImage.BeginInit();
+                    bitmapImage.StreamSource = new MemoryStream(bytes);
+                    bitmapImage.EndInit();
+                    bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+                    image.Source = bitmapImage;
+                    ImageBrush b3 = new ImageBrush();
+                    b3.ImageSource = bitmapImage;
+                    this.Grid_Main.Background = b3;
+                }
+            }
+        }
+
         private void timer_Tick(object sender, EventArgs e)
         {
             if (ShowSeconds > 0)

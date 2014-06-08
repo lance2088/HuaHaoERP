@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using HuaHaoERP.Helper.Events;
+using System.IO;
 
 namespace HuaHaoERP
 {
@@ -24,8 +25,39 @@ namespace HuaHaoERP
             InitializeComponent();
             InitializeData();
             SubscribeToEvent();
+            string filePath = AppDomain.CurrentDomain.BaseDirectory + "Background\\Background.jpg";
+            UpdateBackground();
+            Helper.Events.UpdateEvent.BackgroundEvent.EUpdateBackground += (s, e) =>
+            {
+                UpdateBackground();
+            };
         }
+        private void UpdateBackground()
+        {
+            string filePath = AppDomain.CurrentDomain.BaseDirectory + "Background\\Background.jpg";
+            if (File.Exists(filePath))
+            {
+                BitmapImage bitmapImage;
+                Image image;
+                using (BinaryReader reader = new BinaryReader(File.Open(filePath, FileMode.Open)))
+                {
+                    FileInfo fi = new FileInfo(filePath);
+                    byte[] bytes = reader.ReadBytes((int)fi.Length);
+                    reader.Close();
 
+                    image = new Image();
+                    bitmapImage = new BitmapImage();
+                    bitmapImage.BeginInit();
+                    bitmapImage.StreamSource = new MemoryStream(bytes);
+                    bitmapImage.EndInit();
+                    bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+                    image.Source = bitmapImage;
+                    ImageBrush b3 = new ImageBrush();
+                    b3.ImageSource = bitmapImage;
+                    this.Grid_Main.Background = b3;
+                }
+            }
+        }
         private void InitializeData()
         {
             this.Frame_Head.Content = new View.Pages.Page_Head();

@@ -221,6 +221,7 @@
     <Compile Include="Helper\DataDefinition\ComboBoxList.cs" />
     <Compile Include="Helper\DataDefinition\ENUM.cs" />
     <Compile Include="Helper\DataDefinition\Process.cs" />
+    <Compile Include="Helper\Events\UpdateEvent\BackgroundEvent.cs" />
     <Compile Include="Helper\Events\UpdateEvent\CustomerEvent.cs" />
     <Compile Include="Helper\Events\PopUpEvent.cs" />
     <Compile Include="Helper\Events\PopUpEventArgs.cs" />
@@ -399,6 +400,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="View\Resources\Images\84928-106.jpg" />
     <Resource Include="View\Resources\Images\stoneantLogo.png" />
     <Resource Include="View\Resources\Images\Background.jpg" />
     <Resource Include="View\Resources\Images\MaxMinCloseButtonPic\Close.png" />

@@ -24,7 +24,10 @@ namespace HuaHaoERP.Helper
                 Helper.DataDefinition.CommonParameters.PeriodOfValidity = -1;
                 Helper.DataDefinition.CommonParameters.LicenseModel = new StoneAnt.License.Model.LicenseModel();
             }
-
+            if (!Directory.Exists(AppDomain.CurrentDomain.BaseDirectory + "Background"))
+            {
+                Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + "Background");
+            }
         }
     }
 }

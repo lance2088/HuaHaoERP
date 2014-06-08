@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using HuaHaoERP.Helper.Tools;
 using HuaHaoERP.ViewModel.Settings;
 using HuaHaoERP.Helper.Events.UpdateEvent;
+using System.IO;
 
 namespace HuaHaoERP.View.Pages.Content_Settings
 {
@@ -29,7 +30,6 @@ namespace HuaHaoERP.View.Pages.Content_Settings
                 this.Button_EncryptedDB.Content = "解密数据库";
             }
             RefreshDataGrid_UserControl();
-            this.Frame_Settings.Content = new View.Pages.Content_Others.Page_Expect();
             this.Frame_About.Content = new View.Pages.Content_Others.Page_About();
             this.TabControl_Settings.SelectedIndex = 2;
         }
@@ -149,6 +149,54 @@ namespace HuaHaoERP.View.Pages.Content_Settings
                 {
                     new ViewModel.Settings.UserConsole().MarkDelete(data);
                     RefreshDataGrid_UserControl();
+                }
+            }
+        }
+
+        private void Button_ChangeLoginBackground_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog open = new Microsoft.Win32.OpenFileDialog();
+            open.Title = "请选择要导入的图片文件";
+            open.Filter = "图片文件|*.jpg";
+            open.RestoreDirectory = true;
+            if ((bool)open.ShowDialog().GetValueOrDefault())
+            {
+                if (!Directory.Exists(AppDomain.CurrentDomain.BaseDirectory + "Background"))
+                {
+                    Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + "Background");
+                }
+                try
+                {
+                    File.Copy(open.FileName, AppDomain.CurrentDomain.BaseDirectory + "Background\\LoginBackground.jpg", true);
+                    Helper.Events.UpdateEvent.BackgroundEvent.OnUpdateLoginBackground();
+                }
+                catch(Exception)
+                {
+
+                }
+            }
+        }
+
+        private void Button_ChangeMainBackground_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog open = new Microsoft.Win32.OpenFileDialog();
+            open.Title = "请选择要导入的图片文件";
+            open.Filter = "图片文件|*.jpg";
+            open.RestoreDirectory = true;
+            if ((bool)open.ShowDialog().GetValueOrDefault())
+            {
+                if (!Directory.Exists(AppDomain.CurrentDomain.BaseDirectory + "Background"))
+                {
+                    Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + "Background");
+                }
+                try
+                {
+                    File.Copy(open.FileName, AppDomain.CurrentDomain.BaseDirectory + "Background\\Background.jpg", true);
+                    Helper.Events.UpdateEvent.BackgroundEvent.OnUpdateBackground();
+                }
+                catch (Exception)
+                {
+
                 }
             }
         }
