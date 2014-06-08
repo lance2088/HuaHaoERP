@@ -56,6 +56,10 @@ namespace HuaHaoERP.View.Pages.Content_Others
                         MessageBox.Show("许可验证成功，感谢支持石蚁软件\n重启软件后生效", "通知");
                     }
                 }
+                else
+                {
+                    MessageBox.Show("许可有误或已过期，请联系开发商", "错误");
+                }
             }
         }
 

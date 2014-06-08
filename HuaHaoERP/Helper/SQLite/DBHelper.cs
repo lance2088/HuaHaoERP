@@ -92,7 +92,7 @@ namespace HuaHaoERP.Helper.SQLite
             catch (Exception ee)
             {
                 strans.Rollback();
-                LogHelper.FileLog.Log(ee.ToString());
+                LogHelper.FileLog.ErrorLog(ee.ToString());
             }
             finally
             {
@@ -117,7 +117,7 @@ namespace HuaHaoERP.Helper.SQLite
             }
             catch(Exception ee)
             {
-                LogHelper.FileLog.Log(ee.ToString());
+                LogHelper.FileLog.ErrorLog(ee.ToString());
             }
             finally
             {
@@ -144,7 +144,7 @@ namespace HuaHaoERP.Helper.SQLite
             }
             catch (Exception ee)
             {
-                LogHelper.FileLog.Log(ee.ToString());
+                LogHelper.FileLog.ErrorLog(ee.ToString());
             }
             finally
             {
@@ -175,7 +175,7 @@ namespace HuaHaoERP.Helper.SQLite
             }
             catch (Exception ee)
             {
-                LogHelper.FileLog.Log(ee.ToString());
+                LogHelper.FileLog.ErrorLog(ee.ToString());
             }
             finally
             {

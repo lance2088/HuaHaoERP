@@ -35,7 +35,7 @@ namespace HuaHaoERP.Helper.Excel
             }
             catch (Exception ee)
             {
-                LogHelper.FileLog.Log(ee.ToString());
+                LogHelper.FileLog.ErrorLog(ee.ToString());
                 return false;
             }
             finally
