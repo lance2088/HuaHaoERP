@@ -9,22 +9,25 @@
 
     <Grid>
         <TabControl Margin="5" TabStripPlacement="Left" BorderThickness="0" Background="{x:Null}" Padding="0">
-            <TabItem x:Name="TabItem_CustomerLibrary" FocusVisualStyle="{x:Null}" Header="客 户 库" Template="{DynamicResource TabItemControlTemplate_CommonMain}" Width="150" Height="40" Margin="0,27,0,-27" Foreground="White" FontSize="14">
+            <TabControl.Effect>
+                <DropShadowEffect ShadowDepth="0" Color="#FF97CAE3" BlurRadius="10"/>
+            </TabControl.Effect>
+            <TabItem x:Name="TabItem_CustomerLibrary" FocusVisualStyle="{x:Null}" Header="客 户 库" Template="{DynamicResource TabItemControlTemplate_CommonMain}" Width="150" Height="40" Margin="0,27,5,-27" Foreground="White" FontSize="14">
                 <Grid>
                     <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_Content_CustomerLibrary" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </TabItem>
-            <TabItem FocusVisualStyle="{x:Null}" Header="生产资料" Template="{DynamicResource TabItemControlTemplate_CommonMain}" Width="150" Height="40" Margin="0,27,0,-27" Foreground="White" FontSize="14">
+            <TabItem FocusVisualStyle="{x:Null}" Header="生产资料" Template="{DynamicResource TabItemControlTemplate_CommonMain}" Width="150" Height="40" Margin="0,27,5,-27" Foreground="White" FontSize="14">
                 <Grid>
                     <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_Content_MeansOfProduction" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="TabItem_ProductionManagement" FocusVisualStyle="{x:Null}" Header="生产管理" Template="{DynamicResource TabItemControlTemplate_CommonMain}" Width="150" Height="40" Margin="0,37,0,-37" Foreground="White" FontSize="14" IsSelected="True">
+            <TabItem x:Name="TabItem_ProductionManagement" FocusVisualStyle="{x:Null}" Header="生产管理" Template="{DynamicResource TabItemControlTemplate_CommonMain}" Width="150" Height="40" Margin="0,37,5,-37" Foreground="White" FontSize="14" IsSelected="True">
                 <Grid>
                     <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_Content_ProductionManagement" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="TabItem_Warehouse" FocusVisualStyle="{x:Null}" Header="仓库管理" Template="{DynamicResource TabItemControlTemplate_CommonMain}" Width="150" Height="40" Margin="0,37,0,-37" Foreground="White" FontSize="14">
+            <TabItem x:Name="TabItem_Warehouse" FocusVisualStyle="{x:Null}" Header="仓库管理" Template="{DynamicResource TabItemControlTemplate_CommonMain}" Width="150" Height="40" Margin="0,37,5,-37" Foreground="White" FontSize="14">
                 <Grid>
                     <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_Content_Warehouse" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
@@ -34,7 +37,7 @@
                     <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_Content_Orders" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </TabItem>
-            <TabItem FocusVisualStyle="{x:Null}" Header="软件设置" Template="{DynamicResource TabItemControlTemplate_CommonMain}" Width="150" Height="40" Margin="0,47,0,-47" Foreground="White" FontSize="14">
+            <TabItem FocusVisualStyle="{x:Null}" Header="软件设置" Template="{DynamicResource TabItemControlTemplate_CommonMain}" Width="150" Height="40" Margin="0,47,5,-47" Foreground="White" FontSize="14">
                 <Grid>
                     <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_Content_Settings" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
