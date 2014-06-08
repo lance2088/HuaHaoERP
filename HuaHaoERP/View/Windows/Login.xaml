@@ -4,7 +4,7 @@
         Title="登陆金字塔" Height="300" Width="525" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="{x:Null}" ResizeMode="CanMinimize" MouseLeftButtonDown="Window_Login_MouseLeftButtonDown">
     <Grid x:Name="Grid_Main">
         <Grid.Background>
-            <ImageBrush ImageSource="/HuaHaoERP;component/View/Resources/Images/Background.jpg" TileMode="FlipXY"/>
+            <ImageBrush ImageSource="/HuaHaoERP;component/View/Resources/Images/MainBackground.jpg" TileMode="FlipXY"/>
         </Grid.Background>
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_Login" Content="登陆" HorizontalAlignment="Left" Margin="365,199,0,0" VerticalAlignment="Top" Width="75" Click="Button_Login_Click" IsDefault="True" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White"/>
         <Button x:Name="Button_Close" Content="X" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top" Width="28" Height="20" Click="Button_Close_Click" Template="{DynamicResource ButtonControlTemplate_CloseButton}"/>

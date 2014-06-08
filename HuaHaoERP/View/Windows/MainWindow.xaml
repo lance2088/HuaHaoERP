@@ -4,7 +4,7 @@
         Title="金字塔" Height="660" Width="1020" WindowStartupLocation="CenterScreen" Background="{x:Null}" WindowStyle="None" AllowsTransparency="True" MouseLeftButtonDown="Window_MainWindow_MouseLeftButtonDown" ResizeMode="CanResizeWithGrip" MinWidth="960" MinHeight="600" SizeChanged="Window_MainWindow_SizeChanged">
     <Grid x:Name="Grid_Main">
         <Grid.Background>
-            <ImageBrush ImageSource="/HuaHaoERP;component/View/Resources/Images/84928-106.jpg" TileMode="FlipXY"/>
+            <ImageBrush ImageSource="/HuaHaoERP;component/View/Resources/Images/MainBackground.jpg" TileMode="FlipXY"/>
         </Grid.Background>
         <Grid x:Name="Grid_StatusBar" Height="25" Margin="0" VerticalAlignment="Bottom">
             <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_StatusBar" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
