@@ -32,7 +32,7 @@
                     <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_Content_Warehouse" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </TabItem>
-            <TabItem FocusVisualStyle="{x:Null}" Header="订单管理" Template="{DynamicResource TabItemControlTemplate_CommonMain}" Width="150" Height="40" Margin="0,37,5,-37" Foreground="White" FontSize="14">
+            <TabItem FocusVisualStyle="{x:Null}" Header="订单管理" Template="{DynamicResource TabItemControlTemplate_CommonMain}" Width="150" Height="40" Margin="0,37,5,-37" Foreground="White" FontSize="14" Visibility="Collapsed">
                 <Grid>
                     <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_Content_Orders" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
