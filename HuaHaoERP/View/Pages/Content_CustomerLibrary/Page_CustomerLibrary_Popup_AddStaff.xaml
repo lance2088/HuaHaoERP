@@ -31,7 +31,7 @@
         <Label Content="身份证号" HorizontalAlignment="Left" Margin="10,220,0,0" VerticalAlignment="Top"/>
         <Label Content="备注" HorizontalAlignment="Left" Margin="10,260,0,0" VerticalAlignment="Top"/>
         <Label Content="离职时间" HorizontalAlignment="Left" Margin="7,324,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <CheckBox x:Name="CheckBox_isDeparture" Content="是否离职" HorizontalAlignment="Left" Margin="85,324,0,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" Padding="4,0,0,0" Click="CheckBox_isDeparture_Click"/>
+        <CheckBox x:Name="CheckBox_isDeparture" Content="是否离职" HorizontalAlignment="Left" Margin="85,329,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Padding="4,0,0,0" Click="CheckBox_isDeparture_Click"/>
         <DatePicker x:Name="DatePicker_DepartureTime" Grid.Column="1" HorizontalAlignment="Left" Margin="70,324,0,0" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" Padding="2,0" Height="24"/>
     </Grid>
 </Page>
