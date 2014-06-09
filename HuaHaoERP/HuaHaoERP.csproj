@@ -55,6 +55,12 @@
   <PropertyGroup>
     <ApplicationIcon>View\Resources\Ico\Pyramid_Logo_white_128x128.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Sign.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationFramework.Aero" />
     <Reference Include="StoneAnt.License, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -399,6 +405,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Sign.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="View\Resources\Images\MainBackground.jpg" />
