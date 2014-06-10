@@ -27,6 +27,18 @@ namespace HuaHaoERP.Helper.License
                         System.Windows.MessageBox.Show("许可有误，请联系开发商", "错误");
                     }
                 }
+                else
+                {
+                    Helper.DataDefinition.CommonParameters.PeriodOfValidity = -1;
+                    Helper.DataDefinition.CommonParameters.LicenseModel = new StoneAnt.License.Model.LicenseModel();
+                    System.Windows.MessageBox.Show("许可有误，请联系开发商", "错误");
+                }
+            }
+            else
+            {
+                Helper.DataDefinition.CommonParameters.PeriodOfValidity = -1;
+                Helper.DataDefinition.CommonParameters.LicenseModel = new StoneAnt.License.Model.LicenseModel();
+                System.Windows.MessageBox.Show("许可有误，请联系开发商", "错误");
             }
         }
 
