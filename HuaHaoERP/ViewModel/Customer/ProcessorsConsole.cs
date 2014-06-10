@@ -33,15 +33,23 @@ namespace HuaHaoERP.ViewModel.Customer
             {
                 return false;
             }
-            bool flag = true;
-            List<string> sqls = new List<string>();
-            string sql_Delete = "Delete From T_UserInfo_Processors Where GUID='" + d.Guid + "'";
-            string sql_Insert = "Insert Into T_UserInfo_Processors(GUID,Number,Name,Address,Area,Phone,MobilePhone,Fax,Business,Clerk,OpeningBank,BankCardNo,BankCardName,Remark,AddTime) "
-                        + " values('" + d.Guid + "','" + d.Number + "','" + d.Name + "','" + d.Address + "','" + d.Area + "','" + d.Phone + "','" + d.MobilePhone + "','" + d.Fax + "','" + d.Business + "','" + d.Clerk + "','" + d.OpeningBank + "','" + d.BankCardNo + "','" + d.BankCardName + "','" + d.Remark + "','" + d.AddTime.ToString("yyyy-MM-dd HH:mm:ss") + "')";
-            sqls.Add(sql_Delete);
-            sqls.Add(sql_Insert);
-            flag = new Helper.SQLite.DBHelper().Transaction(sqls);
-            return flag;
+            string sql_Insert = "Update T_UserInfo_Processors "
+                        + " SET "
+                        + " Number='" + d.Number
+                        + "',Name='" + d.Name
+                        + "',Address='" + d.Address
+                        + "',Area='" + d.Area
+                        + "',Phone='" + d.Phone
+                        + "',MobilePhone='" + d.MobilePhone
+                        + "',Fax='" + d.Fax
+                        + "',Business='" + d.Business
+                        + "',Clerk='" + d.Clerk
+                        + "',OpeningBank='" + d.OpeningBank
+                        + "',BankCardNo='" + d.BankCardNo
+                        + "',BankCardName='" + d.BankCardName
+                        + "',Remark='" + d.Remark
+                        + "' WHERE GUID='" + d.Guid + "'";
+            return new Helper.SQLite.DBHelper().SingleExecution(sql_Insert);
         }
         internal bool MarkDelete(ProcessorsModel d)
         {

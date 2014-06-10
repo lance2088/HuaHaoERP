@@ -37,19 +37,21 @@ namespace HuaHaoERP.ViewModel.Customer
             {
                 return false;
             }
-            bool flag = true;
-            List<string> sqls = new List<string>();
-            string sql_Delete = "Delete From T_UserInfo_Staff Where GUID='" + d.Guid + "'";
             if (d.DepartureTime == null)
             {
                 d.DepartureTime = "0001-01-01 00:00:00";
             }
-            string sql_Update = "Insert Into T_UserInfo_Staff (GUID,Number,Name,Jobs,EntryTime,Contact,IDNumber,Remark,DepartureTime,AddTime) "
-                                + " values('" + d.Guid + "','" + d.Number + "','" + d.Name + "','" + d.Jobs + "','" + d.EntryTime + "','" + d.Contact + "','" + d.IDNumber + "','" + d.Remark + "','" + d.DepartureTime + "','" + d.AddTime.ToString("yyyy-MM-dd HH:mm:ss") + "')";
-            sqls.Add(sql_Delete);
-            sqls.Add(sql_Update);
-            flag = new Helper.SQLite.DBHelper().Transaction(sqls);
-            return flag;
+            string sql_Update = "update T_UserInfo_Staff "
+                                + " SET Number='" + d.Number
+                                + "',Name='" + d.Name
+                                + "',Jobs='" + d.Jobs
+                                + "',EntryTime='" + d.EntryTime
+                                + "',Contact='" + d.Contact
+                                + "',IDNumber='" + d.IDNumber
+                                + "',Remark='" + d.Remark
+                                + "',DepartureTime='" + d.DepartureTime
+                                + "' Where GUID='" + d.Guid + "'";
+            return new Helper.SQLite.DBHelper().SingleExecution(sql_Update);
         }
         internal bool MarkDelete(StaffModel d)
         {

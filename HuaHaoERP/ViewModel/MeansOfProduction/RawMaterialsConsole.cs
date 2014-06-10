@@ -33,15 +33,17 @@ namespace HuaHaoERP.ViewModel.MeansOfProduction
             {
                 return false;
             }
-            bool flag = true;
-            List<string> sqls = new List<string>();
-            string sql_Delete = "Delete From T_ProductInfo_RawMaterials Where GUID='" + d.Guid + "'";
-            string sql_Update = "Insert Into T_ProductInfo_RawMaterials (GUID,Number,Name,Weight,Material,Supplier,Sp1,Sp2,Remark,AddTime) "
-                                + " values('" + d.Guid + "','" + d.Number + "','" + d.Name + "','" + d.Weight + "','" + d.Material + "','" + d.Supplier + "','" + d.Sp1 + "','" + d.Sp2 + "','" + d.Remark + "','" + d.AddTime.ToString("yyyy-MM-dd HH:mm:ss") + "')";
-            sqls.Add(sql_Delete);
-            sqls.Add(sql_Update);
-            flag = new Helper.SQLite.DBHelper().Transaction(sqls);
-            return flag;
+            string sql_Update = "Update T_ProductInfo_RawMaterials "
+                                + " SET Number='" + d.Number
+                                + "',Name='" + d.Name
+                                + "',Weight='" + d.Weight
+                                + "',Material='" + d.Material
+                                + "',Supplier='" + d.Supplier
+                                + "',Sp1='" + d.Sp1
+                                + "',Sp2='" + d.Sp2
+                                + "',Remark='" + d.Remark
+                                + "' Where GUID='" + d.Guid + "'";
+            return new Helper.SQLite.DBHelper().SingleExecution(sql_Update);
         }
         internal bool MarkDelete(RawMaterialsModel d)
         {

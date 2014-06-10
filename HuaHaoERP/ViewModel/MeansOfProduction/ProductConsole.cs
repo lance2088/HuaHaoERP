@@ -33,15 +33,22 @@ namespace HuaHaoERP.ViewModel.MeansOfProduction
             {
                 return false;
             }
-            bool flag = true;
-            List<string> sqls = new List<string>();
-            string sql_Delete = "Delete From T_ProductInfo_Product Where GUID='" + d.Guid + "'";
-            string sql_Update = "Insert Into T_ProductInfo_Product (GUID,Number,Name,Material,Type,Specification,P1,P2,P3,P4,P5,P6,PackageNumber,Remark,AddTime) "
-                                + " values('" + d.Guid + "','" + d.Number + "','" + d.Name + "','" + d.Material + "','" + d.Type + "','" + d.Specification + "','" + d.P1 + "','" + d.P2 + "','" + d.P3 + "','" + d.P4 + "','" + d.P5 + "','" + d.P6 + "','" + d.PackageNumber + "','" + d.Remark + "','" + d.AddTime.ToString("yyyy-MM-dd HH:mm:ss") + "')";
-            sqls.Add(sql_Delete);
-            sqls.Add(sql_Update);
-            flag = new Helper.SQLite.DBHelper().Transaction(sqls);
-            return flag;
+            string sql_Update = "Update T_ProductInfo_Product "
+                                + " SET Number='" + d.Number
+                                + "',Name='" + d.Name
+                                + "',Material='" + d.Material
+                                + "',Type='" + d.Type
+                                + "',Specification='" + d.Specification
+                                + "',P1='" + d.P1
+                                + "',P2='" + d.P2
+                                + "',P3='" + d.P3
+                                + "',P4='" + d.P4
+                                + "',P5='" + d.P5
+                                + "',P6='" + d.P6
+                                + "',PackageNumber='" + d.PackageNumber
+                                + "',Remark='" + d.Remark
+                                + "' Where GUID='" + d.Guid + "'";
+            return new Helper.SQLite.DBHelper().SingleExecution(sql_Update);
         }
         internal bool MarkDelete(ProductModel d)
         {
