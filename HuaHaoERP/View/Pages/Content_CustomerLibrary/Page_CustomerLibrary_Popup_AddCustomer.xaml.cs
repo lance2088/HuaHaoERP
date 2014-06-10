@@ -99,7 +99,6 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
                     if(!new ViewModel.Customer.CustomerConsole().Update(d))
                     {
                         MessageBox.Show("编号或名称重复", "错误");
-                        CustomerEvent.OnUpdateDataGrid();
                         return;
                     }
                     StatusBarMessageEvent.OnUpdateMessage("修改用户：" + d.Name);
@@ -114,7 +113,6 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
                     StatusBarMessageEvent.OnUpdateMessage("添加用户：" + d.Name);
                 }
                 Button_Cancel_Click(null, null);
-                CustomerEvent.OnUpdateDataGrid();
             }
             else
             {
@@ -126,6 +124,7 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
         private void Button_Cancel_Click(object sender, RoutedEventArgs e)
         {
             Helper.Events.PopUpEvent.OnHidePopUp();
+            CustomerEvent.OnUpdateDataGrid();
         }
     }
 }
