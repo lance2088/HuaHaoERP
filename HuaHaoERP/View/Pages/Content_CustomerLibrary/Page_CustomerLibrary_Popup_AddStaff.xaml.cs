@@ -63,6 +63,10 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
         private bool CheckAndGetData()
         {
             bool flag = true;
+            if (this.TextBox_Number.Text.Trim() == "")
+            {
+                return false;
+            }
             if (this.TextBox_Name.Text.Trim() == "")
             {
                 return false;
