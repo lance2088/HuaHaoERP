@@ -96,8 +96,11 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             {
                 if (!isNew)
                 {
-                    new ViewModel.Customer.CustomerConsole().Update(d);
-                    CustomerEvent.OnUpdateDataGrid();
+                    if(!new ViewModel.Customer.CustomerConsole().Update(d))
+                    {
+                        MessageBox.Show("编号或名称重复", "错误");
+                        return;
+                    }
                     StatusBarMessageEvent.OnUpdateMessage("修改用户：" + d.Name);
                 }
                 else
@@ -107,10 +110,10 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
                         MessageBox.Show("编号或名称重复", "错误");
                         return;
                     }
-                    CustomerEvent.OnUpdateDataGrid();
                     StatusBarMessageEvent.OnUpdateMessage("添加用户：" + d.Name);
                 }
                 Button_Cancel_Click(null, null);
+                CustomerEvent.OnUpdateDataGrid();
             }
             else
             {
