@@ -12,7 +12,7 @@ namespace HuaHaoERP.ViewModel.Customer
         private bool CheckRepeat(StaffModel d)
         {
             object oTemp;
-            string sql_Repeat = "select 1 from T_UserInfo_Staff where (Number='" + d.Number + "' OR Name='" + d.Name + "') AND DeleteMark IS NULL AND Guid <> '" + d.Guid + "'";
+            string sql_Repeat = "select 1 from T_UserInfo_Staff where Number='" + d.Number + "' AND DeleteMark IS NULL AND Guid <> '" + d.Guid + "'";
             return new Helper.SQLite.DBHelper().QuerySingleResult(sql_Repeat, out oTemp);
         }
         internal bool Add(StaffModel d)
