@@ -99,6 +99,7 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
                     if(!new ViewModel.Customer.CustomerConsole().Update(d))
                     {
                         MessageBox.Show("编号或名称重复", "错误");
+                        CustomerEvent.OnUpdateDataGrid();
                         return;
                     }
                     StatusBarMessageEvent.OnUpdateMessage("修改用户：" + d.Name);

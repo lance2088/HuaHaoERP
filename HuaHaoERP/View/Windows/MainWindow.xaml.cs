@@ -88,6 +88,8 @@ namespace HuaHaoERP
         }
         private void Grid_Popup_Show(object sender, PopUpEventArgs e)
         {
+            NavigationCommands.BrowseBack.InputGestures.Clear();
+            NavigationCommands.BrowseForward.InputGestures.Clear();
             this.Frame_Popup.Content = e.ClassObject;
             this.Grid_Popup.Visibility = System.Windows.Visibility.Visible;
         }
