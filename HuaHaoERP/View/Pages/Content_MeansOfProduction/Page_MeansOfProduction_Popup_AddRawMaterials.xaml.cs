@@ -96,6 +96,7 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
         private void Button_Cancel_Click(object sender, RoutedEventArgs e)
         {
             PopUpEvent.OnHidePopUp();
+            RawMaterialsEvent.OnUpdateDataGrid();
         }
 
         private void Button_Commit_Click(object sender, RoutedEventArgs e)
@@ -109,20 +110,22 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
                         MessageBox.Show("编号或名称重复", "错误");
                         return;
                     }
-                    RawMaterialsEvent.OnUpdateDataGrid();
                     StatusBarMessageEvent.OnUpdateMessage("添加原材料：" + d.Name);
                 }
                 else
                 {
-                    new ViewModel.MeansOfProduction.RawMaterialsConsole().Update(d);
-                    RawMaterialsEvent.OnUpdateDataGrid();
+                    if(!new ViewModel.MeansOfProduction.RawMaterialsConsole().Update(d))
+                    {
+                        MessageBox.Show("编号或名称重复", "错误");
+                        return;
+                    }
                     StatusBarMessageEvent.OnUpdateMessage("修改原材料：" + d.Name);
                 }
                 Button_Cancel_Click(null, null);
             }
             else
             {
-                StatusBarMessageEvent.OnUpdateMessage("添加/修改原材料失败");
+                MessageBox.Show("请检查输入是否有误。", "错误");
             }
         }
 

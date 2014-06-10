@@ -97,8 +97,11 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             {
                 if (!isNew)
                 {
-                    new ViewModel.Customer.ProcessorsConsole().Update(d);
-                    ProcessorsEvent.OnUpdateDataGrid();
+                    if(!new ViewModel.Customer.ProcessorsConsole().Update(d))
+                    {
+                        MessageBox.Show("编号或名称重复", "错误");
+                        return;
+                    }
                     Helper.Events.StatusBarMessageEvent.OnUpdateMessage("修改外加工商：" + d.Name);
                 }
                 else
@@ -108,20 +111,20 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
                         MessageBox.Show("编号或名称重复", "错误");
                         return;
                     }
-                    ProcessorsEvent.OnUpdateDataGrid();
                     Helper.Events.StatusBarMessageEvent.OnUpdateMessage("添加外加工商：" + d.Name);
                 }
                 Button_Cancel_Click(null, null);
             }
             else
             {
-
+                MessageBox.Show("请检查输入是否有误。", "错误");
             }
         }
 
         private void Button_Cancel_Click(object sender, RoutedEventArgs e)
         {
             Helper.Events.PopUpEvent.OnHidePopUp();
+            ProcessorsEvent.OnUpdateDataGrid();
         }
     }
 }

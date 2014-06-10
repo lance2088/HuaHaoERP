@@ -116,8 +116,7 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             }
             else
             {
-                Console.WriteLine("Add False");
-                StatusBarMessageEvent.OnUpdateMessage("添加/修改用户操作失败");
+                MessageBox.Show("请检查输入是否有误。", "错误");
             }
         }
 

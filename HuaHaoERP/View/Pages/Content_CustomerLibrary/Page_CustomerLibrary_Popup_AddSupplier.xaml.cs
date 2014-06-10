@@ -91,6 +91,7 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
         private void Button_Cancel_Click(object sender, RoutedEventArgs e)
         {
             Helper.Events.PopUpEvent.OnHidePopUp();
+            Helper.Events.SupplierEvent.OnUpdateDataGrid();
         }
 
         private void Button_Commit_Click(object sender, RoutedEventArgs e)
@@ -99,8 +100,11 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             {
                 if (!isNew)
                 {
-                    new ViewModel.Customer.SupplierConsole().Update(d);
-                    Helper.Events.SupplierEvent.OnUpdateDataGrid();
+                    if(!new ViewModel.Customer.SupplierConsole().Update(d))
+                    {
+                        MessageBox.Show("编号或名称重复", "错误");
+                        return;
+                    }
                     Helper.Events.StatusBarMessageEvent.OnUpdateMessage("修改供应商：" + d.Name);
                 }
                 else
@@ -110,14 +114,13 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
                         MessageBox.Show("编号或名称重复","错误");
                         return;
                     }
-                    Helper.Events.SupplierEvent.OnUpdateDataGrid();
                     Helper.Events.StatusBarMessageEvent.OnUpdateMessage("添加供应商：" + d.Name);
                 }
                 Button_Cancel_Click(null, null);
             }
             else
             {
-
+                MessageBox.Show("请检查输入是否有误。", "错误");
             }
         }
     }

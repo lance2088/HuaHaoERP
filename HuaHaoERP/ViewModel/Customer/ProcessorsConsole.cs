@@ -9,14 +9,18 @@ namespace HuaHaoERP.ViewModel.Customer
 {
     class ProcessorsConsole
     {
-        internal bool Add(ProcessorsModel d)
+        private bool CheckRepeat(ProcessorsModel d)
         {
             object oTemp;
-            string sql_Repeat = "select 1 from T_UserInfo_Processors where (Number='" + d.Number + "' OR Name='" + d.Name + "') AND DeleteMark IS NULL";
-            if (new Helper.SQLite.DBHelper().QuerySingleResult(sql_Repeat, out oTemp))
+            string sql_Repeat = "select 1 from T_UserInfo_Processors where (Number='" + d.Number + "' OR Name='" + d.Name + "') AND DeleteMark IS NULL AND Guid <> '" + d.Guid + "'";
+            return new Helper.SQLite.DBHelper().QuerySingleResult(sql_Repeat, out oTemp);
+        }
+        internal bool Add(ProcessorsModel d)
+        {
+            if (CheckRepeat(d))
             {
                 return false;
-            } 
+            }
             bool flag = true;
             string sql = "Insert Into T_UserInfo_Processors(GUID,Number,Name,Address,Area,Phone,MobilePhone,Fax,Business,Clerk,OpeningBank,BankCardNo,BankCardName,Remark,AddTime) "
                         + " values('" + d.Guid + "','"+d.Number+"','"+d.Name+"','"+d.Address+"','"+d.Area+"','"+d.Phone+"','"+d.MobilePhone+"','"+d.Fax+"','"+d.Business+"','"+d.Clerk+"','"+d.OpeningBank+"','"+d.BankCardNo+"','"+d.BankCardName+"','"+d.Remark+"','" + d.AddTime.ToString("yyyy-MM-dd HH:mm:ss") + "')";
@@ -25,6 +29,10 @@ namespace HuaHaoERP.ViewModel.Customer
         }
         internal bool Update(ProcessorsModel d)
         {
+            if (CheckRepeat(d))
+            {
+                return false;
+            }
             bool flag = true;
             List<string> sqls = new List<string>();
             string sql_Delete = "Delete From T_UserInfo_Processors Where GUID='" + d.Guid + "'";

@@ -111,6 +111,7 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
         private void Button_Cancel_Click(object sender, RoutedEventArgs e)
         {
             PopUpEvent.OnHidePopUp();
+            ProductEvent.OnUpdateDataGrid();
         }
 
         private void Button_Commit_Click(object sender, RoutedEventArgs e)
@@ -124,16 +125,22 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
                         MessageBox.Show("编号或名称重复","错误");
                         return;
                     }
-                    ProductEvent.OnUpdateDataGrid();
                     StatusBarMessageEvent.OnUpdateMessage("添加产品：" + d.Name);
                 }
                 else
                 {
-                    new ViewModel.MeansOfProduction.ProductConsole().Update(d);
-                    ProductEvent.OnUpdateDataGrid();
+                    if(!new ViewModel.MeansOfProduction.ProductConsole().Update(d))
+                    {
+                        MessageBox.Show("编号或名称重复", "错误");
+                        return;
+                    }
                     StatusBarMessageEvent.OnUpdateMessage("修改产品：" + d.Name);
                 }
                 Button_Cancel_Click(null, null);
+            }
+            else
+            {
+                MessageBox.Show("请检查输入是否有误。", "错误");
             }
         }
     }

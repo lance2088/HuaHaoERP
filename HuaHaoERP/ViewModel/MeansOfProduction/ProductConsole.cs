@@ -9,11 +9,15 @@ namespace HuaHaoERP.ViewModel.MeansOfProduction
 {
     class ProductConsole
     {
-        internal bool Add(ProductModel d)
+        private bool CheckRepeat(ProductModel d)
         {
             object oTemp;
-            string sql_Repeat = "select 1 from T_ProductInfo_Product where (Number='" + d.Number + "' OR Name='" + d.Name + "') AND DeleteMark IS NULL";
-            if (new Helper.SQLite.DBHelper().QuerySingleResult(sql_Repeat, out oTemp))
+            string sql_Repeat = "select 1 from T_ProductInfo_Product where (Number='" + d.Number + "' OR Name='" + d.Name + "') AND DeleteMark IS NULL AND Guid <> '" + d.Guid + "'";
+            return new Helper.SQLite.DBHelper().QuerySingleResult(sql_Repeat, out oTemp);
+        }
+        internal bool Add(ProductModel d)
+        {
+            if (CheckRepeat(d))
             {
                 return false;
             }
@@ -25,6 +29,10 @@ namespace HuaHaoERP.ViewModel.MeansOfProduction
         }
         internal bool Update(ProductModel d)
         {
+            if (CheckRepeat(d))
+            {
+                return false;
+            }
             bool flag = true;
             List<string> sqls = new List<string>();
             string sql_Delete = "Delete From T_ProductInfo_Product Where GUID='" + d.Guid + "'";

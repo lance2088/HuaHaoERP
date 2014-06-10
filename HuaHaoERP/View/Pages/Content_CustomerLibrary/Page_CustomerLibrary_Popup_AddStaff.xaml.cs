@@ -104,8 +104,11 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             {
                 if (!isNew)
                 {
-                    new ViewModel.Customer.StaffConsole().Update(d);
-                    Helper.Events.StaffEvent.OnUpdateDataGrid();
+                    if(!new ViewModel.Customer.StaffConsole().Update(d))
+                    {
+                        MessageBox.Show("编号或名称重复（请勿遗漏离职员工）", "错误");
+                        return;
+                    }
                     Helper.Events.StatusBarMessageEvent.OnUpdateMessage("修改员工：" + d.Name);
                 }
                 else
@@ -115,20 +118,20 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
                         MessageBox.Show("编号或名称重复（请勿遗漏离职员工）", "错误");
                         return;
                     }
-                    Helper.Events.StaffEvent.OnUpdateDataGrid();
                     Helper.Events.StatusBarMessageEvent.OnUpdateMessage("添加员工：" + d.Name);
                 }
                 Button_Cancel_Click(null, null);
             }
             else
             {
-
+                MessageBox.Show("请检查输入是否有误。", "错误");
             }
         }
 
         private void Button_Cancel_Click(object sender, RoutedEventArgs e)
         {
             Helper.Events.PopUpEvent.OnHidePopUp();
+            Helper.Events.StaffEvent.OnUpdateDataGrid();
         }
 
         private void CheckBox_isDeparture_Click(object sender, RoutedEventArgs e)
