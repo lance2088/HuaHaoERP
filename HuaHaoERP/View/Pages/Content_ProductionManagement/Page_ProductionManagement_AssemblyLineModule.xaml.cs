@@ -180,9 +180,12 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             }
         }
 
-        private void ComboBox_StaffList_GotFocus(object sender, RoutedEventArgs e)
+        private void ComboBox_StaffList_DropDownOpened(object sender, EventArgs e)
         {
-            this.ComboBox_StaffList.IsDropDownOpen = true;
+            if(this.ComboBox_StaffList.SelectedValue != null)
+            {
+                InitializeStaffComboBox();
+            }
         }
     }
 }
