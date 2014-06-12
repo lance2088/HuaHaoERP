@@ -318,10 +318,10 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             Printdlg.UserPageRangeEnabled = true;
             if ((bool)Printdlg.ShowDialog().GetValueOrDefault())
             {
-                Size pageSize = new Size(Printdlg.PrintableAreaWidth, Printdlg.PrintableAreaHeight);
+                //Size pageSize = new Size(Printdlg.PrintableAreaWidth, Printdlg.PrintableAreaHeight);
                 // sizing of the element.
-                DataGrid_AssemblyLineDetails.Measure(pageSize);
-                DataGrid_AssemblyLineDetails.Arrange(new Rect(20, 20, pageSize.Width, pageSize.Height));
+                //DataGrid_AssemblyLineDetails.Measure(pageSize);
+                //DataGrid_AssemblyLineDetails.Arrange(new Rect(20, 20, pageSize.Width, pageSize.Height));
                 Printdlg.PrintVisual(DataGrid_AssemblyLineDetails, "PrintAssemblyLineDetails");
             }
         }
