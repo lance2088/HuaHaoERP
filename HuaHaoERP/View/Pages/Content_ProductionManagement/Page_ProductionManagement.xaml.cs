@@ -325,5 +325,17 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             InitializeAssemblyLineDetailsDataGrid();
         }
 
+        private void DataGrid_AssemblyLineDetails_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            if (e.Delta < 0)
+            {
+                this.ScrollViewer_AssemblyLineDetails.PageDown();
+            }
+            else if (e.Delta > 0)
+            {
+                this.ScrollViewer_AssemblyLineDetails.PageUp();
+            }
+        }
+
     }
 }
