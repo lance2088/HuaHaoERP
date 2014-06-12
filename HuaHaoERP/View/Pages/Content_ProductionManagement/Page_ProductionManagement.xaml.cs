@@ -37,16 +37,17 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         {
             AssemblyLineEvent.EShowAssemblyLineModule += (s, e) =>
             {
+                this.WrapPanel_AssemblyLine.Children.Clear();
                 foreach (Model.ProductModel d in e.ProductData)
                 {
                     if(d.IsShow == true)
                     {
                         AddAssemblyLineModule(d.Guid);
                     }
-                    else
-                    {
-                        RemoveAssemblyLineModule("Grid_ALM_" + d.Guid.ToString().Replace("-", ""));
-                    }
+                    //else
+                    //{
+                    //    RemoveAssemblyLineModule("Grid_ALM_" + d.Guid.ToString().Replace("-", ""));
+                    //}
                 }
             };
             AssemblyLineEvent.ERemoveAssemblyLineModule += (s, e) =>
@@ -74,6 +75,8 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             InitProcessorsComboBox();
             InitializeOutsideProcessDataGrid();
             InitializeAssemblyLineDetailsDataGrid();
+            this.ComboBox_ProductType.ItemsSource = Helper.DataDefinition.ComboBoxList.ProductTypeListWithAll;
+            this.ComboBox_ProductType.SelectedIndex = 0;
         }
         private void InitProductComboBox()
         {
@@ -231,8 +234,9 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         #region 生产统计
         private void InitializeAssemblyLineDetailsDataGrid()
         {
+            string Type = this.ComboBox_ProductType.Text;
             List<Model.ProductionManagement.AssemblyLineDetailsListModel> d = new List<Model.ProductionManagement.AssemblyLineDetailsListModel>();
-            if(new ViewModel.ProductionManagement.AssemblyLineDetailsConsole().ReadList(out d))
+            if(new ViewModel.ProductionManagement.AssemblyLineDetailsConsole().ReadList(Type, out d))
             {
                 this.DataGrid_AssemblyLineDetails.ItemsSource = d;
             }
@@ -310,6 +314,11 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             {
                 dialog.PrintVisual(DataGrid_AssemblyLineDetails, "PrintAssemblyLineDetails");
             }
+        }
+
+        private void ComboBox_ProductType_DropDownClosed(object sender, EventArgs e)
+        {
+            InitializeAssemblyLineDetailsDataGrid();
         }
 
     }

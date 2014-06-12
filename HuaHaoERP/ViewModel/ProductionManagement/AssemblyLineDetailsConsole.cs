@@ -9,8 +9,13 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
 {
     class AssemblyLineDetailsConsole
     {
-        internal bool ReadList(out List<AssemblyLineDetailsListModel> data)
+        internal bool ReadList(string Type, out List<AssemblyLineDetailsListModel> data)
         {
+            string WhereParm = "";
+            if(!Type.StartsWith("全部"))
+            {
+                WhereParm += " AND b.Type='" + Type + "' ";
+            }
             Guid LastGuid = new Guid();
             AssemblyLineDetailsListModel LastD = new AssemblyLineDetailsListModel();
             List<string> ProcessList = new List<string>();
@@ -32,7 +37,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                        + " FROM                                                                 "
                        + "    T_PM_ProductionSchedule a                                           "
                        + " left join T_ProductInfo_Product b ON a.ProductID=b.Guid            "
-                       + " WHERE b.DeleteMark IS NULL AND a.DeleteMark IS NULL                   "
+                       + " WHERE b.DeleteMark IS NULL AND a.DeleteMark IS NULL " + WhereParm
                        + " GROUP BY                                                             "
                        + "    a.ProductID,                                                      "
                        + "    a.Process                                                         "
