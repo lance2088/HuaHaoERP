@@ -21,7 +21,7 @@
         <TextBox x:Name="TextBox_Quantity" HorizontalAlignment="Left" Height="24" Margin="170,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" BorderThickness="1" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="White"/>
         <TextBox x:Name="TextBox_Break" HorizontalAlignment="Left" Height="24" Margin="235,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="24" BorderThickness="1" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="White" ToolTip="损坏数量"/>
         <Label x:Name="Label_ProductName" Content="产品名称" HorizontalAlignment="Left" Margin="15,10,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Width="227"/>
-        <ComboBox x:Name="ComboBox_StaffList" HorizontalAlignment="Left" Margin="170,179,0,0" VerticalAlignment="Top" Width="90" Height="24" IsEditable="True" VerticalContentAlignment="Center" KeyUp="ComboBox_StaffList_KeyUp" DropDownOpened="ComboBox_StaffList_DropDownOpened"/>
+        <ComboBox x:Name="ComboBox_StaffList" HorizontalAlignment="Left" Margin="170,179,0,0" VerticalAlignment="Top" Width="90" Height="24" IsEditable="True" VerticalContentAlignment="Center" KeyUp="ComboBox_StaffList_KeyUp" DropDownOpened="ComboBox_StaffList_DropDownOpened" GotFocus="ComboBox_StaffList_GotFocus"/>
         <Label Content="数量：(整数)" HorizontalAlignment="Left" Margin="170,102,0,0" VerticalAlignment="Top" Padding="0,5,5,5"/>
         <Label Content="员工：" HorizontalAlignment="Left" Margin="170,155,0,0" VerticalAlignment="Top" Padding="0,5,5,5"/>
         <Label Content="当前工序：" HorizontalAlignment="Left" Margin="170,40,0,0" VerticalAlignment="Top" Padding="0,0,5,0"/>

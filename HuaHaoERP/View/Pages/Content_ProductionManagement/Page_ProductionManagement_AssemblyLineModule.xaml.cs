@@ -169,14 +169,16 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void ComboBox_StaffList_KeyUp(object sender, KeyEventArgs e)
         {
-            this.ComboBox_StaffList.IsDropDownOpen = true;
-            string Parm = this.ComboBox_StaffList.Text;
-            DataSet ds = new DataSet();
-            if (new ViewModel.Customer.StaffConsole().GetNameList(Parm, out ds))
+            if(this.ComboBox_StaffList.SelectedValue == null)
             {
-                this.ComboBox_StaffList.ItemsSource = ds.Tables[0].DefaultView;
-                this.ComboBox_StaffList.DisplayMemberPath = "Name";
-                this.ComboBox_StaffList.SelectedValuePath = "GUID";//GUID四个字母要大写
+                string Parm = this.ComboBox_StaffList.Text;
+                DataSet ds = new DataSet();
+                if (new ViewModel.Customer.StaffConsole().GetNameList(Parm, out ds))
+                {
+                    this.ComboBox_StaffList.ItemsSource = ds.Tables[0].DefaultView;
+                    this.ComboBox_StaffList.DisplayMemberPath = "Name";
+                    this.ComboBox_StaffList.SelectedValuePath = "GUID";//GUID四个字母要大写
+                }
             }
         }
 
@@ -186,6 +188,11 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             {
                 InitializeStaffComboBox();
             }
+        }
+
+        private void ComboBox_StaffList_GotFocus(object sender, RoutedEventArgs e)
+        {
+            this.ComboBox_StaffList.IsDropDownOpen = true;
         }
     }
 }

@@ -262,27 +262,31 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void ComboBox_Product_KeyUp(object sender, KeyEventArgs e)
         {
-            this.ComboBox_Product.IsDropDownOpen = true;
-            string Parm = this.ComboBox_Product.Text;
-            DataSet ds = new DataSet();
-            if (new ViewModel.MeansOfProduction.ProductConsole().GetNameList(Parm, out ds))
+            if(this.ComboBox_Product.SelectedValue == null)
             {
-                this.ComboBox_Product.ItemsSource = ds.Tables[0].DefaultView;
-                this.ComboBox_Product.DisplayMemberPath = "Name";
-                this.ComboBox_Product.SelectedValuePath = "GUID";//GUID四个字母要大写
+                string Parm = this.ComboBox_Product.Text;
+                DataSet ds = new DataSet();
+                if (new ViewModel.MeansOfProduction.ProductConsole().GetNameList(Parm, out ds))
+                {
+                    this.ComboBox_Product.ItemsSource = ds.Tables[0].DefaultView;
+                    this.ComboBox_Product.DisplayMemberPath = "Name";
+                    this.ComboBox_Product.SelectedValuePath = "GUID";//GUID四个字母要大写
+                }
             }
         }
 
         private void ComboBox_Processors_KeyUp(object sender, KeyEventArgs e)
         {
-            this.ComboBox_Processors.IsDropDownOpen = true;
-            string Parm = this.ComboBox_Processors.Text;
-            DataSet ds = new DataSet();
-            if (new ViewModel.Customer.ProcessorsConsole().GetNameList(Parm, out ds))
+            if(this.ComboBox_Processors.SelectedValue == null)
             {
-                this.ComboBox_Processors.ItemsSource = ds.Tables[0].DefaultView;
-                this.ComboBox_Processors.DisplayMemberPath = "Name";
-                this.ComboBox_Processors.SelectedValuePath = "GUID";//GUID四个字母要大写
+                string Parm = this.ComboBox_Processors.Text;
+                DataSet ds = new DataSet();
+                if (new ViewModel.Customer.ProcessorsConsole().GetNameList(Parm, out ds))
+                {
+                    this.ComboBox_Processors.ItemsSource = ds.Tables[0].DefaultView;
+                    this.ComboBox_Processors.DisplayMemberPath = "Name";
+                    this.ComboBox_Processors.SelectedValuePath = "GUID";//GUID四个字母要大写
+                }
             }
         }
 
@@ -337,6 +341,16 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 this.ScrollViewer_AssemblyLineDetails.LineUp();
                 this.ScrollViewer_AssemblyLineDetails.LineUp();
             }
+        }
+
+        private void ComboBox_Product_GotFocus(object sender, RoutedEventArgs e)
+        {
+            this.ComboBox_Product.IsDropDownOpen = true;
+        }
+
+        private void ComboBox_Processors_GotFocus(object sender, RoutedEventArgs e)
+        {
+            this.ComboBox_Processors.IsDropDownOpen = true;
         }
 
     }
