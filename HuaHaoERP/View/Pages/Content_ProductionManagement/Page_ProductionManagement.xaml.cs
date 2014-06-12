@@ -319,18 +319,15 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         private void Button_PrintAssemblyLineDetails_Click(object sender, RoutedEventArgs e)
         {
             this.ScrollViewer_AssemblyLineDetails.ScrollToTop();
-            PrintDialog Printdlg = new PrintDialog();
-            Printdlg.UserPageRangeEnabled = true;
-            if ((bool)Printdlg.ShowDialog().GetValueOrDefault())
+            for (int i = 1; i <= PageAll; i++)
             {
-                for (int i = 1; i <= PageAll; i++)
+                PageNow = i;
+                InitializeAssemblyLineDetailsDataGrid();
+                PrintDialog Printdlg = new PrintDialog();
+                Printdlg.UserPageRangeEnabled = true;
+                if ((bool)Printdlg.ShowDialog().GetValueOrDefault())
                 {
-                    PageNow = i;
-                    InitializeAssemblyLineDetailsDataGrid();
-                    if (DataGrid_AssemblyLineDetails.IsLoaded)
-                    {
-                        Printdlg.PrintVisual(DataGrid_AssemblyLineDetails, "");
-                    }
+                    Printdlg.PrintVisual(DataGrid_AssemblyLineDetails, "");
                 }
             }
             this.Label_Page.Content = PageNow + "/" + PageAll;
