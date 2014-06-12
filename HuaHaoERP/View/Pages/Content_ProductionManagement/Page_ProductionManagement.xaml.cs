@@ -73,7 +73,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             InitProductComboBox();
             InitProcessorsComboBox();
             InitializeOutsideProcessDataGrid();
-            Button_Reflash_Click(null,null);
+            InitializeAssemblyLineDetailsDataGrid();
         }
         private void InitProductComboBox()
         {
@@ -237,11 +237,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 this.DataGrid_AssemblyLineDetails.ItemsSource = d;
             }
         }
-        private void Button_Reflash_Click(object sender, RoutedEventArgs e)
-        {
-            InitializeAssemblyLineDetailsDataGrid();
-            Helper.Events.StatusBarMessageEvent.OnUpdateMessage("刷新生产统计成功");
-        }
+
         #endregion
 
         private void MenuItem_dgmenu1_InOrder_Click(object sender, RoutedEventArgs e)
@@ -300,6 +296,16 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             {
                 InitProcessorsComboBox();
             }
+        }
+
+        private void DataGrid_AssemblyLineDetails_Loaded(object sender, RoutedEventArgs e)
+        {
+            InitializeAssemblyLineDetailsDataGrid();
+        }
+
+        private void Button_PrintAssemblyLineDetails_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
     }
