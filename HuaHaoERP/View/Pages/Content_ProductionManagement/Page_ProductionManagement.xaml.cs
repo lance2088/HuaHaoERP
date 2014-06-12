@@ -74,7 +74,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             InitProductComboBox();
             InitProcessorsComboBox();
             InitializeOutsideProcessDataGrid();
-            InitializeAssemblyLineDetailsDataGrid();
+            //InitializeAssemblyLineDetailsDataGrid();
             this.ComboBox_ProductType.ItemsSource = Helper.DataDefinition.ComboBoxList.ProductTypeListWithAll;
             this.ComboBox_ProductType.SelectedIndex = 0;
         }
