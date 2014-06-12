@@ -26,6 +26,9 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         private Guid ProductID;
         private Guid ProcessorsID;
 
+        private int PageNow = 1;
+        private int PageAll = 1;
+
         public Page_ProductionManagement()
         {
             InitializeComponent();
@@ -234,9 +237,11 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         #region 生产统计
         private void InitializeAssemblyLineDetailsDataGrid()
         {
-            string Type = this.ComboBox_ProductType.Text;
+            string ProductType = this.ComboBox_ProductType.Text;
+            PageAll = (new ViewModel.ProductionManagement.AssemblyLineDetailsConsole().ReadCount(ProductType)) / 40 + 1;
+            this.Label_Page.Content = PageNow + "/" + PageAll;
             List<Model.ProductionManagement.AssemblyLineDetailsListModel> d = new List<Model.ProductionManagement.AssemblyLineDetailsListModel>();
-            if(new ViewModel.ProductionManagement.AssemblyLineDetailsConsole().ReadList(Type, out d))
+            if(new ViewModel.ProductionManagement.AssemblyLineDetailsConsole().ReadList(ProductType,(PageNow-1)*41, (PageNow)*41, out d))
             {
                 this.DataGrid_AssemblyLineDetails.ItemsSource = d;
             }
@@ -318,17 +323,24 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             Printdlg.UserPageRangeEnabled = true;
             if ((bool)Printdlg.ShowDialog().GetValueOrDefault())
             {
-                //Size pageSize = new Size(Printdlg.PrintableAreaWidth, Printdlg.PrintableAreaHeight);
-                // sizing of the element.
-                //DataGrid_AssemblyLineDetails.Measure(pageSize);
-                //DataGrid_AssemblyLineDetails.Arrange(new Rect(20, 20, pageSize.Width, pageSize.Height));
-                Printdlg.PrintVisual(DataGrid_AssemblyLineDetails, "PrintAssemblyLineDetails");
+                for (int i = 1; i <= PageAll; i++)
+                {
+                    PageNow = i;
+                    InitializeAssemblyLineDetailsDataGrid();
+                    if (DataGrid_AssemblyLineDetails.IsLoaded)
+                    {
+                        Printdlg.PrintVisual(DataGrid_AssemblyLineDetails, "");
+                    }
+                }
             }
+            this.Label_Page.Content = PageNow + "/" + PageAll;
         }
 
         private void ComboBox_ProductType_DropDownClosed(object sender, EventArgs e)
         {
+            PageNow = 1;
             InitializeAssemblyLineDetailsDataGrid();
+            this.ScrollViewer_AssemblyLineDetails.ScrollToTop();
         }
 
         private void DataGrid_AssemblyLineDetails_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
@@ -355,6 +367,26 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         private void ComboBox_Processors_GotFocus(object sender, RoutedEventArgs e)
         {
             this.ComboBox_Processors.IsDropDownOpen = true;
+        }
+
+        private void Button_PreviousPage_Click(object sender, RoutedEventArgs e)
+        {
+            if (PageNow > 1)
+            {
+                PageNow--;
+                this.Label_Page.Content = PageNow + "/" + PageAll;
+                InitializeAssemblyLineDetailsDataGrid();
+            }
+        }
+
+        private void Button_NextPage_Click(object sender, RoutedEventArgs e)
+        {
+            if (PageNow < PageAll)
+            {
+                PageNow++;
+                this.Label_Page.Content = PageNow + "/" + PageAll;
+                InitializeAssemblyLineDetailsDataGrid();
+            }
         }
 
     }

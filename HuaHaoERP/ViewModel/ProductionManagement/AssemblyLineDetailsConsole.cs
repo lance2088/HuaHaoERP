@@ -9,7 +9,22 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
 {
     class AssemblyLineDetailsConsole
     {
-        internal bool ReadList(string Type, out List<AssemblyLineDetailsListModel> data)
+        internal int ReadCount(string type)
+        {
+            string WhereParm = "";
+            if (!type.StartsWith("全部"))
+            {
+                WhereParm += " where b.Type='" + type + "' ";
+            }
+            object count;
+            string sql = "select count(DISTINCT ProductID) from T_PM_ProductionSchedule a"
+                + " left join T_ProductInfo_Product b ON a.ProductID=b.Guid "
+                + WhereParm;
+            new Helper.SQLite.DBHelper().QuerySingleResult(sql, out count);
+            return int.Parse(count.ToString());
+        }
+
+        internal bool ReadList(string Type, int LimitStart, int LimitEnd, out List<AssemblyLineDetailsListModel> data)
         {
             string WhereParm = "";
             if(!Type.StartsWith("全部"))
@@ -42,6 +57,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                        + "    a.ProductID,                                                      "
                        + "    a.Process                                                         "
                        + " order by b.Type,b.rowid"
+                       + " limit "+LimitStart+","+LimitEnd 
                        ;
             DataSet ds = new DataSet();
             if(new Helper.SQLite.DBHelper().QueryData(sql, out ds))
