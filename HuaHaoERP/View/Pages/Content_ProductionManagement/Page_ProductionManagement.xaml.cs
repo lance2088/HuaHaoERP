@@ -329,11 +329,13 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         {
             if (e.Delta < 0)
             {
-                this.ScrollViewer_AssemblyLineDetails.PageDown();
+                this.ScrollViewer_AssemblyLineDetails.LineDown();
+                this.ScrollViewer_AssemblyLineDetails.LineDown();
             }
             else if (e.Delta > 0)
             {
-                this.ScrollViewer_AssemblyLineDetails.PageUp();
+                this.ScrollViewer_AssemblyLineDetails.LineUp();
+                this.ScrollViewer_AssemblyLineDetails.LineUp();
             }
         }
 
