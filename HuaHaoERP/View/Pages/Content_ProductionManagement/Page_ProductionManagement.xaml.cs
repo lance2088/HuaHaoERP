@@ -313,6 +313,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void Button_PrintAssemblyLineDetails_Click(object sender, RoutedEventArgs e)
         {
+            this.ScrollViewer_AssemblyLineDetails.ScrollToTop();
             PrintDialog Printdlg = new PrintDialog();
             if ((bool)Printdlg.ShowDialog().GetValueOrDefault())
             {
