@@ -315,6 +315,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         {
             this.ScrollViewer_AssemblyLineDetails.ScrollToTop();
             PrintDialog Printdlg = new PrintDialog();
+            Printdlg.UserPageRangeEnabled = true;
             if ((bool)Printdlg.ShowDialog().GetValueOrDefault())
             {
                 Size pageSize = new Size(Printdlg.PrintableAreaWidth, Printdlg.PrintableAreaHeight);
