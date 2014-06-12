@@ -21,18 +21,20 @@
             </TabItem>
             <TabItem x:Name="TabItem_AssemblyLineDetails" FocusVisualStyle="{x:Null}" Header="生产统计" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Foreground="White" Margin="17,0,-17,0">
                 <Grid Background="White">
-                    <DataGrid x:Name="DataGrid_AssemblyLineDetails" Margin="0,40,0,0" CellStyle="{DynamicResource DataGridCellStyleCommon}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" SelectionMode="Single" BorderThickness="0" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" CanUserReorderColumns="False" Loaded="DataGrid_AssemblyLineDetails_Loaded">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="序号" Binding="{Binding Id}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                            <DataGridTextColumn Header="产品编号" Binding="{Binding ProductNumber}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                            <DataGridTextColumn Header="产品名称" Binding="{Binding ProductName}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                            <DataGridTextColumn Header="冲版" Binding="{Binding P1Num}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                            <DataGridTextColumn Header="拉伸" Binding="{Binding P2Num}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                            <DataGridTextColumn Header="冲孔" Binding="{Binding P3Num}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                            <DataGridTextColumn Header="卷边" Binding="{Binding P4Num}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                            <DataGridTextColumn Header="抛光" Binding="{Binding P5Num}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
+                    <ScrollViewer Margin="0,40,0,0">
+                        <DataGrid x:Name="DataGrid_AssemblyLineDetails" Margin="0" CellStyle="{DynamicResource DataGridCellStyleCommon}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" SelectionMode="Single" BorderThickness="0" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" CanUserReorderColumns="False" Loaded="DataGrid_AssemblyLineDetails_Loaded">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="序号" Binding="{Binding Id}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                                <DataGridTextColumn Header="产品编号" Binding="{Binding ProductNumber}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                                <DataGridTextColumn Header="产品名称" Binding="{Binding ProductName}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                                <DataGridTextColumn Header="冲版" Binding="{Binding P1Num}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                                <DataGridTextColumn Header="拉伸" Binding="{Binding P2Num}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                                <DataGridTextColumn Header="冲孔" Binding="{Binding P3Num}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                                <DataGridTextColumn Header="卷边" Binding="{Binding P4Num}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                                <DataGridTextColumn Header="抛光" Binding="{Binding P5Num}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </ScrollViewer>
                     <Button x:Name="Button_PrintAssemblyLineDetails" Content="打印" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_PrintAssemblyLineDetails_Click"/>
                     <ComboBox x:Name="ComboBox_ProductType" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center" DropDownClosed="ComboBox_ProductType_DropDownClosed"/>
                 </Grid>
