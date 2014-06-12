@@ -373,6 +373,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 PageNow--;
                 this.Label_Page.Content = PageNow + "/" + PageAll;
                 InitializeAssemblyLineDetailsDataGrid();
+                this.ScrollViewer_AssemblyLineDetails.ScrollToTop();
             }
         }
 
@@ -383,6 +384,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 PageNow++;
                 this.Label_Page.Content = PageNow + "/" + PageAll;
                 InitializeAssemblyLineDetailsDataGrid();
+                this.ScrollViewer_AssemblyLineDetails.ScrollToTop();
             }
         }
 
