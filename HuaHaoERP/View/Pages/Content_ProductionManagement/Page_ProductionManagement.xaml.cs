@@ -309,10 +309,14 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void Button_PrintAssemblyLineDetails_Click(object sender, RoutedEventArgs e)
         {
-            PrintDialog dialog = new PrintDialog();
-            if (dialog.ShowDialog() == true)
+            PrintDialog Printdlg = new PrintDialog();
+            if ((bool)Printdlg.ShowDialog().GetValueOrDefault())
             {
-                dialog.PrintVisual(DataGrid_AssemblyLineDetails, "PrintAssemblyLineDetails");
+                Size pageSize = new Size(Printdlg.PrintableAreaWidth, Printdlg.PrintableAreaHeight);
+                // sizing of the element.
+                DataGrid_AssemblyLineDetails.Measure(pageSize);
+                DataGrid_AssemblyLineDetails.Arrange(new Rect(20, 20, pageSize.Width, pageSize.Height));
+                Printdlg.PrintVisual(DataGrid_AssemblyLineDetails, "PrintAssemblyLineDetails");
             }
         }
 
