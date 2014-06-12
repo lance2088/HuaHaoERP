@@ -305,7 +305,11 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void Button_PrintAssemblyLineDetails_Click(object sender, RoutedEventArgs e)
         {
-
+            PrintDialog dialog = new PrintDialog();
+            if (dialog.ShowDialog() == true)
+            {
+                dialog.PrintVisual(DataGrid_AssemblyLineDetails, "PrintAssemblyLineDetails");
+            }
         }
 
     }
