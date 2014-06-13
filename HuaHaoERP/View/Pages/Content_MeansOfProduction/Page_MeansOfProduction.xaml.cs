@@ -72,7 +72,7 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
             this.ComboBox_ProductType.ItemsSource = Helper.DataDefinition.ComboBoxList.ProductTypeListWithAll;
             this.ComboBox_ProductType.Text = ProductType;
             List<Model.ProductModel> data;
-            new ViewModel.MeansOfProduction.ProductConsole().ReadList(ProductType, out data);
+            new ViewModel.MeansOfProduction.ProductConsole().ReadList(ProductType, "", out data);
             this.DataGrid_Product.ItemsSource = data;
         }
         private void Button_AddProduct_Click(object sender, RoutedEventArgs e)

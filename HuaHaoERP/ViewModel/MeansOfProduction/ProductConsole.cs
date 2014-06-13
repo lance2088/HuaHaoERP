@@ -57,12 +57,16 @@ namespace HuaHaoERP.ViewModel.MeansOfProduction
             flag = new Helper.SQLite.DBHelper().SingleExecution(sql);
             return flag;
         }
-        internal bool ReadList(string ProductType, out List<ProductModel> data)
+        internal bool ReadList(string ProductType, string Screening, out List<ProductModel> data)
         {
             string Sql_Where = "";
             if(!ProductType.StartsWith("全部"))
             {
                 Sql_Where += " AND Type='" + ProductType + "' ";
+            }
+            if (Screening != "")
+            {
+                Sql_Where += " AND (Name LIKE '%" + Screening + "%' OR Number LIKE '%" + Screening + "%') ";
             }
             bool flag = true;
             data = new List<ProductModel>();

@@ -29,8 +29,9 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void InitializeData()
         {
+            string Screening = this.ComboBox_Screening.Text;
             string ProductType = this.ComboBox_ProductType.Text;
-            new ViewModel.MeansOfProduction.ProductConsole().ReadList(ProductType, out d);
+            new ViewModel.MeansOfProduction.ProductConsole().ReadList(ProductType, Screening, out d);
             foreach(Model.ProductModel dm in d)
             {
                 if(Helper.DataDefinition.CommonParameters.AssemblyLineModuleShow.Contains(dm.Guid))
@@ -102,7 +103,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void ComboBox_Screening_PreviewKeyUp(object sender, KeyEventArgs e)
         {
-
+            InitializeData();
         }
 
         private void DataGridCheckBox_Click(object sender, RoutedEventArgs e)
