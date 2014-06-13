@@ -28,7 +28,7 @@
         </DataGrid>
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_Cancel" Content="&lt;" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="30" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="30" Padding="0" IsCancel="True" Click="Button_Cancel_Click" Foreground="White" FontWeight="Bold" FontSize="16"/>
         <Label Content="返回" HorizontalAlignment="Left" Margin="45,10,0,0" VerticalAlignment="Top" Height="30" VerticalContentAlignment="Center" FontSize="16" FontWeight="Bold"/>
-        <ComboBox x:Name="ComboBox_Product" HorizontalAlignment="Right" Margin="0,51,270,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center" DropDownClosed="ComboBox_Product_DropDownClosed"/>
+        <ComboBox x:Name="ComboBox_Product" HorizontalAlignment="Right" Margin="0,51,270,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center" DropDownClosed="ComboBox_Product_DropDownClosed" IsEditable="True" PreviewKeyUp="ComboBox_Product_PreviewKeyUp" GotFocus="ComboBox_Product_GotFocus" DropDownOpened="ComboBox_Product_DropDownOpened"/>
         <DatePicker x:Name="DatePicker_Start" HorizontalAlignment="Right" Margin="0,80,152,0" VerticalAlignment="Top" Width="120" CalendarClosed="DatePicker_Start_CalendarClosed"/>
         <DatePicker x:Name="DatePicker_End" HorizontalAlignment="Right" Margin="0,80,10,0" VerticalAlignment="Top" Width="120" CalendarClosed="DatePicker_End_CalendarClosed"/>
         <Label Content="至" HorizontalAlignment="Right" Margin="0,80,130,0" VerticalAlignment="Top"/>

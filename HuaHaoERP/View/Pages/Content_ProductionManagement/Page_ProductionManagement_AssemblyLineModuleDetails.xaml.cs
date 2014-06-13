@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data;
 
 namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 {
@@ -21,24 +22,36 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             InitializeComponent();
             this.DatePicker_Start.SelectedDate = DateTime.Now;
             this.DatePicker_End.SelectedDate = DateTime.Now;
-            this.ComboBox_Product.ItemsSource = Helper.DataDefinition.ComboBoxList.ProductListWithAll.DefaultView;
-            this.ComboBox_Product.DisplayMemberPath = "Name";
-            this.ComboBox_Product.SelectedValuePath = "GUID";//GUID四个字母要大写
-            this.ComboBox_Product.SelectedIndex = 0;
-            this.ComboBox_Staff.ItemsSource = Helper.DataDefinition.ComboBoxList.StaffListWithAll.DefaultView;
-            this.ComboBox_Staff.DisplayMemberPath = "Name";
-            this.ComboBox_Staff.SelectedValuePath = "GUID";//GUID四个字母要大写
-            this.ComboBox_Staff.SelectedIndex = 0;
+            InitProductComboBox();
+            InitStaffComboBox();
             this.ComboBox_Process.ItemsSource = Helper.DataDefinition.Process.ProcessListWithAll;
             this.ComboBox_Process.SelectedIndex = 0;
             InitializeDataGrid();
         }
-
+        private void InitProductComboBox()
+        {
+            this.ComboBox_Product.ItemsSource = Helper.DataDefinition.ComboBoxList.ProductListWithAll.DefaultView;
+            this.ComboBox_Product.DisplayMemberPath = "Name";
+            this.ComboBox_Product.SelectedValuePath = "GUID";//GUID四个字母要大写
+            this.ComboBox_Product.SelectedIndex = 0;
+        }
+        private void InitStaffComboBox()
+        {
+            this.ComboBox_Staff.ItemsSource = Helper.DataDefinition.ComboBoxList.StaffListWithAll.DefaultView;
+            this.ComboBox_Staff.DisplayMemberPath = "Name";
+            this.ComboBox_Staff.SelectedValuePath = "GUID";//GUID四个字母要大写
+            this.ComboBox_Staff.SelectedIndex = 0;
+        }
         private void InitializeDataGrid()
         {
             //if(this.IsLoaded)
             {
                 bool IsShowAutoDeduction = (bool)this.CHeckBox_IsShowAutoDeduction.IsChecked;
+                if (this.ComboBox_Product.SelectedValue == null)
+                {
+
+                    return;
+                }
                 Guid ProductID = (Guid)this.ComboBox_Product.SelectedValue;
                 string Process = this.ComboBox_Process.Text;
                 Guid StaffID = (Guid)this.ComboBox_Staff.SelectedValue;
@@ -115,6 +128,38 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                         Helper.Events.ProductionManagement_AssemblyLineEvent.OnUpdateDataGrid();
                     }
                 }
+            }
+        }
+
+        private void ComboBox_Product_PreviewKeyUp(object sender, KeyEventArgs e)
+        {
+            if ((sender as ComboBox).IsDropDownOpen == false)
+            {
+                (sender as ComboBox).IsDropDownOpen = true;
+            }
+            if (this.ComboBox_Product.SelectedValue == null)
+            {
+                string Parm = this.ComboBox_Product.Text;
+                DataSet ds = new DataSet();
+                if (new ViewModel.MeansOfProduction.ProductConsole().GetNameList(Parm, out ds))
+                {
+                    this.ComboBox_Product.ItemsSource = ds.Tables[0].DefaultView;
+                    this.ComboBox_Product.DisplayMemberPath = "Name";
+                    this.ComboBox_Product.SelectedValuePath = "GUID";//GUID四个字母要大写
+                }
+            }
+        }
+
+        private void ComboBox_Product_GotFocus(object sender, RoutedEventArgs e)
+        {
+            (sender as ComboBox).IsDropDownOpen = true;
+        }
+
+        private void ComboBox_Product_DropDownOpened(object sender, EventArgs e)
+        {
+            if (this.ComboBox_Product.SelectedValue == null)
+            {
+                InitProductComboBox();
             }
         }
     }

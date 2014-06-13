@@ -269,6 +269,10 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void ComboBox_Product_KeyUp(object sender, KeyEventArgs e)
         {
+            if ((sender as ComboBox).IsDropDownOpen == false)
+            {
+                (sender as ComboBox).IsDropDownOpen = true;
+            }
             if(this.ComboBox_Product.SelectedValue == null)
             {
                 string Parm = this.ComboBox_Product.Text;
@@ -284,6 +288,10 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void ComboBox_Processors_KeyUp(object sender, KeyEventArgs e)
         {
+            if ((sender as ComboBox).IsDropDownOpen == false)
+            {
+                (sender as ComboBox).IsDropDownOpen = true;
+            }
             if(this.ComboBox_Processors.SelectedValue == null)
             {
                 string Parm = this.ComboBox_Processors.Text;
@@ -299,7 +307,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void ComboBox_Product_DropDownOpened(object sender, EventArgs e)
         {
-            if(this.ComboBox_Product.SelectedValue != null)
+            if(this.ComboBox_Product.SelectedValue == null)
             {
                 InitProductComboBox();
             }
@@ -307,7 +315,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void ComboBox_Processors_DropDownOpened(object sender, EventArgs e)
         {
-            if(this.ComboBox_Processors.SelectedValue != null)
+            if(this.ComboBox_Processors.SelectedValue == null)
             {
                 InitProcessorsComboBox();
             }

@@ -215,7 +215,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void ComboBox_Product_DropDownOpened(object sender, EventArgs e)
         {
-            if(this.ComboBox_Product.SelectedValue != null)
+            if(this.ComboBox_Product.SelectedValue == null)
             {
                 InitComboBox_Product();
             }
@@ -223,20 +223,26 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void ComboBox_Product_KeyUp(object sender, KeyEventArgs e)
         {
-            this.ComboBox_Product.IsDropDownOpen = true;
-            string Parm = this.ComboBox_Product.Text;
-            DataSet ds = new DataSet();
-            if (new ViewModel.MeansOfProduction.ProductConsole().GetNameList(Parm, out ds))
+            if ((sender as ComboBox).IsDropDownOpen == false)
             {
-                this.ComboBox_Product.ItemsSource = ds.Tables[0].DefaultView;
-                this.ComboBox_Product.DisplayMemberPath = "Name";
-                this.ComboBox_Product.SelectedValuePath = "GUID";//GUID四个字母要大写
+                (sender as ComboBox).IsDropDownOpen = true;
+            }
+            if (this.ComboBox_Product.SelectedValue == null)
+            {
+                string Parm = this.ComboBox_Product.Text;
+                DataSet ds = new DataSet();
+                if (new ViewModel.MeansOfProduction.ProductConsole().GetNameList(Parm, out ds))
+                {
+                    this.ComboBox_Product.ItemsSource = ds.Tables[0].DefaultView;
+                    this.ComboBox_Product.DisplayMemberPath = "Name";
+                    this.ComboBox_Product.SelectedValuePath = "GUID";//GUID四个字母要大写
+                }
             }
         }
 
         private void ComboBox_Processors_DropDownOpened(object sender, EventArgs e)
         {
-            if (this.ComboBox_Processors.SelectedValue != null)
+            if (this.ComboBox_Processors.SelectedValue == null)
             {
                 InitComboBox_Processors();
             }
@@ -244,15 +250,26 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void ComboBox_Processors_KeyUp(object sender, KeyEventArgs e)
         {
-            this.ComboBox_Processors.IsDropDownOpen = true;
-            string Parm = this.ComboBox_Processors.Text;
-            DataSet ds = new DataSet();
-            if (new ViewModel.Customer.ProcessorsConsole().GetNameList(Parm, out ds))
+            if ((sender as ComboBox).IsDropDownOpen == false)
             {
-                this.ComboBox_Processors.ItemsSource = ds.Tables[0].DefaultView;
-                this.ComboBox_Processors.DisplayMemberPath = "Name";
-                this.ComboBox_Processors.SelectedValuePath = "GUID";//GUID四个字母要大写
+                (sender as ComboBox).IsDropDownOpen = true;
             }
+            if (this.ComboBox_Product.SelectedValue == null)
+            {
+                string Parm = this.ComboBox_Processors.Text;
+                DataSet ds = new DataSet();
+                if (new ViewModel.Customer.ProcessorsConsole().GetNameList(Parm, out ds))
+                {
+                    this.ComboBox_Processors.ItemsSource = ds.Tables[0].DefaultView;
+                    this.ComboBox_Processors.DisplayMemberPath = "Name";
+                    this.ComboBox_Processors.SelectedValuePath = "GUID";//GUID四个字母要大写
+                }
+            }
+        }
+
+        private void EditableComboBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            (sender as ComboBox).IsDropDownOpen = true;
         }
     }
 }

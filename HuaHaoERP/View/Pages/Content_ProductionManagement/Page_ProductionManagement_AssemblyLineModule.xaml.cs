@@ -169,6 +169,10 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void ComboBox_StaffList_KeyUp(object sender, KeyEventArgs e)
         {
+            if ((sender as ComboBox).IsDropDownOpen == false)
+            {
+                (sender as ComboBox).IsDropDownOpen = true;
+            }
             if(this.ComboBox_StaffList.SelectedValue == null)
             {
                 string Parm = this.ComboBox_StaffList.Text;
@@ -184,7 +188,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void ComboBox_StaffList_DropDownOpened(object sender, EventArgs e)
         {
-            if(this.ComboBox_StaffList.SelectedValue != null)
+            if(this.ComboBox_StaffList.SelectedValue == null)
             {
                 InitializeStaffComboBox();
             }
