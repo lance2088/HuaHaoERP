@@ -241,7 +241,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             PageAll = (new ViewModel.ProductionManagement.AssemblyLineDetailsConsole().ReadCount(ProductType)) / 40 + 1;
             this.Label_Page.Content = PageNow + "/" + PageAll;
             List<Model.ProductionManagement.AssemblyLineDetailsListModel> d = new List<Model.ProductionManagement.AssemblyLineDetailsListModel>();
-            if(new ViewModel.ProductionManagement.AssemblyLineDetailsConsole().ReadList(ProductType,(PageNow-1)*41, (PageNow)*41, out d))
+            if(new ViewModel.ProductionManagement.AssemblyLineDetailsConsole().ReadList(ProductType,(PageNow-1)*40, 40, out d))
             {
                 this.DataGrid_AssemblyLineDetails.ItemsSource = d;
             }

@@ -24,8 +24,9 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
             return int.Parse(count.ToString());
         }
 
-        internal bool ReadList(string Type, int LimitStart, int LimitEnd, out List<AssemblyLineDetailsListModel> data)
+        internal bool ReadList(string Type, int LimitStart, int Limit, out List<AssemblyLineDetailsListModel> Outdata)
         {
+            Outdata = new List<AssemblyLineDetailsListModel>();
             string WhereParm = "";
             if(!Type.StartsWith("全部"))
             {
@@ -35,7 +36,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
             AssemblyLineDetailsListModel LastD = new AssemblyLineDetailsListModel();
             List<string> ProcessList = new List<string>();
 
-            data = new List<AssemblyLineDetailsListModel>();
+            List<AssemblyLineDetailsListModel> data = new List<AssemblyLineDetailsListModel>();
             string sql = " SELECT                                                               "
                        + "    a.ProductID,                                                      "
                        + "    b.Number,                                                         "
@@ -57,7 +58,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                        + "    a.ProductID,                                                      "
                        + "    a.Process                                                         "
                        + " order by b.Type,b.rowid"
-                       + " limit "+LimitStart+","+LimitEnd 
+                       //+ " limit " + LimitStart + "," + (LimitStart + Limit)
                        ;
             DataSet ds = new DataSet();
             if(new Helper.SQLite.DBHelper().QueryData(sql, out ds))
@@ -107,6 +108,14 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                 {
                     CalculateProcessList(ProcessList, LastGuid, ref LastD);
                     data.Add(LastD);
+                }
+                
+                for (int i = LimitStart; i < LimitStart + Limit; i++)
+                {
+                    if (i < data.Count)
+                    {
+                        Outdata.Add(data[i]);
+                    }
                 }
                 return true;
             }
