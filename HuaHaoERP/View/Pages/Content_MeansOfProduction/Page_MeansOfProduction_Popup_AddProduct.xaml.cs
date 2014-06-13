@@ -143,5 +143,10 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
                 MessageBox.Show("请检查输入是否有误。", "错误");
             }
         }
+
+        private void EditableComboBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            (sender as ComboBox).IsDropDownOpen = true;
+        }
     }
 }

@@ -133,5 +133,10 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
         {
             this.ComboBox_Supplier.SelectedIndex = -1;
         }
+
+        private void EditableComboBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            (sender as ComboBox).IsDropDownOpen = true;
+        }
     }
 }
