@@ -120,5 +120,10 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 TempD.IsShow = !TempD.IsShow;
             }
         }
+
+        private void ComboBox_Screening_GotFocus(object sender, RoutedEventArgs e)
+        {
+            this.ComboBox_Screening.IsDropDownOpen = true;
+        }
     }
 }
