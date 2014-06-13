@@ -29,7 +29,8 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void InitializeData()
         {
-            string Screening = this.ComboBox_Screening.Text;
+            this.TextBox_Screening.Focus();
+            string Screening = this.TextBox_Screening.Text;
             string ProductType = this.ComboBox_ProductType.Text;
             new ViewModel.MeansOfProduction.ProductConsole().ReadList(ProductType, Screening, out d);
             foreach(Model.ProductModel dm in d)
@@ -96,16 +97,6 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             InitializeData();
         }
 
-        private void ComboBox_Screening_GotFocus(object sender, RoutedEventArgs e)
-        {
-            this.ComboBox_Screening.IsDropDownOpen = true;
-        }
-
-        private void ComboBox_Screening_PreviewKeyUp(object sender, KeyEventArgs e)
-        {
-            InitializeData();
-        }
-
         private void DataGridCheckBox_Click(object sender, RoutedEventArgs e)
         {
             if (this.DataGrid_Product.SelectedCells.Count > 0)
@@ -113,6 +104,11 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 Model.ProductModel TempD = this.DataGrid_Product.SelectedCells[0].Item as Model.ProductModel;
                 TempD.IsShow = !TempD.IsShow;
             }
+        }
+
+        private void TextBox_Screening_PreviewKeyUp(object sender, KeyEventArgs e)
+        {
+            InitializeData();
         }
     }
 }

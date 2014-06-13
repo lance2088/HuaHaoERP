@@ -28,6 +28,7 @@
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_SelectAll" Content="全选" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_SelectAll_Click"/>
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_Anti_electionDefault" Content="反选" HorizontalAlignment="Left" Margin="75,20,0,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_Anti_electionDefault_Click"/>
         <ComboBox x:Name="ComboBox_ProductType" HorizontalAlignment="Left" Margin="260,20,0,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center" DropDownClosed="ComboBox_ProductType_DropDownClosed"/>
-        <ComboBox x:Name="ComboBox_Screening" HorizontalAlignment="Left" Margin="130,20,0,0" VerticalAlignment="Top" Width="120" Height="24" IsEditable="True" VerticalContentAlignment="Center" GotFocus="ComboBox_Screening_GotFocus" PreviewKeyUp="ComboBox_Screening_PreviewKeyUp"/>
+        <TextBox x:Name="TextBox_Screening" HorizontalAlignment="Left" Height="24" Margin="130,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" PreviewKeyUp="TextBox_Screening_PreviewKeyUp"/>
+
     </Grid>
 </Page>
