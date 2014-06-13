@@ -7,12 +7,12 @@ using System.Windows;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("HuaHaoERP")]
-[assembly: AssemblyDescription("华浩ERP")]
+[assembly: AssemblyTitle("Pyramid ERP")]
+[assembly: AssemblyDescription("Pyramid ERP")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("StoneAnt")]
-[assembly: AssemblyProduct("HuaHaoERP")]
-[assembly: AssemblyCopyright("Copyright ©  2014")]
+[assembly: AssemblyProduct("Pyramid ERP")]
+[assembly: AssemblyCopyright("Copyright ©  2014 StoneAnt")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
