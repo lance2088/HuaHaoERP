@@ -10,18 +10,24 @@
     <Grid Width="400" HorizontalAlignment="Right" Background="White">
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_Commit" Content="确定" HorizontalAlignment="Left" Margin="105,0,0,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_Commit_Click" Height="24" Foreground="White" IsDefault="True"/>
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_Cancel" Content="取消" HorizontalAlignment="Right" Margin="0,0,105,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" IsCancel="True" Click="Button_Cancel_Click" Height="24" Foreground="White"/>
-        <DataGrid x:Name="DataGrid_Product" Margin="20,49,20,60" CellStyle="{DynamicResource DataGridCellStyleCommon}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" BorderBrush="#FF99CCFF" HeadersVisibility="Column" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" AutoGenerateColumns="False" SelectionMode="Single" MouseLeftButtonUp="DataGrid_Product_MouseLeftButtonUp" IsReadOnly="True" MouseLeftButtonDown="DataGrid_Product_MouseLeftButtonDown">
+        <DataGrid x:Name="DataGrid_Product" Margin="20,49,20,60" CellStyle="{DynamicResource DataGridCellStyleCommon}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" BorderBrush="#FF99CCFF" HeadersVisibility="Column" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="GUID" Visibility="Hidden" Binding="{Binding Guid}"/>
                 <DataGridTextColumn Header="序号" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="编号" Binding="{Binding Number}"/>
                 <DataGridTextColumn Header="名称" Binding="{Binding Name}"/>
-                <DataGridCheckBoxColumn x:Name="DataGridCheckBoxColumn_isShow" Header="是否显示" Binding="{Binding IsShow}"/>
+                <DataGridTemplateColumn Header="是否显示">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox x:Name="DataGridCheckBox" IsChecked="{Binding IsShow}" HorizontalAlignment="Center" Click="DataGridCheckBox_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_SelectAll" Content="全选" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_SelectAll_Click"/>
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_Anti_electionDefault" Content="反选" HorizontalAlignment="Left" Margin="75,20,0,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_Anti_electionDefault_Click"/>
         <ComboBox x:Name="ComboBox_ProductType" HorizontalAlignment="Left" Margin="260,20,0,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center" DropDownClosed="ComboBox_ProductType_DropDownClosed"/>
-        <ComboBox x:Name="ComboBox_Screening" HorizontalAlignment="Left" Margin="130,20,0,0" VerticalAlignment="Top" Width="120" Height="24" IsEditable="True" VerticalContentAlignment="Center" GotFocus="ComboBox_Screening_GotFocus"/>
+        <ComboBox x:Name="ComboBox_Screening" HorizontalAlignment="Left" Margin="130,20,0,0" VerticalAlignment="Top" Width="120" Height="24" IsEditable="True" VerticalContentAlignment="Center" GotFocus="ComboBox_Screening_GotFocus" PreviewKeyUp="ComboBox_Screening_PreviewKeyUp"/>
     </Grid>
 </Page>
