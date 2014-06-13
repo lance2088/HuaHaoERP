@@ -237,11 +237,13 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         #region 生产统计
         private void InitializeAssemblyLineDetailsDataGrid()
         {
+            this.TextBox_Screening.Focus();
+            string Screening = this.TextBox_Screening.Text;
             string ProductType = this.ComboBox_ProductType.Text;
-            PageAll = (new ViewModel.ProductionManagement.AssemblyLineDetailsConsole().ReadCount(ProductType)) / 40 + 1;
+            PageAll = (new ViewModel.ProductionManagement.AssemblyLineDetailsConsole().ReadCount(ProductType, Screening)) / 40 + 1;
             this.Label_Page.Content = PageNow + "/" + PageAll;
             List<Model.ProductionManagement.AssemblyLineDetailsListModel> d = new List<Model.ProductionManagement.AssemblyLineDetailsListModel>();
-            if(new ViewModel.ProductionManagement.AssemblyLineDetailsConsole().ReadList(ProductType,(PageNow-1)*40, 40, out d))
+            if (new ViewModel.ProductionManagement.AssemblyLineDetailsConsole().ReadList(ProductType, Screening, (PageNow - 1) * 40, 40, out d))
             {
                 this.DataGrid_AssemblyLineDetails.ItemsSource = d;
             }
@@ -386,6 +388,13 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 InitializeAssemblyLineDetailsDataGrid();
                 this.ScrollViewer_AssemblyLineDetails.ScrollToTop();
             }
+        }
+
+        private void TextBox_Screening_PreviewKeyUp(object sender, KeyEventArgs e)
+        {
+            PageNow = 1;
+            InitializeAssemblyLineDetailsDataGrid();
+            this.ScrollViewer_AssemblyLineDetails.ScrollToTop();
         }
 
     }

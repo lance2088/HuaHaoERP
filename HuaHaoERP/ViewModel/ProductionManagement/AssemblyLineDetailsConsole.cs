@@ -9,12 +9,12 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
 {
     class AssemblyLineDetailsConsole
     {
-        internal int ReadCount(string type)
+        internal int ReadCount(string type, string Screening)
         {
-            string WhereParm = "";
+            string WhereParm = " where (b.Number LIKE '%" + Screening + "%' OR b.Name LIKE '%" + Screening + "%') ";
             if (!type.StartsWith("全部"))
             {
-                WhereParm += " where b.Type='" + type + "' ";
+                WhereParm += " AND b.Type='" + type + "' ";
             }
             object count;
             string sql = "select count(DISTINCT ProductID) from T_PM_ProductionSchedule a"
@@ -24,13 +24,17 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
             return int.Parse(count.ToString());
         }
 
-        internal bool ReadList(string Type, int LimitStart, int Limit, out List<AssemblyLineDetailsListModel> Outdata)
+        internal bool ReadList(string Type, string Screening, int LimitStart, int Limit, out List<AssemblyLineDetailsListModel> Outdata)
         {
             Outdata = new List<AssemblyLineDetailsListModel>();
             string WhereParm = "";
             if(!Type.StartsWith("全部"))
             {
                 WhereParm += " AND b.Type='" + Type + "' ";
+            }
+            if (Screening != "")
+            {
+                WhereParm += " AND (b.Number LIKE '%" + Screening + "%' OR b.Name LIKE '%" + Screening + "%') ";
             }
             Guid LastGuid = new Guid();
             AssemblyLineDetailsListModel LastD = new AssemblyLineDetailsListModel();
@@ -58,7 +62,6 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                        + "    a.ProductID,                                                      "
                        + "    a.Process                                                         "
                        + " order by b.Type,b.rowid"
-                       //+ " limit " + LimitStart + "," + (LimitStart + Limit)
                        ;
             DataSet ds = new DataSet();
             if(new Helper.SQLite.DBHelper().QueryData(sql, out ds))
