@@ -13,7 +13,7 @@ using System.Windows;
 [assembly: AssemblyCompany("StoneAnt")]
 [assembly: AssemblyProduct("Pyramid ERP")]
 [assembly: AssemblyCopyright("Copyright ©  2014 StoneAnt")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyTrademark("StoneAnt")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
