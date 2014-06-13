@@ -69,10 +69,11 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
         private void InitializeProductDataGrid()
         {
             string ProductType = this.ComboBox_ProductType.Text;
+            string Screening = this.TextBox_Screening.Text;
             this.ComboBox_ProductType.ItemsSource = Helper.DataDefinition.ComboBoxList.ProductTypeListWithAll;
             this.ComboBox_ProductType.Text = ProductType;
             List<Model.ProductModel> data;
-            new ViewModel.MeansOfProduction.ProductConsole().ReadList(ProductType, "", out data);
+            new ViewModel.MeansOfProduction.ProductConsole().ReadList(ProductType, Screening, out data);
             this.DataGrid_Product.ItemsSource = data;
         }
         private void Button_AddProduct_Click(object sender, RoutedEventArgs e)
@@ -98,6 +99,14 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
                 HuaHaoERP.Model.ProductModel data = this.DataGrid_Product.SelectedCells[0].Item as HuaHaoERP.Model.ProductModel;
                 Helper.Events.PopUpEvent.OnShowPopUp(new Page_MeansOfProduction_Popup_AddProduct(data));
             }
+        }
+        private void TextBox_Screening_PreviewKeyUp(object sender, KeyEventArgs e)
+        {
+            InitializeProductDataGrid();
+        }
+        private void TextBox_Screening_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.TextBox_Screening.Focus();
         }
         #endregion
 
@@ -134,7 +143,6 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
             }
         }
         #endregion
-
 
     }
 }
