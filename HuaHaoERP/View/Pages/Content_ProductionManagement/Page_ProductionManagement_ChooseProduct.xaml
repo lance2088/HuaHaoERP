@@ -14,8 +14,8 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="GUID" Visibility="Hidden" Binding="{Binding Guid}"/>
                 <DataGridTextColumn Header="序号" Binding="{Binding Id}"/>
-                <DataGridTextColumn Header="编号" Binding="{Binding Number}"/>
-                <DataGridTextColumn Header="名称" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="编号" Binding="{Binding Number}" MinWidth="80"/>
+                <DataGridTextColumn Header="名称" Binding="{Binding Name}" MinWidth="100"/>
                 <DataGridTemplateColumn Header="是否显示" CanUserSort="True" SortMemberPath="IsShow" SortDirection="Ascending">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
