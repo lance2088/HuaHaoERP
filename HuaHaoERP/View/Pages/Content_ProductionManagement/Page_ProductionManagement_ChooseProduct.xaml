@@ -16,10 +16,10 @@
                 <DataGridTextColumn Header="序号" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="编号" Binding="{Binding Number}"/>
                 <DataGridTextColumn Header="名称" Binding="{Binding Name}"/>
-                <DataGridTemplateColumn Header="是否显示">
+                <DataGridTemplateColumn Header="是否显示" CanUserSort="True" SortMemberPath="IsShow" SortDirection="Ascending">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <CheckBox x:Name="DataGridCheckBox" IsChecked="{Binding IsShow}" HorizontalAlignment="Center" Click="DataGridCheckBox_Click"/>
+                            <CheckBox x:Name="DataGridCheckBox" IsChecked="{Binding IsShow}" Click="DataGridCheckBox_Click"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
