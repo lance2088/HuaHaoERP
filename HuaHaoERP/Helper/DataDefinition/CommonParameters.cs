@@ -74,5 +74,15 @@ namespace HuaHaoERP.Helper.DataDefinition
             get { return CommonParameters.periodOfValidity; }
             set { CommonParameters.periodOfValidity = value; }
         }
+
+        private static bool isLockAdminLogin = false;
+        /// <summary>
+        /// 锁定只能管理员登陆
+        /// </summary>
+        public static bool IsLockAdminLogin
+        {
+            get { return CommonParameters.isLockAdminLogin; }
+            set { CommonParameters.isLockAdminLogin = value; }
+        }
     }
 }

@@ -78,6 +78,19 @@ namespace HuaHaoERP.View.Windows
         private void Button_Login_Click(object sender, RoutedEventArgs e)
         {
             string UserName = this.TextBox_LoginUserName.Text.Trim();
+            if(Helper.DataDefinition.CommonParameters.IsLockAdminLogin)
+            {
+                if (UserName != "root" && UserName !="admin")
+                {
+                    this.Label_Message.Content = "请使用管理员帐号登陆";
+                    this.PasswordBox_LoginPassword.Clear();
+                    this.TextBox_LoginUserName.Clear();
+                    this.TextBox_LoginUserName.Focus();
+                    ShowSeconds = 5;
+                    timer.Start();
+                    return;
+                }
+            }
             string Password = Helper.Tools.TranslatePassword.TranslateToString(this.PasswordBox_LoginPassword.SecurePassword);
             if(new ViewModel.Security.LoginConsole().LoginAuthentication(UserName, Password))
             {
