@@ -10,20 +10,27 @@ namespace HuaHaoERP.Helper.License
     {
         private static string SettingFile = AppDomain.CurrentDomain.BaseDirectory + "Data\\";
 
+        /// <summary>
+        /// 计算机信息注册到文件
+        /// </summary>
+        /// <returns></returns>
         internal bool Register()
         {
             DeleteFile();
-            Write("C", Tools.GenerateMD5.GetMD5_32(new Tools.ComputerInfo().CpuID + "StoneAnt.HSH C.C"));//CPU
+            //MAC
             List<string> Macs = new Tools.ComputerInfo().Macs;
             foreach (string str in Macs)
             {
                 Write("M", Tools.GenerateMD5.GetMD5_32(str + "StoneAnt.HSH MM"));//MAC
             }
+            //Disk
             List<string> Disk = new Tools.ComputerInfo().DiskSerialNumber;
             foreach (string str in Disk)
             {
                 Write("D", Tools.GenerateMD5.GetMD5_32(str + "StoneAnt.HSH DOD"));//DISK
             }
+            //Cpu
+            Write("C", Tools.GenerateMD5.GetMD5_32(new Tools.ComputerInfo().CpuID + "StoneAnt.HSH C.C"));//CPU
             return true;
         }
 
@@ -35,7 +42,7 @@ namespace HuaHaoERP.Helper.License
         {
             bool flag = false;
             List<string> ReadResult = new List<string>();
-
+            //MAC
             if (File.Exists(SettingFile + "M.HSH"))
             {
                 Read(SettingFile + "M.HSH", out ReadResult);
@@ -50,6 +57,7 @@ namespace HuaHaoERP.Helper.License
                     }
                 }
             }
+            //Disk
             if (!flag)
             {
                 if (File.Exists(SettingFile + "D.HSH"))
@@ -67,6 +75,7 @@ namespace HuaHaoERP.Helper.License
                     }
                 }
             }
+            //Cpu
             if (!flag)
             {
                 if (File.Exists(SettingFile + "C.HSH"))
