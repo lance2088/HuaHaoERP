@@ -427,6 +427,9 @@
     <None Include="Sign.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="更新说明.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Resource Include="View\Resources\Images\MainBackground.jpg" />
     <Resource Include="View\Resources\Images\stoneantLogo.png" />
     <Resource Include="View\Resources\Images\MaxMinCloseButtonPic\Close.png" />
