@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data;
+using System.Printing;
 using HuaHaoERP.Helper.Events;
 
 namespace HuaHaoERP.View.Pages.Content_ProductionManagement
