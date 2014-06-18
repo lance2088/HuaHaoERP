@@ -337,11 +337,15 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             {
                 PageNow = i;
                 InitializeAssemblyLineDetailsDataGrid();
-                if (pq == null)
+                while (pq == null)
                 {
                     if ((bool)Printdlg.ShowDialog().GetValueOrDefault())
                     {
                         pq = Printdlg.PrintQueue;
+                    }
+                    else
+                    {
+                        return;
                     }
                 }
                 Printdlg.PrintVisual(DataGrid_AssemblyLineDetails, "");
