@@ -27,7 +27,7 @@ namespace HuaHaoERP.Helper.License
                         }
                         else
                         {
-                            System.Windows.MessageBox.Show("许可有误，请联系开发商，错误代码：002", "错误");
+                            System.Windows.MessageBox.Show("欢迎试用石蚁科技ERP产品，请支持正版。", "");
                         }
                         return;
                     }

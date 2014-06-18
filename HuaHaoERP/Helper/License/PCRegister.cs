@@ -6,9 +6,17 @@ using System.IO;
 
 namespace HuaHaoERP.Helper.License
 {
-    class PCRegister
+    internal class PCRegister
     {
-        private static string SettingFile = AppDomain.CurrentDomain.BaseDirectory + "Data\\";
+        private static string SettingFile = AppDomain.CurrentDomain.BaseDirectory + "HSH\\";
+
+        internal PCRegister()
+        {
+            if (!Directory.Exists(SettingFile))
+            {
+                Directory.CreateDirectory(SettingFile);
+            }
+        }
 
         /// <summary>
         /// 计算机信息注册到文件
