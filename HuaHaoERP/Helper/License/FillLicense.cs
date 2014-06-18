@@ -28,7 +28,7 @@ namespace HuaHaoERP.Helper.License
                         else
                         {
                             Helper.DataDefinition.CommonParameters.IsLockAdminLogin = true;
-                            System.Windows.MessageBox.Show("欢迎试用石蚁科技ERP产品，请支持正版。\n试用版请使用管理员帐户登陆", "");
+                            System.Windows.MessageBox.Show("欢迎试用石蚁科技ERP产品，请支持正版。\n试用版请使用管理员帐号登陆。", "");
                         }
                         return;
                     }
