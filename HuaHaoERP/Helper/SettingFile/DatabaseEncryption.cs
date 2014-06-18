@@ -46,8 +46,7 @@ namespace HuaHaoERP.Helper.SettingFile
 
         internal void Write(string str)
         {
-            Clear();
-            FileStream fs = new FileStream(SettingFile, FileMode.Append);
+            FileStream fs = new FileStream(SettingFile, FileMode.Create);
             StreamWriter sw = new StreamWriter(fs);
             string asd = str + "\n";
             sw.Write(asd);

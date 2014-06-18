@@ -9,6 +9,9 @@ namespace HuaHaoERP.Helper.License
     {
         public void Fill(string LicenseFile)
         {
+            Helper.DataDefinition.CommonParameters.PeriodOfValidity = -1;
+            Helper.DataDefinition.CommonParameters.LicenseModel = new StoneAnt.License.Model.LicenseModel();
+
             StoneAnt.License.Model.LicenseModel m = new StoneAnt.License.Model.LicenseModel();
             if (new StoneAnt.License.Verify.Term().VerfyLicense(LicenseFile, out m))
             {
@@ -17,31 +20,25 @@ namespace HuaHaoERP.Helper.License
                 {
                     if (KeyInDB == m.Key)
                     {
-                        Helper.DataDefinition.CommonParameters.LicenseModel = m;
-                        CalculatePeriodOfValidity();
-                    }
-                    else
-                    {
-                        Helper.DataDefinition.CommonParameters.PeriodOfValidity = -1;
-                        Helper.DataDefinition.CommonParameters.LicenseModel = new StoneAnt.License.Model.LicenseModel();
-                        System.Windows.MessageBox.Show("许可有误，请联系开发商", "错误");
+                        if(new PCRegister().CheckRegistrationInformation())
+                        {
+                            Helper.DataDefinition.CommonParameters.LicenseModel = m;
+                            CalculatePeriodOfValidity();
+                        }
+                        else
+                        {
+                            System.Windows.MessageBox.Show("许可有误，请联系开发商，错误代码：002", "错误");
+                        }
+                        return;
                     }
                 }
-                else
-                {
-                    Helper.DataDefinition.CommonParameters.PeriodOfValidity = -1;
-                    Helper.DataDefinition.CommonParameters.LicenseModel = new StoneAnt.License.Model.LicenseModel();
-                    System.Windows.MessageBox.Show("许可有误，请联系开发商", "错误");
-                }
             }
-            else
-            {
-                Helper.DataDefinition.CommonParameters.PeriodOfValidity = -1;
-                Helper.DataDefinition.CommonParameters.LicenseModel = new StoneAnt.License.Model.LicenseModel();
-                System.Windows.MessageBox.Show("许可有误，请联系开发商", "错误");
-            }
+            System.Windows.MessageBox.Show("许可有误，请联系开发商，错误代码：001", "错误");
         }
 
+        /// <summary>
+        /// 计算许可剩余时间
+        /// </summary>
         public void CalculatePeriodOfValidity()
         {
             if(Helper.DataDefinition.CommonParameters.LicenseModel.PeriodOfValidity > 0)

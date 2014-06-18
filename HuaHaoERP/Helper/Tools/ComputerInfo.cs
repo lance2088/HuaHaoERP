@@ -8,6 +8,9 @@ namespace HuaHaoERP.Helper.Tools
 {
     internal class ComputerInfo
     {
+        /// <summary>
+        /// 非00开头的MAC地址
+        /// </summary>
         internal List<string> Macs
         {
             get 
@@ -38,7 +41,10 @@ namespace HuaHaoERP.Helper.Tools
                 return macs;
             }
         }
-
+        /// <summary>
+        /// CPU ID
+        /// *此方法很慢
+        /// </summary>
         internal string CpuID
         {
             get
@@ -65,7 +71,9 @@ namespace HuaHaoERP.Helper.Tools
                 }  
             }
         }
-
+        /// <summary>
+        /// 硬盘序列号
+        /// </summary>
         internal List<string> DiskSerialNumber
         {
             get

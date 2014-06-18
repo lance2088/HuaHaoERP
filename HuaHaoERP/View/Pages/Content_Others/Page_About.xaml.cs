@@ -63,6 +63,7 @@ namespace HuaHaoERP.View.Pages.Content_Others
                         AuthorizeLabel();
                         if(new ViewModel.Security.LicenseConsole().RegisterInDB(m.Key))
                         {
+                            new Helper.License.PCRegister().Register();
                             MessageBox.Show("许可验证成功，感谢支持石蚁软件\n重启软件后生效", "通知");
                         }
                         else
