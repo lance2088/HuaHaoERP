@@ -266,12 +266,12 @@
     <Compile Include="Helper\Tools\Seniority.cs" />
     <Compile Include="Helper\Tools\TranslatePassword.cs" />
     <Compile Include="Helper\XML\Reader.cs" />
-    <Compile Include="Model\AssemblyLineModuleModel.cs" />
+    <Compile Include="Model\ProductionManagement\AssemblyLineModuleModel.cs" />
     <Compile Include="Model\CustomerModel.cs" />
     <Compile Include="Model\ProcessorsModel.cs" />
     <Compile Include="Model\ProductionManagement\AssemblyLineDetailsListModel.cs" />
     <Compile Include="Model\ProductionManagement\AssemblyLineDetailsModel.cs" />
-    <Compile Include="Model\ProductionManagement_OutsideProcessModel.cs" />
+    <Compile Include="Model\ProductionManagement\ProductionManagement_OutsideProcessModel.cs" />
     <Compile Include="Model\ProductModel.cs" />
     <Compile Include="Model\ProductOrderModel.cs" />
     <Compile Include="Model\RawMaterialsDetailModel.cs" />
