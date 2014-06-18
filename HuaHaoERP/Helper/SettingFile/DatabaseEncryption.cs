@@ -6,6 +6,9 @@ using System.IO;
 
 namespace HuaHaoERP.Helper.SettingFile
 {
+    /// <summary>
+    /// 数据库加密密码
+    /// </summary>
     class DatabaseEncryption
     {
         private static string SettingFile = AppDomain.CurrentDomain.BaseDirectory + "Data\\Encryption.data";
