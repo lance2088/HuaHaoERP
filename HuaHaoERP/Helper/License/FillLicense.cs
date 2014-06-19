@@ -13,44 +13,47 @@ namespace HuaHaoERP.Helper.License
             string KeyInDB = "";
             Helper.DataDefinition.CommonParameters.LicenseModel = new StoneAnt.License.Model.LicenseModel();
             
-            if (new ViewModel.Security.LicenseConsole().ReadKeyFromDB(out KeyInDB))//数据库存在key
+            if (new ViewModel.Security.LicenseConsole().ReadKeyFromDB(out KeyInDB))
             {
-                if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "License.key"))//存在license文件
+                if (KeyInDB != "")//数据库存在key
                 {
-                    StoneAnt.License.Model.LicenseModel m = new StoneAnt.License.Model.LicenseModel();
-                    if (new StoneAnt.License.Verify.Term().VerfyLicense(LicenseFile, out m))//验证License文件
+                    if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "License.key"))//存在license文件
                     {
-                        if (KeyInDB == m.Key)//验证License文件与数据库Key
+                        StoneAnt.License.Model.LicenseModel m = new StoneAnt.License.Model.LicenseModel();
+                        if (new StoneAnt.License.Verify.Term().VerfyLicense(LicenseFile, out m))//验证License文件
                         {
-                            if (new PCRegister().CheckRegistrationInformation())//验证系统信息
+                            if (KeyInDB == m.Key)//验证License文件与数据库Key
                             {
-                                Helper.DataDefinition.CommonParameters.LicenseModel = m;
-                                CalculatePeriodOfValidity();
-                                return;
+                                if (new PCRegister().CheckRegistrationInformation())//验证系统信息
+                                {
+                                    Helper.DataDefinition.CommonParameters.LicenseModel = m;
+                                    CalculatePeriodOfValidity();
+                                    return;
+                                }
+                                else//许可匹配，电脑不匹配
+                                {
+                                    Helper.DataDefinition.CommonParameters.IsLockApp = true;
+                                    System.Windows.MessageBox.Show("感谢使用石蚁科技ERP产品，请支持正版。\n请使用管理员帐号登陆并导入许可文件以继续使用。", "代码：004");
+                                }
                             }
-                            else//许可匹配，电脑不匹配
+                            else//许可与DB数据不匹配
                             {
-                                Helper.DataDefinition.CommonParameters.IsLockApp = true;
-                                System.Windows.MessageBox.Show("感谢使用石蚁科技ERP产品，请支持正版。\n请使用管理员帐号登陆并导入许可文件以继续使用。", "代码：004");
+                                System.Windows.MessageBox.Show("许可有误，请联系开发商，错误代码：003", "错误");
                             }
                         }
-                        else//许可与DB数据不匹配
+                        else//许可验证不通过
                         {
-                            System.Windows.MessageBox.Show("许可有误，请联系开发商，错误代码：003", "错误");
+                            System.Windows.MessageBox.Show("许可损坏，请联系开发商，错误代码：002", "错误");
                         }
                     }
-                    else//许可验证不通过
+                    else//找不到许可文件
                     {
-                        System.Windows.MessageBox.Show("许可损坏，请联系开发商，错误代码：002", "错误");
+                        System.Windows.MessageBox.Show("许可丢失，请联系开发商，错误代码：001", "错误");
                     }
+                    Helper.DataDefinition.CommonParameters.IsLockAdminLogin = true;
                 }
-                else//找不到许可文件
-                {
-                    System.Windows.MessageBox.Show("许可丢失，请联系开发商，错误代码：001", "错误");
-                }
-                Helper.DataDefinition.CommonParameters.IsLockAdminLogin = true;
-                Helper.DataDefinition.CommonParameters.PeriodOfValidity = -1;
             }
+            Helper.DataDefinition.CommonParameters.PeriodOfValidity = -1;
         }
 
         /// <summary>
