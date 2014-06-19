@@ -50,9 +50,9 @@ namespace HuaHaoERP.Helper.License
                     {
                         System.Windows.MessageBox.Show("许可丢失，请联系开发商，错误代码：001", "错误");
                     }
-                    Helper.DataDefinition.CommonParameters.IsLockAdminLogin = true;
                 }
             }
+            Helper.DataDefinition.CommonParameters.IsLockAdminLogin = true;
             Helper.DataDefinition.CommonParameters.PeriodOfValidity = -1;
         }
 
