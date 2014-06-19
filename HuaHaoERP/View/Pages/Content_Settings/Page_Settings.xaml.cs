@@ -36,6 +36,11 @@ namespace HuaHaoERP.View.Pages.Content_Settings
 
         private void PermissionsSettings()
         {
+            if(Helper.DataDefinition.CommonParameters.IsLockApp)
+            {
+                this.TabItem_Comprehensive.Visibility = System.Windows.Visibility.Collapsed;
+                this.TabItem_SecuritySettings.Visibility = System.Windows.Visibility.Collapsed;
+            }
             int Permissions = Helper.DataDefinition.CommonParameters.Permissions;
             if (Permissions < 9)
             {

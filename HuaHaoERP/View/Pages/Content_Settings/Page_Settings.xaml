@@ -9,7 +9,7 @@
 
     <Grid>
         <TabControl x:Name="TabControl_Settings" Margin="0" BorderThickness="0" Padding="0">
-            <TabItem FocusVisualStyle="{x:Null}" Header="综合设置" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="7,0,-7,0" Foreground="White">
+            <TabItem x:Name="TabItem_Comprehensive" FocusVisualStyle="{x:Null}" Header="综合设置" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="7,0,-7,0" Foreground="White">
                 <Grid Background="White">
                     <GroupBox Header="更换背景图片" Margin="10" VerticalAlignment="Top" Height="162" Foreground="Black">
                         <Grid Margin="0">
@@ -19,7 +19,7 @@
                     </GroupBox>
                 </Grid>
             </TabItem>
-            <TabItem FocusVisualStyle="{x:Null}" Header="安全设置" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="17,0,-17,0" Foreground="White">
+            <TabItem x:Name="TabItem_SecuritySettings" FocusVisualStyle="{x:Null}" Header="安全设置" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="17,0,-17,0" Foreground="White">
                 <Grid Background="White">
                     <StackPanel x:Name="StackPanel_SecuritySettings" Margin="10" Background="White">
                         <Expander x:Name="Expander_SecuritySettings_User" Header="用户安全" Expanded="ExpanderSecuritySettings_Expanded" IsExpanded="True">

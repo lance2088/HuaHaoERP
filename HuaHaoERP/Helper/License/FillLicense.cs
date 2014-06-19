@@ -30,7 +30,8 @@ namespace HuaHaoERP.Helper.License
                             }
                             else//许可匹配，电脑不匹配
                             {
-                                System.Windows.MessageBox.Show("欢迎试用石蚁科技ERP产品，请支持正版。\n试用版请使用管理员帐号登陆。", "代码：004");
+                                Helper.DataDefinition.CommonParameters.IsLockApp = true;
+                                System.Windows.MessageBox.Show("感谢使用石蚁科技ERP产品，请支持正版。\n请使用管理员帐号登陆并导入许可文件以继续使用。", "代码：004");
                             }
                         }
                         else//许可与DB数据不匹配

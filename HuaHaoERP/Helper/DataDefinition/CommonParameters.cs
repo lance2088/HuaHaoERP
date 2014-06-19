@@ -84,5 +84,15 @@ namespace HuaHaoERP.Helper.DataDefinition
             get { return CommonParameters.isLockAdminLogin; }
             set { CommonParameters.isLockAdminLogin = value; }
         }
+
+        private static bool isLockApp = false;
+        /// <summary>
+        /// 锁定软件必须先导入License
+        /// </summary>
+        public static bool IsLockApp
+        {
+            get { return CommonParameters.isLockApp; }
+            set { CommonParameters.isLockApp = value; }
+        }
     }
 }
