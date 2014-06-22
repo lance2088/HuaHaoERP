@@ -92,7 +92,6 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private bool GetAndCheckData()
         {
-            int FalseCount = 0;
             this.Guid = Guid.NewGuid();
             d.Guid = this.Guid;
             d.OrderDate = ((DateTime)this.DatePicker_OrderDate.SelectedDate + DateTime.Now.TimeOfDay).ToString("yyyy-MM-dd HH:mm:ss");
@@ -111,17 +110,34 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             int Quantity = 0;
             if(!int.TryParse(this.TextBox_Quantity.Text.Trim(), out Quantity))
             {
-                FalseCount++;
+                MessageBox.Show("收货数量必须为数字", "错误");
+                this.TextBox_Quantity.Focus();
+                return false;
             }
             d.Quantity = Quantity;
             int MinorInjuries = 0;
-            int.TryParse(this.TextBox_MinorInjuries.Text.Trim(), out MinorInjuries);
+            if(!int.TryParse(this.TextBox_MinorInjuries.Text.Trim(), out MinorInjuries))
+            {
+                MessageBox.Show("轻伤数量必须为数字", "错误");
+                this.TextBox_MinorInjuries.Focus();
+                return false;
+            }
             d.MinorInjuries = MinorInjuries;
             int Injuries = 0;
-            int.TryParse(this.TextBox_Injuries.Text.Trim(), out Injuries);
+            if(!int.TryParse(this.TextBox_Injuries.Text.Trim(), out Injuries))
+            {
+                MessageBox.Show("重伤数量必须为数字", "错误");
+                this.TextBox_Injuries.Focus();
+                return false;
+            }
             d.Injuries = Injuries;
             int Lose = 0;
-            int.TryParse(this.TextBox_Lose.Text.Trim(), out Lose);
+            if(!int.TryParse(this.TextBox_Lose.Text.Trim(), out Lose))
+            {
+                MessageBox.Show("丢失数量必须为数字", "错误");
+                this.TextBox_Lose.Focus();
+                return false;
+            }
             d.Lose = Lose;
             if(isOut)
             {
@@ -132,10 +148,6 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 d.OrderType = "入单";
             }
             d.Remark = this.TextBox_Remark.Text.Trim();
-            if (FalseCount > 0)
-            {
-                return false;
-            }
             return true;
         }
 
