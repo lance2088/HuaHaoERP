@@ -88,24 +88,10 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                         LastD.ProductID = (Guid)dr["ProductID"];
                         LastD.ProductNumber = dr["Number"].ToString();
                         LastD.ProductName = dr["Name"].ToString();
-                        //for (int i = 1; i < 7; i++)
-                        //{
-                        //    if (dr["Process"].ToString() == dr["P" + i].ToString())
-                        //    {
-                        //        SetPNum(i, int.Parse(dr["total(a.Number)"].ToString()), int.Parse(dr["total(a.Break)"].ToString()), ref LastD);
-                        //    }
-                        //}
                         SetPNum(Helper.DataDefinition.Process.FiveProcessList.IndexOf(dr["Process"].ToString()) + 1, int.Parse(dr["total(a.Number)"].ToString()), int.Parse(dr["total(a.Break)"].ToString()), ref LastD);
                     }
                     else//旧的Product，累加
                     {
-                        //for (int i = 1; i < 7; i++)
-                        //{
-                        //    if (dr["Process"].ToString() == dr["P" + i].ToString())
-                        //    {
-                        //        SetPNum(i, int.Parse(dr["total(a.Number)"].ToString()), int.Parse(dr["total(a.Break)"].ToString()), ref LastD);
-                        //    }
-                        //}
                         SetPNum(Helper.DataDefinition.Process.FiveProcessList.IndexOf(dr["Process"].ToString()) + 1, int.Parse(dr["total(a.Number)"].ToString()), int.Parse(dr["total(a.Break)"].ToString()), ref LastD);
                     }
                 }
