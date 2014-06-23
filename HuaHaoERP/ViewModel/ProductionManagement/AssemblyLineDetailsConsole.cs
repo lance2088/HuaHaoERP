@@ -162,37 +162,55 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                     Out = int.Parse(dr["total(Quantity)"].ToString());
                 }
             }
+            string LastProcess = "";
             for (int i = 0; i < 6; i++ )
             {
-                if(ProcessList[i] == "抛光")
+                if (ProcessList[i] == "抛光" && i > 0)
                 {
-                    switch (Helper.DataDefinition.Process.FiveProcessList.IndexOf("抛光") + 1)
-                    {
-                        case 1:
-                            d.P1Num += In;
-                            break;
-                        case 2:
-                            d.P1Num -= Out;
-                            d.P2Num += In;
-                            break;
-                        case 3:
-                            d.P2Num -= Out;
-                            d.P3Num += In;
-                            break;
-                        case 4:
-                            d.P3Num -= Out;
-                            d.P4Num += In;
-                            break;
-                        case 5:
-                            d.P4Num -= Out;
-                            d.P5Num += In;
-                            break;
-                        case 6:
-                            d.P5Num -= Out;
-                            d.P6Num += In;
-                            break;
-                    }
+                    LastProcess = ProcessList[i - 1];
                 }
+            }
+            switch (Helper.DataDefinition.Process.FiveProcessList.IndexOf("抛光") + 1)
+            {
+                case 1:
+                    d.P1Num += In;
+                    break;
+                case 2:
+                    d.P2Num += In;
+                    break;
+                case 3:
+                    d.P3Num += In;
+                    break;
+                case 4:
+                    d.P4Num += In;
+                    break;
+                case 5:
+                    d.P5Num += In;
+                    break;
+                case 6:
+                    d.P6Num += In;
+                    break;
+            }
+            switch (Helper.DataDefinition.Process.FiveProcessList.IndexOf(LastProcess) + 1)
+            {
+                case 1:
+                    d.P1Num -= Out;
+                    break;
+                case 2:
+                    d.P2Num -= Out;
+                    break;
+                case 3:
+                    d.P3Num -= Out;
+                    break;
+                case 4:
+                    d.P4Num -= Out;
+                    break;
+                case 5:
+                    d.P5Num -= Out;
+                    break;
+                case 6:
+                    d.P6Num -= Out;
+                    break;
             }
         }
     
