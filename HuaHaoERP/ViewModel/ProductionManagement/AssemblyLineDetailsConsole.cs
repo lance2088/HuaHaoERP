@@ -166,7 +166,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
             {
                 if(ProcessList[i] == "抛光")
                 {
-                    switch (i + 1)
+                    switch (Helper.DataDefinition.Process.FiveProcessList.IndexOf("抛光") + 1)
                     {
                         case 1:
                             d.P1Num += In;
