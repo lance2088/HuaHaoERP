@@ -4,10 +4,16 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="464" d:DesignWidth="799"
 	Title="Page_Warehouse_Product_SparepartsIn">
 
-    <Grid>
-        
+    <Grid HorizontalAlignment="Right" Width="600" Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="Button_Commit" Content="确定" HorizontalAlignment="Right" Margin="0,0,20,17" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_Commit_Click"/>
+        <Button x:Name="Button_Cancel" Content="取消" HorizontalAlignment="Left" Margin="20,0,0,17" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Grid.Column="1" IsCancel="True" Click="Button_Cancel_Click"/>
+
     </Grid>
 </Page>

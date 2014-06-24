@@ -11,17 +11,27 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
+using HuaHaoERP.Model.Warehouse;
+using HuaHaoERP.ViewModel.Warehouse;
 
 namespace HuaHaoERP.View.Pages.Content_Warehouse
 {
-    /// <summary>
-    /// Interaction logic for Page_Warehouse_Product_SparepartsIn.xaml
-    /// </summary>
     public partial class Page_Warehouse_Product_SparepartsIn : Page
     {
         public Page_Warehouse_Product_SparepartsIn()
         {
             InitializeComponent();
+        }
+
+        private void Button_Commit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            Helper.Events.PopUpEvent.OnHidePopUp();
         }
     }
 }
