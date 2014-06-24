@@ -51,6 +51,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         private void SubscribeToEvent()
         {
             WarehouseRawMaterialsEvent.EUpdateDataGrid += (sender, e) => { InitializeRawMaterialsDataGrid(); };
+            WarehouseProductEvent.EUpdateDataGrid += (s, e) => { InitializeProductDataGrid(); };
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {

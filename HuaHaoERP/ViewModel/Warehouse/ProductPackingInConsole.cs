@@ -32,12 +32,20 @@ namespace HuaHaoERP.ViewModel.Warehouse
             return m;
         }
 
-        internal bool InsertSpareparts()
+        internal bool InsertSpareparts(ObservableCollection<Model_WarehouseProductPackingIn> data)
         {
-
-
-
-            return false;
+            List<string> sqls = new List<string>();
+            foreach(Model_WarehouseProductPackingIn m in data)
+            {
+                if(m.Guid != new Guid())
+                {
+                    sqls.Add("Insert into T_Warehouse_Product(Guid,ProductID,Date,Operator,Quantity,Remark) "
+                        + "values('" + Guid.NewGuid() + "','" + m.Guid + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + Helper.DataDefinition.CommonParameters.RealName + "'," + -m.AllQuantity + ",'手动录入')");
+                    sqls.Add("Insert into T_Warehouse_ProductPacking(Guid,ProductID,Date,Operator,Quantity,Remark) "
+                        + "values('" + Guid.NewGuid() + "','" + m.Guid + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + Helper.DataDefinition.CommonParameters.RealName + "'," + m.PackQuantity + ",'手动录入') ");
+                }
+            }
+            return new Helper.SQLite.DBHelper().Transaction(sqls);
         }
     }
 }

@@ -266,6 +266,7 @@
     <Compile Include="Helper\Events\ProductionManagement\AssemblyLineEventArgs.cs" />
     <Compile Include="Helper\Events\UpdateEvent\ProductOrderEvent.cs" />
     <Compile Include="Helper\Events\UpdateEvent\UserEvent.cs" />
+    <Compile Include="Helper\Events\UpdateEvent\WarehouseProductEvent.cs" />
     <Compile Include="Helper\Events\UpdateEvent\WarehouseRawMaterialsEvent.cs" />
     <Compile Include="Helper\Excel\Reader.cs" />
     <Compile Include="Helper\License\FillLicense.cs" />

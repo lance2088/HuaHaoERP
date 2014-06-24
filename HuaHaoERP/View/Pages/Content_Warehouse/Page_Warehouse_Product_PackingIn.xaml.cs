@@ -43,7 +43,11 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
 
         private void Button_Commit_Click(object sender, RoutedEventArgs e)
         {
-            Button_Cancel_Click(null,null);
+            if(new ViewModel.Warehouse.ProductPackingInConsole().InsertSpareparts(data))
+            {
+                Helper.Events.UpdateEvent.WarehouseProductEvent.OnUpdateDataGrid();
+                Button_Cancel_Click(null, null);
+            }
         }
 
         private void DataGrid_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
