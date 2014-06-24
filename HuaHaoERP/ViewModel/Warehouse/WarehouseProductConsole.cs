@@ -39,6 +39,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
             else if(Type.Equals("出库"))
             {
                 TableName = "T_Warehouse_ProductPacking";
+                Type = "";
             }
             data = new List<WarehouseProductModel>();
             string sql = " SELECT                                                            "
