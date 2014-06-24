@@ -19,9 +19,9 @@
                 <DataGridTextColumn Header="编号" Binding="{Binding Number}" MinWidth="80"/>
                 <DataGridTextColumn Header="名称" Binding="{Binding Name}" MinWidth="160" IsReadOnly="True"/>
                 <DataGridTextColumn Header="材质" Binding="{Binding Material}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="件数"/>
-                <DataGridTextColumn Header="单件量" IsReadOnly="True"/>
-                <DataGridTextColumn Header="数量" IsReadOnly="True"/>
+                <DataGridTextColumn Header="件数" Binding="{Binding PackQuantity}"/>
+                <DataGridTextColumn Header="单件量" Binding="{Binding PerQuantity}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="数量" Binding="{Binding AllQuantity}" IsReadOnly="True"/>
             </DataGrid.Columns>
         </DataGrid>
 
