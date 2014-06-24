@@ -197,6 +197,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Pages\Content_Warehouse\Page_Warehouse_Product_PackingIn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\Content_Warehouse\Page_Warehouse_Product_SparepartsIn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Pages\Content_Warehouse\Page_Warehouse_RawMaterials.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -374,6 +382,12 @@
     </Compile>
     <Compile Include="View\Pages\Content_Orders\Page_Orders.xaml.cs">
       <DependentUpon>Page_Orders.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\Content_Warehouse\Page_Warehouse_Product_PackingIn.xaml.cs">
+      <DependentUpon>Page_Warehouse_Product_PackingIn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\Content_Warehouse\Page_Warehouse_Product_SparepartsIn.xaml.cs">
+      <DependentUpon>Page_Warehouse_Product_SparepartsIn.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\Content_Warehouse\Page_Warehouse_RawMaterials.xaml.cs">
       <DependentUpon>Page_Warehouse_RawMaterials.xaml</DependentUpon>

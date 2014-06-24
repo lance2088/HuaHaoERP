@@ -76,7 +76,27 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             InitializeRawMaterialsDataGrid();
         }
 
-        #region 产品仓库
+        #region 产品仓库管理
+
+        /// <summary>
+        /// 包装录入按钮Click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_PackingIn_Click(object sender, RoutedEventArgs e)
+        {
+            Helper.Events.PopUpEvent.OnShowPopUp(new Page_Warehouse_Product_PackingIn());
+        }
+        /// <summary>
+        /// 散件录入按钮Click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_SparepartsIn_Click(object sender, RoutedEventArgs e)
+        {
+            Helper.Events.PopUpEvent.OnShowPopUp(new Page_Warehouse_Product_SparepartsIn());
+        }
+
         private void Button_ClosePacking_Click(object sender, RoutedEventArgs e)
         {
             this.Grid_Packing.Visibility = System.Windows.Visibility.Collapsed;
@@ -479,6 +499,8 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         }
 
         #endregion
+
+
 
 
 
