@@ -62,8 +62,17 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         {
             if(e.Key == Key.Enter)
             {
-                e.Handled = true;
-                DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.Items[0], DataGrid.Columns[3]);
+                DataGrid.CommitEdit();
+                if(DataGrid.SelectedCells[0].Column.Header.ToString() != "件数")
+                {
+                    e.Handled = true;
+                    DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.SelectedCells[0].Item, DataGrid.Columns[3]);
+                    DataGrid.SelectedCells.Add(DataGrid.CurrentCell);
+                }
+                else
+                {
+                    DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.SelectedCells[0].Item, DataGrid.Columns[0]);
+                }
                 DataGrid.BeginEdit();
             }
         }
