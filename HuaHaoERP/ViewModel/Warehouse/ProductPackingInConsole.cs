@@ -40,9 +40,9 @@ namespace HuaHaoERP.ViewModel.Warehouse
                 if(m.Guid != new Guid())
                 {
                     sqls.Add("Insert into T_Warehouse_Product(Guid,ProductID,Date,Operator,Quantity,Remark) "
-                        + "values('" + Guid.NewGuid() + "','" + m.Guid + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + Helper.DataDefinition.CommonParameters.RealName + "'," + -m.AllQuantity + ",'手动录入包装自动扣除')");
+                        + "values('" + Guid.NewGuid() + "','" + m.Guid + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + Helper.DataDefinition.CommonParameters.RealName + "'," + -m.AllQuantity + ",'入库：手动录入包装自动扣除')");
                     sqls.Add("Insert into T_Warehouse_ProductPacking(Guid,ProductID,Date,Operator,Quantity,Remark) "
-                        + "values('" + Guid.NewGuid() + "','" + m.Guid + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + Helper.DataDefinition.CommonParameters.RealName + "'," + m.PackQuantity + ",'手动录入') ");
+                        + "values('" + Guid.NewGuid() + "','" + m.Guid + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + Helper.DataDefinition.CommonParameters.RealName + "'," + m.PackQuantity + ",'包装：手动录入') ");
                 }
             }
             return new Helper.SQLite.DBHelper().Transaction(sqls);
@@ -56,9 +56,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
                 if (m.Guid != new Guid())
                 {
                     sqls.Add("Insert into T_Warehouse_Product(Guid,ProductID,Date,Operator,Quantity,Remark) "
-                        + "values('" + Guid.NewGuid() + "','" + m.Guid + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + Helper.DataDefinition.CommonParameters.RealName + "'," + m.AllQuantity + ",'手动录入')");
-                    //sqls.Add("Insert into T_Warehouse_ProductPacking(Guid,ProductID,Date,Operator,Quantity,Remark) "
-                    //    + "values('" + Guid.NewGuid() + "','" + m.Guid + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + Helper.DataDefinition.CommonParameters.RealName + "'," + m.PackQuantity + ",'手动录入') ");
+                        + "values('" + Guid.NewGuid() + "','" + m.Guid + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + Helper.DataDefinition.CommonParameters.RealName + "'," + m.AllQuantity + ",'入库：手动录入')");
                 }
             }
             return new Helper.SQLite.DBHelper().Transaction(sqls);
