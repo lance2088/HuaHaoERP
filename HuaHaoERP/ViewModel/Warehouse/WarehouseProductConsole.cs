@@ -50,6 +50,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
                        + " WHERE a.Date BETWEEN '" + Start.ToString("yyyy-MM-dd HH:mm:ss") + "' AND '" + End.ToString("yyyy-MM-dd HH:mm:ss") + "'"
                        + " AND a.Remark LIKE '"+Type+"%'"
                        + " Order BY a.Date DESC"
+                       + " limit 0,200"
                        ;
             DataSet ds = new DataSet();
             if(new Helper.SQLite.DBHelper().QueryData(sql, out ds))
