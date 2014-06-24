@@ -30,7 +30,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         }
         public Page_Warehouse_Product_PackingIn(int Type)
         {
-            this.TYPE = Type;
+            this.TYPE = 1;
             InitializeComponent();
             InitializeDataGrid();
             this.Label_Title.Content = "手动录入：散件产品";
