@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Collections.ObjectModel;
 using HuaHaoERP.Model.Warehouse;
+using HuaHaoERP.ViewModel.Warehouse;
 
 namespace HuaHaoERP.View.Pages.Content_Warehouse
 {
@@ -57,7 +58,16 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             string Header = e.Column.Header.ToString();
             if (Header == "编号")
             {
-                data[data.IndexOf(model)].PerQuantity = 100;
+                ProductSparepartsInModel m = new ProductSparepartsInConsole().ReadProductInfo(newValue);
+                if (m.Guid == new Guid())
+                {
+                    DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.SelectedCells[0].Item, DataGrid.Columns[0]);
+                    return;
+                }
+                data[data.IndexOf(model)].Guid = m.Guid;
+                data[data.IndexOf(model)].Name = m.Name;
+                data[data.IndexOf(model)].Material = m.Material;
+                data[data.IndexOf(model)].PerQuantity = m.PerQuantity;
             }
             else if(Header == "件数")
             {
@@ -65,6 +75,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                 if(!int.TryParse(newValue, out PackQuantity))
                 {
                     (e.EditingElement as TextBox).Text = "0";
+                    DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.SelectedCells[0].Item, DataGrid.Columns[3]);
                     return;
                 }
                 data[data.IndexOf(model)].PackQuantity = PackQuantity;
@@ -77,7 +88,6 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         {
             if(e.Key == Key.Enter)
             {
-                DataGrid.CommitEdit();
                 if(DataGrid.SelectedCells[0].Column.Header.ToString() != "件数")
                 {
                     e.Handled = true;
