@@ -198,5 +198,10 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         {
             this.ComboBox_StaffList.IsDropDownOpen = true;
         }
+
+        private void Button_ProcessIn_Click(object sender, RoutedEventArgs e)
+        {
+            Helper.Events.PopUpEvent.OnShowPopUp(new Page_ProductionManagement_OutsideProcess(false, ProductName));
+        }
     }
 }
