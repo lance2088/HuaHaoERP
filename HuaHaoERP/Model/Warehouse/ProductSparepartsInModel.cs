@@ -7,6 +7,13 @@ namespace HuaHaoERP.Model.Warehouse
 {
     class ProductSparepartsInModel
     {
+        private int id;
+
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
         private Guid guid;
 
         public Guid Guid

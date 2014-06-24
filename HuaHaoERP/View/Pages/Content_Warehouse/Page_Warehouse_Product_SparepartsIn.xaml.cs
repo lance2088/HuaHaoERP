@@ -30,7 +30,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         {
             for (int i = 0; i < 20; i++)
             {
-                data.Add(new ProductSparepartsInModel { Guid = Guid.NewGuid() });
+                data.Add(new ProductSparepartsInModel { Id = i+1 });
             }
             this.DataGrid.ItemsSource = data;
         }
