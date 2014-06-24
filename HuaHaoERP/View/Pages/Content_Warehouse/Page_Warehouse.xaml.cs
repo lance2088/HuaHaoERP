@@ -79,6 +79,15 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
 
         #region 产品仓库管理
 
+        private void TextBox_Search_Loaded(object sender, RoutedEventArgs e)
+        {
+            (sender as TextBox).Focus();
+        }
+
+        private void TextBox_Search_PreviewKeyUp(object sender, KeyEventArgs e)
+        {
+            InitializeProductDataGrid();
+        }
         /// <summary>
         /// 包装录入按钮Click
         /// </summary>
@@ -108,22 +117,22 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             DateTime Start = ((DateTime)this.DatePicker_Start.SelectedDate).Date;
             DateTime End = ((DateTime)this.DatePicker_End.SelectedDate).Date.AddDays(1);
             string HistoryType = this.ComboBox_ShowHistory.Text.Substring(0,2);
-
+            string Search = this.TextBox_Search.Text;
             //明细
             List<WarehouseProductModel> d = new List<WarehouseProductModel>();
-            if(new ViewModel.Warehouse.WarehouseProductConsole().ReadDetailsList(Start, End, HistoryType, out d))
+            if (new ViewModel.Warehouse.WarehouseProductConsole().ReadDetailsList(Start, End, HistoryType, out d, Search))
             {
                 this.DataGrid_ProductDetails.ItemsSource = d;
             }
             //散件
             List<WarehouseProductNumModel> dn = new List<WarehouseProductNumModel>();
-            if(new ViewModel.Warehouse.WarehouseProductConsole().ReadNumList(out dn))
+            if (new ViewModel.Warehouse.WarehouseProductConsole().ReadNumList(out dn, Search))
             {
                 this.DataGrid_Num.ItemsSource = dn;
             }
             //已包装
             List<WarehouseProductNumModel> dnPack = new List<WarehouseProductNumModel>();
-            if(new ViewModel.Warehouse.WarehouseProductConsole().ReadPackingNumList(out dnPack))
+            if (new ViewModel.Warehouse.WarehouseProductConsole().ReadPackingNumList(out dnPack, Search))
             {
                 this.DataGrid_PackingNum.ItemsSource = dnPack;
             }
@@ -500,6 +509,8 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         }
 
         #endregion
+
+
 
 
 

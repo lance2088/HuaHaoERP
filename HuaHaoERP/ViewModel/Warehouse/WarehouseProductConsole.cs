@@ -29,7 +29,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
         /// <param name="Type"></param>
         /// <param name="data"></param>
         /// <returns></returns>
-        internal bool ReadDetailsList(DateTime Start, DateTime End,string Type, out List<WarehouseProductModel> data)
+        internal bool ReadDetailsList(DateTime Start, DateTime End, string Type, out List<WarehouseProductModel> data, string Search)
         {
             string TableName = "T_Warehouse_Product";
             if(Type.Equals("全部"))
@@ -49,6 +49,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
                        + " LEFT JOIN T_ProductInfo_Product b ON a.ProductID=b.GUID           "
                        + " WHERE a.Date BETWEEN '" + Start.ToString("yyyy-MM-dd HH:mm:ss") + "' AND '" + End.ToString("yyyy-MM-dd HH:mm:ss") + "'"
                        + " AND a.Remark LIKE '"+Type+"%'"
+                       + " AND (b.Number LIKE '%" + Search + "%' OR b.Name LIKE '%" + Search + "%' )"
                        + " Order BY a.Date DESC"
                        + " limit 0,200"
                        ;
@@ -78,7 +79,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        internal bool ReadNumList(out List<WarehouseProductNumModel> data)
+        internal bool ReadNumList(out List<WarehouseProductNumModel> data, string Search)
         {
             data = new List<WarehouseProductNumModel>();
             string sql = "SELECT                                                  "
@@ -88,6 +89,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
                        + "FROM                                                    "
                        + "	T_Warehouse_Product a                                 "
                        + "LEFT JOIN T_ProductInfo_Product b on a.ProductID=b.GUID "
+                       + " WHERE (b.Number LIKE '%" + Search + "%' OR b.Name LIKE '%" + Search + "%' )"
                        + " GROUP BY a.ProductID ";
             DataSet ds = new DataSet();
             if(new Helper.SQLite.DBHelper().QueryData(sql, out ds))
@@ -107,7 +109,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
             return false;
         }
 
-        internal bool ReadPackingNumList(out List<WarehouseProductNumModel> data)
+        internal bool ReadPackingNumList(out List<WarehouseProductNumModel> data, string Search)
         {
             data = new List<WarehouseProductNumModel>();
             string sql = "SELECT                                                  "
@@ -117,6 +119,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
                        + "FROM                                                    "
                        + "	T_Warehouse_ProductPacking a                                 "
                        + "LEFT JOIN T_ProductInfo_Product b on a.ProductID=b.GUID "
+                       + " WHERE (b.Number LIKE '%" + Search + "%' OR b.Name LIKE '%" + Search + "%' )"
                        + " GROUP BY a.ProductID ";
             DataSet ds = new DataSet();
             if (new Helper.SQLite.DBHelper().QueryData(sql, out ds))
