@@ -52,9 +52,24 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
 
         private void DataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
+            ProductSparepartsInModel model = this.DataGrid.SelectedCells[0].Item as ProductSparepartsInModel;
             string newValue = (e.EditingElement as TextBox).Text.Trim();
             string Header = e.Column.Header.ToString();
-
+            if (Header == "编号")
+            {
+                data[data.IndexOf(model)].PerQuantity = 100;
+            }
+            else if(Header == "件数")
+            {
+                int PackQuantity = 0;
+                if(!int.TryParse(newValue, out PackQuantity))
+                {
+                    (e.EditingElement as TextBox).Text = "0";
+                    return;
+                }
+                data[data.IndexOf(model)].PackQuantity = PackQuantity;
+                data[data.IndexOf(model)].AllQuantity = data[data.IndexOf(model)].PackQuantity * data[data.IndexOf(model)].PerQuantity;
+            }
 
         }
 
@@ -67,13 +82,13 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                 {
                     e.Handled = true;
                     DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.SelectedCells[0].Item, DataGrid.Columns[3]);
+                    DataGrid.SelectedCells.Clear();
                     DataGrid.SelectedCells.Add(DataGrid.CurrentCell);
                 }
                 else
                 {
                     DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.SelectedCells[0].Item, DataGrid.Columns[0]);
                 }
-                DataGrid.BeginEdit();
             }
         }
     }
