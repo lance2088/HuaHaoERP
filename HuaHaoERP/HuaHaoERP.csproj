@@ -201,6 +201,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Pages\Content_Warehouse\Page_Warehouse_Product_SparepartsIn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Pages\Content_Warehouse\Page_Warehouse_RawMaterials.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -272,7 +276,8 @@
     <Compile Include="Helper\SQLite\DBHelper.cs" />
     <Compile Include="Helper\Tools\ComputerInfo.cs" />
     <Compile Include="Helper\Tools\GenerateMD5.cs" />
-    <Compile Include="Model\Warehouse\ProductPackingInModel.cs" />
+    <Compile Include="Model\Warehouse\Model_WarehouseProductSparepartsIn.cs" />
+    <Compile Include="Model\Warehouse\Model_WarehouseProductPackingIn.cs" />
     <Compile Include="ViewModel\Customer\Seniority.cs" />
     <Compile Include="Helper\Tools\TranslatePassword.cs" />
     <Compile Include="Helper\XML\Reader.cs" />
@@ -309,6 +314,7 @@
     <Compile Include="ViewModel\Settings\EncryptedDBConsole.cs" />
     <Compile Include="ViewModel\Settings\UserConsole.cs" />
     <Compile Include="ViewModel\Warehouse\ProductPackingInConsole.cs" />
+    <Compile Include="ViewModel\Warehouse\ProductSparepartsInConsole.cs" />
     <Compile Include="ViewModel\Warehouse\RawMaterialsConsole.cs" />
     <Compile Include="ViewModel\Warehouse\ScrapConsole.cs" />
     <Compile Include="ViewModel\Warehouse\WarehouseProductConsole.cs" />
@@ -383,6 +389,9 @@
     </Compile>
     <Compile Include="View\Pages\Content_Warehouse\Page_Warehouse_Product_PackingIn.xaml.cs">
       <DependentUpon>Page_Warehouse_Product_PackingIn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\Content_Warehouse\Page_Warehouse_Product_SparepartsIn.xaml.cs">
+      <DependentUpon>Page_Warehouse_Product_SparepartsIn.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\Content_Warehouse\Page_Warehouse_RawMaterials.xaml.cs">
       <DependentUpon>Page_Warehouse_RawMaterials.xaml</DependentUpon>

@@ -10,9 +10,9 @@ namespace HuaHaoERP.ViewModel.Warehouse
 {
     class ProductPackingInConsole
     {
-        internal ProductPackingInModel ReadProductInfo(string ProductNumber)
+        internal Model_WarehouseProductPackingIn ReadProductInfo(string ProductNumber)
         {
-            ProductPackingInModel m = new ProductPackingInModel();
+            Model_WarehouseProductPackingIn m = new Model_WarehouseProductPackingIn();
             string sql = "SELECT * FROM T_ProductInfo_Product WHERE NUMBER='" + ProductNumber + "' AND DELETEMARK ISNULL";
             DataSet ds = new DataSet();
             bool flag = new Helper.SQLite.DBHelper().QueryData(sql, out ds);

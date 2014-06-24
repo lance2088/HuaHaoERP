@@ -19,7 +19,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
 {
     public partial class Page_Warehouse_Product_PackingIn : Page
     {
-        ObservableCollection<ProductPackingInModel> data = new ObservableCollection<ProductPackingInModel>();
+        ObservableCollection<Model_WarehouseProductPackingIn> data = new ObservableCollection<Model_WarehouseProductPackingIn>();
 
         public Page_Warehouse_Product_PackingIn()
         {
@@ -31,7 +31,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         {
             for (int i = 0; i < 20; i++)
             {
-                data.Add(new ProductPackingInModel { Id = i+1 });
+                data.Add(new Model_WarehouseProductPackingIn { Id = i+1 });
             }
             this.DataGrid.ItemsSource = data;
         }
@@ -53,12 +53,12 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
 
         private void DataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
-            ProductPackingInModel model = this.DataGrid.SelectedCells[0].Item as ProductPackingInModel;
+            Model_WarehouseProductPackingIn model = this.DataGrid.SelectedCells[0].Item as Model_WarehouseProductPackingIn;
             string newValue = (e.EditingElement as TextBox).Text.Trim();
             string Header = e.Column.Header.ToString();
             if (Header == "编号")
             {
-                ProductPackingInModel m = new ProductPackingInConsole().ReadProductInfo(newValue);
+                Model_WarehouseProductPackingIn m = new ProductPackingInConsole().ReadProductInfo(newValue);
                 if (m.Guid == new Guid())
                 {
                     DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.SelectedCells[0].Item, DataGrid.Columns[0]);
