@@ -3,24 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
+using System.Collections.ObjectModel;
 using HuaHaoERP.Model.Warehouse;
 
 namespace HuaHaoERP.ViewModel.Warehouse
 {
-    class ProductSparepartsInConsole
+    class ProductPackingInConsole
     {
-        internal ProductSparepartsInModel ReadProductInfo(string ProductNumber)
+        internal ProductPackingInModel ReadProductInfo(string ProductNumber)
         {
-            ProductSparepartsInModel m = new ProductSparepartsInModel();
+            ProductPackingInModel m = new ProductPackingInModel();
             string sql = "SELECT * FROM T_ProductInfo_Product WHERE NUMBER='" + ProductNumber + "' AND DELETEMARK ISNULL";
             DataSet ds = new DataSet();
             bool flag = new Helper.SQLite.DBHelper().QueryData(sql, out ds);
             if (flag)
             {
-                if (ds.Tables[0].Rows.Count > 1)
-                {
-                    return m;
-                }
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
                     m.Guid = (Guid)dr["GUID"];
@@ -33,6 +30,14 @@ namespace HuaHaoERP.ViewModel.Warehouse
                 }
             }
             return m;
+        }
+
+        internal bool InsertSpareparts()
+        {
+
+
+
+            return false;
         }
     }
 }

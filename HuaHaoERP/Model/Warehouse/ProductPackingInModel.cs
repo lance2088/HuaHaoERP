@@ -6,7 +6,7 @@ using System.ComponentModel;
 
 namespace HuaHaoERP.Model.Warehouse
 {
-    class ProductSparepartsInModel : INotifyPropertyChanged
+    class ProductPackingInModel : INotifyPropertyChanged
     {
         private int id;
 
