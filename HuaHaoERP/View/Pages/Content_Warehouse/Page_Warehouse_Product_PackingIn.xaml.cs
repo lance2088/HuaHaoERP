@@ -50,11 +50,6 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             }
         }
 
-        private void DataGrid_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
-        {
-
-        }
-
         private void DataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
             Model_WarehouseProductPackingIn model = this.DataGrid.SelectedCells[0].Item as Model_WarehouseProductPackingIn;
