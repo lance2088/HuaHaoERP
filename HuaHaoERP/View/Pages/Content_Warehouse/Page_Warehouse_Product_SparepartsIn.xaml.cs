@@ -52,7 +52,20 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
 
         private void DataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
+            string newValue = (e.EditingElement as TextBox).Text.Trim();
+            string Header = e.Column.Header.ToString();
 
+
+        }
+
+        private void DataGrid_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                e.Handled = true;
+                DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.Items[0], DataGrid.Columns[3]);
+                DataGrid.BeginEdit();
+            }
         }
     }
 }
