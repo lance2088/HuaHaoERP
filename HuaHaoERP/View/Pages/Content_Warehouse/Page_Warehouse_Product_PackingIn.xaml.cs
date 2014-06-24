@@ -20,9 +20,16 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
     public partial class Page_Warehouse_Product_PackingIn : Page
     {
         ObservableCollection<Model_WarehouseProductPackingIn> data = new ObservableCollection<Model_WarehouseProductPackingIn>();
+        int TYPE = 0;
 
         public Page_Warehouse_Product_PackingIn()
         {
+            InitializeComponent();
+            InitializeDataGrid();
+        }
+        public Page_Warehouse_Product_PackingIn(int Type)
+        {
+            this.TYPE = Type;
             InitializeComponent();
             InitializeDataGrid();
         }

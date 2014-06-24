@@ -95,7 +95,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         /// <param name="e"></param>
         private void Button_SparepartsIn_Click(object sender, RoutedEventArgs e)
         {
-            Helper.Events.PopUpEvent.OnShowPopUp(new Page_Warehouse_Product_SparepartsIn());
+            Helper.Events.PopUpEvent.OnShowPopUp(new Page_Warehouse_Product_PackingIn(1));
         }
 
         private void Button_ClosePacking_Click(object sender, RoutedEventArgs e)
