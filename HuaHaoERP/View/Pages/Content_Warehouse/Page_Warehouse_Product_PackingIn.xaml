@@ -19,11 +19,12 @@
                 <DataGridTextColumn Header="编号" Binding="{Binding Number}" MinWidth="80"/>
                 <DataGridTextColumn Header="名称" Binding="{Binding Name}" MinWidth="160" IsReadOnly="True"/>
                 <DataGridTextColumn Header="材质" Binding="{Binding Material}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="件数" Binding="{Binding PackQuantity}"/>
-                <DataGridTextColumn Header="单件量" Binding="{Binding PerQuantity}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="数量" Binding="{Binding AllQuantity}" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="DataGridTextColumn_PackQuantity" Header="件数" Binding="{Binding PackQuantity}" MinWidth="60"/>
+                <DataGridTextColumn x:Name="DataGridTextColumn_PerQuantity" Header="单件量" Binding="{Binding PerQuantity}" IsReadOnly="True" MinWidth="60"/>
+                <DataGridTextColumn x:Name="DataGridTextColumn_AllQuantity" Header="数量" Binding="{Binding AllQuantity}" IsReadOnly="True" MinWidth="60"/>
             </DataGrid.Columns>
         </DataGrid>
+        <Label x:Name="Label_Title" Content="Label__Title" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
 
     </Grid>
 </Page>

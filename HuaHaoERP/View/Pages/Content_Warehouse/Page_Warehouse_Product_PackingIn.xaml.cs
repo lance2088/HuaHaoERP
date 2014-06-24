@@ -26,12 +26,14 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         {
             InitializeComponent();
             InitializeDataGrid();
+            this.Label_Title.Content = "手动录入：包装产品";
         }
         public Page_Warehouse_Product_PackingIn(int Type)
         {
             this.TYPE = Type;
             InitializeComponent();
             InitializeDataGrid();
+            this.Label_Title.Content = "手动录入：散件产品";
         }
 
         private void InitializeDataGrid()
@@ -41,6 +43,12 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                 data.Add(new Model_WarehouseProductPackingIn { Id = i+1 });
             }
             this.DataGrid.ItemsSource = data;
+            if(TYPE == 1)
+            {
+                this.DataGridTextColumn_PackQuantity.Visibility = System.Windows.Visibility.Collapsed;
+                this.DataGridTextColumn_PerQuantity.Visibility = System.Windows.Visibility.Collapsed;
+                this.DataGridTextColumn_AllQuantity.IsReadOnly = false;
+            }
         }
 
         private void Button_Cancel_Click(object sender, RoutedEventArgs e)
@@ -50,10 +58,21 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
 
         private void Button_Commit_Click(object sender, RoutedEventArgs e)
         {
-            if(new ViewModel.Warehouse.ProductPackingInConsole().InsertSpareparts(data))
+            if(TYPE == 0)
             {
-                Helper.Events.UpdateEvent.WarehouseProductEvent.OnUpdateDataGrid();
-                Button_Cancel_Click(null, null);
+                if (new ViewModel.Warehouse.ProductPackingInConsole().InsertPacking(data))
+                {
+                    Helper.Events.UpdateEvent.WarehouseProductEvent.OnUpdateDataGrid();
+                    Button_Cancel_Click(null, null);
+                }
+            }
+            else if(TYPE == 1)
+            {
+                if(new ViewModel.Warehouse.ProductPackingInConsole().InsertSpareparts(data))
+                {
+                    Helper.Events.UpdateEvent.WarehouseProductEvent.OnUpdateDataGrid();
+                    Button_Cancel_Click(null, null);
+                }
             }
         }
 
@@ -94,10 +113,17 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         {
             if(e.Key == Key.Enter)
             {
-                if(DataGrid.SelectedCells[0].Column.Header.ToString() != "件数")
+                if (DataGrid.SelectedCells[0].Column.Header.ToString() != "件数" && DataGrid.SelectedCells[0].Column.Header.ToString() != "数量")
                 {
                     e.Handled = true;
-                    DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.SelectedCells[0].Item, DataGrid.Columns[3]);
+                    if(TYPE == 0)
+                    {
+                        DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.SelectedCells[0].Item, DataGrid.Columns[3]);
+                    }
+                    else if(TYPE == 1)
+                    {
+                        DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.SelectedCells[0].Item, DataGrid.Columns[5]);
+                    }
                     DataGrid.SelectedCells.Clear();
                     DataGrid.SelectedCells.Add(DataGrid.CurrentCell);
                 }
