@@ -11,11 +11,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
+using HuaHaoERP.Model.Warehouse;
 
 namespace HuaHaoERP.View.Pages.Content_Warehouse
 {
     public partial class Page_Warehouse_Product_SparepartsIn : Page
     {
+        ObservableCollection<ProductSparepartsInModel> data = new ObservableCollection<ProductSparepartsInModel>();
+
         public Page_Warehouse_Product_SparepartsIn()
         {
             InitializeComponent();
@@ -24,7 +28,11 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
 
         private void InitializeDataGrid()
         {
-            
+            for (int i = 0; i < 20; i++)
+            {
+                data.Add(new ProductSparepartsInModel());
+            }
+            this.DataGrid.ItemsSource = data;
         }
 
         private void Button_Cancel_Click(object sender, RoutedEventArgs e)
@@ -35,6 +43,16 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         private void Button_Commit_Click(object sender, RoutedEventArgs e)
         {
             Button_Cancel_Click(null,null);
+        }
+
+        private void DataGrid_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
+        {
+
+        }
+
+        private void DataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+        {
+
         }
     }
 }
