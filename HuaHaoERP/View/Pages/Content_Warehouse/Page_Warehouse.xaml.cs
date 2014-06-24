@@ -202,6 +202,15 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             if (Stock < PackQuantity * PerPackQuantity)
             {
                 this.Label_ShowPackWarnMessage.Content = "库存不够包装";
+                this.Button_Packed.IsEnabled = false;
+            }
+            else if (PackQuantity == 0)
+            {
+                this.Button_Packed.IsEnabled = false;
+            }
+            else
+            {
+                this.Button_Packed.IsEnabled = true;
             }
         }
 
@@ -290,6 +299,15 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             if(Quantity > PackStock)
             {
                 this.Label_ShowOutboundWarnMessage.Content = "超出库存";
+                this.Button_Outbound.IsEnabled = false;
+            }
+            else if (Quantity == 0)
+            {
+                this.Button_Outbound.IsEnabled = false;
+            }
+            else
+            {
+                this.Button_Outbound.IsEnabled = true;
             }
         }
         private void Button_Today_Click(object sender, RoutedEventArgs e)
