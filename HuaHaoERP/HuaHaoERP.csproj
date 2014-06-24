@@ -276,6 +276,7 @@
     <Compile Include="Helper\SQLite\DBHelper.cs" />
     <Compile Include="Helper\Tools\ComputerInfo.cs" />
     <Compile Include="Helper\Tools\GenerateMD5.cs" />
+    <Compile Include="Model\Warehouse\ProductSparepartsInModel.cs" />
     <Compile Include="ViewModel\Customer\Seniority.cs" />
     <Compile Include="Helper\Tools\TranslatePassword.cs" />
     <Compile Include="Helper\XML\Reader.cs" />
@@ -311,6 +312,7 @@
     <Compile Include="ViewModel\Settings\ChangePasswordConsole.cs" />
     <Compile Include="ViewModel\Settings\EncryptedDBConsole.cs" />
     <Compile Include="ViewModel\Settings\UserConsole.cs" />
+    <Compile Include="ViewModel\Warehouse\ProductSparepartsInConsole.cs" />
     <Compile Include="ViewModel\Warehouse\RawMaterialsConsole.cs" />
     <Compile Include="ViewModel\Warehouse\ScrapConsole.cs" />
     <Compile Include="ViewModel\Warehouse\WarehouseProductConsole.cs" />

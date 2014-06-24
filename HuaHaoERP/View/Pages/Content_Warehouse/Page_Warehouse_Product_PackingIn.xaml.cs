@@ -14,14 +14,16 @@ using System.Windows.Shapes;
 
 namespace HuaHaoERP.View.Pages.Content_Warehouse
 {
-    /// <summary>
-    /// Interaction logic for Page_Warehouse_Product_PackingIn.xaml
-    /// </summary>
     public partial class Page_Warehouse_Product_PackingIn : Page
     {
         public Page_Warehouse_Product_PackingIn()
         {
             InitializeComponent();
+        }
+
+        private void Button_Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            Helper.Events.PopUpEvent.OnHidePopUp();
         }
     }
 }

@@ -14,14 +14,27 @@ using System.Windows.Shapes;
 
 namespace HuaHaoERP.View.Pages.Content_Warehouse
 {
-    /// <summary>
-    /// Interaction logic for Page_Warehouse_Product_SparepartsIn.xaml
-    /// </summary>
     public partial class Page_Warehouse_Product_SparepartsIn : Page
     {
         public Page_Warehouse_Product_SparepartsIn()
         {
             InitializeComponent();
+            InitializeDataGrid();
+        }
+
+        private void InitializeDataGrid()
+        {
+            
+        }
+
+        private void Button_Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            Helper.Events.PopUpEvent.OnHidePopUp();
+        }
+
+        private void Button_Commit_Click(object sender, RoutedEventArgs e)
+        {
+            Button_Cancel_Click(null,null);
         }
     }
 }
