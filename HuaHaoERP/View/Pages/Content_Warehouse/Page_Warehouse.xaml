@@ -31,13 +31,13 @@
                     </DataGrid>
                     <DataGrid x:Name="DataGrid_PackingNum" Margin="10,70,10,10" BorderThickness="1" IsReadOnly="True" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" HeadersVisibility="Column" VerticalGridLinesBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" AutoGenerateColumns="False" LoadingRow="DataGrid_PackingNum_LoadingRow" SelectionMode="Single">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="编号" Binding="{Binding Id}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Header="编号" Binding="{Binding ProductNumber}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                             <DataGridTextColumn Header="名称" Binding="{Binding ProductName}"/>
                             <DataGridTextColumn Header="数量" Binding="{Binding Quantity}" MinWidth="50" ElementStyle="{DynamicResource TextBlockStyle_AlignRight}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <DatePicker x:Name="DatePicker_Start" Grid.Column="2" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="100" Height="24"/>
-                    <Label Content="已包装数量" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Padding="0,2" VerticalContentAlignment="Center" Height="24"/>
+                    <Label Content="包装数量" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Padding="0,2" VerticalContentAlignment="Center" Height="24"/>
                     <ComboBox x:Name="ComboBox_ShowHistory" FocusVisualStyle="{x:Null}" Grid.Column="2" HorizontalAlignment="Right" Margin="0,40,10,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" DropDownClosed="ComboBox_ShowHistory_DropDownClosed" ToolTip="全部不包括出库">
                         <ComboBoxItem Content="全部（散件）记录" IsSelected="True"/>
                         <ComboBoxItem Content="入库（散件）记录" />
@@ -46,7 +46,7 @@
                     </ComboBox>
                     <DataGrid x:Name="DataGrid_Num" Grid.Column="1" Margin="0,70,10,10" HorizontalContentAlignment="Stretch" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" IsReadOnly="True" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False" AutoGenerateColumns="False" LoadingRow="DataGrid_Num_LoadingRow" SelectionMode="Single">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="编号" Binding="{Binding Id}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Header="编号" Binding="{Binding ProductNumber}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                             <DataGridTextColumn Header="名称" Binding="{Binding ProductName}"/>
                             <DataGridTextColumn Header="数量" Binding="{Binding Quantity}" MinWidth="50" ElementStyle="{DynamicResource TextBlockStyle_AlignRight}"/>
                         </DataGrid.Columns>
@@ -78,8 +78,8 @@
                     </Grid>
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_Today" Content="今天" Grid.Column="2" HorizontalAlignment="Left" Margin="227,10,0,0" VerticalAlignment="Top" Width="50" Height="24" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Click="Button_Today_Click"/>
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_AllDate" Content="全日期" Grid.Column="2" HorizontalAlignment="Left" Margin="282,10,0,0" VerticalAlignment="Top" Width="75" Height="24" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Click="Button_AllDate_Click"/>
-                    <Button x:Name="Button_SparepartsIn" Content="散件入库" Grid.Column="1" HorizontalAlignment="Right" Margin="0,40,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_SparepartsIn_Click"/>
-                    <Button x:Name="Button_PackingIn" Content="包装入库" HorizontalAlignment="Right" Margin="0,40,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_PackingIn_Click"/>
+                    <Button x:Name="Button_SparepartsIn" Content="入库" Grid.Column="1" HorizontalAlignment="Right" Margin="0,40,10,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_SparepartsIn_Click"/>
+                    <Button x:Name="Button_PackingIn" Content="入库" HorizontalAlignment="Right" Margin="0,40,10,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_PackingIn_Click"/>
                     <TextBox x:Name="TextBox_Search" Height="23" Margin="10,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.ColumnSpan="2" Loaded="TextBox_Search_Loaded" PreviewKeyUp="TextBox_Search_PreviewKeyUp">
                         <TextBox.Resources>
                             <VisualBrush x:Key="HelpBrush" TileMode="None" Opacity="0.3" Stretch="None" AlignmentX="Left">
@@ -101,6 +101,8 @@
                             </Style>
                         </TextBox.Style>
                     </TextBox>
+                    <Button x:Name="Button_PackingOut" Content="出库" HorizontalAlignment="Right" Margin="0,40,65,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_PackingOut_Click"/>
+                    <Button x:Name="Button_SparepartsOut" Content="出库" HorizontalAlignment="Right" Margin="0,40,65,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Grid.Column="1" Click="Button_SparepartsOut_Click"/>
                 </Grid>
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="原料管理" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="17,0,-17,0" Foreground="White">

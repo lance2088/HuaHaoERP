@@ -20,20 +20,31 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
     public partial class Page_Warehouse_Product_PackingIn : Page
     {
         ObservableCollection<Model_WarehouseProductPackingIn> data = new ObservableCollection<Model_WarehouseProductPackingIn>();
+        /// <summary>
+        /// 0包装in 1散件in 2包装out 3散件out
+        /// </summary>
         int TYPE = 0;
 
-        public Page_Warehouse_Product_PackingIn()
-        {
-            InitializeComponent();
-            InitializeDataGrid();
-            this.Label_Title.Content = "手动录入：包装产品";
-        }
         public Page_Warehouse_Product_PackingIn(int Type)
         {
-            this.TYPE = 1;
+            this.TYPE = Type;
             InitializeComponent();
             InitializeDataGrid();
-            this.Label_Title.Content = "手动录入：散件产品";
+            switch(TYPE)
+            {
+                case 0:
+                    this.Label_Title.Content = "手动录入：包装产品";
+                    break;
+                case 1:
+                    this.Label_Title.Content = "手动录入：散件产品";
+                    break;
+                case 2:
+                    this.Label_Title.Content = "出库：包装产品";
+                    break;
+                case 3:
+                    this.Label_Title.Content = "出库：散件产品";
+                    break;
+            }
         }
 
         private void InitializeDataGrid()
@@ -43,7 +54,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                 data.Add(new Model_WarehouseProductPackingIn { Id = i+1 });
             }
             this.DataGrid.ItemsSource = data;
-            if(TYPE == 1)
+            if(TYPE == 1 || TYPE == 3)
             {
                 this.DataGridTextColumn_PackQuantity.Visibility = System.Windows.Visibility.Collapsed;
                 this.DataGridTextColumn_PerQuantity.Visibility = System.Windows.Visibility.Collapsed;
@@ -60,7 +71,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         {
             if(TYPE == 0)
             {
-                if (new ViewModel.Warehouse.ProductPackingInConsole().InsertPacking(data))
+                if (new ViewModel.Warehouse.ProductPackingInConsole().InsertPacking(data, false))
                 {
                     Helper.Events.UpdateEvent.WarehouseProductEvent.OnUpdateDataGrid();
                     Button_Cancel_Click(null, null);
@@ -68,7 +79,23 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             }
             else if(TYPE == 1)
             {
-                if(new ViewModel.Warehouse.ProductPackingInConsole().InsertSpareparts(data))
+                if(new ViewModel.Warehouse.ProductPackingInConsole().InsertSpareparts(data, false))
+                {
+                    Helper.Events.UpdateEvent.WarehouseProductEvent.OnUpdateDataGrid();
+                    Button_Cancel_Click(null, null);
+                }
+            }
+            else if(TYPE == 2)
+            {
+                if (new ViewModel.Warehouse.ProductPackingInConsole().InsertPacking(data, true))
+                {
+                    Helper.Events.UpdateEvent.WarehouseProductEvent.OnUpdateDataGrid();
+                    Button_Cancel_Click(null, null);
+                }
+            }
+            else if(TYPE == 3)
+            {
+                if (new ViewModel.Warehouse.ProductPackingInConsole().InsertSpareparts(data, true))
                 {
                     Helper.Events.UpdateEvent.WarehouseProductEvent.OnUpdateDataGrid();
                     Button_Cancel_Click(null, null);
@@ -116,11 +143,11 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                 if (DataGrid.SelectedCells[0].Column.Header.ToString() != "件数" && DataGrid.SelectedCells[0].Column.Header.ToString() != "数量")
                 {
                     e.Handled = true;
-                    if(TYPE == 0)
+                    if(TYPE == 0 || TYPE == 2)
                     {
                         DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.SelectedCells[0].Item, DataGrid.Columns[3]);
                     }
-                    else if(TYPE == 1)
+                    else if(TYPE == 1 || TYPE == 3)
                     {
                         DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.SelectedCells[0].Item, DataGrid.Columns[5]);
                     }

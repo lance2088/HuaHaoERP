@@ -25,6 +25,5 @@
             </DataGrid.Columns>
         </DataGrid>
         <Label x:Name="Label_Title" Content="Label__Title" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
-
     </Grid>
 </Page>

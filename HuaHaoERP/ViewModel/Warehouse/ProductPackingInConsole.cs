@@ -32,31 +32,48 @@ namespace HuaHaoERP.ViewModel.Warehouse
             return m;
         }
 
-        internal bool InsertPacking(ObservableCollection<Model_WarehouseProductPackingIn> data)
+        internal bool InsertPacking(ObservableCollection<Model_WarehouseProductPackingIn> data, bool isOut)
         {
+            int Negative = 1;
+            string Remark = "包装：手动录入";
+            if (isOut)
+            {
+                Negative = -1;
+                Remark = "出库";
+            }
             List<string> sqls = new List<string>();
             foreach(Model_WarehouseProductPackingIn m in data)
             {
                 if(m.Guid != new Guid())
                 {
-                    sqls.Add("Insert into T_Warehouse_Product(Guid,ProductID,Date,Operator,Quantity,Remark) "
-                        + "values('" + Guid.NewGuid() + "','" + m.Guid + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + Helper.DataDefinition.CommonParameters.RealName + "'," + -m.AllQuantity + ",'包装：手动包装自动扣除')");
+                    if(!isOut)
+                    {
+                        sqls.Add("Insert into T_Warehouse_Product(Guid,ProductID,Date,Operator,Quantity,Remark) "
+                            + "values('" + Guid.NewGuid() + "','" + m.Guid + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + Helper.DataDefinition.CommonParameters.RealName + "'," + -m.AllQuantity + ",'包装：手动包装自动扣除')");
+                    }
                     sqls.Add("Insert into T_Warehouse_ProductPacking(Guid,ProductID,Date,Operator,Quantity,Remark) "
-                        + "values('" + Guid.NewGuid() + "','" + m.Guid + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + Helper.DataDefinition.CommonParameters.RealName + "'," + m.PackQuantity + ",'包装：手动录入') ");
+                        + "values('" + Guid.NewGuid() + "','" + m.Guid + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + Helper.DataDefinition.CommonParameters.RealName + "'," + m.PackQuantity * Negative + ",'" + Remark + "') ");
                 }
             }
             return new Helper.SQLite.DBHelper().Transaction(sqls);
         }
 
-        internal bool InsertSpareparts(ObservableCollection<Model_WarehouseProductPackingIn> data)
+        internal bool InsertSpareparts(ObservableCollection<Model_WarehouseProductPackingIn> data, bool isOut)
         {
+            int Negative = 1;
+            string Remark = "入库：手动录入";
+            if(isOut)
+            {
+                Negative = -1;
+                Remark = "出库：手动录入";
+            }
             List<string> sqls = new List<string>();
             foreach (Model_WarehouseProductPackingIn m in data)
             {
                 if (m.Guid != new Guid())
                 {
                     sqls.Add("Insert into T_Warehouse_Product(Guid,ProductID,Date,Operator,Quantity,Remark) "
-                        + "values('" + Guid.NewGuid() + "','" + m.Guid + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + Helper.DataDefinition.CommonParameters.RealName + "'," + m.AllQuantity + ",'入库：手动录入')");
+                        + "values('" + Guid.NewGuid() + "','" + m.Guid + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + Helper.DataDefinition.CommonParameters.RealName + "'," + m.AllQuantity * Negative + ",'" + Remark + "')");
                 }
             }
             return new Helper.SQLite.DBHelper().Transaction(sqls);

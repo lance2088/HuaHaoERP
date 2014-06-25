@@ -79,6 +79,7 @@ namespace HuaHaoERP.Model.Warehouse
             get { return productID; }
             set { productID = value; }
         }
+        public string ProductNumber { get; set; }
         private string productName;
 
         public string ProductName

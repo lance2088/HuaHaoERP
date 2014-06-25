@@ -86,12 +86,14 @@ namespace HuaHaoERP.ViewModel.Warehouse
             string sql = "SELECT                                                  "
                        + "	a.ProductID,                                                  "
                        + "	total(a.Quantity) as Quantity,                            "
+                       + "  b.Number as ProductNumber,                              "
                        + "	b.Name as ProductName                                 "
                        + "FROM                                                    "
                        + "	T_Warehouse_Product a                                 "
                        + "LEFT JOIN T_ProductInfo_Product b on a.ProductID=b.GUID "
                        + " WHERE (b.Number LIKE '%" + Search + "%' OR b.Name LIKE '%" + Search + "%' )"
-                       + " GROUP BY a.ProductID ";
+                       + " GROUP BY a.ProductID "
+                       + " ORDER BY ProductNumber";
             DataSet ds = new DataSet();
             if(new Helper.SQLite.DBHelper().QueryData(sql, out ds))
             {
@@ -101,6 +103,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
                     WarehouseProductNumModel d = new WarehouseProductNumModel();
                     d.Id = id++;
                     d.ProductID = (Guid)dr["ProductID"];
+                    d.ProductNumber = dr["ProductNumber"].ToString();
                     d.ProductName = dr["ProductName"].ToString();
                     d.Quantity = int.Parse(dr["Quantity"].ToString());
                     data.Add(d);
@@ -116,12 +119,14 @@ namespace HuaHaoERP.ViewModel.Warehouse
             string sql = "SELECT                                                  "
                        + "	a.ProductID,                                                  "
                        + "	total(a.Quantity) as Quantity,                            "
+                       + "  b.Number as ProductNumber,                               "
                        + "	b.Name as ProductName                                 "
                        + "FROM                                                    "
                        + "	T_Warehouse_ProductPacking a                                 "
                        + "LEFT JOIN T_ProductInfo_Product b on a.ProductID=b.GUID "
                        + " WHERE (b.Number LIKE '%" + Search + "%' OR b.Name LIKE '%" + Search + "%' )"
-                       + " GROUP BY a.ProductID ";
+                       + " GROUP BY a.ProductID "
+                       + " ORDER BY ProductNumber";
             DataSet ds = new DataSet();
             if (new Helper.SQLite.DBHelper().QueryData(sql, out ds))
             {
@@ -131,6 +136,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
                     WarehouseProductNumModel d = new WarehouseProductNumModel();
                     d.Id = id++;
                     d.ProductID = (Guid)dr["ProductID"];
+                    d.ProductNumber = dr["ProductNumber"].ToString();
                     d.ProductName = dr["ProductName"].ToString();
                     d.Quantity = int.Parse(dr["Quantity"].ToString());
                     data.Add(d);
