@@ -14,7 +14,7 @@
         </Grid.ColumnDefinitions>
         <DataGrid x:Name="DataGrid_RawMaterials" AutoGenerateColumns="False" Margin="10,40,10,50" CanUserAddRows="False"
                   BorderThickness="1" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}"
-                  BorderBrush="#FF99CCFF" BeginningEdit="DataGrid_RawMaterials_BeginningEdit" CellEditEnding="DataGrid_RawMaterials_CellEditEnding" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" Grid.ColumnSpan="2">
+                  BorderBrush="#FF99CCFF" BeginningEdit="DataGrid_RawMaterials_BeginningEdit" CellEditEnding="DataGrid_RawMaterials_CellEditEnding" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" Grid.ColumnSpan="2" PreviewKeyDown="DataGrid_RawMaterials_PreviewKeyDown" SelectionMode="Single" SelectionUnit="Cell">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="序号" IsReadOnly="True" Binding="{Binding Id}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" />
                 <DataGridTextColumn Header="原材料编号" Selector.IsSelected="True" MinWidth="100" Binding="{Binding Code}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" />

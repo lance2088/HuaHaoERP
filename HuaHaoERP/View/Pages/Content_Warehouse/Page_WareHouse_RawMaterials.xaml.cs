@@ -122,5 +122,39 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                 }
             }
         }
+
+        private void DataGrid_RawMaterials_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                string Header = DataGrid_RawMaterials.SelectedCells[0].Column.Header.ToString();
+                if (Header == "原材料编号")
+                {
+                    e.Handled = true;
+                    DataGrid_RawMaterials.CurrentCell = new DataGridCellInfo(DataGrid_RawMaterials.SelectedCells[0].Item, DataGrid_RawMaterials.Columns[3]);
+                }
+                else if (Header == "数量")
+                {
+                    e.Handled = true;
+                    DataGrid_RawMaterials.CurrentCell = new DataGridCellInfo(DataGrid_RawMaterials.SelectedCells[0].Item, DataGrid_RawMaterials.Columns[4]);
+                }
+                else if (Header == "日期")
+                {
+                    e.Handled = true;
+                    DataGrid_RawMaterials.CurrentCell = new DataGridCellInfo(DataGrid_RawMaterials.SelectedCells[0].Item, DataGrid_RawMaterials.Columns[5]);
+                }
+                else if (Header == "操作员")
+                {
+                    e.Handled = true;
+                    DataGrid_RawMaterials.CurrentCell = new DataGridCellInfo(DataGrid_RawMaterials.SelectedCells[0].Item, DataGrid_RawMaterials.Columns[6]);
+                }
+                else
+                {
+                    DataGrid_RawMaterials.CurrentCell = new DataGridCellInfo(DataGrid_RawMaterials.SelectedCells[0].Item, DataGrid_RawMaterials.Columns[1]);
+                }
+                DataGrid_RawMaterials.SelectedCells.Clear();
+                DataGrid_RawMaterials.SelectedCells.Add(DataGrid_RawMaterials.CurrentCell);
+            }
+        }
     }
 }
