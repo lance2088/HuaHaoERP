@@ -133,7 +133,6 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                 data[data.IndexOf(model)].PackQuantity = PackQuantity;
                 data[data.IndexOf(model)].AllQuantity = data[data.IndexOf(model)].PackQuantity * data[data.IndexOf(model)].PerQuantity;
             }
-
         }
 
         private void DataGrid_PreviewKeyDown(object sender, KeyEventArgs e)

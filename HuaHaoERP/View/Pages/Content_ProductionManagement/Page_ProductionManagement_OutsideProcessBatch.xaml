@@ -14,14 +14,18 @@
         </Grid.ColumnDefinitions>
         <Button x:Name="Button_Commit" Content="确定" HorizontalAlignment="Right" Margin="0,0,20,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_Commit_Click"/>
         <Button x:Name="Button_Cancel" Content="取消" HorizontalAlignment="Left" Margin="20,0,0,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Grid.Column="1" IsCancel="True" Click="Button_Cancel_Click"/>
-        <DataGrid x:Name="DataGrid" Margin="10,60" Grid.ColumnSpan="2" CellStyle="{DynamicResource DataGridCellStyleCommon}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" BorderBrush="#FF99CCFF" AutoGenerateColumns="False" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" SelectionMode="Single" SelectionUnit="Cell" CanUserAddRows="False" CanUserResizeRows="False" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False">
+        <DataGrid x:Name="DataGrid" Margin="10,60" Grid.ColumnSpan="2" CellStyle="{DynamicResource DataGridCellStyleCommon}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" BorderBrush="#FF99CCFF" AutoGenerateColumns="False" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" SelectionMode="Single" SelectionUnit="Cell" CanUserAddRows="False" CanUserResizeRows="False" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" CellEditEnding="DataGrid_CellEditEnding" PreviewKeyDown="DataGrid_PreviewKeyDown">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="产品编号"/>
-                <DataGridTextColumn Header="产品名称" IsReadOnly="True"/>
-                <DataGridTextColumn Header="材质" IsReadOnly="True"/>
-                <DataGridTextColumn Header="加工商编号"/>
-                <DataGridTextColumn Header="加工商名称" IsReadOnly="True"/>
-                <DataGridTextColumn Header="数量"/>
+                <DataGridTextColumn Header="产品编号" Binding="{Binding ProductNumber}"/>
+                <DataGridTextColumn Header="产品名称" Binding="{Binding ProductName}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="材质" Binding="{Binding Material}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="加工商编号" Binding="{Binding ProcessorsNumber}" />
+                <DataGridTextColumn Header="加工商名称" Binding="{Binding ProcessorsName}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="数量" Binding="{Binding Quantity}"/>
+                <DataGridTextColumn x:Name="DataGridTextColumn_MinorInjuries" Header="轻伤" Binding="{Binding MinorInjuries}"/>
+                <DataGridTextColumn x:Name="DataGridTextColumn_Injuries" Header="重伤" Binding="{Binding Injuries}"/>
+                <DataGridTextColumn x:Name="DataGridTextColumn_Lose" Header="丢失" Binding="{Binding Lose}"/>
+                <DataGridTextColumn Header="备注" Binding="{Binding Remark}"/>
             </DataGrid.Columns>
         </DataGrid>
         <Label x:Name="Label_Title" Content="Label__Title" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
