@@ -181,6 +181,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Pages\Content_ProductionManagement\Page_ProductionManagement_OutsideProcessBatch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Pages\Content_Settings\Page_Settings_Popup_AddUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -369,6 +373,9 @@
     </Compile>
     <Compile Include="View\Pages\Content_ProductionManagement\Page_ProductionManagement_OutsideProcess.xaml.cs">
       <DependentUpon>Page_ProductionManagement_OutsideProcess.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\Content_ProductionManagement\Page_ProductionManagement_OutsideProcessBatch.xaml.cs">
+      <DependentUpon>Page_ProductionManagement_OutsideProcessBatch.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\Content_Settings\Page_Settings_Popup_AddUser.xaml.cs">
       <DependentUpon>Page_Settings_Popup_AddUser.xaml</DependentUpon>

@@ -137,12 +137,14 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void Button_AddProcessOut_Click(object sender, RoutedEventArgs e)
         {
-            PopUpEvent.OnShowPopUp(new Page_ProductionManagement_OutsideProcess(true));
+            //PopUpEvent.OnShowPopUp(new Page_ProductionManagement_OutsideProcess(true));
+            PopUpEvent.OnShowPopUp(new Page_ProductionManagement_OutsideProcessBatch(true));
         }
 
         private void Button_AddProcessIn_Click(object sender, RoutedEventArgs e)
         {
-            PopUpEvent.OnShowPopUp(new Page_ProductionManagement_OutsideProcess(false));
+            //PopUpEvent.OnShowPopUp(new Page_ProductionManagement_OutsideProcess(false));
+            PopUpEvent.OnShowPopUp(new Page_ProductionManagement_OutsideProcessBatch(false));
         }
 
         private void InitializeOutsideProcessDataGrid()
