@@ -33,10 +33,10 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             switch(TYPE)
             {
                 case 0:
-                    this.Label_Title.Content = "手动录入：包装产品";
+                    this.Label_Title.Content = "入库：包装产品";
                     break;
                 case 1:
-                    this.Label_Title.Content = "手动录入：散件产品";
+                    this.Label_Title.Content = "入库：散件产品";
                     break;
                 case 2:
                     this.Label_Title.Content = "出库：包装产品";

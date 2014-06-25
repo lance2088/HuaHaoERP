@@ -35,6 +35,11 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 this.DataGridTextColumn_MinorInjuries.Visibility = System.Windows.Visibility.Collapsed;
                 this.DataGridTextColumn_Injuries.Visibility = System.Windows.Visibility.Collapsed;
                 this.DataGridTextColumn_Lose.Visibility = System.Windows.Visibility.Collapsed;
+                this.Label_Title.Content = "外加工单：出单";
+            }
+            else
+            {
+                this.Label_Title.Content = "外加工单：入单";
             }
         }
 
