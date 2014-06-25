@@ -26,10 +26,10 @@
         <Label Content="员工：" HorizontalAlignment="Left" Margin="170,155,0,0" VerticalAlignment="Top" Padding="0,5,5,5"/>
         <Label Content="当前工序：" HorizontalAlignment="Left" Margin="170,40,0,0" VerticalAlignment="Top" Padding="0,0,5,0"/>
         <Label x:Name="Label_Process" Content="" HorizontalAlignment="Left" Margin="170,60,0,0" VerticalAlignment="Top" Height="37" Width="90" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="16" FontWeight="Bold" BorderThickness="1" BorderBrush="White"/>
-        <Button FocusVisualStyle="{x:Null}" x:Name="Button_Add" Content="+" Margin="0,0,16,13" VerticalAlignment="Bottom" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_Add_Click" Height="24" Foreground="White" HorizontalAlignment="Right" Width="58"/>
-        <Button FocusVisualStyle="{x:Null}" x:Name="Button_Storage" Content="成品入库" HorizontalAlignment="Left" Margin="16,208,0,0" VerticalAlignment="Top" Width="70" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_Storage_Click"/>
-        <Button FocusVisualStyle="{x:Null}" x:Name="Button_Processing" Content="出单" HorizontalAlignment="Left" Margin="91,208,0,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_Processing_Click"/>
-        <Button x:Name="Button_ProcessIn" Content="入单" HorizontalAlignment="Left" Margin="146,208,0,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_ProcessIn_Click"/>
+        <Button FocusVisualStyle="{x:Null}" x:Name="Button_Add" Content="+" Margin="0,0,16,13" VerticalAlignment="Bottom" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_Add_Click" Height="24" Foreground="White" HorizontalAlignment="Right" Width="88"/>
+        <Button FocusVisualStyle="{x:Null}" x:Name="Button_Storage" Content="入库" HorizontalAlignment="Left" Margin="16,208,0,0" VerticalAlignment="Top" Width="45" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_Storage_Click"/>
+        <Button FocusVisualStyle="{x:Null}" x:Name="Button_Processing" Content="出单" HorizontalAlignment="Left" Margin="68,208,0,0" VerticalAlignment="Top" Width="45" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_Processing_Click"/>
+        <Button x:Name="Button_ProcessIn" Content="入单" HorizontalAlignment="Left" Margin="115,208,0,0" VerticalAlignment="Top" Width="45" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_ProcessIn_Click"/>
 
     </Grid>
 </Page>
