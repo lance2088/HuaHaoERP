@@ -277,6 +277,7 @@
     <Compile Include="Helper\SQLite\DBHelper.cs" />
     <Compile Include="Helper\Tools\ComputerInfo.cs" />
     <Compile Include="Helper\Tools\GenerateMD5.cs" />
+    <Compile Include="Model\ProductionManagement\Model_ProductionManagement_OutsideProcessBatch.cs" />
     <Compile Include="Model\Warehouse\Model_WarehouseProductPackingIn.cs" />
     <Compile Include="ViewModel\Customer\Seniority.cs" />
     <Compile Include="Helper\Tools\TranslatePassword.cs" />
@@ -307,6 +308,7 @@
     <Compile Include="ViewModel\Orders\SupplierOrderConsole.cs" />
     <Compile Include="ViewModel\ProductionManagement\AssemblyLineDetailsConsole.cs" />
     <Compile Include="ViewModel\ProductionManagement\AssemblyLineModuleConsole.cs" />
+    <Compile Include="ViewModel\ProductionManagement\OutsideProcessBatchConsole.cs" />
     <Compile Include="ViewModel\ProductionManagement\OutsideProcessConsole.cs" />
     <Compile Include="ViewModel\Security\LicenseConsole.cs" />
     <Compile Include="ViewModel\Security\LoginConsole.cs" />
