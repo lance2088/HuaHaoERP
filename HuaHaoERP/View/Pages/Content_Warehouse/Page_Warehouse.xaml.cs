@@ -289,7 +289,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             int.TryParse(this.TextBox_Quantity_Outbound.Text, out Quantity);
             if(new ViewModel.Warehouse.WarehouseProductConsole().Outbound(ProductID, Quantity))
             {
-                this.ComboBox_ShowHistory.SelectedIndex = 2;
+                this.ComboBox_ShowHistory.SelectedIndex = 3;
                 ComboBox_ShowHistory_DropDownClosed(null,null);
                 //InitializeProductDataGrid();
                 this.Grid_Outbound.Visibility = System.Windows.Visibility.Collapsed;
