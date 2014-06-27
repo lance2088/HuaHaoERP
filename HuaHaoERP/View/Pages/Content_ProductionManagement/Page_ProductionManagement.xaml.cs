@@ -41,10 +41,6 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                     {
                         AddAssemblyLineModule(d.Guid);
                     }
-                    //else
-                    //{
-                    //    RemoveAssemblyLineModule("Grid_ALM_" + d.Guid.ToString().Replace("-", ""));
-                    //}
                 }
             };
             AssemblyLineEvent.ERemoveAssemblyLineModule += (s, e) =>
