@@ -21,7 +21,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             this.TYPE = Type;
             InitializeComponent();
             InitializeDataGrid();
-            switch(TYPE)
+            switch (TYPE)
             {
                 case 0:
                     this.Label_Title.Content = "入库：包装产品";
@@ -42,10 +42,10 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         {
             for (int i = 0; i < 20; i++)
             {
-                data.Add(new Model_WarehouseProductPackingIn { Id = i+1 });
+                data.Add(new Model_WarehouseProductPackingIn { Id = i + 1 });
             }
             this.DataGrid.ItemsSource = data;
-            if(TYPE == 1 || TYPE == 3)
+            if (TYPE == 1 || TYPE == 3)
             {
                 this.DataGridTextColumn_PackQuantity.Visibility = System.Windows.Visibility.Collapsed;
                 this.DataGridTextColumn_PerQuantity.Visibility = System.Windows.Visibility.Collapsed;
@@ -60,7 +60,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
 
         private void Button_Commit_Click(object sender, RoutedEventArgs e)
         {
-            if(TYPE == 0)
+            if (TYPE == 0)
             {
                 if (new ViewModel.Warehouse.ProductPackingInConsole().InsertPacking(data, false))
                 {
@@ -68,15 +68,15 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                     Button_Cancel_Click(null, null);
                 }
             }
-            else if(TYPE == 1)
+            else if (TYPE == 1)
             {
-                if(new ViewModel.Warehouse.ProductPackingInConsole().InsertSpareparts(data, false))
+                if (new ViewModel.Warehouse.ProductPackingInConsole().InsertSpareparts(data, false))
                 {
                     Helper.Events.UpdateEvent.WarehouseProductEvent.OnUpdateDataGrid();
                     Button_Cancel_Click(null, null);
                 }
             }
-            else if(TYPE == 2)
+            else if (TYPE == 2)
             {
                 if (new ViewModel.Warehouse.ProductPackingInConsole().InsertPacking(data, true))
                 {
@@ -84,7 +84,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                     Button_Cancel_Click(null, null);
                 }
             }
-            else if(TYPE == 3)
+            else if (TYPE == 3)
             {
                 if (new ViewModel.Warehouse.ProductPackingInConsole().InsertSpareparts(data, true))
                 {
@@ -112,10 +112,10 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                 data[data.IndexOf(model)].Material = m.Material;
                 data[data.IndexOf(model)].PerQuantity = m.PerQuantity;
             }
-            else if(Header == "件数")
+            else if (Header == "件数")
             {
                 int PackQuantity = 0;
-                if(!int.TryParse(newValue, out PackQuantity))
+                if (!int.TryParse(newValue, out PackQuantity))
                 {
                     (e.EditingElement as TextBox).Text = "0";
                     DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.SelectedCells[0].Item, DataGrid.Columns[3]);
@@ -128,16 +128,16 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
 
         private void DataGrid_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            if(e.Key == Key.Enter)
+            if (e.Key == Key.Enter)
             {
                 if (DataGrid.SelectedCells[0].Column.Header.ToString() != "件数" && DataGrid.SelectedCells[0].Column.Header.ToString() != "数量")
                 {
                     e.Handled = true;
-                    if(TYPE == 0 || TYPE == 2)
+                    if (TYPE == 0 || TYPE == 2)
                     {
                         DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.SelectedCells[0].Item, DataGrid.Columns[3]);
                     }
-                    else if(TYPE == 1 || TYPE == 3)
+                    else if (TYPE == 1 || TYPE == 3)
                     {
                         DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.SelectedCells[0].Item, DataGrid.Columns[5]);
                     }

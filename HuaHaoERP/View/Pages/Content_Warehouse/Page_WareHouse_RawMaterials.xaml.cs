@@ -20,10 +20,10 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             InitializeComponent();
             DataGrid_RawMaterials.LoadingRow += new EventHandler<DataGridRowEventArgs>(DataGrid_RawMaterials_LoadingRow);
             rawMaterials = new List<RawMaterialsDetailModel>();
-            for (int i = 0; i < 18;i++ )
+            for (int i = 0; i < 18; i++)
             {
                 RawMaterialsDetailModel m = new RawMaterialsDetailModel();
-                m.Id = i+1;
+                m.Id = i + 1;
                 m.Date = DateTime.Now.ToString("yyyy.MM.dd");
                 m.Operator = Helper.DataDefinition.CommonParameters.RealName;
                 rawMaterials.Add(m);
@@ -75,7 +75,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             {
                 if (commitResultList.Count != 0)
                 {
-                    bool flag = new ViewModel.Warehouse.RawMaterialsConsole().AddByBatch(commitResultList,true);
+                    bool flag = new ViewModel.Warehouse.RawMaterialsConsole().AddByBatch(commitResultList, true);
                     if (flag)
                     {
                         WarehouseRawMaterialsEvent.OnUpdateDataGrid();
