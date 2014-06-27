@@ -40,7 +40,7 @@ namespace HuaHaoERP
                 stringBuilder.AppendFormat("/n {0}", e.Exception.InnerException.Message);
             }
             stringBuilder.AppendFormat("/n {0}", e.Exception.StackTrace);
-            MessageBox.Show(stringBuilder.ToString());
+            MessageBox.Show("应用程序出现了未捕获的异常，请联系开发商。");
             Helper.LogHelper.FileLog.ErrorLog(stringBuilder.ToString());
             e.Handled = true;
         }  
