@@ -405,6 +405,15 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             InitializeAssemblyLineDetailsDataGrid();
             this.ScrollViewer_AssemblyLineDetails.ScrollToTop();
         }
+        /// <summary>
+        /// 批量录入按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_BatchInputProduction_Click(object sender, RoutedEventArgs e)
+        {
+            Helper.Events.PopUpEvent.OnShowPopUp(new Page_ProductionManagement_AssemblyLineModuleBatchInput());
+        }
 
     }
 }
