@@ -1,9 +1,7 @@
-﻿using System;
+﻿using HuaHaoERP.Model;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Data;
-using HuaHaoERP.Model;
 
 namespace HuaHaoERP.ViewModel.ProductionManagement
 {

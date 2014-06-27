@@ -1,8 +1,6 @@
-﻿using System;
+﻿using HuaHaoERP.Model.Warehouse;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using HuaHaoERP.Model.Warehouse;
 using System.Data;
 
 namespace HuaHaoERP.ViewModel.Warehouse
