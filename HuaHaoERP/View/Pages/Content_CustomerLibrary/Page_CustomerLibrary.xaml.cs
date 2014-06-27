@@ -21,7 +21,7 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
 
         private void SubscribeToEvent()
         {
-            CustomerEvent.EUpdateDataGrid += (sender, e) => 
+            CustomerEvent.EUpdateDataGrid += (sender, e) =>
             {
                 InitializeCustomerDataGrid();
             };
@@ -43,7 +43,7 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
         /// </summary>
         private void FunctionalLimitation()
         {
-            if(Helper.DataDefinition.CommonParameters.PeriodOfValidity < 0)
+            if (Helper.DataDefinition.CommonParameters.PeriodOfValidity < 0)
             {
                 this.Button_Add_Processors.IsEnabled = false;
                 this.Button_AddCustomer.IsEnabled = false;
@@ -77,7 +77,7 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
             if (this.DataGrid_Customer.SelectedCells.Count > 0)
             {
                 HuaHaoERP.Model.CustomerModel data = this.DataGrid_Customer.SelectedCells[0].Item as HuaHaoERP.Model.CustomerModel;
-                if(MessageBox.Show("确认删除用户："+data.Name+"？","警告",MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                if (MessageBox.Show("确认删除用户：" + data.Name + "？", "警告", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
                     new ViewModel.Customer.CustomerConsole().MarkDelete(data);
                     CustomerEvent.OnUpdateDataGrid();
@@ -193,6 +193,6 @@ namespace HuaHaoERP.View.Pages.Content_CustomerLibrary
 
 
 
-        
+
     }
 }
