@@ -66,7 +66,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             ComboBox_Name.ItemsSource = sc.GetName(false);
             ComboBox_Name.SelectedIndex = 0;
             DatePicker_Date.Text = DateTime.Now.ToShortDateString();
-            #endregion 
+            #endregion
             InitializeRawMaterialsDataGrid();
         }
 
@@ -117,7 +117,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         {
             DateTime Start = ((DateTime)this.DatePicker_Start.SelectedDate).Date;
             DateTime End = ((DateTime)this.DatePicker_End.SelectedDate).Date.AddDays(1);
-            string HistoryType = this.ComboBox_ShowHistory.Text.Substring(0,2);
+            string HistoryType = this.ComboBox_ShowHistory.Text.Substring(0, 2);
             string Search = this.TextBox_Search.Text;
             //明细
             List<WarehouseProductModel> d = new List<WarehouseProductModel>();
@@ -195,7 +195,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             {
                 PerPackQuantity = new ViewModel.Warehouse.WarehouseProductConsole().ReadProductPackingNum((Guid)this.ComboBox_ProductList.SelectedValue);
             }
-            
+
             this.Label_ShowPackMessage.Content = PerPackQuantity + "个/包";
             int PackQuantity = 0;
             int.TryParse(this.TextBox_PackQuantity.Text, out PackQuantity);
@@ -280,10 +280,10 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             }
             int Quantity = 0;
             int.TryParse(this.TextBox_Quantity_Outbound.Text, out Quantity);
-            if(new ViewModel.Warehouse.WarehouseProductConsole().Outbound(ProductID, Quantity))
+            if (new ViewModel.Warehouse.WarehouseProductConsole().Outbound(ProductID, Quantity))
             {
                 this.ComboBox_ShowHistory.SelectedIndex = 3;
-                ComboBox_ShowHistory_DropDownClosed(null,null);
+                ComboBox_ShowHistory_DropDownClosed(null, null);
                 //InitializeProductDataGrid();
                 this.Grid_Outbound.Visibility = System.Windows.Visibility.Collapsed;
             }
@@ -297,7 +297,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             this.Label_ShowOutboundWarnMessage.Content = "";
             int Quantity = 0;
             int.TryParse(this.TextBox_Quantity_Outbound.Text, out Quantity);
-            if(Quantity > PackStock)
+            if (Quantity > PackStock)
             {
                 this.Label_ShowOutboundWarnMessage.Content = "超出库存";
                 this.Button_Outbound.IsEnabled = false;
@@ -365,7 +365,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             m.Number = Number;
             m.Operator = Helper.DataDefinition.CommonParameters.RealName;
             list.Add(m);
-            if (rmc.AddByBatch(list,false))
+            if (rmc.AddByBatch(list, false))
             {
                 InitializeRawMaterialsDataGrid();
                 this.Grid_OutGrid.Visibility = System.Windows.Visibility.Collapsed;
@@ -454,7 +454,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             DateTime.TryParse(DatePicker_Date.Text, out dt);
             TimeSpan ts = DateTime.Now - dt;
             int day = ts.Days;
-            if (day > 1000) 
+            if (day > 1000)
             {
                 StatusBarMessageEvent.OnUpdateMessage("日期不能为空！");
                 DatePicker_Date.Text = DateTime.Now.ToShortDateString();

@@ -12,7 +12,7 @@ namespace HuaHaoERP.View.Pages
 
         private void InitializeData()
         {
-            if(Helper.DataDefinition.CommonParameters.IsLockApp)
+            if (Helper.DataDefinition.CommonParameters.IsLockApp)
             {
                 this.TabItem_CustomerLibrary.Visibility = System.Windows.Visibility.Collapsed;//屏蔽客户库
                 this.TabItem_MeansOfProduction.Visibility = System.Windows.Visibility.Collapsed;//屏蔽资料库
@@ -58,6 +58,6 @@ namespace HuaHaoERP.View.Pages
             this.Frame_Content_Settings.Content = new Content_Settings.Page_Settings();//实例化设置
             //this.Frame_Content_Orders.Content = new Content_Orders.Page_Orders();
         }
-        
+
     }
 }
