@@ -37,7 +37,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 this.WrapPanel_AssemblyLine.Children.Clear();
                 foreach (Model.ProductModel d in e.ProductData)
                 {
-                    if(d.IsShow == true)
+                    if (d.IsShow == true)
                     {
                         AddAssemblyLineModule(d.Guid);
                     }
@@ -62,7 +62,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         }
         private void InitializeData()
         {
-            foreach(Guid str in Helper.DataDefinition.CommonParameters.AssemblyLineModuleShow)
+            foreach (Guid str in Helper.DataDefinition.CommonParameters.AssemblyLineModuleShow)
             {
                 AddAssemblyLineModule(str);
             }
@@ -116,7 +116,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         private void RemoveAssemblyLineModule(string RegisterName)
         {
             Grid g = this.WrapPanel_AssemblyLine.FindName(RegisterName) as Grid;
-            if(g != null)
+            if (g != null)
             {
                 this.WrapPanel_AssemblyLine.Children.Remove(g);
                 this.WrapPanel_AssemblyLine.UnregisterName(RegisterName);
@@ -254,7 +254,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 Model.ProductionManagement_OutsideProcessModel d = this.DataGrid_ProcessOut.SelectedCells[0].Item as Model.ProductionManagement_OutsideProcessModel;
                 PopUpEvent.OnShowPopUp(new Page_ProductionManagement_OutsideProcess(false, d.ProductName, d.ProcessorsName));
             }
-           
+
         }
 
         private void Button_ClearModule_Click(object sender, RoutedEventArgs e)
@@ -269,7 +269,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             {
                 (sender as ComboBox).IsDropDownOpen = true;
             }
-            if(this.ComboBox_Product.SelectedValue == null)
+            if (this.ComboBox_Product.SelectedValue == null)
             {
                 string Parm = this.ComboBox_Product.Text;
                 DataSet ds = new DataSet();
@@ -288,7 +288,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             {
                 (sender as ComboBox).IsDropDownOpen = true;
             }
-            if(this.ComboBox_Processors.SelectedValue == null)
+            if (this.ComboBox_Processors.SelectedValue == null)
             {
                 string Parm = this.ComboBox_Processors.Text;
                 DataSet ds = new DataSet();
@@ -303,7 +303,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void ComboBox_Product_DropDownOpened(object sender, EventArgs e)
         {
-            if(this.ComboBox_Product.SelectedValue == null)
+            if (this.ComboBox_Product.SelectedValue == null)
             {
                 InitProductComboBox();
             }
@@ -311,7 +311,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void ComboBox_Processors_DropDownOpened(object sender, EventArgs e)
         {
-            if(this.ComboBox_Processors.SelectedValue == null)
+            if (this.ComboBox_Processors.SelectedValue == null)
             {
                 InitProcessorsComboBox();
             }
