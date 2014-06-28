@@ -62,7 +62,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             Model_ProductionManagement_OutsideProcessBatch model = this.DataGrid.SelectedCells[0].Item as Model_ProductionManagement_OutsideProcessBatch;
             string newValue = (e.EditingElement as TextBox).Text.Trim();
             string Header = e.Column.Header.ToString();
-            if(Header == "产品编号")
+            if (Header == "产品编号")
             {
                 Model_ProductionManagement_OutsideProcessBatch m = new OutsideProcessBatchConsole().ReadProductInfo(newValue);
                 if (m.ProductGuid == new Guid())
@@ -74,7 +74,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 data[data.IndexOf(model)].ProductName = m.ProductName;
                 data[data.IndexOf(model)].Material = m.Material;
             }
-            else if(Header == "加工商编号")
+            else if (Header == "加工商编号")
             {
                 Model_ProductionManagement_OutsideProcessBatch m = new OutsideProcessBatchConsole().ReadProcessorsInfo(newValue);
                 if (m.ProcessorsGuid == new Guid())
@@ -102,13 +102,13 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                     e.Handled = true;
                     DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.SelectedCells[0].Item, DataGrid.Columns[5]);//跳数量
                 }
-                else if(Header == "备注")
+                else if (Header == "备注")
                 {
                     DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.SelectedCells[0].Item, DataGrid.Columns[0]);
                 }
                 else
                 {
-                    if(!IsOUT)
+                    if (!IsOUT)
                     {
                         if (Header == "数量")
                         {

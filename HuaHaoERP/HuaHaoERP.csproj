@@ -169,6 +169,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Pages\Content_ProductionManagement\Page_ProductionManagement_AssemblyLineModuleBatchInput.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Pages\Content_ProductionManagement\Page_ProductionManagement_AssemblyLineModuleDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -277,14 +281,15 @@
     <Compile Include="Helper\SQLite\DBHelper.cs" />
     <Compile Include="Helper\Tools\ComputerInfo.cs" />
     <Compile Include="Helper\Tools\GenerateMD5.cs" />
+    <Compile Include="Model\ProductionManagement\Model_AssemblyLineModuleBatchInput.cs" />
     <Compile Include="Model\ProductionManagement\Model_ProductionManagement_OutsideProcessBatch.cs" />
     <Compile Include="Model\Warehouse\Model_WarehouseProductPackingIn.cs" />
     <Compile Include="ViewModel\Customer\Seniority.cs" />
     <Compile Include="Helper\Tools\TranslatePassword.cs" />
     <Compile Include="Helper\XML\Reader.cs" />
     <Compile Include="Model\ProductionManagement\AssemblyLineModuleModel.cs" />
-    <Compile Include="Model\CustomerModel.cs" />
-    <Compile Include="Model\ProcessorsModel.cs" />
+    <Compile Include="Model\CustomerLibrary\CustomerModel.cs" />
+    <Compile Include="Model\CustomerLibrary\ProcessorsModel.cs" />
     <Compile Include="Model\ProductionManagement\AssemblyLineDetailsListModel.cs" />
     <Compile Include="Model\ProductionManagement\AssemblyLineDetailsModel.cs" />
     <Compile Include="Model\ProductionManagement\ProductionManagement_OutsideProcessModel.cs" />
@@ -293,8 +298,8 @@
     <Compile Include="Model\RawMaterialsDetailModel.cs" />
     <Compile Include="Model\RawMaterialsModel.cs" />
     <Compile Include="Model\ScrapModel.cs" />
-    <Compile Include="Model\StaffModel.cs" />
-    <Compile Include="Model\SupplierModel.cs" />
+    <Compile Include="Model\CustomerLibrary\StaffModel.cs" />
+    <Compile Include="Model\CustomerLibrary\SupplierModel.cs" />
     <Compile Include="Model\UserModel.cs" />
     <Compile Include="Model\Warehouse\WarehouseProductModel.cs" />
     <Compile Include="ViewModel\Customer\ProcessorsConsole.cs" />
@@ -307,6 +312,7 @@
     <Compile Include="ViewModel\Orders\ProductOrderConsole.cs" />
     <Compile Include="ViewModel\Orders\SupplierOrderConsole.cs" />
     <Compile Include="ViewModel\ProductionManagement\AssemblyLineDetailsConsole.cs" />
+    <Compile Include="ViewModel\ProductionManagement\AssemblyLineModuleBatchInputConsole.cs" />
     <Compile Include="ViewModel\ProductionManagement\AssemblyLineModuleConsole.cs" />
     <Compile Include="ViewModel\ProductionManagement\OutsideProcessBatchConsole.cs" />
     <Compile Include="ViewModel\ProductionManagement\OutsideProcessConsole.cs" />
@@ -366,6 +372,9 @@
     </Compile>
     <Compile Include="View\Pages\Content_ProductionManagement\Page_ProductionManagement_AssemblyLineModule.xaml.cs">
       <DependentUpon>Page_ProductionManagement_AssemblyLineModule.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\Content_ProductionManagement\Page_ProductionManagement_AssemblyLineModuleBatchInput.xaml.cs">
+      <DependentUpon>Page_ProductionManagement_AssemblyLineModuleBatchInput.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\Content_ProductionManagement\Page_ProductionManagement_AssemblyLineModuleDetails.xaml.cs">
       <DependentUpon>Page_ProductionManagement_AssemblyLineModuleDetails.xaml</DependentUpon>
