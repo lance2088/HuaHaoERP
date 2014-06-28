@@ -29,7 +29,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void Button_Commit_Click(object sender, RoutedEventArgs e)
         {
-            if (new AssemblyLineModuleBatchInputConsole().InsertData(data))
+            if (new AssemblyLineModuleBatchInputConsole().InsertData(data, (bool)this.CheckBox_AutoDeductionRawMaterials.IsChecked))
             {
                 Button_Cancel_Click(null, null);
                 Helper.Events.UpdateEvent.AssemblyLineModuleEvent.OnUpdateDataGrid();
@@ -121,6 +121,17 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 }
                 data[data.IndexOf(model)].StaffGuid = m.StaffGuid;
                 data[data.IndexOf(model)].StaffName = m.StaffName;
+            }
+        }
+
+        private void CheckBox_AutoDeductionRawMaterials_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.CheckBox_AutoDeductionRawMaterials.IsChecked == false)
+            {
+                if (MessageBox.Show("取消自动扣半成品仅适用于“录入初始数据”\n是否继续？", "警告", MessageBoxButton.YesNo) == MessageBoxResult.No)
+                {
+                    this.CheckBox_AutoDeductionRawMaterials.IsChecked = true;
+                }
             }
         }
     }

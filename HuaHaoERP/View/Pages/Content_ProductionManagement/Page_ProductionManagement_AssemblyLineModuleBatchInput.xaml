@@ -47,6 +47,8 @@
                 </DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <Label Content="流水线：批量录入" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+        <CheckBox x:Name="CheckBox_AutoDeductionRawMaterials" Content="自动扣半成品原料" Grid.Column="1" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" FontSize="20" VerticalContentAlignment="Center" IsChecked="True" Click="CheckBox_AutoDeductionRawMaterials_Click"/>
 
     </Grid>
 </Page>

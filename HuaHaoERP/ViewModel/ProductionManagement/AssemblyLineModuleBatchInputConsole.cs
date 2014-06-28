@@ -53,7 +53,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
             return m;
         }
 
-        internal bool InsertData(ObservableCollection<Model_AssemblyLineModuleBatchInput> data)
+        internal bool InsertData(ObservableCollection<Model_AssemblyLineModuleBatchInput> data, bool isAutoDeductionRawMaterials)
         {
             List<string> sqls = new List<string>();
             Guid Guid1;
@@ -72,10 +72,13 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                             LastProcess = m.ProcessList[i - 1];
                         }
                     }
-                    if (m.Process != m.ProcessList[0])
+                    if (isAutoDeductionRawMaterials)
                     {
-                        sqls.Add("Insert into T_PM_ProductionSchedule(Guid,Date,StaffID,ProductID,Process,Number,Break,Remark,ParentGuid) "
-                            + "values('" + Guid1 + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + m.StaffGuid + "','" + m.ProductGuid + "','" + LastProcess + "'," + -(m.Quantity + m.Injure) + ",0,'自动扣半成品原料','" + Guid2 + "')");
+                        if (m.Process != m.ProcessList[0])
+                        {
+                            sqls.Add("Insert into T_PM_ProductionSchedule(Guid,Date,StaffID,ProductID,Process,Number,Break,Remark,ParentGuid) "
+                                + "values('" + Guid1 + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + m.StaffGuid + "','" + m.ProductGuid + "','" + LastProcess + "'," + -(m.Quantity + m.Injure) + ",0,'自动扣半成品原料','" + Guid2 + "')");
+                        }
                     }
                     sqls.Add("Insert into T_PM_ProductionSchedule(Guid,Date,StaffID,ProductID,Process,Number,Break,Remark,ParentGuid) "
                         + "values('" + Guid2 + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + m.StaffGuid + "','" + m.ProductGuid + "','" + m.Process + "'," + m.Quantity + "," + m.Injure + ",'','" + Guid1 + "')");
