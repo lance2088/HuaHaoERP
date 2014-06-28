@@ -36,6 +36,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                     this.Label_Title.Content = "出库：散件产品";
                     break;
             }
+            this.DatePicker_InsertDate.SelectedDate = DateTime.Now;
         }
 
         private void InitializeDataGrid()
@@ -60,9 +61,10 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
 
         private void Button_Commit_Click(object sender, RoutedEventArgs e)
         {
+            DateTime date = (DateTime)this.DatePicker_InsertDate.SelectedDate;
             if (TYPE == 0)
             {
-                if (new ViewModel.Warehouse.ProductPackingInConsole().InsertPacking(data, false))
+                if (new ViewModel.Warehouse.ProductPackingInConsole().InsertPacking(data, false, date))
                 {
                     Helper.Events.UpdateEvent.WarehouseProductEvent.OnUpdateDataGrid();
                     Button_Cancel_Click(null, null);
@@ -70,7 +72,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             }
             else if (TYPE == 1)
             {
-                if (new ViewModel.Warehouse.ProductPackingInConsole().InsertSpareparts(data, false))
+                if (new ViewModel.Warehouse.ProductPackingInConsole().InsertSpareparts(data, false, date))
                 {
                     Helper.Events.UpdateEvent.WarehouseProductEvent.OnUpdateDataGrid();
                     Button_Cancel_Click(null, null);
@@ -78,7 +80,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             }
             else if (TYPE == 2)
             {
-                if (new ViewModel.Warehouse.ProductPackingInConsole().InsertPacking(data, true))
+                if (new ViewModel.Warehouse.ProductPackingInConsole().InsertPacking(data, true, date))
                 {
                     Helper.Events.UpdateEvent.WarehouseProductEvent.OnUpdateDataGrid();
                     Button_Cancel_Click(null, null);
@@ -86,7 +88,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             }
             else if (TYPE == 3)
             {
-                if (new ViewModel.Warehouse.ProductPackingInConsole().InsertSpareparts(data, true))
+                if (new ViewModel.Warehouse.ProductPackingInConsole().InsertSpareparts(data, true, date))
                 {
                     Helper.Events.UpdateEvent.WarehouseProductEvent.OnUpdateDataGrid();
                     Button_Cancel_Click(null, null);

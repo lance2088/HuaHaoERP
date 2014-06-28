@@ -32,6 +32,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             {
                 this.Label_Title.Content = "外加工单：入单";
             }
+            this.DatePicker_InsertDate.SelectedDate = DateTime.Now;
         }
 
         private void InitializeDataGrid()
@@ -45,7 +46,8 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void Button_Commit_Click(object sender, RoutedEventArgs e)
         {
-            if (new OutsideProcessBatchConsole().InsertData(data, IsOUT))
+            DateTime date = (DateTime)this.DatePicker_InsertDate.SelectedDate;
+            if (new OutsideProcessBatchConsole().InsertData(data, IsOUT, date))
             {
                 Helper.Events.ProductionManagement_AssemblyLineEvent.OnUpdateDataGrid();
                 Button_Cancel_Click(null, null);

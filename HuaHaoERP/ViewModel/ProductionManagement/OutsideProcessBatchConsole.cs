@@ -43,7 +43,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
             }
             return m;
         }
-        internal bool InsertData(ObservableCollection<Model_ProductionManagement_OutsideProcessBatch> data, bool isOut)
+        internal bool InsertData(ObservableCollection<Model_ProductionManagement_OutsideProcessBatch> data, bool isOut, DateTime date)
         {
             string OrderType = "入单";
             if(isOut)
@@ -59,7 +59,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                                     + "ProductID,ProcessorsID,"
                                     + "Quantity,MinorInjuries,Injuries,Lose,"
                                     + "OrderType,Remark) "
-                            + "values('" + Guid.NewGuid() + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+                            + "values('" + Guid.NewGuid() + "','" + date.ToString("yyyy-MM-dd HH:mm:ss")
                                     + "','" + m.ProductGuid + "','" + m.ProcessorsGuid + "',"
                                     + m.Quantity + "," + m.MinorInjuries + "," + m.Injuries + "," + m.Lose + ",'" 
                                     + OrderType + "','" + m.Remark + "')");
