@@ -19,25 +19,32 @@
         <Button x:Name="Button_Cancel" Content="取消" HorizontalAlignment="Left" Margin="20,0,0,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Grid.Column="1" IsCancel="True" Click="Button_Cancel_Click"/>
         <DataGrid x:Name="DataGrid_BatchInput" Margin="10,60" Grid.ColumnSpan="2" CellStyle="{DynamicResource DataGridCellStyleCommon}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" SelectionMode="Single" SelectionUnit="Cell" HeadersVisibility="Column" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" AutoGenerateColumns="False" BorderBrush="#FF99CCFF" PreviewKeyDown="DataGrid_BatchInput_PreviewKeyDown" CellEditEnding="DataGrid_BatchInput_CellEditEnding" CanUserAddRows="False" CanUserResizeRows="False" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" CanUserDeleteRows="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="产品编号"/>
-                <DataGridTextColumn Header="产品名称" IsReadOnly="True">
+                <DataGridTextColumn Header="产品编号" Binding="{Binding ProductNumber}"/>
+                <DataGridTextColumn Header="产品名称" Binding="{Binding ProductName}" IsReadOnly="True">
                     <DataGridTextColumn.CellStyle>
                         <Style TargetType="DataGridCell">
                             <Setter Property="Background" Value="{StaticResource clBr}" />
                         </Style>
                     </DataGridTextColumn.CellStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="工序"/>
-                <DataGridTextColumn Header="员工编号"/>
-                <DataGridTextColumn Header="员工名称" IsReadOnly="True">
+                <DataGridTextColumn Header="工序" Binding="{Binding Process}"/>
+                <DataGridTextColumn Header="员工编号" Binding="{Binding StaffNumber}"/>
+                <DataGridTextColumn Header="员工名称" Binding="{Binding StaffName}" IsReadOnly="True">
                     <DataGridTextColumn.CellStyle>
                         <Style TargetType="DataGridCell">
                             <Setter Property="Background" Value="{StaticResource clBr}" />
                         </Style>
                     </DataGridTextColumn.CellStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="数量"/>
-                <DataGridTextColumn Header="损坏"/>
+                <DataGridTextColumn Header="数量" Binding="{Binding Quantity}"/>
+                <DataGridTextColumn Header="损坏" Binding="{Binding Injure}"/>
+                <DataGridTextColumn Header="产品工序" Binding="{Binding ProcessListStr}" IsReadOnly="True" MinWidth="150">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Background" Value="{StaticResource clBr}" />
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
 

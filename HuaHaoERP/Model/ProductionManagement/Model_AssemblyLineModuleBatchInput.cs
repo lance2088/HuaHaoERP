@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace HuaHaoERP.Model.ProductionManagement
@@ -19,12 +20,12 @@ namespace HuaHaoERP.Model.ProductionManagement
             get { return productGuid; }
             set { productGuid = value; NotifyPropertyChanged("ProductGuid"); }
         }
-        private string produtcNumber;
+        private string productNumber;
 
-        public string ProdutcNumber
+        public string ProductNumber
         {
-            get { return produtcNumber; }
-            set { produtcNumber = value; NotifyPropertyChanged("ProdutcNumber"); }
+            get { return productNumber; }
+            set { productNumber = value; NotifyPropertyChanged("ProductNumber"); }
         }
         private string productName;
 
@@ -82,6 +83,21 @@ namespace HuaHaoERP.Model.ProductionManagement
             get { return remark; }
             set { remark = value; NotifyPropertyChanged("Remark"); }
         }
+        private string[] processList = new string[6];
+
+        public string[] ProcessList
+        {
+            get { return processList; }
+            set { processList = value; }
+        }
+        private string processListStr;
+
+        public string ProcessListStr
+        {
+            get { return processListStr; }
+            set { processListStr = value; NotifyPropertyChanged("ProcessListStr"); }
+        }
+
 
         #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
