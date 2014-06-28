@@ -288,8 +288,8 @@
     <Compile Include="Helper\Tools\TranslatePassword.cs" />
     <Compile Include="Helper\XML\Reader.cs" />
     <Compile Include="Model\ProductionManagement\AssemblyLineModuleModel.cs" />
-    <Compile Include="Model\CustomerModel.cs" />
-    <Compile Include="Model\ProcessorsModel.cs" />
+    <Compile Include="Model\CustomerLibrary\CustomerModel.cs" />
+    <Compile Include="Model\CustomerLibrary\ProcessorsModel.cs" />
     <Compile Include="Model\ProductionManagement\AssemblyLineDetailsListModel.cs" />
     <Compile Include="Model\ProductionManagement\AssemblyLineDetailsModel.cs" />
     <Compile Include="Model\ProductionManagement\ProductionManagement_OutsideProcessModel.cs" />
@@ -298,8 +298,8 @@
     <Compile Include="Model\RawMaterialsDetailModel.cs" />
     <Compile Include="Model\RawMaterialsModel.cs" />
     <Compile Include="Model\ScrapModel.cs" />
-    <Compile Include="Model\StaffModel.cs" />
-    <Compile Include="Model\SupplierModel.cs" />
+    <Compile Include="Model\CustomerLibrary\StaffModel.cs" />
+    <Compile Include="Model\CustomerLibrary\SupplierModel.cs" />
     <Compile Include="Model\UserModel.cs" />
     <Compile Include="Model\Warehouse\WarehouseProductModel.cs" />
     <Compile Include="ViewModel\Customer\ProcessorsConsole.cs" />
