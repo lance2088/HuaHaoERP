@@ -22,6 +22,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             this.GridName = Name;
             this.ProductGuid = ProductGuid;
             InitializeData();
+            Helper.Events.UpdateEvent.AssemblyLineModuleEvent.EUpdateDataGrid += (s, e) => { InitializeData(); };
         }
 
         /// <summary>
@@ -37,16 +38,16 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         private void InitializeData()
         {
             this.DataGrid.ItemsSource = null;
-            if(new ViewModel.ProductionManagement.AssemblyLineModuleConsole().ReadList(ProductGuid, out d))
+            if (new ViewModel.ProductionManagement.AssemblyLineModuleConsole().ReadList(ProductGuid, out d))
             {
                 ProductName = d.Name;
                 this.Label_ProductName.Content = d.Name;
                 this.DataGrid.ItemsSource = d.ProcessList;
                 this.Label_Process.Content = "";
                 this.Button_Processing.Visibility = System.Windows.Visibility.Collapsed;
-                foreach(AssemblyLineModuleProcessModel dpm in d.ProcessList)
+                foreach (AssemblyLineModuleProcessModel dpm in d.ProcessList)
                 {
-                    if(dpm.Process == "抛光")
+                    if (dpm.Process == "抛光")
                     {
                         this.Button_Processing.Visibility = System.Windows.Visibility.Visible;
                     }
@@ -82,14 +83,14 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                     dp.Guid = Guid.NewGuid();
                     if (this.ComboBox_StaffList.SelectedValue == null)
                     {
-                        MessageBox.Show("请至少录入一个员工","错误");
+                        MessageBox.Show("请至少录入一个员工", "错误");
                         return;
                     }
                     dp.StaffID = (Guid)this.ComboBox_StaffList.SelectedValue;
                     dp.ProductID = this.ProductGuid;
                     dp.Quantity = Quantity;
                     dp.BreakNum = Break;
-                    if(new ViewModel.ProductionManagement.AssemblyLineModuleConsole().Add(dp))
+                    if (new ViewModel.ProductionManagement.AssemblyLineModuleConsole().Add(dp))
                     {
                         InitializeData();
                     }
@@ -143,9 +144,9 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 Guid StaffID = (Guid)this.ComboBox_StaffList.SelectedValue;
                 string StaffName = this.ComboBox_StaffList.Text;
                 string ProcessName = d.ProcessList[d.ProcessList.Count - 1].Process;
-                if(new ViewModel.ProductionManagement.AssemblyLineModuleConsole().Storage(StaffID, ProductGuid, ProcessName, Quantity))
+                if (new ViewModel.ProductionManagement.AssemblyLineModuleConsole().Storage(StaffID, ProductGuid, ProcessName, Quantity))
                 {
-                    if(new ViewModel.Warehouse.WarehouseProductConsole().Add(ProductGuid, StaffName, Quantity))
+                    if (new ViewModel.Warehouse.WarehouseProductConsole().Add(ProductGuid, StaffName, Quantity))
                     {
                         InitializeData();
                     }
@@ -164,7 +165,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             {
                 (sender as ComboBox).IsDropDownOpen = true;
             }
-            if(this.ComboBox_StaffList.SelectedValue == null)
+            if (this.ComboBox_StaffList.SelectedValue == null)
             {
                 string Parm = this.ComboBox_StaffList.Text;
                 DataSet ds = new DataSet();
@@ -179,7 +180,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void ComboBox_StaffList_DropDownOpened(object sender, EventArgs e)
         {
-            if(this.ComboBox_StaffList.SelectedValue == null)
+            if (this.ComboBox_StaffList.SelectedValue == null)
             {
                 InitializeStaffComboBox();
             }

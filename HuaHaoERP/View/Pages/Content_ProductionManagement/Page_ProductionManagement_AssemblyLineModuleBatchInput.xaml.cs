@@ -41,6 +41,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             if (new AssemblyLineModuleBatchInputConsole().InsertData(data))
             {
                 Button_Cancel_Click(null, null);
+                Helper.Events.UpdateEvent.AssemblyLineModuleEvent.OnUpdateDataGrid();
             }
         }
 

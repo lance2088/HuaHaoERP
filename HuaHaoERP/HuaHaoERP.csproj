@@ -254,6 +254,7 @@
     <Compile Include="Helper\DataDefinition\ComboBoxList.cs" />
     <Compile Include="Helper\DataDefinition\ENUM.cs" />
     <Compile Include="Helper\DataDefinition\Process.cs" />
+    <Compile Include="Helper\Events\UpdateEvent\AssemblyLineModuleEvent.cs" />
     <Compile Include="Helper\Events\UpdateEvent\BackgroundEvent.cs" />
     <Compile Include="Helper\Events\UpdateEvent\CustomerEvent.cs" />
     <Compile Include="Helper\Events\PopUpEvent.cs" />

@@ -31,8 +31,8 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                             m.ProcessListStr += dr["P" + (i + 1)].ToString() + ",";
                         }
                     }
+                    m.ProcessListStr = m.ProcessListStr.Substring(0, m.ProcessListStr.Length - 1);
                 }
-                m.ProcessListStr = m.ProcessListStr.Substring(0, m.ProcessListStr.Length - 1);
             }
             return m;
         }
@@ -58,12 +58,29 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
         internal bool InsertData(ObservableCollection<Model_AssemblyLineModuleBatchInput> data)
         {
             List<string> sqls = new List<string>();
+            Guid Guid1;
+            Guid Guid2;
+            string LastProcess = "";
             foreach (Model_AssemblyLineModuleBatchInput m in data)
             {
                 if (m.ProductGuid != new Guid() && m.StaffGuid != new Guid() && m.Process != "" && (m.Quantity > 0 || m.Injure > 0))
                 {
-                    sqls.Add("Insert into T_PM_ProductionSchedule(Guid,Date,StaffID,ProductID,Process,Number,Break,) "
-                        + "values()");
+                    Guid1 = Guid.NewGuid();
+                    Guid2 = Guid.NewGuid();
+                    for (int i = 0; i < m.ProcessList.Length; i++)
+                    {
+                        if (m.ProcessList[i] == m.Process && i != 0)
+                        {
+                            LastProcess = m.ProcessList[i - 1];
+                        }
+                    }
+                    if (m.Process != m.ProcessList[0])
+                    {
+                        sqls.Add("Insert into T_PM_ProductionSchedule(Guid,Date,StaffID,ProductID,Process,Number,Break,Remark,ParentGuid) "
+                            + "values('" + Guid1 + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + m.StaffGuid + "','" + m.ProductGuid + "','" + LastProcess + "'," + -(m.Quantity + m.Injure) + ",0,'自动扣半成品原料','" + Guid2 + "')");
+                    }
+                    sqls.Add("Insert into T_PM_ProductionSchedule(Guid,Date,StaffID,ProductID,Process,Number,Break,Remark,ParentGuid) "
+                        + "values('" + Guid2 + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + m.StaffGuid + "','" + m.ProductGuid + "','" + m.Process + "'," + m.Quantity + "," + m.Injure + ",'','" + Guid1 + "')");
                 }
             }
             return new Helper.SQLite.DBHelper().Transaction(sqls);
