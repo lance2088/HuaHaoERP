@@ -5,15 +5,15 @@
 ; NOTE: The value of AppId uniquely identifies this application.
 ; Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{CF75ED14-0F2D-4DAB-9104-50D66A7193FF}
-AppName=Pyramid ERP
+AppId={{F60249E1-D51A-43A5-B469-BF891D8D1300}
+AppName=PyramidERP
 AppVersion=1.4.4.2
-;AppVerName=Pyramid ERP 1.4.4.2
+;AppVerName=PyramidERP 1.4.4.2
 AppPublisher=StoneAnt, Inc.
 DefaultDirName={pf}\HuaHaoERP
-DefaultGroupName=石蚁金字塔
+DefaultGroupName=石蚁金字塔ERP
 AllowNoIcons=yes
-InfoAfterFile=D:\WorkSpaces\Visual Studio\HuaHaoERP\HuaHaoERP\bin\Release\HuaHaoERP_Secure\更新说明.txt
+InfoAfterFile=D:\WorkSpaces\Visual Studio\HuaHaoERP\HuaHaoERP\bin\Release\更新说明.txt
 OutputDir=D:\WorkSpaces\Visual Studio\HuaHaoERP\HuaHaoERP\bin\Release\HuaHaoERP_Secure
 OutputBaseFilename=setup
 SetupIconFile=D:\WorkSpaces\Visual Studio\HuaHaoERP\HuaHaoERP\View\Resources\Ico\Pyramid_Logo_white_128x128.ico
@@ -29,16 +29,15 @@ Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescrip
 
 [Files]
 Source: "D:\WorkSpaces\Visual Studio\HuaHaoERP\HuaHaoERP\bin\Release\HuaHaoERP_Secure\HuaHaoERP.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\WorkSpaces\Visual Studio\HuaHaoERP\HuaHaoERP\bin\Release\HuaHaoERP_Secure\Data\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "D:\WorkSpaces\Visual Studio\HuaHaoERP\HuaHaoERP\bin\Release\HuaHaoERP_Secure\更新说明.txt"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\WorkSpaces\Visual Studio\HuaHaoERP\HuaHaoERP\更新说明.txt"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\WorkSpaces\Visual Studio\HuaHaoERP\HuaHaoERP\bin\Release\HuaHaoERP_Secure\Data\*"; DestDir: "{app}\\Data"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
-Name: "{group}\Pyramid ERP"; Filename: "{app}\HuaHaoERP.exe"
-Name: "{group}\{cm:UninstallProgram,Pyramid ERP}"; Filename: "{uninstallexe}"
-Name: "{commondesktop}\Pyramid ERP"; Filename: "{app}\HuaHaoERP.exe"; Tasks: desktopicon
-Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\Pyramid ERP"; Filename: "{app}\HuaHaoERP.exe"; Tasks: quicklaunchicon
+Name: "{group}\PyramidERP"; Filename: "{app}\HuaHaoERP.exe"
+Name: "{commondesktop}\PyramidERP"; Filename: "{app}\HuaHaoERP.exe"; Tasks: desktopicon
+Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\PyramidERP"; Filename: "{app}\HuaHaoERP.exe"; Tasks: quicklaunchicon
 
 [Run]
-Filename: "{app}\HuaHaoERP.exe"; Description: "{cm:LaunchProgram,Pyramid ERP}"; Flags: nowait postinstall skipifsilent
+Filename: "{app}\HuaHaoERP.exe"; Description: "{cm:LaunchProgram,PyramidERP}"; Flags: nowait postinstall skipifsilent
 
