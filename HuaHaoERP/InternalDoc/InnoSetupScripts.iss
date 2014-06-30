@@ -30,7 +30,7 @@ Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescrip
 [Files]
 Source: "D:\WorkSpaces\Visual Studio\HuaHaoERP\HuaHaoERP\bin\Release\HuaHaoERP_Secure\HuaHaoERP.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\WorkSpaces\Visual Studio\HuaHaoERP\HuaHaoERP\更新说明.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\WorkSpaces\Visual Studio\HuaHaoERP\HuaHaoERP\bin\Release\HuaHaoERP_Secure\Data\*"; DestDir: "{app}\\Data"; Flags: ignoreversion recursesubdirs createallsubdirs onlyifdoesntexist
+Source: "D:\WorkSpaces\Visual Studio\HuaHaoERP\HuaHaoERP\bin\Release\HuaHaoERP_Secure\Data\*"; DestDir: "{app}\\Data"; Flags: ignoreversion recursesubdirs createallsubdirs onlyifdoesntexist uninsneveruninstall
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
