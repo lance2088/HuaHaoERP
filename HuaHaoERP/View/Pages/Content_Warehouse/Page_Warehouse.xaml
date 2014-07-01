@@ -78,8 +78,8 @@
                     </Grid>
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_Today" Content="今天" Grid.Column="2" HorizontalAlignment="Left" Margin="227,10,0,0" VerticalAlignment="Top" Width="50" Height="24" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Click="Button_Today_Click"/>
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_AllDate" Content="全日期" Grid.Column="2" HorizontalAlignment="Left" Margin="282,10,0,0" VerticalAlignment="Top" Width="75" Height="24" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Click="Button_AllDate_Click"/>
-                    <Button x:Name="Button_SparepartsIn" Content="入库" Grid.Column="1" HorizontalAlignment="Right" Margin="0,40,10,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_SparepartsIn_Click"/>
-                    <Button x:Name="Button_PackingIn" Content="入库" HorizontalAlignment="Right" Margin="0,40,10,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_PackingIn_Click"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_SparepartsIn" Content="入库" Grid.Column="1" HorizontalAlignment="Right" Margin="0,40,10,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_SparepartsIn_Click"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_PackingIn" Content="入库" HorizontalAlignment="Right" Margin="0,40,10,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_PackingIn_Click"/>
                     <TextBox x:Name="TextBox_Search" Height="23" Margin="10,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.ColumnSpan="2" Loaded="TextBox_Search_Loaded" PreviewKeyUp="TextBox_Search_PreviewKeyUp">
                         <TextBox.Resources>
                             <VisualBrush x:Key="HelpBrush" TileMode="None" Opacity="0.3" Stretch="None" AlignmentX="Left">
@@ -101,8 +101,9 @@
                             </Style>
                         </TextBox.Style>
                     </TextBox>
-                    <Button x:Name="Button_PackingOut" Content="出库" HorizontalAlignment="Right" Margin="0,40,65,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_PackingOut_Click"/>
-                    <Button x:Name="Button_SparepartsOut" Content="出库" HorizontalAlignment="Right" Margin="0,40,65,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Grid.Column="1" Click="Button_SparepartsOut_Click"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_PackingOut" Content="出库" HorizontalAlignment="Right" Margin="0,40,65,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_PackingOut_Click"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_SparepartsOut" Content="出库" HorizontalAlignment="Right" Margin="0,40,65,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Grid.Column="1" Click="Button_SparepartsOut_Click"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_BatchHistory" Content="批量记录" Grid.Column="2" HorizontalAlignment="Left" Margin="0,40,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_BatchHistory_Click"/>
                 </Grid>
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="原料管理" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="17,0,-17,0" Foreground="White">

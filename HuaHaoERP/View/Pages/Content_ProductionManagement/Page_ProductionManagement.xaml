@@ -18,6 +18,7 @@
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_AssemblyLineHistory" Content="生产记录" HorizontalAlignment="Right" Margin="0,10,90,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_AssemblyLineHistory_Click"/>
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_ClearModule" Content="清空全部" HorizontalAlignment="Left" Margin="11,10,0,0" VerticalAlignment="Top" Width="75" Height="24" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Foreground="Black" Click="Button_ClearModule_Click"/>
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_BatchInputProduction" Content="批量录入" HorizontalAlignment="Right" Margin="0,10,170,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_BatchInputProduction_Click"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_BatchHistory" Content="批量记录" HorizontalAlignment="Right" Margin="0,10,250,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_BatchHistory_Click"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="TabItem_AssemblyLineDetails" FocusVisualStyle="{x:Null}" Header="生产统计" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Foreground="White" Margin="17,0,-17,0">

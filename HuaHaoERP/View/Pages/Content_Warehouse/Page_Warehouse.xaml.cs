@@ -71,6 +71,10 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         }
 
         #region 产品仓库管理
+        private void Button_BatchHistory_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
 
         private void TextBox_Search_Loaded(object sender, RoutedEventArgs e)
         {
@@ -528,6 +532,8 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         }
 
         #endregion
+
+
 
 
 
