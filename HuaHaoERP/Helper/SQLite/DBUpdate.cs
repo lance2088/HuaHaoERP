@@ -11,16 +11,16 @@ namespace HuaHaoERP.Helper.SQLite
 
         internal void Update()
         {
-            if(!File.Exists(UpdateFile))
+            if (!File.Exists(UpdateFile))
             {
                 return;
             }
             string sql = ReadFile();
-            if(sql.Length > 0)
+            if (sql.Length > 0)
             {
-                if(CheckSql(sql))
+                if (CheckSql(sql))
                 {
-                    if(new Helper.SQLite.DBHelper().SingleExecution(sql))
+                    if (new Helper.SQLite.DBHelper().SingleExecution(sql))
                     {
                         File.Delete(UpdateFile);
                         MessageBox.Show("数据库更新成功。", "石蚁科技");
@@ -29,14 +29,14 @@ namespace HuaHaoERP.Helper.SQLite
                     }
                 }
             }
-            MessageBox.Show("数据库更新失败，请联系管理员。","错误");
+            MessageBox.Show("数据库更新失败，请联系管理员。", "错误");
             Helper.LogHelper.FileLog.ErrorLog("Update Update.sql false.\n" + sql);
         }
 
         private bool CheckSql(string sql)
         {
             string UpperSql = sql.ToUpper();
-            if(UpperSql.IndexOf("DELETE") > 0 || UpperSql.IndexOf("DROP") > 0)
+            if (UpperSql.IndexOf("DELETE") > 0 || UpperSql.IndexOf("DROP") > 0)
             {
                 Helper.LogHelper.FileLog.WarnLog("Update.sql\n" + sql);
                 return false;
