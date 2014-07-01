@@ -24,11 +24,13 @@ namespace HuaHaoERP.Helper.SQLite
                     {
                         File.Delete(UpdateFile);
                         MessageBox.Show("数据库更新成功。", "石蚁科技");
+                        Helper.LogHelper.FileLog.Log("Update Update.sql Success.\n" + sql);
                         return;
                     }
                 }
             }
             MessageBox.Show("数据库更新失败，请联系管理员。","错误");
+            Helper.LogHelper.FileLog.ErrorLog("Update Update.sql false.\n" + sql);
         }
 
         private bool CheckSql(string sql)
@@ -36,6 +38,7 @@ namespace HuaHaoERP.Helper.SQLite
             string UpperSql = sql.ToUpper();
             if(UpperSql.IndexOf("DELETE") > 0 || UpperSql.IndexOf("DROP") > 0)
             {
+                Helper.LogHelper.FileLog.WarnLog("Update.sql\n" + sql);
                 return false;
             }
             return true;
