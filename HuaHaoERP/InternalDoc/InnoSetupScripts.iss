@@ -13,6 +13,7 @@ AppPublisher=StoneAnt, Inc.
 DefaultDirName={pf}\HuaHaoERP
 DefaultGroupName=石蚁金字塔ERP
 AllowNoIcons=yes
+InfoBeforeFile=D:\WorkSpaces\Visual Studio\HuaHaoERP\HuaHaoERP\bin\Release\安装说明.txt
 InfoAfterFile=D:\WorkSpaces\Visual Studio\HuaHaoERP\HuaHaoERP\bin\Release\更新说明.txt
 OutputDir=D:\WorkSpaces\Visual Studio\HuaHaoERP\HuaHaoERP\bin\Release\HuaHaoERP_Secure
 OutputBaseFilename=setup
@@ -29,6 +30,7 @@ Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescrip
 
 [Files]
 Source: "D:\WorkSpaces\Visual Studio\HuaHaoERP\HuaHaoERP\bin\Release\HuaHaoERP_Secure\HuaHaoERP.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\WorkSpaces\Visual Studio\HuaHaoERP\HuaHaoERP\安装说明.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\WorkSpaces\Visual Studio\HuaHaoERP\HuaHaoERP\更新说明.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\WorkSpaces\Visual Studio\HuaHaoERP\HuaHaoERP\bin\Release\HuaHaoERP_Secure\Data\*"; DestDir: "{app}\\Data"; Flags: ignoreversion recursesubdirs createallsubdirs onlyifdoesntexist uninsneveruninstall
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
