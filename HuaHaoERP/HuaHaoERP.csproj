@@ -476,6 +476,7 @@
     <Resource Include="View\Resources\Ico\Pyramid_Logo_white_128x128.ico" />
     <Resource Include="View\Resources\Images\Pyramid_Logo_white_128x128.png" />
     <Content Include="InternalDoc\DataBase.sql" />
+    <None Include="InternalDoc\InnoSetupScripts_i5.iss" />
     <Content Include="ThirdPartyLib\StoneAnt.License.dll" />
     <Content Include="ThirdPartyLib\System.Data.SQLite.dll" />
   </ItemGroup>
