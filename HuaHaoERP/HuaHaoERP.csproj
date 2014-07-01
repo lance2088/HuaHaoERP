@@ -456,6 +456,7 @@
     <None Include="Sign.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="安装说明.txt" />
     <None Include="更新说明.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
