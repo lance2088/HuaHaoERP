@@ -5,7 +5,7 @@ namespace HuaHaoERP.Helper.License
 {
     class FillLicense
     {
-        public void Fill(string LicenseFile)
+        public void CheckLicense(string LicenseFile)
         {
             string KeyInDB = "";
             Helper.DataDefinition.CommonParameters.LicenseModel = new StoneAnt.License.Model.LicenseModel();

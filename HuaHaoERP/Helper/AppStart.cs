@@ -12,11 +12,8 @@ namespace HuaHaoERP.Helper
             {
                 Helper.DataDefinition.CommonParameters.DbPassword = DBPassword;
             }
-            new Helper.License.FillLicense().Fill(AppDomain.CurrentDomain.BaseDirectory + "License.key");
-            if (!Directory.Exists(AppDomain.CurrentDomain.BaseDirectory + "Background"))
-            {
-                Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + "Background");
-            }
+            new Helper.SQLite.DBUpdate().Update();
+            new Helper.License.FillLicense().CheckLicense(AppDomain.CurrentDomain.BaseDirectory + "License.key");
         }
     }
 }

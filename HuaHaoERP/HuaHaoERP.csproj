@@ -280,6 +280,7 @@
     <Compile Include="Helper\SettingFile\AssemblyLineModule.cs" />
     <Compile Include="Helper\SettingFile\DatabaseEncryption.cs" />
     <Compile Include="Helper\SQLite\DBHelper.cs" />
+    <Compile Include="Helper\SQLite\DBUpdate.cs" />
     <Compile Include="Helper\Tools\ComputerInfo.cs" />
     <Compile Include="Helper\Tools\GenerateMD5.cs" />
     <Compile Include="Model\ProductionManagement\Model_AssemblyLineModuleBatchInput.cs" />
