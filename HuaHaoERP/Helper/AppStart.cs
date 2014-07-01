@@ -8,7 +8,7 @@ namespace HuaHaoERP.Helper
         public void Init()
         {
             string DBPassword = "";
-            if(new SettingFile.DatabaseEncryption().Read(out DBPassword))
+            if (new SettingFile.DatabaseEncryption().Read(out DBPassword))
             {
                 Helper.DataDefinition.CommonParameters.DbPassword = DBPassword;
             }
