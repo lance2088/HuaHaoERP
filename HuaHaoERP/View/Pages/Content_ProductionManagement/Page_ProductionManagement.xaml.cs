@@ -417,7 +417,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void Button_BatchHistory_Click(object sender, RoutedEventArgs e)
         {
-
+            Helper.Events.PopUpEvent.OnShowPopUp(new Page_ProductionManagement_AssemblyLineModuleBatchHistory());
         }
 
     }

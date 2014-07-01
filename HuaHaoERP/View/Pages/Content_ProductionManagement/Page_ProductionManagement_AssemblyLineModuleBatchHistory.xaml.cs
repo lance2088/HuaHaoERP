@@ -14,14 +14,16 @@ using System.Windows.Shapes;
 
 namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 {
-    /// <summary>
-    /// Interaction logic for Page_ProductionManagement_AssemblyLineModuleBatchHistory.xaml
-    /// </summary>
     public partial class Page_ProductionManagement_AssemblyLineModuleBatchHistory : Page
     {
         public Page_ProductionManagement_AssemblyLineModuleBatchHistory()
         {
             InitializeComponent();
+        }
+
+        private void Button_Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            Helper.Events.PopUpEvent.OnHidePopUp();
         }
     }
 }

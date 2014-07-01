@@ -7,5 +7,6 @@ namespace HuaHaoERP.Model.ProductionManagement
 {
     class Model_AssemblyLineModuleBatchHistory
     {
+
     }
 }
