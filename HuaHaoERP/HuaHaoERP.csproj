@@ -213,7 +213,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\Content_Warehouse\Page_Warehouse_Product_PackingIn.xaml">
+    <Page Include="View\Pages\Content_Warehouse\Page_Warehouse_Product_BatchIn.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -295,8 +295,8 @@
     <Compile Include="Model\ProductionManagement\Model_AssemblyLineModuleBatchHistory.cs" />
     <Compile Include="Model\ProductionManagement\Model_AssemblyLineModuleBatchInput.cs" />
     <Compile Include="Model\ProductionManagement\Model_ProductionManagement_OutsideProcessBatch.cs" />
-    <Compile Include="Model\Warehouse\Model_ProductBatchHistory.cs" />
-    <Compile Include="Model\Warehouse\Model_WarehouseProductPackingIn.cs" />
+    <Compile Include="Model\Warehouse\Model_WarehouseProductBatchHistory.cs" />
+    <Compile Include="Model\Warehouse\Model_WarehouseProductBatchIn.cs" />
     <Compile Include="ViewModel\Customer\Seniority.cs" />
     <Compile Include="Helper\Tools\TranslatePassword.cs" />
     <Compile Include="Helper\XML\Reader.cs" />
@@ -336,7 +336,7 @@
     <Compile Include="ViewModel\Settings\EncryptedDBConsole.cs" />
     <Compile Include="ViewModel\Settings\UserConsole.cs" />
     <Compile Include="ViewModel\Warehouse\ProductBatchHistoryConsole.cs" />
-    <Compile Include="ViewModel\Warehouse\ProductPackingInConsole.cs" />
+    <Compile Include="ViewModel\Warehouse\ProductBatchInConsole.cs" />
     <Compile Include="ViewModel\Warehouse\RawMaterialsConsole.cs" />
     <Compile Include="ViewModel\Warehouse\ScrapConsole.cs" />
     <Compile Include="ViewModel\Warehouse\WarehouseProductConsole.cs" />
@@ -421,8 +421,8 @@
     <Compile Include="View\Pages\Content_Warehouse\Page_Warehouse_Product_BatchHistory.xaml.cs">
       <DependentUpon>Page_Warehouse_Product_BatchHistory.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\Content_Warehouse\Page_Warehouse_Product_PackingIn.xaml.cs">
-      <DependentUpon>Page_Warehouse_Product_PackingIn.xaml</DependentUpon>
+    <Compile Include="View\Pages\Content_Warehouse\Page_Warehouse_Product_BatchIn.xaml.cs">
+      <DependentUpon>Page_Warehouse_Product_BatchIn.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\Content_Warehouse\Page_Warehouse_RawMaterials.xaml.cs">
       <DependentUpon>Page_Warehouse_RawMaterials.xaml</DependentUpon>

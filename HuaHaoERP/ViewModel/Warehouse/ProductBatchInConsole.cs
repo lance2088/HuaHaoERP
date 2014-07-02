@@ -6,11 +6,11 @@ using System.Data;
 
 namespace HuaHaoERP.ViewModel.Warehouse
 {
-    class ProductPackingInConsole
+    class ProductBatchInConsole
     {
-        internal Model_WarehouseProductPackingIn ReadProductInfo(string ProductNumber)
+        internal Model_WarehouseProductBatchIn ReadProductInfo(string ProductNumber)
         {
-            Model_WarehouseProductPackingIn m = new Model_WarehouseProductPackingIn();
+            Model_WarehouseProductBatchIn m = new Model_WarehouseProductBatchIn();
             string sql = "SELECT GUID,Name,Material,PackageNumber FROM T_ProductInfo_Product WHERE NUMBER='" + ProductNumber + "' AND DELETEMARK ISNULL";
             DataSet ds = new DataSet();
             bool flag = new Helper.SQLite.DBHelper().QueryData(sql, out ds);
@@ -30,7 +30,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
             return m;
         }
 
-        internal bool InsertPacking(ObservableCollection<Model_WarehouseProductPackingIn> data, bool isOut, DateTime date)
+        internal bool InsertPacking(ObservableCollection<Model_WarehouseProductBatchIn> data, bool isOut, DateTime date)
         {
             int Negative = 1;
             string Remark = "包装：手动录入";
@@ -40,7 +40,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
                 Remark = "出库";
             }
             List<string> sqls = new List<string>();
-            foreach(Model_WarehouseProductPackingIn m in data)
+            foreach(Model_WarehouseProductBatchIn m in data)
             {
                 if(m.Guid != new Guid())
                 {
@@ -56,7 +56,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
             return new Helper.SQLite.DBHelper().Transaction(sqls);
         }
 
-        internal bool InsertSpareparts(ObservableCollection<Model_WarehouseProductPackingIn> data, bool isOut, DateTime date)
+        internal bool InsertSpareparts(ObservableCollection<Model_WarehouseProductBatchIn> data, bool isOut, DateTime date)
         {
             int Negative = 1;
             string Remark = "入库：手动录入";
@@ -66,7 +66,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
                 Remark = "出库：手动录入";
             }
             List<string> sqls = new List<string>();
-            foreach (Model_WarehouseProductPackingIn m in data)
+            foreach (Model_WarehouseProductBatchIn m in data)
             {
                 if (m.Guid != new Guid())
                 {

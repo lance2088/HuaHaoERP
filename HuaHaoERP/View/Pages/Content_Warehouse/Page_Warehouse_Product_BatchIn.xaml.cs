@@ -8,15 +8,15 @@ using System.Windows.Input;
 
 namespace HuaHaoERP.View.Pages.Content_Warehouse
 {
-    public partial class Page_Warehouse_Product_PackingIn : Page
+    public partial class Page_Warehouse_Product_BatchIn : Page
     {
-        ObservableCollection<Model_WarehouseProductPackingIn> data = new ObservableCollection<Model_WarehouseProductPackingIn>();
+        ObservableCollection<Model_WarehouseProductBatchIn> data = new ObservableCollection<Model_WarehouseProductBatchIn>();
         /// <summary>
         /// 0包装in 1散件in 2包装out 3散件out
         /// </summary>
         int TYPE = 0;
 
-        public Page_Warehouse_Product_PackingIn(int Type)
+        public Page_Warehouse_Product_BatchIn(int Type)
         {
             this.TYPE = Type;
             InitializeComponent();
@@ -43,7 +43,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         {
             for (int i = 0; i < 20; i++)
             {
-                data.Add(new Model_WarehouseProductPackingIn { Id = i + 1 });
+                data.Add(new Model_WarehouseProductBatchIn { Id = i + 1 });
             }
             this.DataGrid.ItemsSource = data;
             if (TYPE == 1 || TYPE == 3)
@@ -64,7 +64,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             DateTime date = (DateTime)this.DatePicker_InsertDate.SelectedDate;
             if (TYPE == 0)
             {
-                if (new ViewModel.Warehouse.ProductPackingInConsole().InsertPacking(data, false, date))
+                if (new ViewModel.Warehouse.ProductBatchInConsole().InsertPacking(data, false, date))
                 {
                     Helper.Events.UpdateEvent.WarehouseProductEvent.OnUpdateDataGrid();
                     Button_Cancel_Click(null, null);
@@ -72,7 +72,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             }
             else if (TYPE == 1)
             {
-                if (new ViewModel.Warehouse.ProductPackingInConsole().InsertSpareparts(data, false, date))
+                if (new ViewModel.Warehouse.ProductBatchInConsole().InsertSpareparts(data, false, date))
                 {
                     Helper.Events.UpdateEvent.WarehouseProductEvent.OnUpdateDataGrid();
                     Button_Cancel_Click(null, null);
@@ -80,7 +80,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             }
             else if (TYPE == 2)
             {
-                if (new ViewModel.Warehouse.ProductPackingInConsole().InsertPacking(data, true, date))
+                if (new ViewModel.Warehouse.ProductBatchInConsole().InsertPacking(data, true, date))
                 {
                     Helper.Events.UpdateEvent.WarehouseProductEvent.OnUpdateDataGrid();
                     Button_Cancel_Click(null, null);
@@ -88,7 +88,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             }
             else if (TYPE == 3)
             {
-                if (new ViewModel.Warehouse.ProductPackingInConsole().InsertSpareparts(data, true, date))
+                if (new ViewModel.Warehouse.ProductBatchInConsole().InsertSpareparts(data, true, date))
                 {
                     Helper.Events.UpdateEvent.WarehouseProductEvent.OnUpdateDataGrid();
                     Button_Cancel_Click(null, null);
@@ -98,12 +98,12 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
 
         private void DataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
-            Model_WarehouseProductPackingIn model = this.DataGrid.SelectedCells[0].Item as Model_WarehouseProductPackingIn;
+            Model_WarehouseProductBatchIn model = this.DataGrid.SelectedCells[0].Item as Model_WarehouseProductBatchIn;
             string newValue = (e.EditingElement as TextBox).Text.Trim();
             string Header = e.Column.Header.ToString();
             if (Header == "编号")
             {
-                Model_WarehouseProductPackingIn m = new ProductPackingInConsole().ReadProductInfo(newValue);
+                Model_WarehouseProductBatchIn m = new ProductBatchInConsole().ReadProductInfo(newValue);
                 if (m.Guid == new Guid())
                 {
                     DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.SelectedCells[0].Item, DataGrid.Columns[0]);

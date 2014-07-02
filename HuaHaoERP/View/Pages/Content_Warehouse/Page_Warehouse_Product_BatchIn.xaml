@@ -1,4 +1,4 @@
-﻿<Page x:Class="HuaHaoERP.View.Pages.Content_Warehouse.Page_Warehouse_Product_PackingIn"
+﻿<Page x:Class="HuaHaoERP.View.Pages.Content_Warehouse.Page_Warehouse_Product_BatchIn"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 

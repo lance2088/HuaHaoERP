@@ -92,7 +92,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         /// <param name="e"></param>
         private void Button_PackingIn_Click(object sender, RoutedEventArgs e)
         {
-            Helper.Events.PopUpEvent.OnShowPopUp(new Page_Warehouse_Product_PackingIn(0));
+            Helper.Events.PopUpEvent.OnShowPopUp(new Page_Warehouse_Product_BatchIn(0));
         }
         /// <summary>
         /// 散件录入按钮Click
@@ -101,16 +101,16 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         /// <param name="e"></param>
         private void Button_SparepartsIn_Click(object sender, RoutedEventArgs e)
         {
-            Helper.Events.PopUpEvent.OnShowPopUp(new Page_Warehouse_Product_PackingIn(1));
+            Helper.Events.PopUpEvent.OnShowPopUp(new Page_Warehouse_Product_BatchIn(1));
         }
         private void Button_PackingOut_Click(object sender, RoutedEventArgs e)
         {
-            Helper.Events.PopUpEvent.OnShowPopUp(new Page_Warehouse_Product_PackingIn(2));
+            Helper.Events.PopUpEvent.OnShowPopUp(new Page_Warehouse_Product_BatchIn(2));
         }
 
         private void Button_SparepartsOut_Click(object sender, RoutedEventArgs e)
         {
-            Helper.Events.PopUpEvent.OnShowPopUp(new Page_Warehouse_Product_PackingIn(3));
+            Helper.Events.PopUpEvent.OnShowPopUp(new Page_Warehouse_Product_BatchIn(3));
         }
         private void Button_ClosePacking_Click(object sender, RoutedEventArgs e)
         {

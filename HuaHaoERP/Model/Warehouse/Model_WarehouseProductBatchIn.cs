@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace HuaHaoERP.Model.Warehouse
 {
-    class Model_WarehouseProductPackingIn : INotifyPropertyChanged
+    class Model_WarehouseProductBatchIn : INotifyPropertyChanged
     {
         private int id;
 

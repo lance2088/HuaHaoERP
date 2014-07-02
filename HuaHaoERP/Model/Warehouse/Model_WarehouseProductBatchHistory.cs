@@ -5,7 +5,7 @@ using System.Text;
 
 namespace HuaHaoERP.Model.Warehouse
 {
-    class Model_ProductBatchHistory
+    class Model_WarehouseProductBatchHistory
     {
     }
 }
