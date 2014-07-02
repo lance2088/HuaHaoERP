@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" FontFamily="SimSun" FontSize="14" TextOptions.TextFormattingMode="Display"
       d:DesignHeight="467" d:DesignWidth="818"
-	Title="Page_Warehouse_Product_PackingIn">
+	Title="Page_Warehouse_Product_BatchIn">
 
     <Page.Resources>
         <SolidColorBrush x:Key="clBr" Color="#FFBDDEFF" />
