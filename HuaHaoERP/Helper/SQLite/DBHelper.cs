@@ -98,6 +98,31 @@ namespace HuaHaoERP.Helper.SQLite
             }
             return flag;
         }
+        internal bool Transaction(string[] sqls)
+        {
+            bool flag = false;
+            SQLiteTransaction strans = conn.BeginTransaction();
+            try
+            {
+                foreach (string sql in sqls)
+                {
+                    cmd.CommandText = sql;
+                    cmd.ExecuteNonQuery();
+                }
+                strans.Commit();
+                flag = true;
+            }
+            catch (Exception ee)
+            {
+                strans.Rollback();
+                LogHelper.FileLog.ErrorLog(ee.ToString());
+            }
+            finally
+            {
+                ReleaseObject();
+            }
+            return flag;
+        }
 
         /// <summary>
         /// 单次执行语句

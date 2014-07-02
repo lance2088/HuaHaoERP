@@ -2,6 +2,7 @@
 using System.IO;
 using System.Text;
 using System.Windows;
+using System.Collections.Generic;
 
 namespace HuaHaoERP.Helper.SQLite
 {
@@ -21,7 +22,8 @@ namespace HuaHaoERP.Helper.SQLite
                 if (CheckSql(sql))
                 {
                     new DBBackup().BackupDB();
-                    if (new Helper.SQLite.DBHelper().SingleExecution(sql))
+                    string[] sqls = sql.Split(';');
+                    if (new Helper.SQLite.DBHelper().Transaction(sqls))
                     {
                         File.Delete(UpdateFile);
                         MessageBox.Show("数据库更新成功。", "石蚁科技");
@@ -37,9 +39,9 @@ namespace HuaHaoERP.Helper.SQLite
         private bool CheckSql(string sql)
         {
             string UpperSql = sql.ToUpper();
-            if (UpperSql.IndexOf("DELETE") > 0 || UpperSql.IndexOf("DROP") > 0)
+            if (UpperSql.IndexOf("DELETE ") > 0 || UpperSql.IndexOf("DROP ") > 0)
             {
-                Helper.LogHelper.FileLog.WarnLog("Update.sql\n" + sql);
+                Helper.LogHelper.FileLog.WarnLog("Check Update.sql false.\n" + sql);
                 return false;
             }
             return true;
