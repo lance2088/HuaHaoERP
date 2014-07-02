@@ -52,7 +52,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
                             + "values('" + Guid.NewGuid() + "','" + m.Guid + "','" + DateStr + "','" + Helper.DataDefinition.CommonParameters.RealName + "'," + -m.AllQuantity + ",'包装：手动包装自动扣除','" + OrderGuid + "')");
                     }
                     sqls.Add("Insert into T_Warehouse_ProductPacking(Guid,ProductID,Date,Operator,Quantity,Remark,Obligate1) "
-                        + "values('" + Guid.NewGuid() + "','" + m.Guid + "','" + DateStr + "','" + Helper.DataDefinition.CommonParameters.RealName + "'," + m.PackQuantity * Negative + ",'" + Remark + ",'" + OrderGuid + "') ");
+                        + "values('" + Guid.NewGuid() + "','" + m.Guid + "','" + DateStr + "','" + Helper.DataDefinition.CommonParameters.RealName + "'," + m.PackQuantity * Negative + ",'" + Remark + "','" + OrderGuid + "')");
                 }
             }
             if (sqls.Count > 0)
