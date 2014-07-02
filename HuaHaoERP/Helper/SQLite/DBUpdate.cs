@@ -20,6 +20,7 @@ namespace HuaHaoERP.Helper.SQLite
             {
                 if (CheckSql(sql))
                 {
+                    new DBBackup().BackupDB();
                     if (new Helper.SQLite.DBHelper().SingleExecution(sql))
                     {
                         File.Delete(UpdateFile);
