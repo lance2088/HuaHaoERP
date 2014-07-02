@@ -30,8 +30,10 @@ namespace HuaHaoERP.ViewModel.Warehouse
             return m;
         }
 
-        internal bool InsertPacking(ObservableCollection<Model_WarehouseProductBatchIn> data, bool isOut, DateTime date)
+        internal bool InsertPacking(ObservableCollection<Model_WarehouseProductBatchIn> data, bool isOut, DateTime date, string OrderNum, string OrderRemark)
         {
+            Guid OrderGuid = Guid.NewGuid();
+            string DateStr = date.ToString("yyyy-MM-dd HH:mm:ss");
             int Negative = 1;
             string Remark = "包装：手动录入";
             if (isOut)
@@ -40,27 +42,34 @@ namespace HuaHaoERP.ViewModel.Warehouse
                 Remark = "出库";
             }
             List<string> sqls = new List<string>();
-            foreach(Model_WarehouseProductBatchIn m in data)
+            foreach (Model_WarehouseProductBatchIn m in data)
             {
-                if(m.Guid != new Guid())
+                if (m.Guid != new Guid())
                 {
-                    if(!isOut)
+                    if (!isOut)
                     {
-                        sqls.Add("Insert into T_Warehouse_Product(Guid,ProductID,Date,Operator,Quantity,Remark) "
-                            + "values('" + Guid.NewGuid() + "','" + m.Guid + "','" + date.ToString("yyyy-MM-dd HH:mm:ss") + "','" + Helper.DataDefinition.CommonParameters.RealName + "'," + -m.AllQuantity + ",'包装：手动包装自动扣除')");
+                        sqls.Add("Insert into T_Warehouse_Product(Guid,ProductID,Date,Operator,Quantity,Remark,Obligate1) "
+                            + "values('" + Guid.NewGuid() + "','" + m.Guid + "','" + DateStr + "','" + Helper.DataDefinition.CommonParameters.RealName + "'," + -m.AllQuantity + ",'包装：手动包装自动扣除','" + OrderGuid + "')");
                     }
-                    sqls.Add("Insert into T_Warehouse_ProductPacking(Guid,ProductID,Date,Operator,Quantity,Remark) "
-                        + "values('" + Guid.NewGuid() + "','" + m.Guid + "','" + date.ToString("yyyy-MM-dd HH:mm:ss") + "','" + Helper.DataDefinition.CommonParameters.RealName + "'," + m.PackQuantity * Negative + ",'" + Remark + "') ");
+                    sqls.Add("Insert into T_Warehouse_ProductPacking(Guid,ProductID,Date,Operator,Quantity,Remark,Obligate1) "
+                        + "values('" + Guid.NewGuid() + "','" + m.Guid + "','" + DateStr + "','" + Helper.DataDefinition.CommonParameters.RealName + "'," + m.PackQuantity * Negative + ",'" + Remark + ",'" + OrderGuid + "') ");
                 }
+            }
+            if (sqls.Count > 0)
+            {
+                sqls.Add("Insert into T_Warehouse_ProductBatchInput(Guid,Number,Date,Remark) "
+                    + "values('" + OrderGuid + "','" + OrderNum + "','" + DateStr + "','" + OrderRemark + "')");
             }
             return new Helper.SQLite.DBHelper().Transaction(sqls);
         }
 
-        internal bool InsertSpareparts(ObservableCollection<Model_WarehouseProductBatchIn> data, bool isOut, DateTime date)
+        internal bool InsertSpareparts(ObservableCollection<Model_WarehouseProductBatchIn> data, bool isOut, DateTime date, string OrderNum, string OrderRemark)
         {
+            Guid OrderGuid = Guid.NewGuid();
+            string DateStr = date.ToString("yyyy-MM-dd HH:mm:ss");
             int Negative = 1;
             string Remark = "入库：手动录入";
-            if(isOut)
+            if (isOut)
             {
                 Negative = -1;
                 Remark = "出库：手动录入";
@@ -70,9 +79,14 @@ namespace HuaHaoERP.ViewModel.Warehouse
             {
                 if (m.Guid != new Guid())
                 {
-                    sqls.Add("Insert into T_Warehouse_Product(Guid,ProductID,Date,Operator,Quantity,Remark) "
-                        + "values('" + Guid.NewGuid() + "','" + m.Guid + "','" + date.ToString("yyyy-MM-dd HH:mm:ss") + "','" + Helper.DataDefinition.CommonParameters.RealName + "'," + m.AllQuantity * Negative + ",'" + Remark + "')");
+                    sqls.Add("Insert into T_Warehouse_Product(Guid,ProductID,Date,Operator,Quantity,Remark,Obligate1) "
+                        + "values('" + Guid.NewGuid() + "','" + m.Guid + "','" + DateStr + "','" + Helper.DataDefinition.CommonParameters.RealName + "'," + m.AllQuantity * Negative + ",'" + Remark + "','" + OrderGuid + "')");
                 }
+            }
+            if (sqls.Count > 0)
+            {
+                sqls.Add("Insert into T_Warehouse_ProductBatchInput(Guid,Number,Date,Remark) "
+                    + "values('" + OrderGuid + "','" + OrderNum + "','" + DateStr + "','" + OrderRemark + "')");
             }
             return new Helper.SQLite.DBHelper().Transaction(sqls);
         }

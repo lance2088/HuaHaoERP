@@ -37,6 +37,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                     break;
             }
             this.DatePicker_InsertDate.SelectedDate = DateTime.Now;
+            this.TextBox_Number.Text = DateTime.Now.ToString("yyyyMMdd_HHmmss");
         }
 
         private void InitializeDataGrid()
@@ -62,9 +63,11 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         private void Button_Commit_Click(object sender, RoutedEventArgs e)
         {
             DateTime date = (DateTime)this.DatePicker_InsertDate.SelectedDate;
+            string Number = this.TextBox_Number.Text;
+            string Remark = this.TextBox_Remark.Text;
             if (TYPE == 0)
             {
-                if (new ViewModel.Warehouse.ProductBatchInConsole().InsertPacking(data, false, date))
+                if (new ViewModel.Warehouse.ProductBatchInConsole().InsertPacking(data, false, date, Number, Remark))
                 {
                     Helper.Events.UpdateEvent.WarehouseProductEvent.OnUpdateDataGrid();
                     Button_Cancel_Click(null, null);
@@ -72,7 +75,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             }
             else if (TYPE == 1)
             {
-                if (new ViewModel.Warehouse.ProductBatchInConsole().InsertSpareparts(data, false, date))
+                if (new ViewModel.Warehouse.ProductBatchInConsole().InsertSpareparts(data, false, date, Number, Remark))
                 {
                     Helper.Events.UpdateEvent.WarehouseProductEvent.OnUpdateDataGrid();
                     Button_Cancel_Click(null, null);
@@ -80,7 +83,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             }
             else if (TYPE == 2)
             {
-                if (new ViewModel.Warehouse.ProductBatchInConsole().InsertPacking(data, true, date))
+                if (new ViewModel.Warehouse.ProductBatchInConsole().InsertPacking(data, true, date, Number, Remark))
                 {
                     Helper.Events.UpdateEvent.WarehouseProductEvent.OnUpdateDataGrid();
                     Button_Cancel_Click(null, null);
@@ -88,7 +91,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             }
             else if (TYPE == 3)
             {
-                if (new ViewModel.Warehouse.ProductBatchInConsole().InsertSpareparts(data, true, date))
+                if (new ViewModel.Warehouse.ProductBatchInConsole().InsertSpareparts(data, true, date, Number, Remark))
                 {
                     Helper.Events.UpdateEvent.WarehouseProductEvent.OnUpdateDataGrid();
                     Button_Cancel_Click(null, null);
