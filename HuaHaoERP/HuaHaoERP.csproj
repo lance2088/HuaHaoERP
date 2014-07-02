@@ -498,6 +498,7 @@
     <Resource Include="View\Resources\Images\Pyramid_Logo_white_128x128.png" />
     <Content Include="InternalDoc\DataBase.sql" />
     <None Include="InternalDoc\InnoSetupScripts_i5.iss" />
+    <Content Include="InternalDoc\DataBaseUpdateSQL\1.4.4.3.sql" />
     <Content Include="ThirdPartyLib\StoneAnt.License.dll" />
     <Content Include="ThirdPartyLib\System.Data.SQLite.dll" />
   </ItemGroup>
