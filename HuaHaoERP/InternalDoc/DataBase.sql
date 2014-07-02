@@ -9,7 +9,7 @@ Target Server Type    : SQLite
 Target Server Version : 30714
 File Encoding         : 65001
 
-Date: 2014-06-08 11:09:17
+Date: 2014-07-02 16:30:59
 */
 
 
@@ -155,6 +155,23 @@ PRIMARY KEY ("Guid" ASC)
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for T_PM_ProductionBatchInput
+-- ----------------------------
+CREATE TABLE "T_PM_ProductionBatchInput" (
+"Guid"  Guid NOT NULL,
+"Number"  TEXT NOT NULL,
+"Name"  TEXT,
+"Date"  DateTime,
+"DeleteMark"  DateTime,
+"Remark"  TEXT,
+PRIMARY KEY ("Guid" ASC)
+);
+
+-- ----------------------------
+-- Records of T_PM_ProductionBatchInput
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for T_PM_ProductionSchedule
 -- ----------------------------
 CREATE TABLE "T_PM_ProductionSchedule" (
@@ -267,6 +284,7 @@ PRIMARY KEY ("ID")
 -- ----------------------------
 -- Records of T_System_Settings
 -- ----------------------------
+INSERT INTO "main"."T_System_Settings" VALUES (1, 'License', null, null);
 
 -- ----------------------------
 -- Table structure for T_System_User
@@ -428,6 +446,23 @@ PRIMARY KEY ("Guid" ASC)
 
 -- ----------------------------
 -- Records of T_Warehouse_Product
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for T_Warehouse_ProductBatchInput
+-- ----------------------------
+CREATE TABLE "T_Warehouse_ProductBatchInput" (
+"Guid"  Guid NOT NULL,
+"Number"  TEXT NOT NULL,
+"Name"  TEXT,
+"Date"  DateTime,
+"DeleteMark"  DateTime,
+"Remark"  TEXT,
+PRIMARY KEY ("Guid" ASC)
+);
+
+-- ----------------------------
+-- Records of T_Warehouse_ProductBatchInput
 -- ----------------------------
 
 -- ----------------------------
