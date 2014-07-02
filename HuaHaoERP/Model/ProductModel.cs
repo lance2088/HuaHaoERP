@@ -170,18 +170,8 @@ namespace HuaHaoERP.Model
             set { isShow = value; NotifyPropertyChanged("IsShow"); }
         }
 
-        #region INotifyPropertyChanged Members
-
+        #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
-
-        #endregion
-
-        #region Private Helpers
-
-        /// <summary>
-        /// cell内容改变事件
-        /// </summary>
-        /// <param name="propertyName"></param>
         private void NotifyPropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)
@@ -189,7 +179,6 @@ namespace HuaHaoERP.Model
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
-
         #endregion
     }
 }

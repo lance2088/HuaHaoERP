@@ -292,6 +292,7 @@
     <Compile Include="Helper\SQLite\DBUpdate.cs" />
     <Compile Include="Helper\Tools\ComputerInfo.cs" />
     <Compile Include="Helper\Tools\GenerateMD5.cs" />
+    <Compile Include="Model\Order\Model_BatchInputOrder.cs" />
     <Compile Include="Model\ProductionManagement\Model_AssemblyLineModuleBatchHistory.cs" />
     <Compile Include="Model\ProductionManagement\Model_AssemblyLineModuleBatchInput.cs" />
     <Compile Include="Model\ProductionManagement\Model_ProductionManagement_OutsideProcessBatch.cs" />
