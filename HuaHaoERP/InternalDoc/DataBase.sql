@@ -9,7 +9,7 @@ Target Server Type    : SQLite
 Target Server Version : 30714
 File Encoding         : 65001
 
-Date: 2014-07-02 16:30:59
+Date: 2014-07-02 17:52:17
 */
 
 
@@ -128,6 +128,23 @@ PRIMARY KEY ("Guid" ASC)
 
 -- ----------------------------
 -- Records of T_Orders_SupplierDetails
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for T_PM_ProcessBatchInput
+-- ----------------------------
+CREATE TABLE "T_PM_ProcessBatchInput" (
+"Guid"  Guid NOT NULL,
+"Number"  TEXT NOT NULL,
+"Name"  TEXT,
+"Date"  DateTime,
+"DeleteMark"  DateTime,
+"Remark"  TEXT,
+PRIMARY KEY ("Guid" ASC)
+);
+
+-- ----------------------------
+-- Records of T_PM_ProcessBatchInput
 -- ----------------------------
 
 -- ----------------------------
