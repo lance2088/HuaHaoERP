@@ -43,8 +43,10 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
             }
             return m;
         }
-        internal bool InsertData(ObservableCollection<Model_ProductionManagement_OutsideProcessBatch> data, bool isOut, DateTime date)
+        internal bool InsertData(ObservableCollection<Model_ProductionManagement_OutsideProcessBatch> data, bool isOut, DateTime date, string OrderNum, string OrderRemark)
         {
+            Guid OrderGuid = Guid.NewGuid();
+            string DateStr = date.ToString("yyyy-MM-dd HH:mm:ss");
             string OrderType = "入单";
             if(isOut)
             {
@@ -58,12 +60,17 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                     sqls.Add("Insert Into T_PM_ProcessSchedule(GUID,DATE,"
                                     + "ProductID,ProcessorsID,"
                                     + "Quantity,MinorInjuries,Injuries,Lose,"
-                                    + "OrderType,Remark) "
-                            + "values('" + Guid.NewGuid() + "','" + date.ToString("yyyy-MM-dd HH:mm:ss")
+                                    + "OrderType,Remark,Obligate1) "
+                            + "values('" + Guid.NewGuid() + "','" + DateStr
                                     + "','" + m.ProductGuid + "','" + m.ProcessorsGuid + "',"
-                                    + m.Quantity + "," + m.MinorInjuries + "," + m.Injuries + "," + m.Lose + ",'" 
-                                    + OrderType + "','" + m.Remark + "')");
+                                    + m.Quantity + "," + m.MinorInjuries + "," + m.Injuries + "," + m.Lose + ",'"
+                                    + OrderType + "','" + m.Remark + "','" + OrderGuid + "')");
                 }
+            }
+            if (sqls.Count > 0)
+            {
+                sqls.Add("Insert into T_PM_ProcessBatchInput(Guid,Number,Date,Remark) "
+                    + "values('" + OrderGuid + "','" + OrderNum + "','" + DateStr + "','" + OrderRemark + "')");
             }
             return new Helper.SQLite.DBHelper().Transaction(sqls);
         }

@@ -16,6 +16,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         {
             InitializeComponent();
             InitializeDataGrid();
+            this.TextBox_Number.Text = DateTime.Now.ToString("yyyyMMdd_HHmmss");
         }
 
         private void InitializeDataGrid()
@@ -29,7 +30,9 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void Button_Commit_Click(object sender, RoutedEventArgs e)
         {
-            if (new AssemblyLineModuleBatchInputConsole().InsertData(data, (bool)this.CheckBox_AutoDeductionRawMaterials.IsChecked))
+            string Number = this.TextBox_Number.Text;
+            string Remark = this.TextBox_Remark.Text;
+            if (new AssemblyLineModuleBatchInputConsole().InsertData(data, (bool)this.CheckBox_AutoDeductionRawMaterials.IsChecked, Number, Remark))
             {
                 Button_Cancel_Click(null, null);
                 Helper.Events.UpdateEvent.AssemblyLineModuleEvent.OnUpdateDataGrid();

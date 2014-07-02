@@ -4,9 +4,9 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" FontFamily="SimSun" FontSize="14" TextOptions.TextFormattingMode="Display"
-      d:DesignHeight="458" d:DesignWidth="807"
+      d:DesignHeight="467" d:DesignWidth="667"
 	Title="Page_ProductionManagement_OutsideProcessBatch">
-    
+
     <Page.Resources>
         <SolidColorBrush x:Key="clBr" Color="#FFBDDEFF" />
     </Page.Resources>
@@ -17,7 +17,7 @@
         </Grid.ColumnDefinitions>
         <Button x:Name="Button_Commit" Content="确定" HorizontalAlignment="Right" Margin="0,0,20,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_Commit_Click"/>
         <Button x:Name="Button_Cancel" Content="取消" HorizontalAlignment="Left" Margin="20,0,0,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Grid.Column="1" IsCancel="True" Click="Button_Cancel_Click"/>
-        <DataGrid x:Name="DataGrid" Margin="10,60" Grid.ColumnSpan="2" CellStyle="{DynamicResource DataGridCellStyleCommon}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" BorderBrush="#FF99CCFF" AutoGenerateColumns="False" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" SelectionMode="Single" SelectionUnit="Cell" CanUserAddRows="False" CanUserResizeRows="False" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" CellEditEnding="DataGrid_CellEditEnding" PreviewKeyDown="DataGrid_PreviewKeyDown">
+        <DataGrid x:Name="DataGrid" Margin="10,70,10,60" Grid.ColumnSpan="2" CellStyle="{DynamicResource DataGridCellStyleCommon}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" BorderBrush="#FF99CCFF" AutoGenerateColumns="False" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" SelectionMode="Single" SelectionUnit="Cell" CanUserAddRows="False" CanUserResizeRows="False" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" CellEditEnding="DataGrid_CellEditEnding" PreviewKeyDown="DataGrid_PreviewKeyDown">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="产品编号" Binding="{Binding ProductNumber}"/>
                 <DataGridTextColumn Header="产品名称" Binding="{Binding ProductName}" IsReadOnly="True">
@@ -50,7 +50,12 @@
             </DataGrid.Columns>
         </DataGrid>
         <Label x:Name="Label_Title" Content="Label__Title" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-        <DatePicker x:Name="DatePicker_InsertDate" Grid.Column="1" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="DatePicker_InsertDate" Grid.Column="1" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TextBox_Number" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="TextBox_Remark" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="0,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" VerticalContentAlignment="Center"/>
+        <Label Content="单号" Margin="0,10,5,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="38" Padding="5,0" VerticalContentAlignment="Center" Height="24"/>
+        <Label Content="备注" Margin="0,40,5,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="38" Height="24" Padding="5,0" VerticalContentAlignment="Center"/>
+        <Label Content="日期" Grid.Column="1" HorizontalAlignment="Left" Margin="127,10,0,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" Padding="5,0"/>
 
     </Grid>
 </Page>
