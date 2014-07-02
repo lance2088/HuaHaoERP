@@ -18,7 +18,7 @@ namespace HuaHaoERP.ViewModel.Orders
             Model_BatchInputOrder m;
             DataSet ds = new DataSet();
             string TableName = GetTableName(Type);
-            string sql = "select * from " + TableName + " WHERE DeleteMark ISNULL";
+            string sql = "select * from " + TableName + " WHERE DeleteMark ISNULL Order By Date Desc";
             if (new DBHelper().QueryData(sql, out ds))
             {
                 foreach (DataRow dr in ds.Tables[0].Rows)
