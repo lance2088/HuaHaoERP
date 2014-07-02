@@ -38,6 +38,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             }
             this.DatePicker_InsertDate.SelectedDate = DateTime.Now;
             this.TextBox_Number.Text = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+            this.TextBox_Remark.Text = this.Label_Title.Content.ToString();
         }
 
         private void InitializeDataGrid()
