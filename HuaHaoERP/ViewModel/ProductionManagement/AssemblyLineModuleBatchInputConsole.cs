@@ -104,15 +104,55 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
             ObservableCollection<Model_AssemblyLineModuleBatchInput> data = new ObservableCollection<Model_AssemblyLineModuleBatchInput>();
             Model_AssemblyLineModuleBatchInput m;
             DataSet ds = new DataSet();
-            string sql = "Select * from T_PM_ProductionSchedule";
+            string sql = "Select a.*,"
+                            + " p.Guid as PGuid,p.Number as PNumber,p.Name as PName,p.P1,p.P2,p.P3,p.P4,p.P5,p.P6, "
+                            + " s.Guid as SGuid,s.Number as SNumber,s.Name as SName "
+                        + " from T_PM_ProductionSchedule a "
+                            + " left join T_ProductInfo_Product p ON a.ProductID=p.Guid "
+                            + " left join T_UserInfo_Staff s ON a.StaffID=s.Guid "
+                        + " WHERE a.Obligate1='" + OrderData.Guid + "' "
+                            + " AND a.DeleteMark ISNULL "
+                            + " AND a.Remark<>'自动扣半成品原料' "
+                        ;
             if (new Helper.SQLite.DBHelper().QueryData(sql, out ds))
             {
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
                     m = new Model_AssemblyLineModuleBatchInput();
 
+                    //Product Info
+                    m.ProductGuid = (Guid)dr["PGuid"];
+                    m.ProductNumber = dr["PNumber"].ToString();
+                    m.ProductName = dr["PName"].ToString();
+                    for (int i = 0; i < 6; i++)
+                    {
+                        if (dr["P" + (i + 1)].ToString() != "无")
+                        {
+                            m.ProcessList[i] = dr["P" + (i + 1)].ToString();
+                            m.ProcessListStr += dr["P" + (i + 1)].ToString() + ",";
+                        }
+                    }
+                    m.ProcessListStr = m.ProcessListStr.Substring(0, m.ProcessListStr.Length - 1);
+
+                    //Staff Info
+                    m.StaffGuid = (Guid)dr["SGuid"];
+                    m.StaffNumber = dr["SNumber"].ToString();
+                    m.StaffName = dr["SName"].ToString();
+
+                    //Input Info
+                    m.Process = dr["Process"].ToString();
+                    m.Quantity = int.Parse(dr["Number"].ToString());
+                    m.Injure = int.Parse(dr["Break"].ToString());
 
                     data.Add(m);
+                }
+            }
+            if (data.Count < 20)
+            {
+                int COUNT = data.Count;
+                for (int i = 0; i < 20 - COUNT; i++)
+                {
+                    data.Add(new Model_AssemblyLineModuleBatchInput { Id = i + 1 });
                 }
             }
             return data;
