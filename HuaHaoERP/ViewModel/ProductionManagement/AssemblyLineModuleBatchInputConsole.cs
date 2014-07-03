@@ -99,7 +99,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
         /// 编辑时读取记录明细
         /// </summary>
         /// <returns></returns>
-        internal ObservableCollection<Model_AssemblyLineModuleBatchInput> ReadDatas()
+        internal ObservableCollection<Model_AssemblyLineModuleBatchInput> ReadDatas(Model_BatchInputOrder OrderData)
         {
             ObservableCollection<Model_AssemblyLineModuleBatchInput> data = new ObservableCollection<Model_AssemblyLineModuleBatchInput>();
             Model_AssemblyLineModuleBatchInput m;

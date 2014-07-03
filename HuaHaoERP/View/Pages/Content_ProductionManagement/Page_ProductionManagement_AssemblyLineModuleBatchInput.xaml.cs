@@ -12,6 +12,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
     public partial class Page_ProductionManagement_AssemblyLineModuleBatchInput : Page
     {
         ObservableCollection<Model_AssemblyLineModuleBatchInput> data = new ObservableCollection<Model_AssemblyLineModuleBatchInput>();
+        Model_BatchInputOrder OrderData;
         bool IS_MODIFY = false;//是否是修改模式
 
         public Page_ProductionManagement_AssemblyLineModuleBatchInput()
@@ -23,7 +24,8 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         public Page_ProductionManagement_AssemblyLineModuleBatchInput(Model_BatchInputOrder data)
         {
-            IS_MODIFY = true;
+            this.OrderData = data;
+            this.IS_MODIFY = true;
             InitializeComponent();
             InitializeDataGrid();
             this.TextBox_Number.Text = data.Number;
@@ -34,7 +36,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         {
             if(IS_MODIFY)
             {
-                data = new AssemblyLineModuleBatchInputConsole().ReadDatas(); 
+                data = new AssemblyLineModuleBatchInputConsole().ReadDatas(OrderData); 
             }
             else
             {

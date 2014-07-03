@@ -1,4 +1,5 @@
-﻿using HuaHaoERP.Model.ProductionManagement;
+﻿using HuaHaoERP.Model.Order;
+using HuaHaoERP.Model.ProductionManagement;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -26,6 +27,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
             }
             return m;
         }
+
         internal Model_ProductionManagement_OutsideProcessBatch ReadProcessorsInfo(string ProcessorsNumber)
         {
             Model_ProductionManagement_OutsideProcessBatch m = new Model_ProductionManagement_OutsideProcessBatch();
@@ -43,6 +45,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
             }
             return m;
         }
+
         internal bool InsertData(ObservableCollection<Model_ProductionManagement_OutsideProcessBatch> data, bool isOut, DateTime date, string OrderNum, string OrderRemark)
         {
             Guid OrderGuid = Guid.NewGuid();
@@ -73,6 +76,29 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                     + "values('" + OrderGuid + "','" + OrderNum + "','" + DateStr + "','" + OrderRemark + "','" + ((isOut) ? "0" : "1") + "')");
             }
             return new Helper.SQLite.DBHelper().Transaction(sqls);
+        }
+
+        /// <summary>
+        /// 编辑时读取记录明细
+        /// </summary>
+        /// <returns></returns>
+        internal ObservableCollection<Model_ProductionManagement_OutsideProcessBatch> ReadDatas(Model_BatchInputOrder OrderData)
+        {
+            ObservableCollection<Model_ProductionManagement_OutsideProcessBatch> data = new ObservableCollection<Model_ProductionManagement_OutsideProcessBatch>();
+            Model_ProductionManagement_OutsideProcessBatch m;
+            DataSet ds = new DataSet();
+            string sql = "Select * from T_PM_ProcessSchedule";
+            if (new Helper.SQLite.DBHelper().QueryData(sql, out ds))
+            {
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    m = new Model_ProductionManagement_OutsideProcessBatch();
+
+
+                    data.Add(m);
+                }
+            }
+            return data;
         }
     }
 }

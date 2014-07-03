@@ -9,9 +9,6 @@ namespace HuaHaoERP.ViewModel.Orders
 {
     class BatchInputOrderConsole
     {
-
-
-
         internal void ReadOrder(int Type, out ObservableCollection<Model_BatchInputOrder> data)
         {
             data = new ObservableCollection<Model_BatchInputOrder>();

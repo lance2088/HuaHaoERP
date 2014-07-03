@@ -15,6 +15,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
     public partial class Page_ProductionManagement_OutsideProcessBatch : Page
     {
         ObservableCollection<Model_ProductionManagement_OutsideProcessBatch> data = new ObservableCollection<Model_ProductionManagement_OutsideProcessBatch>();
+        Model_BatchInputOrder OrderData;
         bool IsOUT = true;
         bool IS_MODIFY = false;//是否是修改模式
 
@@ -40,6 +41,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         public Page_ProductionManagement_OutsideProcessBatch(Model_BatchInputOrder data)
         {
+            this.OrderData = data;
             this.IS_MODIFY = true;
             this.IsOUT = (data.OrderType == "0") ? true : false;
             InitializeComponent();
@@ -64,7 +66,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         {
             if (IS_MODIFY)
             {
-
+                data = new OutsideProcessBatchInputConsole().ReadDatas(OrderData);
             }
             else
             {
