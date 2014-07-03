@@ -60,6 +60,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             this.DatePicker_InsertDate.SelectedDate = Convert.ToDateTime(data.Date);
             this.TextBox_Number.Text = data.Number;
             this.TextBox_Remark.Text = data.Remark;
+            this.Button_Commit.Content = "修改";
         }
 
         private void InitializeDataGrid()
