@@ -16,6 +16,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
     {
         ObservableCollection<Model_ProductionManagement_OutsideProcessBatch> data = new ObservableCollection<Model_ProductionManagement_OutsideProcessBatch>();
         bool IsOUT = true;
+        bool IS_MODIFY = false;//是否是修改模式
 
         public Page_ProductionManagement_OutsideProcessBatch(bool Out)
         {
@@ -39,15 +40,38 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         public Page_ProductionManagement_OutsideProcessBatch(Model_BatchInputOrder data)
         {
+            this.IS_MODIFY = true;
+            this.IsOUT = (data.OrderType == "0") ? true : false;
             InitializeComponent();
-
+            InitializeDataGrid();
+            if (IsOUT)
+            {
+                this.DataGridTextColumn_MinorInjuries.Visibility = System.Windows.Visibility.Collapsed;
+                this.DataGridTextColumn_Injuries.Visibility = System.Windows.Visibility.Collapsed;
+                this.DataGridTextColumn_Lose.Visibility = System.Windows.Visibility.Collapsed;
+                this.Label_Title.Content = "外加工单：出单";
+            }
+            else
+            {
+                this.Label_Title.Content = "外加工单：入单";
+            }
+            this.DatePicker_InsertDate.SelectedDate = Convert.ToDateTime(data.Date);
+            this.TextBox_Number.Text = data.Number;
+            this.TextBox_Remark.Text = data.Remark;
         }
 
         private void InitializeDataGrid()
         {
-            for (int i = 0; i < 20; i++)
+            if (IS_MODIFY)
             {
-                data.Add(new Model_ProductionManagement_OutsideProcessBatch { Id = i + 1 });
+
+            }
+            else
+            {
+                for (int i = 0; i < 20; i++)
+                {
+                    data.Add(new Model_ProductionManagement_OutsideProcessBatch { Id = i + 1 });
+                }
             }
             this.DataGrid.ItemsSource = data;
         }
@@ -66,7 +90,14 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void Button_Cancel_Click(object sender, RoutedEventArgs e)
         {
-            Helper.Events.PopUpEvent.OnHidePopUp();
+            if(IS_MODIFY)
+            {
+                Helper.Events.PopUpEvent.OnShowPopUp(new Content_Warehouse.Page_Warehouse_Product_BatchHistory(2));
+            }
+            else
+            {
+                Helper.Events.PopUpEvent.OnHidePopUp();
+            }
         }
 
         private void DataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)

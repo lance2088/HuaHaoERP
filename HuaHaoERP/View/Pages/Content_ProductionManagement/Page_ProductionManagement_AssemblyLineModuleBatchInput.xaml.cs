@@ -59,7 +59,14 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void Button_Cancel_Click(object sender, RoutedEventArgs e)
         {
-            Helper.Events.PopUpEvent.OnHidePopUp();
+            if(IS_MODIFY)
+            {
+                Helper.Events.PopUpEvent.OnShowPopUp(new Content_Warehouse.Page_Warehouse_Product_BatchHistory(1));
+            }
+            else
+            {
+                Helper.Events.PopUpEvent.OnHidePopUp();
+            }
         }
 
         private void DataGrid_BatchInput_PreviewKeyDown(object sender, KeyEventArgs e)

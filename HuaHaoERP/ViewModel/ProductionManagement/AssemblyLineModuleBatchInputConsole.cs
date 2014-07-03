@@ -104,7 +104,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
             ObservableCollection<Model_AssemblyLineModuleBatchInput> data = new ObservableCollection<Model_AssemblyLineModuleBatchInput>();
             Model_AssemblyLineModuleBatchInput m;
             DataSet ds = new DataSet();
-            string sql = "";
+            string sql = "Select * from T_PM_ProductionSchedule";
             if (new Helper.SQLite.DBHelper().QueryData(sql, out ds))
             {
                 foreach (DataRow dr in ds.Tables[0].Rows)

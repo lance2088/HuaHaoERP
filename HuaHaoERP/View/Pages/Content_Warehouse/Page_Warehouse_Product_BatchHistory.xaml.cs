@@ -14,7 +14,10 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
     {
         ObservableCollection<Model_BatchInputOrder> data = new ObservableCollection<Model_BatchInputOrder>();
         int OrderType;
-
+        /// <summary>
+        /// 1流水线 2外加工 3仓库
+        /// </summary>
+        /// <param name="OrderType"></param>
         public Page_Warehouse_Product_BatchHistory(int OrderType)
         {
             this.OrderType = OrderType;
