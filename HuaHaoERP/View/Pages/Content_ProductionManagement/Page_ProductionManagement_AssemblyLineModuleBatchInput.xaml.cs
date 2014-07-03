@@ -55,6 +55,10 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             string Remark = this.TextBox_Remark.Text;
             if (new AssemblyLineModuleBatchInputConsole().InsertData(data, (bool)this.CheckBox_AutoDeductionRawMaterials.IsChecked, Number, Remark))
             {
+                if(IS_MODIFY)
+                {
+                    new AssemblyLineModuleBatchInputConsole().DeleteOld(OrderData.Guid);
+                }
                 Button_Cancel_Click(null, null);
                 Helper.Events.UpdateEvent.AssemblyLineModuleEvent.OnUpdateDataGrid();
             }

@@ -124,5 +124,14 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
             }
             return data;
         }
+
+        internal bool DeleteOld(Guid OrderGuid)
+        {
+            string DateStr = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            List<string> sqls = new List<string>();
+            sqls.Add("Update T_PM_ProcessBatchInput SET DeleteMark='" + DateStr + "' Where Guid='" + OrderGuid + "'");
+            sqls.Add("Update T_PM_ProcessSchedule Set DeleteMark='" + DateStr + "' Where Obligate1='" + OrderGuid + "'");
+            return new Helper.SQLite.DBHelper().Transaction(sqls);
+        }
     }
 }

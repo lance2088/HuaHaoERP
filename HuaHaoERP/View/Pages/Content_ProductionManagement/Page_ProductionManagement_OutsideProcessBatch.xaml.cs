@@ -86,6 +86,10 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             string Remark = this.TextBox_Remark.Text;
             if (new OutsideProcessBatchInputConsole().InsertData(data, IsOUT, date, Number, Remark))
             {
+                if(IS_MODIFY)
+                {
+                    new OutsideProcessBatchInputConsole().DeleteOld(OrderData.Guid);
+                }
                 Helper.Events.ProductionManagement_AssemblyLineEvent.OnUpdateDataGrid();
                 Button_Cancel_Click(null, null);
             }

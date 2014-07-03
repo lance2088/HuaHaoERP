@@ -49,6 +49,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                        + " LEFT JOIN T_UserInfo_Processors c ON a.ProcessorsID=c.GUID                "
                        + " WHERE                                                                     "
                        + "	OrderType = '" + OrderType + "'                                          "
+                       + "  AND a.DeleteMark ISNULL"
                        + sql_WhereParm
                        + " Order By a.Date";
             DataSet ds = new DataSet();
