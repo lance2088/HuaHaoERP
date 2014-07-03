@@ -91,6 +91,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                 this.DataGridTextColumn_PackQuantity.Visibility = System.Windows.Visibility.Collapsed;
                 this.DataGridTextColumn_PerQuantity.Visibility = System.Windows.Visibility.Collapsed;
                 this.DataGridTextColumn_AllQuantity.IsReadOnly = false;
+                this.CheckBox_InitInput.Visibility = System.Windows.Visibility.Collapsed;
             }
         }
 
@@ -112,9 +113,10 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             DateTime date = (DateTime)this.DatePicker_InsertDate.SelectedDate;
             string Number = this.TextBox_Number.Text;
             string Remark = this.TextBox_Remark.Text;
+            bool IsInitInput = (bool)this.CheckBox_InitInput.IsChecked;
             if (TYPE == 0)
             {
-                flag = new ViewModel.Warehouse.ProductBatchInConsole().InsertPacking(data, false, date, Number, Remark, "0");
+                flag = new ViewModel.Warehouse.ProductBatchInConsole().InsertPacking(data, false, date, Number, Remark, "0", IsInitInput);
             }
             else if (TYPE == 1)
             {
@@ -122,7 +124,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             }
             else if (TYPE == 2)
             {
-                flag = new ViewModel.Warehouse.ProductBatchInConsole().InsertPacking(data, true, date, Number, Remark, "2");
+                flag = new ViewModel.Warehouse.ProductBatchInConsole().InsertPacking(data, true, date, Number, Remark, "2", IsInitInput);
             }
             else if (TYPE == 3)
             {
@@ -192,6 +194,21 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                 else
                 {
                     DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.SelectedCells[0].Item, DataGrid.Columns[0]);
+                }
+            }
+        }
+
+        private void CheckBox_InitInput_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.CheckBox_InitInput.IsChecked == true)
+            {
+                if (MessageBox.Show("初始化录入仅适用于“录入初始数据”\n是否继续？", "警告", MessageBoxButton.YesNo) == MessageBoxResult.No)
+                {
+                    this.CheckBox_InitInput.IsChecked = false;
+                }
+                else
+                {
+                    this.TextBox_Remark.Text += "，初始录入";
                 }
             }
         }

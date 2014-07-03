@@ -52,5 +52,6 @@
         <TextBox x:Name="TextBox_Number" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
         <TextBox x:Name="TextBox_Remark" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="0,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" VerticalContentAlignment="Center"/>
         <Label Content="日期" Grid.Column="1" HorizontalAlignment="Left" Margin="127,10,0,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" Padding="5,0"/>
+        <CheckBox x:Name="CheckBox_InitInput" Content="初始化录入" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Height="30" VerticalContentAlignment="Center" Padding="4,0,0,0" FontSize="16" Click="CheckBox_InitInput_Click"/>
     </Grid>
 </Page>

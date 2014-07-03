@@ -45,7 +45,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
         /// <param name="OrderRemark">订单备注</param>
         /// <param name="OrderType">订单类型</param>
         /// <returns></returns>
-        internal bool InsertPacking(ObservableCollection<Model_WarehouseProductBatchIn> data, bool isOut, DateTime date, string OrderNum, string OrderRemark, string OrderType)
+        internal bool InsertPacking(ObservableCollection<Model_WarehouseProductBatchIn> data, bool isOut, DateTime date, string OrderNum, string OrderRemark, string OrderType, bool IsInitInput)
         {
             Guid OrderGuid = Guid.NewGuid();
             string DateStr = date.ToString("yyyy-MM-dd HH:mm:ss");
@@ -61,8 +61,9 @@ namespace HuaHaoERP.ViewModel.Warehouse
             {
                 if (m.Guid != new Guid())
                 {
-                    if (!isOut)
+                    if (!isOut && !IsInitInput)
                     {
+                        //扣散件
                         sqls.Add("Insert into T_Warehouse_Product(Guid,ProductID,Date,Operator,Quantity,Remark,Obligate1) "
                             + "values('" + Guid.NewGuid() + "','" + m.Guid + "','" + DateStr + "','" + Helper.DataDefinition.CommonParameters.RealName + "'," + -m.AllQuantity + ",'包装：手动包装自动扣除','" + OrderGuid + "')");
                     }
