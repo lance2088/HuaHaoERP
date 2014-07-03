@@ -128,11 +128,9 @@ namespace HuaHaoERP.ViewModel.Warehouse
             {
                 case "0"://入库：包装产品
                     TableName = "T_Warehouse_ProductPacking";
-                    IsOut = 1;
                     break;
                 case "1"://入库：散件产品
                     TableName = "T_Warehouse_Product";
-                    IsOut = 1;
                     break;
                 case "2"://出库：包装产品
                     TableName = "T_Warehouse_ProductPacking";
@@ -157,7 +155,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
                     m = new Model_WarehouseProductBatchIn();
-                    m.Guid = (Guid)dr["Guid"];
+                    m.Guid = (Guid)dr["ProductID"];
                     m.Number = dr["Number"].ToString();
                     m.Name = dr["Name"].ToString();
                     m.Material = dr["Material"].ToString();
@@ -187,18 +185,14 @@ namespace HuaHaoERP.ViewModel.Warehouse
             return data;
         }
 
-        internal bool UpdatePacking()
+        internal bool UpdateBatchIn(Guid OrderGuid)
         {
-
-
-            return false;
-        }
-
-        internal bool UpdateSpareparts()
-        {
-
-
-            return false;
+            List<string> sqls = new List<string>();
+            string DateStr = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            sqls.Add("Update T_Warehouse_ProductBatchInput SET DeleteMark='" + DateStr + "' Where Guid='" + OrderGuid + "'");
+            sqls.Add("Update T_Warehouse_Product SET DeleteMark='" + DateStr + "' Where Obligate1='" + OrderGuid + "'");
+            sqls.Add("Update T_Warehouse_ProductPacking SET DeleteMark='" + DateStr + "' Where Obligate1='" + OrderGuid + "'");
+            return new Helper.SQLite.DBHelper().Transaction(sqls);
         }
     }
 }

@@ -108,6 +108,10 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             {
                 if (new ViewModel.Warehouse.ProductBatchInConsole().InsertPacking(data, false, date, Number, Remark, "0"))
                 {
+                    if (IS_MODIFY)
+                    {
+                        new ViewModel.Warehouse.ProductBatchInConsole().UpdateBatchIn(ORDER.Guid);
+                    }
                     Helper.Events.UpdateEvent.WarehouseProductEvent.OnUpdateDataGrid();
                     Button_Cancel_Click(null, null);
                 }
@@ -116,6 +120,10 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             {
                 if (new ViewModel.Warehouse.ProductBatchInConsole().InsertSpareparts(data, false, date, Number, Remark, "1"))
                 {
+                    if (IS_MODIFY)
+                    {
+                        new ViewModel.Warehouse.ProductBatchInConsole().UpdateBatchIn(ORDER.Guid);
+                    }
                     Helper.Events.UpdateEvent.WarehouseProductEvent.OnUpdateDataGrid();
                     Button_Cancel_Click(null, null);
                 }
@@ -124,6 +132,10 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             {
                 if (new ViewModel.Warehouse.ProductBatchInConsole().InsertPacking(data, true, date, Number, Remark, "2"))
                 {
+                    if (IS_MODIFY)
+                    {
+                        new ViewModel.Warehouse.ProductBatchInConsole().UpdateBatchIn(ORDER.Guid);
+                    }
                     Helper.Events.UpdateEvent.WarehouseProductEvent.OnUpdateDataGrid();
                     Button_Cancel_Click(null, null);
                 }
@@ -132,6 +144,10 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             {
                 if (new ViewModel.Warehouse.ProductBatchInConsole().InsertSpareparts(data, true, date, Number, Remark, "3"))
                 {
+                    if (IS_MODIFY)
+                    {
+                        new ViewModel.Warehouse.ProductBatchInConsole().UpdateBatchIn(ORDER.Guid);
+                    }
                     Helper.Events.UpdateEvent.WarehouseProductEvent.OnUpdateDataGrid();
                     Button_Cancel_Click(null, null);
                 }
