@@ -12,6 +12,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
     public partial class Page_Warehouse_Product_BatchIn : Page
     {
         ObservableCollection<Model_WarehouseProductBatchIn> data = new ObservableCollection<Model_WarehouseProductBatchIn>();
+        Model_BatchInputOrder ORDER;
         /// <summary>
         /// 0包装in 1散件in 2包装out 3散件out
         /// </summary>
@@ -45,12 +46,14 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
 
         public Page_Warehouse_Product_BatchIn(Model_BatchInputOrder Order)
         {
+            this.ORDER = Order;
             IS_MODIFY = true;
             InitializeComponent();
             this.TYPE = int.Parse(Order.OrderType);
             this.DatePicker_InsertDate.SelectedDate = Convert.ToDateTime(Order.Date);
             this.TextBox_Number.Text = Order.Number;
             this.TextBox_Remark.Text = Order.Remark;
+            this.Button_Commit.Content = "修改";
             InitializeDataGrid();
             switch (TYPE)
             {
@@ -71,13 +74,16 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
 
         private void InitializeDataGrid()
         {
-            for (int i = 0; i < 20; i++)
+            if (IS_MODIFY)
             {
-                data.Add(new Model_WarehouseProductBatchIn { Id = i + 1 });
+                data = new ProductBatchInConsole().ReadDatas(ORDER.Guid, ORDER.OrderType);
             }
-            if(IS_MODIFY)
+            else
             {
-
+                for (int i = 0; i < 20; i++)
+                {
+                    data.Add(new Model_WarehouseProductBatchIn { Id = i + 1 });
+                }
             }
             this.DataGrid.ItemsSource = data;
             if (TYPE == 1 || TYPE == 3)
