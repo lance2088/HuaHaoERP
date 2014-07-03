@@ -1,4 +1,5 @@
-﻿using HuaHaoERP.Model.ProductionManagement;
+﻿using HuaHaoERP.Model.Order;
+using HuaHaoERP.Model.ProductionManagement;
 using HuaHaoERP.ViewModel.ProductionManagement;
 using System;
 using System.Collections.ObjectModel;
@@ -11,6 +12,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
     public partial class Page_ProductionManagement_AssemblyLineModuleBatchInput : Page
     {
         ObservableCollection<Model_AssemblyLineModuleBatchInput> data = new ObservableCollection<Model_AssemblyLineModuleBatchInput>();
+        bool IS_MODIFY = false;//是否是修改模式
 
         public Page_ProductionManagement_AssemblyLineModuleBatchInput()
         {
@@ -19,11 +21,27 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             this.TextBox_Number.Text = DateTime.Now.ToString("yyyyMMdd_HHmmss");
         }
 
+        public Page_ProductionManagement_AssemblyLineModuleBatchInput(Model_BatchInputOrder data)
+        {
+            IS_MODIFY = true;
+            InitializeComponent();
+            InitializeDataGrid();
+            this.TextBox_Number.Text = data.Number;
+            this.TextBox_Remark.Text = data.Remark;
+        }
+
         private void InitializeDataGrid()
         {
-            for (int i = 0; i < 20; i++)
+            if(IS_MODIFY)
             {
-                data.Add(new Model_AssemblyLineModuleBatchInput { Id = i + 1 });
+                data = new AssemblyLineModuleBatchInputConsole().ReadDatas(); 
+            }
+            else
+            {
+                for (int i = 0; i < 20; i++)
+                {
+                    data.Add(new Model_AssemblyLineModuleBatchInput { Id = i + 1 });
+                }
             }
             this.DataGrid_BatchInput.ItemsSource = data;
         }

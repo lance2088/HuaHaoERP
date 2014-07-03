@@ -417,12 +417,17 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void Button_BatchHistory_Click(object sender, RoutedEventArgs e)
         {
-            Helper.Events.PopUpEvent.OnShowPopUp(new Page_ProductionManagement_AssemblyLineModuleBatchHistory());
+            Helper.Events.PopUpEvent.OnShowPopUp(new Content_Warehouse.Page_Warehouse_Product_BatchHistory(1));
         }
 
+        /// <summary>
+        /// 外加工批量记录
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_BatchHistory1_Click(object sender, RoutedEventArgs e)
         {
-
+            Helper.Events.PopUpEvent.OnShowPopUp(new Content_Warehouse.Page_Warehouse_Product_BatchHistory(2));
         }
 
     }

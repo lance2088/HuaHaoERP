@@ -98,7 +98,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         {
             if (IS_MODIFY)
             {
-                Helper.Events.PopUpEvent.OnShowPopUp(new Page_Warehouse_Product_BatchHistory());
+                Helper.Events.PopUpEvent.OnShowPopUp(new Page_Warehouse_Product_BatchHistory(3));
             }
             else
             {

@@ -28,3 +28,4 @@ PRIMARY KEY ("Guid" ASC)
 alter TABLE T_Warehouse_Product ADD "DeleteMark" DateTime;
 alter TABLE T_Warehouse_ProductPacking ADD "DeleteMark" DateTime;
 alter TABLE T_Warehouse_ProductBatchInput ADD "OrderType" Text;
+alter TABLE T_PM_ProcessBatchInput ADD "OrderType" Text;

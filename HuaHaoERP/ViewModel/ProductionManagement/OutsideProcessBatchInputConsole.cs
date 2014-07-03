@@ -6,7 +6,7 @@ using System.Data;
 
 namespace HuaHaoERP.ViewModel.ProductionManagement
 {
-    class OutsideProcessBatchConsole
+    class OutsideProcessBatchInputConsole
     {
         internal Model_ProductionManagement_OutsideProcessBatch ReadProductInfo(string ProductNumber)
         {
@@ -48,7 +48,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
             Guid OrderGuid = Guid.NewGuid();
             string DateStr = date.ToString("yyyy-MM-dd HH:mm:ss");
             string OrderType = "入单";
-            if(isOut)
+            if (isOut)
             {
                 OrderType = "出单";
             }
@@ -69,8 +69,8 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
             }
             if (sqls.Count > 0)
             {
-                sqls.Add("Insert into T_PM_ProcessBatchInput(Guid,Number,Date,Remark) "
-                    + "values('" + OrderGuid + "','" + OrderNum + "','" + DateStr + "','" + OrderRemark + "')");
+                sqls.Add("Insert into T_PM_ProcessBatchInput(Guid,Number,Date,Remark,OrderType) "
+                    + "values('" + OrderGuid + "','" + OrderNum + "','" + DateStr + "','" + OrderRemark + "','" + ((isOut) ? "0" : "1") + "')");
             }
             return new Helper.SQLite.DBHelper().Transaction(sqls);
         }

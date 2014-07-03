@@ -7,26 +7,30 @@ using System.Windows.Controls;
 
 namespace HuaHaoERP.View.Pages.Content_Warehouse
 {
+    /// <summary>
+    /// 流水线，外加工的批量记录也用这个页面
+    /// </summary>
     public partial class Page_Warehouse_Product_BatchHistory : Page
     {
         ObservableCollection<Model_BatchInputOrder> data = new ObservableCollection<Model_BatchInputOrder>();
+        int OrderType;
 
-        public Page_Warehouse_Product_BatchHistory()
+        public Page_Warehouse_Product_BatchHistory(int OrderType)
         {
+            this.OrderType = OrderType;
             InitializeComponent();
             InitializeDataGrid();
         }
 
         private void InitializeDataGrid()
         {
-            new BatchInputOrderConsole().ReadOrder(3, out data);
+            new BatchInputOrderConsole().ReadOrder(OrderType, out data);
             this.DataGrid_BatchHistory.ItemsSource = data;
         }
 
         private void Button_Cancel_Click(object sender, RoutedEventArgs e)
         {
             Helper.Events.PopUpEvent.OnHidePopUp();
-            Helper.Events.UpdateEvent.WarehouseProductEvent.OnUpdateDataGrid();
         }
 
         /// <summary>
@@ -38,7 +42,19 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         {
             if (this.DataGrid_BatchHistory.SelectedCells.Count > 0)
             {
-                Helper.Events.PopUpEvent.OnShowPopUp(new Page_Warehouse_Product_BatchIn(this.DataGrid_BatchHistory.SelectedCells[0].Item as Model_BatchInputOrder));
+                Model_BatchInputOrder m = this.DataGrid_BatchHistory.SelectedCells[0].Item as Model_BatchInputOrder;
+                if (OrderType == 1)//流水线
+                {
+                    Helper.Events.PopUpEvent.OnShowPopUp(new Content_ProductionManagement.Page_ProductionManagement_AssemblyLineModuleBatchInput(m));
+                }
+                else if (OrderType == 2)//外加工
+                {
+                    Helper.Events.PopUpEvent.OnShowPopUp(new Content_ProductionManagement.Page_ProductionManagement_OutsideProcessBatch(m));
+                }
+                else if (OrderType == 3)//仓库
+                {
+                    Helper.Events.PopUpEvent.OnShowPopUp(new Page_Warehouse_Product_BatchIn(m));
+                }
             }
         }
 
@@ -54,9 +70,10 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                 Guid OrderGuid = (this.DataGrid_BatchHistory.SelectedCells[0].Item as Model_BatchInputOrder).Guid;
                 if (MessageBox.Show("确认删除这条记录？", "警告", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
-                    if (new BatchInputOrderConsole().DeleteOrder(3, OrderGuid))
+                    if (new BatchInputOrderConsole().DeleteOrder(OrderType, OrderGuid))
                     {
                         InitializeDataGrid();
+                        Helper.Events.UpdateEvent.WarehouseProductEvent.OnUpdateDataGrid();
                         MessageBox.Show("删除成功。", "石蚁科技");
                     }
                 }

@@ -1,4 +1,5 @@
-﻿using HuaHaoERP.Model.ProductionManagement;
+﻿using HuaHaoERP.Model.Order;
+using HuaHaoERP.Model.ProductionManagement;
 using HuaHaoERP.ViewModel.ProductionManagement;
 using System;
 using System.Collections.ObjectModel;
@@ -36,6 +37,12 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             this.TextBox_Number.Text = DateTime.Now.ToString("yyyyMMdd_HHmmss");
         }
 
+        public Page_ProductionManagement_OutsideProcessBatch(Model_BatchInputOrder data)
+        {
+            InitializeComponent();
+
+        }
+
         private void InitializeDataGrid()
         {
             for (int i = 0; i < 20; i++)
@@ -50,7 +57,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             DateTime date = (DateTime)this.DatePicker_InsertDate.SelectedDate;
             string Number = this.TextBox_Number.Text;
             string Remark = this.TextBox_Remark.Text;
-            if (new OutsideProcessBatchConsole().InsertData(data, IsOUT, date, Number, Remark))
+            if (new OutsideProcessBatchInputConsole().InsertData(data, IsOUT, date, Number, Remark))
             {
                 Helper.Events.ProductionManagement_AssemblyLineEvent.OnUpdateDataGrid();
                 Button_Cancel_Click(null, null);
@@ -69,7 +76,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             string Header = e.Column.Header.ToString();
             if (Header == "产品编号")
             {
-                Model_ProductionManagement_OutsideProcessBatch m = new OutsideProcessBatchConsole().ReadProductInfo(newValue);
+                Model_ProductionManagement_OutsideProcessBatch m = new OutsideProcessBatchInputConsole().ReadProductInfo(newValue);
                 if (m.ProductGuid == new Guid())
                 {
                     DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.SelectedCells[0].Item, DataGrid.Columns[0]);
@@ -81,7 +88,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             }
             else if (Header == "加工商编号")
             {
-                Model_ProductionManagement_OutsideProcessBatch m = new OutsideProcessBatchConsole().ReadProcessorsInfo(newValue);
+                Model_ProductionManagement_OutsideProcessBatch m = new OutsideProcessBatchInputConsole().ReadProcessorsInfo(newValue);
                 if (m.ProcessorsGuid == new Guid())
                 {
                     DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.SelectedCells[0].Item, DataGrid.Columns[3]);

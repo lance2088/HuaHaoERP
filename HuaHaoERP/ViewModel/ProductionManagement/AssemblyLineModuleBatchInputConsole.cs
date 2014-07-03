@@ -1,4 +1,5 @@
-﻿using HuaHaoERP.Model.ProductionManagement;
+﻿using HuaHaoERP.Model.Order;
+using HuaHaoERP.Model.ProductionManagement;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -92,6 +93,29 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                     + "values('" + OrderGuid + "','" + OrderNum + "','" + DateStr + "','" + OrderRemark + "')");
             }
             return new Helper.SQLite.DBHelper().Transaction(sqls);
+        }
+
+        /// <summary>
+        /// 编辑时读取记录明细
+        /// </summary>
+        /// <returns></returns>
+        internal ObservableCollection<Model_AssemblyLineModuleBatchInput> ReadDatas()
+        {
+            ObservableCollection<Model_AssemblyLineModuleBatchInput> data = new ObservableCollection<Model_AssemblyLineModuleBatchInput>();
+            Model_AssemblyLineModuleBatchInput m;
+            DataSet ds = new DataSet();
+            string sql = "";
+            if (new Helper.SQLite.DBHelper().QueryData(sql, out ds))
+            {
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    m = new Model_AssemblyLineModuleBatchInput();
+
+
+                    data.Add(m);
+                }
+            }
+            return data;
         }
     }
 }
