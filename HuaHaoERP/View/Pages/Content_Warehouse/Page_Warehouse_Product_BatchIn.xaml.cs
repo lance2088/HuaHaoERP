@@ -108,56 +108,34 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
 
         private void Button_Commit_Click(object sender, RoutedEventArgs e)
         {
+            bool flag = false;
             DateTime date = (DateTime)this.DatePicker_InsertDate.SelectedDate;
             string Number = this.TextBox_Number.Text;
             string Remark = this.TextBox_Remark.Text;
             if (TYPE == 0)
             {
-                if (new ViewModel.Warehouse.ProductBatchInConsole().InsertPacking(data, false, date, Number, Remark, "0"))
-                {
-                    if (IS_MODIFY)
-                    {
-                        new ViewModel.Warehouse.ProductBatchInConsole().UpdateBatchIn(ORDER.Guid);
-                    }
-                    Helper.Events.UpdateEvent.WarehouseProductEvent.OnUpdateDataGrid();
-                    Button_Cancel_Click(null, null);
-                }
+                flag = new ViewModel.Warehouse.ProductBatchInConsole().InsertPacking(data, false, date, Number, Remark, "0");
             }
             else if (TYPE == 1)
             {
-                if (new ViewModel.Warehouse.ProductBatchInConsole().InsertSpareparts(data, false, date, Number, Remark, "1"))
-                {
-                    if (IS_MODIFY)
-                    {
-                        new ViewModel.Warehouse.ProductBatchInConsole().UpdateBatchIn(ORDER.Guid);
-                    }
-                    Helper.Events.UpdateEvent.WarehouseProductEvent.OnUpdateDataGrid();
-                    Button_Cancel_Click(null, null);
-                }
+                flag = new ViewModel.Warehouse.ProductBatchInConsole().InsertSpareparts(data, false, date, Number, Remark, "1");
             }
             else if (TYPE == 2)
             {
-                if (new ViewModel.Warehouse.ProductBatchInConsole().InsertPacking(data, true, date, Number, Remark, "2"))
-                {
-                    if (IS_MODIFY)
-                    {
-                        new ViewModel.Warehouse.ProductBatchInConsole().UpdateBatchIn(ORDER.Guid);
-                    }
-                    Helper.Events.UpdateEvent.WarehouseProductEvent.OnUpdateDataGrid();
-                    Button_Cancel_Click(null, null);
-                }
+                flag = new ViewModel.Warehouse.ProductBatchInConsole().InsertPacking(data, true, date, Number, Remark, "2");
             }
             else if (TYPE == 3)
             {
-                if (new ViewModel.Warehouse.ProductBatchInConsole().InsertSpareparts(data, true, date, Number, Remark, "3"))
+                flag = new ViewModel.Warehouse.ProductBatchInConsole().InsertSpareparts(data, true, date, Number, Remark, "3");
+            }
+            if (flag)
+            {
+                if (IS_MODIFY)
                 {
-                    if (IS_MODIFY)
-                    {
-                        new ViewModel.Warehouse.ProductBatchInConsole().UpdateBatchIn(ORDER.Guid);
-                    }
-                    Helper.Events.UpdateEvent.WarehouseProductEvent.OnUpdateDataGrid();
-                    Button_Cancel_Click(null, null);
+                    new ViewModel.Warehouse.ProductBatchInConsole().UpdateBatchIn(ORDER.Guid);
                 }
+                Helper.Events.UpdateEvent.WarehouseProductEvent.OnUpdateDataGrid();
+                Button_Cancel_Click(null, null);
             }
         }
 
