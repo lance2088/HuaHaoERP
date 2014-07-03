@@ -122,6 +122,14 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                     data.Add(m);
                 }
             }
+            if (data.Count < 20)
+            {
+                int COUNT = data.Count;
+                for (int i = 0; i < 20 - COUNT; i++)
+                {
+                    data.Add(new Model_ProductionManagement_OutsideProcessBatch { Id = i + 1 });
+                }
+            }
             return data;
         }
 

@@ -76,7 +76,18 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                     if (new BatchInputOrderConsole().DeleteOrder(OrderType, OrderGuid))
                     {
                         InitializeDataGrid();
-                        Helper.Events.UpdateEvent.WarehouseProductEvent.OnUpdateDataGrid();
+                        if (OrderType == 1)
+                        {
+                            Helper.Events.UpdateEvent.AssemblyLineModuleEvent.OnUpdateDataGrid();
+                        }
+                        else if (OrderType == 2)
+                        {
+                            Helper.Events.ProductionManagement_AssemblyLineEvent.OnUpdateDataGrid();
+                        }
+                        else if (OrderType == 3)
+                        {
+                            Helper.Events.UpdateEvent.WarehouseProductEvent.OnUpdateDataGrid();
+                        }
                         MessageBox.Show("删除成功。", "石蚁科技");
                     }
                 }
