@@ -126,6 +126,7 @@
                     <Label Content="至" HorizontalAlignment="Left" Margin="115,10,0,0" VerticalAlignment="Top"/>
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_Today" Content="当日" HorizontalAlignment="Left" Margin="247,10,0,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Height="24" Foreground="Black" Click="Button_Today_Click"/>
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_AllDate" Content="全部日期" Margin="302,10,0,0" VerticalAlignment="Top" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Height="24" Foreground="Black" Click="Button_AllDate_Click" HorizontalAlignment="Left" Width="75" Grid.ColumnSpan="2"/>
+                    <Button x:Name="Button_BatchHistory1" Content="批量记录" Grid.Column="1" HorizontalAlignment="Left" Margin="280,10,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_BatchHistory1_Click"/>
                 </Grid>
             </TabItem>
 

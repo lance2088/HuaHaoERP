@@ -420,5 +420,10 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             Helper.Events.PopUpEvent.OnShowPopUp(new Page_ProductionManagement_AssemblyLineModuleBatchHistory());
         }
 
+        private void Button_BatchHistory1_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }

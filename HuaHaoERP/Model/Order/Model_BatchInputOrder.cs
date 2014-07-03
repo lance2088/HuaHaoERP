@@ -3,14 +3,14 @@ using System.ComponentModel;
 
 namespace HuaHaoERP.Model.Order
 {
-    class Model_BatchInputOrder : INotifyPropertyChanged
+    public class Model_BatchInputOrder : INotifyPropertyChanged
     {
         private Guid guid;
 
         public Guid Guid
         {
             get { return guid; }
-            set { guid = value; }
+            set { guid = value; NotifyPropertyChanged("Guid"); }
         }
         private string number;
 
@@ -39,6 +39,13 @@ namespace HuaHaoERP.Model.Order
         {
             get { return remark; }
             set { remark = value; NotifyPropertyChanged("Remark"); }
+        }
+        private string orderType;
+
+        public string OrderType
+        {
+            get { return orderType; }
+            set { orderType = value; NotifyPropertyChanged("OrderType"); }
         }
 
         #region INotifyPropertyChanged

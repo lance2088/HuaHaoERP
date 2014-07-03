@@ -1,4 +1,5 @@
-﻿using HuaHaoERP.Model.Warehouse;
+﻿using HuaHaoERP.Model.Order;
+using HuaHaoERP.Model.Warehouse;
 using HuaHaoERP.ViewModel.Warehouse;
 using System;
 using System.Collections.ObjectModel;
@@ -14,7 +15,8 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         /// <summary>
         /// 0包装in 1散件in 2包装out 3散件out
         /// </summary>
-        int TYPE = 0;
+        int TYPE = -1;
+        bool IS_MODIFY = false;//是否是修改模式
 
         public Page_Warehouse_Product_BatchIn(int Type)
         {
@@ -41,11 +43,41 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             this.TextBox_Remark.Text = this.Label_Title.Content.ToString();
         }
 
+        public Page_Warehouse_Product_BatchIn(Model_BatchInputOrder Order)
+        {
+            IS_MODIFY = true;
+            InitializeComponent();
+            this.TYPE = int.Parse(Order.OrderType);
+            this.DatePicker_InsertDate.SelectedDate = Convert.ToDateTime(Order.Date);
+            this.TextBox_Number.Text = Order.Number;
+            this.TextBox_Remark.Text = Order.Remark;
+            InitializeDataGrid();
+            switch (TYPE)
+            {
+                case 0:
+                    this.Label_Title.Content = "入库：包装产品";
+                    break;
+                case 1:
+                    this.Label_Title.Content = "入库：散件产品";
+                    break;
+                case 2:
+                    this.Label_Title.Content = "出库：包装产品";
+                    break;
+                case 3:
+                    this.Label_Title.Content = "出库：散件产品";
+                    break;
+            }
+        }
+
         private void InitializeDataGrid()
         {
             for (int i = 0; i < 20; i++)
             {
                 data.Add(new Model_WarehouseProductBatchIn { Id = i + 1 });
+            }
+            if(IS_MODIFY)
+            {
+
             }
             this.DataGrid.ItemsSource = data;
             if (TYPE == 1 || TYPE == 3)
@@ -68,7 +100,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             string Remark = this.TextBox_Remark.Text;
             if (TYPE == 0)
             {
-                if (new ViewModel.Warehouse.ProductBatchInConsole().InsertPacking(data, false, date, Number, Remark))
+                if (new ViewModel.Warehouse.ProductBatchInConsole().InsertPacking(data, false, date, Number, Remark, "0"))
                 {
                     Helper.Events.UpdateEvent.WarehouseProductEvent.OnUpdateDataGrid();
                     Button_Cancel_Click(null, null);
@@ -76,7 +108,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             }
             else if (TYPE == 1)
             {
-                if (new ViewModel.Warehouse.ProductBatchInConsole().InsertSpareparts(data, false, date, Number, Remark))
+                if (new ViewModel.Warehouse.ProductBatchInConsole().InsertSpareparts(data, false, date, Number, Remark, "1"))
                 {
                     Helper.Events.UpdateEvent.WarehouseProductEvent.OnUpdateDataGrid();
                     Button_Cancel_Click(null, null);
@@ -84,7 +116,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             }
             else if (TYPE == 2)
             {
-                if (new ViewModel.Warehouse.ProductBatchInConsole().InsertPacking(data, true, date, Number, Remark))
+                if (new ViewModel.Warehouse.ProductBatchInConsole().InsertPacking(data, true, date, Number, Remark, "2"))
                 {
                     Helper.Events.UpdateEvent.WarehouseProductEvent.OnUpdateDataGrid();
                     Button_Cancel_Click(null, null);
@@ -92,7 +124,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             }
             else if (TYPE == 3)
             {
-                if (new ViewModel.Warehouse.ProductBatchInConsole().InsertSpareparts(data, true, date, Number, Remark))
+                if (new ViewModel.Warehouse.ProductBatchInConsole().InsertSpareparts(data, true, date, Number, Remark, "3"))
                 {
                     Helper.Events.UpdateEvent.WarehouseProductEvent.OnUpdateDataGrid();
                     Button_Cancel_Click(null, null);

@@ -30,7 +30,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
             return m;
         }
 
-        internal bool InsertPacking(ObservableCollection<Model_WarehouseProductBatchIn> data, bool isOut, DateTime date, string OrderNum, string OrderRemark)
+        internal bool InsertPacking(ObservableCollection<Model_WarehouseProductBatchIn> data, bool isOut, DateTime date, string OrderNum, string OrderRemark, string OrderType)
         {
             Guid OrderGuid = Guid.NewGuid();
             string DateStr = date.ToString("yyyy-MM-dd HH:mm:ss");
@@ -57,13 +57,13 @@ namespace HuaHaoERP.ViewModel.Warehouse
             }
             if (sqls.Count > 0)
             {
-                sqls.Add("Insert into T_Warehouse_ProductBatchInput(Guid,Number,Date,Remark) "
-                    + "values('" + OrderGuid + "','" + OrderNum + "','" + DateStr + "','" + OrderRemark + "')");
+                sqls.Add("Insert into T_Warehouse_ProductBatchInput(Guid,Number,Date,Remark,OrderType) "
+                    + "values('" + OrderGuid + "','" + OrderNum + "','" + DateStr + "','" + OrderRemark + "','" + OrderType + "')");
             }
             return new Helper.SQLite.DBHelper().Transaction(sqls);
         }
 
-        internal bool InsertSpareparts(ObservableCollection<Model_WarehouseProductBatchIn> data, bool isOut, DateTime date, string OrderNum, string OrderRemark)
+        internal bool InsertSpareparts(ObservableCollection<Model_WarehouseProductBatchIn> data, bool isOut, DateTime date, string OrderNum, string OrderRemark, string OrderType)
         {
             Guid OrderGuid = Guid.NewGuid();
             string DateStr = date.ToString("yyyy-MM-dd HH:mm:ss");
@@ -85,8 +85,8 @@ namespace HuaHaoERP.ViewModel.Warehouse
             }
             if (sqls.Count > 0)
             {
-                sqls.Add("Insert into T_Warehouse_ProductBatchInput(Guid,Number,Date,Remark) "
-                    + "values('" + OrderGuid + "','" + OrderNum + "','" + DateStr + "','" + OrderRemark + "')");
+                sqls.Add("Insert into T_Warehouse_ProductBatchInput(Guid,Number,Date,Remark,OrderType) "
+                    + "values('" + OrderGuid + "','" + OrderNum + "','" + DateStr + "','" + OrderRemark + "','" + OrderType + "')");
             }
             return new Helper.SQLite.DBHelper().Transaction(sqls);
         }

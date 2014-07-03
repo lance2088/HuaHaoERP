@@ -36,7 +36,10 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         /// <param name="e"></param>
         private void MenuItem_Modify_Click(object sender, RoutedEventArgs e)
         {
-
+            if (this.DataGrid_BatchHistory.SelectedCells.Count > 0)
+            {
+                Helper.Events.PopUpEvent.OnShowPopUp(new Page_Warehouse_Product_BatchIn(this.DataGrid_BatchHistory.SelectedCells[0].Item as Model_BatchInputOrder));
+            }
         }
 
         /// <summary>
@@ -51,13 +54,23 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                 Guid OrderGuid = (this.DataGrid_BatchHistory.SelectedCells[0].Item as Model_BatchInputOrder).Guid;
                 if (MessageBox.Show("确认删除这条记录？", "警告", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
-                    if(new BatchInputOrderConsole().DeleteOrder(3, OrderGuid))
+                    if (new BatchInputOrderConsole().DeleteOrder(3, OrderGuid))
                     {
                         InitializeDataGrid();
-                        MessageBox.Show("删除成功。","石蚁科技");
+                        MessageBox.Show("删除成功。", "石蚁科技");
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// DataGrid行双击事件=》右键编辑
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DataGrid_BatchHistory_Row_MouseDoubleClick(object sender, RoutedEventArgs e)
+        {
+            MenuItem_Modify_Click(null, null);
         }
     }
 }

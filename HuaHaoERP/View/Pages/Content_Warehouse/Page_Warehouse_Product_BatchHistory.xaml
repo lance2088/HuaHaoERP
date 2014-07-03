@@ -13,6 +13,11 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <DataGrid x:Name="DataGrid_BatchHistory" Margin="10,60,10,10" Grid.ColumnSpan="2" CellStyle="{DynamicResource DataGridCellStyleCommon}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" BorderBrush="#FF99CCFF" AutoGenerateColumns="False" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" SelectionMode="Single" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" IsReadOnly="True">
+            <DataGrid.Resources>
+                <Style TargetType="DataGridRow">
+                    <EventSetter Event="MouseDoubleClick" Handler="DataGrid_BatchHistory_Row_MouseDoubleClick" />
+                </Style>
+            </DataGrid.Resources>
             <DataGrid.ContextMenu>
                 <ContextMenu Name="dgmenu" StaysOpen="true">
                     <MenuItem x:Name="MenuItem_Modify" Header="修改" Click="MenuItem_Modify_Click"/>

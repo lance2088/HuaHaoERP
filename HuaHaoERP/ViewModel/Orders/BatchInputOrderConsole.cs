@@ -18,7 +18,7 @@ namespace HuaHaoERP.ViewModel.Orders
             Model_BatchInputOrder m;
             DataSet ds = new DataSet();
             string TableName = GetTableName(Type);
-            string sql = "select * from " + TableName + " WHERE DeleteMark ISNULL Order By Date Desc";
+            string sql = "select * from " + TableName + " WHERE DeleteMark ISNULL Order By rowid Desc";
             if (new DBHelper().QueryData(sql, out ds))
             {
                 foreach (DataRow dr in ds.Tables[0].Rows)
@@ -29,6 +29,7 @@ namespace HuaHaoERP.ViewModel.Orders
                     m.Name = dr["Name"].ToString();
                     m.Date = Convert.ToDateTime(dr["Date"].ToString()).ToString("yyyy-MM-dd");
                     m.Remark = dr["Remark"].ToString();
+                    m.OrderType = dr["OrderType"].ToString();
                     data.Add(m);
                 }
             }
