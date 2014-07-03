@@ -87,13 +87,37 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
             ObservableCollection<Model_ProductionManagement_OutsideProcessBatch> data = new ObservableCollection<Model_ProductionManagement_OutsideProcessBatch>();
             Model_ProductionManagement_OutsideProcessBatch m;
             DataSet ds = new DataSet();
-            string sql = "Select * from T_PM_ProcessSchedule";
+            string sql = "Select a.*, "
+                + " b.Guid as PDGuid,b.Number as PDNumber,b.Name as PDName,b.Material, "
+                + " c.Guid as PCGuid,c.Number as PCNumber,c.Name as PCName "
+                + " from T_PM_ProcessSchedule a "
+                + " Left join T_ProductInfo_Product b ON b.Guid=a.ProductID "
+                + " Left Join T_UserInfo_Processors c ON c.Guid=a.ProcessorsID "
+                + " WHERE a.Obligate1='" + OrderData.Guid + "' "
+                //+ " AND a.DeleteMark ISNULL "
+                //+ " AND a.OrderType='" + ((OrderData.OrderType == "0") ? "出单" : "入单") + "'"
+                ;
             if (new Helper.SQLite.DBHelper().QueryData(sql, out ds))
             {
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
                     m = new Model_ProductionManagement_OutsideProcessBatch();
 
+                    //Product Info
+                    m.ProductGuid = (Guid)dr["PDGuid"];
+                    m.ProductNumber = dr["PDNumber"].ToString();
+                    m.ProductName = dr["PDName"].ToString();
+                    m.Material = dr["Material"].ToString();
+                    //Processors Info
+                    m.ProcessorsGuid = (Guid)dr["PCGuid"];
+                    m.ProcessorsNumber = dr["PCNumber"].ToString();
+                    m.ProcessorsName = dr["PCName"].ToString();
+                    //Input Info
+                    m.Quantity = int.Parse(dr["Quantity"].ToString());
+                    m.MinorInjuries = int.Parse(dr["MinorInjuries"].ToString());
+                    m.Injuries = int.Parse(dr["Injuries"].ToString());
+                    m.Lose = int.Parse(dr["Lose"].ToString());
+                    m.Remark = dr["Remark"].ToString();
 
                     data.Add(m);
                 }

@@ -26,7 +26,7 @@ namespace HuaHaoERP.ViewModel.Orders
                     m.Name = dr["Name"].ToString();
                     m.Date = Convert.ToDateTime(dr["Date"].ToString()).ToString("yyyy-MM-dd");
                     m.Remark = dr["Remark"].ToString();
-                    if (Type == 3)
+                    if (Type != 1)
                     {
                         m.OrderType = dr["OrderType"].ToString();
                     }
