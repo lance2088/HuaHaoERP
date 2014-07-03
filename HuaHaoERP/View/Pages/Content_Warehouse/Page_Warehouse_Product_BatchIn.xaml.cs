@@ -96,7 +96,14 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
 
         private void Button_Cancel_Click(object sender, RoutedEventArgs e)
         {
-            Helper.Events.PopUpEvent.OnHidePopUp();
+            if (IS_MODIFY)
+            {
+                Helper.Events.PopUpEvent.OnShowPopUp(new Page_Warehouse_Product_BatchHistory());
+            }
+            else
+            {
+                Helper.Events.PopUpEvent.OnHidePopUp();
+            }
         }
 
         private void Button_Commit_Click(object sender, RoutedEventArgs e)
