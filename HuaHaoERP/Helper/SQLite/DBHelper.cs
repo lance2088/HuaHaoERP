@@ -30,7 +30,7 @@ namespace HuaHaoERP.Helper.SQLite
         /// </summary>
         private void InitializeDbConnect()
         {
-            if(Helper.DataDefinition.CommonParameters.DbPassword == "")
+            if (Helper.DataDefinition.CommonParameters.DbPassword == "")
             {
                 InitializeDbConnect("");
             }
@@ -53,7 +53,7 @@ namespace HuaHaoERP.Helper.SQLite
             {
                 conn.Open();
             }
-            catch(Exception ee)
+            catch (Exception ee)
             {
                 Helper.LogHelper.FileLog.ErrorLog(ee.ToString());
             }
@@ -138,7 +138,7 @@ namespace HuaHaoERP.Helper.SQLite
                 cmd.ExecuteNonQuery();
                 flag = true;
             }
-            catch(Exception ee)
+            catch (Exception ee)
             {
                 LogHelper.FileLog.ErrorLog(ee.ToString());
             }
@@ -190,7 +190,7 @@ namespace HuaHaoERP.Helper.SQLite
             {
                 cmd.CommandText = sql;
                 SQLiteDataReader reader = cmd.ExecuteReader();
-                while(reader.Read())
+                while (reader.Read())
                 {
                     result = reader.GetValue(0);
                     flag = true;
