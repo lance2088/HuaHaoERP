@@ -190,7 +190,7 @@ namespace HuaHaoERP.Helper.SQLite
             {
                 cmd.CommandText = sql;
                 SQLiteDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
+                if (reader.Read())
                 {
                     result = reader.GetValue(0);
                     flag = true;
