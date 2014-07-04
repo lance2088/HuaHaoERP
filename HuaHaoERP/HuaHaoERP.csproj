@@ -493,9 +493,9 @@
     <Content Include="InternalDoc\DataBase.sql" />
     <None Include="InternalDoc\InnoSetupScripts_i5.iss" />
     <Content Include="InternalDoc\DataBaseUpdateSQL\1.4.4.3.sql" />
-    <Content Include="InternalDoc\LicenseTool\LicenseTool.exe" />
-    <Content Include="InternalDoc\LicenseTool\StoneAnt.License.Create.dll" />
-    <Content Include="InternalDoc\LicenseTool\StoneAnt.License.dll" />
+    <None Include="InternalDoc\LicenseTool\LicenseTool.exe" />
+    <None Include="InternalDoc\LicenseTool\StoneAnt.License.Create.dll" />
+    <None Include="InternalDoc\LicenseTool\StoneAnt.License.dll" />
     <Content Include="ThirdPartyLib\StoneAnt.License.dll" />
     <Content Include="ThirdPartyLib\System.Data.SQLite.dll" />
   </ItemGroup>
