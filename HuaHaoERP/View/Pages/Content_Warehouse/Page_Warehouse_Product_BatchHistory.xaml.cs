@@ -1,6 +1,7 @@
 ﻿using HuaHaoERP.Model.Order;
 using HuaHaoERP.ViewModel.Orders;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -14,6 +15,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
     {
         ObservableCollection<Model_BatchInputOrder> data = new ObservableCollection<Model_BatchInputOrder>();
         int OrderType;
+
         /// <summary>
         /// 1流水线 2外加工 3仓库
         /// </summary>
@@ -23,11 +25,37 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             this.OrderType = OrderType;
             InitializeComponent();
             InitializeDataGrid();
+            InitializeComboBox();
         }
 
+        private void InitializeComboBox()
+        {
+            List<string> ComboBoxData = new List<string>();
+            ComboBoxData.Add("全部类型");
+            switch (OrderType)
+            {
+                case 1:
+                    this.Label_Type.Visibility = System.Windows.Visibility.Collapsed;
+                    this.ComboBox_Type.Visibility = System.Windows.Visibility.Collapsed;
+                    break;
+                case 2:
+                    ComboBoxData.Add("抛光领货");
+                    ComboBoxData.Add("抛光交货");
+                    break;
+                case 3:
+                    ComboBoxData.Add("包装入库");
+                    ComboBoxData.Add("散件入库");
+                    ComboBoxData.Add("包装出库");
+                    ComboBoxData.Add("散件出库");
+                    break;
+            }
+            this.ComboBox_Type.ItemsSource = ComboBoxData;
+            this.ComboBox_Type.SelectedIndex = 0;
+        }
         private void InitializeDataGrid()
         {
-            new BatchInputOrderConsole().ReadOrder(OrderType, out data);
+            int Type = this.ComboBox_Type.SelectedIndex;
+            new BatchInputOrderConsole().ReadOrder(OrderType, out data, Type);
             this.DataGrid_BatchHistory.ItemsSource = data;
         }
 
@@ -102,6 +130,11 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         private void DataGrid_BatchHistory_Row_MouseDoubleClick(object sender, RoutedEventArgs e)
         {
             MenuItem_Modify_Click(null, null);
+        }
+
+        private void ComboBox_Type_DropDownClosed(object sender, EventArgs e)
+        {
+            InitializeDataGrid();
         }
     }
 }

@@ -91,6 +91,9 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                 this.DataGridTextColumn_PackQuantity.Visibility = System.Windows.Visibility.Collapsed;
                 this.DataGridTextColumn_PerQuantity.Visibility = System.Windows.Visibility.Collapsed;
                 this.DataGridTextColumn_AllQuantity.IsReadOnly = false;
+            }
+            if(TYPE != 0)
+            {
                 this.CheckBox_InitInput.Visibility = System.Windows.Visibility.Collapsed;
             }
         }

@@ -9,13 +9,17 @@ namespace HuaHaoERP.ViewModel.Orders
 {
     class BatchInputOrderConsole
     {
-        internal void ReadOrder(int Type, out ObservableCollection<Model_BatchInputOrder> data)
+        internal void ReadOrder(int BacthType, out ObservableCollection<Model_BatchInputOrder> data, int OrderType)
         {
             data = new ObservableCollection<Model_BatchInputOrder>();
             Model_BatchInputOrder m;
             DataSet ds = new DataSet();
-            string TableName = GetTableName(Type);
+            string TableName = GetTableName(BacthType);
             string sql = "select * from " + TableName + " WHERE DeleteMark ISNULL Order By rowid Desc";
+            if (BacthType > 1 && OrderType > 0)
+            {
+                sql = "select * from " + TableName + " WHERE DeleteMark ISNULL AND OrderType='" + (OrderType - 1) + "' Order By rowid Desc";
+            }
             if (new DBHelper().QueryData(sql, out ds))
             {
                 foreach (DataRow dr in ds.Tables[0].Rows)
@@ -26,7 +30,7 @@ namespace HuaHaoERP.ViewModel.Orders
                     m.Name = dr["Name"].ToString();
                     m.Date = Convert.ToDateTime(dr["Date"].ToString()).ToString("yyyy-MM-dd");
                     m.Remark = dr["Remark"].ToString();
-                    if (Type != 1)
+                    if (BacthType != 1)
                     {
                         m.OrderType = dr["OrderType"].ToString();
                     }
