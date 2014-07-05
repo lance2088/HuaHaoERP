@@ -135,6 +135,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                     this.Button_Add.IsEnabled = true;
                     FunctionalLimitation();
                 }
+                this.TextBox_Quantity.Focus();
             }
         }
 
