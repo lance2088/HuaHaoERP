@@ -92,7 +92,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                 this.DataGridTextColumn_PerQuantity.Visibility = System.Windows.Visibility.Collapsed;
                 this.DataGridTextColumn_AllQuantity.IsReadOnly = false;
             }
-            if(TYPE != 0)
+            if (TYPE != 0)
             {
                 this.CheckBox_InitInput.Visibility = System.Windows.Visibility.Collapsed;
             }
@@ -146,33 +146,42 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
 
         private void DataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
+            object SelectItem = DataGrid.SelectedCells[0].Item;
             Model_WarehouseProductBatchIn model = this.DataGrid.SelectedCells[0].Item as Model_WarehouseProductBatchIn;
             string newValue = (e.EditingElement as TextBox).Text.Trim();
             string Header = e.Column.Header.ToString();
-            if (Header == "编号")
+            if (Header == "编号")//产品信息
             {
                 Model_WarehouseProductBatchIn m = new ProductBatchInConsole().ReadProductInfo(newValue);
                 if (m.Guid == new Guid())
                 {
-                    DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.SelectedCells[0].Item, DataGrid.Columns[0]);
+                    DataGrid.CurrentCell = new DataGridCellInfo(SelectItem, DataGrid.Columns[0]);
                     return;
                 }
                 data[data.IndexOf(model)].Guid = m.Guid;
                 data[data.IndexOf(model)].Name = m.Name;
                 data[data.IndexOf(model)].Material = m.Material;
                 data[data.IndexOf(model)].PerQuantity = m.PerQuantity;
+                data[data.IndexOf(model)].TotalParts = m.TotalParts;
             }
             else if (Header == "件数")
             {
                 int PackQuantity = 0;
                 if (!int.TryParse(newValue, out PackQuantity))
                 {
+                    MessageBox.Show("请输入数字", "警告");
                     (e.EditingElement as TextBox).Text = "0";
-                    DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.SelectedCells[0].Item, DataGrid.Columns[3]);
+                    DataGrid.CurrentCell = new DataGridCellInfo(SelectItem, DataGrid.Columns[3]);
                     return;
                 }
                 data[data.IndexOf(model)].PackQuantity = PackQuantity;
                 data[data.IndexOf(model)].AllQuantity = data[data.IndexOf(model)].PackQuantity * data[data.IndexOf(model)].PerQuantity;
+                if (data[data.IndexOf(model)].AllQuantity > data[data.IndexOf(model)].TotalParts)
+                {
+                    MessageBox.Show("包装总数不能大于散件总数","警告");
+                    (e.EditingElement as TextBox).Text = "0";
+                    DataGrid.CurrentCell = new DataGridCellInfo(SelectItem, DataGrid.Columns[3]);
+                }
             }
         }
 

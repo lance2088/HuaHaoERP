@@ -61,6 +61,15 @@ namespace HuaHaoERP.Model.Warehouse
             get { return allQuantity; }
             set { allQuantity = value; NotifyPropertyChanged("AllQuantity"); }
         }
+        private int totalParts;
+        /// <summary>
+        /// 散件总数
+        /// </summary>
+        public int TotalParts
+        {
+            get { return totalParts; }
+            set { totalParts = value; NotifyPropertyChanged("TotalParts"); }
+        }
 
         #region INotifyPropertyChanged Members
 

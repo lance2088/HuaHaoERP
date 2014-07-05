@@ -16,7 +16,13 @@ namespace HuaHaoERP.ViewModel.Warehouse
         internal Model_WarehouseProductBatchIn ReadProductInfo(string ProductNumber)
         {
             Model_WarehouseProductBatchIn m = new Model_WarehouseProductBatchIn();
-            string sql = "SELECT GUID,Name,Material,PackageNumber FROM T_ProductInfo_Product WHERE NUMBER='" + ProductNumber + "' AND DELETEMARK ISNULL";
+            string sql = " SELECT a.GUID,a.Name,a.Material,a.PackageNumber,Total(b.Quantity) as TotalParts "
+                       + " FROM T_ProductInfo_Product a"
+                       + " Left join T_Warehouse_Product b ON a.Guid=b.ProductID "
+                       + " WHERE a.NUMBER='" + ProductNumber + "' "
+                       + " AND a.DELETEMARK ISNULL"
+                       + " AND b.DeleteMark ISNULL"
+                       ;
             DataSet ds = new DataSet();
             bool flag = new Helper.SQLite.DBHelper().QueryData(sql, out ds);
             if (flag)
@@ -30,6 +36,9 @@ namespace HuaHaoERP.ViewModel.Warehouse
                     int PerQuantity = 0;
                     int.TryParse(dr["PackageNumber"].ToString(), out PerQuantity);
                     m.PerQuantity = PerQuantity;
+                    int TotalParts = 0;
+                    int.TryParse(dr["TotalParts"].ToString(), out TotalParts);
+                    m.TotalParts = TotalParts;
                 }
             }
             return m;

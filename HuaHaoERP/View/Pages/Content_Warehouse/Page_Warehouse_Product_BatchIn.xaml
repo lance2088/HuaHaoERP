@@ -43,6 +43,7 @@
                     </DataGridTextColumn.CellStyle>
                 </DataGridTextColumn>
                 <DataGridTextColumn x:Name="DataGridTextColumn_AllQuantity" Header="数量" Binding="{Binding AllQuantity}" IsReadOnly="True" MinWidth="60"/>
+                <DataGridTextColumn x:Name="DataGridTextColumn_Asd" Header="散件总数" Binding="{Binding TotalParts}" IsReadOnly="True"/>
             </DataGrid.Columns>
         </DataGrid>
         <Label x:Name="Label_Title" Content="Label__Title" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
