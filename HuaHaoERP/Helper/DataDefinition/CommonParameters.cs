@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HuaHaoERP.Model.Order;
+using System;
 using System.Collections.Generic;
 
 namespace HuaHaoERP.Helper.DataDefinition
@@ -34,11 +35,11 @@ namespace HuaHaoERP.Helper.DataDefinition
 
         public static List<Guid> AssemblyLineModuleShow
         {
-            get 
+            get
             {
                 List<Guid> d = new List<Guid>();
                 new SettingFile.AssemblyLineModule().Read(out d);
-                return d; 
+                return d;
             }
             set { CommonParameters.assemblyLineModuleShow = value; }
         }
@@ -91,6 +92,16 @@ namespace HuaHaoERP.Helper.DataDefinition
         {
             get { return CommonParameters.isLockApp; }
             set { CommonParameters.isLockApp = value; }
+        }
+
+        private static List<Model_BatchInputOrder> orderNoList = new List<Model_BatchInputOrder>();
+        /// <summary>
+        /// 批量录入单号列表
+        /// </summary>
+        public static List<Model_BatchInputOrder> OrderNoList
+        {
+            get { return CommonParameters.orderNoList; }
+            set { CommonParameters.orderNoList = value; }
         }
     }
 }

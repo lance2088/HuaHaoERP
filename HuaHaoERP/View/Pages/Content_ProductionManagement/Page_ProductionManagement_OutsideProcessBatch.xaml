@@ -52,7 +52,7 @@
         <Label Content="单号" Margin="0,10,305,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="38" Padding="5,0" VerticalContentAlignment="Center" Height="24"/>
         <Label Content="备注" Margin="0,40,305,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="38" Height="24" Padding="5,0" VerticalContentAlignment="Center"/>
         <Label Content="日期" HorizontalAlignment="Left" Margin="427,10,0,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" Padding="5,0"/>
-        <Button FocusVisualStyle="{x:Null}" x:Name="Button_Previous" Content="上一单" HorizontalAlignment="Left" Margin="10,0,0,20" VerticalAlignment="Bottom" Width="75" Foreground="White" Height="24" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_Previous_Click"/>
+        <Button FocusVisualStyle="{x:Null}" x:Name="Button_PreviousOrder" Content="上一单" HorizontalAlignment="Left" Margin="10,0,0,20" VerticalAlignment="Bottom" Width="75" Foreground="White" Height="24" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_PreviousOrder_Click"/>
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_NextOrder" Content="下一单" HorizontalAlignment="Left" Margin="90,0,0,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_NextOrder_Click"/>
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_CommitNew" Content="保存并新增" HorizontalAlignment="Left" Margin="345,0,0,20" VerticalAlignment="Bottom" Width="85" Foreground="White" Height="24" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_CommitNew_Click"/>
 

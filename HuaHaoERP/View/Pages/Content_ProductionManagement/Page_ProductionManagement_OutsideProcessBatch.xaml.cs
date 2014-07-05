@@ -19,6 +19,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         bool IsOUT = true;//是否出单
         bool IS_MODIFY = false;//是否是修改模式
         bool IS_CommitSuccess = false;//提交是否成功
+        int OrderIndex;
 
         public Page_ProductionManagement_OutsideProcessBatch(bool Out)
         {
@@ -48,10 +49,12 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         public Page_ProductionManagement_OutsideProcessBatch(Model_BatchInputOrder data)
         {
             this.OrderData = data;
+            this.OrderIndex = Helper.DataDefinition.CommonParameters.OrderNoList.IndexOf(OrderData);
             this.IS_MODIFY = true;
             this.IsOUT = (data.OrderType == "0") ? true : false;
             InitializeComponent();
             InitializeDataGrid();
+            InitializeButton();
             if (IsOUT)
             {
                 this.DataGridTextColumn_MinorInjuries.Visibility = System.Windows.Visibility.Collapsed;
@@ -67,6 +70,18 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             this.TextBox_Number.Text = data.Number;
             this.TextBox_Remark.Text = data.Remark;
             this.Button_Commit.Content = "修改";
+        }
+
+        private void InitializeButton()
+        {
+            if (OrderIndex == 0)
+            {
+                this.Button_PreviousOrder.IsEnabled = false;
+            }
+            else if (OrderIndex == Helper.DataDefinition.CommonParameters.OrderNoList.Count - 1)
+            {
+                this.Button_NextOrder.IsEnabled = false;
+            }
         }
 
         private void InitializeDataGrid()
@@ -211,9 +226,10 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Button_Previous_Click(object sender, RoutedEventArgs e)
+        private void Button_PreviousOrder_Click(object sender, RoutedEventArgs e)
         {
-
+            Model_BatchInputOrder PreviousOrder = Helper.DataDefinition.CommonParameters.OrderNoList[OrderIndex - 1];
+            Helper.Events.PopUpEvent.OnShowPopUp(new Page_ProductionManagement_OutsideProcessBatch(PreviousOrder));
         }
 
         /// <summary>
@@ -223,7 +239,8 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         /// <param name="e"></param>
         private void Button_NextOrder_Click(object sender, RoutedEventArgs e)
         {
-
+            Model_BatchInputOrder NextOrder = Helper.DataDefinition.CommonParameters.OrderNoList[OrderIndex + 1];
+            Helper.Events.PopUpEvent.OnShowPopUp(new Page_ProductionManagement_OutsideProcessBatch(NextOrder));
         }
 
         private void Button_CommitNew_Click(object sender, RoutedEventArgs e)

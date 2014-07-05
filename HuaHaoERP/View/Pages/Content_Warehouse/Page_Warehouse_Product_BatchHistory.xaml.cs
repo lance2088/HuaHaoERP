@@ -57,6 +57,14 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             int Type = this.ComboBox_Type.SelectedIndex;
             new BatchInputOrderConsole().ReadOrder(OrderType, out data, Type);
             this.DataGrid_BatchHistory.ItemsSource = data;
+            if (OrderType == 2)
+            {
+                Helper.DataDefinition.CommonParameters.OrderNoList.Clear();
+                foreach(Model_BatchInputOrder m in data)
+                {
+                    Helper.DataDefinition.CommonParameters.OrderNoList.Add(m);
+                }
+            }
         }
 
         private void Button_Cancel_Click(object sender, RoutedEventArgs e)
