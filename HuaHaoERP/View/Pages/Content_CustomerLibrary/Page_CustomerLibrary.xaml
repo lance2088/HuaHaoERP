@@ -33,8 +33,8 @@
                             <DataGridTextColumn Header="备注" Binding="{Binding Remark}" ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_AddCustomer" Content="添加" HorizontalAlignment="Right" Margin="0,10,90,0" VerticalAlignment="Top" Width="75" Click="Button_AddCustomer_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White"/>
-                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_DeleteCustomer" Content="删除" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_DeleteCustomer_Click" Height="24" Foreground="White"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_AddCustomer" Content="添加" HorizontalAlignment="Right" Margin="0,10,90,0" VerticalAlignment="Top" Width="75" Click="Button_AddCustomer_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Focusable="False"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_DeleteCustomer" Content="删除" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_DeleteCustomer_Click" Height="24" Foreground="White" Focusable="False"/>
                 </Grid>
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="供应商管理" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="17,0,-17,0" Foreground="White">
@@ -63,8 +63,8 @@
                             <DataGridTextColumn Header="备注" Binding="{Binding Remark}" ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_AddSupplier" Content="添加" HorizontalAlignment="Right" Margin="0,10,90,0" VerticalAlignment="Top" Width="75" Click="Button_AddSupplier_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White"/>
-                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_DeleteSupplier" Content="删除" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_DeleteSupplier_Click" Height="24" Foreground="White"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_AddSupplier" Content="添加" HorizontalAlignment="Right" Margin="0,10,90,0" VerticalAlignment="Top" Width="75" Click="Button_AddSupplier_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Focusable="False"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_DeleteSupplier" Content="删除" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_DeleteSupplier_Click" Height="24" Foreground="White" Focusable="False"/>
                 </Grid>
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="员工管理" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="27,0,-27,0" Foreground="White">
@@ -89,8 +89,8 @@
                             <DataGridTextColumn ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" Binding="{Binding DepartureTime}" Header="离职时间"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_AddStaff" Content="添加" HorizontalAlignment="Right" Margin="0,10,90,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_AddStaff_Click" Height="24" Foreground="White"/>
-                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_DeleteStaff" Content="删除" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_DeleteStaff_Click" Height="24" Foreground="White"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_AddStaff" Content="添加" HorizontalAlignment="Right" Margin="0,10,90,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_AddStaff_Click" Height="24" Foreground="White" Focusable="False"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_DeleteStaff" Content="删除" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_DeleteStaff_Click" Height="24" Foreground="White" Focusable="False"/>
                     <CheckBox FocusVisualStyle="{x:Null}" x:Name="CheckBox_ShowDepartureStaff" Content="显示离职员工" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Click="CheckBox_ShowDepartureStaff_Click"/>
                 </Grid>
             </TabItem>
@@ -120,8 +120,8 @@
                             <DataGridTextColumn ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}" Header="备注" Binding="{Binding Remark}"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_Add_Processors" Content="添加" HorizontalAlignment="Right" Margin="0,10,90,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_Add_Processors_Click" Height="24" Foreground="White" />
-                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_DeleteProcessors" Content="删除" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_DeleteProcessors_Click" Height="24" Foreground="White"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_Add_Processors" Content="添加" HorizontalAlignment="Right" Margin="0,10,90,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_Add_Processors_Click" Height="24" Foreground="White" Focusable="False" />
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_DeleteProcessors" Content="删除" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_DeleteProcessors_Click" Height="24" Foreground="White" Focusable="False"/>
                 </Grid>
             </TabItem>
         </TabControl>

@@ -30,8 +30,8 @@
                             <DataGridTextColumn Binding="{Binding Remark}" Header="备注"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_AddProduct" Content="添加" HorizontalAlignment="Right" Margin="0,10,90,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_AddProduct_Click" Height="24" Foreground="White"/>
-                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_DeleteProduct" Content="删除" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_DeleteProduct_Click" Height="24" Foreground="White"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_AddProduct" Content="添加" HorizontalAlignment="Right" Margin="0,10,90,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_AddProduct_Click" Height="24" Foreground="White" Focusable="False"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_DeleteProduct" Content="删除" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_DeleteProduct_Click" Height="24" Foreground="White" Focusable="False"/>
                     <ComboBox x:Name="ComboBox_ProductType" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" Height="24" DropDownClosed="ComboBox_ProductType_DropDownClosed" VerticalContentAlignment="Center"/>
                     <TextBox x:Name="TextBox_Screening" HorizontalAlignment="Left" Height="24" Margin="135,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" PreviewKeyUp="TextBox_Screening_PreviewKeyUp" Loaded="TextBox_Screening_Loaded">
                         <TextBox.Resources>
@@ -77,8 +77,8 @@
                             <DataGridTextColumn Binding="{Binding Remark}" Header="备注" ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_AddRawMaterials" Content="添加" HorizontalAlignment="Right" Margin="0,10,90,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_AddRawMaterials_Click" Height="24" Foreground="White"/>
-                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_DeleteRawMaterials" Content="删除" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_DeleteRawMaterials_Click" Height="24" Foreground="White"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_AddRawMaterials" Content="添加" HorizontalAlignment="Right" Margin="0,10,90,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_AddRawMaterials_Click" Height="24" Foreground="White" Focusable="False"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_DeleteRawMaterials" Content="删除" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_DeleteRawMaterials_Click" Height="24" Foreground="White" Focusable="False"/>
                 </Grid>
             </TabItem>
         </TabControl>
