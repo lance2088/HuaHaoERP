@@ -47,12 +47,13 @@
                 </DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Label Content="流水线：批量录入" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+        <Label Content="流水线：批量录入" HorizontalAlignment="Left" Margin="45,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
         <CheckBox x:Name="CheckBox_AutoDeductionRawMaterials" Content="自动扣半成品原料" Margin="10,43,0,0" VerticalAlignment="Top" FontSize="20" VerticalContentAlignment="Center" IsChecked="True" Click="CheckBox_AutoDeductionRawMaterials_Click" HorizontalAlignment="Left" Width="180"/>
         <TextBox x:Name="TextBox_Number" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
         <TextBox x:Name="TextBox_Remark" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="0,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" VerticalContentAlignment="Center"/>
         <Label Content="单号" Margin="0,10,5,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="38" Padding="5,0" VerticalContentAlignment="Center" Height="24"/>
         <Label Content="备注" Margin="0,40,5,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="38" Height="24" Padding="5,0" VerticalContentAlignment="Center"/>
+        <Button FocusVisualStyle="{x:Null}" x:Name="Button_Back" Content="&lt;" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="30" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="30" Padding="0" Foreground="White" FontWeight="Bold" FontSize="16" Click="Button_Cancel_Click"/>
 
     </Grid>
 </Page>
