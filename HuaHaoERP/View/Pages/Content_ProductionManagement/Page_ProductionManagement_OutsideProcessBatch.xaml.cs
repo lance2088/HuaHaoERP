@@ -16,8 +16,9 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
     {
         ObservableCollection<Model_ProductionManagement_OutsideProcessBatch> data = new ObservableCollection<Model_ProductionManagement_OutsideProcessBatch>();
         Model_BatchInputOrder OrderData;
-        bool IsOUT = true;
+        bool IsOUT = true;//是否出单
         bool IS_MODIFY = false;//是否是修改模式
+        bool IS_CommitSuccess = false;//提交是否成功
 
         public Page_ProductionManagement_OutsideProcessBatch(bool Out)
         {
@@ -40,6 +41,10 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             this.TextBox_Remark.Text = this.Label_Title.Content.ToString();
         }
 
+        /// <summary>
+        /// 修改模式
+        /// </summary>
+        /// <param name="data"></param>
         public Page_ProductionManagement_OutsideProcessBatch(Model_BatchInputOrder data)
         {
             this.OrderData = data;
@@ -52,11 +57,11 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 this.DataGridTextColumn_MinorInjuries.Visibility = System.Windows.Visibility.Collapsed;
                 this.DataGridTextColumn_Injuries.Visibility = System.Windows.Visibility.Collapsed;
                 this.DataGridTextColumn_Lose.Visibility = System.Windows.Visibility.Collapsed;
-                this.Label_Title.Content = "外加工单：出单";
+                this.Label_Title.Content = "外加工单：抛光领货";
             }
             else
             {
-                this.Label_Title.Content = "外加工单：入单";
+                this.Label_Title.Content = "外加工单：抛光交货";
             }
             this.DatePicker_InsertDate.SelectedDate = Convert.ToDateTime(data.Date);
             this.TextBox_Number.Text = data.Number;
@@ -87,18 +92,23 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             string Remark = this.TextBox_Remark.Text;
             if (new OutsideProcessBatchInputConsole().InsertData(data, IsOUT, date, Number, Remark))
             {
-                if(IS_MODIFY)
+                if (IS_MODIFY)
                 {
                     new OutsideProcessBatchInputConsole().DeleteOld(OrderData.Guid);
                 }
+                IS_CommitSuccess = true;
                 Helper.Events.ProductionManagement_AssemblyLineEvent.OnUpdateDataGrid();
                 Button_Cancel_Click(null, null);
+            }
+            else
+            {
+                IS_CommitSuccess = false;
             }
         }
 
         private void Button_Cancel_Click(object sender, RoutedEventArgs e)
         {
-            if(IS_MODIFY)
+            if (IS_MODIFY)
             {
                 Helper.Events.PopUpEvent.OnShowPopUp(new Content_Warehouse.Page_Warehouse_Product_BatchHistory(2));
             }
@@ -193,6 +203,35 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 }
                 DataGrid.SelectedCells.Clear();
                 DataGrid.SelectedCells.Add(DataGrid.CurrentCell);
+            }
+        }
+
+        /// <summary>
+        /// 上一单
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Previous_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// 下一单
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_NextOrder_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_CommitNew_Click(object sender, RoutedEventArgs e)
+        {
+            Button_Commit_Click(null, null);
+            if (IS_CommitSuccess)
+            {
+                Helper.Events.PopUpEvent.OnShowPopUp(new Page_ProductionManagement_OutsideProcessBatch(IsOUT));
             }
         }
     }
