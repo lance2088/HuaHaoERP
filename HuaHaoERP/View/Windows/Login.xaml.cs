@@ -114,5 +114,16 @@ namespace HuaHaoERP.View.Windows
                 this.DragMove();
             }
         }
+
+        private void TextBox_LoginUserName_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                if (this.TextBox_LoginUserName.IsFocused == true)
+                {
+                    this.PasswordBox_LoginPassword.Focus();
+                }
+            }
+        }
     }
 }
