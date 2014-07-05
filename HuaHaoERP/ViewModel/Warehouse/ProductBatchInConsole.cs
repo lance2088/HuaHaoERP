@@ -29,6 +29,10 @@ namespace HuaHaoERP.ViewModel.Warehouse
             {
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
+                    if (dr["GUID"].ToString().Length < 5)
+                    {
+                        return m;
+                    }
                     m.Guid = (Guid)dr["GUID"];
                     m.Number = ProductNumber;
                     m.Name = dr["Name"].ToString();
