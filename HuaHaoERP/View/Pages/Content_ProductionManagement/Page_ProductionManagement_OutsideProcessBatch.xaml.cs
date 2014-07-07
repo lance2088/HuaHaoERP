@@ -20,6 +20,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         bool IS_MODIFY = false;//是否是修改模式
         bool IS_CommitSuccess = false;//提交是否成功
         int OrderIndex;
+        Guid ProcessorsGuid = new Guid();
 
         public Page_ProductionManagement_OutsideProcessBatch(bool Out)
         {
@@ -40,6 +41,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             this.DatePicker_InsertDate.SelectedDate = DateTime.Now;
             this.TextBox_Number.Text = DateTime.Now.ToString("yyyyMMdd_HHmmss");
             this.TextBox_Remark.Text = this.Label_Title.Content.ToString();
+            this.TextBox_Processors.Focus();
         }
 
         /// <summary>
@@ -70,6 +72,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             this.TextBox_Number.Text = data.Number;
             this.TextBox_Remark.Text = data.Remark;
             this.Button_Commit.Content = "修改";
+            this.TextBox_Processors.Focus();
         }
 
         private void InitializeButton()
@@ -105,6 +108,15 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             DateTime date = (DateTime)this.DatePicker_InsertDate.SelectedDate;
             string Number = this.TextBox_Number.Text;
             string Remark = this.TextBox_Remark.Text;
+            if (ProcessorsGuid == new Guid())
+            {
+                MessageBox.Show("加工商不存在，请重新录入","错误");
+                return;
+            }
+            foreach(Model_ProductionManagement_OutsideProcessBatch m in data)
+            {
+                m.ProcessorsGuid = ProcessorsGuid;
+            }
             if (new OutsideProcessBatchInputConsole().InsertData(data, IsOUT, date, Number, Remark))
             {
                 if (IS_MODIFY)
@@ -150,17 +162,17 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 data[data.IndexOf(model)].ProductName = m.ProductName;
                 data[data.IndexOf(model)].Material = m.Material;
             }
-            else if (Header == "加工商编号")
-            {
-                Model_ProductionManagement_OutsideProcessBatch m = new OutsideProcessBatchInputConsole().ReadProcessorsInfo(newValue);
-                if (m.ProcessorsGuid == new Guid())
-                {
-                    DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.SelectedCells[0].Item, DataGrid.Columns[3]);
-                    return;
-                }
-                data[data.IndexOf(model)].ProcessorsGuid = m.ProcessorsGuid;
-                data[data.IndexOf(model)].ProcessorsName = m.ProcessorsName;
-            }
+            //else if (Header == "加工商编号")
+            //{
+            //    Model_ProductionManagement_OutsideProcessBatch m = new OutsideProcessBatchInputConsole().ReadProcessorsInfo(newValue);
+            //    if (m.ProcessorsGuid == new Guid())
+            //    {
+            //        DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.SelectedCells[0].Item, DataGrid.Columns[3]);
+            //        return;
+            //    }
+            //    data[data.IndexOf(model)].ProcessorsGuid = m.ProcessorsGuid;
+            //    data[data.IndexOf(model)].ProcessorsName = m.ProcessorsName;
+            //}
         }
 
         private void DataGrid_PreviewKeyDown(object sender, KeyEventArgs e)
@@ -171,13 +183,13 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 if (Header == "产品编号")
                 {
                     e.Handled = true;
-                    DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.SelectedCells[0].Item, DataGrid.Columns[3]);//跳加工商编号
-                }
-                else if (Header == "加工商编号")
-                {
-                    e.Handled = true;
                     DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.SelectedCells[0].Item, DataGrid.Columns[5]);//跳数量
                 }
+                //else if (Header == "加工商编号")
+                //{
+                //    e.Handled = true;
+                //    DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.SelectedCells[0].Item, DataGrid.Columns[5]);//跳数量
+                //}
                 else if (Header == "备注")
                 {
                     DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.SelectedCells[0].Item, DataGrid.Columns[0]);
@@ -251,5 +263,29 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 Helper.Events.PopUpEvent.OnShowPopUp(new Page_ProductionManagement_OutsideProcessBatch(IsOUT));
             }
         }
+
+        private void TextBox_Processors_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+            if (tb.IsFocused)
+            {
+                if (e.Key == Key.Enter)
+                {
+                    string No = tb.Text;
+                    Model_ProductionManagement_OutsideProcessBatch m = new OutsideProcessBatchInputConsole().ReadProcessorsInfo(No);
+                    if (m.ProcessorsGuid != new Guid())
+                    {
+                        ProcessorsGuid = m.ProcessorsGuid;
+                        tb.Text = m.ProcessorsName;
+                    }
+                    else
+                    {
+                        ProcessorsGuid = new Guid();
+                        tb.Text = "";
+                    }
+                }
+            }
+        }
+
     }
 }
