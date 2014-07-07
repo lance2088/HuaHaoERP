@@ -91,6 +91,11 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
             int PackageNumber = 0;
             flag = int.TryParse(this.TextBox_PackageNumber.Text.Trim(), out PackageNumber);
             d.PackageNumber = PackageNumber;
+            if (PackageNumber == 0)
+            {
+                MessageBox.Show("包装件数不能为0。","错误");
+                return false;
+            }
             d.Remark = this.TextBox_Remark.Text.Trim();
             if (OldAddTime == "")
             {
