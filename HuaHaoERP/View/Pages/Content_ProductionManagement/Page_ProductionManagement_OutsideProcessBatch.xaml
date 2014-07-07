@@ -58,6 +58,6 @@
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_Back" Content="&lt;" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="30" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="30" Padding="0" Foreground="White" FontWeight="Bold" FontSize="16" Click="Button_Cancel_Click"/>
         <Label Content="抛光户：" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" Padding="5,0"/>
         <TextBox x:Name="TextBox_Processors" HorizontalAlignment="Left" Height="24" Margin="76,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" PreviewKeyDown="TextBox_Processors_PreviewKeyDown"/>
-        <CheckBox x:Name="CheckBox_LockProcessors" Content="锁定抛光户" HorizontalAlignment="Left" Margin="201,46,0,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center"/>
+        <CheckBox x:Name="CheckBox_LockProcessors" Content="锁定抛光户" HorizontalAlignment="Left" Margin="201,46,0,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" Click="CheckBox_LockProcessors_Click"/>
     </Grid>
 </Page>

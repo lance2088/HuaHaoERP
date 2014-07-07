@@ -21,7 +21,12 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         bool IS_CommitSuccess = false;//提交是否成功
         int OrderIndex;
         Guid ProcessorsGuid = new Guid();
+        bool Is_LockProcessors = false;
 
+        /// <summary>
+        /// 正常录入模式
+        /// </summary>
+        /// <param name="Out"></param>
         public Page_ProductionManagement_OutsideProcessBatch(bool Out)
         {
             this.IsOUT = Out;
@@ -42,14 +47,16 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             this.TextBox_Number.Text = DateTime.Now.ToString("yyyyMMdd_HHmmss");
             this.TextBox_Remark.Text = this.Label_Title.Content.ToString();
             this.TextBox_Processors.Focus();
+            this.CheckBox_LockProcessors.Visibility = System.Windows.Visibility.Collapsed;
         }
 
         /// <summary>
         /// 修改模式
         /// </summary>
         /// <param name="data"></param>
-        public Page_ProductionManagement_OutsideProcessBatch(Model_BatchInputOrder data)
+        public Page_ProductionManagement_OutsideProcessBatch(Model_BatchInputOrder data, bool LockProcessors)
         {
+            this.Is_LockProcessors = LockProcessors;
             this.OrderData = data;
             this.OrderIndex = Helper.DataDefinition.CommonParameters.OrderNoList.IndexOf(OrderData);
             this.IS_MODIFY = true;
@@ -73,6 +80,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             this.TextBox_Remark.Text = data.Remark;
             this.Button_Commit.Content = "修改";
             this.TextBox_Processors.Focus();
+            this.CheckBox_LockProcessors.IsChecked = this.Is_LockProcessors;
         }
 
         private void InitializeButton()
@@ -143,7 +151,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         {
             if (IS_MODIFY)
             {
-                Helper.Events.PopUpEvent.OnShowPopUp(new Content_Warehouse.Page_Warehouse_Product_BatchHistory(2));
+                Helper.Events.PopUpEvent.OnShowPopUp(new Content_Warehouse.Page_Warehouse_Product_BatchHistory(2, Is_LockProcessors));
             }
             else
             {
@@ -230,8 +238,22 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         /// <param name="e"></param>
         private void Button_PreviousOrder_Click(object sender, RoutedEventArgs e)
         {
-            Model_BatchInputOrder PreviousOrder = Helper.DataDefinition.CommonParameters.OrderNoList[OrderIndex - 1];
-            Helper.Events.PopUpEvent.OnShowPopUp(new Page_ProductionManagement_OutsideProcessBatch(PreviousOrder));
+            int i = 1;
+            Model_BatchInputOrder PreviousOrder = Helper.DataDefinition.CommonParameters.OrderNoList[OrderIndex - i];
+            if (Is_LockProcessors)
+            {
+                while (PreviousOrder.ProcessorsID != this.ProcessorsGuid)
+                {
+                    i++;
+                    if (OrderIndex - i < 0)
+                    {
+                        MessageBox.Show("已到第一单", "提示");
+                        return;
+                    }
+                    PreviousOrder = Helper.DataDefinition.CommonParameters.OrderNoList[OrderIndex - i];
+                }
+            }
+            Helper.Events.PopUpEvent.OnShowPopUp(new Page_ProductionManagement_OutsideProcessBatch(PreviousOrder, Is_LockProcessors));
         }
 
         /// <summary>
@@ -241,8 +263,22 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         /// <param name="e"></param>
         private void Button_NextOrder_Click(object sender, RoutedEventArgs e)
         {
-            Model_BatchInputOrder NextOrder = Helper.DataDefinition.CommonParameters.OrderNoList[OrderIndex + 1];
-            Helper.Events.PopUpEvent.OnShowPopUp(new Page_ProductionManagement_OutsideProcessBatch(NextOrder));
+            int i = 1;
+            Model_BatchInputOrder NextOrder = Helper.DataDefinition.CommonParameters.OrderNoList[OrderIndex + i];
+            if (Is_LockProcessors)
+            {
+                while (NextOrder.ProcessorsID != this.ProcessorsGuid)
+                {
+                    i++;
+                    if (OrderIndex + i >= Helper.DataDefinition.CommonParameters.OrderNoList.Count)
+                    {
+                        MessageBox.Show("已到最后一单","提示");
+                        return;
+                    }
+                    NextOrder = Helper.DataDefinition.CommonParameters.OrderNoList[OrderIndex + i];
+                }
+            }
+            Helper.Events.PopUpEvent.OnShowPopUp(new Page_ProductionManagement_OutsideProcessBatch(NextOrder, Is_LockProcessors));
         }
 
         private void Button_CommitNew_Click(object sender, RoutedEventArgs e)
@@ -275,6 +311,11 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                     }
                 }
             }
+        }
+
+        private void CheckBox_LockProcessors_Click(object sender, RoutedEventArgs e)
+        {
+            this.Is_LockProcessors = (bool)this.CheckBox_LockProcessors.IsChecked;
         }
 
     }

@@ -28,6 +28,20 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             InitializeComboBox();
         }
 
+        /// <summary>
+        /// 外加工锁定抛光户专用
+        /// </summary>
+        /// <param name="OrderType"></param>
+        /// <param name="LockProcessors"></param>
+        public Page_Warehouse_Product_BatchHistory(int OrderType, bool LockProcessors)
+        {
+            this.OrderType = OrderType;
+            InitializeComponent();
+            InitializeDataGrid();
+            InitializeComboBox();
+            this.CheckBox_LockProcessors.IsChecked = LockProcessors;
+        }
+
         private void InitializeComboBox()
         {
             List<string> ComboBoxData = new List<string>();
@@ -92,7 +106,14 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                 }
                 else if (OrderType == 2)//外加工
                 {
-                    Helper.Events.PopUpEvent.OnShowPopUp(new Content_ProductionManagement.Page_ProductionManagement_OutsideProcessBatch(m));
+                    if ((bool)this.CheckBox_LockProcessors.IsChecked)
+                    {
+                        Helper.Events.PopUpEvent.OnShowPopUp(new Content_ProductionManagement.Page_ProductionManagement_OutsideProcessBatch(m, true));
+                    }
+                    else
+                    {
+                        Helper.Events.PopUpEvent.OnShowPopUp(new Content_ProductionManagement.Page_ProductionManagement_OutsideProcessBatch(m, false));
+                    }
                 }
                 else if (OrderType == 3)//仓库
                 {
