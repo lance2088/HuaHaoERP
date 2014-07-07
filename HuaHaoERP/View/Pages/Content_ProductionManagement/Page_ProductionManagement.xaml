@@ -29,8 +29,8 @@
                                 <DataGridTextColumn Header="序号" Binding="{Binding Id}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                                 <DataGridTextColumn Header="产品编号" Binding="{Binding ProductNumber}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                                 <DataGridTextColumn Header="产品名称" Binding="{Binding ProductName}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                                <DataGridTextColumn Header="冲版" Binding="{Binding P1Num}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                                <DataGridTextColumn Header="拉伸" Binding="{Binding P2Num}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                                <DataGridTextColumn Header="圆片" Binding="{Binding P1Num}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                                <DataGridTextColumn Header="液压" Binding="{Binding P2Num}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                                 <DataGridTextColumn Header="冲孔" Binding="{Binding P3Num}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                                 <DataGridTextColumn Header="卷边" Binding="{Binding P4Num}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                                 <DataGridTextColumn Header="抛光" Binding="{Binding P5Num}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
@@ -65,7 +65,7 @@
                     </TextBox>
                 </Grid>
             </TabItem>
-            <TabItem FocusVisualStyle="{x:Null}" Header="外加工" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="27,0,-27,0" Foreground="White">
+            <TabItem FocusVisualStyle="{x:Null}" Header="抛光加工" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="27,0,-27,0" Foreground="White">
                 <Grid Background="White">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="80"/>

@@ -152,6 +152,8 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 if (m.StaffGuid == new Guid())
                 {
                     DataGrid_BatchInput.CurrentCell = new DataGridCellInfo(DataGrid_BatchInput.SelectedCells[0].Item, DataGrid_BatchInput.Columns[3]);
+                    data[data.IndexOf(model)].StaffGuid = new Guid();
+                    data[data.IndexOf(model)].StaffName = "";
                     return;
                 }
                 data[data.IndexOf(model)].StaffGuid = m.StaffGuid;
