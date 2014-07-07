@@ -100,6 +100,11 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                     data.Add(new Model_ProductionManagement_OutsideProcessBatch { Id = i + 1 });
                 }
             }
+            if (data[0].ProcessorsGuid != new Guid())
+            {
+                this.ProcessorsGuid = data[0].ProcessorsGuid;
+                this.TextBox_Processors.Text = data[0].ProcessorsName;
+            }
             this.DataGrid.ItemsSource = data;
         }
 
