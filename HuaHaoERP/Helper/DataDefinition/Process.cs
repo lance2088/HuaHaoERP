@@ -10,8 +10,8 @@ namespace HuaHaoERP.Helper.DataDefinition
             {
                 List<string> ProcessList = new List<string>();
                 ProcessList.Add("无");
-                ProcessList.Add("冲版");
-                ProcessList.Add("拉伸");
+                ProcessList.Add("圆片");
+                ProcessList.Add("液压");
                 ProcessList.Add("冲孔");
                 ProcessList.Add("卷边");
                 ProcessList.Add("抛光");
@@ -24,8 +24,8 @@ namespace HuaHaoERP.Helper.DataDefinition
             {
                 List<string> ProcessList = new List<string>();
                 ProcessList.Add("全部工序");
-                ProcessList.Add("冲版");
-                ProcessList.Add("拉伸");
+                ProcessList.Add("圆片");
+                ProcessList.Add("液压");
                 ProcessList.Add("冲孔");
                 ProcessList.Add("卷边");
                 ProcessList.Add("抛光");
@@ -38,8 +38,8 @@ namespace HuaHaoERP.Helper.DataDefinition
             get
             {
                 List<string> ProcessList = new List<string>();
-                ProcessList.Add("冲版");
-                ProcessList.Add("拉伸");
+                ProcessList.Add("圆片");
+                ProcessList.Add("液压");
                 ProcessList.Add("冲孔");
                 ProcessList.Add("卷边");
                 ProcessList.Add("抛光");
