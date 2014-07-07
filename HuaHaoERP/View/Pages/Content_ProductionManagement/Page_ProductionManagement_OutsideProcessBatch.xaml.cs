@@ -110,10 +110,11 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             string Remark = this.TextBox_Remark.Text;
             if (ProcessorsGuid == new Guid())
             {
-                MessageBox.Show("加工商不存在，请重新录入","错误");
+                MessageBox.Show("加工商不存在，请重新录入", "错误");
+                this.TextBox_Processors.Focus();
                 return;
             }
-            foreach(Model_ProductionManagement_OutsideProcessBatch m in data)
+            foreach (Model_ProductionManagement_OutsideProcessBatch m in data)
             {
                 m.ProcessorsGuid = ProcessorsGuid;
             }
@@ -162,17 +163,6 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 data[data.IndexOf(model)].ProductName = m.ProductName;
                 data[data.IndexOf(model)].Material = m.Material;
             }
-            //else if (Header == "加工商编号")
-            //{
-            //    Model_ProductionManagement_OutsideProcessBatch m = new OutsideProcessBatchInputConsole().ReadProcessorsInfo(newValue);
-            //    if (m.ProcessorsGuid == new Guid())
-            //    {
-            //        DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.SelectedCells[0].Item, DataGrid.Columns[3]);
-            //        return;
-            //    }
-            //    data[data.IndexOf(model)].ProcessorsGuid = m.ProcessorsGuid;
-            //    data[data.IndexOf(model)].ProcessorsName = m.ProcessorsName;
-            //}
         }
 
         private void DataGrid_PreviewKeyDown(object sender, KeyEventArgs e)
@@ -185,11 +175,6 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                     e.Handled = true;
                     DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.SelectedCells[0].Item, DataGrid.Columns[5]);//跳数量
                 }
-                //else if (Header == "加工商编号")
-                //{
-                //    e.Handled = true;
-                //    DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.SelectedCells[0].Item, DataGrid.Columns[5]);//跳数量
-                //}
                 else if (Header == "备注")
                 {
                     DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.SelectedCells[0].Item, DataGrid.Columns[0]);
