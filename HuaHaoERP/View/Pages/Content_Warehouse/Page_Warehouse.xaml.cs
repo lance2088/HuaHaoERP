@@ -135,6 +135,12 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             {
                 this.DataGrid_Num.ItemsSource = dn;
             }
+            int TotalNum = 0;
+            foreach(WarehouseProductNumModel m in dn)
+            {
+                TotalNum += m.Quantity;
+            }
+            this.TextBox_TotalNum.Text = TotalNum.ToString();
             //已包装
             List<WarehouseProductNumModel> dnPack = new List<WarehouseProductNumModel>();
             if (new ViewModel.Warehouse.WarehouseProductConsole().ReadPackingNumList(out dnPack, Search))

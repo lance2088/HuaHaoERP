@@ -44,7 +44,7 @@
                         <ComboBoxItem Content="包装（散件）记录" />
                         <ComboBoxItem Content="出库（包装）记录" />
                     </ComboBox>
-                    <DataGrid x:Name="DataGrid_Num" Grid.Column="1" Margin="0,70,10,10" HorizontalContentAlignment="Stretch" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" IsReadOnly="True" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False" AutoGenerateColumns="False" LoadingRow="DataGrid_Num_LoadingRow" SelectionMode="Single">
+                    <DataGrid x:Name="DataGrid_Num" Grid.Column="1" Margin="0,70,10,40" HorizontalContentAlignment="Stretch" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" IsReadOnly="True" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False" AutoGenerateColumns="False" LoadingRow="DataGrid_Num_LoadingRow" SelectionMode="Single">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="编号" Binding="{Binding ProductNumber}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                             <DataGridTextColumn Header="名称" Binding="{Binding ProductName}"/>
@@ -104,6 +104,8 @@
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_PackingOut" Content="出库" HorizontalAlignment="Right" Margin="0,40,65,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_PackingOut_Click" Focusable="False"/>
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_SparepartsOut" Content="出库" HorizontalAlignment="Right" Margin="0,40,65,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Grid.Column="1" Click="Button_SparepartsOut_Click" Focusable="False"/>
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_BatchHistory" Content="批量记录" Grid.Column="2" HorizontalAlignment="Left" Margin="0,40,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_BatchHistory_Click" Focusable="False"/>
+                    <Label Content="数量统计：" Grid.Column="1" HorizontalAlignment="Left" Margin="0,0,0,10" VerticalAlignment="Bottom" Height="24" VerticalContentAlignment="Center" Padding="0"/>
+                    <TextBox x:Name="TextBox_TotalNum" Grid.Column="1" Height="23" Margin="70,0,10,10" TextWrapping="Wrap" Text="0" VerticalAlignment="Bottom" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderThickness="0,0,0,1" IsReadOnly="True"/>
                 </Grid>
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="原料管理" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="17,0,-17,0" Foreground="White">
