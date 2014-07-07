@@ -126,12 +126,18 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 if (m.ProductGuid == new Guid())
                 {
                     DataGrid_BatchInput.CurrentCell = new DataGridCellInfo(DataGrid_BatchInput.SelectedCells[0].Item, DataGrid_BatchInput.Columns[0]);
-                    return;
+                    data[data.IndexOf(model)].ProductGuid = new Guid();
+                    data[data.IndexOf(model)].ProductName = "";
+                    data[data.IndexOf(model)].ProcessList = new string[6];
+                    data[data.IndexOf(model)].ProcessListStr = "";
                 }
-                data[data.IndexOf(model)].ProductGuid = m.ProductGuid;
-                data[data.IndexOf(model)].ProductName = m.ProductName;
-                data[data.IndexOf(model)].ProcessList = m.ProcessList;
-                data[data.IndexOf(model)].ProcessListStr = m.ProcessListStr;
+                else
+                {
+                    data[data.IndexOf(model)].ProductGuid = m.ProductGuid;
+                    data[data.IndexOf(model)].ProductName = m.ProductName;
+                    data[data.IndexOf(model)].ProcessList = m.ProcessList;
+                    data[data.IndexOf(model)].ProcessListStr = m.ProcessListStr;
+                }
             }
             else if (Header == "工序")
             {

@@ -430,5 +430,10 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             Helper.Events.PopUpEvent.OnShowPopUp(new Content_Warehouse.Page_Warehouse_Product_BatchHistory(2));
         }
 
+        private void Button_AllInWarehouse_Click(object sender, RoutedEventArgs e)
+        {
+            new ViewModel.ProductionManagement.AssemblyLineModuleConsole().AllInStorage();
+        }
+
     }
 }

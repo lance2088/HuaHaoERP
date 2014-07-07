@@ -46,14 +46,14 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 this.Label_Process.Content = "";
                 this.Button_Processing.Visibility = System.Windows.Visibility.Collapsed;
                 this.Button_ProcessIn.Visibility = System.Windows.Visibility.Collapsed;
-                foreach (AssemblyLineModuleProcessModel dpm in d.ProcessList)
-                {
-                    if (dpm.Process == "抛光")
-                    {
-                        this.Button_Processing.Visibility = System.Windows.Visibility.Visible;
-                        this.Button_ProcessIn.Visibility = System.Windows.Visibility.Visible;
-                    }
-                }
+                //foreach (AssemblyLineModuleProcessModel dpm in d.ProcessList)
+                //{
+                //    if (dpm.Process == "抛光")
+                //    {
+                //        this.Button_Processing.Visibility = System.Windows.Visibility.Visible;
+                //        this.Button_ProcessIn.Visibility = System.Windows.Visibility.Visible;
+                //    }
+                //}
             }
             this.TextBox_Quantity.Clear();
             this.TextBox_Break.Clear();

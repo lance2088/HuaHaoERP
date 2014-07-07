@@ -97,6 +97,16 @@ namespace HuaHaoERP.Model.ProductionManagement
             set { remark = value; NotifyPropertyChanged("Remark"); }
         }
 
+        private bool hasPolishing = false;
+        /// <summary>
+        /// 是否有抛光工序
+        /// </summary>
+        public bool HasPolishing
+        {
+            get { return hasPolishing; }
+            set { hasPolishing = value; NotifyPropertyChanged("HasPolishing"); }
+        }
+
         #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged(string propertyName)

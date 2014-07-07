@@ -156,13 +156,20 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                 if (m.Guid == new Guid())
                 {
                     DataGrid.CurrentCell = new DataGridCellInfo(SelectItem, DataGrid.Columns[0]);
-                    return;
+                    data[data.IndexOf(model)].Guid = new Guid();
+                    data[data.IndexOf(model)].Name = "";
+                    data[data.IndexOf(model)].Material = "";
+                    data[data.IndexOf(model)].PerQuantity = 0;
+                    data[data.IndexOf(model)].TotalParts = 0;
                 }
-                data[data.IndexOf(model)].Guid = m.Guid;
-                data[data.IndexOf(model)].Name = m.Name;
-                data[data.IndexOf(model)].Material = m.Material;
-                data[data.IndexOf(model)].PerQuantity = m.PerQuantity;
-                data[data.IndexOf(model)].TotalParts = m.TotalParts;
+                else
+                {
+                    data[data.IndexOf(model)].Guid = m.Guid;
+                    data[data.IndexOf(model)].Name = m.Name;
+                    data[data.IndexOf(model)].Material = m.Material;
+                    data[data.IndexOf(model)].PerQuantity = m.PerQuantity;
+                    data[data.IndexOf(model)].TotalParts = m.TotalParts;
+                }
             }
             else if (Header == "件数")
             {

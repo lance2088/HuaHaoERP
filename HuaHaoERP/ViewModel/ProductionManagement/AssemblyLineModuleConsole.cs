@@ -47,13 +47,13 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                        + " GROUP BY b.Process";
             DataSet ds = new DataSet();
             flag = new Helper.SQLite.DBHelper().QueryData(sql, out ds);
-            if(flag)
+            if (flag)
             {
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
                     d.Name = dr["Name"].ToString();
                     Model.AssemblyLineModuleProcessModel dp = new Model.AssemblyLineModuleProcessModel();
-                    if(isFirstLine)
+                    if (isFirstLine)
                     {
                         InitProcessList(dr, ref ProcessList);
                         isFirstLine = false;
@@ -112,11 +112,11 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
 
             for (int i = 0; i <= d.Count - 1; i++)
             {
-                if(d[i].Process == "抛光")
+                if (d[i].Process == "抛光")
                 {
                     d[i].Quantity += In;
                     d[i].BreakNum += Break;
-                    d[i-1].Quantity -= Out;
+                    d[i - 1].Quantity -= Out;
                 }
             }
         }
@@ -129,11 +129,11 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
             {
                 sql_Where += " AND a.Remark IS NOT '自动扣半成品原料' ";
             }
-            if(ProductID != new Guid())
+            if (ProductID != new Guid())
             {
                 sql_Where += " AND a.ProductID='" + ProductID + "' ";
             }
-            if(StaffID != new Guid())
+            if (StaffID != new Guid())
             {
                 sql_Where += " AND a.StaffID='" + StaffID + "' ";
             }
@@ -178,8 +178,25 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
         internal bool Storage(Guid StaffID, Guid ProductID, string Process, int Number)
         {
             string sql = " Insert into T_PM_ProductionSchedule(Guid,Date,StaffID,ProductID,Process,Number,Remark) "
-                       + " values('" + Guid.NewGuid() + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + StaffID + "','" + ProductID + "','" + Process + "','-" + Number + "','入库')";
+                       + " values('" + Guid.NewGuid() + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + StaffID + "','" + ProductID + "','" + Process + "','" + -Number + "','入库')";
             return new Helper.SQLite.DBHelper().SingleExecution(sql);
+        }
+
+        /// <summary>
+        /// 全部入库
+        /// </summary>
+        /// <returns></returns>
+        internal bool AllInStorage()
+        {
+            List<int> i = new List<int>();
+            DataSet ds = new DataSet();
+            string QuerySQL = "Select ProductID,Total(Number) from T_PM_ProductionSchedule Where DeleteMark ISNULL AND Process='抛光' Group By ProductID";
+            if (new Helper.SQLite.DBHelper().QueryData(QuerySQL, out ds))
+            {
+
+            }
+
+            return false;
         }
     }
 }

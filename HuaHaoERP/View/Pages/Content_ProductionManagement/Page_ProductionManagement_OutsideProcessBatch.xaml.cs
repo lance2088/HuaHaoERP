@@ -170,11 +170,28 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 if (m.ProductGuid == new Guid())
                 {
                     DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.SelectedCells[0].Item, DataGrid.Columns[0]);
-                    return;
+                    data[data.IndexOf(model)].ProductGuid = new Guid();
+                    data[data.IndexOf(model)].ProductName = "";
+                    data[data.IndexOf(model)].Material = "";
                 }
-                data[data.IndexOf(model)].ProductGuid = m.ProductGuid;
-                data[data.IndexOf(model)].ProductName = m.ProductName;
-                data[data.IndexOf(model)].Material = m.Material;
+                else if (m.HasPolishing == false)
+                {
+                    DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.SelectedCells[0].Item, DataGrid.Columns[0]);
+                    data[data.IndexOf(model)].ProductGuid = new Guid();
+                    data[data.IndexOf(model)].ProductName = "";
+                    data[data.IndexOf(model)].Material = "";
+                    data[data.IndexOf(model)].Remark = "该产品没有抛光工序，请重新录入。";
+                }
+                else
+                {
+                    data[data.IndexOf(model)].ProductGuid = m.ProductGuid;
+                    data[data.IndexOf(model)].ProductName = m.ProductName;
+                    data[data.IndexOf(model)].Material = m.Material;
+                    if (data[data.IndexOf(model)].Remark == "该产品没有抛光工序，请重新录入。")
+                    {
+                        data[data.IndexOf(model)].Remark = "";
+                    }
+                }
             }
         }
 

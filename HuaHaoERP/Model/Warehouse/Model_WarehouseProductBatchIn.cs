@@ -71,6 +71,7 @@ namespace HuaHaoERP.Model.Warehouse
             set { totalParts = value; NotifyPropertyChanged("TotalParts"); }
         }
 
+
         #region INotifyPropertyChanged Members
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -12,7 +12,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
         internal Model_ProductionManagement_OutsideProcessBatch ReadProductInfo(string ProductNumber)
         {
             Model_ProductionManagement_OutsideProcessBatch m = new Model_ProductionManagement_OutsideProcessBatch();
-            string sql = "SELECT GUID,Name,Material FROM T_ProductInfo_Product WHERE NUMBER='" + ProductNumber + "' AND DELETEMARK ISNULL";
+            string sql = "SELECT GUID,Name,Material,P1,P2,P3,P4,P5,P6 FROM T_ProductInfo_Product WHERE NUMBER='" + ProductNumber + "' AND DELETEMARK ISNULL";
             DataSet ds = new DataSet();
             bool flag = new Helper.SQLite.DBHelper().QueryData(sql, out ds);
             if (flag)
@@ -23,6 +23,13 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                     m.ProductNumber = ProductNumber;
                     m.ProductName = dr["Name"].ToString();
                     m.Material = dr["Material"].ToString();
+                    for (int i = 1; i < 7; i++)
+                    {
+                        if (dr["P" + i].ToString() == "抛光")
+                        {
+                            m.HasPolishing = true;
+                        }
+                    }
                 }
             }
             return m;
