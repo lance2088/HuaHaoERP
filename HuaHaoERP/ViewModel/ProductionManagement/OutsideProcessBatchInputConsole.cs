@@ -72,8 +72,8 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
             }
             if (sqls.Count > 0)
             {
-                sqls.Add("Insert into T_PM_ProcessBatchInput(Guid,Number,Date,Remark,OrderType) "
-                    + "values('" + OrderGuid + "','" + OrderNum + "','" + DateStr + "','" + OrderRemark + "','" + ((isOut) ? "0" : "1") + "')");
+                sqls.Add("Insert into T_PM_ProcessBatchInput(Guid,Number,Date,Remark,OrderType,ProcessorsID) "
+                    + "values('" + OrderGuid + "','" + OrderNum + "','" + DateStr + "','" + OrderRemark + "','" + ((isOut) ? "0" : "1") + "','" + data[0].ProcessorsGuid + "')");
             }
             return new Helper.SQLite.DBHelper().Transaction(sqls);
         }

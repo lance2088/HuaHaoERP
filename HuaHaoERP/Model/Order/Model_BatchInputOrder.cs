@@ -47,6 +47,20 @@ namespace HuaHaoERP.Model.Order
             get { return orderType; }
             set { orderType = value; NotifyPropertyChanged("OrderType"); }
         }
+        private Guid processorsID;
+
+        public Guid ProcessorsID
+        {
+            get { return processorsID; }
+            set { processorsID = value; NotifyPropertyChanged("ProcessorsID"); }
+        }
+        private string processorsName;
+
+        public string ProcessorsName
+        {
+            get { return processorsName; }
+            set { processorsName = value; NotifyPropertyChanged("ProcessorsName"); }
+        }
 
         #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;

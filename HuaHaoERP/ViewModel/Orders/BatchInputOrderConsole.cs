@@ -16,9 +16,21 @@ namespace HuaHaoERP.ViewModel.Orders
             DataSet ds = new DataSet();
             string TableName = GetTableName(BacthType);
             string sql = "select * from " + TableName + " WHERE DeleteMark ISNULL Order By rowid Desc";
-            if (BacthType > 1 && OrderType > 0)
+            if (BacthType == 3 && OrderType > 0)
             {
                 sql = "select * from " + TableName + " WHERE DeleteMark ISNULL AND OrderType='" + (OrderType - 1) + "' Order By rowid Desc";
+            }
+            else if (BacthType == 2)//外加工需读取加工商名字
+            {
+                string OrderTypeWhereParm = "";
+                if (OrderType > 0)
+                {
+                    OrderTypeWhereParm = " AND a.OrderType='" + (OrderType - 1) + "'";
+                }
+                sql = "select a.*,b.Name as PName "
+                    + " from " + TableName + " a "
+                    + " Left join T_UserInfo_Processors b ON a.ProcessorsID=b.Guid"
+                    + " WHERE a.DeleteMark ISNULL " + OrderTypeWhereParm + " Order By a.rowid Desc";
             }
             if (new DBHelper().QueryData(sql, out ds))
             {
@@ -33,6 +45,11 @@ namespace HuaHaoERP.ViewModel.Orders
                     if (BacthType != 1)
                     {
                         m.OrderType = dr["OrderType"].ToString();
+                    }
+                    if (BacthType == 2)
+                    {
+                        m.ProcessorsID = (Guid)dr["ProcessorsID"];
+                        m.ProcessorsName = dr["PName"].ToString();
                     }
                     data.Add(m);
                 }

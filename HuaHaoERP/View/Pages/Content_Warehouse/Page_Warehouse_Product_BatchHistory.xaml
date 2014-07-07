@@ -27,12 +27,14 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="编号" Binding="{Binding Number}" MinWidth="150"/>
                 <DataGridTextColumn Header="日期" Binding="{Binding Date}" MinWidth="150"/>
-                <DataGridTextColumn Header="备注" Binding="{Binding Remark}" Width="*"/>
+                <DataGridTextColumn x:Name="DataGridTextColumn_Processors" Header="抛光户" Binding="{Binding ProcessorsName}" MinWidth="80"/>
+                <DataGridTextColumn Header="备注" Binding="{Binding Remark}" Width="*" MinWidth="120"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_Cancel" Content="&lt;" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="30" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="30" Padding="0" IsCancel="True" Click="Button_Cancel_Click" Foreground="White" FontWeight="Bold" FontSize="16"/>
         <ComboBox x:Name="ComboBox_Type" Grid.Column="1" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center" DropDownClosed="ComboBox_Type_DropDownClosed"/>
         <Label x:Name="Label_Type" Content="类型" Grid.Column="1" HorizontalAlignment="Right" Margin="0,10,135,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" Padding="5,0"/>
+        <CheckBox x:Name="CheckBox_LockProcessors" Content="锁定抛光户" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Grid.Column="1" Height="24" VerticalContentAlignment="Center" Padding="4,0,0,0"/>
 
     </Grid>
 </Page>

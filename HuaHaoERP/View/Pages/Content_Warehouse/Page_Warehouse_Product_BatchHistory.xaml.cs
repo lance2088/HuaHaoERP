@@ -34,19 +34,23 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             ComboBoxData.Add("全部类型");
             switch (OrderType)
             {
-                case 1:
+                case 1://流水线
                     this.Label_Type.Visibility = System.Windows.Visibility.Collapsed;
                     this.ComboBox_Type.Visibility = System.Windows.Visibility.Collapsed;
+                    this.CheckBox_LockProcessors.Visibility = System.Windows.Visibility.Collapsed;
+                    this.DataGridTextColumn_Processors.Visibility = System.Windows.Visibility.Collapsed;
                     break;
-                case 2:
+                case 2://外加工
                     ComboBoxData.Add("抛光领货");
                     ComboBoxData.Add("抛光交货");
                     break;
-                case 3:
+                case 3://仓库
                     ComboBoxData.Add("包装入库");
                     ComboBoxData.Add("散件入库");
                     ComboBoxData.Add("包装出库");
                     ComboBoxData.Add("散件出库");
+                    this.CheckBox_LockProcessors.Visibility = System.Windows.Visibility.Collapsed;
+                    this.DataGridTextColumn_Processors.Visibility = System.Windows.Visibility.Collapsed;
                     break;
             }
             this.ComboBox_Type.ItemsSource = ComboBoxData;
@@ -60,7 +64,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             if (OrderType == 2)
             {
                 Helper.DataDefinition.CommonParameters.OrderNoList.Clear();
-                foreach(Model_BatchInputOrder m in data)
+                foreach (Model_BatchInputOrder m in data)
                 {
                     Helper.DataDefinition.CommonParameters.OrderNoList.Add(m);
                 }
@@ -144,5 +148,6 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         {
             InitializeDataGrid();
         }
+
     }
 }
