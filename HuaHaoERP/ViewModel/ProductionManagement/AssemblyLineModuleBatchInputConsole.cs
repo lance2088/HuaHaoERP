@@ -64,7 +64,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
             string LastProcess = "";
             foreach (Model_AssemblyLineModuleBatchInput m in data)
             {
-                if (m.ProductGuid != new Guid() && m.StaffGuid != new Guid() && m.Process != "" && (m.Quantity > 0 || m.Injure > 0))
+                if (m.ProductGuid != new Guid() && m.StaffGuid != new Guid() && m.Process != "")
                 {
                     Guid1 = Guid.NewGuid();
                     Guid2 = Guid.NewGuid();
