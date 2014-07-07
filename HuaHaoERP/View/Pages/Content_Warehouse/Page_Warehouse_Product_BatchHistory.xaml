@@ -26,8 +26,8 @@
             </DataGrid.ContextMenu>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="编号" Binding="{Binding Number}" MinWidth="150"/>
-                <DataGridTextColumn Header="日期" Binding="{Binding Date}" MinWidth="150"/>
-                <DataGridTextColumn x:Name="DataGridTextColumn_Processors" Header="抛光户" Binding="{Binding ProcessorsName}" MinWidth="80"/>
+                <DataGridTextColumn Header="日期" Binding="{Binding Date}" MinWidth="150" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn x:Name="DataGridTextColumn_Processors" Header="抛光户" Binding="{Binding ProcessorsName}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                 <DataGridTextColumn Header="备注" Binding="{Binding Remark}" Width="*" MinWidth="120"/>
             </DataGrid.Columns>
         </DataGrid>

@@ -86,7 +86,8 @@ namespace HuaHaoERP.ViewModel.Warehouse
                        + "	a.ProductID,                                                  "
                        + "	total(a.Quantity) as Quantity,                            "
                        + "  b.Number as ProductNumber,                              "
-                       + "	b.Name as ProductName                                 "
+                       + "	b.Name as ProductName,                                 "
+                       + "  b.PackageNumber as ProductPackageNumber               "
                        + "FROM                                                    "
                        + "	T_Warehouse_Product a                                 "
                        + "LEFT JOIN T_ProductInfo_Product b on a.ProductID=b.GUID "
@@ -106,6 +107,9 @@ namespace HuaHaoERP.ViewModel.Warehouse
                     d.ProductNumber = dr["ProductNumber"].ToString();
                     d.ProductName = dr["ProductName"].ToString();
                     d.Quantity = int.Parse(dr["Quantity"].ToString());
+                    int ProductPackageNumber = 0;
+                    int.TryParse(dr["ProductPackageNumber"].ToString(), out ProductPackageNumber);
+                    d.PackageNum = d.Quantity / ProductPackageNumber;
                     data.Add(d);
                 }
                 return true;

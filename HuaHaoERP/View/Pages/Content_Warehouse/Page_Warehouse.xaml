@@ -49,6 +49,7 @@
                             <DataGridTextColumn Header="编号" Binding="{Binding ProductNumber}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                             <DataGridTextColumn Header="名称" Binding="{Binding ProductName}"/>
                             <DataGridTextColumn Header="数量" Binding="{Binding Quantity}" MinWidth="50" ElementStyle="{DynamicResource TextBlockStyle_AlignRight}"/>
+                            <DataGridTextColumn Header="件数" Binding="{Binding PackageNum}" ElementStyle="{DynamicResource TextBlockStyle_AlignRight}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <Label Content="散件数量" Grid.Column="1" HorizontalAlignment="Left" Margin="0,40,0,0" VerticalAlignment="Top" Padding="0,2" Height="24" VerticalContentAlignment="Center"/>
