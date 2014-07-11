@@ -35,6 +35,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 this.Button_Add.IsEnabled = false;
             }
         }
+
         private void InitializeData()
         {
             this.DataGrid.ItemsSource = null;
@@ -46,18 +47,11 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 this.Label_Process.Content = "";
                 this.Button_Processing.Visibility = System.Windows.Visibility.Collapsed;
                 this.Button_ProcessIn.Visibility = System.Windows.Visibility.Collapsed;
-                //foreach (AssemblyLineModuleProcessModel dpm in d.ProcessList)
-                //{
-                //    if (dpm.Process == "抛光")
-                //    {
-                //        this.Button_Processing.Visibility = System.Windows.Visibility.Visible;
-                //        this.Button_ProcessIn.Visibility = System.Windows.Visibility.Visible;
-                //    }
-                //}
             }
             this.TextBox_Quantity.Clear();
             this.TextBox_Break.Clear();
         }
+
         private void InitializeStaffComboBox()
         {
             this.ComboBox_StaffList.ItemsSource = Helper.DataDefinition.ComboBoxList.StaffListWithoutAll.DefaultView;
@@ -65,6 +59,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             this.ComboBox_StaffList.SelectedValuePath = "GUID";//GUID四个字母要大写
             this.ComboBox_StaffList.SelectedIndex = 0;
         }
+
         /// <summary>
         /// 加工序的半成品数量
         /// </summary>
