@@ -320,6 +320,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                     {
                         ProcessorsGuid = m.ProcessorsGuid;
                         tb.Text = m.ProcessorsName;
+                        
                     }
                     else
                     {

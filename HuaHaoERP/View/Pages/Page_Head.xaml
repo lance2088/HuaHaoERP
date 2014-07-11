@@ -16,5 +16,17 @@
         <Grid x:Name="Grid_Placeholder" HorizontalAlignment="Right" Height="20" Margin="0,0,10,0" VerticalAlignment="Top" Width="84"/>
         <Image HorizontalAlignment="Left" Source="/HuaHaoERP;component/View/Resources/Images/Pyramid_Logo_white_128x128.png" Margin="10,0,0,0"/>
         <Label x:Name="Label_LoginUser" Content="欢迎，" HorizontalAlignment="Right" Margin="0,0,99,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Padding="5,0" Foreground="White" Height="20" FontSize="14"/>
+        <Menu HorizontalAlignment="Left" Height="25" Margin="200,16,0,0" VerticalAlignment="Top" Background="{x:Null}" FontFamily="SimSun" FontSize="14" TextOptions.TextFormattingMode="Display" BorderThickness="0,1" BorderBrush="White">
+            <MenuItem Header="生产管理" Foreground="White" Height="23">
+                <MenuItem x:Name="MenuItem_1" Header="生产录入" Foreground="Black" Click="MenuItem_1_Click"/>
+                <MenuItem x:Name="MenuItem_2" Header="抛光出单" Foreground="Black" Click="MenuItem_2_Click"/>
+                <MenuItem x:Name="MenuItem_3" Header="抛光入单" Foreground="Black" Click="MenuItem_3_Click"/>
+            </MenuItem>
+            <MenuItem Header="仓库管理" Foreground="White">
+                <MenuItem x:Name="MenuItem_4" Header="批量入库" Foreground="Black" Click="MenuItem_4_Click"/>
+                <MenuItem x:Name="MenuItem_5" Header="散件出库" Foreground="Black" Click="MenuItem_5_Click"/>
+                <MenuItem x:Name="MenuItem_6" Header="包装出库" Foreground="Black" Click="MenuItem_6_Click"/>
+            </MenuItem>
+        </Menu>
     </Grid>
 </Page>
