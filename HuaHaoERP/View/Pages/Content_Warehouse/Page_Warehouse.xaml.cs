@@ -35,8 +35,6 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         public Page_Warehouse()
         {
             InitializeComponent();
-            this.Grid_Outbound.Visibility = System.Windows.Visibility.Hidden;
-            this.Grid_Packing.Visibility = System.Windows.Visibility.Hidden;
             this.Grid_OutGrid.Visibility = System.Windows.Visibility.Hidden;
             SubscribeToEvent();
             InitPage();
@@ -48,14 +46,6 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            this.ComboBox_ProductList_Outbound.ItemsSource = Helper.DataDefinition.ComboBoxList.ProductListWithoutAll.DefaultView;
-            this.ComboBox_ProductList_Outbound.DisplayMemberPath = "Name";
-            this.ComboBox_ProductList_Outbound.SelectedValuePath = "GUID";//GUID四个字母要大写
-            this.ComboBox_ProductList_Outbound.SelectedIndex = 0;
-            this.ComboBox_ProductList.ItemsSource = Helper.DataDefinition.ComboBoxList.ProductListWithoutAll.DefaultView;
-            this.ComboBox_ProductList.DisplayMemberPath = "Name";
-            this.ComboBox_ProductList.SelectedValuePath = "GUID";//GUID四个字母要大写
-            this.ComboBox_ProductList.SelectedIndex = 0;
             Button_Today_Click(null, null);
         }
         private void InitPage()
@@ -112,10 +102,6 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         {
             Helper.Events.PopUpEvent.OnShowPopUp(new Page_Warehouse_Product_BatchIn(3));
         }
-        private void Button_ClosePacking_Click(object sender, RoutedEventArgs e)
-        {
-            this.Grid_Packing.Visibility = System.Windows.Visibility.Collapsed;
-        }
 
         private void InitializeProductDataGrid()
         {
@@ -141,186 +127,15 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                 TotalNum += m.Quantity;
             }
             this.TextBox_TotalNum.Text = TotalNum.ToString();
-            //已包装
-            List<WarehouseProductNumModel> dnPack = new List<WarehouseProductNumModel>();
-            if (new ViewModel.Warehouse.WarehouseProductConsole().ReadPackingNumList(out dnPack, Search))
-            {
-                this.DataGrid_PackingNum.ItemsSource = dnPack;
-            }
         }
 
-        private void Button_Packed_Click(object sender, RoutedEventArgs e)
-        {
-            Guid ProductID;
-            if (this.ComboBox_ProductList.SelectedValue == null)
-            {
-                ProductID = SparePartsProductID;
-            }
-            else
-            {
-                ProductID = (Guid)this.ComboBox_ProductList.SelectedValue;
-            }
-            int PackedQuantity = 0;
-            int.TryParse(this.TextBox_PackQuantity.Text, out PackedQuantity);
-            int Quantity = 0;
-            int.TryParse(this.TextBox_Quantity.Text, out Quantity);
-            if (PackedQuantity == 0 || Quantity == 0)
-            {
-                this.Label_ShowPackWarnMessage.Content = "请输入包装件数";
-                this.TextBox_PackQuantity.Focus();
-                return;
-            }
-            if (new ViewModel.Warehouse.WarehouseProductConsole().Packing(ProductID, Quantity, PackedQuantity))
-            {
-                Stock -= Quantity;
-                this.ComboBox_ShowHistory.SelectedIndex = 0;
-                ComboBox_ShowHistory_DropDownClosed(null, null);
-                //InitializeProductDataGrid();
-                this.Grid_Packing.Visibility = System.Windows.Visibility.Collapsed;
-                this.TextBox_PackQuantity.Clear();
-                this.TextBox_Quantity.Clear();
-            }
-        }
-
-        private void TextBox_PackQuantity_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            this.Label_ShowPackWarnMessage.Content = "";
-            CountQuantity();
-        }
         int PerPackQuantity = 1;
-        private void ComboBox_ProductList_DropDownClosed(object sender, EventArgs e)
-        {
-            CountQuantity();
-        }
-        private void CountQuantity()
-        {
-            if (this.ComboBox_ProductList.SelectedValue == null)
-            {
-                //MessageBox.Show("该产品不存在产品库中","警告");
-                //this.Grid_Packing.Visibility = System.Windows.Visibility.Collapsed;
-                //return;
-                PerPackQuantity = new ViewModel.Warehouse.WarehouseProductConsole().ReadProductPackingNum(SparePartsProductID);
-            }
-            else
-            {
-                PerPackQuantity = new ViewModel.Warehouse.WarehouseProductConsole().ReadProductPackingNum((Guid)this.ComboBox_ProductList.SelectedValue);
-            }
-
-            this.Label_ShowPackMessage.Content = PerPackQuantity + "个/包";
-            int PackQuantity = 0;
-            int.TryParse(this.TextBox_PackQuantity.Text, out PackQuantity);
-            this.TextBox_Quantity.Text = (PackQuantity * PerPackQuantity).ToString();
-            if (Stock < PackQuantity * PerPackQuantity)
-            {
-                this.Label_ShowPackWarnMessage.Content = "库存不够包装";
-                this.Button_Packed.IsEnabled = false;
-            }
-            else if (PackQuantity == 0)
-            {
-                this.Button_Packed.IsEnabled = false;
-            }
-            else
-            {
-                this.Button_Packed.IsEnabled = true;
-            }
-        }
-
-        /// <summary>
-        /// DataGrid右键
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void DataGrid_Num_LoadingRow(object sender, DataGridRowEventArgs e)
-        {
-            e.Row.MouseRightButtonDown += (s, a) =>
-            {
-                a.Handled = true;
-                (sender as DataGrid).SelectedIndex = (s as DataGridRow).GetIndex();
-                (s as DataGridRow).Focus();
-                WarehouseProductNumModel d = this.DataGrid_Num.SelectedCells[0].Item as WarehouseProductNumModel;
-                //show Packing Grid
-                this.Label_ShowPackWarnMessage.Content = "";
-                this.Grid_Packing.Visibility = System.Windows.Visibility.Visible;
-                this.Grid_Outbound.Visibility = System.Windows.Visibility.Hidden;
-                this.ComboBox_ProductList.Text = d.ProductName;
-                SparePartsProductID = d.ProductID;
-                Stock = d.Quantity;
-                this.TextBox_PackQuantity.Focus();
-                CountQuantity();
-                if (Stock < PerPackQuantity)
-                {
-                    this.Label_ShowPackWarnMessage.Content = "库存不够包装";
-                }
-            };
-        }
 
         private void ComboBox_ShowHistory_DropDownClosed(object sender, EventArgs e)
         {
             InitializeProductDataGrid();
         }
 
-        private void DataGrid_PackingNum_LoadingRow(object sender, DataGridRowEventArgs e)
-        {
-            e.Row.MouseRightButtonDown += (s, a) =>
-            {
-                a.Handled = true;
-                (sender as DataGrid).SelectedIndex = (s as DataGridRow).GetIndex();
-                (s as DataGridRow).Focus();
-                WarehouseProductNumModel d = this.DataGrid_PackingNum.SelectedCells[0].Item as WarehouseProductNumModel;
-                //show Packing Grid
-                this.Label_ShowOutboundWarnMessage.Content = "";
-                this.Grid_Outbound.Visibility = System.Windows.Visibility.Visible;
-                this.Grid_Packing.Visibility = System.Windows.Visibility.Hidden;
-                this.ComboBox_ProductList_Outbound.Text = d.ProductName;
-                PackingProductID = d.ProductID;
-                PackStock = d.Quantity;
-                this.TextBox_Quantity_Outbound.Focus();
-            };
-        }
-        private void Button_Outbound_Click(object sender, RoutedEventArgs e)
-        {
-            Guid ProductID;
-            if (this.ComboBox_ProductList_Outbound.SelectedValue == null)
-            {
-                ProductID = PackingProductID;
-            }
-            else
-            {
-                ProductID = (Guid)this.ComboBox_ProductList_Outbound.SelectedValue;
-            }
-            int Quantity = 0;
-            int.TryParse(this.TextBox_Quantity_Outbound.Text, out Quantity);
-            if (new ViewModel.Warehouse.WarehouseProductConsole().Outbound(ProductID, Quantity))
-            {
-                this.ComboBox_ShowHistory.SelectedIndex = 3;
-                ComboBox_ShowHistory_DropDownClosed(null, null);
-                //InitializeProductDataGrid();
-                this.Grid_Outbound.Visibility = System.Windows.Visibility.Collapsed;
-            }
-        }
-        private void Button_CloseOutbound_Click(object sender, RoutedEventArgs e)
-        {
-            this.Grid_Outbound.Visibility = System.Windows.Visibility.Collapsed;
-        }
-        private void TextBox_Quantity_Outbound_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            this.Label_ShowOutboundWarnMessage.Content = "";
-            int Quantity = 0;
-            int.TryParse(this.TextBox_Quantity_Outbound.Text, out Quantity);
-            if (Quantity > PackStock)
-            {
-                this.Label_ShowOutboundWarnMessage.Content = "超出库存";
-                this.Button_Outbound.IsEnabled = false;
-            }
-            else if (Quantity == 0)
-            {
-                this.Button_Outbound.IsEnabled = false;
-            }
-            else
-            {
-                this.Button_Outbound.IsEnabled = true;
-            }
-        }
         private void Button_Today_Click(object sender, RoutedEventArgs e)
         {
             this.DatePicker_Start.SelectedDate = DateTime.Now;

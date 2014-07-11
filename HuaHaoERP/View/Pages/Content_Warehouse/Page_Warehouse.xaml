@@ -13,11 +13,10 @@
             <TabItem FocusVisualStyle="{x:Null}" Header="库存管理" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="7,0,-7,0" Foreground="White">
                 <Grid Background="White">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="2*" MinWidth="200" MaxWidth="380"/>
-                        <ColumnDefinition Width="2*" MinWidth="200" MaxWidth="380"/>
-                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="203*" MinWidth="200" MaxWidth="380"/>
+                        <ColumnDefinition Width="254*"/>
                     </Grid.ColumnDefinitions>
-                    <DataGrid x:Name="DataGrid_ProductDetails" Margin="0,70,10,10" BorderThickness="1" Grid.Column="2" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" IsReadOnly="True" SelectionMode="Single" AutoGenerateColumns="False">
+                    <DataGrid x:Name="DataGrid_ProductDetails" Margin="0,70,10,10" BorderThickness="1" Grid.Column="1" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" IsReadOnly="True" SelectionMode="Single" AutoGenerateColumns="False">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Guid" Visibility="Hidden" Binding="{Binding Guid}"/>
                             <DataGridTextColumn Header="序号" Binding="{Binding Id}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
@@ -29,59 +28,27 @@
                             <DataGridTextColumn Header="备注" Binding="{Binding Remark}"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <DataGrid x:Name="DataGrid_PackingNum" Margin="10,70,10,10" BorderThickness="1" IsReadOnly="True" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" HeadersVisibility="Column" VerticalGridLinesBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" AutoGenerateColumns="False" LoadingRow="DataGrid_PackingNum_LoadingRow" SelectionMode="Single">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="编号" Binding="{Binding ProductNumber}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                            <DataGridTextColumn Header="名称" Binding="{Binding ProductName}"/>
-                            <DataGridTextColumn Header="数量" Binding="{Binding Quantity}" MinWidth="50" ElementStyle="{DynamicResource TextBlockStyle_AlignRight}"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                    <DatePicker x:Name="DatePicker_Start" Grid.Column="2" HorizontalAlignment="Right" Margin="0,10,269,0" VerticalAlignment="Top" Width="100" Height="24"/>
-                    <Label Content="包装数量" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Padding="0,2" VerticalContentAlignment="Center" Height="24"/>
-                    <ComboBox x:Name="ComboBox_ShowHistory" FocusVisualStyle="{x:Null}" Grid.Column="2" HorizontalAlignment="Right" Margin="0,40,10,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" DropDownClosed="ComboBox_ShowHistory_DropDownClosed" ToolTip="全部不包括出库">
+                    <DatePicker x:Name="DatePicker_Start" Grid.Column="1" HorizontalAlignment="Right" Margin="0,10,269,0" VerticalAlignment="Top" Width="100" Height="24"/>
+                    <ComboBox x:Name="ComboBox_ShowHistory" FocusVisualStyle="{x:Null}" Grid.Column="1" HorizontalAlignment="Right" Margin="0,40,10,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" DropDownClosed="ComboBox_ShowHistory_DropDownClosed" ToolTip="全部不包括出库">
                         <ComboBoxItem Content="全部（散件）记录" IsSelected="True"/>
                         <ComboBoxItem Content="入库（散件）记录" />
                         <ComboBoxItem Content="包装（散件）记录" />
                         <ComboBoxItem Content="出库（包装）记录" />
                     </ComboBox>
-                    <DataGrid x:Name="DataGrid_Num" Grid.Column="1" Margin="0,70,10,40" HorizontalContentAlignment="Stretch" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" IsReadOnly="True" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False" AutoGenerateColumns="False" LoadingRow="DataGrid_Num_LoadingRow" SelectionMode="Single">
+                    <DataGrid x:Name="DataGrid_Num" Margin="10,70,10,40" HorizontalContentAlignment="Stretch" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" IsReadOnly="True" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False" AutoGenerateColumns="False" SelectionMode="Single">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="编号" Binding="{Binding ProductNumber}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                            <DataGridTextColumn Header="名称" Binding="{Binding ProductName}"/>
-                            <DataGridTextColumn Header="数量" Binding="{Binding Quantity}" MinWidth="50" ElementStyle="{DynamicResource TextBlockStyle_AlignRight}"/>
-                            <DataGridTextColumn Header="件数" Binding="{Binding PackageNum}" ElementStyle="{DynamicResource TextBlockStyle_AlignRight}"/>
+                            <DataGridTextColumn Header="名称" Binding="{Binding ProductName}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Header="数量" Binding="{Binding Quantity}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignRight}"/>
+                            <DataGridTextColumn Header="件数" Binding="{Binding PackageNum}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignRight}"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Label Content="散件数量" Grid.Column="1" HorizontalAlignment="Left" Margin="0,40,0,0" VerticalAlignment="Top" Padding="0,2" Height="24" VerticalContentAlignment="Center"/>
-                    <DatePicker x:Name="DatePicker_End" Grid.Column="2" HorizontalAlignment="Right" Margin="0,10,145,0" VerticalAlignment="Top" Width="100" Height="24"/>
-                    <Label Content="至" Grid.Column="2" HorizontalAlignment="Right" Margin="0,10,245,0" VerticalAlignment="Top"/>
-                    <Grid x:Name="Grid_Packing" Grid.Column="2" HorizontalAlignment="Left" Height="210" Margin="0,70,0,0" VerticalAlignment="Top" Width="190" Background="White">
-                        <Grid.Effect>
-                            <DropShadowEffect ShadowDepth="0"/>
-                        </Grid.Effect>
-                        <Button FocusVisualStyle="{x:Null}" x:Name="Button_ClosePacking" Content="×" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Top" Width="24" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="20" Foreground="White" Click="Button_ClosePacking_Click"/>
-                        <Button FocusVisualStyle="{x:Null}" x:Name="Button_Packed" Content="包装" HorizontalAlignment="Center" Margin="58,175,58,0" Width="74" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" VerticalAlignment="Top" Click="Button_Packed_Click" Focusable="False"/>
-                        <ComboBox x:Name="ComboBox_ProductList" HorizontalAlignment="Center" Margin="0,32,0,0" VerticalAlignment="Top" Width="120" Height="24" IsEditable="True" VerticalContentAlignment="Center" DropDownClosed="ComboBox_ProductList_DropDownClosed"/>
-                        <TextBox x:Name="TextBox_PackQuantity" HorizontalAlignment="Center" Height="24" Margin="35,87,35,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextChanged="TextBox_PackQuantity_TextChanged"/>
-                        <TextBox x:Name="TextBox_Quantity" HorizontalAlignment="Center" Height="24" Margin="35,123,35,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-                        <Label x:Name="Label_ShowPackMessage" Content="Label" HorizontalAlignment="Right" Margin="0,56,35,0" VerticalAlignment="Top" Padding="0,5"/>
-                        <Label x:Name="Label_ShowPackWarnMessage" Content="Label" HorizontalAlignment="Center" Margin="0,147,0,0" VerticalAlignment="Top" Padding="0,5" Width="120" HorizontalContentAlignment="Center" Foreground="Red"/>
-                    </Grid>
-                    <Grid x:Name="Grid_Outbound" Grid.Column="1" HorizontalAlignment="Left" Height="210" Margin="0,70,0,0" VerticalAlignment="Top" Width="180" Background="White">
-                        <Grid.Effect>
-                            <DropShadowEffect ShadowDepth="0"/>
-                        </Grid.Effect>
-                        <Button FocusVisualStyle="{x:Null}" x:Name="Button_CloseOutbound" Content="×" HorizontalAlignment="Right" VerticalAlignment="Top" Width="24" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="20" Foreground="White" Click="Button_CloseOutbound_Click"/>
-                        <Button FocusVisualStyle="{x:Null}" x:Name="Button_Outbound" Content="出库" HorizontalAlignment="Center" Margin="0,175,0,0" VerticalAlignment="Top" Width="74" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_Outbound_Click" Focusable="False"/>
-                        <ComboBox x:Name="ComboBox_ProductList_Outbound" HorizontalAlignment="Center" Margin="0,32,0,0" VerticalAlignment="Top" Width="120" IsEditable="True" Height="24" VerticalContentAlignment="Center"/>
-                        <TextBox x:Name="TextBox_Quantity_Outbound" HorizontalAlignment="Center" Height="24" Margin="0,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextChanged="TextBox_Quantity_Outbound_TextChanged"/>
-                        <Label x:Name="Label_ShowOutboundWarnMessage" Content="Label" HorizontalAlignment="Left" Margin="30,144,0,0" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="Red"/>
-                    </Grid>
-                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_Today" Content="今天" Grid.Column="2" HorizontalAlignment="Right" Margin="0,10,90,0" VerticalAlignment="Top" Width="50" Height="24" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Click="Button_Today_Click" Focusable="False"/>
-                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_AllDate" Content="全日期" Grid.Column="2" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Height="24" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Click="Button_AllDate_Click" Focusable="False"/>
-                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_SparepartsIn" Content="入库" Grid.Column="1" HorizontalAlignment="Right" Margin="0,40,10,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_SparepartsIn_Click" Focusable="False"/>
-                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_PackingIn" Content="包装" HorizontalAlignment="Right" Margin="0,40,10,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_PackingIn_Click" Focusable="False"/>
-                    <TextBox x:Name="TextBox_Search" Height="24" Margin="10,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.ColumnSpan="2" Loaded="TextBox_Search_Loaded" PreviewKeyUp="TextBox_Search_PreviewKeyUp">
+                    <DatePicker x:Name="DatePicker_End" Grid.Column="1" HorizontalAlignment="Right" Margin="0,10,145,0" VerticalAlignment="Top" Width="100" Height="24"/>
+                    <Label Content="至" Grid.Column="1" HorizontalAlignment="Right" Margin="0,10,245,0" VerticalAlignment="Top"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_Today" Content="今天" Grid.Column="1" HorizontalAlignment="Right" Margin="0,10,90,0" VerticalAlignment="Top" Width="50" Height="24" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Click="Button_Today_Click" Focusable="False"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_AllDate" Content="全日期" Grid.Column="1" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Height="24" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Click="Button_AllDate_Click" Focusable="False"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_SparepartsIn" Content="入库" HorizontalAlignment="Right" Margin="0,40,10,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_SparepartsIn_Click" Focusable="False"/>
+                    <TextBox x:Name="TextBox_Search" Height="24" Margin="10,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Loaded="TextBox_Search_Loaded" PreviewKeyUp="TextBox_Search_PreviewKeyUp">
                         <TextBox.Resources>
                             <VisualBrush x:Key="HelpBrush" TileMode="None" Opacity="0.3" Stretch="None" AlignmentX="Left">
                                 <VisualBrush.Visual>
@@ -102,11 +69,11 @@
                             </Style>
                         </TextBox.Style>
                     </TextBox>
-                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_PackingOut" Content="出库" HorizontalAlignment="Right" Margin="0,40,65,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_PackingOut_Click" Focusable="False"/>
-                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_SparepartsOut" Content="出库" HorizontalAlignment="Right" Margin="0,40,65,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Grid.Column="1" Click="Button_SparepartsOut_Click" Focusable="False"/>
-                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_BatchHistory" Content="批量记录" Grid.Column="2" HorizontalAlignment="Left" Margin="0,40,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_BatchHistory_Click" Focusable="False"/>
-                    <Label Content="数量统计：" Grid.Column="1" HorizontalAlignment="Left" Margin="0,0,0,10" VerticalAlignment="Bottom" Height="24" VerticalContentAlignment="Center" Padding="0"/>
-                    <TextBox x:Name="TextBox_TotalNum" Grid.Column="1" Height="23" Margin="70,0,10,10" TextWrapping="Wrap" Text="0" VerticalAlignment="Bottom" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderThickness="0,0,0,1" IsReadOnly="True"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_PackingOut" Content="出库" HorizontalAlignment="Right" Margin="0,40,136,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_PackingOut_Click" Focusable="False"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_SparepartsOut" Content="出库" HorizontalAlignment="Right" Margin="0,40,65,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_SparepartsOut_Click" Focusable="False"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_BatchHistory" Content="批量记录" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_BatchHistory_Click" Focusable="False"/>
+                    <Label Content="数量统计：" HorizontalAlignment="Left" Margin="203,0,0,10" VerticalAlignment="Bottom" Height="24" VerticalContentAlignment="Center" Padding="0"/>
+                    <TextBox x:Name="TextBox_TotalNum" Height="23" Margin="273,0,10,10" TextWrapping="Wrap" Text="0" VerticalAlignment="Bottom" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderThickness="0,0,0,1" IsReadOnly="True"/>
                 </Grid>
             </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="原料管理" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="17,0,-17,0" Foreground="White">
