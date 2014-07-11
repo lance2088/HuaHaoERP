@@ -20,7 +20,7 @@
         <DataGrid x:Name="DataGrid_BatchInput" Margin="10,70,10,60" Grid.ColumnSpan="2" CellStyle="{DynamicResource DataGridCellStyleCommon}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" SelectionMode="Single" SelectionUnit="Cell" HeadersVisibility="Column" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" AutoGenerateColumns="False" BorderBrush="#FF99CCFF" PreviewKeyDown="DataGrid_BatchInput_PreviewKeyDown" CellEditEnding="DataGrid_BatchInput_CellEditEnding" CanUserAddRows="False" CanUserResizeRows="False" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" CanUserDeleteRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="产品编号" Binding="{Binding ProductNumber}"/>
-                <DataGridTextColumn Header="产品名称" Binding="{Binding ProductName}" IsReadOnly="True">
+                <DataGridTextColumn Header="产品名称" Binding="{Binding ProductName}" IsReadOnly="True" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}">
                     <DataGridTextColumn.CellStyle>
                         <Style TargetType="DataGridCell">
                             <Setter Property="Background" Value="{StaticResource clBr}" />
@@ -29,16 +29,16 @@
                 </DataGridTextColumn>
                 <DataGridTextColumn Header="工序" Binding="{Binding Process}"/>
                 <DataGridTextColumn Header="员工编号" Binding="{Binding StaffNumber}"/>
-                <DataGridTextColumn Header="员工名称" Binding="{Binding StaffName}" IsReadOnly="True">
+                <DataGridTextColumn Header="员工名称" Binding="{Binding StaffName}" IsReadOnly="True" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}">
                     <DataGridTextColumn.CellStyle>
                         <Style TargetType="DataGridCell">
                             <Setter Property="Background" Value="{StaticResource clBr}" />
                         </Style>
                     </DataGridTextColumn.CellStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="数量" Binding="{Binding Quantity}"/>
-                <DataGridTextColumn Header="损坏" Binding="{Binding Injure}"/>
-                <DataGridTextColumn Header="产品工序" Binding="{Binding ProcessListStr}" IsReadOnly="True" MinWidth="150">
+                <DataGridTextColumn Header="数量" Binding="{Binding Quantity}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn Header="损坏" Binding="{Binding Injure}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn Header="产品工序" Binding="{Binding ProcessListStr}" IsReadOnly="True" MinWidth="150" ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}">
                     <DataGridTextColumn.CellStyle>
                         <Style TargetType="DataGridCell">
                             <Setter Property="Background" Value="{StaticResource clBr}" />
