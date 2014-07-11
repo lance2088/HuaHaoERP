@@ -471,6 +471,7 @@
     <None Include="Sign.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="View\Resources\Images\MainBackground.jpg" />
     <Resource Include="View\Resources\Ico\In.png" />
     <Resource Include="View\Resources\Ico\Out.png" />
     <None Include="安装说明.txt">
@@ -479,7 +480,6 @@
     <None Include="更新说明.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <Resource Include="View\Resources\Images\MainBackground.jpg" />
     <Resource Include="View\Resources\Images\stoneantLogo.png" />
     <Resource Include="View\Resources\Images\MaxMinCloseButtonPic\Close.png" />
     <Resource Include="View\Resources\Images\MaxMinCloseButtonPic\CloseAct.png" />

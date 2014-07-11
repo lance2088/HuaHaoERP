@@ -6,15 +6,39 @@
         <Grid.Background>
             <ImageBrush ImageSource="/HuaHaoERP;component/View/Resources/Images/MainBackground.jpg" TileMode="FlipXY"/>
         </Grid.Background>
-        <Button FocusVisualStyle="{x:Null}" x:Name="Button_Login" Content="登陆" HorizontalAlignment="Left" Margin="365,199,0,0" VerticalAlignment="Top" Width="75" Click="Button_Login_Click" IsDefault="True" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White"/>
+        <Button FocusVisualStyle="{x:Null}" x:Name="Button_Login" Content="登陆" HorizontalAlignment="Left" Margin="365,199,0,0" VerticalAlignment="Top" Width="75" Click="Button_Login_Click" IsDefault="True" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White">
+            <Button.Effect>
+                <DropShadowEffect Color="#FF9A9A9A"/>
+            </Button.Effect>
+        </Button>
         <Button x:Name="Button_Close" Content="X" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top" Width="28" Height="20" Click="Button_Close_Click" Template="{DynamicResource ButtonControlTemplate_CloseButton}" Focusable="False"/>
-        <TextBox x:Name="TextBox_LoginUserName" HorizontalAlignment="Left" Height="24" Margin="290,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" VerticalContentAlignment="Center" FontSize="14" PreviewKeyDown="TextBox_LoginUserName_PreviewKeyDown"/>
-        <PasswordBox x:Name="PasswordBox_LoginPassword" HorizontalAlignment="Left" Margin="290,130,0,0" VerticalAlignment="Top" Width="150" Height="24" VerticalContentAlignment="Center" FontSize="14"/>
+        <TextBox x:Name="TextBox_LoginUserName" HorizontalAlignment="Left" Height="24" Margin="290,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" VerticalContentAlignment="Center" FontSize="14" PreviewKeyDown="TextBox_LoginUserName_PreviewKeyDown">
+            <TextBox.Effect>
+                <DropShadowEffect Color="#FF9A9A9A"/>
+            </TextBox.Effect>
+        </TextBox>
+        <PasswordBox x:Name="PasswordBox_LoginPassword" HorizontalAlignment="Left" Margin="290,130,0,0" VerticalAlignment="Top" Width="150" Height="24" VerticalContentAlignment="Center" FontSize="14">
+            <PasswordBox.Effect>
+                <DropShadowEffect Color="#FF9A9A9A"/>
+            </PasswordBox.Effect>
+        </PasswordBox>
         <Image HorizontalAlignment="Left" Height="105" Margin="68,65,0,0" VerticalAlignment="Top" Width="105" Source="/HuaHaoERP;component/View/Resources/Images/Pyramid_Logo_white_128x128.png"/>
         <Label x:Name="Label_Message" Content="" HorizontalAlignment="Left" Margin="290,159,0,0" VerticalAlignment="Top" Foreground="White" Padding="1,0,0,0" Width="150" VerticalContentAlignment="Center" Height="24" FontSize="14"/>
-        <Label Content="用户名" HorizontalAlignment="Left" Margin="233,80,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14" Padding="5,0" Height="24" VerticalContentAlignment="Center"/>
-        <Label Content="密　码" HorizontalAlignment="Left" Margin="233,130,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="24" Padding="5,0"/>
-        <Label Content="金字塔企业管理系统" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16" FontWeight="Bold"/>
+        <Label Content="用户名" HorizontalAlignment="Left" Margin="233,80,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14" Padding="5,0" Height="24" VerticalContentAlignment="Center">
+            <Label.Effect>
+                <DropShadowEffect/>
+            </Label.Effect>
+        </Label>
+        <Label Content="密　码" HorizontalAlignment="Left" Margin="233,130,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="24" Padding="5,0">
+            <Label.Effect>
+                <DropShadowEffect/>
+            </Label.Effect>
+        </Label>
+        <Label Content="金字塔企业管理系统" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16" FontWeight="Bold">
+            <Label.Effect>
+                <DropShadowEffect/>
+            </Label.Effect>
+        </Label>
 
     </Grid>
 </Window>
