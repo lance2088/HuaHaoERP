@@ -94,6 +94,10 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                     dp.BreakNum = Break;
                     if (new ViewModel.ProductionManagement.AssemblyLineModuleConsole().Add(dp))
                     {
+                        if (dp.Process == d.ProcessList[d.ProcessList.Count - 1].Process)
+                        {
+                            Button_Storage_Click(null, null);
+                        }
                         InitializeData();
                     }
                 }

@@ -113,7 +113,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         private void Button_Commit_Click(object sender, RoutedEventArgs e)
         {
             bool flag = false;
-            DateTime date = (DateTime)this.DatePicker_InsertDate.SelectedDate;
+            DateTime date = (DateTime)this.DatePicker_InsertDate.SelectedDate + DateTime.Now.TimeOfDay;
             string Number = this.TextBox_Number.Text;
             string Remark = this.TextBox_Remark.Text;
             bool IsInitInput = (bool)this.CheckBox_InitInput.IsChecked;

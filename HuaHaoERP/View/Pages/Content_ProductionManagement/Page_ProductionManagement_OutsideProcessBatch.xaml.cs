@@ -118,7 +118,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void Button_Commit_Click(object sender, RoutedEventArgs e)
         {
-            DateTime date = (DateTime)this.DatePicker_InsertDate.SelectedDate;
+            DateTime date = (DateTime)this.DatePicker_InsertDate.SelectedDate + DateTime.Now.TimeOfDay;
             string Number = this.TextBox_Number.Text;
             string Remark = this.TextBox_Remark.Text;
             if (ProcessorsGuid == new Guid())
@@ -289,7 +289,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                     i++;
                     if (OrderIndex + i >= Helper.DataDefinition.CommonParameters.OrderNoList.Count)
                     {
-                        MessageBox.Show("已到最后一单","提示");
+                        MessageBox.Show("已到最后一单", "提示");
                         return;
                     }
                     NextOrder = Helper.DataDefinition.CommonParameters.OrderNoList[OrderIndex + i];

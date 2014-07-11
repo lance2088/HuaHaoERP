@@ -56,6 +56,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 }
             };
         }
+
         private void InitializeData()
         {
             foreach (Guid str in Helper.DataDefinition.CommonParameters.AssemblyLineModuleShow)
@@ -126,13 +127,11 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void Button_AddProcessOut_Click(object sender, RoutedEventArgs e)
         {
-            //PopUpEvent.OnShowPopUp(new Page_ProductionManagement_OutsideProcess(true));
             PopUpEvent.OnShowPopUp(new Page_ProductionManagement_OutsideProcessBatch(true));
         }
 
         private void Button_AddProcessIn_Click(object sender, RoutedEventArgs e)
         {
-            //PopUpEvent.OnShowPopUp(new Page_ProductionManagement_OutsideProcess(false));
             PopUpEvent.OnShowPopUp(new Page_ProductionManagement_OutsideProcessBatch(false));
         }
 
@@ -432,7 +431,11 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void Button_AllInWarehouse_Click(object sender, RoutedEventArgs e)
         {
-            new ViewModel.ProductionManagement.AssemblyLineModuleConsole().AllInStorage();
+            if (new ViewModel.ProductionManagement.AssemblyLineModuleConsole().AllInStorage())
+            {
+                Helper.Events.ProductionManagement_AssemblyLineEvent.OnUpdateDataGrid();
+                MessageBox.Show("全部入库成功。", "信息");
+            }
         }
 
     }

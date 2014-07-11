@@ -190,12 +190,35 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
         {
             List<int> i = new List<int>();
             DataSet ds = new DataSet();
-            string QuerySQL = "Select ProductID,Total(Number) from T_PM_ProductionSchedule Where DeleteMark ISNULL AND Process='抛光' Group By ProductID";
+            List<string> sqls = new List<string>();
+            string DateStr = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            string QuerySQL = ""
+                + " Select ProductID,total(Num) from "
+                + " ( "
+                + " Select ProductID,Total(Number) as Num from T_PM_ProductionSchedule Where DeleteMark ISNULL AND Process='抛光' Group By ProductID "
+                + " UNION "
+                + " Select ProductID,Total(quantity) from T_PM_ProcessSchedule Where DeleteMark ISNULL AND OrderType='入单' Group By ProductID "
+                + " ) "
+                + " GROUP BY ProductID "
+                ;
             if (new Helper.SQLite.DBHelper().QueryData(QuerySQL, out ds))
             {
-
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    int Num = int.Parse(dr["total(Num)"].ToString());
+                    if (Num > 0)
+                    {
+                        sqls.Add("Insert Into T_PM_ProductionSchedule(Guid,Date,StaffID,ProductID,Process,Number,Remark) "
+                            + "values('" + Guid.NewGuid() + "','" + DateStr + "','" + new Guid() + "','" + (Guid)dr["ProductID"] + "','抛光'," + -Num + ",'全部入库')");
+                        sqls.Add("Insert Into T_Warehouse_Product(Guid,ProductID,Date,Operator,Quantity,Remark) "
+                            + "values('" + Guid.NewGuid() + "','" + (Guid)dr["ProductID"] + "','" + DateStr + "','" + Helper.DataDefinition.CommonParameters.RealName + "'," + Num + ",'全部入库')");
+                    }
+                }
             }
-
+            if (sqls.Count > 0)
+            {
+                return new Helper.SQLite.DBHelper().Transaction(sqls);
+            }
             return false;
         }
     }
