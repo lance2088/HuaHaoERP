@@ -196,7 +196,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                 + " Select ProductID,total(Num) from "
                 + " ( "
                 + " Select ProductID,Total(Number) as Num from T_PM_ProductionSchedule Where DeleteMark ISNULL AND Process='抛光' Group By ProductID "
-                + " UNION "
+                + " UNION ALL "
                 + " Select ProductID,Total(quantity) from T_PM_ProcessSchedule Where DeleteMark ISNULL AND OrderType='入单' Group By ProductID "
                 + " ) "
                 + " GROUP BY ProductID "
