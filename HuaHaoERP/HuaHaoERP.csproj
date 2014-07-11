@@ -471,6 +471,8 @@
     <None Include="Sign.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="View\Resources\Ico\In.png" />
+    <Resource Include="View\Resources\Ico\Out.png" />
     <None Include="安装说明.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
