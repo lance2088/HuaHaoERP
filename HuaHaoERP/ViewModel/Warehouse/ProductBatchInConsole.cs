@@ -74,7 +74,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
             {
                 if (m.Guid != new Guid())
                 {
-                    if (!isOut && !IsInitInput)
+                    if (!IsInitInput)
                     {
                         //扣散件
                         sqls.Add("Insert into T_Warehouse_Product(Guid,ProductID,Date,Operator,Quantity,Remark,Obligate1) "

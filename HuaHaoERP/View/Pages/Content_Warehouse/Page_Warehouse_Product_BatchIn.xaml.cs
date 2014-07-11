@@ -185,7 +185,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                 data[data.IndexOf(model)].AllQuantity = data[data.IndexOf(model)].PackQuantity * data[data.IndexOf(model)].PerQuantity;
                 if (data[data.IndexOf(model)].AllQuantity > data[data.IndexOf(model)].TotalParts)
                 {
-                    MessageBox.Show("包装总数不能大于散件总数","警告");
+                    MessageBox.Show("包装总数不能大于散件总数", "警告");
                     (e.EditingElement as TextBox).Text = "0";
                     DataGrid.CurrentCell = new DataGridCellInfo(SelectItem, DataGrid.Columns[3]);
                 }

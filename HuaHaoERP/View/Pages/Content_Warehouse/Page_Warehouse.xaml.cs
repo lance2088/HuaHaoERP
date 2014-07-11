@@ -18,19 +18,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         private ScrapConsole sc = new ScrapConsole();
         private RawMaterialsConsole rmc = new RawMaterialsConsole();
         private ScrapModel m = new ScrapModel();
-        /// <summary>
-        /// 库存
-        /// </summary>
-        int Stock = 0;
         int PackStock = 0;//包装后库存
-        /// <summary>
-        /// 右键点击出库DataGrid时，存储该行的产品Guid
-        /// </summary>
-        Guid PackingProductID = new Guid();
-        /// <summary>
-        /// 右键点击散件DataGrid时，存储该行的产品Guid
-        /// </summary>
-        Guid SparePartsProductID = new Guid();
 
         public Page_Warehouse()
         {
@@ -75,15 +63,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         {
             InitializeProductDataGrid();
         }
-        /// <summary>
-        /// 包装录入按钮Click
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Button_PackingIn_Click(object sender, RoutedEventArgs e)
-        {
-            Helper.Events.PopUpEvent.OnShowPopUp(new Page_Warehouse_Product_BatchIn(0));
-        }
+
         /// <summary>
         /// 散件录入按钮Click
         /// </summary>
@@ -93,6 +73,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         {
             Helper.Events.PopUpEvent.OnShowPopUp(new Page_Warehouse_Product_BatchIn(1));
         }
+
         private void Button_PackingOut_Click(object sender, RoutedEventArgs e)
         {
             Helper.Events.PopUpEvent.OnShowPopUp(new Page_Warehouse_Product_BatchIn(2));
@@ -122,14 +103,12 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                 this.DataGrid_Num.ItemsSource = dn;
             }
             int TotalNum = 0;
-            foreach(WarehouseProductNumModel m in dn)
+            foreach (WarehouseProductNumModel m in dn)
             {
                 TotalNum += m.Quantity;
             }
             this.TextBox_TotalNum.Text = TotalNum.ToString();
         }
-
-        int PerPackQuantity = 1;
 
         private void ComboBox_ShowHistory_DropDownClosed(object sender, EventArgs e)
         {
@@ -353,16 +332,6 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         }
 
         #endregion
-
-
-
-
-
-
-
-
-
-
 
     }
 }
