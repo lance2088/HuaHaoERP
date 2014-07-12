@@ -13,27 +13,22 @@ namespace HuaHaoERP.ViewModel.Warehouse
         /// <param name="list"></param>
         /// <param name="bol"></param>
         /// <returns></returns>
-        internal bool AddByBatch(List<Model.RawMaterialsDetailModel> list,bool bol)
+        internal bool AddByBatch(List<Model.RawMaterialsDetailModel> list, bool bol)
         {
             List<string> sqlList = new List<string>();
-            string tag = bol?"":"-";
+            string tag = bol ? "" : "-";
             foreach (RawMaterialsDetailModel d in list)
             {
-                string sql = "Insert into T_Warehouse_RawMaterials(Guid,RawMaterialsID,Date,Operator,Number,Remark,Type) "
+                if(d.RawMaterialsID != new Guid())
+                {
+                    string sql = "Insert into T_Warehouse_RawMaterials(Guid,RawMaterialsID,Date,Operator,Number,Remark,Type) "
                         + "values('" + Guid.NewGuid() + "','" + d.RawMaterialsID + "','" + DateTime.Parse(d.Date).ToString("yyyy-MM-dd") + " " + DateTime.Now.ToString("T") + "','" + d.Operator + "','" + tag + d.Number + "','" + d.Remark + "','" + d.Type + "')";
-                sqlList.Add(sql);
-               
+                    sqlList.Add(sql);
+                }
             }
             return new Helper.SQLite.DBHelper().Transaction(sqlList);
         }
 
-        internal bool IsCodeExist(string Code)
-        {
-            string sql = "select count(1) from T_ProductInfo_RawMaterials where number='" + Code + "'";
-            object result = new object();
-            new Helper.SQLite.DBHelper().QuerySingleResult(sql, out result);
-            return result.ToString().Equals("0") ? false : true;
-        }
         internal bool ReadList(out List<RawMaterialsDetailModel> data)
         {
             bool flag = true;
@@ -61,7 +56,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
         internal bool ReadRecordList(string Type, out List<RawMaterialsDetailModel> data)
         {
             string sql_Where = "";
-            if(!Type.StartsWith("全部"))
+            if (!Type.StartsWith("全部"))
             {
                 sql_Where += " Where a.Type='" + Type + "' ";
             }
@@ -98,19 +93,34 @@ namespace HuaHaoERP.ViewModel.Warehouse
             return flag;
         }
 
-        internal string GetName(string number)
-        {
-            string sql = "select Name From T_ProductInfo_RawMaterials Where Number='" + number + "' and DeleteMark is null order by AddTime";
-            object obj = new object();
-            new Helper.SQLite.DBHelper().QuerySingleResult(sql, out obj);
-            return obj.ToString();
-        }
         internal Guid GetGuid(string number)
         {
             string sql = "select Guid From T_ProductInfo_RawMaterials Where Number='" + number + "' and DeleteMark is null order by AddTime";
             object obj = new object();
             new Helper.SQLite.DBHelper().QuerySingleResult(sql, out obj);
             return Guid.Parse(obj.ToString());
+        }
+
+        /// <summary>
+        /// Lugia
+        /// 获取原料信息
+        /// </summary>
+        /// <param name="Number"></param>
+        /// <returns></returns>
+        internal RawMaterialsDetailModel GetRawMaterialsInfo(string Number)
+        {
+            RawMaterialsDetailModel m = new RawMaterialsDetailModel();
+            string sql = "Select Guid,Name From T_ProductInfo_RawMaterials Where Number='" + Number + "' AND DeleteMark ISNULL";
+            DataSet ds = new DataSet();
+            if (new Helper.SQLite.DBHelper().QueryData(sql, out ds))
+            {
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    m.RawMaterialsID = (Guid)dr["Guid"];
+                    m.Name = dr["Name"].ToString();
+                }
+            }
+            return m;
         }
     }
 }

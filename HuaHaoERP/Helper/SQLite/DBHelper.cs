@@ -98,6 +98,7 @@ namespace HuaHaoERP.Helper.SQLite
             }
             return flag;
         }
+
         internal bool Transaction(string[] sqls)
         {
             bool flag = false;

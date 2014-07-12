@@ -1,50 +1,51 @@
 ﻿using System;
+using System.ComponentModel;
 
 namespace HuaHaoERP.Model
 {
-    class RawMaterialsDetailModel
+    class RawMaterialsDetailModel : INotifyPropertyChanged
     {
         private Guid guid;
 
         public Guid Guid
         {
             get { return guid; }
-            set { guid = value; }
+            set { guid = value; NotifyPropertyChanged("Guid"); }
         }
         private int id;
 
         public int Id
         {
             get { return id; }
-            set { id = value; }
+            set { id = value; NotifyPropertyChanged("Id"); }
         }
         private decimal number;
 
         public decimal Number
         {
             get { return number; }
-            set { number = value; }
+            set { number = value; NotifyPropertyChanged("Number"); }
         }
         private string name;
 
         public string Name
         {
             get { return name; }
-            set { name = value; }
+            set { name = value; NotifyPropertyChanged("Name"); }
         }
         private Guid rawMaterialsID;
 
         public Guid RawMaterialsID
         {
             get { return rawMaterialsID; }
-            set { rawMaterialsID = value; }
+            set { rawMaterialsID = value; NotifyPropertyChanged("RawMaterialsID"); }
         }
         private string weight;
 
         public string Weight
         {
             get { return weight; }
-            set { weight = value; }
+            set { weight = value; NotifyPropertyChanged("Weight"); }
         }
 
         private string remark;
@@ -52,7 +53,7 @@ namespace HuaHaoERP.Model
         public string Remark
         {
             get { return remark; }
-            set { remark = value; }
+            set { remark = value; NotifyPropertyChanged("Remark"); }
         }
 
         private string date;
@@ -60,7 +61,7 @@ namespace HuaHaoERP.Model
         public string Date
         {
             get { return date; }
-            set { date = value; }
+            set { date = value; NotifyPropertyChanged("Date"); }
         }
 
         private string optor;
@@ -68,7 +69,7 @@ namespace HuaHaoERP.Model
         public string Operator
         {
             get { return optor; }
-            set { optor = value; }
+            set { optor = value; NotifyPropertyChanged("Operator"); }
         }
 
         private string amount;
@@ -76,7 +77,7 @@ namespace HuaHaoERP.Model
         public string Amount
         {
             get { return amount; }
-            set { amount = value; }
+            set { amount = value; NotifyPropertyChanged("Amount"); }
         }
 
         private string code;
@@ -84,7 +85,7 @@ namespace HuaHaoERP.Model
         public string Code
         {
             get { return code; }
-            set { code = value; }
+            set { code = value; NotifyPropertyChanged("Code"); }
         }
 
         private string type;
@@ -92,7 +93,29 @@ namespace HuaHaoERP.Model
         public string Type
         {
             get { return type; }
-            set { type = value; }
+            set { type = value; NotifyPropertyChanged("Type"); }
         }
+
+        #region INotifyPropertyChanged Members
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        #endregion
+
+        #region Private Helpers
+
+        /// <summary>
+        /// cell内容改变事件
+        /// </summary>
+        /// <param name="propertyName"></param>
+        private void NotifyPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+        #endregion
     }
 }

@@ -13,75 +13,31 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
     public partial class Page_Warehouse_RawMaterials : Page
     {
         private ViewModel.Warehouse.RawMaterialsConsole vmc = new RawMaterialsConsole();
-        private List<RawMaterialsDetailModel> rawMaterials = new List<RawMaterialsDetailModel>();
-        private List<RawMaterialsDetailModel> commitResultList = new List<RawMaterialsDetailModel>();
+        private List<RawMaterialsDetailModel> data = new List<RawMaterialsDetailModel>();
         public Page_Warehouse_RawMaterials()
         {
             InitializeComponent();
-            DataGrid_RawMaterials.LoadingRow += new EventHandler<DataGridRowEventArgs>(DataGrid_RawMaterials_LoadingRow);
-            rawMaterials = new List<RawMaterialsDetailModel>();
+            data = new List<RawMaterialsDetailModel>();
             for (int i = 0; i < 18; i++)
             {
                 RawMaterialsDetailModel m = new RawMaterialsDetailModel();
                 m.Id = i + 1;
                 m.Date = DateTime.Now.ToString("yyyy.MM.dd");
                 m.Operator = Helper.DataDefinition.CommonParameters.RealName;
-                rawMaterials.Add(m);
+                m.RawMaterialsID = new Guid();
+                m.Type = "入库";
+                data.Add(m);
             }
-            DataGrid_RawMaterials.ItemsSource = rawMaterials;
+            DataGrid_RawMaterials.ItemsSource = data;
         }
 
-        private void DataGrid_RawMaterials_LoadingRow(object sender, DataGridRowEventArgs e)
-        {
-            e.Row.Header = e.Row.GetIndex() + 1;
-        }
-        private bool Validate()
-        {
-            commitResultList.Clear();
-            List<RawMaterialsDetailModel> list = new List<RawMaterialsDetailModel>();
-            list = DataGrid_RawMaterials.ItemsSource as List<RawMaterialsDetailModel>;
-            foreach (RawMaterialsDetailModel m in list)
-            {
-                if (string.IsNullOrEmpty(m.Code))
-                {
-                    //MessageBox.Show("第" + m.Id + "行原材料编号为空！");
-                    //return false;
-                }
-                else
-                {
-                    if (!vmc.IsCodeExist(m.Code))
-                    {
-                        MessageBox.Show("第" + m.Id + "行原材料编号不存在系统中，请检查！");
-                        return false;
-                    }
-                    else if (m.Number == 0)
-                    {
-                        MessageBox.Show("第" + m.Id + "行数量为0，请检查！");
-                        return false;
-                    }
-                    else
-                    {
-                        m.RawMaterialsID = vmc.GetGuid(m.Code);
-                        m.Type = "入库";
-                        commitResultList.Add(m);
-                    }
-                }
-            }
-            return true;
-        }
         private void Button_Commit_Click(object sender, RoutedEventArgs e)
         {
-            if (Validate())
+            bool flag = new ViewModel.Warehouse.RawMaterialsConsole().AddByBatch(data, true);
+            if (flag)
             {
-                if (commitResultList.Count != 0)
-                {
-                    bool flag = new ViewModel.Warehouse.RawMaterialsConsole().AddByBatch(commitResultList, true);
-                    if (flag)
-                    {
-                        WarehouseRawMaterialsEvent.OnUpdateDataGrid();
-                        Helper.Events.PopUpEvent.OnHidePopUp();
-                    }
-                }
+                WarehouseRawMaterialsEvent.OnUpdateDataGrid();
+                Helper.Events.PopUpEvent.OnHidePopUp();
             }
         }
 
@@ -89,28 +45,27 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         {
             Helper.Events.PopUpEvent.OnHidePopUp();
         }
-        string preValue = "";
-        private void DataGrid_RawMaterials_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
-        {
-            preValue = (e.Column.GetCellContent(e.Row) as TextBlock).Text;
-        }
 
-        int rowid = 0;
         private void DataGrid_RawMaterials_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
+            RawMaterialsDetailModel model = this.DataGrid_RawMaterials.SelectedCells[0].Item as RawMaterialsDetailModel;
             string newValue = (e.EditingElement as TextBox).Text;
-            string headerValue = e.Column.Header.ToString();
-            rowid = e.Row.GetIndex() + 1;
-            if (!preValue.Equals(newValue))
+            string HeaderStr = e.Column.Header.ToString();
+            if (HeaderStr.Equals("原材料编号"))
             {
-                if (headerValue.Equals("原材料编号"))
+                RawMaterialsDetailModel m = vmc.GetRawMaterialsInfo(newValue);
+                if (m.RawMaterialsID != new Guid())
                 {
-                    string result = vmc.GetName(newValue);
-                    if (result.Equals(new object().ToString()))
-                    {
-                        result = "";
-                    }
-                    (DataGrid_RawMaterials.Columns[2].GetCellContent(DataGrid_RawMaterials.Items[e.Row.GetIndex()]) as TextBlock).Text = result;
+                    data[data.IndexOf(model)].RawMaterialsID = m.RawMaterialsID;
+                    data[data.IndexOf(model)].Code = newValue;
+                    data[data.IndexOf(model)].Name = m.Name;
+                }
+                else
+                {
+                    data[data.IndexOf(model)].RawMaterialsID = new Guid();
+                    data[data.IndexOf(model)].Code = newValue;
+                    data[data.IndexOf(model)].Name = "";
+                    DataGrid_RawMaterials.CurrentCell = new DataGridCellInfo(DataGrid_RawMaterials.SelectedCells[0].Item, DataGrid_RawMaterials.Columns[1]);
                 }
             }
         }
