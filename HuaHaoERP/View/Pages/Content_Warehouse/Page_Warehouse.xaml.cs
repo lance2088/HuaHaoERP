@@ -264,11 +264,6 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                 DatePicker_Date.Text = DateTime.Now.ToShortDateString();
                 return false;
             }
-            if (string.IsNullOrEmpty(TextBox_Operator.Text))
-            {
-                StatusBarMessageEvent.OnUpdateMessage("操作人不能空！");
-                return false;
-            }
             if (ComboBox_Name.SelectedIndex == 0)
             {
                 StatusBarMessageEvent.OnUpdateMessage("请选择余料类型！");
