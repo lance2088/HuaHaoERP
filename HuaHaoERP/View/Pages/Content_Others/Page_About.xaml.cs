@@ -13,6 +13,7 @@ namespace HuaHaoERP.View.Pages.Content_Others
         {
             InitializeComponent();
             this.Label_Version.Content += Application.ResourceAssembly.GetName().Version.ToString();
+            this.Label_DBVersion.Content += Helper.DataDefinition.CommonParameters.DbVersion;
             AuthorizeLabel();
         }
 

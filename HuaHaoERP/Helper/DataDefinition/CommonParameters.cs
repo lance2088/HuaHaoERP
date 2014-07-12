@@ -103,5 +103,25 @@ namespace HuaHaoERP.Helper.DataDefinition
             get { return CommonParameters.orderNoList; }
             set { CommonParameters.orderNoList = value; }
         }
+
+        private static string dbVersion;
+
+        public static string DbVersion
+        {
+            get
+            {
+                string sql = "Select Value from T_System_Settings where ID=2 AND Key='DBVersion'";
+                object obj = new object();
+                if (new Helper.SQLite.DBHelper().QuerySingleResult(sql, out obj))
+                {
+                    return obj.ToString();
+                }
+                else
+                {
+                    return "Unknow";
+                }
+            }
+            set { dbVersion = value; }
+        }
     }
 }
