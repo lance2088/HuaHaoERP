@@ -306,9 +306,9 @@
     <Compile Include="Model\ProductionManagement\ProductionManagement_OutsideProcessModel.cs" />
     <Compile Include="Model\ProductModel.cs" />
     <Compile Include="Model\ProductOrderModel.cs" />
-    <Compile Include="Model\RawMaterialsDetailModel.cs" />
-    <Compile Include="Model\RawMaterialsModel.cs" />
-    <Compile Include="Model\ScrapModel.cs" />
+    <Compile Include="Model\Warehouse\RawMaterialsDetailModel.cs" />
+    <Compile Include="Model\Warehouse\RawMaterialsModel.cs" />
+    <Compile Include="Model\Warehouse\ScrapModel.cs" />
     <Compile Include="Model\CustomerLibrary\StaffModel.cs" />
     <Compile Include="Model\CustomerLibrary\SupplierModel.cs" />
     <Compile Include="Model\UserModel.cs" />
