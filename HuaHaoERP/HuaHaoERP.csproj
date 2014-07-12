@@ -459,9 +459,10 @@
     <None Include="app.config" />
     <None Include="InternalDoc\Data.db" />
     <None Include="InternalDoc\Reactor_i5.nrproj" />
-    <None Include="InternalDoc\使用说明.doc" />
-    <None Include="InternalDoc\华浩表格V1.1.xls" />
-    <None Include="InternalDoc\设计文档.xls" />
+    <None Include="InternalDoc\文档\使用说明.doc" />
+    <None Include="InternalDoc\文档\华浩表格V1.1.xls" />
+    <None Include="InternalDoc\文档\石蚁科技五金ERP解决方案.docx" />
+    <None Include="InternalDoc\文档\设计文档.xls" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
