@@ -21,10 +21,11 @@ namespace HuaHaoERP.ViewModel.Customer
             }
             bool flag = true;
             string sql = "Insert Into T_UserInfo_Processors(GUID,Number,Name,Address,Area,Phone,MobilePhone,Fax,Business,Clerk,OpeningBank,BankCardNo,BankCardName,Remark,AddTime) "
-                        + " values('" + d.Guid + "','"+d.Number+"','"+d.Name+"','"+d.Address+"','"+d.Area+"','"+d.Phone+"','"+d.MobilePhone+"','"+d.Fax+"','"+d.Business+"','"+d.Clerk+"','"+d.OpeningBank+"','"+d.BankCardNo+"','"+d.BankCardName+"','"+d.Remark+"','" + d.AddTime.ToString("yyyy-MM-dd HH:mm:ss") + "')";
+                        + " values('" + d.Guid + "','" + d.Number + "','" + d.Name + "','" + d.Address + "','" + d.Area + "','" + d.Phone + "','" + d.MobilePhone + "','" + d.Fax + "','" + d.Business + "','" + d.Clerk + "','" + d.OpeningBank + "','" + d.BankCardNo + "','" + d.BankCardName + "','" + d.Remark + "','" + d.AddTime.ToString("yyyy-MM-dd HH:mm:ss") + "')";
             flag = new Helper.SQLite.DBHelper().SingleExecution(sql);
             return flag;
         }
+
         internal bool Update(ProcessorsModel d)
         {
             if (CheckRepeat(d))

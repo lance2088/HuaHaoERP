@@ -13,12 +13,14 @@ namespace HuaHaoERP.ViewModel.Warehouse
                        + " values('" + Guid.NewGuid() + "','" + ProductID + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + StaffName + "','" + Quantity + "','入库')";
             return new Helper.SQLite.DBHelper().SingleExecution(sql);
         }
+
         internal bool Outbound(Guid ProductID, int Quantity)
         {
             string sql = " Insert into T_Warehouse_ProductPacking(Guid,ProductID,Date,Operator,Quantity,Remark) "
                        + " values('" + Guid.NewGuid() + "','" + ProductID + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + Helper.DataDefinition.CommonParameters.RealName + "','" + -Quantity + "','出库')";
             return new Helper.SQLite.DBHelper().SingleExecution(sql);
         }
+
         /// <summary>
         /// 明细
         /// </summary>

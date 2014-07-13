@@ -26,7 +26,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
         {
             Outdata = new List<AssemblyLineDetailsListModel>();
             string WhereParm = "";
-            if(!Type.StartsWith("全部"))
+            if (!Type.StartsWith("全部"))
             {
                 WhereParm += " AND b.Type='" + Type + "' ";
             }
@@ -60,10 +60,10 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                        + "    a.ProductID,                                                      "
                        + "    a.Process                                                         "
                        + " order by b.Type,b.rowid"
-                       + " limit 0,200" 
+                       + " limit 0,200"
                        ;
             DataSet ds = new DataSet();
-            if(new Helper.SQLite.DBHelper().QueryData(sql, out ds))
+            if (new Helper.SQLite.DBHelper().QueryData(sql, out ds))
             {
                 int id = 1;
                 foreach (DataRow dr in ds.Tables[0].Rows)
@@ -78,7 +78,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                         ProcessList.Clear();
                         for (int i = 1; i < 7; i++)
                         {
-                            ProcessList.Add(dr["P"+i].ToString());
+                            ProcessList.Add(dr["P" + i].ToString());
                         }
                         AssemblyLineDetailsListModel d = new AssemblyLineDetailsListModel();
                         LastGuid = (Guid)dr["ProductID"];
@@ -99,7 +99,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                     CalculateProcessList(ProcessList, LastGuid, ref LastD);
                     data.Add(LastD);
                 }
-                
+
                 for (int i = LimitStart; i < LimitStart + Limit; i++)
                 {
                     if (i < data.Count)
@@ -109,11 +109,10 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                 }
                 return true;
             }
-
             return false;
         }
 
-        private void SetPNum(int p,int Quantity,int BreakNum, ref AssemblyLineDetailsListModel d)
+        private void SetPNum(int p, int Quantity, int BreakNum, ref AssemblyLineDetailsListModel d)
         {
             switch (p)
             {
@@ -162,7 +161,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                 }
             }
             string LastProcess = "";
-            for (int i = 0; i < 6; i++ )
+            for (int i = 0; i < 6; i++)
             {
                 if (ProcessList[i] == "抛光" && i > 0)
                 {
@@ -212,10 +211,10 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                     break;
             }
         }
-    
+
         internal bool DeleteDetails(Guid DetailsGuid)
         {
-            string sql = " Update T_PM_ProductionSchedule SET DeleteMark='"+DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")+"' "
+            string sql = " Update T_PM_ProductionSchedule SET DeleteMark='" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' "
                        + " WHERE Guid='" + DetailsGuid + "' OR ParentGuid='" + DetailsGuid + "'";
             return new Helper.SQLite.DBHelper().SingleExecution(sql);
         }

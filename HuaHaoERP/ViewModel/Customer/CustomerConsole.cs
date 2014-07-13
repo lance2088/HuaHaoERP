@@ -63,7 +63,7 @@ namespace HuaHaoERP.ViewModel.Customer
             string sql = "select * from T_UserInfo_Customer Where DeleteMark is null order by AddTime";
             DataSet ds = new DataSet();
             flag = new Helper.SQLite.DBHelper().QueryData(sql, out ds);
-            if(flag)
+            if (flag)
             {
                 int id = 1;
                 foreach (DataRow dr in ds.Tables[0].Rows)

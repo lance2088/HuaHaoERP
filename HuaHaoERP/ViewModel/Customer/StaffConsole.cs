@@ -19,7 +19,7 @@ namespace HuaHaoERP.ViewModel.Customer
             {
                 return false;
             }
-            if(d.DepartureTime == null)
+            if (d.DepartureTime == null)
             {
                 d.DepartureTime = "0001-01-01 00:00:00";
             }

@@ -17,7 +17,7 @@ namespace HuaHaoERP.Helper.Tools
             TimeSpan TSDate = new TimeSpan(Date.Ticks);
             TimeSpan TSDateNow = new TimeSpan(DateTime.Now.Date.Ticks);
             TimeSpan Ts = TSDate.Subtract(TSDateNow).Duration();
-            return (Ts.Days/30).ToString();
+            return (Ts.Days / 30).ToString();
         }
         /// <summary>
         /// 已离职

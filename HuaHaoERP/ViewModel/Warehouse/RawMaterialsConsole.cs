@@ -19,7 +19,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
             string tag = bol ? "" : "-";
             foreach (RawMaterialsDetailModel d in list)
             {
-                if(d.RawMaterialsID != new Guid())
+                if (d.RawMaterialsID != new Guid())
                 {
                     string sql = "Insert into T_Warehouse_RawMaterials(Guid,RawMaterialsID,Date,Operator,Number,Remark,Type) "
                         + "values('" + Guid.NewGuid() + "','" + d.RawMaterialsID + "','" + DateTime.Parse(d.Date).ToString("yyyy-MM-dd") + " " + DateTime.Now.ToString("T") + "','" + d.Operator + "','" + tag + d.Number + "','" + d.Remark + "','" + d.Type + "')";

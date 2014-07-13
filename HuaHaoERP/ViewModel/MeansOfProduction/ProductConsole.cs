@@ -58,7 +58,7 @@ namespace HuaHaoERP.ViewModel.MeansOfProduction
         internal bool ReadList(string ProductType, string Screening, out List<ProductModel> data)
         {
             string Sql_Where = "";
-            if(!ProductType.StartsWith("全部"))
+            if (!ProductType.StartsWith("全部"))
             {
                 Sql_Where += " AND Type='" + ProductType + "' ";
             }
@@ -105,7 +105,7 @@ namespace HuaHaoERP.ViewModel.MeansOfProduction
         }
         private void GenerateProcess(ref ProductModel d)
         {
-            if(d.P1 != "无")
+            if (d.P1 != "无")
             {
                 d.Process = d.P1;
             }

@@ -55,8 +55,8 @@ namespace HuaHaoERP.ViewModel.MeansOfProduction
             bool flag = true;
             data = new List<RawMaterialsModel>();
             string sql = "select a.*,b.Number SupplierNumber,b.Name SupplierName "
-                +"from T_ProductInfo_RawMaterials a Left Join T_UserInfo_Supplier b On a.Supplier=b.Guid "
-                +"Where a.DeleteMark is null order by a.AddTime";
+                + "from T_ProductInfo_RawMaterials a Left Join T_UserInfo_Supplier b On a.Supplier=b.Guid "
+                + "Where a.DeleteMark is null order by a.AddTime";
             DataSet ds = new DataSet();
             flag = new Helper.SQLite.DBHelper().QueryData(sql, out ds);
             if (flag)

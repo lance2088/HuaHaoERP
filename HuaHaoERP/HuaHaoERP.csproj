@@ -320,9 +320,7 @@
     <Compile Include="ViewModel\MeansOfProduction\ProductConsole.cs" />
     <Compile Include="ViewModel\MeansOfProduction\RawMaterialsConsole.cs" />
     <Compile Include="ViewModel\Orders\BatchInputOrderConsole.cs" />
-    <Compile Include="ViewModel\Orders\ProcessorsOrderConsole.cs" />
     <Compile Include="ViewModel\Orders\ProductOrderConsole.cs" />
-    <Compile Include="ViewModel\Orders\SupplierOrderConsole.cs" />
     <Compile Include="ViewModel\ProductionManagement\AssemblyLineDetailsConsole.cs" />
     <Compile Include="ViewModel\ProductionManagement\AssemblyLineModuleBatchInputConsole.cs" />
     <Compile Include="ViewModel\ProductionManagement\AssemblyLineModuleConsole.cs" />

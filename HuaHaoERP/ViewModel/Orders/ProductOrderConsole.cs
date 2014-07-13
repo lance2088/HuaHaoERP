@@ -11,12 +11,12 @@ namespace HuaHaoERP.ViewModel.Orders
             bool flag = false;
             List<string> sqls = new List<string>();
             string sql_Order = "Insert into T_Orders_Product(Guid,OrderNumber,CustomerID,DeliveryDate,OrderDate) "
-                +"Values('"+d.Guid+"','"+d.OrderNumber+"','"+d.CustomerID+"','"+d.DeliveryDate+"','"+d.OrderDate+"')";
+                + "Values('" + d.Guid + "','" + d.OrderNumber + "','" + d.CustomerID + "','" + d.DeliveryDate + "','" + d.OrderDate + "')";
             sqls.Add(sql_Order);
-            foreach(Model.ProductOrderDetailsModel dd in d.Details)
+            foreach (Model.ProductOrderDetailsModel dd in d.Details)
             {
                 string sql_Details = "Insert into T_Orders_ProductDetails(Guid,OrderID,ProductID,NumberOfItems,Quantity,Unit,Remark) "
-                    +"Values('"+dd.Guid+"','"+dd.OrderID+"','"+dd.ProductID+"','"+dd.NumberOfItems+"','"+dd.Quantity+"','"+dd.Unit+"','"+dd.Remark+"')";
+                    + "Values('" + dd.Guid + "','" + dd.OrderID + "','" + dd.ProductID + "','" + dd.NumberOfItems + "','" + dd.Quantity + "','" + dd.Unit + "','" + dd.Remark + "')";
                 sqls.Add(sql_Details);
             }
             flag = new Helper.SQLite.DBHelper().Transaction(sqls);
@@ -27,7 +27,7 @@ namespace HuaHaoERP.ViewModel.Orders
             bool flag = false;
             List<string> sqls = new List<string>();
             //删掉旧的
-            string sql_DelOrder = "Delete From T_Orders_Product where Guid='"+d.Guid+"'";
+            string sql_DelOrder = "Delete From T_Orders_Product where Guid='" + d.Guid + "'";
             sqls.Add(sql_DelOrder);
             string sql_DelDetails = "Delete From T_Orders_ProductDetails where OrderID='" + d.Guid + "'";
             sqls.Add(sql_DelDetails);
@@ -44,6 +44,7 @@ namespace HuaHaoERP.ViewModel.Orders
             flag = new Helper.SQLite.DBHelper().Transaction(sqls);
             return flag;
         }
+
         internal bool MarkDelete(Model.ProductOrderModelForDataGrid d)
         {
             bool flag = true;
@@ -84,7 +85,7 @@ namespace HuaHaoERP.ViewModel.Orders
                     }
                     else
                     {
-                        if(LastOrderGuid != new Guid())
+                        if (LastOrderGuid != new Guid())
                         {
                             data.Add(d);
                         }
@@ -110,6 +111,7 @@ namespace HuaHaoERP.ViewModel.Orders
             }
             return flag;
         }
+
         internal bool GetOrderDetails(Guid OrderID, out List<Model.ProductOrderDetailsModel> dDetails)
         {
             bool flag = false;

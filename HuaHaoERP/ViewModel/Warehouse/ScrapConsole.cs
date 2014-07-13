@@ -15,7 +15,8 @@ namespace HuaHaoERP.ViewModel.Warehouse
             flag = new Helper.SQLite.DBHelper().SingleExecution(sql);
             return flag;
         }
-        internal bool ReadList(string args,out List<ScrapModel> data)
+
+        internal bool ReadList(string args, out List<ScrapModel> data)
         {
             args = args.Equals("全部") ? "" : "where Name='" + args + "'";
             bool flag = true;
@@ -50,7 +51,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
             new Helper.SQLite.DBHelper().QuerySingleResult(sql, out d);
             return decimal.Parse(d.ToString());
         }
-            
+
         internal List<string> GetName(bool bol)
         {
             List<string> list = new List<string>();
