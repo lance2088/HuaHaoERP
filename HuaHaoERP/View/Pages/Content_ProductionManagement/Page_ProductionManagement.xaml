@@ -11,7 +11,7 @@
         <TabControl Margin="0" BorderThickness="0" Padding="0">
             <TabItem FocusVisualStyle="{x:Null}" Header="流水线" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="7,0,-7,0" Foreground="White">
                 <Grid Background="White">
-                    <ScrollViewer Margin="10,40,0,0">
+                    <ScrollViewer FocusVisualStyle="{x:Null}" Margin="10,40,0,0">
                         <WrapPanel FocusVisualStyle="{x:Null}" x:Name="WrapPanel_AssemblyLine"/>
                     </ScrollViewer>
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_ChooseProduct" Content="选择产品" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_ChooseProduct_Click" Height="24" Foreground="White" Focusable="False"/>

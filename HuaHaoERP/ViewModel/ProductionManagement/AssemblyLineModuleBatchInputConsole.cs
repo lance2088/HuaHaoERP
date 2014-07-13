@@ -77,14 +77,22 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                     }
                     if (isAutoDeductionRawMaterials)
                     {
-                        if (m.Process != m.ProcessList[0])
+                        if (m.Process != m.ProcessList[0])//不是第一道工序，so要扣上一道半成品
                         {
                             sqls.Add("Insert into T_PM_ProductionSchedule(Guid,Date,StaffID,ProductID,Process,Number,Break,Remark,ParentGuid,Obligate1) "
-                                + "values('" + Guid1 + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + m.StaffGuid + "','" + m.ProductGuid + "','" + LastProcess + "'," + -(m.Quantity + m.Injure) + ",0,'自动扣半成品原料','" + Guid2 + "','" + OrderGuid + "')");
+                                + "values('" + Guid1 + "','" + DateStr + "','" + m.StaffGuid + "','" + m.ProductGuid + "','" + LastProcess + "'," + -(m.Quantity + m.Injure) + ",0,'自动扣半成品原料','" + Guid2 + "','" + OrderGuid + "')");
                         }
                     }
                     sqls.Add("Insert into T_PM_ProductionSchedule(Guid,Date,StaffID,ProductID,Process,Number,Break,Remark,ParentGuid,Obligate1) "
-                        + "values('" + Guid2 + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + m.StaffGuid + "','" + m.ProductGuid + "','" + m.Process + "'," + m.Quantity + "," + m.Injure + ",'','" + Guid1 + "','" + OrderGuid + "')");
+                        + "values('" + Guid2 + "','" + DateStr + "','" + m.StaffGuid + "','" + m.ProductGuid + "','" + m.Process + "'," + m.Quantity + "," + m.Injure + ",'','" + Guid1 + "','" + OrderGuid + "')");
+                    //最后一道工序自动入库
+                    if (m.Process == m.ProcessListStr.Split(',')[m.ProcessListStr.Split(',').Length - 1])
+                    {
+                        sqls.Add("Insert into T_PM_ProductionSchedule(Guid,Date,StaffID,ProductID,Process,Number,Break,Remark,Obligate1) "
+                            + " values('" + Guid.NewGuid() + "','" + DateStr + "','" + m.StaffGuid + "','" + m.ProductGuid + "','" + m.Process + "'," + -m.Quantity + ",0,'自动入库','" + OrderGuid + "')");
+                        sqls.Add(" Insert into T_Warehouse_Product(Guid,ProductID,Date,Operator,Quantity,Remark) "
+                            + " values('" + Guid.NewGuid() + "','" + m.ProductGuid + "','" + DateStr + "','" + m.StaffName + "','" + m.Quantity + "','批量录入最后工序自动入库')");
+                    }
                 }
             }
             if (sqls.Count > 0)

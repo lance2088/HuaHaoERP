@@ -122,7 +122,7 @@ namespace HuaHaoERP.Helper.DataDefinition
             {
                 DataSet ds = new DataSet();
                 new ViewModel.Customer.ProcessorsConsole().GetNameList(out ds);
-                return AddAll(ds, "外加工商");
+                return AddAll(ds, "抛光户");
             }
         }
         public static DataTable RawMaterialsListWithoutAll
