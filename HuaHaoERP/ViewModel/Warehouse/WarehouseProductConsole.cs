@@ -76,6 +76,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
             }
             return false;
         }
+
         /// <summary>
         /// 散件
         /// </summary>
