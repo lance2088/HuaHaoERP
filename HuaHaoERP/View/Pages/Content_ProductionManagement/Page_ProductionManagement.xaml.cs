@@ -28,6 +28,19 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             InitializeComponent();
             SubscribeToEvent();
             InitializeData();
+            FunctionalLimitation();
+        }
+
+        /// <summary>
+        /// 功能限制
+        /// </summary>
+        private void FunctionalLimitation()
+        {
+            if (Helper.DataDefinition.CommonParameters.PeriodOfValidity < 0)
+            {
+                this.Button_BatchInputProduction.IsEnabled = false;
+                this.Button_AddProcessOut.IsEnabled = false;
+            }
         }
 
         private void SubscribeToEvent()

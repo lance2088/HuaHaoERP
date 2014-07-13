@@ -26,16 +26,31 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             this.Grid_OutGrid.Visibility = System.Windows.Visibility.Hidden;
             SubscribeToEvent();
             InitPage();
+            FunctionalLimitation();
         }
+
+        /// <summary>
+        /// 功能限制
+        /// </summary>
+        private void FunctionalLimitation()
+        {
+            if (Helper.DataDefinition.CommonParameters.PeriodOfValidity < 0)
+            {
+                this.Button_SparepartsIn.IsEnabled = false;
+            }
+        }
+
         private void SubscribeToEvent()
         {
             WarehouseRawMaterialsEvent.EUpdateDataGrid += (sender, e) => { InitializeRawMaterialsDataGrid(); };
             WarehouseProductEvent.EUpdateDataGrid += (s, e) => { InitializeProductDataGrid(); };
         }
+
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             Button_Today_Click(null, null);
         }
+
         private void InitPage()
         {
             #region 余料管理
