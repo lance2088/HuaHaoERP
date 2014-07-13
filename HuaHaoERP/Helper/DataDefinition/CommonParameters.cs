@@ -104,8 +104,9 @@ namespace HuaHaoERP.Helper.DataDefinition
             set { CommonParameters.orderNoList = value; }
         }
 
-        private static string dbVersion;
-
+        /// <summary>
+        /// 读取数据库版本
+        /// </summary>
         public static string DbVersion
         {
             get
@@ -121,7 +122,6 @@ namespace HuaHaoERP.Helper.DataDefinition
                     return "Unknow";
                 }
             }
-            set { dbVersion = value; }
         }
     }
 }
