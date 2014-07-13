@@ -12,7 +12,6 @@ namespace HuaHaoERP.Helper.DataDefinition
             dt = ds.Tables[0].Clone();
             DataRow dr = dt.NewRow();
             dr["GUID"] = new Guid();
-            //dr["Number"] = 0;
             dr["Name"] = "全部" + Name;
             dt.Rows.Add(dr);
             foreach (DataRow drTemp in ds.Tables[0].Rows)

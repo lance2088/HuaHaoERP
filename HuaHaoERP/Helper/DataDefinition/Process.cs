@@ -4,7 +4,7 @@ namespace HuaHaoERP.Helper.DataDefinition
 {
     static class Process
     {
-        public static List<string> ProcessList
+        public static List<string> ProcessListWithNull
         {
             get 
             {

@@ -28,17 +28,17 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
         }
         private void InitializeData()
         {
-            this.ComboBox_P1.ItemsSource = Helper.DataDefinition.Process.ProcessList;
+            this.ComboBox_P1.ItemsSource = Helper.DataDefinition.Process.ProcessListWithNull;
             this.ComboBox_P1.SelectedIndex = 1;
-            this.ComboBox_P2.ItemsSource = Helper.DataDefinition.Process.ProcessList;
+            this.ComboBox_P2.ItemsSource = Helper.DataDefinition.Process.ProcessListWithNull;
             this.ComboBox_P2.SelectedIndex = 2;
-            this.ComboBox_P3.ItemsSource = Helper.DataDefinition.Process.ProcessList;
+            this.ComboBox_P3.ItemsSource = Helper.DataDefinition.Process.ProcessListWithNull;
             this.ComboBox_P3.SelectedIndex = 3;
-            this.ComboBox_P4.ItemsSource = Helper.DataDefinition.Process.ProcessList;
+            this.ComboBox_P4.ItemsSource = Helper.DataDefinition.Process.ProcessListWithNull;
             this.ComboBox_P4.SelectedIndex = 4;
-            this.ComboBox_P5.ItemsSource = Helper.DataDefinition.Process.ProcessList;
+            this.ComboBox_P5.ItemsSource = Helper.DataDefinition.Process.ProcessListWithNull;
             this.ComboBox_P5.SelectedIndex = 5;
-            this.ComboBox_P6.ItemsSource = Helper.DataDefinition.Process.ProcessList;
+            this.ComboBox_P6.ItemsSource = Helper.DataDefinition.Process.ProcessListWithNull;
             this.ComboBox_P6.SelectedIndex = 0;
         }
         private void InitializeData(Model.ProductModel d)

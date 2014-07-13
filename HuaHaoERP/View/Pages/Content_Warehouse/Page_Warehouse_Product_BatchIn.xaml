@@ -43,7 +43,13 @@
                     </DataGridTextColumn.CellStyle>
                 </DataGridTextColumn>
                 <DataGridTextColumn x:Name="DataGridTextColumn_AllQuantity" Header="数量" Binding="{Binding AllQuantity}" IsReadOnly="True" MinWidth="60" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                <DataGridTextColumn x:Name="DataGridTextColumn_Asd" Header="散件总数" Binding="{Binding TotalParts}" IsReadOnly="True" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn x:Name="DataGridTextColumn_Asd" Header="散件总数" Binding="{Binding TotalParts}" IsReadOnly="True" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Background" Value="{StaticResource clBr}" />
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
         <Label x:Name="Label_Title" Content="Label__Title" HorizontalAlignment="Left" Margin="45,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
