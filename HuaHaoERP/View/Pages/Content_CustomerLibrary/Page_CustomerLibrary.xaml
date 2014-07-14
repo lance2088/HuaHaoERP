@@ -94,7 +94,7 @@
                     <CheckBox FocusVisualStyle="{x:Null}" x:Name="CheckBox_ShowDepartureStaff" Content="显示离职员工" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Click="CheckBox_ShowDepartureStaff_Click"/>
                 </Grid>
             </TabItem>
-            <TabItem FocusVisualStyle="{x:Null}" Header="抛光户管理" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="37,0,-37,0" Foreground="White">
+            <TabItem FocusVisualStyle="{x:Null}" Header="外加工商管理" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="37,0,-37,0" Foreground="White">
                 <Grid Background="White">
                     <DataGrid x:Name="DataGrid_Processors" Margin="0,40,0,0" BorderThickness="0" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" AutoGenerateColumns="False" HeadersVisibility="Column" IsReadOnly="True" BorderBrush="{x:Null}" VerticalGridLinesBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}">
                         <DataGrid.Resources>
