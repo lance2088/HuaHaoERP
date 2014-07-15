@@ -31,6 +31,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
             List<Model.AssemblyLineModuleProcessModel> ProcessList = new List<Model.AssemblyLineModuleProcessModel>();
             d.Guid = ProductGuid;
             string sql = " select "
+                       + "   a.Number,"
                        + "   a.Name,"
                        + "   a.P1,"
                        + "   a.P2,"
@@ -51,6 +52,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
             {
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
+                    d.Number = dr["Number"].ToString();
                     d.Name = dr["Name"].ToString();
                     Model.AssemblyLineModuleProcessModel dp = new Model.AssemblyLineModuleProcessModel();
                     if (isFirstLine)
@@ -72,6 +74,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
             }
             return flag;
         }
+
         private void InitProcessList(DataRow dr, ref List<Model.AssemblyLineModuleProcessModel> d)
         {
             for (int i = 1; i < 7; i++)

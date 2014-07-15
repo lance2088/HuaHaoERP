@@ -42,7 +42,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             if (new ViewModel.ProductionManagement.AssemblyLineModuleConsole().ReadList(ProductGuid, out d))
             {
                 ProductName = d.Name;
-                this.Label_ProductName.Content = d.Name;
+                this.Label_ProductName.Content = "编号：" + d.Number + " 名称：" + d.Name;
                 this.DataGrid.ItemsSource = d.ProcessList;
                 this.Label_Process.Content = "";
                 this.Button_Processing.Visibility = System.Windows.Visibility.Collapsed;
