@@ -59,8 +59,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                        + " GROUP BY                                                             "
                        + "    a.ProductID,                                                      "
                        + "    a.Process                                                         "
-                       + " order by b.Type,b.rowid"
-                       + " limit 0,200"
+                       + " order by b.Number"
                        ;
             DataSet ds = new DataSet();
             if (new Helper.SQLite.DBHelper().QueryData(sql, out ds))

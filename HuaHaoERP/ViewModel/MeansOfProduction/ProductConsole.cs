@@ -72,7 +72,7 @@ namespace HuaHaoERP.ViewModel.MeansOfProduction
                        + " from T_ProductInfo_Product "
                        + " Where DeleteMark is null "
                        + Sql_Where
-                       + " order by AddTime";
+                       + " order by Number";
             DataSet ds = new DataSet();
             flag = new Helper.SQLite.DBHelper().QueryData(sql, out ds);
             if (flag)
