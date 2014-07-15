@@ -31,6 +31,6 @@ namespace HuaHaoERP
             MessageBox.Show("应用程序出现了未捕获的异常，请联系开发商。");
             Helper.LogHelper.FileLog.ErrorLog(stringBuilder.ToString());
             e.Handled = true;
-        }  
+        }
     }
 }
