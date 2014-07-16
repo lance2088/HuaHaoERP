@@ -20,8 +20,8 @@
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Guid}" Header="GUID" Visibility="Hidden"/>
                             <DataGridTextColumn Binding="{Binding Id}" Header="序号" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                            <DataGridTextColumn Binding="{Binding Number}" Header="产品编号" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                            <DataGridTextColumn Binding="{Binding Name}" Header="产品名称" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Binding="{Binding Number}" Header="产品编号" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" MinWidth="100"/>
+                            <DataGridTextColumn Binding="{Binding Name}" Header="产品名称" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" MinWidth="120"/>
                             <DataGridTextColumn Binding="{Binding Material}" Header="产品材质" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                             <DataGridTextColumn Binding="{Binding Type}" Header="产品类型" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                             <DataGridTextColumn Binding="{Binding Specification}" Header="规格" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
