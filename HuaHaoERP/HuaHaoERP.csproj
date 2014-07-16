@@ -296,6 +296,7 @@
     <Compile Include="Model\Order\Model_BatchInputOrder.cs" />
     <Compile Include="Model\ProductionManagement\Model_AssemblyLineModuleBatchHistory.cs" />
     <Compile Include="Model\ProductionManagement\Model_AssemblyLineModuleBatchInput.cs" />
+    <Compile Include="Model\ProductionManagement\Model_ProductionBookkeeping.cs" />
     <Compile Include="Model\ProductionManagement\Model_ProductionManagement_OutsideProcessBatch.cs" />
     <Compile Include="Model\Warehouse\Model_WarehouseProductBatchHistory.cs" />
     <Compile Include="Model\Warehouse\Model_WarehouseProductBatchIn.cs" />
@@ -308,14 +309,14 @@
     <Compile Include="Model\ProductionManagement\AssemblyLineDetailsListModel.cs" />
     <Compile Include="Model\ProductionManagement\AssemblyLineDetailsModel.cs" />
     <Compile Include="Model\ProductionManagement\ProductionManagement_OutsideProcessModel.cs" />
-    <Compile Include="Model\ProductModel.cs" />
-    <Compile Include="Model\ProductOrderModel.cs" />
+    <Compile Include="Model\MeansOfProduction\ProductModel.cs" />
+    <Compile Include="Model\Order\ProductOrderModel.cs" />
     <Compile Include="Model\Warehouse\RawMaterialsDetailModel.cs" />
     <Compile Include="Model\Warehouse\RawMaterialsModel.cs" />
     <Compile Include="Model\Warehouse\ScrapModel.cs" />
     <Compile Include="Model\CustomerLibrary\StaffModel.cs" />
     <Compile Include="Model\CustomerLibrary\SupplierModel.cs" />
-    <Compile Include="Model\UserModel.cs" />
+    <Compile Include="Model\System\UserModel.cs" />
     <Compile Include="Model\Warehouse\WarehouseProductModel.cs" />
     <Compile Include="ViewModel\Customer\ProcessorsConsole.cs" />
     <Compile Include="ViewModel\Customer\StaffConsole.cs" />
@@ -503,6 +504,7 @@
     <None Include="InternalDoc\LicenseTool\LicenseTool.exe" />
     <None Include="InternalDoc\LicenseTool\StoneAnt.License.Create.dll" />
     <None Include="InternalDoc\LicenseTool\StoneAnt.License.dll" />
+    <Content Include="InternalDoc\DataBaseUpdateSQL\1.6.0.sql" />
     <Content Include="ThirdPartyLib\StoneAnt.License.dll" />
     <Content Include="ThirdPartyLib\System.Data.SQLite.dll" />
   </ItemGroup>
