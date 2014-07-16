@@ -27,6 +27,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         private void InitializeData()
         {
             this.DataGrid_ProductionBookkeeping.ItemsSource = null;
+            System.Threading.Thread.Sleep(100);
             if (new ProductionBookkeepingConsole().ReadData(out data))
             {
                 this.DataGrid_ProductionBookkeeping.ItemsSource = data;
