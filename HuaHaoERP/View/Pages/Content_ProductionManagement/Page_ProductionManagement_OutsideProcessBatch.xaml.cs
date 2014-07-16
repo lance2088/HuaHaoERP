@@ -138,6 +138,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                     new OutsideProcessBatchInputConsole().DeleteOld(OrderData.Guid);
                 }
                 IS_CommitSuccess = true;
+                new ViewModel.ProductionManagement.AssemblyLineModuleConsole().AllInStorage();//自动全部入库
                 Helper.Events.ProductionManagement_AssemblyLineEvent.OnUpdateDataGrid();
                 Button_Cancel_Click(null, null);
             }
@@ -320,7 +321,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                     {
                         ProcessorsGuid = m.ProcessorsGuid;
                         tb.Text = m.ProcessorsName;
-                        
+
                     }
                     else
                     {

@@ -9,7 +9,12 @@
 
     <Grid>
         <TabControl Margin="0" BorderThickness="0" Padding="0">
-            <TabItem FocusVisualStyle="{x:Null}" Header="流水线" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="7,0,-7,0" Foreground="White">
+            <TabItem Header="生产记账" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Foreground="White" Margin="7,0,-7,0">
+                <Grid Background="White">
+                    <Frame x:Name="Frame_ProductionBookkeeping" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
+                </Grid>
+            </TabItem>
+            <TabItem FocusVisualStyle="{x:Null}" Header="流水线" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="17,0,-17,0" Foreground="White">
                 <Grid Background="White">
                     <ScrollViewer FocusVisualStyle="{x:Null}" Margin="10,40,0,0">
                         <WrapPanel FocusVisualStyle="{x:Null}" x:Name="WrapPanel_AssemblyLine"/>
@@ -22,7 +27,7 @@
                     <Button x:Name="Button_AllInWarehouse" Content="全部入库" HorizontalAlignment="Left" Margin="91,10,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Focusable="False" Height="24" Foreground="White" Click="Button_AllInWarehouse_Click"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="TabItem_AssemblyLineDetails" FocusVisualStyle="{x:Null}" Header="生产统计" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Foreground="White" Margin="17,0,-17,0">
+            <TabItem x:Name="TabItem_AssemblyLineDetails" FocusVisualStyle="{x:Null}" Header="生产统计" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Foreground="White" Margin="27,0,-27,0">
                 <Grid Background="White">
                     <ScrollViewer x:Name="ScrollViewer_AssemblyLineDetails" Margin="0,40,0,0">
                         <DataGrid x:Name="DataGrid_AssemblyLineDetails" Margin="20" CellStyle="{DynamicResource DataGridCellStyleCommon}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" SelectionMode="Single" BorderThickness="1,0" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" CanUserReorderColumns="False" Loaded="DataGrid_AssemblyLineDetails_Loaded" Background="White" PreviewMouseWheel="DataGrid_AssemblyLineDetails_PreviewMouseWheel" VerticalAlignment="Top">
@@ -66,7 +71,7 @@
                     </TextBox>
                 </Grid>
             </TabItem>
-            <TabItem FocusVisualStyle="{x:Null}" Header="抛光加工" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="27,0,-27,0" Foreground="White">
+            <TabItem FocusVisualStyle="{x:Null}" Header="抛光加工" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="37,0,-37,0" Foreground="White">
                 <Grid Background="White">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="80"/>
@@ -130,8 +135,6 @@
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_BatchHistory1" Content="批量记录" Grid.Column="1" HorizontalAlignment="Left" Margin="280,10,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_BatchHistory1_Click" Focusable="False"/>
                 </Grid>
             </TabItem>
-
         </TabControl>
-
     </Grid>
 </Page>

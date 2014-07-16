@@ -162,6 +162,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Pages\Content_ProductionManagement\Page_ProductionBookkeeping.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Pages\Content_ProductionManagement\Page_ProductionManagement.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -376,6 +380,9 @@
     </Compile>
     <Compile Include="View\Pages\Content_Others\Page_InsufficientPermissions.xaml.cs">
       <DependentUpon>Page_InsufficientPermissions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\Content_ProductionManagement\Page_ProductionBookkeeping.xaml.cs">
+      <DependentUpon>Page_ProductionBookkeeping.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\Content_ProductionManagement\Page_ProductionManagement.xaml.cs">
       <DependentUpon>Page_ProductionManagement.xaml</DependentUpon>

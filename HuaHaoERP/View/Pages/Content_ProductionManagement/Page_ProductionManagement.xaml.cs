@@ -72,6 +72,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void InitializeData()
         {
+            this.Frame_ProductionBookkeeping.Content = new Page_ProductionBookkeeping();
             foreach (Guid str in Helper.DataDefinition.CommonParameters.AssemblyLineModuleShow)
             {
                 AddAssemblyLineModule(str);

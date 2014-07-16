@@ -1,0 +1,13 @@
+﻿<Page x:Class="HuaHaoERP.View.Pages.Content_ProductionManagement.Page_ProductionBookkeeping"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" FontFamily="SimSun" FontSize="14" TextOptions.TextFormattingMode="Display"
+      d:DesignHeight="484" d:DesignWidth="687"
+	Title="Page_ProductionBookkeeping">
+
+    <Grid>
+
+    </Grid>
+</Page>
