@@ -29,7 +29,7 @@
                     </DataGridTextColumn.CellStyle>
                 </DataGridTextColumn>
                 <DataGridTextColumn Header="工序1" Binding="{Binding P1Num}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                <DataGridTextColumn x:Name="DataGridTextColumn_Diff1" Header="差值" Binding="{Binding P1Diff}" IsReadOnly="True" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}">
+                <DataGridTextColumn x:Name="DataGridTextColumn_Diff1" Header=" " Binding="{Binding P1Diff}" IsReadOnly="True" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}">
                     <DataGridTextColumn.CellStyle>
                         <Style TargetType="DataGridCell">
                             <Setter Property="Background" Value="{StaticResource clBr}" />
@@ -37,7 +37,7 @@
                     </DataGridTextColumn.CellStyle>
                 </DataGridTextColumn>
                 <DataGridTextColumn Header="工序2" Binding="{Binding P2Num}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                <DataGridTextColumn x:Name="DataGridTextColumn_Diff2" Header="差值" Binding="{Binding P2Diff}" IsReadOnly="True" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}">
+                <DataGridTextColumn x:Name="DataGridTextColumn_Diff2" Header=" " Binding="{Binding P2Diff}" IsReadOnly="True" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}">
                     <DataGridTextColumn.CellStyle>
                         <Style TargetType="DataGridCell">
                             <Setter Property="Background" Value="{StaticResource clBr}" />
@@ -45,7 +45,7 @@
                     </DataGridTextColumn.CellStyle>
                 </DataGridTextColumn>
                 <DataGridTextColumn Header="工序3" Binding="{Binding P3Num}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                <DataGridTextColumn x:Name="DataGridTextColumn_Diff3" Header="差值" Binding="{Binding P3Diff}" IsReadOnly="True" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}">
+                <DataGridTextColumn x:Name="DataGridTextColumn_Diff3" Header=" " Binding="{Binding P3Diff}" IsReadOnly="True" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}">
                     <DataGridTextColumn.CellStyle>
                         <Style TargetType="DataGridCell">
                             <Setter Property="Background" Value="{StaticResource clBr}" />

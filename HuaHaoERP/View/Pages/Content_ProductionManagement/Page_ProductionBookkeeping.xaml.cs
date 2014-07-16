@@ -95,19 +95,26 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         {
             if (e.Key == Key.Enter)
             {
-                if (this.TextBox_NewProduct.Text.Length > 0)
+                if (this.newProductGuid == new Guid())
                 {
-                    Model_Product m = new ProductionBookkeepingConsole().ReadProduct(this.TextBox_NewProduct.Text);
-                    if (m.Guid != new Guid())
+                    if (this.TextBox_NewProduct.Text.Length > 0)
                     {
-                        this.newProductGuid = m.Guid;
-                        this.TextBox_NewProduct.Text = m.Name;
+                        Model_Product m = new ProductionBookkeepingConsole().ReadProduct(this.TextBox_NewProduct.Text);
+                        if (m.Guid != new Guid())
+                        {
+                            this.newProductGuid = m.Guid;
+                            this.TextBox_NewProduct.Text = m.Name;
+                        }
+                        else
+                        {
+                            this.newProductGuid = new Guid();
+                            this.TextBox_NewProduct.Text = "";
+                        }
                     }
-                    else
-                    {
-                        this.newProductGuid = new Guid();
-                        this.TextBox_NewProduct.Text = "";
-                    }
+                }
+                else
+                {
+                    Button_New_Click(null, null);
                 }
             }
         }
