@@ -4,9 +4,9 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" FontFamily="SimSun" FontSize="14" TextOptions.TextFormattingMode="Display"
-      d:DesignHeight="484" d:DesignWidth="687"
+      d:DesignHeight="466" d:DesignWidth="805"
 	Title="Page_ProductionBookkeeping">
-    
+
     <Page.Resources>
         <SolidColorBrush x:Key="clBr" Color="#FFBDDEFF" />
     </Page.Resources>
@@ -29,7 +29,7 @@
                     </DataGridTextColumn.CellStyle>
                 </DataGridTextColumn>
                 <DataGridTextColumn Header="工序1" Binding="{Binding P1Num}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                <DataGridTextColumn Header="差值" Binding="{Binding P1Diff}" IsReadOnly="True" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}">
+                <DataGridTextColumn x:Name="DataGridTextColumn_Diff1" Header="差值" Binding="{Binding P1Diff}" IsReadOnly="True" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}">
                     <DataGridTextColumn.CellStyle>
                         <Style TargetType="DataGridCell">
                             <Setter Property="Background" Value="{StaticResource clBr}" />
@@ -37,7 +37,7 @@
                     </DataGridTextColumn.CellStyle>
                 </DataGridTextColumn>
                 <DataGridTextColumn Header="工序2" Binding="{Binding P2Num}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                <DataGridTextColumn Header="差值" Binding="{Binding P2Diff}" IsReadOnly="True" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}">
+                <DataGridTextColumn x:Name="DataGridTextColumn_Diff2" Header="差值" Binding="{Binding P2Diff}" IsReadOnly="True" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}">
                     <DataGridTextColumn.CellStyle>
                         <Style TargetType="DataGridCell">
                             <Setter Property="Background" Value="{StaticResource clBr}" />
@@ -45,7 +45,7 @@
                     </DataGridTextColumn.CellStyle>
                 </DataGridTextColumn>
                 <DataGridTextColumn Header="工序3" Binding="{Binding P3Num}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                <DataGridTextColumn Header="差值" Binding="{Binding P3Diff}" IsReadOnly="True" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}">
+                <DataGridTextColumn x:Name="DataGridTextColumn_Diff3" Header="差值" Binding="{Binding P3Diff}" IsReadOnly="True" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}">
                     <DataGridTextColumn.CellStyle>
                         <Style TargetType="DataGridCell">
                             <Setter Property="Background" Value="{StaticResource clBr}" />
@@ -56,10 +56,11 @@
                 <DataGridTextColumn Header="备注" Binding="{Binding Remark}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <TextBox HorizontalAlignment="Left" Height="24" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
-        <Button Content="显示差额" HorizontalAlignment="Left" Margin="135,10,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White"/>
-        <TextBox x:Name="TextBox_NewProduct" HorizontalAlignment="Right" Height="24" Margin="0,10,90,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" PreviewKeyDown="TextBox_NewProduct_PreviewKeyDown"/>
-        <Button x:Name="Button_New" Content="新增" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_New_Click"/>
+        <TextBox x:Name="TextBox_SearchProduct" HorizontalAlignment="Left" Height="24" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
+        <Button x:Name="Button_ShowDiff" Content="显示差额" HorizontalAlignment="Left" Margin="135,10,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_ShowDiff_Click"/>
+        <TextBox x:Name="TextBox_NewProduct" HorizontalAlignment="Right" Height="24" Margin="0,10,170,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" PreviewKeyDown="TextBox_NewProduct_PreviewKeyDown"/>
+        <Button x:Name="Button_New" Content="新增" HorizontalAlignment="Right" Margin="0,10,90,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_New_Click"/>
+        <Button x:Name="Button_Delete" Content="删除" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_Delete_Click"/>
 
     </Grid>
 </Page>

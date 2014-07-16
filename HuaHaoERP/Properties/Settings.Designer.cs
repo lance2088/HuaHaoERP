@@ -46,5 +46,17 @@ namespace HuaHaoERP.Properties {
                 this["isMainWindowRectMax"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool isShowDiffColumn {
+            get {
+                return ((bool)(this["isShowDiffColumn"]));
+            }
+            set {
+                this["isShowDiffColumn"] = value;
+            }
+        }
     }
 }

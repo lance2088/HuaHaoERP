@@ -17,11 +17,16 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         public Page_ProductionBookkeeping()
         {
             InitializeComponent();
+            if (!Properties.Settings.Default.isShowDiffColumn)
+            {
+                HideDiff();
+            }
             InitializeData();
         }
 
         private void InitializeData()
         {
+            this.DataGrid_ProductionBookkeeping.ItemsSource = null;
             if (new ProductionBookkeepingConsole().ReadData(out data))
             {
                 this.DataGrid_ProductionBookkeeping.ItemsSource = data;
@@ -104,6 +109,50 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                     }
                 }
             }
+        }
+
+        private void Button_Delete_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.DataGrid_ProductionBookkeeping.SelectedCells.Count > 0)
+            {
+                if (MessageBox.Show("确认删除记录？", "警告", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    Model_ProductionBookkeeping m = this.DataGrid_ProductionBookkeeping.SelectedCells[0].Item as Model_ProductionBookkeeping;
+                    if (new ProductionBookkeepingConsole().Delete(m.Guid))
+                    {
+                        InitializeData();
+                    }
+                }
+            }
+        }
+
+        private void Button_ShowDiff_Click(object sender, RoutedEventArgs e)
+        {
+            if (Properties.Settings.Default.isShowDiffColumn)
+            {
+                HideDiff();
+                Properties.Settings.Default.isShowDiffColumn = false;
+            }
+            else
+            {
+                ShowDiff();
+                Properties.Settings.Default.isShowDiffColumn = true;
+            }
+        }
+
+        private void ShowDiff()
+        {
+            this.DataGridTextColumn_Diff1.Visibility = System.Windows.Visibility.Visible;
+            this.DataGridTextColumn_Diff2.Visibility = System.Windows.Visibility.Visible;
+            this.DataGridTextColumn_Diff3.Visibility = System.Windows.Visibility.Visible;
+            this.Button_ShowDiff.Content = "隐藏差额";
+        }
+        private void HideDiff()
+        {
+            this.DataGridTextColumn_Diff1.Visibility = System.Windows.Visibility.Collapsed;
+            this.DataGridTextColumn_Diff2.Visibility = System.Windows.Visibility.Collapsed;
+            this.DataGridTextColumn_Diff3.Visibility = System.Windows.Visibility.Collapsed;
+            this.Button_ShowDiff.Content = "显示差额";
         }
     }
 }
