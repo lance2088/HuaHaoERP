@@ -21,38 +21,14 @@
                 <DropShadowEffect/>
             </Menu.Effect>
             <MenuItem Header="生产管理" Foreground="White" Height="23">
-                <MenuItem x:Name="MenuItem_1" Header="生产录入" Foreground="Black" Click="MenuItem_1_Click">
-                    <MenuItem.Icon>
-                        <Image Source="/HuaHaoERP;component/View/Resources/Ico/In.png"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-                <MenuItem x:Name="MenuItem_2" Header="抛光出单" Foreground="Black" Click="MenuItem_2_Click">
-                    <MenuItem.Icon>
-                        <Image Source="/HuaHaoERP;component/View/Resources/Ico/Out.png"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-                <MenuItem x:Name="MenuItem_3" Header="抛光入单" Foreground="Black" Click="MenuItem_3_Click">
-                    <MenuItem.Icon>
-                        <Image Source="/HuaHaoERP;component/View/Resources/Ico/In.png"/>
-                    </MenuItem.Icon>
-                </MenuItem>
+                <MenuItem x:Name="MenuItem_1" Header="生产录入" Foreground="Black" Click="MenuItem_1_Click"/>
+                <MenuItem x:Name="MenuItem_2" Header="抛光出单" Foreground="Black" Click="MenuItem_2_Click"/>
+                <MenuItem x:Name="MenuItem_3" Header="抛光入单" Foreground="Black" Click="MenuItem_3_Click"/>
             </MenuItem>
             <MenuItem Header="仓库管理" Foreground="White">
-                <MenuItem x:Name="MenuItem_4" Header="批量入库" Foreground="Black" Click="MenuItem_4_Click">
-                    <MenuItem.Icon>
-                        <Image Source="/HuaHaoERP;component/View/Resources/Ico/In.png"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-                <MenuItem x:Name="MenuItem_5" Header="散件出库" Foreground="Black" Click="MenuItem_5_Click">
-                    <MenuItem.Icon>
-                        <Image Source="/HuaHaoERP;component/View/Resources/Ico/Out.png"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-                <MenuItem x:Name="MenuItem_6" Header="包装出库" Foreground="Black" Click="MenuItem_6_Click">
-                    <MenuItem.Icon>
-                        <Image Source="/HuaHaoERP;component/View/Resources/Ico/Out.png"/>
-                    </MenuItem.Icon>
-                </MenuItem>
+                <MenuItem x:Name="MenuItem_4" Header="批量入库" Foreground="Black" Click="MenuItem_4_Click"/>
+                <MenuItem x:Name="MenuItem_5" Header="散件出库" Foreground="Black" Click="MenuItem_5_Click"/>
+                <MenuItem x:Name="MenuItem_6" Header="包装出库" Foreground="Black" Click="MenuItem_6_Click"/>
             </MenuItem>
         </Menu>
     </Grid>
