@@ -121,7 +121,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                     Model_ProductionBookkeeping m = this.DataGrid_ProductionBookkeeping.SelectedCells[0].Item as Model_ProductionBookkeeping;
                     if (new ProductionBookkeepingConsole().Delete(m.Guid))
                     {
-                        InitializeData();
+                        data.Remove(m);
                     }
                 }
             }
