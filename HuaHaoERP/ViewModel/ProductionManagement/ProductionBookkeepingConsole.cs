@@ -7,7 +7,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
 {
     class ProductionBookkeepingConsole
     {
-        internal bool ReadData(out ObservableCollection<Model_ProductionBookkeeping> data)
+        internal bool ReadData(string Parm, out ObservableCollection<Model_ProductionBookkeeping> data)
         {
             data = new ObservableCollection<Model_ProductionBookkeeping>();
             Model_ProductionBookkeeping m;
@@ -15,6 +15,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                         + " from T_PM_ProductionBookkeeping a"
                         + " Left Join T_ProductInfo_Product b ON a.ProductID=b.Guid"
                         + " Where a.DeleteMark ISNULL"
+                        + " AND b.Number LIKE '%" + Parm + "%' "
                         ;
             DataSet ds = new DataSet();
             if (new Helper.SQLite.DBHelper().QueryData(sql, out ds))

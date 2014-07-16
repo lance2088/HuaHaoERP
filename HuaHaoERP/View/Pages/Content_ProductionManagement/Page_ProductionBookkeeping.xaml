@@ -13,7 +13,14 @@
     <Grid>
         <DataGrid x:Name="DataGrid_ProductionBookkeeping" Margin="10,60,10,10" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" AutoGenerateColumns="False" HeadersVisibility="Column" SelectionMode="Single" BorderBrush="#FF99CCFF" CanUserDeleteRows="False" CanUserSortColumns="False" CanUserReorderColumns="False" CanUserResizeRows="False" CanUserAddRows="False" SelectionUnit="Cell" BeginningEdit="DataGrid_ProductionBookkeeping_BeginningEdit" CellEditEnding="DataGrid_ProductionBookkeeping_CellEditEnding">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="编号" Binding="{Binding ProductNumber}" MinWidth="120" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn Header="日期" Binding="{Binding AddDate}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" MinWidth="150">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Background" Value="{StaticResource clBr}" />
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="编号" Binding="{Binding ProductNumber}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                 <DataGridTextColumn Header="名称" Binding="{Binding ProductName}" IsReadOnly="True" MinWidth="120" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}">
                     <DataGridTextColumn.CellStyle>
                         <Style TargetType="DataGridCell">
@@ -21,7 +28,7 @@
                         </Style>
                     </DataGridTextColumn.CellStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="工序" Binding="{Binding ProductProcessStr}" IsReadOnly="True" MinWidth="180" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}">
+                <DataGridTextColumn Header="工序" Binding="{Binding ProductProcessStr}" IsReadOnly="True" MinWidth="150" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}">
                     <DataGridTextColumn.CellStyle>
                         <Style TargetType="DataGridCell">
                             <Setter Property="Background" Value="{StaticResource clBr}" />
@@ -53,14 +60,15 @@
                     </DataGridTextColumn.CellStyle>
                 </DataGridTextColumn>
                 <DataGridTextColumn Header="工序4" Binding="{Binding P4Num}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                <DataGridTextColumn Header="备注" Binding="{Binding Remark}"/>
+                <DataGridTextColumn Header="备注" Binding="{Binding Remark}" MinWidth="120"/>
             </DataGrid.Columns>
         </DataGrid>
-        <TextBox x:Name="TextBox_SearchProduct" HorizontalAlignment="Left" Height="24" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="TextBox_SearchProduct" HorizontalAlignment="Left" Height="24" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" PreviewKeyUp="TextBox_SearchProduct_PreviewKeyUp"/>
         <Button x:Name="Button_ShowDiff" Content="显示差额" HorizontalAlignment="Left" Margin="135,10,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_ShowDiff_Click"/>
         <TextBox x:Name="TextBox_NewProduct" HorizontalAlignment="Right" Height="24" Margin="0,10,170,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" PreviewKeyDown="TextBox_NewProduct_PreviewKeyDown"/>
         <Button x:Name="Button_New" Content="新增" HorizontalAlignment="Right" Margin="0,10,90,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_New_Click"/>
         <Button x:Name="Button_Delete" Content="删除" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_Delete_Click"/>
+        <DatePicker x:Name="DatePicker_Date" HorizontalAlignment="Left" Margin="215,10,0,0" VerticalAlignment="Top" Height="24" Width="120"/>
 
     </Grid>
 </Page>

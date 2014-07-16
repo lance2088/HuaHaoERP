@@ -21,14 +21,16 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             {
                 HideDiff();
             }
+            this.DatePicker_Date.SelectedDate = DateTime.Now;
             InitializeData();
         }
 
         private void InitializeData()
         {
+            string Product = this.TextBox_SearchProduct.Text;
             this.DataGrid_ProductionBookkeeping.ItemsSource = null;
             System.Threading.Thread.Sleep(100);
-            if (new ProductionBookkeepingConsole().ReadData(out data))
+            if (new ProductionBookkeepingConsole().ReadData(Product, out data))
             {
                 this.DataGrid_ProductionBookkeeping.ItemsSource = data;
             }
@@ -161,6 +163,11 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             this.DataGridTextColumn_Diff2.Visibility = System.Windows.Visibility.Collapsed;
             this.DataGridTextColumn_Diff3.Visibility = System.Windows.Visibility.Collapsed;
             this.Button_ShowDiff.Content = "显示差额";
+        }
+
+        private void TextBox_SearchProduct_PreviewKeyUp(object sender, KeyEventArgs e)
+        {
+            InitializeData();
         }
     }
 }
