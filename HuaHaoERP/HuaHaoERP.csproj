@@ -465,6 +465,7 @@
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="InternalDoc\Data.db" />
+    <None Include="InternalDoc\DataHuaHao.db" />
     <None Include="InternalDoc\Reactor_i5.nrproj" />
     <None Include="InternalDoc\文档\石蚁科技五金ERP使用说明.doc" />
     <None Include="InternalDoc\文档\华浩表格V1.1.xls" />
