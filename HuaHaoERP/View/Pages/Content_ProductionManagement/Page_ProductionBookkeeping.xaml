@@ -35,31 +35,31 @@
                         </Style>
                     </DataGridTextColumn.CellStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="工序1" Binding="{Binding P1Num}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" MinWidth="60"/>
-                <DataGridTextColumn x:Name="DataGridTextColumn_Diff1" Header=" " Binding="{Binding P1Diff}" IsReadOnly="True" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}">
+                <DataGridTextColumn Header="①" Binding="{Binding P1Num}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" MinWidth="60"/>
+                <DataGridTextColumn x:Name="DataGridTextColumn_Diff1" Header=" " MinWidth="40" Binding="{Binding P1Diff}" IsReadOnly="True" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}">
                     <DataGridTextColumn.CellStyle>
                         <Style TargetType="DataGridCell">
                             <Setter Property="Background" Value="{StaticResource clBr}" />
                         </Style>
                     </DataGridTextColumn.CellStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="工序2" Binding="{Binding P2Num}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" MinWidth="60"/>
-                <DataGridTextColumn x:Name="DataGridTextColumn_Diff2" Header=" " Binding="{Binding P2Diff}" IsReadOnly="True" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}">
+                <DataGridTextColumn Header="②" Binding="{Binding P2Num}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" MinWidth="60"/>
+                <DataGridTextColumn x:Name="DataGridTextColumn_Diff2" Header=" " MinWidth="40" Binding="{Binding P2Diff}" IsReadOnly="True" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}">
                     <DataGridTextColumn.CellStyle>
                         <Style TargetType="DataGridCell">
                             <Setter Property="Background" Value="{StaticResource clBr}" />
                         </Style>
                     </DataGridTextColumn.CellStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="工序3" Binding="{Binding P3Num}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" MinWidth="60"/>
-                <DataGridTextColumn x:Name="DataGridTextColumn_Diff3" Header=" " Binding="{Binding P3Diff}" IsReadOnly="True" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}">
+                <DataGridTextColumn Header="③" Binding="{Binding P3Num}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" MinWidth="60"/>
+                <DataGridTextColumn x:Name="DataGridTextColumn_Diff3" Header=" " MinWidth="40" Binding="{Binding P3Diff}" IsReadOnly="True" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}">
                     <DataGridTextColumn.CellStyle>
                         <Style TargetType="DataGridCell">
                             <Setter Property="Background" Value="{StaticResource clBr}" />
                         </Style>
                     </DataGridTextColumn.CellStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="工序4" Binding="{Binding P4Num}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" MinWidth="60"/>
+                <DataGridTextColumn Header="④" Binding="{Binding P4Num}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" MinWidth="60"/>
                 <DataGridTextColumn Header="备注" Binding="{Binding Remark}" MinWidth="120"/>
             </DataGrid.Columns>
         </DataGrid>
