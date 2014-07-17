@@ -64,11 +64,11 @@
             </DataGrid.Columns>
         </DataGrid>
         <TextBox x:Name="TextBox_SearchProduct" HorizontalAlignment="Left" Height="24" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" PreviewKeyUp="TextBox_SearchProduct_PreviewKeyUp"/>
-        <Button x:Name="Button_ShowDiff" Content="显示差额" HorizontalAlignment="Left" Margin="135,10,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_ShowDiff_Click"/>
         <TextBox x:Name="TextBox_NewProduct" HorizontalAlignment="Right" Height="24" Margin="0,10,170,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" PreviewKeyDown="TextBox_NewProduct_PreviewKeyDown"/>
         <Button x:Name="Button_New" Content="新增" HorizontalAlignment="Right" Margin="0,10,90,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_New_Click"/>
         <Button x:Name="Button_Delete" Content="删除" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_Delete_Click"/>
         <DatePicker x:Name="DatePicker_Date" HorizontalAlignment="Left" Margin="215,10,0,0" VerticalAlignment="Top" Height="24" Width="120"/>
+        <CheckBox x:Name="CheckBox_ShowDiff" Content="显示差额" HorizontalAlignment="Left" Margin="135,10,0,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" Padding="4,0,0,0" Click="CheckBox_ShowDiff_Click" IsChecked="True"/>
 
     </Grid>
 </Page>

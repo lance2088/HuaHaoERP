@@ -20,6 +20,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             if (!Properties.Settings.Default.isShowDiffColumn)
             {
                 HideDiff();
+                this.CheckBox_ShowDiff.IsChecked = false;
             }
             this.DatePicker_Date.SelectedDate = DateTime.Now;
             InitializeData();
@@ -136,38 +137,36 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             }
         }
 
-        private void Button_ShowDiff_Click(object sender, RoutedEventArgs e)
-        {
-            if (Properties.Settings.Default.isShowDiffColumn)
-            {
-                HideDiff();
-                Properties.Settings.Default.isShowDiffColumn = false;
-            }
-            else
-            {
-                ShowDiff();
-                Properties.Settings.Default.isShowDiffColumn = true;
-            }
-        }
-
         private void ShowDiff()
         {
             this.DataGridTextColumn_Diff1.Visibility = System.Windows.Visibility.Visible;
             this.DataGridTextColumn_Diff2.Visibility = System.Windows.Visibility.Visible;
             this.DataGridTextColumn_Diff3.Visibility = System.Windows.Visibility.Visible;
-            this.Button_ShowDiff.Content = "隐藏差额";
         }
         private void HideDiff()
         {
             this.DataGridTextColumn_Diff1.Visibility = System.Windows.Visibility.Collapsed;
             this.DataGridTextColumn_Diff2.Visibility = System.Windows.Visibility.Collapsed;
             this.DataGridTextColumn_Diff3.Visibility = System.Windows.Visibility.Collapsed;
-            this.Button_ShowDiff.Content = "显示差额";
         }
 
         private void TextBox_SearchProduct_PreviewKeyUp(object sender, KeyEventArgs e)
         {
             InitializeData();
+        }
+
+        private void CheckBox_ShowDiff_Click(object sender, RoutedEventArgs e)
+        {
+            if ((bool)this.CheckBox_ShowDiff.IsChecked)
+            {
+                ShowDiff();
+                Properties.Settings.Default.isShowDiffColumn = true;
+            }
+            else
+            {
+                HideDiff();
+                Properties.Settings.Default.isShowDiffColumn = false;
+            }
         }
     }
 }
