@@ -8,12 +8,12 @@
 	Title="Page_ProductionBookkeeping">
 
     <Page.Resources>
-        <SolidColorBrush x:Key="clBr" Color="#FFBDDEFF" />
+        <SolidColorBrush x:Key="clBr" Color="#FFDAECFF" />
     </Page.Resources>
     <Grid>
         <DataGrid x:Name="DataGrid_ProductionBookkeeping" Margin="10,60,10,10" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" AutoGenerateColumns="False" HeadersVisibility="Column" SelectionMode="Single" BorderBrush="#FF99CCFF" CanUserDeleteRows="False" CanUserSortColumns="False" CanUserReorderColumns="False" CanUserResizeRows="False" CanUserAddRows="False" SelectionUnit="Cell" BeginningEdit="DataGrid_ProductionBookkeeping_BeginningEdit" CellEditEnding="DataGrid_ProductionBookkeeping_CellEditEnding">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="日期" Binding="{Binding AddDate}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" MinWidth="150">
+                <DataGridTextColumn Header="日期" Binding="{Binding AddDate}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" MinWidth="150" IsReadOnly="True">
                     <DataGridTextColumn.CellStyle>
                         <Style TargetType="DataGridCell">
                             <Setter Property="Background" Value="{StaticResource clBr}" />
@@ -35,7 +35,7 @@
                         </Style>
                     </DataGridTextColumn.CellStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="工序1" Binding="{Binding P1Num}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn Header="工序1" Binding="{Binding P1Num}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" MinWidth="60"/>
                 <DataGridTextColumn x:Name="DataGridTextColumn_Diff1" Header=" " Binding="{Binding P1Diff}" IsReadOnly="True" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}">
                     <DataGridTextColumn.CellStyle>
                         <Style TargetType="DataGridCell">
@@ -43,7 +43,7 @@
                         </Style>
                     </DataGridTextColumn.CellStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="工序2" Binding="{Binding P2Num}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn Header="工序2" Binding="{Binding P2Num}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" MinWidth="60"/>
                 <DataGridTextColumn x:Name="DataGridTextColumn_Diff2" Header=" " Binding="{Binding P2Diff}" IsReadOnly="True" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}">
                     <DataGridTextColumn.CellStyle>
                         <Style TargetType="DataGridCell">
@@ -51,7 +51,7 @@
                         </Style>
                     </DataGridTextColumn.CellStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="工序3" Binding="{Binding P3Num}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn Header="工序3" Binding="{Binding P3Num}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" MinWidth="60"/>
                 <DataGridTextColumn x:Name="DataGridTextColumn_Diff3" Header=" " Binding="{Binding P3Diff}" IsReadOnly="True" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}">
                     <DataGridTextColumn.CellStyle>
                         <Style TargetType="DataGridCell">
@@ -59,7 +59,7 @@
                         </Style>
                     </DataGridTextColumn.CellStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="工序4" Binding="{Binding P4Num}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn Header="工序4" Binding="{Binding P4Num}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" MinWidth="60"/>
                 <DataGridTextColumn Header="备注" Binding="{Binding Remark}" MinWidth="120"/>
             </DataGrid.Columns>
         </DataGrid>
