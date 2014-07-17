@@ -28,10 +28,11 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void InitializeData()
         {
+            DateTime SelectDate = (DateTime)this.DatePicker_Date.SelectedDate;
             string Product = this.TextBox_SearchProduct.Text;
             this.DataGrid_ProductionBookkeeping.ItemsSource = null;
             System.Threading.Thread.Sleep(100);
-            if (new ProductionBookkeepingConsole().ReadData(Product, out data))
+            if (new ProductionBookkeepingConsole().ReadData(SelectDate, Product, out data))
             {
                 this.DataGrid_ProductionBookkeeping.ItemsSource = data;
             }
@@ -167,6 +168,36 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 HideDiff();
                 Properties.Settings.Default.isShowDiffColumn = false;
             }
+        }
+
+        private void DatePicker_Date_CalendarClosed(object sender, RoutedEventArgs e)
+        {
+            InitializeData();
+        }
+
+        private void Button_PreviousDay_Click(object sender, RoutedEventArgs e)
+        {
+            DateTime DateNow = (DateTime)this.DatePicker_Date.SelectedDate;
+            this.DatePicker_Date.SelectedDate = DateNow.AddDays(-1);
+            InitializeData();
+        }
+
+        private void Button_NextDay_Click(object sender, RoutedEventArgs e)
+        {
+            DateTime DateNow = (DateTime)this.DatePicker_Date.SelectedDate;
+            this.DatePicker_Date.SelectedDate = DateNow.AddDays(1);
+            InitializeData();
+        }
+
+        private void Button_Today_Click(object sender, RoutedEventArgs e)
+        {
+            this.DatePicker_Date.SelectedDate = DateTime.Now;
+            InitializeData();
+        }
+
+        private void Button_AllDay_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

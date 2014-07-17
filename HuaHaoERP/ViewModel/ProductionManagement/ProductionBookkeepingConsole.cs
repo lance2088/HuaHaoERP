@@ -7,8 +7,9 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
 {
     class ProductionBookkeepingConsole
     {
-        internal bool ReadData(string Parm, out ObservableCollection<Model_ProductionBookkeeping> data)
+        internal bool ReadData(DateTime date, string Parm, out ObservableCollection<Model_ProductionBookkeeping> data)
         {
+            string DateStr = date.ToString("yyyy-MM-dd 00:00:00");
             data = new ObservableCollection<Model_ProductionBookkeeping>();
             Model_ProductionBookkeeping m;
             string sql = "Select a.*,b.Number,b.Name,b.P1,b.P2,b.P3,b.P4,b.P5,b.P6 "
@@ -16,6 +17,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                         + " Left Join T_ProductInfo_Product b ON a.ProductID=b.Guid"
                         + " Where a.DeleteMark ISNULL"
                         + " AND b.Number LIKE '%" + Parm + "%' "
+                        + " AND a.AddDate BETWEEN '" + DateStr + "' AND datetime('" + DateStr + "','+1 day') "
                         ;
             DataSet ds = new DataSet();
             if (new Helper.SQLite.DBHelper().QueryData(sql, out ds))
