@@ -11,7 +11,7 @@ namespace HuaHaoERP.Helper.Tools
         /// </summary>
         internal List<string> Macs
         {
-            get 
+            get
             {
                 List<string> macs = new List<string>();
                 try
@@ -24,21 +24,20 @@ namespace HuaHaoERP.Helper.Tools
                         if ((bool)mo["IPEnabled"])
                         {
                             mac = mo["MacAddress"].ToString();
-                            if (!mac.StartsWith("00"))
-                            {
-                                macs.Add(mac);
-                            }
+                            macs.Add(mac);
                         }
                     }
                     moc = null;
                     mc = null;
                 }
-                catch
+                catch (Exception e)
                 {
+                    Helper.LogHelper.FileLog.ErrorLog(e.ToString());
                 }
                 return macs;
             }
         }
+
         /// <summary>
         /// CPU ID
         /// *此方法很慢
@@ -66,9 +65,10 @@ namespace HuaHaoERP.Helper.Tools
                 }
                 finally
                 {
-                }  
+                }
             }
         }
+
         /// <summary>
         /// 硬盘序列号
         /// </summary>
@@ -80,24 +80,23 @@ namespace HuaHaoERP.Helper.Tools
                 try
                 {
                     String HDid = "";
-                    ManagementClass mc = new ManagementClass("Win32_DiskDrive");
+                    ManagementClass mc = new ManagementClass("Win32_PhysicalMedia");
                     ManagementObjectCollection moc = mc.GetInstances();
                     foreach (ManagementObject mo in moc)
                     {
                         HDid = (string)mo.Properties["SerialNumber"].Value;
+                        Helper.LogHelper.FileLog.Log(HDid);
                         ids.Add(HDid);
                     }
                     moc = null;
                     mc = null;
                     return ids;
                 }
-                catch
+                catch (Exception e)
                 {
+                    Helper.LogHelper.FileLog.ErrorLog(e.ToString());
                     return ids;
                 }
-                finally
-                {
-                }  
             }
         }
     }
