@@ -48,6 +48,8 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             this.TextBox_Remark.Text = this.Label_Title.Content.ToString();
             this.TextBox_Processors.Focus();
             this.CheckBox_LockProcessors.Visibility = System.Windows.Visibility.Collapsed;
+            this.Button_PreviousOrder.Visibility = System.Windows.Visibility.Collapsed;
+            this.Button_NextOrder.Visibility = System.Windows.Visibility.Collapsed;
         }
 
         /// <summary>
@@ -89,7 +91,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             {
                 this.Button_PreviousOrder.IsEnabled = false;
             }
-            else if (OrderIndex == Helper.DataDefinition.CommonParameters.OrderNoList.Count - 1)
+            if (OrderIndex == Helper.DataDefinition.CommonParameters.OrderNoList.Count - 1)
             {
                 this.Button_NextOrder.IsEnabled = false;
             }
