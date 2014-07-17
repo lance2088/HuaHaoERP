@@ -79,7 +79,7 @@ namespace HuaHaoERP.Helper.Tools
                 List<string> ids = new List<string>();
                 try
                 {
-                    String HDid = "";
+                    string HDid = "";
                     ManagementClass mc = new ManagementClass("Win32_PhysicalMedia");
                     ManagementObjectCollection moc = mc.GetInstances();
                     foreach (ManagementObject mo in moc)
