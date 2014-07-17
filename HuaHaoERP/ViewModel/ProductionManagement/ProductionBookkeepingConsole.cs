@@ -64,7 +64,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                     m.P5Diff = m.P6Num - m.P5Num;
 
                     m.Remark = dr["Remark"].ToString();
-                    m.AddDate = dr["AddDate"].ToString();
+                    m.AddDate = Convert.ToDateTime(dr["AddDate"].ToString()).ToString("yyyy-MM-dd");
                     data.Add(m);
                 }
             }
