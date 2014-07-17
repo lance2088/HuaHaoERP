@@ -7,9 +7,19 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
 {
     class ProductionBookkeepingConsole
     {
-        internal bool ReadData(DateTime date, string Parm, out ObservableCollection<Model_ProductionBookkeeping> data)
+        internal bool ReadData(string Parm, out ObservableCollection<Model_ProductionBookkeeping> data)
         {
-            string DateStr = date.ToString("yyyy-MM-dd 00:00:00");
+            data = new ObservableCollection<Model_ProductionBookkeeping>();
+            return ReadData("0000", Parm, out data);
+        }
+
+        internal bool ReadData(string DateStr, string Parm, out ObservableCollection<Model_ProductionBookkeeping> data)
+        {
+            string DateParm = "";
+            if (!DateStr.StartsWith("0000"))
+            {
+                DateParm = " AND a.AddDate BETWEEN '" + DateStr + "' AND datetime('" + DateStr + "','+1 day') ";
+            }
             data = new ObservableCollection<Model_ProductionBookkeeping>();
             Model_ProductionBookkeeping m;
             string sql = "Select a.*,b.Number,b.Name,b.P1,b.P2,b.P3,b.P4,b.P5,b.P6 "
@@ -17,7 +27,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                         + " Left Join T_ProductInfo_Product b ON a.ProductID=b.Guid"
                         + " Where a.DeleteMark ISNULL"
                         + " AND b.Number LIKE '%" + Parm + "%' "
-                        + " AND a.AddDate BETWEEN '" + DateStr + "' AND datetime('" + DateStr + "','+1 day') "
+                        + DateParm
                         ;
             DataSet ds = new DataSet();
             if (new Helper.SQLite.DBHelper().QueryData(sql, out ds))

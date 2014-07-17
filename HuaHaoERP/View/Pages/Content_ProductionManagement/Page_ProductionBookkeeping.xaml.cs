@@ -13,6 +13,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         ObservableCollection<Model_ProductionBookkeeping> data = new ObservableCollection<Model_ProductionBookkeeping>();
         string oldValue;
         Guid newProductGuid = new Guid();
+        bool Is_AllDate = false;
 
         public Page_ProductionBookkeeping()
         {
@@ -32,9 +33,19 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             string Product = this.TextBox_SearchProduct.Text;
             this.DataGrid_ProductionBookkeeping.ItemsSource = null;
             System.Threading.Thread.Sleep(100);
-            if (new ProductionBookkeepingConsole().ReadData(SelectDate, Product, out data))
+            if (Is_AllDate)
             {
-                this.DataGrid_ProductionBookkeeping.ItemsSource = data;
+                if (new ProductionBookkeepingConsole().ReadData(Product, out data))
+                {
+                    this.DataGrid_ProductionBookkeeping.ItemsSource = data;
+                }
+            }
+            else
+            {
+                if (new ProductionBookkeepingConsole().ReadData(SelectDate.ToString("yyyy-MM-dd 00:00:00"), Product, out data))
+                {
+                    this.DataGrid_ProductionBookkeeping.ItemsSource = data;
+                }
             }
         }
 
@@ -197,7 +208,23 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void Button_AllDay_Click(object sender, RoutedEventArgs e)
         {
-
+            if (Is_AllDate)
+            {
+                this.DatePicker_Date.IsEnabled = true;
+                this.Button_PreviousDay.IsEnabled = true;
+                this.Button_NextDay.IsEnabled = true;
+                this.Button_Today.IsEnabled = true;
+                Is_AllDate = false;
+            }
+            else
+            {
+                this.DatePicker_Date.IsEnabled = false;
+                this.Button_PreviousDay.IsEnabled = false;
+                this.Button_NextDay.IsEnabled = false;
+                this.Button_Today.IsEnabled = false;
+                Is_AllDate = true;
+            }
+            InitializeData();
         }
     }
 }

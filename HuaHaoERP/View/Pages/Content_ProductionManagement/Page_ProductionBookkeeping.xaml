@@ -63,7 +63,7 @@
                 <DataGridTextColumn Header="备注" Binding="{Binding Remark}" MinWidth="120"/>
             </DataGrid.Columns>
         </DataGrid>
-        <TextBox x:Name="TextBox_SearchProduct" HorizontalAlignment="Left" Height="24" Margin="10,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" PreviewKeyUp="TextBox_SearchProduct_PreviewKeyUp">
+        <TextBox x:Name="TextBox_SearchProduct" HorizontalAlignment="Left" Height="24" Margin="10,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" PreviewKeyUp="TextBox_SearchProduct_PreviewKeyUp">
             <TextBox.Resources>
                 <VisualBrush x:Key="HelpBrush" TileMode="None" Opacity="0.3" Stretch="None" AlignmentX="Left">
                     <VisualBrush.Visual>
@@ -84,7 +84,7 @@
                 </Style>
             </TextBox.Style>
         </TextBox>
-        <TextBox x:Name="TextBox_NewProduct" HorizontalAlignment="Right" Height="24" Margin="0,20,170,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" PreviewKeyDown="TextBox_NewProduct_PreviewKeyDown">
+        <TextBox x:Name="TextBox_NewProduct" HorizontalAlignment="Right" Height="24" Margin="0,18,170,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" PreviewKeyDown="TextBox_NewProduct_PreviewKeyDown">
             <TextBox.Resources>
                 <VisualBrush x:Key="HelpBrush" TileMode="None" Opacity="0.3" Stretch="None" AlignmentX="Left">
                     <VisualBrush.Visual>
@@ -105,17 +105,17 @@
                 </Style>
             </TextBox.Style>
         </TextBox>
-        <Button x:Name="Button_New" Content="新增" HorizontalAlignment="Right" Margin="0,20,90,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_New_Click"/>
-        <Button x:Name="Button_Delete" Content="删除" HorizontalAlignment="Right" Margin="0,20,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_Delete_Click"/>
-        <DatePicker x:Name="DatePicker_Date" HorizontalAlignment="Left" Margin="240,20,0,0" VerticalAlignment="Top" Height="24" Width="120" CalendarClosed="DatePicker_Date_CalendarClosed"/>
-        <CheckBox x:Name="CheckBox_ShowDiff" Content="显示差额" HorizontalAlignment="Left" Margin="150,20,0,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" Padding="4,0,0,0" Click="CheckBox_ShowDiff_Click" IsChecked="True"/>
-        <Button x:Name="Button_PreviousDay" Content="前一天" HorizontalAlignment="Left" Margin="365,10,0,0" VerticalAlignment="Top" Width="50" Click="Button_PreviousDay_Click" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Height="20"/>
-        <Button x:Name="Button_NextDay" Content="后一天" HorizontalAlignment="Left" Margin="365,35,0,0" VerticalAlignment="Top" Width="50" Click="Button_NextDay_Click" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Height="20"/>
-        <Border BorderBrush="#FF99CCFF" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="140,5,0,0" VerticalAlignment="Top" Width="1"/>
-        <Border BorderBrush="#FF99CCFF" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="230,5,0,0" VerticalAlignment="Top" Width="1"/>
-        <Border BorderBrush="#FF99CCFF" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="480,5,0,0" VerticalAlignment="Top" Width="1"/>
-        <Button x:Name="Button_Today" Content="今天" HorizontalAlignment="Left" Margin="420,10,0,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Height="20" Click="Button_Today_Click"/>
-        <Button x:Name="Button_AllDay" Content="全部" HorizontalAlignment="Left" Margin="420,35,0,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Height="20" Click="Button_AllDay_Click"/>
+        <Button x:Name="Button_New" Content="新增" HorizontalAlignment="Right" Margin="0,18,90,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_New_Click"/>
+        <Button x:Name="Button_Delete" Content="删除" HorizontalAlignment="Right" Margin="0,18,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_Delete_Click"/>
+        <DatePicker x:Name="DatePicker_Date" HorizontalAlignment="Left" Margin="240,18,0,0" VerticalAlignment="Top" Height="24" Width="120" CalendarClosed="DatePicker_Date_CalendarClosed"/>
+        <CheckBox x:Name="CheckBox_ShowDiff" Content="显示差额" HorizontalAlignment="Left" Margin="150,18,0,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" Padding="4,0,0,0" Click="CheckBox_ShowDiff_Click" IsChecked="True"/>
+        <Button x:Name="Button_PreviousDay" Content="前一天" HorizontalAlignment="Left" Margin="365,7,0,0" VerticalAlignment="Top" Width="50" Click="Button_PreviousDay_Click" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Height="20"/>
+        <Button x:Name="Button_NextDay" Content="后一天" HorizontalAlignment="Left" Margin="365,32,0,0" VerticalAlignment="Top" Width="50" Click="Button_NextDay_Click" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Height="20"/>
+        <Border BorderBrush="#FFD6DBE9" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="140,5,0,0" VerticalAlignment="Top" Width="1"/>
+        <Border BorderBrush="#FFD6DBE9" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="230,5,0,0" VerticalAlignment="Top" Width="1"/>
+        <Border BorderBrush="#FFD6DBE9" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="480,5,0,0" VerticalAlignment="Top" Width="1"/>
+        <Button x:Name="Button_Today" Content="今天" HorizontalAlignment="Left" Margin="420,7,0,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Height="20" Click="Button_Today_Click"/>
+        <Button x:Name="Button_AllDay" Content="全部" HorizontalAlignment="Left" Margin="420,32,0,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Height="20" Click="Button_AllDay_Click"/>
 
     </Grid>
 </Page>
