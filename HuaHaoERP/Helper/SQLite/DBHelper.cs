@@ -33,6 +33,7 @@ namespace HuaHaoERP.Helper.SQLite
         {
             SQLiteConnectionStringBuilder connBuilder = new SQLiteConnectionStringBuilder();
             connBuilder.DataSource = DataSource;
+            connBuilder.JournalMode = SQLiteJournalModeEnum.Wal;
             conn.ConnectionString = connBuilder.ToString();
             conn.SetPassword(Password);
             try
