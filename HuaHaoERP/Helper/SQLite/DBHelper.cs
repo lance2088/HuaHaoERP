@@ -13,9 +13,8 @@ namespace HuaHaoERP.Helper.SQLite
 
         internal DBHelper()
         {
-            InitializeDbConnect();
+            InitializeDbConnect(Helper.DataDefinition.CommonParameters.DbPassword);
         }
-        public static readonly DBHelper instance = new DBHelper();
 
         internal void ChangeDBPassword(string Password)
         {
@@ -26,20 +25,6 @@ namespace HuaHaoERP.Helper.SQLite
             ChangeDBPassword("");
         }
 
-        /// <summary>
-        /// 初始化数据库连接
-        /// </summary>
-        private void InitializeDbConnect()
-        {
-            if (Helper.DataDefinition.CommonParameters.DbPassword == "")
-            {
-                InitializeDbConnect("");
-            }
-            else
-            {
-                InitializeDbConnect(Helper.DataDefinition.CommonParameters.DbPassword);
-            }
-        }
         /// <summary>
         /// 初始化数据库连接 With Password
         /// </summary>
@@ -67,6 +52,7 @@ namespace HuaHaoERP.Helper.SQLite
         {
             conn.Close();
             conn.Dispose();
+            cmd.Dispose();
         }
 
         /// <summary>
