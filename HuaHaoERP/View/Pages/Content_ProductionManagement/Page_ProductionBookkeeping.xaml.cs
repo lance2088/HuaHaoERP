@@ -67,21 +67,21 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                     case "编号":
 
                         break;
-                    case "工序1":
+                    case "①":
                         mdata.P1Num = int.Parse(newValue);
                         mdata.P1Diff = mdata.P2Num - mdata.P1Num;
                         break;
-                    case "工序2":
+                    case "②":
                         mdata.P2Num = int.Parse(newValue);
                         mdata.P1Diff = mdata.P2Num - mdata.P1Num;
                         mdata.P2Diff = mdata.P3Num - mdata.P2Num;
                         break;
-                    case "工序3":
+                    case "③":
                         mdata.P3Num = int.Parse(newValue);
                         mdata.P2Diff = mdata.P3Num - mdata.P2Num;
                         mdata.P3Diff = mdata.P4Num - mdata.P3Num;
                         break;
-                    case "工序4":
+                    case "④":
                         mdata.P4Num = int.Parse(newValue);
                         mdata.P3Diff = mdata.P4Num - mdata.P3Num;
                         break;

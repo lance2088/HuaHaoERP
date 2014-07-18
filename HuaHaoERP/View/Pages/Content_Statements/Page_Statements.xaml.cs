@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace HuaHaoERP.View.Pages.Content_Statements
 {
-    /// <summary>
-    /// Interaction logic for Page_Statements.xaml
-    /// </summary>
     public partial class Page_Statements : Page
     {
         public Page_Statements()
