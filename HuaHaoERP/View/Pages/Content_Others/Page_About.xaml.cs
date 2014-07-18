@@ -29,7 +29,6 @@ namespace HuaHaoERP.View.Pages.Content_Others
                 StoneAnt.License.Model.LicenseModel m = new StoneAnt.License.Model.LicenseModel();
                 if (new StoneAnt.License.Verify.Term().VerfyLicense(LicenseFile, out m))
                 {
-
                     if(DateTime.Now.Subtract(m.CreationDate).Days > 7 || DateTime.Now.Subtract(m.CreationDate).Days < 0)
                     {
                         MessageBox.Show("许可有误或已过期，请联系开发商", "错误");

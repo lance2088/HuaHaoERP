@@ -85,7 +85,6 @@ namespace HuaHaoERP.Helper.Tools
                     foreach (ManagementObject mo in moc)
                     {
                         HDid = (string)mo.Properties["SerialNumber"].Value;
-                        Helper.LogHelper.FileLog.Log(HDid);
                         ids.Add(HDid);
                     }
                     moc = null;
