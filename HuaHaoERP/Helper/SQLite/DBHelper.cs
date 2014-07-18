@@ -15,6 +15,7 @@ namespace HuaHaoERP.Helper.SQLite
         {
             InitializeDbConnect();
         }
+        public static readonly DBHelper instance = new DBHelper();
 
         internal void ChangeDBPassword(string Password)
         {

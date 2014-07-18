@@ -32,7 +32,6 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             DateTime SelectDate = (DateTime)this.DatePicker_Date.SelectedDate;
             string Product = this.TextBox_SearchProduct.Text;
             this.DataGrid_ProductionBookkeeping.ItemsSource = null;
-            System.Threading.Thread.Sleep(100);
             if (Is_AllDate)
             {
                 if (new ProductionBookkeepingConsole().ReadData(Product, out data))
