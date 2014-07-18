@@ -64,7 +64,7 @@ namespace HuaHaoERP
                 this.Width = WorkRect.Width;
                 this.Height = WorkRect.Height;
             }
-            else if (Properties.Settings.Default.MainWindowRect != new Rect(0,0,0,0))
+            else if (Properties.Settings.Default.MainWindowRect != new Rect(0, 0, 0, 0))
             {
                 this.WindowStartupLocation = System.Windows.WindowStartupLocation.Manual;
                 this.Width = Properties.Settings.Default.MainWindowRect.Width;
