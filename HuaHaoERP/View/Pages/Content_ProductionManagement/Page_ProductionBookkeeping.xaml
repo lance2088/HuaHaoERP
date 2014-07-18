@@ -20,7 +20,13 @@
                         </Style>
                     </DataGridTextColumn.CellStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="编号" Binding="{Binding ProductNumber}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn Header="编号" Binding="{Binding ProductNumber}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" IsReadOnly="True">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Background" Value="{StaticResource clBr}" />
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
                 <DataGridTextColumn Header="名称" Binding="{Binding ProductName}" IsReadOnly="True" MinWidth="120" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}">
                     <DataGridTextColumn.CellStyle>
                         <Style TargetType="DataGridCell">

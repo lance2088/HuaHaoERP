@@ -59,30 +59,32 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             string newValue = (e.EditingElement as TextBox).Text.Trim();
             if (newValue != oldValue)
             {
+                int NewValueInt = 0;
                 string Header = e.Column.Header.ToString();
                 Model_ProductionBookkeeping m = this.DataGrid_ProductionBookkeeping.SelectedCells[0].Item as Model_ProductionBookkeeping;
                 Model_ProductionBookkeeping mdata = data[data.IndexOf(m)];
                 switch (Header)
                 {
-                    case "编号":
-
-                        break;
                     case "①":
-                        mdata.P1Num = int.Parse(newValue);
+                        int.TryParse(newValue, out NewValueInt);
+                        mdata.P1Num = NewValueInt;
                         mdata.P1Diff = mdata.P2Num - mdata.P1Num;
                         break;
                     case "②":
-                        mdata.P2Num = int.Parse(newValue);
+                        int.TryParse(newValue, out NewValueInt);
+                        mdata.P2Num = NewValueInt;
                         mdata.P1Diff = mdata.P2Num - mdata.P1Num;
                         mdata.P2Diff = mdata.P3Num - mdata.P2Num;
                         break;
                     case "③":
-                        mdata.P3Num = int.Parse(newValue);
+                        int.TryParse(newValue, out NewValueInt);
+                        mdata.P3Num = NewValueInt;
                         mdata.P2Diff = mdata.P3Num - mdata.P2Num;
                         mdata.P3Diff = mdata.P4Num - mdata.P3Num;
                         break;
                     case "④":
-                        mdata.P4Num = int.Parse(newValue);
+                        int.TryParse(newValue, out NewValueInt);
+                        mdata.P4Num = NewValueInt;
                         mdata.P3Diff = mdata.P4Num - mdata.P3Num;
                         break;
                     case "备注":
