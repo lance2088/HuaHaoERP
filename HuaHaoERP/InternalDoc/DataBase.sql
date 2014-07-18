@@ -9,7 +9,7 @@ Target Server Type    : SQLite
 Target Server Version : 30714
 File Encoding         : 65001
 
-Date: 2014-07-02 17:52:17
+Date: 2014-07-18 16:12:52
 */
 
 
@@ -139,7 +139,7 @@ CREATE TABLE "T_PM_ProcessBatchInput" (
 "Name"  TEXT,
 "Date"  DateTime,
 "DeleteMark"  DateTime,
-"Remark"  TEXT,
+"Remark"  TEXT, "OrderType" Text, "ProcessorsID" Guid,
 PRIMARY KEY ("Guid" ASC)
 );
 
@@ -186,6 +186,29 @@ PRIMARY KEY ("Guid" ASC)
 
 -- ----------------------------
 -- Records of T_PM_ProductionBatchInput
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for T_PM_ProductionBookkeeping
+-- ----------------------------
+CREATE TABLE T_PM_ProductionBookkeeping (
+"Guid"  Guid NOT NULL,
+"OrderNum"  TEXT,
+"ProductID"  Guid,
+"P1Num"  INTEGER DEFAULT 0,
+"P2Num"  INTEGER DEFAULT 0,
+"P3Num"  INTEGER DEFAULT 0,
+"P4Num"  INTEGER DEFAULT 0,
+"P5Num"  INTEGER DEFAULT 0,
+"P6Num"  INTEGER DEFAULT 0,
+"Remark"  TEXT,
+"AddDate"  DateTime,
+"DeleteMark"  DateTime,
+PRIMARY KEY ("Guid" ASC)
+);
+
+-- ----------------------------
+-- Records of T_PM_ProductionBookkeeping
 -- ----------------------------
 
 -- ----------------------------
@@ -302,6 +325,7 @@ PRIMARY KEY ("ID")
 -- Records of T_System_Settings
 -- ----------------------------
 INSERT INTO "main"."T_System_Settings" VALUES (1, 'License', null, null);
+INSERT INTO "main"."T_System_Settings" VALUES (2, 'DBVersion', '1.6.0', 'Insert');
 
 -- ----------------------------
 -- Table structure for T_System_User
@@ -457,7 +481,7 @@ CREATE TABLE "T_Warehouse_Product" (
 "Quantity"  INTEGER,
 "Remark"  TEXT,
 "Obligate1"  TEXT,
-"Obligate2"  TEXT,
+"Obligate2"  TEXT, "DeleteMark" DateTime,
 PRIMARY KEY ("Guid" ASC)
 );
 
@@ -474,7 +498,7 @@ CREATE TABLE "T_Warehouse_ProductBatchInput" (
 "Name"  TEXT,
 "Date"  DateTime,
 "DeleteMark"  DateTime,
-"Remark"  TEXT,
+"Remark"  TEXT, "OrderType" Text,
 PRIMARY KEY ("Guid" ASC)
 );
 
@@ -493,7 +517,7 @@ CREATE TABLE "T_Warehouse_ProductPacking" (
 "Quantity"  INTEGER,
 "Remark"  TEXT,
 "Obligate1"  TEXT,
-"Obligate2"  TEXT,
+"Obligate2"  TEXT, "DeleteMark" DateTime,
 PRIMARY KEY ("Guid" ASC)
 );
 
