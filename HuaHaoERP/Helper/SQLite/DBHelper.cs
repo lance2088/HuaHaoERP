@@ -45,6 +45,7 @@ namespace HuaHaoERP.Helper.SQLite
             }
             cmd.Connection = conn;
         }
+
         /// <summary>
         /// 回收conn
         /// </summary>
