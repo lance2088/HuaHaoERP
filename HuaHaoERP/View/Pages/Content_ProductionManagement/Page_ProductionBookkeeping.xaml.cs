@@ -229,5 +229,37 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             }
             InitializeData();
         }
+
+        private void DataGrid_ProductionBookkeeping_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                string Header = this.DataGrid_ProductionBookkeeping.SelectedCells[0].Column.Header.ToString();
+                switch (Header)
+                {
+                    case "①":
+                        e.Handled = true;
+                        DataGrid_ProductionBookkeeping.CurrentCell = new DataGridCellInfo(DataGrid_ProductionBookkeeping.SelectedCells[0].Item, DataGrid_ProductionBookkeeping.Columns[6]);
+                        break;
+                    case "②":
+                        e.Handled = true;
+                        DataGrid_ProductionBookkeeping.CurrentCell = new DataGridCellInfo(DataGrid_ProductionBookkeeping.SelectedCells[0].Item, DataGrid_ProductionBookkeeping.Columns[8]);
+                        break;
+                    case "③":
+                        e.Handled = true;
+                        DataGrid_ProductionBookkeeping.CurrentCell = new DataGridCellInfo(DataGrid_ProductionBookkeeping.SelectedCells[0].Item, DataGrid_ProductionBookkeeping.Columns[10]);
+                        break;
+                    case "④":
+                        e.Handled = true;
+                        DataGrid_ProductionBookkeeping.CurrentCell = new DataGridCellInfo(DataGrid_ProductionBookkeeping.SelectedCells[0].Item, DataGrid_ProductionBookkeeping.Columns[11]);
+                        break;
+                    case "备注":
+                        DataGrid_ProductionBookkeeping.CurrentCell = new DataGridCellInfo(DataGrid_ProductionBookkeeping.SelectedCells[0].Item, DataGrid_ProductionBookkeeping.Columns[4]);
+                        break;
+                }
+                DataGrid_ProductionBookkeeping.SelectedCells.Clear();
+                DataGrid_ProductionBookkeeping.SelectedCells.Add(DataGrid_ProductionBookkeeping.CurrentCell);
+            }
+        }
     }
 }
