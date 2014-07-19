@@ -473,7 +473,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="InternalDoc\Data.db" />
     <None Include="InternalDoc\DataHuaHao.db" />
     <None Include="InternalDoc\Reactor_i5.nrproj" />
     <None Include="InternalDoc\Reactor_y470.nrproj" />
