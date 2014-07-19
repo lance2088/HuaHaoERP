@@ -28,6 +28,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                         + " Where a.DeleteMark ISNULL"
                         + " AND b.Number LIKE '%" + Parm + "%' "
                         + DateParm
+                        + " Order By a.AddDate"
                         ;
             DataSet ds = new DataSet();
             if (new Helper.SQLite.DBHelper().QueryData(sql, out ds))
@@ -99,10 +100,10 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
             return new Helper.SQLite.DBHelper().SingleExecution(sql);
         }
 
-        internal bool Add(Guid ProductID)
+        internal bool Add(DateTime dt, Guid ProductID)
         {
             string sql = "Insert into T_PM_ProductionBookkeeping(Guid,OrderNum,ProductID,AddDate) "
-                        + " values('" + Guid.NewGuid() + "','" + DateTime.Now.ToString("yyyyMMddHHmmss") + "','" + ProductID + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "')";
+                        + " values('" + Guid.NewGuid() + "','" + dt.ToString("yyyyMMddHHmmss") + "','" + ProductID + "','" + dt.ToString("yyyy-MM-dd HH:mm:ss") + "')";
             return new Helper.SQLite.DBHelper().SingleExecution(sql);
         }
 

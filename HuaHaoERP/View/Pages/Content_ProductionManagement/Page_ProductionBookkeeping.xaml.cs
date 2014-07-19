@@ -24,6 +24,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 this.CheckBox_ShowDiff.IsChecked = false;
             }
             this.DatePicker_Date.SelectedDate = DateTime.Now;
+            this.DatePicker_AddDate.SelectedDate = DateTime.Now;
             InitializeData();
         }
 
@@ -98,7 +99,8 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         {
             if (newProductGuid != new Guid())
             {
-                if (new ProductionBookkeepingConsole().Add(newProductGuid))
+                DateTime dt = (DateTime)this.DatePicker_AddDate.SelectedDate + DateTime.Now.TimeOfDay;
+                if (new ProductionBookkeepingConsole().Add(dt, newProductGuid))
                 {
                     InitializeData();
                 }

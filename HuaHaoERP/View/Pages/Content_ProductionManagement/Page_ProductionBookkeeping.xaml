@@ -90,7 +90,7 @@
                 </Style>
             </TextBox.Style>
         </TextBox>
-        <TextBox x:Name="TextBox_NewProduct" HorizontalAlignment="Right" Height="24" Margin="0,18,170,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" PreviewKeyDown="TextBox_NewProduct_PreviewKeyDown">
+        <TextBox x:Name="TextBox_NewProduct" HorizontalAlignment="Right" Height="24" Margin="0,30,170,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" PreviewKeyDown="TextBox_NewProduct_PreviewKeyDown">
             <TextBox.Resources>
                 <VisualBrush x:Key="HelpBrush" TileMode="None" Opacity="0.3" Stretch="None" AlignmentX="Left">
                     <VisualBrush.Visual>
@@ -122,6 +122,7 @@
         <Border BorderBrush="#FFD6DBE9" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="480,5,0,0" VerticalAlignment="Top" Width="1"/>
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_Today" Content="今天" HorizontalAlignment="Left" Margin="420,7,0,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Height="20" Click="Button_Today_Click"/>
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_AllDay" Content="全部" HorizontalAlignment="Left" Margin="420,32,0,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Height="20" Click="Button_AllDay_Click"/>
+        <DatePicker x:Name="DatePicker_AddDate" HorizontalAlignment="Right" Margin="0,7,170,0" VerticalAlignment="Top" Height="24" Width="120"/>
 
     </Grid>
 </Page>
