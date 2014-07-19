@@ -294,6 +294,7 @@
     <Compile Include="Helper\SettingFile\AssemblyLineModule.cs" />
     <Compile Include="Helper\SettingFile\DatabaseEncryption.cs" />
     <Compile Include="Helper\SQLite\DBBackup.cs" />
+    <Compile Include="Helper\SQLite\DBCreate.cs" />
     <Compile Include="Helper\SQLite\DBHelper.cs" />
     <Compile Include="Helper\SQLite\DBUpdate.cs" />
     <Compile Include="Helper\Tools\ComputerInfo.cs" />
@@ -508,7 +509,6 @@
     <Resource Include="View\Resources\Images\MaxMinCloseButtonPic\MinSel.png" />
     <Resource Include="View\Resources\Ico\Pyramid_Logo_white_128x128.ico" />
     <Resource Include="View\Resources\Images\Pyramid_Logo_white_128x128.png" />
-    <None Include="InternalDoc\DataBase.sql" />
     <None Include="InternalDoc\InnoSetupScripts_i5.iss" />
     <None Include="InternalDoc\DataBaseUpdateSQL\1.4.5.sql" />
     <None Include="InternalDoc\DataBaseUpdateSQL\1.4.4.3.sql" />
@@ -516,6 +516,7 @@
     <None Include="InternalDoc\LicenseTool\StoneAnt.License.Create.dll" />
     <None Include="InternalDoc\LicenseTool\StoneAnt.License.dll" />
     <Content Include="InternalDoc\DataBaseUpdateSQL\1.6.0.sql" />
+    <None Include="Resources\DataBase.sql" />
     <Content Include="ThirdPartyLib\StoneAnt.License.dll" />
     <Content Include="ThirdPartyLib\System.Data.SQLite.dll" />
   </ItemGroup>
