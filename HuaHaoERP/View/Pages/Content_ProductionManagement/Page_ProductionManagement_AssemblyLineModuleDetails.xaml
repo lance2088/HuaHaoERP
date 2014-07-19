@@ -8,7 +8,7 @@
 	Title="Page_ProductionManagement_AssemblyLineModuleDetails">
 
     <Grid Background="White" HorizontalAlignment="Right" Width="800">
-        <DataGrid x:Name="DataGrid_Detials" Margin="10,110,10,10" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" IsReadOnly="True" AutoGenerateColumns="False" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" SelectionMode="Single">
+        <DataGrid x:Name="DataGrid_Detials" Background="#FFF0F0F0" Margin="10,110,10,10" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" IsReadOnly="True" AutoGenerateColumns="False" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" SelectionMode="Single">
             <DataGrid.ContextMenu>
                 <ContextMenu Name="dgmenu2" StaysOpen="true">
                     <MenuItem x:Name="MenuItem__Del" Header="删除" Click="MenuItem__Del_Click"/>

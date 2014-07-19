@@ -11,7 +11,7 @@
         <SolidColorBrush x:Key="clBr" Color="#FFDAECFF" />
     </Page.Resources>
     <Grid>
-        <DataGrid x:Name="DataGrid_ProductionBookkeeping" Margin="10,60,10,10" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" AutoGenerateColumns="False" HeadersVisibility="Column" SelectionMode="Single" BorderBrush="#FF99CCFF" CanUserDeleteRows="False" CanUserSortColumns="False" CanUserReorderColumns="False" CanUserResizeRows="False" CanUserAddRows="False" SelectionUnit="Cell" BeginningEdit="DataGrid_ProductionBookkeeping_BeginningEdit" CellEditEnding="DataGrid_ProductionBookkeeping_CellEditEnding">
+        <DataGrid x:Name="DataGrid_ProductionBookkeeping" Margin="10,60,10,10" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" AutoGenerateColumns="False" HeadersVisibility="Column" SelectionMode="Single" BorderBrush="#FF99CCFF" CanUserDeleteRows="False" CanUserSortColumns="False" CanUserReorderColumns="False" CanUserResizeRows="False" CanUserAddRows="False" SelectionUnit="Cell" BeginningEdit="DataGrid_ProductionBookkeeping_BeginningEdit" CellEditEnding="DataGrid_ProductionBookkeeping_CellEditEnding" Background="#FFF0F0F0">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="日期" Binding="{Binding AddDate}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" MinWidth="100" IsReadOnly="True">
                     <DataGridTextColumn.CellStyle>

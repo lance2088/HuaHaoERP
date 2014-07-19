@@ -12,7 +12,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="DataGrid_RawMaterials" AutoGenerateColumns="False" Margin="10,40,10,50" CanUserAddRows="False"
+        <DataGrid x:Name="DataGrid_RawMaterials" Background="#FFF0F0F0" AutoGenerateColumns="False" Margin="10,40,10,50" CanUserAddRows="False"
                   BorderThickness="1" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}"
                   BorderBrush="#FF99CCFF" CellEditEnding="DataGrid_RawMaterials_CellEditEnding" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" Grid.ColumnSpan="2" PreviewKeyDown="DataGrid_RawMaterials_PreviewKeyDown" SelectionMode="Single" SelectionUnit="Cell">
             <DataGrid.Columns>

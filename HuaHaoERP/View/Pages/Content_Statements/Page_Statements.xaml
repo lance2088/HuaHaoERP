@@ -11,12 +11,12 @@
         <TabControl Margin="0" BorderThickness="0" Padding="0">
             <TabItem Header="生产报表" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Foreground="White" Margin="7,0,-7,0">
                 <Grid>
-                    <Frame Content="" Margin="0" NavigationUIVisibility="Hidden"/>
+                    <Frame FocusVisualStyle="{x:Null}" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </TabItem>
             <TabItem Header="抛光报表" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Foreground="White" Margin="17,0,-17,0">
                 <Grid>
-                    <Frame Content="" Margin="0" NavigationUIVisibility="Hidden"/>
+                    <Frame FocusVisualStyle="{x:Null}" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </TabItem>
         </TabControl>
