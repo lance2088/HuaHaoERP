@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.IO;
-
-namespace HuaHaoERP.Helper.SQLite
+﻿namespace HuaHaoERP.Helper.SQLite
 {
     class DBCreate
     {
