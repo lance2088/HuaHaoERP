@@ -50,6 +50,7 @@
     <WarningLevel>4</WarningLevel>
     <RunCodeAnalysis>false</RunCodeAnalysis>
     <DebugSymbols>true</DebugSymbols>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>HuaHaoERP.App</StartupObject>
