@@ -25,6 +25,7 @@ namespace HuaHaoERP
                 UpdateBackground();
             };
         }
+
         private void UpdateBackground()
         {
             string filePath = AppDomain.CurrentDomain.BaseDirectory + "Background\\Background.jpg";
@@ -51,6 +52,7 @@ namespace HuaHaoERP
                 }
             }
         }
+
         private void InitializeData()
         {
             this.Frame_Head.Content = new View.Pages.Page_Head();
