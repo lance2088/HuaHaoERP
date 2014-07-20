@@ -34,7 +34,7 @@
                 <DropShadowEffect/>
             </Label.Effect>
         </Label>
-        <Label Content="金字塔企业管理系统" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16" FontWeight="Bold">
+        <Label Content="石蚁金字塔企业管理系统" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16" FontWeight="Bold">
             <Label.Effect>
                 <DropShadowEffect/>
             </Label.Effect>
