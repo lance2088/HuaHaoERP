@@ -32,20 +32,17 @@ namespace HuaHaoERP
             if (File.Exists(filePath))
             {
                 BitmapImage bitmapImage;
-                Image image;
                 using (BinaryReader reader = new BinaryReader(File.Open(filePath, FileMode.Open)))
                 {
                     FileInfo fi = new FileInfo(filePath);
                     byte[] bytes = reader.ReadBytes((int)fi.Length);
                     reader.Close();
 
-                    image = new Image();
                     bitmapImage = new BitmapImage();
                     bitmapImage.BeginInit();
                     bitmapImage.StreamSource = new MemoryStream(bytes);
                     bitmapImage.EndInit();
                     bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
-                    image.Source = bitmapImage;
                     ImageBrush b3 = new ImageBrush();
                     b3.ImageSource = bitmapImage;
                     this.Grid_Main.Background = b3;
