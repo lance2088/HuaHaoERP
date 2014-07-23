@@ -40,9 +40,12 @@ namespace HuaHaoERP
 
                     bitmapImage = new BitmapImage();
                     bitmapImage.BeginInit();
-                    bitmapImage.StreamSource = new MemoryStream(bytes);
-                    bitmapImage.EndInit();
                     bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+                    bitmapImage.StreamSource = new MemoryStream(bytes);
+                    bitmapImage.DecodePixelWidth = 1000;
+                    bitmapImage.EndInit();
+                    bitmapImage.Freeze();
+
                     ImageBrush b3 = new ImageBrush();
                     b3.ImageSource = bitmapImage;
                     this.Grid_Main.Background = b3;
