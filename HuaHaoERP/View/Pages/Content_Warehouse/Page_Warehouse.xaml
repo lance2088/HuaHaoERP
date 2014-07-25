@@ -37,7 +37,7 @@
                     </ComboBox>
                     <DataGrid x:Name="DataGrid_Num" Background="#FFF0F0F0" Margin="10,70,10,40" HorizontalContentAlignment="Stretch" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" IsReadOnly="True" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False" AutoGenerateColumns="False" SelectionMode="Single">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="编号" Binding="{Binding ProductNumber}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Header="编号" Binding="{Binding ProductNumber}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" MinWidth="70"/>
                             <DataGridTextColumn Header="名称" Binding="{Binding ProductName}" MinWidth="100" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                             <DataGridTextColumn Header="数量" Binding="{Binding Quantity}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignRight}"/>
                             <DataGridTextColumn Header="件数" Binding="{Binding PackageNum}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignRight}"/>
