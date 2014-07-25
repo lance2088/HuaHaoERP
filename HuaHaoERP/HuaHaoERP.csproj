@@ -516,8 +516,8 @@
     <None Include="InternalDoc\LicenseTool\StoneAnt.License.dll" />
     <Content Include="InternalDoc\DataBaseUpdateSQL\1.6.0.sql" />
     <None Include="Resources\DataBase.sql" />
-    <Content Include="ThirdPartyLib\StoneAnt.License.dll" />
-    <Content Include="ThirdPartyLib\System.Data.SQLite.dll" />
+    <Content Include="InternalDoc\ThirdPartyLib\StoneAnt.License.dll" />
+    <Content Include="InternalDoc\ThirdPartyLib\System.Data.SQLite.dll" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">
