@@ -1,5 +1,6 @@
 ﻿using HuaHaoERP.Helper.Events;
 using HuaHaoERP.Helper.Events.UpdateEvent;
+using HuaHaoERP.Helper.Excel;
 using HuaHaoERP.Model;
 using HuaHaoERP.Model.Warehouse;
 using HuaHaoERP.ViewModel.Warehouse;
@@ -38,6 +39,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             {
                 this.Button_SparepartsIn.IsEnabled = false;
                 this.Button_Print.IsEnabled = false;
+                this.Button_ExportData.IsEnabled = false;
             }
         }
 
@@ -109,9 +111,20 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
                 var size = new Size(printDialog.PrintableAreaWidth, printDialog.PrintableAreaHeight);
                 Label_PrintTitle.Visibility = Visibility.Visible;
                 Grid_Print.Measure(size);
-                printDialog.PrintVisual(Grid_Print, "金字塔出货单");
+                printDialog.PrintVisual(Grid_Print, "华浩库存清单");
                 Label_PrintTitle.Visibility = Visibility.Collapsed;
             }
+        }
+
+        private void Button_ExportData_Click(object sender, RoutedEventArgs e)
+        {
+            List<WarehouseProductNumModel> dn = new List<WarehouseProductNumModel>();
+            for (int i = 0; i < DataGrid_Num.Items.Count; i++)
+            {
+                WarehouseProductNumModel m = DataGrid_Num.Items[i] as WarehouseProductNumModel;
+                dn.Add(m);
+            }
+            new Export().ExportData(dn);
         }
 
         private void InitializeProductDataGrid()
@@ -357,6 +370,8 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         }
 
         #endregion
+
+        
 
      
 

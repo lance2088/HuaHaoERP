@@ -77,6 +77,9 @@
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="PresentationFramework.Aero" />
     <Reference Include="StoneAnt.License, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -287,6 +290,8 @@
     <Compile Include="Helper\Events\UpdateEvent\UserEvent.cs" />
     <Compile Include="Helper\Events\UpdateEvent\WarehouseProductEvent.cs" />
     <Compile Include="Helper\Events\UpdateEvent\WarehouseRawMaterialsEvent.cs" />
+    <Compile Include="Helper\Excel\ExcelBase.cs" />
+    <Compile Include="Helper\Excel\Export.cs" />
     <Compile Include="Helper\Excel\Reader.cs" />
     <Compile Include="Helper\License\FillLicense.cs" />
     <Compile Include="Helper\License\PCRegister.cs" />
