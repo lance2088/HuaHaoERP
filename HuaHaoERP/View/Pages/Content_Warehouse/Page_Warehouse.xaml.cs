@@ -37,6 +37,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             if (Helper.DataDefinition.CommonParameters.PeriodOfValidity < 0)
             {
                 this.Button_SparepartsIn.IsEnabled = false;
+                this.Button_Print.IsEnabled = false;
             }
         }
 
@@ -97,6 +98,20 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         private void Button_SparepartsOut_Click(object sender, RoutedEventArgs e)
         {
             Helper.Events.PopUpEvent.OnShowPopUp(new Page_Warehouse_Product_BatchIn(3));
+        }
+
+        private void Button_Print_Click(object sender, RoutedEventArgs e)
+        {
+            DataGrid_Num.SelectedCells.Clear();
+            PrintDialog printDialog = new PrintDialog();
+            if (printDialog.ShowDialog() == true)
+            {
+                var size = new Size(printDialog.PrintableAreaWidth, printDialog.PrintableAreaHeight);
+                Label_PrintTitle.Visibility = Visibility.Visible;
+                Grid_Print.Measure(size);
+                printDialog.PrintVisual(Grid_Print, "金字塔出货单");
+                Label_PrintTitle.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void InitializeProductDataGrid()
@@ -342,6 +357,8 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         }
 
         #endregion
+
+     
 
     }
 }
