@@ -196,5 +196,30 @@ namespace HuaHaoERP.Helper.SQLite
             }
             return flag;
         }
+
+        internal string ParametersLogin(string sql, string userName, string password)
+        {
+            string result = "";
+            try
+            {
+                cmd.CommandText = sql;
+                cmd.Parameters.Add(new SQLiteParameter("Name", userName));
+                cmd.Parameters.Add(new SQLiteParameter("Password", password));
+                SQLiteDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    result = reader.GetString(0);
+                }
+            }
+            catch (Exception ee)
+            {
+                LogHelper.FileLog.ErrorLog(ee.ToString());
+            }
+            finally
+            {
+                ReleaseObject();
+            }
+            return result;
+        }
     }
 }
