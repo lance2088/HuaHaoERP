@@ -35,21 +35,16 @@
                         <ComboBoxItem Content="包装（散件）记录" />
                         <ComboBoxItem Content="出库（包装）记录" />
                     </ComboBox>
-                    <ScrollViewer x:Name="ScrollViewer_Print" VerticalScrollBarVisibility="Auto" Margin="0,40,10,0">
-                        <Grid x:Name="Grid_Print">
-                            <Label x:Name="Label_PrintTitle" Content="库存情况清单" HorizontalAlignment="Center" VerticalAlignment="Top" Visibility="Collapsed" />
-                            <DataGrid Margin="10,30,10,40" x:Name="DataGrid_Num" Background="#FFF0F0F0"  HorizontalContentAlignment="Stretch" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" IsReadOnly="True" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False" AutoGenerateColumns="False" SelectionMode="Single" PreviewMouseWheel="DataGrid_Num_PreviewMouseWheel">
-                                <DataGrid.Columns>
-                                    <DataGridTextColumn Header="编号" Binding="{Binding ProductNumber}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" MinWidth="70"/>
-                                    <DataGridTextColumn Header="名称" Binding="{Binding ProductName}" MinWidth="100"  Width="*" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                                    <DataGridTextColumn Header="数量" Binding="{Binding Quantity}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignRight}"/>
-                                    <DataGridTextColumn Header="件数" Binding="{Binding PackageNum}" MinWidth="80" Width="*" ElementStyle="{DynamicResource TextBlockStyle_AlignRight}"/>
-                                </DataGrid.Columns>
-                            </DataGrid>
-                            <Label Content="数量统计：" HorizontalAlignment="Left" Margin="203,0,0,10" VerticalAlignment="Bottom" Height="24" VerticalContentAlignment="Center" Padding="0"/>
-                            <TextBox x:Name="TextBox_TotalNum" Height="23" Margin="273,0,10,10" TextWrapping="Wrap" Text="0" VerticalAlignment="Bottom" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderThickness="0,0,0,1" IsReadOnly="True"/>
-                        </Grid>
-                    </ScrollViewer>
+                    <DataGrid Margin="10,70,10,40" x:Name="DataGrid_Num" Background="#FFF0F0F0"  HorizontalContentAlignment="Stretch" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" IsReadOnly="True" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False" AutoGenerateColumns="False" SelectionMode="Single">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="编号" Binding="{Binding ProductNumber}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" MinWidth="70"/>
+                            <DataGridTextColumn Header="名称" Binding="{Binding ProductName}" MinWidth="100"  Width="*" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Header="数量" Binding="{Binding Quantity}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignRight}"/>
+                            <DataGridTextColumn Header="件数" Binding="{Binding PackageNum}" MinWidth="80" Width="*" ElementStyle="{DynamicResource TextBlockStyle_AlignRight}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Label Content="数量统计：" HorizontalAlignment="Left" Margin="203,0,0,10" VerticalAlignment="Bottom" Height="24" VerticalContentAlignment="Center" Padding="0"/>
+                    <TextBox x:Name="TextBox_TotalNum" Height="23" Margin="273,0,10,10" TextWrapping="Wrap" Text="0" VerticalAlignment="Bottom" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderThickness="0,0,0,1" IsReadOnly="True"/>
 
                     <DatePicker x:Name="DatePicker_End" Grid.Column="1" HorizontalAlignment="Right" Margin="0,10,145,0" VerticalAlignment="Top" Width="128" Height="24"/>
                     <Label Content="至" Grid.Column="1" HorizontalAlignment="Right" Margin="0,9,272,0" VerticalAlignment="Top"/>

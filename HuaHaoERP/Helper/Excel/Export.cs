@@ -7,7 +7,7 @@ namespace HuaHaoERP.Helper.Excel
 {
     class Export
     {
-        public void ExportData(List<WarehouseProductNumModel> dn)
+        public void ExportData(List<WarehouseProductNumModel> dn, bool isPrint)
         {
             try
             {
@@ -45,6 +45,10 @@ namespace HuaHaoERP.Helper.Excel
                     rowid++;
                 }
                 xlApp.Visible = true;
+                if(isPrint)
+                {
+                    xlWorkSheet.PrintPreview();
+                }
 
                 releaseObject(xlWorkSheet);
                 releaseObject(xlWorkBook);
