@@ -16,7 +16,7 @@ namespace HuaHaoERP.Helper.Excel
                 xls.Workbook xlWorkBook = xlApp.Workbooks.Add(true);
                 xls.Worksheet xlWorkSheet = (xls.Worksheet)xlWorkBook.Worksheets.get_Item(1);
                 //这里设置行高
-               // ((xls.Range)xlWorkSheet.Rows).RowHeight = 11;
+                // ((xls.Range)xlWorkSheet.Rows).RowHeight = 11;
                 xlWorkSheet.PageSetup.TopMargin = xlApp.InchesToPoints(0.19685);
                 xlWorkSheet.PageSetup.BottomMargin = xlApp.InchesToPoints(0.19685);
                 xlWorkSheet.PageSetup.LeftMargin = xlApp.InchesToPoints(0.19685);
@@ -27,10 +27,17 @@ namespace HuaHaoERP.Helper.Excel
                 xlWorkSheet.Cells.Font.Size = 10;
                 ((xls.Range)xlWorkSheet.Cells[1, 2]).HorizontalAlignment = xls.XlVAlign.xlVAlignCenter;
                 xlWorkSheet.Cells[1, 2] = "库存情况清单";
-                int rowid =2;
+
+                xlWorkSheet.Cells[2, 1] = "'序号";
+                xlWorkSheet.Cells[2, 2] = "'编号";
+                xlWorkSheet.Cells[2, 3] = "'名称";
+                xlWorkSheet.Cells[2, 4] = "'数量";
+                xlWorkSheet.Cells[2, 5] = "'包装数";
+
+                int rowid = 3;
                 foreach (WarehouseProductNumModel m in dn)
                 {
-                    xlWorkSheet.Cells[rowid, 1] = "'" + (rowid-1);
+                    xlWorkSheet.Cells[rowid, 1] = "'" + (rowid - 1);
                     xlWorkSheet.Cells[rowid, 2] = "'" + m.ProductNumber;
                     xlWorkSheet.Cells[rowid, 3] = "'" + m.ProductName;
                     xlWorkSheet.Cells[rowid, 4] = "'" + m.Quantity;
