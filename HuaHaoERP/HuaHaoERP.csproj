@@ -206,6 +206,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Pages\Content_Statements\Page_Statements_Production.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Pages\Content_Warehouse\Page_Warehouse.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -239,6 +243,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Pages\Page_StatusBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\UserControl_Chart\UserControl_ChartTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -425,6 +433,9 @@
     <Compile Include="View\Pages\Content_Statements\Page_Statements.xaml.cs">
       <DependentUpon>Page_Statements.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Pages\Content_Statements\Page_Statements_Production.xaml.cs">
+      <DependentUpon>Page_Statements_Production.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Pages\Content_Warehouse\Page_Warehouse.xaml.cs">
       <DependentUpon>Page_Warehouse.xaml</DependentUpon>
     </Compile>
@@ -451,6 +462,9 @@
     </Compile>
     <Compile Include="View\Pages\Page_StatusBar.xaml.cs">
       <DependentUpon>Page_StatusBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\UserControl_Chart\UserControl_ChartTest.xaml.cs">
+      <DependentUpon>UserControl_ChartTest.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Windows\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
