@@ -95,20 +95,6 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             }
         }
 
-        private void Button_New_Click(object sender, RoutedEventArgs e)
-        {
-            if (newProductGuid != new Guid())
-            {
-                DateTime dt = (DateTime)this.DatePicker_AddDate.SelectedDate + DateTime.Now.TimeOfDay;
-                if (new ProductionBookkeepingConsole().Add(dt, newProductGuid))
-                {
-                    InitializeData();
-                }
-            }
-            newProductGuid = new Guid();
-            this.TextBox_NewProduct.Text = "";
-        }
-
         private void TextBox_NewProduct_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -132,7 +118,16 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 }
                 else
                 {
-                    Button_New_Click(null, null);
+                    if (newProductGuid != new Guid())
+                    {
+                        DateTime dt = (DateTime)this.DatePicker_AddDate.SelectedDate + DateTime.Now.TimeOfDay;
+                        if (new ProductionBookkeepingConsole().Add(dt, newProductGuid))
+                        {
+                            InitializeData();
+                        }
+                    }
+                    newProductGuid = new Guid();
+                    this.TextBox_NewProduct.Text = "";
                 }
             }
         }
