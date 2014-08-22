@@ -67,6 +67,23 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         }
 
         #region 产品仓库管理
+
+        private void DataGrid_Num_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            if(e.Delta > 0)
+            {
+                this.ScrollViewer_Print.LineUp();
+                this.ScrollViewer_Print.LineUp();
+                this.ScrollViewer_Print.LineUp();
+            }
+            else
+            {
+                this.ScrollViewer_Print.LineDown();
+                this.ScrollViewer_Print.LineDown();
+                this.ScrollViewer_Print.LineDown();
+
+            }
+        }
         private void Button_BatchHistory_Click(object sender, RoutedEventArgs e)
         {
             Helper.Events.PopUpEvent.OnShowPopUp(new Page_Warehouse_Product_BatchHistory(3));
@@ -80,6 +97,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         private void TextBox_Search_PreviewKeyUp(object sender, KeyEventArgs e)
         {
             InitializeProductDataGrid();
+            this.ScrollViewer_Print.ScrollToTop();
         }
 
         /// <summary>
@@ -370,6 +388,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         }
 
         #endregion
+
 
         
 
