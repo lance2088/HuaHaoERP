@@ -1,12 +1,7 @@
-﻿using System;
+﻿using HuaHaoERP.Model.Warehouse;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using xls = Microsoft.Office.Interop.Excel;
-using System.Data;
-using System.Data.OleDb;
-using System.IO;
-using HuaHaoERP.Model.Warehouse;
 
 namespace HuaHaoERP.Helper.Excel
 {
@@ -28,7 +23,6 @@ namespace HuaHaoERP.Helper.Excel
                 xlWorkSheet.PageSetup.RightMargin = xlApp.InchesToPoints(0.19685);
                 xlWorkSheet.PageSetup.HeaderMargin = xlApp.InchesToPoints(0.19685);
                 xlWorkSheet.PageSetup.FooterMargin = xlApp.InchesToPoints(0.19685);
-                xlWorkSheet.PageSetup.Orientation = xls.XlPageOrientation.xlLandscape;//横向
                 //xlWorkSheet.Columns.AutoFit();
                 xlWorkSheet.Cells.Font.Size = 10;
                 ((xls.Range)xlWorkSheet.Cells[1, 2]).HorizontalAlignment = xls.XlVAlign.xlVAlignCenter;
@@ -36,11 +30,11 @@ namespace HuaHaoERP.Helper.Excel
                 int rowid =2;
                 foreach (WarehouseProductNumModel m in dn)
                 {
-                    xlWorkSheet.Cells[rowid, 0] = "'" + (rowid-1);
-                    xlWorkSheet.Cells[rowid, 1] = "'" + m.ProductNumber;
-                    xlWorkSheet.Cells[rowid, 2] = "'" + m.ProductName;
-                    xlWorkSheet.Cells[rowid, 3] = "'" + m.Quantity;
-                    xlWorkSheet.Cells[rowid, 4] = "'" + m.PackageNum;
+                    xlWorkSheet.Cells[rowid, 1] = "'" + (rowid-1);
+                    xlWorkSheet.Cells[rowid, 2] = "'" + m.ProductNumber;
+                    xlWorkSheet.Cells[rowid, 3] = "'" + m.ProductName;
+                    xlWorkSheet.Cells[rowid, 4] = "'" + m.Quantity;
+                    xlWorkSheet.Cells[rowid, 5] = "'" + m.PackageNum;
                     rowid++;
                 }
                 xlApp.Visible = true;
