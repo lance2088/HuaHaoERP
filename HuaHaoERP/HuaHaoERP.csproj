@@ -311,6 +311,7 @@
     <Compile Include="Model\ProductionManagement\Model_ProductionManagement_OutsideProcessBatch.cs" />
     <Compile Include="Model\Warehouse\Model_WarehouseProductBatchHistory.cs" />
     <Compile Include="Model\Warehouse\Model_WarehouseProductBatchIn.cs" />
+    <Compile Include="Test\StopWatch.cs" />
     <Compile Include="ViewModel\Customer\Seniority.cs" />
     <Compile Include="Helper\Tools\TranslatePassword.cs" />
     <Compile Include="Helper\XML\Reader.cs" />

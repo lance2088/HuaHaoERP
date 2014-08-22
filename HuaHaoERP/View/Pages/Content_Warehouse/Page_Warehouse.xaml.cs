@@ -49,11 +49,6 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             WarehouseProductEvent.EUpdateDataGrid += (s, e) => { InitializeProductDataGrid(); };
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            Button_Today_Click(null, null);
-        }
-
         private void InitPage()
         {
             #region 余料管理
@@ -64,6 +59,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             DatePicker_Date.Text = DateTime.Now.ToShortDateString();
             #endregion
             InitializeRawMaterialsDataGrid();
+            Button_Today_Click(null, null);
         }
 
         #region 产品仓库管理
@@ -163,6 +159,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             {
                 this.DataGrid_Num.ItemsSource = dn;
             }
+
             int TotalNum = 0;
             foreach (WarehouseProductNumModel m in dn)
             {
