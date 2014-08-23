@@ -35,6 +35,10 @@ namespace HuaHaoERP.Helper.Excel
                 xlWorkSheet.Cells[2, 5] = "'包装数";
 
                 int rowid = 3;
+                int sumAmount = 0;
+                int sumPackNum = 0;
+                int count = dn.Count;
+
                 foreach (WarehouseProductNumModel m in dn)
                 {
                     xlWorkSheet.Cells[rowid, 1] = "'" + (rowid - 1);
@@ -42,8 +46,14 @@ namespace HuaHaoERP.Helper.Excel
                     xlWorkSheet.Cells[rowid, 3] = "'" + m.ProductName;
                     xlWorkSheet.Cells[rowid, 4] = "'" + m.Quantity;
                     xlWorkSheet.Cells[rowid, 5] = "'" + m.PackageNum;
+                    sumAmount += m.Quantity;
+                    sumPackNum += m.PackageNum;
                     rowid++;
                 }
+                xlWorkSheet.Cells[3 + count, 3] = "'总计";
+                xlWorkSheet.Cells[3 + count, 4] = "'" + sumAmount;
+                xlWorkSheet.Cells[3 + count, 5] = "'" + sumPackNum;
+
                 xlApp.Visible = true;
                 if(isPrint)
                 {
