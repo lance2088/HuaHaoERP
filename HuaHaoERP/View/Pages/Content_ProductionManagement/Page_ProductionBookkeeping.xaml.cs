@@ -2,6 +2,7 @@
 using HuaHaoERP.ViewModel.ProductionManagement;
 using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -10,10 +11,11 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 {
     public partial class Page_ProductionBookkeeping : Page
     {
-        ObservableCollection<Model_ProductionBookkeeping> data = new ObservableCollection<Model_ProductionBookkeeping>();
-        string oldValue;
-        Guid newProductGuid = new Guid();
-        bool Is_AllDate = false;
+        private ObservableCollection<Model_ProductionBookkeeping> _data = new ObservableCollection<Model_ProductionBookkeeping>();
+        private string _oldValue;
+        private Guid _newProductGuid = new Guid();
+        private bool _isAllDate = false;
+        private bool _isAllUnfinished = false;
 
         public Page_ProductionBookkeeping()
         {
@@ -33,36 +35,39 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             DateTime SelectDate = (DateTime)this.DatePicker_Date.SelectedDate;
             string Product = this.TextBox_SearchProduct.Text;
             this.DataGrid_ProductionBookkeeping.ItemsSource = null;
-            if (Is_AllDate)
+            if (_isAllUnfinished)
             {
-                if (new ProductionBookkeepingConsole().ReadData(Product, out data))
+                if (new ProductionBookkeepingConsole().ReadData(Product, out _data))
                 {
-                    this.DataGrid_ProductionBookkeeping.ItemsSource = data;
+                    var unfinishedData = _data.Where(item => item.P4Num == 0);
+                    _data = new ObservableCollection<Model_ProductionBookkeeping>(unfinishedData);
                 }
+            }
+            else if (_isAllDate)
+            {
+                new ProductionBookkeepingConsole().ReadData(Product, out _data);
             }
             else
             {
-                if (new ProductionBookkeepingConsole().ReadData(SelectDate.ToString("yyyy-MM-dd 00:00:00"), Product, out data))
-                {
-                    this.DataGrid_ProductionBookkeeping.ItemsSource = data;
-                }
+                new ProductionBookkeepingConsole().ReadData(SelectDate.ToString("yyyy-MM-dd 00:00:00"), Product, out _data);
             }
+            this.DataGrid_ProductionBookkeeping.ItemsSource = _data;
         }
 
         private void DataGrid_ProductionBookkeeping_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
         {
-            oldValue = (e.Column.GetCellContent(e.Row) as TextBlock).Text; ;
+            _oldValue = (e.Column.GetCellContent(e.Row) as TextBlock).Text; ;
         }
 
         private void DataGrid_ProductionBookkeeping_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
             string newValue = (e.EditingElement as TextBox).Text.Trim();
-            if (newValue != oldValue)
+            if (newValue != _oldValue)
             {
                 int NewValueInt = 0;
                 string Header = e.Column.Header.ToString();
                 Model_ProductionBookkeeping m = this.DataGrid_ProductionBookkeeping.SelectedCells[0].Item as Model_ProductionBookkeeping;
-                Model_ProductionBookkeeping mdata = data[data.IndexOf(m)];
+                Model_ProductionBookkeeping mdata = _data[_data.IndexOf(m)];
                 switch (Header)
                 {
                     case "①":
@@ -99,34 +104,34 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         {
             if (e.Key == Key.Enter)
             {
-                if (this.newProductGuid == new Guid())
+                if (this._newProductGuid == new Guid())
                 {
                     if (this.TextBox_NewProduct.Text.Length > 0)
                     {
                         Model_Product m = new ProductionBookkeepingConsole().ReadProduct(this.TextBox_NewProduct.Text);
                         if (m.Guid != new Guid())
                         {
-                            this.newProductGuid = m.Guid;
+                            this._newProductGuid = m.Guid;
                             this.TextBox_NewProduct.Text = m.Name;
                         }
                         else
                         {
-                            this.newProductGuid = new Guid();
+                            this._newProductGuid = new Guid();
                             this.TextBox_NewProduct.Text = "";
                         }
                     }
                 }
                 else
                 {
-                    if (newProductGuid != new Guid())
+                    if (_newProductGuid != new Guid())
                     {
                         DateTime dt = (DateTime)this.DatePicker_AddDate.SelectedDate + DateTime.Now.TimeOfDay;
-                        if (new ProductionBookkeepingConsole().Add(dt, newProductGuid))
+                        if (new ProductionBookkeepingConsole().Add(dt, _newProductGuid))
                         {
                             InitializeData();
                         }
                     }
-                    newProductGuid = new Guid();
+                    _newProductGuid = new Guid();
                     this.TextBox_NewProduct.Text = "";
                 }
             }
@@ -141,7 +146,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                     Model_ProductionBookkeeping m = this.DataGrid_ProductionBookkeeping.SelectedCells[0].Item as Model_ProductionBookkeeping;
                     if (new ProductionBookkeepingConsole().Delete(m.Guid))
                     {
-                        data.Remove(m);
+                        _data.Remove(m);
                     }
                 }
             }
@@ -182,12 +187,14 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         private void DatePicker_Date_CalendarClosed(object sender, RoutedEventArgs e)
         {
             InitializeData();
+            _isAllUnfinished = false;
         }
 
         private void Button_PreviousDay_Click(object sender, RoutedEventArgs e)
         {
             DateTime DateNow = (DateTime)this.DatePicker_Date.SelectedDate;
             this.DatePicker_Date.SelectedDate = DateNow.AddDays(-1);
+            _isAllUnfinished = false;
             InitializeData();
         }
 
@@ -195,24 +202,26 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         {
             DateTime DateNow = (DateTime)this.DatePicker_Date.SelectedDate;
             this.DatePicker_Date.SelectedDate = DateNow.AddDays(1);
+            _isAllUnfinished = false;
             InitializeData();
         }
 
         private void Button_Today_Click(object sender, RoutedEventArgs e)
         {
             this.DatePicker_Date.SelectedDate = DateTime.Now;
+            _isAllUnfinished = false;
             InitializeData();
         }
 
         private void Button_AllDay_Click(object sender, RoutedEventArgs e)
         {
-            if (Is_AllDate)
+            if (_isAllDate)
             {
                 this.DatePicker_Date.IsEnabled = true;
                 this.Button_PreviousDay.IsEnabled = true;
                 this.Button_NextDay.IsEnabled = true;
                 this.Button_Today.IsEnabled = true;
-                Is_AllDate = false;
+                _isAllDate = false;
             }
             else
             {
@@ -220,8 +229,9 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 this.Button_PreviousDay.IsEnabled = false;
                 this.Button_NextDay.IsEnabled = false;
                 this.Button_Today.IsEnabled = false;
-                Is_AllDate = true;
+                _isAllDate = true;
             }
+            _isAllUnfinished = false;
             InitializeData();
         }
 
@@ -255,6 +265,12 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 DataGrid_ProductionBookkeeping.SelectedCells.Clear();
                 DataGrid_ProductionBookkeeping.SelectedCells.Add(DataGrid_ProductionBookkeeping.CurrentCell);
             }
+        }
+
+        private void Button_AllUnfinished_Click(object sender, RoutedEventArgs e)
+        {
+            _isAllUnfinished = !_isAllUnfinished;
+            InitializeData();
         }
     }
 }

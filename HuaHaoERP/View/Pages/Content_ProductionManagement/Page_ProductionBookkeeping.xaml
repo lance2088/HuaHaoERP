@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" FontFamily="SimSun" FontSize="14" TextOptions.TextFormattingMode="Display"
-      d:DesignHeight="466" d:DesignWidth="805"
+      d:DesignHeight="395" d:DesignWidth="860"
 	Title="Page_ProductionBookkeeping">
 
     <Page.Resources>
@@ -90,7 +90,7 @@
                 </Style>
             </TextBox.Style>
         </TextBox>
-        <TextBox x:Name="TextBox_NewProduct" HorizontalAlignment="Right" Height="24" Margin="0,30,140,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" VerticalContentAlignment="Center" PreviewKeyDown="TextBox_NewProduct_PreviewKeyDown">
+        <TextBox x:Name="TextBox_NewProduct" HorizontalAlignment="Right" Height="24" Margin="0,30,100,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" VerticalContentAlignment="Center" PreviewKeyDown="TextBox_NewProduct_PreviewKeyDown">
             <TextBox.Resources>
                 <VisualBrush x:Key="HelpBrush" TileMode="None" Opacity="0.3" Stretch="None" AlignmentX="Left">
                     <VisualBrush.Visual>
@@ -121,7 +121,8 @@
         <Border BorderBrush="#FFD6DBE9" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="480,5,0,0" VerticalAlignment="Top" Width="1"/>
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_Today" Content="今天" HorizontalAlignment="Left" Margin="420,7,0,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Height="20" Click="Button_Today_Click"/>
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_AllDay" Content="全部" HorizontalAlignment="Left" Margin="420,32,0,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Height="20" Click="Button_AllDay_Click"/>
-        <DatePicker x:Name="DatePicker_AddDate" HorizontalAlignment="Right" Margin="0,7,140,0" VerticalAlignment="Top" Height="24" Width="160"/>
+        <DatePicker x:Name="DatePicker_AddDate" HorizontalAlignment="Right" Margin="0,7,100,0" VerticalAlignment="Top" Height="24" Width="160"/>
+        <Button FocusVisualStyle="{x:Null}" x:Name="Button_AllUnfinished" Content="全部未完成" HorizontalAlignment="Left" Margin="486,18,0,0" VerticalAlignment="Top" Width="100" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Height="24" Click="Button_AllUnfinished_Click"/>
 
     </Grid>
 </Page>
