@@ -1,0 +1,15 @@
+﻿<Page x:Class="HuaHaoERP.View.Pages.Content_Statements.Page_Statements_Production"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="445" d:DesignWidth="829"
+	Title="Page_Statements_Production">
+
+    <Grid>
+        <Frame x:Name="Frame_Chart" Content="" Margin="10,40,10,10" NavigationUIVisibility="Hidden"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
+
+    </Grid>
+</Page>
