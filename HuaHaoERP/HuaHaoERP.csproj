@@ -331,6 +331,7 @@
     <Compile Include="Model\ProductionManagement\Model_ProductionManagement_OutsideProcessBatch.cs" />
     <Compile Include="Model\Warehouse\Model_WarehouseProductBatchHistory.cs" />
     <Compile Include="Model\Warehouse\Model_WarehouseProductBatchIn.cs" />
+    <Compile Include="Model\Warehouse\WarehouseHalpProductModel.cs" />
     <Compile Include="Test\StopWatch.cs" />
     <Compile Include="ViewModel\Customer\Seniority.cs" />
     <Compile Include="Helper\Tools\TranslatePassword.cs" />
@@ -372,6 +373,7 @@
     <Compile Include="ViewModel\Warehouse\ProductBatchInConsole.cs" />
     <Compile Include="ViewModel\Warehouse\RawMaterialsConsole.cs" />
     <Compile Include="ViewModel\Warehouse\ScrapConsole.cs" />
+    <Compile Include="ViewModel\Warehouse\WarehouseHalfProductConsole.cs" />
     <Compile Include="ViewModel\Warehouse\WarehouseProductConsole.cs" />
     <Compile Include="View\Pages\Content_CustomerLibrary\Page_CustomerLibrary.xaml.cs">
       <DependentUpon>Page_CustomerLibrary.xaml</DependentUpon>
