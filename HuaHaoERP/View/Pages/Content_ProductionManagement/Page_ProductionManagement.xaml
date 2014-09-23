@@ -71,68 +71,14 @@
                     </TextBox>
                 </Grid>
             </TabItem>
-            <TabItem FocusVisualStyle="{x:Null}" Header="抛光加工" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="17,0,-17,0" Foreground="White">
+            <TabItem FocusVisualStyle="{x:Null}" Header="抛光送货" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="27,0,-27,0" Foreground="White">
                 <Grid Background="White">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="80"/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="2*" MinWidth="350" MaxWidth="450"/>
-                        <ColumnDefinition Width="3*"/>
-                    </Grid.ColumnDefinitions>
-                    <DataGrid x:Name="DataGrid_ProcessOut" Margin="10,0,10,40" BorderThickness="1" CellStyle="{DynamicResource DataGridCellStyleCommon}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" BorderBrush="#FF99CCFF" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" AutoGenerateColumns="False" Grid.Row="1" SelectionMode="Single" Background="#FFF0F0F0">
-                        <DataGrid.ContextMenu>
-                            <ContextMenu Name="dgmenu1" StaysOpen="true">
-                                <MenuItem x:Name="MenuItem_dgmenu1_InOrder" Header="入单" Click="MenuItem_dgmenu1_InOrder_Click"/>
-                                <MenuItem x:Name="MenuItem_dgmenu1_Del" Header="删除" Click="MenuItem_dgmenu1_Del_Click"/>
-                            </ContextMenu>
-                        </DataGrid.ContextMenu>
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="GUID" Binding="{Binding Guid}" Visibility="Hidden"/>
-                            <DataGridTextColumn Header="序号" Binding="{Binding Id}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                            <DataGridTextColumn Header="日期" Binding="{Binding OrderDate}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                            <DataGridTextColumn Header="产品" Binding="{Binding ProductName}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                            <DataGridTextColumn Header="外加工商" Binding="{Binding ProcessorsName}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                            <DataGridTextColumn Header="数量" Binding="{Binding Quantity}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                            <DataGridTextColumn Header="备注" Binding="{Binding Remark}"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                    <DatePicker x:Name="DatePicker_ProcessorsFirst" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" MinWidth="100" VerticalContentAlignment="Center" Height="24" Width="100" CalendarClosed="DatePicker_ProcessorsFirst_CalendarClosed"/>
-                    <DataGrid x:Name="DataGrid_ProcessIn" Grid.Column="1" Margin="0,0,10,40" BorderThickness="1" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" BorderBrush="#FF99CCFF" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" AutoGenerateColumns="False" Grid.Row="1" SelectionMode="Single" Background="#FFF0F0F0">
-                        <DataGrid.ContextMenu>
-                            <ContextMenu Name="dgmenu2" StaysOpen="true">
-                                <MenuItem x:Name="MenuItem_dgmenu2_Del" Header="删除" Click="MenuItem_dgmenu2_Del_Click"/>
-                            </ContextMenu>
-                        </DataGrid.ContextMenu>
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="GUID" Binding="{Binding Guid}" Visibility="Hidden"/>
-                            <DataGridTextColumn Header="序号" Binding="{Binding Id}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                            <DataGridTextColumn Header="日期" Binding="{Binding OrderDate}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                            <DataGridTextColumn Header="产品" Binding="{Binding ProductName}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                            <DataGridTextColumn Header="外加工商" Binding="{Binding ProcessorsName}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                            <DataGridTextColumn Header="数量" Binding="{Binding Quantity}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                            <DataGridTextColumn Header="轻伤" Binding="{Binding MinorInjuries}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                            <DataGridTextColumn Header="重伤" Binding="{Binding Injuries}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                            <DataGridTextColumn Header="丢失" Binding="{Binding Lose}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                            <DataGridTextColumn Header="备注" Binding="{Binding Remark}"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                    <ComboBox x:Name="ComboBox_Product" HorizontalAlignment="Left" Margin="50,10,0,0" VerticalAlignment="Top" Width="100" VerticalContentAlignment="Center" Height="24" Grid.Column="1" DropDownClosed="ComboBox_Product_DropDownClosed" IsEditable="True" KeyUp="ComboBox_Product_KeyUp" DropDownOpened="ComboBox_Product_DropDownOpened" GotFocus="ComboBox_Product_GotFocus"/>
-                    <ComboBox x:Name="ComboBox_Processors" HorizontalAlignment="Left" Margin="155,10,0,0" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" Height="24" Grid.Column="1" DropDownClosed="ComboBox_Processors_DropDownClosed" IsEditable="True" KeyUp="ComboBox_Processors_KeyUp" DropDownOpened="ComboBox_Processors_DropDownOpened" GotFocus="ComboBox_Processors_GotFocus"/>
-                    <Label x:Name="Label_CountOutOrder" Content="0" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="80" BorderThickness="0,0,0,1" BorderBrush="Black" HorizontalContentAlignment="Center" Padding="5,5,5,2" Height="22" Grid.Row="1" FontSize="14"/>
-                    <Label x:Name="Label_CountInOrder" Content="0" HorizontalAlignment="Left" Margin="75,0,0,10" VerticalAlignment="Bottom" Grid.Column="1" BorderThickness="0,0,0,1" BorderBrush="Black" HorizontalContentAlignment="Center" Padding="10,5,10,2" Height="22" Grid.Row="1" FontSize="14" ToolTip="（数量，轻伤，重伤，丢失）"/>
-                    <Label Content="领货统计：" HorizontalAlignment="Right" Margin="0,0,95,10" VerticalAlignment="Bottom" Padding="5,0" Height="22" Width="70" Grid.Row="1" VerticalContentAlignment="Center"/>
-                    <Label Content="交货统计：" Grid.Column="1" HorizontalAlignment="Left" Margin="0,0,165,10" VerticalAlignment="Bottom" Padding="5,0" Height="22" Width="70" Grid.Row="1" VerticalContentAlignment="Center"/>
-                    <Label Content="抛光领货" HorizontalAlignment="Center" Margin="0,0,0,10" VerticalAlignment="Bottom" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" Height="24"/>
-                    <Label Content="抛光交货" Grid.Column="1" HorizontalAlignment="Center" Margin="0,0,0,10" VerticalAlignment="Bottom" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" Height="24"/>
-                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_AddProcessOut" Content="添加出单" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_AddProcessOut_Click" Focusable="False"/>
-                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_AddProcessIn" Content="添加入单" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_AddProcessIn_Click" Focusable="False"/>
-                    <DatePicker x:Name="DatePicker_ProcessorsEnd" HorizontalAlignment="Left" Margin="142,10,0,0" VerticalAlignment="Top" MinWidth="100" VerticalContentAlignment="Center" Height="24" Width="100" CalendarClosed="DatePicker_ProcessorsEnd_CalendarClosed"/>
-                    <Label Content="至" HorizontalAlignment="Left" Margin="115,10,0,0" VerticalAlignment="Top" Padding="5,0" VerticalContentAlignment="Center" Height="24"/>
-                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_Today" Content="今天" HorizontalAlignment="Left" Margin="247,10,0,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Height="24" Foreground="Black" Click="Button_Today_Click" Focusable="False"/>
-                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_AllDate" Content="全部日期" Margin="302,10,0,0" VerticalAlignment="Top" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Height="24" Foreground="Black" Click="Button_AllDate_Click" HorizontalAlignment="Left" Width="75" Grid.ColumnSpan="2" Focusable="False"/>
-                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_BatchHistory1" Content="批量记录" Grid.Column="1" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_BatchHistory1_Click" Focusable="False"/>
+                    <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_Delivery" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
+                </Grid>
+            </TabItem>
+            <TabItem FocusVisualStyle="{x:Null}" Header="抛光领料" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="47,0,-47,0" Foreground="White">
+                <Grid Background="White">
+                    <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_Picking" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </TabItem>
         </TabControl>

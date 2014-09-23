@@ -198,6 +198,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Pages\Content_ProductionManagement\Page_ProductMangement_Delivery.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\Content_ProductionManagement\Page_ProductMangement_Picking.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Pages\Content_Settings\Page_Settings_Popup_AddUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -219,6 +227,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Pages\Content_Orders\Page_Orders.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\Content_Warehouse\Page_Warehouse_HalfProduct.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -427,6 +439,12 @@
     <Compile Include="View\Pages\Content_ProductionManagement\Page_ProductionManagement_OutsideProcessBatch.xaml.cs">
       <DependentUpon>Page_ProductionManagement_OutsideProcessBatch.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Pages\Content_ProductionManagement\Page_ProductMangement_Delivery.xaml.cs">
+      <DependentUpon>Page_ProductMangement_Delivery.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\Content_ProductionManagement\Page_ProductMangement_Picking.xaml.cs">
+      <DependentUpon>Page_ProductMangement_Picking.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Pages\Content_Settings\Page_Settings_Popup_AddUser.xaml.cs">
       <DependentUpon>Page_Settings_Popup_AddUser.xaml</DependentUpon>
     </Compile>
@@ -444,6 +462,9 @@
     </Compile>
     <Compile Include="View\Pages\Content_Orders\Page_Orders.xaml.cs">
       <DependentUpon>Page_Orders.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\Content_Warehouse\Page_Warehouse_HalfProduct.xaml.cs">
+      <DependentUpon>Page_Warehouse_HalfProduct.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\Content_Warehouse\Page_Warehouse_Product_BatchHistory.xaml.cs">
       <DependentUpon>Page_Warehouse_Product_BatchHistory.xaml</DependentUpon>
