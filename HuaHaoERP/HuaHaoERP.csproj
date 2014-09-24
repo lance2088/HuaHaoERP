@@ -310,6 +310,7 @@
     <Compile Include="Helper\Events\UpdateEvent\UserEvent.cs" />
     <Compile Include="Helper\Events\UpdateEvent\WarehouseProductEvent.cs" />
     <Compile Include="Helper\Events\UpdateEvent\WarehouseRawMaterialsEvent.cs" />
+    <Compile Include="Helper\Events\UpdateEvent\Warehouse\HalfProductEvent.cs" />
     <Compile Include="Helper\Excel\ExcelBase.cs" />
     <Compile Include="Helper\Excel\Export.cs" />
     <Compile Include="Helper\Excel\Reader.cs" />
