@@ -25,6 +25,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         public Page_Warehouse_HalfProduct()
         {
             InitializeComponent();
+            InitializeDataGrid();
             HalfProductEvent.EUpdateDataGrid += (s, e) => { InitializeDataGrid(); };
         }
 

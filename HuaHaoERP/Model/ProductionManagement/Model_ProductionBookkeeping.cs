@@ -5,6 +5,23 @@ namespace HuaHaoERP.Model.ProductionManagement
 {
     class Model_ProductionBookkeeping : INotifyPropertyChanged
     {
+
+        private string _DisPlayIsTurn;
+
+        public string DisPlayIsTurn
+        {
+            get { return _DisPlayIsTurn; }
+            set { _DisPlayIsTurn = value; }
+        }
+
+        private int _isTurn;
+
+        public int IsTurn
+        {
+            get { return _isTurn; }
+            set { _isTurn = value; NotifyPropertyChanged("IsTurn"); }
+        }
+
         private Guid guid;
 
         public Guid Guid

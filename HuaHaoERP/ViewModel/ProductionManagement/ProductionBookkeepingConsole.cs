@@ -64,6 +64,8 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                     m.P4Diff = m.P5Num - m.P4Num;
                     m.P5Diff = m.P6Num - m.P5Num;
 
+                    m.IsTurn = int.Parse(dr["IsTurn"].ToString());
+                    m.DisPlayIsTurn = m.IsTurn == 0 ? "否" : "是";
                     m.Remark = dr["Remark"].ToString();
                     m.AddDate = Convert.ToDateTime(dr["AddDate"].ToString()).ToString("yyyy-MM-dd");
                     data.Add(m);
@@ -122,6 +124,17 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                 }
             }
             return m;
+        }
+
+        /// <summary>
+        /// 更新状态，表示已经入了半成品库
+        /// </summary>
+        /// <param name="m"></param>
+        /// <returns></returns>
+        internal bool UpdateTurn(Model_ProductionBookkeeping m)
+        {
+            string sql = "update T_PM_ProductionBookkeeping set isTurn = 1 Where Guid='" + m.Guid + "'";
+            return new Helper.SQLite.DBHelper().SingleExecution(sql);
         }
     }
 }

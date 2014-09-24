@@ -1,4 +1,5 @@
-﻿using HuaHaoERP.Model.Warehouse;
+﻿using HuaHaoERP.Helper.DataDefinition;
+using HuaHaoERP.Model.Warehouse;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,22 +10,29 @@ namespace HuaHaoERP.ViewModel.Warehouse
 {
     class WarehouseHalfProductConsole
     {
+        internal bool Insert(WarehouseHalpProductModel m)
+        {
+            string sql = "Insert into T_Warehouse_HalfProduct(Guid,ProductID,Date,Operator,Quantity,Remark) "
+                        + " values('" + Guid.NewGuid() + "','" + m.ProductID + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + CommonParameters.LoginUserName + "','" + m.Quantity + "','" + m.Remark + "')";
+            return new Helper.SQLite.DBHelper().SingleExecution(sql);
+        }
+
         internal bool ReadDetailsList(string Search, out List<WarehouseHalpProductModel> data)
         {
             string TableName = "T_Warehouse_HalfProduct";
             data = new List<WarehouseHalpProductModel>();
-            string sql = "SELECT\n" +
-                        "	a.ProductID,\n" +
-                        "	b.Number,\n" +
-                        "	b.Name,\n" +
-                        "	b.Material,\n" +
-                        "	b.Specification,\n" +
-                        "	b.Type,\n" +
+            string sql = "SELECT" +
+                        "	a.ProductID," +
+                        "	b.Number," +
+                        "	b.Name," +
+                        "	b.Material," +
+                        "	b.Specification," +
+                        "	b.Type," +
                         "	total(a.Quantity) as Quantity " +
-                        "FROM " + TableName
-                        +
-                        "  a LEFT JOIN T_ProductInfo_Product b ON a.ProductID = b.GUID\n" +
-                        "GROUP BY\n" +
+                        "FROM " 
+                        + TableName +
+                        "  a LEFT JOIN T_ProductInfo_Product b ON a.ProductID = b.GUID " +
+                        "GROUP BY" +
                         "	a.ProductID";
             DataSet ds = new DataSet();
             decimal dd = 0m;
