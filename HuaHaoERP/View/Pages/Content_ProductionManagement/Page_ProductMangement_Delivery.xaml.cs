@@ -22,15 +22,11 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
     public partial class Page_ProductMangement_Delivery : Page
     {
         private string CountOutOrder;
-        private string CountInOrder;
 
         private DateTime ProcessorsFirst;
         private DateTime ProcessorsEnd;
         private Guid ProductID;
         private Guid ProcessorsID;
-
-        private int PageNow = 1;
-        private int PageAll = 1;
 
         public Page_ProductMangement_Delivery()
         {
@@ -90,11 +86,9 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             List<Model.ProductionManagement_OutsideProcessModel> data;
             new ViewModel.ProductionManagement.OutsideProcessConsole().ReadList("出单", ProcessorsFirst, ProcessorsEnd, ProductID, ProcessorsID, out data, out CountOutOrder);
             this.DataGrid_ProcessOut.ItemsSource = data;
-            //new ViewModel.ProductionManagement.OutsideProcessConsole().ReadList("入单", ProcessorsFirst, ProcessorsEnd, ProductID, ProcessorsID, out data, out CountInOrder);
-            //this.DataGrid_ProcessIn.ItemsSource = data;
 
             this.Label_CountOutOrder.Content = this.CountOutOrder;
-            this.Label_CountInOrder.Content = this.CountInOrder;
+            //this.Label_CountInOrder.Content = this.CountInOrder;
         }
 
         /// <summary>

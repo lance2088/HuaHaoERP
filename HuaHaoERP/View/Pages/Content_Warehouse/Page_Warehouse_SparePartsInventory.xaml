@@ -8,7 +8,7 @@
 	Title="Page_Warehouse_SparePartsInventory">
 
     <Grid>
-        <TextBox x:Name="TextBox_Search" Height="24" Margin="10,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Loaded="TextBox_Search_Loaded" PreviewKeyUp="TextBox_Search_PreviewKeyUp">
+        <TextBox x:Name="TextBox_Search" Height="24" Margin="10,10,0,0" TextWrapping="Wrap" HorizontalAlignment="Left" Width="400" VerticalAlignment="Top" VerticalContentAlignment="Center" Loaded="TextBox_Search_Loaded" PreviewKeyUp="TextBox_Search_PreviewKeyUp">
             <TextBox.Resources>
                 <VisualBrush x:Key="HelpBrush" TileMode="None" Opacity="0.3" Stretch="None" AlignmentX="Left">
                     <VisualBrush.Visual>
@@ -29,6 +29,7 @@
                 </Style>
             </TextBox.Style>
         </TextBox>
+        <ComboBox x:Name="ComboBox_Processors" HorizontalAlignment="Left" Margin="420,10,0,0" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" Height="24"  DropDownClosed="ComboBox_Processors_DropDownClosed" IsEditable="True" KeyUp="ComboBox_Processors_KeyUp" DropDownOpened="ComboBox_Processors_DropDownOpened" GotFocus="ComboBox_Processors_GotFocus"/>
         <DataGrid Margin="10,40,10,10" x:Name="DataGrid_Num" Background="#FFF0F0F0"  HorizontalContentAlignment="Stretch" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" IsReadOnly="True" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False" AutoGenerateColumns="False" SelectionMode="Single">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="序号" Binding="{Binding Id}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" MinWidth="70"/>

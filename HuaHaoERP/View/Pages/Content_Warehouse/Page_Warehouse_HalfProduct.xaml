@@ -9,7 +9,7 @@
 	Title="Page_Warehouse_HalfProduct">
 
     <Grid>
-        <TextBox x:Name="TextBox_Search" Height="24" Margin="10,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Loaded="TextBox_Search_Loaded" PreviewKeyUp="TextBox_Search_PreviewKeyUp">
+        <TextBox x:Name="TextBox_Search" Height="24" Margin="10,10,0,0" TextWrapping="Wrap" HorizontalAlignment="Left" Width="400" VerticalAlignment="Top" VerticalContentAlignment="Center" Loaded="TextBox_Search_Loaded" PreviewKeyUp="TextBox_Search_PreviewKeyUp">
             <TextBox.Resources>
                 <VisualBrush x:Key="HelpBrush" TileMode="None" Opacity="0.3" Stretch="None" AlignmentX="Left">
                     <VisualBrush.Visual>

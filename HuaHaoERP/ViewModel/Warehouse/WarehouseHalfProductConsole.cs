@@ -31,7 +31,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
                         "	total(a.Quantity) as Quantity " +
                         "FROM "
                         + TableName +
-                        "  a LEFT JOIN T_ProductInfo_Product b ON a.ProductID = b.GUID where (b.Number like '%" +
+                        "  a LEFT JOIN T_ProductInfo_Product b ON a.ProductID = b.GUID where  a.deleteMark is null and   (b.Number like '%" +
                         Search + "%' or b.Name like '%" + Search + "%')" +
                         "GROUP BY" +
                         "	a.ProductID";

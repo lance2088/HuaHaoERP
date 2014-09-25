@@ -315,6 +315,7 @@
     <Compile Include="Helper\Events\UpdateEvent\WarehouseProductEvent.cs" />
     <Compile Include="Helper\Events\UpdateEvent\WarehouseRawMaterialsEvent.cs" />
     <Compile Include="Helper\Events\UpdateEvent\Warehouse\HalfProductEvent.cs" />
+    <Compile Include="Helper\Events\UpdateEvent\Warehouse\SparePartsInventoryEvent.cs" />
     <Compile Include="Helper\Excel\ExcelBase.cs" />
     <Compile Include="Helper\Excel\Export.cs" />
     <Compile Include="Helper\Excel\Reader.cs" />
@@ -337,6 +338,7 @@
     <Compile Include="Model\Warehouse\Model_WarehouseProductBatchHistory.cs" />
     <Compile Include="Model\Warehouse\Model_WarehouseProductBatchIn.cs" />
     <Compile Include="Model\Warehouse\WarehouseHalpProductModel.cs" />
+    <Compile Include="Model\Warehouse\WarehouseSparePartsInventoryModel.cs" />
     <Compile Include="Test\StopWatch.cs" />
     <Compile Include="ViewModel\Customer\Seniority.cs" />
     <Compile Include="Helper\Tools\TranslatePassword.cs" />
@@ -380,6 +382,7 @@
     <Compile Include="ViewModel\Warehouse\ScrapConsole.cs" />
     <Compile Include="ViewModel\Warehouse\WarehouseHalfProductConsole.cs" />
     <Compile Include="ViewModel\Warehouse\WarehouseProductConsole.cs" />
+    <Compile Include="ViewModel\Warehouse\WarehouseSparePartsInventoryConsole.cs" />
     <Compile Include="View\Pages\Content_CustomerLibrary\Page_CustomerLibrary.xaml.cs">
       <DependentUpon>Page_CustomerLibrary.xaml</DependentUpon>
     </Compile>
