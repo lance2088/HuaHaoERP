@@ -29,9 +29,10 @@ namespace HuaHaoERP.ViewModel.Warehouse
                         "	b.Specification," +
                         "	b.Type," +
                         "	total(a.Quantity) as Quantity " +
-                        "FROM " 
+                        "FROM "
                         + TableName +
-                        "  a LEFT JOIN T_ProductInfo_Product b ON a.ProductID = b.GUID " +
+                        "  a LEFT JOIN T_ProductInfo_Product b ON a.ProductID = b.GUID where (b.Number like '%" +
+                        Search + "%' or b.Name like '%" + Search + "%')" +
                         "GROUP BY" +
                         "	a.ProductID";
             DataSet ds = new DataSet();
