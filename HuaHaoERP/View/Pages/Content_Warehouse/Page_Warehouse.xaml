@@ -187,6 +187,11 @@
                     <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_半成品" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </TabItem>
+            <TabItem FocusVisualStyle="{x:Null}" Header="外协仓库" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="47,0,-47,0" Foreground="White">
+                <Grid>
+                    <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_外协仓库" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
+                </Grid>
+            </TabItem>
         </TabControl>
 
     </Grid>

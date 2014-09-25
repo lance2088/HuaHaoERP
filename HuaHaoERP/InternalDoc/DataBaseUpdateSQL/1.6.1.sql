@@ -8,4 +8,15 @@ CREATE TABLE "T_Warehouse_HalfProduct" (
 "Remark"  TEXT, "DeleteMark" DateTime,
 PRIMARY KEY ("Guid" ASC)
 );
+DROP TABLE IF EXISTS "main"."T_Warehouse_SparePartsInventory";
+CREATE TABLE "T_Warehouse_SparePartsInventory" (
+"Guid"  Guid NOT NULL,
+"ProcessorID" Guid not null,
+"ProductID"  Guid NOT NULL,
+"Date"  DateTime,
+"Operator"  TEXT,
+"Quantity"  INTEGER,
+"Remark"  TEXT, "DeleteMark" DateTime,
+PRIMARY KEY ("Guid" ASC)
+);
 Update T_System_Settings SET Value='1.6.1' WHERE ID=2;

@@ -48,8 +48,8 @@
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="GUID" Binding="{Binding Guid}" Visibility="Hidden"/>
                             <DataGridTextColumn Header="序号" Binding="{Binding Id}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                            <DataGridTextColumn Header="客户编号" Binding="{Binding Number}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                            <DataGridTextColumn Header="客户名称" Binding="{Binding Name}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Header="供应商编号" Binding="{Binding Number}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Header="供应商名称" Binding="{Binding Name}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                             <DataGridTextColumn Header="地址" Binding="{Binding Address}" ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}"/>
                             <DataGridTextColumn Header="区域" Binding="{Binding Area}" ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}"/>
                             <DataGridTextColumn Header="电话" Binding="{Binding Phone}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
@@ -105,8 +105,8 @@
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="GUID" Binding="{Binding Guid}" Visibility="Hidden"/>
                             <DataGridTextColumn ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" Header="序号" Binding="{Binding Id}"/>
-                            <DataGridTextColumn ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" Header="客户编号" Binding="{Binding Number}"/>
-                            <DataGridTextColumn ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" Header="客户名称" Binding="{Binding Name}"/>
+                            <DataGridTextColumn ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" Header="加工商编号" Binding="{Binding Number}"/>
+                            <DataGridTextColumn ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" Header="加工商名称" Binding="{Binding Name}"/>
                             <DataGridTextColumn ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}" Header="地址" Binding="{Binding Address}"/>
                             <DataGridTextColumn ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}" Header="区域" Binding="{Binding Area}"/>
                             <DataGridTextColumn ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" Header="电话" Binding="{Binding Phone}"/>
