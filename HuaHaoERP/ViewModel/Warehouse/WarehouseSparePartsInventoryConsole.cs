@@ -43,7 +43,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
                         + TableName +
                         "  a LEFT JOIN T_ProductInfo_Product b ON a.ProductID = b.GUID left join T_UserInfo_Processors c on a.ProcessorID = c.Guid where a.deleteMark is null " + sql_WhereParm +
                         " GROUP BY" +
-                        "	a.ProductID";
+                        "	a.ProcessorID,a.ProductID";
             DataSet ds = new DataSet();
             decimal dd = 0m;
             if (new Helper.SQLite.DBHelper().QueryData(sql, out ds))

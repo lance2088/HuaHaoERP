@@ -202,6 +202,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Pages\Content_ProductionManagement\Page_ProductMangement_DeliveryAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Pages\Content_ProductionManagement\Page_ProductMangement_Picking.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -451,6 +455,9 @@
     </Compile>
     <Compile Include="View\Pages\Content_ProductionManagement\Page_ProductMangement_Delivery.xaml.cs">
       <DependentUpon>Page_ProductMangement_Delivery.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\Content_ProductionManagement\Page_ProductMangement_DeliveryAdd.xaml.cs">
+      <DependentUpon>Page_ProductMangement_DeliveryAdd.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\Content_ProductionManagement\Page_ProductMangement_Picking.xaml.cs">
       <DependentUpon>Page_ProductMangement_Picking.xaml</DependentUpon>

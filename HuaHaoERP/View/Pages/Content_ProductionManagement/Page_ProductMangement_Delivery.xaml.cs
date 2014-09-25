@@ -193,23 +193,9 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             }
         }
 
-        //private void MenuItem_dgmenu2_Del_Click(object sender, RoutedEventArgs e)
-        //{
-        //    if (this.DataGrid_ProcessIn.SelectedCells.Count > 0)
-        //    {
-        //        Model.ProductionManagement_OutsideProcessModel d = this.DataGrid_ProcessIn.SelectedCells[0].Item as Model.ProductionManagement_OutsideProcessModel;
-        //        if (MessageBox.Show("确认删除入单：" + d.Id + "？", "警告", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
-        //        {
-        //            new ViewModel.ProductionManagement.OutsideProcessConsole().Delete(d.Guid);
-        //            InitializeOutsideProcessDataGrid();
-        //        }
-        //    }
-        //}
-
-
         private void Button_AddProcessOut_Click(object sender, RoutedEventArgs e)
         {
-            PopUpEvent.OnShowPopUp(new Page_ProductionManagement_OutsideProcessBatch(false));
+            PopUpEvent.OnShowPopUp(new Page_ProductMangement_DeliveryAdd());
         }
 
         private void Button_AddProcessIn_Click(object sender, RoutedEventArgs e)
