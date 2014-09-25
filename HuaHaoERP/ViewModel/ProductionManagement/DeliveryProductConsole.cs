@@ -45,5 +45,22 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                 return false;
             }
         }
+
+        internal bool DeleteDetail(ProductManagement_DevlieryDetailModel m)
+        {
+            string sql = "update T_PM_ProductOutProcessDetail set DeleteMark='" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' Where Guid='" + m.Guid + "'";
+            return new Helper.SQLite.DBHelper().SingleExecution(sql);
+        }
+
+
+        internal bool Insert(ProductManagement_DevlieryModel mm, System.Collections.ObjectModel.ObservableCollection<ProductManagement_DevlieryDetailModel> data)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal bool Update(ProductManagement_DevlieryModel mm, System.Collections.ObjectModel.ObservableCollection<ProductManagement_DevlieryDetailModel> data)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

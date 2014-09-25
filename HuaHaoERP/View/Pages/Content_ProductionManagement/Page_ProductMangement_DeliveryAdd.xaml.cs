@@ -1,4 +1,5 @@
-﻿using HuaHaoERP.Model.ProductionManagement;
+﻿using HuaHaoERP.Helper.Events.UpdateEvent.Warehouse;
+using HuaHaoERP.Model.ProductionManagement;
 using HuaHaoERP.ViewModel.ProductionManagement;
 using System;
 using System.Collections.Generic;
@@ -24,13 +25,13 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
     public partial class Page_ProductMangement_DeliveryAdd : Page
     {
         bool IS_MODIFY = false;//是否是修改模式
+        ProductManagement_DevlieryModel mm = new ProductManagement_DevlieryModel();
         ObservableCollection<ProductManagement_DevlieryDetailModel> data = new ObservableCollection<ProductManagement_DevlieryDetailModel>();
+        private int CellId;
 
         public Page_ProductMangement_DeliveryAdd()
         {
             InitializeComponent();
-            this.DatePicker_InsertDate.SelectedDate = DateTime.Now;
-            this.TextBox_Number.Text = DateTime.Now.ToString("yyyyMMdd_HHmmss");
             this.Label_Title.Content = "外加工单：抛光送货";
             InitializeDataGrid();
             InitProcessorsComboBox();
@@ -44,6 +45,8 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             }
             else
             {
+                this.DatePicker_InsertDate.SelectedDate = DateTime.Now;
+                this.TextBox_Number.Text = DateTime.Now.ToString("yyyyMMdd_HHmmss");
                 for (int i = 0; i < 20; i++)
                 {
                     data.Add(new ProductManagement_DevlieryDetailModel { Id = i + 1 });
@@ -92,6 +95,37 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             }
         }
 
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            #region 删除方法
+            if (this.DataGrid.SelectedCells.Count != 0)
+            {
+                ProductManagement_DevlieryDetailModel m = DataGrid.SelectedCells[0].Item as ProductManagement_DevlieryDetailModel;
+                CellId = m.Id;
+                if (!m.ProductID.Equals(Guid.Empty))
+                {
+                    if (MessageBox.Show("是否删除此行数据?", "确认信息", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
+                    {
+                        bool flag = new DeliveryProductConsole().DeleteDetail(m);
+                        if (!flag)
+                        {
+                            MessageBox.Show("删除不成功！未找到对应数据！");
+                        }
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+                m.Number = "";
+                m.Name = "";
+                m.QuantityA = 0;
+                m.QuantityB = 0;
+                m.QuantityC = 0;
+            }
+            #endregion
+        }
+
         private void DataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
             ProductManagement_DevlieryDetailModel model = this.DataGrid.SelectedCells[0].Item as ProductManagement_DevlieryDetailModel;
@@ -122,17 +156,97 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void DataGrid_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-
+            if (e.Key == Key.Delete)
+            {
+                MenuItem_Click(this, null);
+            }
         }
 
         private void Button_CommitNew_Click(object sender, RoutedEventArgs e)
         {
+            if (Save())
+            {
+                InitializeDataGrid();
+                IS_MODIFY = false;
+                RefreshPage();
+            }
+        }
 
+        private void RefreshPage()
+        {
+            HalfProductEvent.OnUpdateDataGrid();
+            SparePartsInventoryEvent.OnUpdateDataGrid();
         }
 
         private void Button_Commit_Click(object sender, RoutedEventArgs e)
         {
+            if (Save())
+            {
+                RefreshPage();
+                this.Button_Cancel_Click(this, null);
+            }
+            else
+            {
+                MessageBox.Show("操作失败，联系管理员！");
+            }
+        }
 
+        private bool Save()
+        {
+            bool flag = true;
+            if (!CheckData())
+            {
+                return false;
+            }
+            GetData();
+            if (mm.Guid.Equals(Guid.Empty))
+            {
+                mm.Guid = Guid.NewGuid();
+                flag = new DeliveryProductConsole().Insert(mm, data);
+                if (!flag)
+                {
+                    MessageBox.Show("数据有误");
+                    return false;
+                }
+            }
+            else
+            {
+                flag = new DeliveryProductConsole().Update(mm, data);
+                if (!flag)
+                {
+                    MessageBox.Show("数据有误");
+                    return false;
+                }
+            }
+            return flag;
+        }
+
+        private ProductManagement_DevlieryModel GetData()
+        {
+            DateTime dt = new DateTime();
+            DateTime.TryParse(this.DatePicker_InsertDate.Text, out dt);
+            if (DateTime.Now.Day - dt.Day > 10000)
+            {
+                mm.Date = DateTime.Now.ToString();
+            }
+            else
+            {
+                mm.Date = DatePicker_InsertDate.Text;
+            }
+            mm.OrderNO = this.TextBox_Number.Text;
+            mm.Remark = this.TextBox_Remark.Text;
+            mm.ProcessorID = (Guid)this.ComboBox_Processors.SelectedValue;
+            return mm;
+        }
+
+        private bool CheckData()
+        {
+            if (ComboBox_Processors.SelectedValue == null) 
+            {
+                MessageBox.Show("请选择客户！");
+                return false;
+            }
+            return true;
         }
 
         private void Button_Cancel_Click(object sender, RoutedEventArgs e)

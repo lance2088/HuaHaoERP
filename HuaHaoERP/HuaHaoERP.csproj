@@ -340,6 +340,7 @@
     <Compile Include="Model\ProductionManagement\Model_ProductionBookkeeping.cs" />
     <Compile Include="Model\ProductionManagement\Model_ProductionManagement_OutsideProcessBatch.cs" />
     <Compile Include="Model\ProductionManagement\ProductManagement_DevlieryDetailModel.cs" />
+    <Compile Include="Model\ProductionManagement\ProductManagement_DevlieryModel.cs" />
     <Compile Include="Model\Warehouse\Model_WarehouseProductBatchHistory.cs" />
     <Compile Include="Model\Warehouse\Model_WarehouseProductBatchIn.cs" />
     <Compile Include="Model\Warehouse\WarehouseHalpProductModel.cs" />
