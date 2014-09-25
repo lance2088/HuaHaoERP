@@ -13,19 +13,19 @@
     <Grid Background="White" HorizontalAlignment="Right" Width="800">
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_Commit" Content="确定" HorizontalAlignment="Right" Margin="0,0,90,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_Commit_Click"/>
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_Cancel" Content="取消" HorizontalAlignment="Left" Margin="715,0,0,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Foreground="Black" Height="24" IsCancel="True" Click="Button_Cancel_Click"/>
-        <DataGrid x:Name="DataGrid" Background="#FFF0F0F0" Margin="10,75,10,60" CellStyle="{DynamicResource DataGridCellStyleCommon}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" BorderBrush="#FF99CCFF" AutoGenerateColumns="False" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" SelectionMode="Single" SelectionUnit="Cell" CanUserAddRows="False" CanUserResizeRows="False" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" CellEditEnding="DataGrid_CellEditEnding" PreviewKeyDown="DataGrid_PreviewKeyDown">
+        <DataGrid x:Name="DataGrid" Background="#FFF0F0F0" Margin="10,75,10,60" CellStyle="{DynamicResource DataGridCellStyleCommon}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" BorderBrush="#FF99CCFF" AutoGenerateColumns="False" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" SelectionMode="Single" SelectionUnit="Cell" CanUserAddRows="False" CanUserResizeRows="False" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" CellEditEnding="DataGrid_CellEditEnding" PreviewKeyDown="DataGrid_PreviewKeyDown" IsEnabled="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="编号" Binding="{Binding ProductNumber}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" MinWidth="100"/>
-                <DataGridTextColumn Header="品名" Binding="{Binding ProductName}" IsReadOnly="True" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" MinWidth="100">
+                <DataGridTextColumn Header="编号" Binding="{Binding Number}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" MinWidth="100"/>
+                <DataGridTextColumn Header="品名" Binding="{Binding Name}" IsReadOnly="True" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" MinWidth="100">
                     <DataGridTextColumn.CellStyle>
                         <Style TargetType="DataGridCell">
                             <Setter Property="Background" Value="{StaticResource clBr}" />
                         </Style>
                     </DataGridTextColumn.CellStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="领货数量" Binding="{Binding Quantity}" MinWidth="100" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                <DataGridTextColumn Header="上存数量" Binding="{Binding Quantity}" MinWidth="100" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                <DataGridTextColumn Header="结存数量" Binding="{Binding Remark}" MinWidth="100" ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}"/>
+                <DataGridTextColumn Header="领货数量" Binding="{Binding QuantityA}" MinWidth="100" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn Header="上存数量" Binding="{Binding QuantityB}" MinWidth="100" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="结存数量" Binding="{Binding QuantityC}" MinWidth="100" ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}" IsReadOnly="True"/>
             </DataGrid.Columns>
         </DataGrid>
         <Label x:Name="Label_Title" Content="Label__Title" HorizontalAlignment="Left" Margin="45,10,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Padding="5,0" VerticalContentAlignment="Center" Height="30"/>
@@ -38,6 +38,6 @@
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_CommitNew" Content="保存并新增" HorizontalAlignment="Left" Margin="545,0,0,20" VerticalAlignment="Bottom" Width="85" Foreground="White" Height="24" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_CommitNew_Click"/>
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_Back" Content="&lt;" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="30" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="30" Padding="0" Foreground="White" FontWeight="Bold" FontSize="16" Click="Button_Cancel_Click"/>
         <Label Content="抛光户：" HorizontalAlignment="Left" Margin="239,46,0,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" Padding="5,0"/>
-        <ComboBox x:Name="ComboBox_Processors" HorizontalAlignment="Left" Height="24" Margin="310,46,0,0" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" IsEditable="True" KeyUp="ComboBox_Processors_KeyUp" DropDownOpened="ComboBox_Processors_DropDownOpened" GotFocus="ComboBox_Processors_GotFocus"/>
+        <ComboBox x:Name="ComboBox_Processors" HorizontalAlignment="Left" Height="24" Margin="310,46,0,0" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" IsEditable="True" KeyUp="ComboBox_Processors_KeyUp" DropDownOpened="ComboBox_Processors_DropDownOpened" GotFocus="ComboBox_Processors_GotFocus" DropDownClosed="ComboBox_Processors_DropDownClosed"/>
     </Grid>
 </Page>

@@ -339,6 +339,7 @@
     <Compile Include="Model\ProductionManagement\Model_AssemblyLineModuleBatchInput.cs" />
     <Compile Include="Model\ProductionManagement\Model_ProductionBookkeeping.cs" />
     <Compile Include="Model\ProductionManagement\Model_ProductionManagement_OutsideProcessBatch.cs" />
+    <Compile Include="Model\ProductionManagement\ProductManagement_DevlieryDetailModel.cs" />
     <Compile Include="Model\Warehouse\Model_WarehouseProductBatchHistory.cs" />
     <Compile Include="Model\Warehouse\Model_WarehouseProductBatchIn.cs" />
     <Compile Include="Model\Warehouse\WarehouseHalpProductModel.cs" />
@@ -373,6 +374,7 @@
     <Compile Include="ViewModel\ProductionManagement\AssemblyLineDetailsConsole.cs" />
     <Compile Include="ViewModel\ProductionManagement\AssemblyLineModuleBatchInputConsole.cs" />
     <Compile Include="ViewModel\ProductionManagement\AssemblyLineModuleConsole.cs" />
+    <Compile Include="ViewModel\ProductionManagement\DeliveryProductConsole.cs" />
     <Compile Include="ViewModel\ProductionManagement\OutsideProcessBatchInputConsole.cs" />
     <Compile Include="ViewModel\ProductionManagement\OutsideProcessConsole.cs" />
     <Compile Include="ViewModel\ProductionManagement\ProductionBookkeepingConsole.cs" />

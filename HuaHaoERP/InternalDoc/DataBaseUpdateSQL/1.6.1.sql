@@ -19,4 +19,27 @@ CREATE TABLE "T_Warehouse_SparePartsInventory" (
 "Remark"  TEXT, "DeleteMark" DateTime,
 PRIMARY KEY ("Guid" ASC)
 );
+DROP TABLE IF EXISTS "main"."T_PM_ProductOutProcess";
+CREATE TABLE "T_PM_ProductOutProcess" (
+"Guid"  Guid NOT NULL,
+"Number" TEXT,
+"ProcessorID" Guid not null,
+"ProductID"  Guid NOT NULL,
+"Date"  DateTime,
+"Operator"  TEXT,
+"Remark"  TEXT, "DeleteMark" DateTime,
+PRIMARY KEY ("Guid" ASC)
+);
+DROP TABLE IF EXISTS "main"."T_PM_ProductOutProcessDetail";
+CREATE TABLE "T_PM_ProductOutProcessDetail" (
+"Guid"  Guid NOT NULL,
+"ParentId" Guid not null,
+"ProductID"  Guid NOT NULL,
+"Date"  DateTime,
+"Operator"  TEXT,
+"QuantityA"  INTEGER,
+"QuantityB"  INTEGER,
+"Remark"  TEXT, "DeleteMark" DateTime,
+PRIMARY KEY ("Guid" ASC)
+);
 Update T_System_Settings SET Value='1.6.1' WHERE ID=2;
