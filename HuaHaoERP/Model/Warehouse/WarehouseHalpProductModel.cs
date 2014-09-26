@@ -14,7 +14,6 @@ namespace HuaHaoERP.Model.Warehouse
         private string productName;
         private string date;
         private string optor;
-        private int number;
         private string remark;
         private string _material;
         private string _type;

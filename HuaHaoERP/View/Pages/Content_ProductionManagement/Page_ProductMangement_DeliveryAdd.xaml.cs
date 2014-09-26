@@ -256,7 +256,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void ComboBox_Processors_DropDownClosed(object sender, EventArgs e)
         {
-            if (ComboBox_Processors.SelectedValue != null)
+            if (ComboBox_Processors.SelectedIndex > 0) 
             {
                 this.DataGrid.IsEnabled = true;
             }

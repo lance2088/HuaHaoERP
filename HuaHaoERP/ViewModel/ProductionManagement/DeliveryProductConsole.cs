@@ -1,6 +1,9 @@
-﻿using HuaHaoERP.Model.ProductionManagement;
+﻿using HuaHaoERP.Helper.DataDefinition;
+using HuaHaoERP.Helper.Tools;
+using HuaHaoERP.Model.ProductionManagement;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -53,12 +56,35 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
         }
 
 
-        internal bool Insert(ProductManagement_DevlieryModel mm, System.Collections.ObjectModel.ObservableCollection<ProductManagement_DevlieryDetailModel> data)
+        internal bool Insert(ProductManagement_DevlieryModel m, ObservableCollection<ProductManagement_DevlieryDetailModel> list)
         {
-            throw new NotImplementedException();
+            List<string> sqlList = new List<string>();
+            string date = Date.FormatToD(m.Date);
+            string sql = "insert into T_PM_ProductOutProcess(Guid,Number,ProcessorID,Date,Operator,Remark) VALUES ('" + m.Guid + "','" + m.OrderNO + "','" + m.ProcessorID + "','" + date + "','" + CommonParameters.LoginUserName + "','" + m.Remark + "')";
+            sqlList.Add(sql);
+            foreach (ProductManagement_DevlieryDetailModel mm in list)
+            {
+                if (mm.ProductID.Equals(Guid.Empty))
+                {
+                    continue;
+                }
+                else
+                {
+                    sql = "insert into T_PM_ProductOutProcessDetail(Guid,ParentId,ProductID,Date,Operator,QuantityA,QuantityB) VALUES ('" + Guid.NewGuid() + "','" + m.Guid + "','" + mm.ProductID + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + CommonParameters.LoginUserName + "','" + mm.QuantityA + "','" + mm.QuantityB + "')";
+                    sqlList.Add(sql);
+                    sql = "Insert into T_Warehouse_HalfProduct(Guid,ProductID,Date,Operator,Quantity,Remark) "
+                        + " values('" + Guid.NewGuid() + "','" + mm.ProductID + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + CommonParameters.LoginUserName + "','-" + mm.QuantityA + "','从抛光发货单录入')";
+                    sqlList.Add(sql);
+                    sql = "Insert into T_Warehouse_SparePartsInventory(Guid,ProcessorID,ProductID,Date,Operator,Quantity,Remark) "
+                        + " values('" + Guid.NewGuid() + "','" + m.ProcessorID + "','" + mm.ProductID + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + CommonParameters.LoginUserName + "','" + mm.QuantityA + "','从抛光发货单录入')";
+                    sqlList.Add(sql);
+                }
+            }
+            //更新排名
+            return new Helper.SQLite.DBHelper().Transaction(sqlList);
         }
 
-        internal bool Update(ProductManagement_DevlieryModel mm, System.Collections.ObjectModel.ObservableCollection<ProductManagement_DevlieryDetailModel> data)
+        internal bool Update(ProductManagement_DevlieryModel mm, ObservableCollection<ProductManagement_DevlieryDetailModel> data)
         {
             throw new NotImplementedException();
         }

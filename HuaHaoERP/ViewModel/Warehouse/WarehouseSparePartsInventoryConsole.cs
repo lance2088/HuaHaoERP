@@ -10,12 +10,12 @@ namespace HuaHaoERP.ViewModel.Warehouse
 {
     class WarehouseSparePartsInventoryConsole
     {
-        internal bool Insert(WarehouseSparePartsInventoryModel m)
-        {
-            string sql = "Insert into T_Warehouse_SparePartsInventory(Guid,ProcessorID,ProductID,Date,Operator,Quantity,Remark) "
-                        + " values('" + Guid.NewGuid() + "','" + m.ProcessorID + "','" + m.ProductID +"','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + CommonParameters.LoginUserName + "','" + m.Quantity + "','" + m.Remark + "')";
-            return new Helper.SQLite.DBHelper().SingleExecution(sql);
-        }
+        //internal bool Insert(WarehouseSparePartsInventoryModel m)
+        //{
+        //    string sql = "Insert into T_Warehouse_SparePartsInventory(Guid,ProcessorID,ProductID,Date,Operator,Quantity,Remark) "
+        //                + " values('" + Guid.NewGuid() + "','" + m.ProcessorID + "','" + m.ProductID +"','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + CommonParameters.LoginUserName + "','" + m.Quantity + "','" + m.Remark + "')";
+        //    return new Helper.SQLite.DBHelper().SingleExecution(sql);
+        //}
 
         internal bool ReadDetailsList(string Search,Guid ProcessorsID, out List<WarehouseSparePartsInventoryModel> data)
         {

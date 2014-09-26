@@ -1,4 +1,5 @@
 ﻿using HuaHaoERP.Helper.Events;
+using HuaHaoERP.Model.ProductionManagement;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -26,7 +27,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         private DateTime ProcessorsFirst;
         private DateTime ProcessorsEnd;
         private Guid ProductID;
-        private Guid ProcessorsID;
+        private Guid ProcessorID;
 
         public Page_ProductMangement_Delivery()
         {
@@ -74,7 +75,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             {
                 return;
             }
-            this.ProcessorsID = (Guid)this.ComboBox_Processors.SelectedValue;
+            this.ProcessorID = (Guid)this.ComboBox_Processors.SelectedValue;
             if (this.ComboBox_Product.SelectedValue == null)
             {
                 return;
@@ -83,12 +84,11 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             this.ProcessorsFirst = (DateTime)this.DatePicker_ProcessorsFirst.SelectedDate;
             this.ProcessorsEnd = ((DateTime)this.DatePicker_ProcessorsEnd.SelectedDate).AddDays(1);
 
-            List<Model.ProductionManagement_OutsideProcessModel> data;
-            new ViewModel.ProductionManagement.OutsideProcessConsole().ReadList("出单", ProcessorsFirst, ProcessorsEnd, ProductID, ProcessorsID, out data, out CountOutOrder);
+            List<ProductManagement_DevlieryModel> data;
+            new ViewModel.ProductionManagement.OutsideProcessConsole().ReadList(ProcessorsFirst, ProcessorsEnd, ProductID, ProcessorID, out data, out CountOutOrder);
             this.DataGrid_ProcessOut.ItemsSource = data;
 
             this.Label_CountOutOrder.Content = this.CountOutOrder;
-            //this.Label_CountInOrder.Content = this.CountInOrder;
         }
 
         /// <summary>

@@ -24,7 +24,6 @@ CREATE TABLE "T_PM_ProductOutProcess" (
 "Guid"  Guid NOT NULL,
 "Number" TEXT,
 "ProcessorID" Guid not null,
-"ProductID"  Guid NOT NULL,
 "Date"  DateTime,
 "Operator"  TEXT,
 "Remark"  TEXT, "DeleteMark" DateTime,

@@ -1,4 +1,5 @@
 ﻿using HuaHaoERP.Model;
+using HuaHaoERP.Model.ProductionManagement;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -85,6 +86,89 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
             {
                 strCount += "（" + Count.ToString() + "," + CountMinorInjuries.ToString() + "," + CountInjuries.ToString() + "," + CountLose.ToString() + "）";
             }
+            return flag;
+        }
+
+
+        internal bool ReadList(DateTime Start, DateTime End, Guid ProductID, Guid ProcessorID, out List<ProductManagement_DevlieryModel> data, out string strCount)
+        {
+            data = new List<ProductManagement_DevlieryModel>();
+            strCount = "";
+            string sql_WhereParm = "";
+            string LastID = string.Empty;
+            if (ProductID != new Guid())
+            {
+                sql_WhereParm += " AND b.ProductID='" + ProductID + "' ";
+            }
+            if (ProcessorID != new Guid())
+            {
+                sql_WhereParm += " AND a.ProcessorID='" + ProcessorID + "' ";
+            }
+            sql_WhereParm += " AND a.Date between '" + Start.ToString("yyyy-MM-dd HH:mm:ss") + "' and '" + End.ToString("yyyy-MM-dd HH:mm:ss") + "'";
+            bool flag = false;
+            data = new List<ProductManagement_DevlieryModel>();
+            int Count = 0;
+            int temp = 0;
+            ProductManagement_DevlieryModel LastData = new ProductManagement_DevlieryModel();
+            string sql = "SELECT " +
+                        "	a.Guid,a.Number, " +
+                        "	strftime(a.Date) as Date, " +
+                        "	a.ProcessorID, " +
+                        "	c.Name as ProcessorName, " +
+                        "	b.ProductID, " +
+                        "	d.Name as ProductName, " +
+                        "	b.QuantityA, " +
+                        "	a.Remark " +
+                        "FROM " +
+                        "	T_PM_ProductOutProcess a " +
+                        "LEFT JOIN T_PM_ProductOutProcessDetail b ON a.Guid = b.ParentId " +
+                        "LEFT JOIN T_UserInfo_Processors c ON a.ProcessorID = c.GUID " +
+                        "LEFT JOIN T_ProductInfo_Product d ON b.ProductID = d.GUID  where a.deleteMark is null " + sql_WhereParm +
+                        " order by a.Date desc";
+            DataSet ds = new DataSet();
+            flag = new Helper.SQLite.DBHelper().QueryData(sql, out ds);
+            if (flag)
+            {
+                int id = 1;
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    if (LastID != dr["Guid"].ToString())
+                    {
+                        if (LastID != string.Empty)
+                        {
+                            data.Add(LastData);
+                        }
+                        LastID = dr[0].ToString();
+                        ProductManagement_DevlieryModel d = new ProductManagement_DevlieryModel();
+                        LastData = d;
+                        LastData.Guid = (Guid)dr["Guid"];
+                        LastData.Id = id;
+                        id++;
+                        LastData.Date = dr["Date"].ToString();
+                        LastData.OrderNO = dr["Number"].ToString();
+                        LastData.ProcessorName = dr["ProcessorName"].ToString();
+                        LastData.ProductName = dr["ProductName"].ToString();
+                        LastData.ProcessorID = (Guid)dr["ProcessorID"];
+                        int.TryParse(dr["QuantityA"].ToString(), out temp);
+                        LastData.Quantity = temp.ToString();
+                        Count += temp;
+                        LastData.Remark = dr["Remark"].ToString();
+                    }
+                    else //旧凭证
+                    {
+                        LastData.ProductName += "\n" + dr["ProductName"].ToString();
+                        int.TryParse(dr["QuantityA"].ToString(), out temp);
+                        LastData.Quantity = temp.ToString();
+                        Count += temp;
+                        LastData.Quantity += "\n" + dr["QuantityA"].ToString();
+                    }
+                }
+                if (ds.Tables[0].Rows.Count != 0)
+                {
+                    data.Add(LastData);
+                }
+            }
+            strCount = (Count).ToString();
             return flag;
         }
     }

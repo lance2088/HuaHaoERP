@@ -16,12 +16,11 @@
                 </ContextMenu>
             </DataGrid.ContextMenu>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="GUID" Binding="{Binding Guid}" Visibility="Hidden"/>
                 <DataGridTextColumn Header="序号" Binding="{Binding Id}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                <DataGridTextColumn Header="单号" Binding="{Binding OrderDate}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                <DataGridTextColumn Header="日期" Binding="{Binding OrderDate}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn Header="单号" Binding="{Binding OrderNO}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn Header="日期" Binding="{Binding Date}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn Header="抛光户" Binding="{Binding ProcessorName}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                 <DataGridTextColumn Header="产品" Binding="{Binding ProductName}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                <DataGridTextColumn Header="抛光户" Binding="{Binding ProcessorsName}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                 <DataGridTextColumn Header="数量" Binding="{Binding Quantity}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                 <DataGridTextColumn Header="备注" Binding="{Binding Remark}"/>
             </DataGrid.Columns>
@@ -30,7 +29,7 @@
         <ComboBox x:Name="ComboBox_Product" HorizontalAlignment="Left" Margin="469,10,0,0" VerticalAlignment="Top" Width="100" VerticalContentAlignment="Center" Height="24"  DropDownClosed="ComboBox_Product_DropDownClosed" IsEditable="True" KeyUp="ComboBox_Product_KeyUp" DropDownOpened="ComboBox_Product_DropDownOpened" GotFocus="ComboBox_Product_GotFocus"/>
         <ComboBox x:Name="ComboBox_Processors" HorizontalAlignment="Left" Margin="573,10,0,0" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" Height="24"  DropDownClosed="ComboBox_Processors_DropDownClosed" IsEditable="True" KeyUp="ComboBox_Processors_KeyUp" DropDownOpened="ComboBox_Processors_DropDownOpened" GotFocus="ComboBox_Processors_GotFocus"/>
         <Label x:Name="Label_CountOutOrder" Content="0" HorizontalAlignment="Right" Margin="0,0,427,21" VerticalAlignment="Bottom" Width="80" BorderThickness="0,0,0,1" BorderBrush="Black" HorizontalContentAlignment="Center" Padding="5,5,5,2" Height="22" FontSize="14"/>
-        <Label Content="送货统计：" HorizontalAlignment="Center" Margin="275,0,512,19" VerticalAlignment="Bottom" Padding="5,0" Height="22" Width="70" VerticalContentAlignment="Center"/>
+        <Label Content="发货统计：" HorizontalAlignment="Center" Margin="275,0,512,19" VerticalAlignment="Bottom" Padding="5,0" Height="22" Width="70" VerticalContentAlignment="Center"/>
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_AddProcessOut" Content="新增" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_AddProcessOut_Click" Focusable="False"/>
         <DatePicker x:Name="DatePicker_ProcessorsEnd" HorizontalAlignment="Left" Margin="222,10,0,0" VerticalAlignment="Top" MinWidth="100" VerticalContentAlignment="Center" Height="24" Width="108" CalendarClosed="DatePicker_ProcessorsEnd_CalendarClosed"/>
         <Label Content="至" HorizontalAlignment="Left" Margin="198,10,0,0" VerticalAlignment="Top" Padding="5,0" VerticalContentAlignment="Center" Height="24"/>
