@@ -68,7 +68,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             //{
             //    InitializeOutsideProcessDataGrid();
             //};
-            DeliveryProcessEvent.EUpdateDataGrid += (s, e) =>
+            DeliveryProcessOutEvent.EUpdateDataGrid += (s, e) =>
             {
                 InitializeOutsideProcessDataGrid();
             };
@@ -90,7 +90,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             this.ProcessorsEnd = ((DateTime)this.DatePicker_ProcessorsEnd.SelectedDate).AddDays(1);
 
             List<ProductManagement_DevlieryModel> data;
-            new ViewModel.ProductionManagement.OutsideProcessConsole().ReadList(ProcessorsFirst, ProcessorsEnd, ProductID, ProcessorID, out data, out CountOutOrder);
+            new ViewModel.ProductionManagement.DeliveryProcessOutConsole().ReadList(ProcessorsFirst, ProcessorsEnd, ProductID, ProcessorID, out data, out CountOutOrder);
             this.DataGrid_ProcessOut.ItemsSource = data;
 
             this.Label_CountOutOrder.Content = this.CountOutOrder;

@@ -21,19 +21,19 @@ using System.Windows.Shapes;
 namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 {
     /// <summary>
-    /// Interaction logic for Page_ProductMangement_DeliveryAdd.xaml
+    /// Interaction logic for Page_ProductMangement_PickingAdd.xaml
     /// </summary>
-    public partial class Page_ProductMangement_DeliveryAdd : Page
+    public partial class Page_ProductMangement_PickingAdd : Page
     {
         bool IS_MODIFY = false;//是否是修改模式
-        ProductManagement_DevlieryModel mm = new ProductManagement_DevlieryModel();
-        ObservableCollection<ProductManagement_DevlieryDetailModel> data = new ObservableCollection<ProductManagement_DevlieryDetailModel>();
+        ProductManagement_PickingModel mm = new ProductManagement_PickingModel();
+        ObservableCollection<ProductManagement_PickingDetailModel> data = new ObservableCollection<ProductManagement_PickingDetailModel>();
         private int CellId;
 
-        public Page_ProductMangement_DeliveryAdd()
+        public Page_ProductMangement_PickingAdd()
         {
             InitializeComponent();
-            this.Label_Title.Content = "外加工单：抛光送货";
+            this.Label_Title.Content = "外加工单：抛光收货";
             InitializeDataGrid();
             InitProcessorsComboBox();
         }
@@ -51,7 +51,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 data.Clear();
                 for (int i = 0; i < 20; i++)
                 {
-                    data.Add(new ProductManagement_DevlieryDetailModel { Id = i + 1 });
+                    data.Add(new ProductManagement_PickingDetailModel { Id = i + 1 });
                 }
             }
             this.DataGrid.ItemsSource = data;
@@ -102,13 +102,13 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             #region 删除方法
             if (this.DataGrid.SelectedCells.Count != 0)
             {
-                ProductManagement_DevlieryDetailModel m = DataGrid.SelectedCells[0].Item as ProductManagement_DevlieryDetailModel;
+                ProductManagement_PickingDetailModel m = DataGrid.SelectedCells[0].Item as ProductManagement_PickingDetailModel;
                 CellId = m.Id;
                 if (!m.ProductID.Equals(Guid.Empty))
                 {
                     if (MessageBox.Show("是否删除此行数据?", "确认信息", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
                     {
-                        bool flag = new DeliveryProcessOutConsole().DeleteDetail(m);
+                        bool flag = new DeliveryProcessInConsole().DeleteDetail(m);
                         if (!flag)
                         {
                             MessageBox.Show("删除不成功！未找到对应数据！");
@@ -124,13 +124,14 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 m.QuantityA = 0;
                 m.QuantityB = 0;
                 m.QuantityC = 0;
+                m.QuantityD = 0;
             }
             #endregion
         }
 
         private void DataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
-            ProductManagement_DevlieryDetailModel model = this.DataGrid.SelectedCells[0].Item as ProductManagement_DevlieryDetailModel;
+            ProductManagement_PickingDetailModel model = this.DataGrid.SelectedCells[0].Item as ProductManagement_PickingDetailModel;
             string newValue = (e.EditingElement as TextBox).Text.Trim();
             string Header = e.Column.Header.ToString();
             if (Header == "编号")
@@ -141,18 +142,26 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                     return;
                 }
                 int d = 0;
-                ProductManagement_DevlieryDetailModel m = new ProductManagement_DevlieryDetailModel();
-                new DeliveryProcessOutConsole().ReadProductInfo((Guid)ComboBox_Processors.SelectedValue,newValue,out m,out d);
+                ProductManagement_PickingDetailModel m = new ProductManagement_PickingDetailModel();
+                new DeliveryProcessInConsole().ReadProductInfo((Guid)ComboBox_Processors.SelectedValue, newValue, out m, out d);
                 DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.SelectedCells[0].Item, DataGrid.Columns[0]);
                 data[data.IndexOf(model)].ProductID = m.ProductID;
                 data[data.IndexOf(model)].Name = m.Name;
-                data[data.IndexOf(model)].QuantityB = d;
+                data[data.IndexOf(model)].QuantityC = d;
             }
-            else if (Header.Equals("领货数量"))
+            else if (Header.Equals("合格数量"))
             {
                 int temp = 0;
                 int.TryParse(newValue, out temp);
-                data[data.IndexOf(model)].QuantityC = temp + data[data.IndexOf(model)].QuantityB;
+                data[data.IndexOf(model)].QuantityA = temp;
+                data[data.IndexOf(model)].QuantityD = data[data.IndexOf(model)].QuantityC - (temp + data[data.IndexOf(model)].QuantityB);
+            }
+            else if (Header.Equals("损坏数量"))
+            {
+                int temp = 0;
+                int.TryParse(newValue, out temp);
+                data[data.IndexOf(model)].QuantityB = temp;
+                data[data.IndexOf(model)].QuantityD = data[data.IndexOf(model)].QuantityC - (temp + data[data.IndexOf(model)].QuantityA);
             }
         }
 
@@ -178,7 +187,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         {
             HalfProductEvent.OnUpdateDataGrid();
             SparePartsInventoryEvent.OnUpdateDataGrid();
-            DeliveryProcessOutEvent.OnUpdateDataGrid();
+            DeliveryProcessInEvent.OnUpdateDataGrid();
         }
 
         private void Button_Commit_Click(object sender, RoutedEventArgs e)
@@ -205,7 +214,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             if (mm.Guid.Equals(Guid.Empty))
             {
                 mm.Guid = Guid.NewGuid();
-                flag = new DeliveryProcessOutConsole().Insert(mm, data);
+                flag = new DeliveryProcessInConsole().Insert(mm, data);
                 if (!flag)
                 {
                     MessageBox.Show("数据有误");
@@ -214,7 +223,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             }
             else
             {
-                flag = new DeliveryProcessOutConsole().Update(mm, data);
+                flag = new DeliveryProcessInConsole().Update(mm, data);
                 if (!flag)
                 {
                     MessageBox.Show("数据有误");
@@ -224,7 +233,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             return flag;
         }
 
-        private ProductManagement_DevlieryModel GetData()
+        private ProductManagement_PickingModel GetData()
         {
             DateTime dt = new DateTime();
             DateTime.TryParse(this.DatePicker_InsertDate.Text, out dt);
@@ -244,7 +253,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private bool CheckData()
         {
-            if (ComboBox_Processors.SelectedValue == null) 
+            if (ComboBox_Processors.SelectedValue == null)
             {
                 MessageBox.Show("请选择客户！");
                 return false;
@@ -264,7 +273,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void ComboBox_Processors_DropDownClosed(object sender, EventArgs e)
         {
-            if (ComboBox_Processors.SelectedIndex > 0) 
+            if (ComboBox_Processors.SelectedIndex > 0)
             {
                 this.DataGrid.IsEnabled = true;
             }

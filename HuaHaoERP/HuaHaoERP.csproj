@@ -210,6 +210,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Pages\Content_ProductionManagement\Page_ProductMangement_PickingAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Pages\Content_Settings\Page_Settings_Popup_AddUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -305,7 +309,8 @@
     <Compile Include="Helper\Events\PopUpEvent.cs" />
     <Compile Include="Helper\Events\PopUpEventArgs.cs" />
     <Compile Include="Helper\Events\UpdateEvent\ProductionManagement_AssemblyLineEvent.cs" />
-    <Compile Include="Helper\Events\UpdateEvent\ProducttionManagement\DeliveryProcessEvent.cs" />
+    <Compile Include="Helper\Events\UpdateEvent\ProducttionManagement\DeliveryProcessOutEvent.cs" />
+    <Compile Include="Helper\Events\UpdateEvent\ProducttionManagement\DeliveryProcessInEvent.cs" />
     <Compile Include="Helper\Events\UpdateEvent\StaffEvent.cs" />
     <Compile Include="Helper\Events\UpdateEvent\ProcessorsEvent.cs" />
     <Compile Include="Helper\Events\StatusBarMessageEvent.cs" />
@@ -343,6 +348,8 @@
     <Compile Include="Model\ProductionManagement\Model_ProductionManagement_OutsideProcessBatch.cs" />
     <Compile Include="Model\ProductionManagement\ProductManagement_DevlieryDetailModel.cs" />
     <Compile Include="Model\ProductionManagement\ProductManagement_DevlieryModel.cs" />
+    <Compile Include="Model\ProductionManagement\ProductManagement_PickingDetailModel.cs" />
+    <Compile Include="Model\ProductionManagement\ProductManagement_PickingModel.cs" />
     <Compile Include="Model\Warehouse\Model_WarehouseProductBatchHistory.cs" />
     <Compile Include="Model\Warehouse\Model_WarehouseProductBatchIn.cs" />
     <Compile Include="Model\Warehouse\WarehouseHalpProductModel.cs" />
@@ -377,7 +384,8 @@
     <Compile Include="ViewModel\ProductionManagement\AssemblyLineDetailsConsole.cs" />
     <Compile Include="ViewModel\ProductionManagement\AssemblyLineModuleBatchInputConsole.cs" />
     <Compile Include="ViewModel\ProductionManagement\AssemblyLineModuleConsole.cs" />
-    <Compile Include="ViewModel\ProductionManagement\DeliveryProductConsole.cs" />
+    <Compile Include="ViewModel\ProductionManagement\DeliveryProcessInConsole.cs" />
+    <Compile Include="ViewModel\ProductionManagement\DeliveryProcessOutConsole.cs" />
     <Compile Include="ViewModel\ProductionManagement\OutsideProcessBatchInputConsole.cs" />
     <Compile Include="ViewModel\ProductionManagement\OutsideProcessConsole.cs" />
     <Compile Include="ViewModel\ProductionManagement\ProductionBookkeepingConsole.cs" />
@@ -466,6 +474,9 @@
     </Compile>
     <Compile Include="View\Pages\Content_ProductionManagement\Page_ProductMangement_Picking.xaml.cs">
       <DependentUpon>Page_ProductMangement_Picking.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\Content_ProductionManagement\Page_ProductMangement_PickingAdd.xaml.cs">
+      <DependentUpon>Page_ProductMangement_PickingAdd.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\Content_Settings\Page_Settings_Popup_AddUser.xaml.cs">
       <DependentUpon>Page_Settings_Popup_AddUser.xaml</DependentUpon>

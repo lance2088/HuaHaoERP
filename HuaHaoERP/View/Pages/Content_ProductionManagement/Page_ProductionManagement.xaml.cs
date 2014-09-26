@@ -12,14 +12,6 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 {
     public partial class Page_ProductionManagement : Page
     {
-        private string CountOutOrder;
-        private string CountInOrder;
-
-        private DateTime ProcessorsFirst;
-        private DateTime ProcessorsEnd;
-        private Guid ProductID;
-        private Guid ProcessorsID;
-
         private int PageNow = 1;
         private int PageAll = 1;
 
@@ -66,7 +58,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         {
             this.Frame_ProductionBookkeeping.Content = new Page_ProductionBookkeeping();
             this.Frame_Delivery.Content = new Page_ProductMangement_Delivery();
-            Frame_Picking.Content = new Page_ProductMangement_Delivery();
+            Frame_Picking.Content = new Page_ProductMangement_Picking();
             foreach (Guid str in Helper.DataDefinition.CommonParameters.AssemblyLineModuleShow)
             {
                 AddAssemblyLineModule(str);

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace HuaHaoERP.Helper.Events.UpdateEvent.ProducttionManagement
 {
-    class DeliveryProcessEvent
+    class DeliveryProcessOutEvent
     {
         public static EventHandler EUpdateDataGrid;
 

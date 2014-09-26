@@ -76,7 +76,7 @@
                     <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_Delivery" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </TabItem>
-            <TabItem FocusVisualStyle="{x:Null}" Header="抛光领料" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="47,0,-47,0" Foreground="White">
+            <TabItem FocusVisualStyle="{x:Null}" Header="抛光收货" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="47,0,-47,0" Foreground="White">
                 <Grid Background="White">
                     <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_Picking" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>

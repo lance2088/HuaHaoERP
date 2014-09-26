@@ -1,4 +1,6 @@
 ﻿using HuaHaoERP.Helper.Events;
+using HuaHaoERP.Helper.Events.UpdateEvent.ProducttionManagement;
+using HuaHaoERP.Model.ProductionManagement;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -21,16 +23,12 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
     /// </summary>
     public partial class Page_ProductMangement_Picking : Page
     {
-        private string CountOutOrder;
         private string CountInOrder;
 
         private DateTime ProcessorsFirst;
         private DateTime ProcessorsEnd;
         private Guid ProductID;
         private Guid ProcessorsID;
-
-        private int PageNow = 1;
-        private int PageAll = 1;
 
         public Page_ProductMangement_Picking()
         {
@@ -47,7 +45,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             this.DatePicker_ProcessorsEnd.SelectedDate = DateTime.Now.Date;
             InitProductComboBox();
             InitProcessorsComboBox();
-            InitializeOutsideProcessDataGrid();
+            InitializeDataGrid();
         }
 
         private void InitProductComboBox()
@@ -67,13 +65,13 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void SubscribeToEvent()
         {
-            ProductionManagement_AssemblyLineEvent.EUpdateDataGrid += (s, e) =>
+            DeliveryProcessInEvent.EUpdateDataGrid += (s, e) =>
             {
-                InitializeOutsideProcessDataGrid();
+                InitializeDataGrid();
             };
         }
 
-        private void InitializeOutsideProcessDataGrid()
+        private void InitializeDataGrid()
         {
             if (this.ComboBox_Processors.SelectedValue == null)
             {
@@ -88,11 +86,9 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             this.ProcessorsFirst = (DateTime)this.DatePicker_ProcessorsFirst.SelectedDate;
             this.ProcessorsEnd = ((DateTime)this.DatePicker_ProcessorsEnd.SelectedDate).AddDays(1);
 
-            List<Model.ProductionManagement_OutsideProcessModel> data;
-            new ViewModel.ProductionManagement.OutsideProcessConsole().ReadList("入单", ProcessorsFirst, ProcessorsEnd, ProductID, ProcessorsID, out data, out CountInOrder);
+            List<ProductManagement_PickingModel> data;
+            new ViewModel.ProductionManagement.DeliveryProcessInConsole().ReadList(ProcessorsFirst, ProcessorsEnd, ProductID, ProcessorsID, out data, out CountInOrder);
             this.DataGrid_ProcessIn.ItemsSource = data;
-
-            this.Label_CountOutOrder.Content = this.CountOutOrder;
             this.Label_CountInOrder.Content = this.CountInOrder;
         }
 
@@ -183,50 +179,50 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 if (MessageBox.Show("确认删除入单：" + d.Id + "？", "警告", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
                     new ViewModel.ProductionManagement.OutsideProcessConsole().Delete(d.Guid);
-                    InitializeOutsideProcessDataGrid();
+                    InitializeDataGrid();
                 }
             }
         }
 
         private void Button_AddProcessIn_Click(object sender, RoutedEventArgs e)
         {
-            PopUpEvent.OnShowPopUp(new Page_ProductionManagement_OutsideProcessBatch(true));
+            PopUpEvent.OnShowPopUp(new Page_ProductMangement_PickingAdd());
         }
 
 
 
         private void ComboBox_Processors_DropDownClosed(object sender, EventArgs e)
         {
-            InitializeOutsideProcessDataGrid();
+            InitializeDataGrid();
         }
 
         private void ComboBox_Product_DropDownClosed(object sender, EventArgs e)
         {
-            InitializeOutsideProcessDataGrid();
+            InitializeDataGrid();
         }
 
         private void DatePicker_ProcessorsEnd_CalendarClosed(object sender, RoutedEventArgs e)
         {
-            InitializeOutsideProcessDataGrid();
+            InitializeDataGrid();
         }
 
         private void DatePicker_ProcessorsFirst_CalendarClosed(object sender, RoutedEventArgs e)
         {
-            InitializeOutsideProcessDataGrid();
+            InitializeDataGrid();
         }
 
         private void Button_Today_Click(object sender, RoutedEventArgs e)
         {
             this.DatePicker_ProcessorsFirst.SelectedDate = DateTime.Now.Date;
             this.DatePicker_ProcessorsEnd.SelectedDate = DateTime.Now.Date;
-            InitializeOutsideProcessDataGrid();
+            InitializeDataGrid();
         }
 
         private void Button_AllDate_Click(object sender, RoutedEventArgs e)
         {
             this.DatePicker_ProcessorsFirst.SelectedDate = Convert.ToDateTime("2010-01-01 00:00:00");
             this.DatePicker_ProcessorsEnd.SelectedDate = Convert.ToDateTime("2024-01-01 00:00:00");
-            InitializeOutsideProcessDataGrid();
+            InitializeDataGrid();
         }
 
         /// <summary>
