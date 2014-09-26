@@ -305,6 +305,7 @@
     <Compile Include="Helper\Events\PopUpEvent.cs" />
     <Compile Include="Helper\Events\PopUpEventArgs.cs" />
     <Compile Include="Helper\Events\UpdateEvent\ProductionManagement_AssemblyLineEvent.cs" />
+    <Compile Include="Helper\Events\UpdateEvent\ProducttionManagement\DeliveryProcessEvent.cs" />
     <Compile Include="Helper\Events\UpdateEvent\StaffEvent.cs" />
     <Compile Include="Helper\Events\UpdateEvent\ProcessorsEvent.cs" />
     <Compile Include="Helper\Events\StatusBarMessageEvent.cs" />

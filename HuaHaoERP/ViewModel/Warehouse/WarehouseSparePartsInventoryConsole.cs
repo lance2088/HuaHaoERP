@@ -28,7 +28,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
             }
             if (ProcessorsID != new Guid())
             {
-                sql_WhereParm += " AND a.ProcessorsID='" + ProcessorsID + "' ";
+                sql_WhereParm += " AND a.ProcessorID='" + ProcessorsID + "' ";
             }
             data = new List<WarehouseSparePartsInventoryModel>();
             string sql = "SELECT" +

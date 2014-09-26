@@ -1,4 +1,5 @@
-﻿using HuaHaoERP.Helper.Events.UpdateEvent.Warehouse;
+﻿using HuaHaoERP.Helper.Events.UpdateEvent.ProducttionManagement;
+using HuaHaoERP.Helper.Events.UpdateEvent.Warehouse;
 using HuaHaoERP.Model.ProductionManagement;
 using HuaHaoERP.ViewModel.ProductionManagement;
 using System;
@@ -47,6 +48,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             {
                 this.DatePicker_InsertDate.SelectedDate = DateTime.Now;
                 this.TextBox_Number.Text = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+                data.Clear();
                 for (int i = 0; i < 20; i++)
                 {
                     data.Add(new ProductManagement_DevlieryDetailModel { Id = i + 1 });
@@ -176,6 +178,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         {
             HalfProductEvent.OnUpdateDataGrid();
             SparePartsInventoryEvent.OnUpdateDataGrid();
+            DeliveryProcessEvent.OnUpdateDataGrid();
         }
 
         private void Button_Commit_Click(object sender, RoutedEventArgs e)
@@ -244,6 +247,11 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             if (ComboBox_Processors.SelectedValue == null) 
             {
                 MessageBox.Show("请选择客户！");
+                return false;
+            }
+            if (data.Count == 0)
+            {
+                MessageBox.Show("请填写需要抛光的产品！");
                 return false;
             }
             return true;

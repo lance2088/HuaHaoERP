@@ -1,4 +1,5 @@
 ﻿using HuaHaoERP.Helper.Events;
+using HuaHaoERP.Helper.Events.UpdateEvent.ProducttionManagement;
 using HuaHaoERP.Model.ProductionManagement;
 using System;
 using System.Collections.Generic;
@@ -63,7 +64,11 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void SubscribeToEvent()
         {
-            ProductionManagement_AssemblyLineEvent.EUpdateDataGrid += (s, e) =>
+            //ProductionManagement_AssemblyLineEvent.EUpdateDataGrid += (s, e) =>
+            //{
+            //    InitializeOutsideProcessDataGrid();
+            //};
+            DeliveryProcessEvent.EUpdateDataGrid += (s, e) =>
             {
                 InitializeOutsideProcessDataGrid();
             };

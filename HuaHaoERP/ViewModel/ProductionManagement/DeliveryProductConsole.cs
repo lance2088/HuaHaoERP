@@ -16,20 +16,9 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
         {
             m = new ProductManagement_DevlieryDetailModel();
             string sql0 = "select Guid,Name from T_ProductInfo_Product where Number='" + Number + "'";
-            string sql1 = " SELECT " +
-                        " a.ProcessorID, " +
-                        " a.ProductID, " +
-                        " total(a.Quantity) as QuantityB " +
-                        " FROM " +
-                        " T_Warehouse_SparePartsInventory a " +
-                        " WHERE " +
-                        " a.ProcessorID = '" + processorID + "' " +
-                        " GROUP BY " +
-                        " a.ProductID "
-                        ;
             DataSet ds = new DataSet();
             value = 0;
-            int temp = 0;
+            decimal temp = 0;
             if (new Helper.SQLite.DBHelper().QueryData(sql0, out ds))
             {
                 foreach (DataRow dr in ds.Tables[0].Rows)
@@ -37,10 +26,19 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                     m.ProductID = (Guid)dr["Guid"];
                     m.Name = dr["Name"].ToString();
                 }
+                string sql1 = " SELECT " +
+                        " total(a.Quantity) as QuantityB " +
+                        " FROM " +
+                        " T_Warehouse_SparePartsInventory a " +
+                        " WHERE " +
+                        " a.ProcessorID = '" + processorID + "' AND A.ProductID = '" + m.ProductID +
+                        "' GROUP BY " +
+                        " a.ProductID "
+                        ;
                 object obj;
                 new Helper.SQLite.DBHelper().QuerySingleResult(sql1, out obj);
-                int.TryParse(obj.ToString(), out temp);
-                value = temp;
+                decimal.TryParse(obj.ToString(), out temp);
+                value = decimal.ToInt32(temp);
                 return true;
             }
             else
