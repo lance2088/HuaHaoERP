@@ -28,7 +28,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                         + " Where a.DeleteMark ISNULL"
                         + " AND b.Number LIKE '%" + Parm + "%' "
                         + DateParm
-                        + " Order By a.AddDate"
+                        + " Order By a.AddDate desc"
                         ;
             DataSet ds = new DataSet();
             if (new Helper.SQLite.DBHelper().QueryData(sql, out ds))
