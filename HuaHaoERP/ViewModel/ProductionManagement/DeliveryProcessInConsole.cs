@@ -140,7 +140,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                         LastData.Guid = (Guid)dr["Guid"];
                         LastData.Id = id;
                         id++;
-                        LastData.Date = dr["Date"].ToString();
+                        LastData.Date = dr["Date"].ToString().Split(' ')[0];
                         LastData.OrderNO = dr["Number"].ToString();
                         LastData.ProcessorName = dr["ProcessorName"].ToString();
                         LastData.ProductName = dr["ProductName"].ToString();

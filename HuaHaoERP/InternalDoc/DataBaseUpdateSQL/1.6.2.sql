@@ -64,4 +64,4 @@ CREATE TABLE "T_PM_ProductInProcessDetail" (
 "Remark"  TEXT, "DeleteMark" DateTime,
 PRIMARY KEY ("Guid" ASC)
 );
-Update T_System_Settings SET Value='1.6.1' WHERE ID=2;
+Update T_System_Settings SET Value='1.6.2' WHERE ID=2;
