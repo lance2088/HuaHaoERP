@@ -1,4 +1,3 @@
-DROP TABLE IF EXISTS "main"."T_Warehouse_HalfProduct";
 CREATE TABLE "T_Warehouse_HalfProduct" (
 "Guid"  Guid NOT NULL,
 "ProductID"  Guid NOT NULL,
@@ -8,7 +7,6 @@ CREATE TABLE "T_Warehouse_HalfProduct" (
 "Remark"  TEXT, "DeleteMark" DateTime,
 PRIMARY KEY ("Guid" ASC)
 );
-DROP TABLE IF EXISTS "main"."T_Warehouse_SparePartsInventory";
 CREATE TABLE "T_Warehouse_SparePartsInventory" (
 "Guid"  Guid NOT NULL,
 "ProcessorID" Guid not null,
@@ -19,7 +17,6 @@ CREATE TABLE "T_Warehouse_SparePartsInventory" (
 "Remark"  TEXT, "DeleteMark" DateTime,
 PRIMARY KEY ("Guid" ASC)
 );
-DROP TABLE IF EXISTS "main"."T_PM_ProductOutProcess";
 CREATE TABLE "T_PM_ProductOutProcess" (
 "Guid"  Guid NOT NULL,
 "Number" TEXT,
@@ -29,7 +26,6 @@ CREATE TABLE "T_PM_ProductOutProcess" (
 "Remark"  TEXT, "DeleteMark" DateTime,
 PRIMARY KEY ("Guid" ASC)
 );
-DROP TABLE IF EXISTS "main"."T_PM_ProductOutProcessDetail";
 CREATE TABLE "T_PM_ProductOutProcessDetail" (
 "Guid"  Guid NOT NULL,
 "ParentId" Guid not null,
@@ -41,7 +37,6 @@ CREATE TABLE "T_PM_ProductOutProcessDetail" (
 "Remark"  TEXT, "DeleteMark" DateTime,
 PRIMARY KEY ("Guid" ASC)
 );
-DROP TABLE IF EXISTS "main"."T_PM_ProductInProcess";
 CREATE TABLE "T_PM_ProductInProcess" (
 "Guid"  Guid NOT NULL,
 "Number" TEXT,
@@ -51,7 +46,6 @@ CREATE TABLE "T_PM_ProductInProcess" (
 "Remark"  TEXT, "DeleteMark" DateTime,
 PRIMARY KEY ("Guid" ASC)
 );
-DROP TABLE IF EXISTS "main"."T_PM_ProductInProcessDetail";
 CREATE TABLE "T_PM_ProductInProcessDetail" (
 "Guid"  Guid NOT NULL,
 "ParentId" Guid not null,
