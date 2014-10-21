@@ -50,7 +50,7 @@
                     <Label Content="至" Grid.Column="1" HorizontalAlignment="Right" Margin="0,9,272,0" VerticalAlignment="Top"/>
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_Today" Content="今天" Grid.Column="1" HorizontalAlignment="Right" Margin="0,10,90,0" VerticalAlignment="Top" Width="50" Height="24" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Click="Button_Today_Click" Focusable="False"/>
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_AllDate" Content="全日期" Grid.Column="1" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Height="24" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Click="Button_AllDate_Click" Focusable="False"/>
-                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_SparepartsIn" Content="入库" HorizontalAlignment="Right" Margin="0,40,116,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_SparepartsIn_Click" Focusable="False"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_SparepartsIn" Content="入库" HorizontalAlignment="Right" Margin="0,40,177,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_SparepartsIn_Click" Focusable="False"/>
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_Print" Content="打印" HorizontalAlignment="Right" Margin="0,40,63,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_Print_Click" Focusable="False"/>
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_ExportData" Content="导出" HorizontalAlignment="Right" Margin="0,40,10,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_ExportData_Click" Focusable="False"/>
                     <TextBox x:Name="TextBox_Search" Height="24" Margin="10,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Loaded="TextBox_Search_Loaded" PreviewKeyUp="TextBox_Search_PreviewKeyUp">
@@ -74,8 +74,8 @@
                             </Style>
                         </TextBox.Style>
                     </TextBox>
-                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_PackingOut" Content="出包装" HorizontalAlignment="Right" Margin="0,40,232,0" VerticalAlignment="Top" Width="60" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_PackingOut_Click" Focusable="False"/>
-                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_SparepartsOut" Content="出散件" HorizontalAlignment="Right" Margin="0,40,169,0" VerticalAlignment="Top" Width="60" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_SparepartsOut_Click" Focusable="False"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_PackingOut" Content="送货" HorizontalAlignment="Right" Margin="0,40,232,0" VerticalAlignment="Top" Width="60" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_PackingOut_Click" Focusable="False"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_SparepartsOut" Content="出散件" HorizontalAlignment="Right" Margin="0,40,169,0" VerticalAlignment="Top" Width="60" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_SparepartsOut_Click" Focusable="False" Visibility="Hidden"/>
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_BatchHistory" Content="批量记录" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_BatchHistory_Click" Focusable="False"/>
                 </Grid>
             </TabItem>
@@ -180,6 +180,16 @@
                     </Grid>
                     <ComboBox x:Name="ComboBox_Scrap_Name" FocusVisualStyle="{x:Null}" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center" DropDownOpened="ComboBox_DropDownOpened" DropDownClosed="ComboBox_DropDownClosed"/>
                     <Label Content="按类型筛选：" HorizontalAlignment="Right" Margin="0,10,135,0" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
+                </Grid>
+            </TabItem>
+            <TabItem FocusVisualStyle="{x:Null}" Header="半成品仓库" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="37,0,-37,0" Foreground="White">
+                <Grid>
+                    <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_半成品" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
+                </Grid>
+            </TabItem>
+            <TabItem FocusVisualStyle="{x:Null}" Header="外协仓库" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="47,0,-47,0" Foreground="White">
+                <Grid>
+                    <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_外协仓库" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </TabItem>
         </TabControl>

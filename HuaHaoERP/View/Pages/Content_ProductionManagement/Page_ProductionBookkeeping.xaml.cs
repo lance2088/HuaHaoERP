@@ -1,5 +1,8 @@
-﻿using HuaHaoERP.Model.ProductionManagement;
+﻿using HuaHaoERP.Helper.Events.UpdateEvent.Warehouse;
+using HuaHaoERP.Model.ProductionManagement;
+using HuaHaoERP.Model.Warehouse;
 using HuaHaoERP.ViewModel.ProductionManagement;
+using HuaHaoERP.ViewModel.Warehouse;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -271,6 +274,32 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         {
             _isAllUnfinished = !_isAllUnfinished;
             InitializeData();
+        }
+
+        private void MenuItem_HalfProductIn_Click(object sender, RoutedEventArgs e)
+        {
+            Model_ProductionBookkeeping m = this.DataGrid_ProductionBookkeeping.SelectedCells[0].Item as Model_ProductionBookkeeping;
+            if (m.IsTurn != 0)
+            {
+                MessageBox.Show("此行数据已经添加到半成品仓库中，请勿重复添加！");
+                return;
+            }
+            else
+            {
+                WarehouseHalpProductModel mm = new WarehouseHalpProductModel();
+                mm.ProductID = m.ProductGuid;
+                mm.Quantity = m.P4Num;
+                if (new WarehouseHalfProductConsole().Insert(mm) && new ProductionBookkeepingConsole().UpdateTurn(m))
+                {
+                    MessageBox.Show("成功添加" + m.ProductName + "到半成品仓库！");
+                    InitializeData();
+                    HalfProductEvent.OnUpdateDataGrid();
+                }
+                else
+                {
+                    MessageBox.Show("添加失败，请联系管理员！");
+                }
+            }
         }
     }
 }

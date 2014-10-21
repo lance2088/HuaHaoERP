@@ -26,6 +26,8 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             InitializeComponent();
             this.Grid_OutGrid.Visibility = System.Windows.Visibility.Hidden;
             SubscribeToEvent();
+            this.Frame_半成品.Content = new Page_Warehouse_HalfProduct();
+            this.Frame_外协仓库.Content = new Page_Warehouse_SparePartsInventory();
             InitPage();
             FunctionalLimitation();
         }

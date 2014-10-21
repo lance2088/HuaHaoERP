@@ -1,4 +1,5 @@
 ﻿using HuaHaoERP.Model;
+using HuaHaoERP.Model.ProductionManagement;
 using System;
 using System.Collections.Generic;
 using System.Data;

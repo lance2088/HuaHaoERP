@@ -37,11 +37,11 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 this.DataGridTextColumn_MinorInjuries.Visibility = System.Windows.Visibility.Collapsed;
                 this.DataGridTextColumn_Injuries.Visibility = System.Windows.Visibility.Collapsed;
                 this.DataGridTextColumn_Lose.Visibility = System.Windows.Visibility.Collapsed;
-                this.Label_Title.Content = "外加工单：抛光领货";
+                this.Label_Title.Content = "外加工单：抛光领料";
             }
             else
             {
-                this.Label_Title.Content = "外加工单：抛光交货";
+                this.Label_Title.Content = "外加工单：抛光送货";
             }
             this.DatePicker_InsertDate.SelectedDate = DateTime.Now;
             this.TextBox_Number.Text = DateTime.Now.ToString("yyyyMMdd_HHmmss");

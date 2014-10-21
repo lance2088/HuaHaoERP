@@ -1,0 +1,46 @@
+﻿<Page x:Class="HuaHaoERP.View.Pages.Content_Warehouse.Page_Warehouse_SparePartsInventory"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" FontFamily="SimSun" TextOptions.TextFormattingMode="Display" FontSize="14"
+      d:DesignHeight="485" d:DesignWidth="914"
+	Title="Page_Warehouse_SparePartsInventory">
+
+    <Grid>
+        <TextBox x:Name="TextBox_Search" Height="24" Margin="10,10,0,0" TextWrapping="Wrap" HorizontalAlignment="Left" Width="400" VerticalAlignment="Top" VerticalContentAlignment="Center" Loaded="TextBox_Search_Loaded" PreviewKeyUp="TextBox_Search_PreviewKeyUp">
+            <TextBox.Resources>
+                <VisualBrush x:Key="HelpBrush" TileMode="None" Opacity="0.3" Stretch="None" AlignmentX="Left">
+                    <VisualBrush.Visual>
+                        <TextBlock Text="搜索产品"/>
+                    </VisualBrush.Visual>
+                </VisualBrush>
+            </TextBox.Resources>
+            <TextBox.Style>
+                <Style TargetType="TextBox">
+                    <Style.Triggers>
+                        <Trigger Property="Text" Value="{x:Null}">
+                            <Setter Property="Background" Value="{StaticResource HelpBrush}"/>
+                        </Trigger>
+                        <Trigger Property="Text" Value="">
+                            <Setter Property="Background" Value="{StaticResource HelpBrush}"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
+        <ComboBox x:Name="ComboBox_Processors" HorizontalAlignment="Left" Margin="420,10,0,0" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" Height="24"  DropDownClosed="ComboBox_Processors_DropDownClosed" IsEditable="True" KeyUp="ComboBox_Processors_KeyUp" DropDownOpened="ComboBox_Processors_DropDownOpened" GotFocus="ComboBox_Processors_GotFocus"/>
+        <DataGrid Margin="10,40,10,10" x:Name="DataGrid_Num" Background="#FFF0F0F0"  HorizontalContentAlignment="Stretch" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" IsReadOnly="True" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False" AutoGenerateColumns="False" SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="序号" Binding="{Binding Id}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" MinWidth="70"/>
+                <DataGridTextColumn Header="抛光户名" Binding="{Binding ProcessorName}" MinWidth="100" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn Header="产品编号" Binding="{Binding Number}" MinWidth="100" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn Header="产品名称" Binding="{Binding ProductName}" MinWidth="100" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn Header="产品材质" Binding="{Binding Material}" MinWidth="100" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn Header="产品类型" Binding="{Binding Type}" MinWidth="100" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn Header="规格" Binding="{Binding Specification}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignRight}"/>
+                <DataGridTextColumn Header="数量" Binding="{Binding Quantity}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignRight}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>
