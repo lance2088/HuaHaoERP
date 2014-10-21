@@ -1,7 +1,7 @@
 ﻿<Window x:Name="Window_MainWindow" x:Class="HuaHaoERP.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" FontFamily="SimSun" FontSize="14" TextOptions.TextFormattingMode="Display"
-        Title="金字塔" Height="660" Width="1020" WindowStartupLocation="CenterScreen" Background="{x:Null}" WindowStyle="None" AllowsTransparency="True" MouseLeftButtonDown="Window_MainWindow_MouseLeftButtonDown" ResizeMode="CanResizeWithGrip" MinWidth="960" MinHeight="600" SizeChanged="Window_MainWindow_SizeChanged">
+        Title="金字塔" Height="660" Width="1020" WindowStartupLocation="CenterScreen" Background="{x:Null}" MouseLeftButtonDown="Window_MainWindow_MouseLeftButtonDown" ResizeMode="CanMinimize" MinWidth="960" MinHeight="600" SizeChanged="Window_MainWindow_SizeChanged" WindowStyle="None">
     <Grid x:Name="Grid_Main">
         <Grid.Background>
             <ImageBrush ImageSource="/HuaHaoERP;component/View/Resources/Images/MainBackground.jpg" TileMode="FlipXY"/>
