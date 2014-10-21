@@ -3,11 +3,47 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      mc:Ignorable="d" FontFamily="SimSun" TextOptions.TextFormattingMode="Display" FontSize="14"
+      d:DesignHeight="445" d:DesignWidth="682"
 	Title="Page_Statements_Processors">
 
     <Grid>
-        
+        <DataGrid x:Name="DataGrid_List" Margin="10,45,10,10" CellStyle="{DynamicResource DataGridCellStyleCommon}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" AutoGenerateColumns="False" HeadersVisibility="Column" SelectionMode="Single" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False" IsReadOnly="True" Background="#FFEFEFF2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="序号" Binding="{Binding Row}"/>
+                <DataGridTextColumn Header="产品名称" Binding="{Binding ProductName}"/>
+                <DataGridTextColumn Header="领料数量" Binding="{Binding Out}"/>
+                <DataGridTextColumn Header="交货数量" Binding="{Binding In}"/>
+                <DataGridTextColumn Header="轻伤数量" Binding="{Binding InMinorInjuries}"/>
+                <DataGridTextColumn Header="重伤数量" Binding="{Binding InInjuries}"/>
+                <DataGridTextColumn Header="丢失数量" Binding="{Binding InLose}"/>
+                <DataGridTextColumn Header="欠余" Binding="{Binding Difference}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <ComboBox x:Name="ComboBox_Processors" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" Height="24" VerticalContentAlignment="Center" DropDownClosed="ComboBox_Processors_DropDownClosed"/>
+        <ComboBox x:Name="ComboBox_Year" HorizontalAlignment="Left" Margin="135,10,0,0" VerticalAlignment="Top" Width="80" Height="24" VerticalContentAlignment="Center" DropDownClosed="ComboBox_Year_DropDownClosed">
+            <ComboBoxItem Content="2014" IsSelected="True"/>
+            <ComboBoxItem Content="2015"/>
+            <ComboBoxItem Content="2016"/>
+            <ComboBoxItem Content="2017"/>
+            <ComboBoxItem Content="2018"/>
+        </ComboBox>
+        <ComboBox x:Name="ComboBox_Month" HorizontalAlignment="Left" Margin="220,10,0,0" VerticalAlignment="Top" Width="60" Height="24" VerticalContentAlignment="Center" DropDownClosed="ComboBox_Month_DropDownClosed">
+            <ComboBoxItem Content="全年" IsSelected="True"/>
+            <ComboBoxItem Content="1"/>
+            <ComboBoxItem Content="2"/>
+            <ComboBoxItem Content="3"/>
+            <ComboBoxItem Content="4"/>
+            <ComboBoxItem Content="5"/>
+            <ComboBoxItem Content="6"/>
+            <ComboBoxItem Content="7"/>
+            <ComboBoxItem Content="8"/>
+            <ComboBoxItem Content="9"/>
+            <ComboBoxItem Content="10"/>
+            <ComboBoxItem Content="11"/>
+            <ComboBoxItem Content="12"/>
+        </ComboBox>
+        <Button x:Name="Button_Print" Content="打印" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Height="24" Click="Button_Print_Click" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White"/>
+
     </Grid>
-</Page>
+</Page> 

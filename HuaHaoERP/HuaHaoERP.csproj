@@ -307,6 +307,7 @@
     <Compile Include="Helper\DataDefinition\ComboBoxList.cs" />
     <Compile Include="Helper\DataDefinition\ENUM.cs" />
     <Compile Include="Helper\DataDefinition\Process.cs" />
+    <Compile Include="Helper\Events\Statement\ProcessorsEvent.cs" />
     <Compile Include="Helper\Events\UpdateEvent\AssemblyLineModuleEvent.cs" />
     <Compile Include="Helper\Events\UpdateEvent\BackgroundEvent.cs" />
     <Compile Include="Helper\Events\UpdateEvent\CustomerEvent.cs" />
@@ -354,6 +355,7 @@
     <Compile Include="Model\ProductionManagement\ProductManagement_DevlieryModel.cs" />
     <Compile Include="Model\ProductionManagement\ProductManagement_PickingDetailModel.cs" />
     <Compile Include="Model\ProductionManagement\ProductManagement_PickingModel.cs" />
+    <Compile Include="Model\Statement\Model_Processors.cs" />
     <Compile Include="Model\Warehouse\Model_WarehouseProductBatchHistory.cs" />
     <Compile Include="Model\Warehouse\Model_WarehouseProductBatchIn.cs" />
     <Compile Include="Model\Warehouse\WarehouseHalpProductModel.cs" />
@@ -398,6 +400,8 @@
     <Compile Include="ViewModel\Settings\ChangePasswordConsole.cs" />
     <Compile Include="ViewModel\Settings\EncryptedDBConsole.cs" />
     <Compile Include="ViewModel\Settings\UserConsole.cs" />
+    <Compile Include="ViewModel\Statement\ProcessorsConsole.cs" />
+    <Compile Include="ViewModel\Statement\ProcessorsExcelConsole.cs" />
     <Compile Include="ViewModel\Warehouse\ProductBatchInConsole.cs" />
     <Compile Include="ViewModel\Warehouse\RawMaterialsConsole.cs" />
     <Compile Include="ViewModel\Warehouse\ScrapConsole.cs" />
@@ -570,6 +574,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Resources\Excel\外加工对账单.xls" />
     <None Include="Sign.pfx" />
   </ItemGroup>
   <ItemGroup>

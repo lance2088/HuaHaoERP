@@ -61,34 +61,44 @@ namespace HuaHaoERP.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to /*
-        ///Navicat SQLite Data Transfer
-        ///
-        ///Source Server         : HuaHao
-        ///Source Server Version : 30714
-        ///Source Host           : :0
-        ///
-        ///Target Server Type    : SQLite
-        ///Target Server Version : 30714
-        ///File Encoding         : 65001
-        ///
-        ///Date: 2014-07-18 16:12:52
-        ///*/
-        ///
-        ///
-        ///-- ----------------------------
-        ///-- Table structure for T_Orders_Processors
-        ///-- ----------------------------
-        ///CREATE TABLE &quot;T_Orders_Processors&quot; (
+        ///   Looks up a localized string similar to CREATE TABLE &quot;T_Orders_Processors&quot; (
         ///&quot;Guid&quot;  Guid NOT NULL,
         ///&quot;OrderNumber&quot;  TEXT,
         ///&quot;ProcessorsID&quot;  Guid,
         ///&quot;DeliveryDate&quot;  DateTime,
-        ///&quot;OrderDa [rest of string was truncated]&quot;;.
+        ///&quot;OrderDate&quot;  DateTime,
+        ///&quot;DeleteMark&quot;  DateTime,
+        ///&quot;Obligate1&quot;  TEXT,
+        ///&quot;Obligate2&quot;  TEXT,
+        ///PRIMARY KEY (&quot;Guid&quot; ASC)
+        ///);
+        ///CREATE TABLE &quot;T_Orders_ProcessorsDetails&quot; (
+        ///&quot;Guid&quot;  Guid NOT NULL,
+        ///&quot;Order&quot;  Guid,
+        ///&quot;Product&quot;  Guid,
+        ///&quot;NumberOfItems&quot;  INTEGER,
+        ///&quot;Quantity&quot;  INTEGER,
+        ///&quot;Unit&quot;  TEXT,
+        ///&quot;Remark&quot;  TEXT,
+        ///&quot;Obligate1&quot;  TEXT,
+        ///&quot;Obligate2&quot;  TEXT,
+        ///PRIMARY KEY (&quot;Guid&quot; ASC)
+        ///);
+        ///CREAT [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DataBase {
             get {
                 return ResourceManager.GetString("DataBase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] 外加工对账单 {
+            get {
+                object obj = ResourceManager.GetObject("外加工对账单", resourceCulture);
+                return ((byte[])(obj));
             }
         }
     }

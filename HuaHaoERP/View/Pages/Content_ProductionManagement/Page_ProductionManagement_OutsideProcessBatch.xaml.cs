@@ -142,6 +142,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 IS_CommitSuccess = true;
                 new ViewModel.ProductionManagement.AssemblyLineModuleConsole().AllInStorage();//自动全部入库
                 Helper.Events.ProductionManagement_AssemblyLineEvent.OnUpdateDataGrid();
+                Helper.Events.Statement.ProcessorsEvent.OnReflash();
                 Button_Cancel_Click(null, null);
             }
             else
