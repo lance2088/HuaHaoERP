@@ -8,6 +8,7 @@ namespace HuaHaoERP.View.Pages.Content_Statements
         {
             InitializeComponent();
             this.Frame_Production.Content = new Page_Statements_Production();
+            this.Frame_Processors.Content = new Page_Statements_Processors();
         }
     }
 }

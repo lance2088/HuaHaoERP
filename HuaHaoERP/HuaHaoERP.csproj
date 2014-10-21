@@ -222,6 +222,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Pages\Content_Statements\Page_Statements_Processors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Pages\Content_Statements\Page_Statements_Production.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -483,6 +487,9 @@
     </Compile>
     <Compile Include="View\Pages\Content_Statements\Page_Statements.xaml.cs">
       <DependentUpon>Page_Statements.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\Content_Statements\Page_Statements_Processors.xaml.cs">
+      <DependentUpon>Page_Statements_Processors.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\Content_Statements\Page_Statements_Production.xaml.cs">
       <DependentUpon>Page_Statements_Production.xaml</DependentUpon>

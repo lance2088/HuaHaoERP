@@ -16,7 +16,7 @@
             </TabItem>
             <TabItem Header="抛光报表" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Foreground="White" Margin="17,0,-17,0">
                 <Grid>
-                    <Frame FocusVisualStyle="{x:Null}" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
+                    <Frame x:Name="Frame_Processors" FocusVisualStyle="{x:Null}" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </TabItem>
         </TabControl>
