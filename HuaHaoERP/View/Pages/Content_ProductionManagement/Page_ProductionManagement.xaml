@@ -14,6 +14,16 @@
                     <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_ProductionBookkeeping" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </TabItem>
+            <TabItem Header="圆片入库单" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Foreground="White" Margin="17,0,-17,0">
+                <Grid Background="White">
+                    <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_圆片入库单" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="圆片出库单" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Foreground="White" Margin="27,0,-27,0">
+                <Grid Background="White">
+                    <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_圆片出库单" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
+                </Grid>
+            </TabItem>
             <TabItem FocusVisualStyle="{x:Null}" Header="流水线" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="17,0,-17,0" Foreground="White" Visibility="Collapsed">
                 <Grid Background="White">
                     <ScrollViewer FocusVisualStyle="{x:Null}" Margin="10,40,0,0">
@@ -71,7 +81,7 @@
                     </TextBox>
                 </Grid>
             </TabItem>
-            <TabItem FocusVisualStyle="{x:Null}" Header="抛光发货" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="27,0,-27,0" Foreground="White">
+            <TabItem FocusVisualStyle="{x:Null}" Header="抛光发货" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="37,0,-37,0" Foreground="White">
                 <Grid Background="White">
                     <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_Delivery" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>

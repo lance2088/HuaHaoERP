@@ -81,6 +81,26 @@
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_DeleteRawMaterials" Content="删除" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_DeleteRawMaterials_Click" Height="24" Foreground="White" Focusable="False"/>
                 </Grid>
             </TabItem>
+            <TabItem FocusVisualStyle="{x:Null}" Header="圆片资料" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="27,0,-27,0" Foreground="White">
+                <Grid>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_Add圆片" Content="添加" HorizontalAlignment="Right" Margin="0,10,90,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Focusable="False" Click="Button_Add圆片_Click"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_Delete圆片" Content="删除" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Focusable="False" Click="Button_Delete圆片_Click"/>
+                    <DataGrid x:Name="DataGrid_圆片" Background="#FFF0F0F0" Margin="0,40,0,0" BorderThickness="0" BorderBrush="{x:Null}" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" CellStyle="{DynamicResource DataGridCellStyleCommon}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" AutoGenerateColumns="False" HeadersVisibility="Column">
+                        <DataGrid.Resources>
+                            <Style TargetType="DataGridRow">
+                                <EventSetter Event="MouseDoubleClick" Handler="DataGrid_圆片_Row_MouseDoubleClick" />
+                            </Style>
+                        </DataGrid.Resources>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding 序号}" Header="序号" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Binding="{Binding 编号}" Header="编号" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Binding="{Binding 直径}" Header="直径" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Binding="{Binding 厚度}" Header="厚度" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Binding="{Binding 备注}" Header="备注" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
         </TabControl>
 
     </Grid>

@@ -28,6 +28,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             SubscribeToEvent();
             this.Frame_半成品.Content = new Page_Warehouse_HalfProduct();
             this.Frame_外协仓库.Content = new Page_Warehouse_SparePartsInventory();
+            this.Frame_圆片仓库.Content = new Page_Warehouse_圆片仓库();
             InitPage();
             FunctionalLimitation();
         }
