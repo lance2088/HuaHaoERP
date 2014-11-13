@@ -92,11 +92,11 @@
                             </Style>
                         </DataGrid.Resources>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding 序号}" Header="序号" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                            <DataGridTextColumn Binding="{Binding 编号}" Header="编号" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                            <DataGridTextColumn Binding="{Binding 直径}" Header="直径" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                            <DataGridTextColumn Binding="{Binding 厚度}" Header="厚度" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                            <DataGridTextColumn Binding="{Binding 备注}" Header="备注" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Binding="{Binding 序号}" Header="序号" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" MinWidth="40"/>
+                            <DataGridTextColumn Binding="{Binding 编号}" Header="编号" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" MinWidth="80"/>
+                            <DataGridTextColumn Binding="{Binding 直径}" Header="直径" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" MinWidth="80"/>
+                            <DataGridTextColumn Binding="{Binding 厚度}" Header="厚度" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" MinWidth="80"/>
+                            <DataGridTextColumn Binding="{Binding 备注}" Header="备注" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" MinWidth="120"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>

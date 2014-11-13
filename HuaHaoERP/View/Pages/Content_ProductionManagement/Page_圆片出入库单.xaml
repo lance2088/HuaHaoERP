@@ -8,20 +8,22 @@
 	Title="Page_圆片入库单">
 
     <Grid>
-        <DataGrid x:Name="DataGrid_List" Margin="10,40,10,10" BorderThickness="1" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" Background="#FFEFEFF2" AutoGenerateColumns="False" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" SelectionMode="Single" CanUserAddRows="False" CanUserDeleteRows="False" BorderBrush="#FF99CCFF">
+        <DataGrid x:Name="DataGrid_List" Margin="10,40,10,10" BorderThickness="1" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" Background="#FFEFEFF2" AutoGenerateColumns="False" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" SelectionMode="Single" CanUserAddRows="False" CanUserDeleteRows="False" BorderBrush="#FF99CCFF" IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="序号" Binding="{Binding 序号}"/>
-                <DataGridTextColumn Header="单号" Binding="{Binding 单号}"/>
-                <DataGridTextColumn Header="下单日期" Binding="{Binding 下单日期}"/>
-                <DataGridTextColumn Header="编号" Binding="{Binding 编号s}"/>
-                <DataGridTextColumn Header="直径" Binding="{Binding 直径s}"/>
-                <DataGridTextColumn Header="厚度" Binding="{Binding 厚度s}"/>
-                <DataGridTextColumn Header="数量" Binding="{Binding 数量s}"/>
-                <DataGridTextColumn Header="备注" Binding="{Binding 备注}"/>
+                <DataGridTextColumn Header="序号" Binding="{Binding 序号}" MinWidth="40" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn Header="单号" Binding="{Binding 单号}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn Header="下单日期" Binding="{Binding 下单日期}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn Header="编号" Binding="{Binding 编号s}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn Header="直径" Binding="{Binding 直径s}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn Header="厚度" Binding="{Binding 厚度s}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn Header="数量" Binding="{Binding 数量s}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn Header="备注" Binding="{Binding 备注}" MinWidth="120" ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <DatePicker x:Name="DatePicker_Date" HorizontalAlignment="Left" Margin="90,10,0,0" VerticalAlignment="Top" Height="24" Width="120"/>
+        <DatePicker x:Name="DatePicker_StartDate" HorizontalAlignment="Left" Margin="90,10,0,0" VerticalAlignment="Top" Height="24" Width="120" CalendarClosed="DatePicker_StartDate_CalendarClosed"/>
         <Button x:Name="Button_NewOrder" Content="新增" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Height="24" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Click="Button_NewOrder_Click"/>
+        <DatePicker x:Name="DatePicker_EndDate" HorizontalAlignment="Left" Margin="234,10,0,0" VerticalAlignment="Top" Height="24" Width="120" CalendarClosed="DatePicker_EndDate_CalendarClosed"/>
+        <Label Content="至" HorizontalAlignment="Left" Margin="210,10,0,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" Padding="5,0"/>
 
     </Grid>
 </Page>

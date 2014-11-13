@@ -23,5 +23,15 @@ namespace HuaHaoERP.Helper.Events.MeansOfProduction
                 EUpdate圆片库存(null, null);
             }
         }
+
+        public static EventHandler EUpdate圆片订单;
+
+        internal static void OnUpdate圆片订单()
+        {
+            if (EUpdate圆片订单 != null)
+            {
+                EUpdate圆片订单(null, null);
+            }
+        }
     }
 }

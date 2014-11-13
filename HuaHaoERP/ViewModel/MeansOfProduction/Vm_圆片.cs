@@ -56,5 +56,29 @@ namespace HuaHaoERP.ViewModel.MeansOfProduction
             List<Model_圆片资料> data = new List<Model_圆片资料> { m };
             return Add(data);
         }
+
+        public Model_圆片资料 ReadInfo(string number)
+        {
+            Model_圆片资料 m = new Model_圆片资料();
+            string sql = "select * from T_ProductInfo_Wafer where Number='" + number + "'";
+            DataSet ds = new DataSet();
+            if (new Helper.SQLite.DBHelper().QueryData(sql, out ds))
+            {
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    DataRow dr = ds.Tables[0].Rows[0];
+                    m.Guid = dr.Field<Guid>("Guid");
+                    m.编号 = number;
+                    m.直径 = dr.Field<string>("Diameter");
+                    m.厚度 = dr.Field<string>("Thickness");
+                    m.备注 = dr.Field<string>("Remark");
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            return m;
+        }
     }
 }

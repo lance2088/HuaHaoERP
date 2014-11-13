@@ -7,13 +7,12 @@ namespace HuaHaoERP.ViewModel.Warehouse
 {
     class Vm_Warehouse_圆片
     {
-        public List<Model_圆片仓库> ReadList(string search = "")
+        public List<Model_圆片仓库> ReadList()
         {
             List<Model_圆片仓库> data = new List<Model_圆片仓库>();
             string sql = "Select sum(a.Quantity),b.* "
                 + "from T_Warehouse_Wafer a "
                 + "Left Join T_ProductInfo_Wafer b ON a.WaferGuid=b.Guid "
-                + "Where b.Diameter Like '%" + search + "%' OR b.Thickness Like '%" + search + "%' "
                 + "Group By WaferGuid ";
             DataSet ds = new DataSet();
             if (new Helper.SQLite.DBHelper().QueryData(sql, out ds))
@@ -32,13 +31,6 @@ namespace HuaHaoERP.ViewModel.Warehouse
                 }
             }
             return data;
-        }
-
-        public bool Add(Model_圆片仓库 m)
-        {
-            string sql = "Insert Into T_Warehouse_Wafer('','','')";
-
-            return false;
         }
     }
 }
