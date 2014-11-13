@@ -4,10 +4,29 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" FontFamily="SimSun" FontSize="14" TextOptions.TextFormattingMode="Display"
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="450" d:DesignWidth="723"
 	Title="Page_圆片入库单_新增">
 
-    <Grid>
-        
+    <Grid Background="White" HorizontalAlignment="Right" Width="600">
+        <Button FocusVisualStyle="{x:Null}" x:Name="Button_Back" Content="&lt;" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="30" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="30" Padding="0" Foreground="White" FontWeight="Bold" FontSize="16" Click="Button_Cancel_Click"/>
+        <DataGrid Margin="10,75,10,60" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" Background="#FFEFEFF2" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" AutoGenerateColumns="False" HeadersVisibility="Column" SelectionMode="Single" SelectionUnit="Cell" CanUserDeleteRows="False" CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="编号" Binding="{Binding 编号}"/>
+                <DataGridTextColumn Header="直径" Binding="{Binding 直径}"/>
+                <DataGridTextColumn Header="厚度" Binding="{Binding 厚度}"/>
+                <DataGridTextColumn Header="数量" Binding="{Binding 数量}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label x:Name="Label_Title" Content="Label__Title" HorizontalAlignment="Left" Margin="45,10,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Padding="5,0" VerticalContentAlignment="Center" Height="30"/>
+        <Button FocusVisualStyle="{x:Null}" x:Name="Button_Cancel" Content="取消" HorizontalAlignment="Right" Margin="0,0,10,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Foreground="Black" Height="24" IsCancel="True" Click="Button_Cancel_Click"/>
+        <Button FocusVisualStyle="{x:Null}" x:Name="Button_Commit" Content="确定" HorizontalAlignment="Right" Margin="0,0,90,20" VerticalAlignment="Bottom" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_Commit_Click"/>
+        <Button FocusVisualStyle="{x:Null}" x:Name="Button_CommitNew" Content="保存并新增" HorizontalAlignment="Right" Margin="0,0,170,20" VerticalAlignment="Bottom" Width="85" Foreground="White" Height="24" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_CommitNew_Click"/>
+        <DatePicker x:Name="DatePicker_InsertDate" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="120" Height="24"/>
+        <TextBox x:Name="TextBox_Number" HorizontalAlignment="Right" Height="24" Margin="0,10,180,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="TextBox_Remark" HorizontalAlignment="Right" Height="24" Margin="0,40,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" VerticalContentAlignment="Center"/>
+        <Label Content="单号" Margin="0,10,308,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="38" Padding="5,0" VerticalContentAlignment="Center" Height="24"/>
+        <Label Content="备注" Margin="0,40,308,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="38" Height="24" Padding="5,0" VerticalContentAlignment="Center"/>
+        <Label Content="日期" HorizontalAlignment="Right" Margin="0,10,135,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" Padding="5,0"/>
+
     </Grid>
 </Page>

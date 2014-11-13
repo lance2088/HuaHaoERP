@@ -12,14 +12,13 @@ CREATE TABLE T_Order_Wafer (
 "OrderType"  INTEGER,
 "OrderNo"  TEXT,
 "Date"  DateTime,
-"WaferGuid"  Guid,
-"Quantity"  INTEGER,
 "Remark"  TEXT,
 PRIMARY KEY ("Guid" ASC)
 )
 ;
 CREATE TABLE T_Warehouse_Wafer (
 "Guid"  Guid NOT NULL,
+"OrderGuid"  Guid,
 "WaferGuid"  Guid,
 "Quantity"  INTEGER,
 PRIMARY KEY ("Guid" ASC)
