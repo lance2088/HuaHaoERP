@@ -286,6 +286,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Pages\Content_Warehouse\Page_Warehouse_圆片入库.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Pages\Page_Content.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -373,6 +377,7 @@
     <Compile Include="Helper\Tools\GenerateMD5.cs" />
     <Compile Include="Model\MeansOfProduction\Model_圆片资料.cs" />
     <Compile Include="Model\Order\Model_BatchInputOrder.cs" />
+    <Compile Include="Model\Order\Model_圆片订单.cs" />
     <Compile Include="Model\ProductionManagement\Model_AssemblyLineModuleBatchHistory.cs" />
     <Compile Include="Model\ProductionManagement\Model_AssemblyLineModuleBatchInput.cs" />
     <Compile Include="Model\ProductionManagement\Model_ProductionBookkeeping.cs" />
@@ -384,6 +389,7 @@
     <Compile Include="Model\Statement\Model_Processors.cs" />
     <Compile Include="Model\Warehouse\Model_WarehouseProductBatchHistory.cs" />
     <Compile Include="Model\Warehouse\Model_WarehouseProductBatchIn.cs" />
+    <Compile Include="Model\Warehouse\Model_圆片仓库.cs" />
     <Compile Include="Model\Warehouse\WarehouseHalpProductModel.cs" />
     <Compile Include="Model\Warehouse\WarehouseSparePartsInventoryModel.cs" />
     <Compile Include="Test\StopWatch.cs" />
@@ -568,6 +574,9 @@
     </Compile>
     <Compile Include="View\Pages\Content_Warehouse\Page_Warehouse_圆片仓库.xaml.cs">
       <DependentUpon>Page_Warehouse_圆片仓库.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\Content_Warehouse\Page_Warehouse_圆片入库.xaml.cs">
+      <DependentUpon>Page_Warehouse_圆片入库.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\Page_Content.xaml.cs">
       <DependentUpon>Page_Content.xaml</DependentUpon>

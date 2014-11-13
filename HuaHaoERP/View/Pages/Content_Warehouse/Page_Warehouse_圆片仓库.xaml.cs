@@ -1,27 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using HuaHaoERP.ViewModel.Warehouse;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace HuaHaoERP.View.Pages.Content_Warehouse
 {
-    /// <summary>
-    /// Interaction logic for Page_Warehouse_圆片仓库.xaml
-    /// </summary>
     public partial class Page_Warehouse_圆片仓库 : Page
     {
         public Page_Warehouse_圆片仓库()
         {
             InitializeComponent();
+            InitDataGrid();
+        }
+
+        private void InitDataGrid()
+        {
+            this.DataGrid_List.ItemsSource = new Vm_Warehouse_圆片().ReadList();
+        }
+
+        private void TextBox_Search_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            string search = this.TextBox_Search.Text.Trim();
+            this.DataGrid_List.ItemsSource = new Vm_Warehouse_圆片().ReadList(search);
+        }
+
+        private void Button_圆片入库_Click(object sender, RoutedEventArgs e)
+        {
+            Helper.Events.PopUpEvent.OnShowPopUp(new Page_Warehouse_圆片入库());
         }
     }
 }
