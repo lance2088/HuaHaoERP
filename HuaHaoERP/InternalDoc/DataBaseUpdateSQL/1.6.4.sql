@@ -24,4 +24,4 @@ CREATE TABLE T_Warehouse_Wafer (
 PRIMARY KEY ("Guid" ASC)
 )
 ;
-Update T_System_Settings SET Value='1.6.3' WHERE ID=2;
+Update T_System_Settings SET Value='1.6.4' WHERE ID=2;
