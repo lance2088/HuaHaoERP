@@ -410,8 +410,10 @@
     <Compile Include="ViewModel\Customer\CustomerConsole.cs" />
     <Compile Include="ViewModel\MeansOfProduction\ProductConsole.cs" />
     <Compile Include="ViewModel\MeansOfProduction\RawMaterialsConsole.cs" />
+    <Compile Include="ViewModel\MeansOfProduction\Vm_圆片.cs" />
     <Compile Include="ViewModel\Orders\BatchInputOrderConsole.cs" />
     <Compile Include="ViewModel\Orders\ProductOrderConsole.cs" />
+    <Compile Include="ViewModel\Orders\Vm_Order_圆片.cs" />
     <Compile Include="ViewModel\ProductionManagement\AssemblyLineDetailsConsole.cs" />
     <Compile Include="ViewModel\ProductionManagement\AssemblyLineModuleBatchInputConsole.cs" />
     <Compile Include="ViewModel\ProductionManagement\AssemblyLineModuleConsole.cs" />
@@ -430,6 +432,7 @@
     <Compile Include="ViewModel\Warehouse\ProductBatchInConsole.cs" />
     <Compile Include="ViewModel\Warehouse\RawMaterialsConsole.cs" />
     <Compile Include="ViewModel\Warehouse\ScrapConsole.cs" />
+    <Compile Include="ViewModel\Warehouse\Vm_Warehouse_圆片.cs" />
     <Compile Include="ViewModel\Warehouse\WarehouseHalfProductConsole.cs" />
     <Compile Include="ViewModel\Warehouse\WarehouseProductConsole.cs" />
     <Compile Include="ViewModel\Warehouse\WarehouseSparePartsInventoryConsole.cs" />
