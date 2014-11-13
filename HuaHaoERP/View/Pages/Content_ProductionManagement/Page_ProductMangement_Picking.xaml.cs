@@ -1,6 +1,7 @@
 ﻿using HuaHaoERP.Helper.Events;
 using HuaHaoERP.Helper.Events.UpdateEvent.ProducttionManagement;
 using HuaHaoERP.Model.ProductionManagement;
+using HuaHaoERP.ViewModel.ProductionManagement;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -88,6 +89,19 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
             List<ProductManagement_PickingModel> data;
             new ViewModel.ProductionManagement.DeliveryProcessInConsole().ReadList(ProcessorsFirst, ProcessorsEnd, ProductID, ProcessorsID, out data, out CountInOrder);
+            //这里写查询30条数据
+            if (data.Count == 0)
+            {
+                if (this.IsLoaded)
+                {
+                    if (MessageBox.Show("当前查询返回0条数据，是否为您显示最近30条数据。", "提示", MessageBoxButton.YesNo) == MessageBoxResult.No)
+                    {
+                        return;
+                    }
+                }
+                DateTime dt = new DateTime();
+                new DeliveryProcessInConsole().ReadList(dt, dt, ProductID, ProcessorsID, out data, out CountInOrder);
+            }
             this.DataGrid_ProcessIn.ItemsSource = data;
             this.Label_CountInOrder.Content = this.CountInOrder;
         }

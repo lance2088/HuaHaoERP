@@ -140,10 +140,21 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                     MessageBox.Show("请选择抛光户！");
                     return;
                 }
+                if (string.IsNullOrEmpty(newValue))
+                {
+                    return;
+                }
                 int d = 0;
                 ProductManagement_DevlieryDetailModel m = new ProductManagement_DevlieryDetailModel();
                 new DeliveryProcessOutConsole().ReadProductInfo((Guid)ComboBox_Processors.SelectedValue,newValue,out m,out d);
-                DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.SelectedCells[0].Item, DataGrid.Columns[0]);
+                if (string.IsNullOrEmpty(m.Name))
+                {
+                    MessageBox.Show("找不到编号对应的品名");
+                    data[data.IndexOf(model)].Number = "";
+                    DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.SelectedCells[0].Item, DataGrid.Columns[0]);
+                    return;
+                }
+                DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.SelectedCells[0].Item, DataGrid.Columns[2]);
                 data[data.IndexOf(model)].ProductID = m.ProductID;
                 data[data.IndexOf(model)].Name = m.Name;
                 data[data.IndexOf(model)].QuantityB = d;
@@ -161,6 +172,21 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
             if (e.Key == Key.Delete)
             {
                 MenuItem_Click(this, null);
+            }
+            if (e.Key == Key.Enter)
+            {
+                string Header = DataGrid.SelectedCells[0].Column.Header.ToString();
+                if (Header == "编号")
+                {
+                    e.Handled = true;
+                    DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.SelectedCells[0].Item, DataGrid.Columns[2]);
+                    DataGrid.SelectedCells.Clear();
+                    DataGrid.SelectedCells.Add(DataGrid.CurrentCell);
+                }
+                else
+                {
+                    DataGrid.CurrentCell = new DataGridCellInfo(DataGrid.SelectedCells[0].Item, DataGrid.Columns[0]);
+                }
             }
         }
 
