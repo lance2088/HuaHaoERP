@@ -56,8 +56,8 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void InitializeData()
         {
-            this.Frame_圆片入库单.Content = new Page_圆片入库单();
-            this.Frame_圆片出库单.Content = new Page_圆片出库单();
+            this.Frame_圆片入库单.Content = new Page_圆片出入库单(1);
+            this.Frame_圆片出库单.Content = new Page_圆片出入库单(0);
             this.Frame_ProductionBookkeeping.Content = new Page_ProductionBookkeeping();
             this.Frame_Delivery.Content = new Page_ProductMangement_Delivery();
             Frame_Picking.Content = new Page_ProductMangement_Picking();

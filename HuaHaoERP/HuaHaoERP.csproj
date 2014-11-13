@@ -218,19 +218,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\Content_ProductionManagement\Page_圆片入库单.xaml">
+    <Page Include="View\Pages\Content_ProductionManagement\Page_圆片出入库单.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\Content_ProductionManagement\Page_圆片入库单_新增.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Pages\Content_ProductionManagement\Page_圆片出库单.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Pages\Content_ProductionManagement\Page_圆片出库单_新增.xaml">
+    <Page Include="View\Pages\Content_ProductionManagement\Page_圆片出入库单_新增.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -524,17 +516,11 @@
     <Compile Include="View\Pages\Content_ProductionManagement\Page_ProductMangement_PickingAdd.xaml.cs">
       <DependentUpon>Page_ProductMangement_PickingAdd.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\Content_ProductionManagement\Page_圆片入库单.xaml.cs">
-      <DependentUpon>Page_圆片入库单.xaml</DependentUpon>
+    <Compile Include="View\Pages\Content_ProductionManagement\Page_圆片出入库单.xaml.cs">
+      <DependentUpon>Page_圆片出入库单.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\Content_ProductionManagement\Page_圆片入库单_新增.xaml.cs">
-      <DependentUpon>Page_圆片入库单_新增.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Pages\Content_ProductionManagement\Page_圆片出库单.xaml.cs">
-      <DependentUpon>Page_圆片出库单.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Pages\Content_ProductionManagement\Page_圆片出库单_新增.xaml.cs">
-      <DependentUpon>Page_圆片出库单_新增.xaml</DependentUpon>
+    <Compile Include="View\Pages\Content_ProductionManagement\Page_圆片出入库单_新增.xaml.cs">
+      <DependentUpon>Page_圆片出入库单_新增.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\Content_Settings\Page_Settings_Popup_AddUser.xaml.cs">
       <DependentUpon>Page_Settings_Popup_AddUser.xaml</DependentUpon>

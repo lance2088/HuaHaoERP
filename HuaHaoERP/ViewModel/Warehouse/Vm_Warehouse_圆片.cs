@@ -33,5 +33,12 @@ namespace HuaHaoERP.ViewModel.Warehouse
             }
             return data;
         }
+
+        public bool Add(Model_圆片仓库 m)
+        {
+            string sql = "Insert Into T_Warehouse_Wafer('','','')";
+
+            return false;
+        }
     }
 }
