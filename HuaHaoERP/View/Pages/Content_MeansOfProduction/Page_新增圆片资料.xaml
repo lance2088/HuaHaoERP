@@ -3,11 +3,26 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      mc:Ignorable="d" FontFamily="SimSun" FontSize="14" TextOptions.TextFormattingMode="Display"
+      d:DesignHeight="422" d:DesignWidth="690"
 	Title="Page_新增圆片资料">
 
-    <Grid>
-        
+    <Grid HorizontalAlignment="Right" Width="400" Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Button FocusVisualStyle="{x:Null}" x:Name="Button_Commit" Content="确定" HorizontalAlignment="Right" Margin="0,285,20,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_Commit_Click" Height="24" Foreground="White" IsDefault="True"/>
+        <Button FocusVisualStyle="{x:Null}" x:Name="Button_Cancel" Content="取消" Grid.Column="1" HorizontalAlignment="Left" Margin="20,285,0,0" VerticalAlignment="Top" Width="75" IsCancel="True" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_Cancel_Click" Height="24" Foreground="White"/>
+        <Label Content="编号：" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" Padding="5,0"/>
+        <Label Content="直径：" HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" Padding="5,0"/>
+        <Label Content="厚度：" HorizontalAlignment="Left" Margin="10,135,0,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" Padding="5,0"/>
+        <Label Content="备注：" HorizontalAlignment="Left" Margin="10,175,0,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" Padding="5,0"/>
+        <TextBox x:Name="TextBox_编号" HorizontalAlignment="Left" Height="24" Margin="62,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="TextBox_直径" HorizontalAlignment="Left" Height="24" Margin="62,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="TextBox_厚度" HorizontalAlignment="Left" Height="24" Margin="62,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="TextBox_备注" HorizontalAlignment="Left" Height="84" Margin="62,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="277" AcceptsReturn="True" Grid.ColumnSpan="2"/>
+        <Label Content="新增圆片资料" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+
     </Grid>
 </Page>

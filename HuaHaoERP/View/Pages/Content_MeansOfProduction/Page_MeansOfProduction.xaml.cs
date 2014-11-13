@@ -1,4 +1,5 @@
 ﻿using HuaHaoERP.Helper.Events;
+using HuaHaoERP.Helper.Events.MeansOfProduction;
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -21,6 +22,7 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
 
             InitializeProductDataGrid();
             InitializeRawMaterialsDataGrid();
+            Init圆片();
         }
         /// <summary>
         /// 功能限制
@@ -52,6 +54,7 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
             {
                 InitializeRawMaterialsDataGrid();
             };
+            Event_圆片.EUpdate圆片资料 += (s, e) => { Init圆片(); };
         }
 
         #region Product 产品
@@ -141,6 +144,11 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
         //圆片
         //
 
+        private void Init圆片()
+        {
+            this.DataGrid_圆片.ItemsSource = new ViewModel.MeansOfProduction.Vm_圆片().ReadList();
+        }
+
         private void DataGrid_圆片_Row_MouseDoubleClick(object sender, RoutedEventArgs e)
         {
 
@@ -155,12 +163,14 @@ namespace HuaHaoERP.View.Pages.Content_MeansOfProduction
         {
             if (this.DataGrid_圆片.SelectedCells.Count > 0)
             {
-                //HuaHaoERP.Model.RawMaterialsModel data = this.DataGrid_RawMaterials.SelectedCells[0].Item as HuaHaoERP.Model.RawMaterialsModel;
-                //if (MessageBox.Show("确认删除原料：" + data.Name + "？", "警告", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
-                //{
-                //    new ViewModel.MeansOfProduction.RawMaterialsConsole().MarkDelete(data);
-                //    Helper.Events.RawMaterialsEvent.OnUpdateDataGrid();
-                //}
+                HuaHaoERP.Model.MeansOfProduction.Model_圆片资料 data = this.DataGrid_圆片.SelectedCells[0].Item as HuaHaoERP.Model.MeansOfProduction.Model_圆片资料;
+                if (MessageBox.Show("确认删除圆片：" + data.编号 + "？", "警告", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    if (new ViewModel.MeansOfProduction.Vm_圆片().Delete(data.Guid))
+                    {
+                        Init圆片();
+                    }
+                }
             }
         }
     }

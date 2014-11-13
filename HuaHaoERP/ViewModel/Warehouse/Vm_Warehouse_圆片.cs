@@ -7,5 +7,6 @@ namespace HuaHaoERP.ViewModel.Warehouse
 {
     class Vm_Warehouse_圆片
     {
+
     }
 }
