@@ -4,17 +4,21 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" FontFamily="SimSun" FontSize="14" TextOptions.TextFormattingMode="Display"
-      d:DesignHeight="450" d:DesignWidth="723"
+      d:DesignHeight="450" d:DesignWidth="823"
 	Title="Page_圆片入库单_新增">
 
-    <Grid Background="White" HorizontalAlignment="Right" Width="600">
+    <Grid Background="White" HorizontalAlignment="Right" Width="700">
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_Back" Content="&lt;" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="30" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="30" Padding="0" Foreground="White" FontWeight="Bold" FontSize="16" Click="Button_Cancel_Click"/>
-        <DataGrid x:Name="DataGrid_List" Margin="10,75,10,60" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" Background="#FFEFEFF2" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" AutoGenerateColumns="False" HeadersVisibility="Column" SelectionMode="Single" SelectionUnit="Cell" CanUserDeleteRows="False" CanUserAddRows="False" CellEditEnding="DataGrid_List_CellEditEnding">
+        <DataGrid x:Name="DataGrid_List" Margin="10,75,10,60" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" Background="#FFEFEFF2" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" AutoGenerateColumns="False" HeadersVisibility="Column" SelectionMode="Single" SelectionUnit="Cell" CanUserDeleteRows="False" CanUserAddRows="False" CellEditEnding="DataGrid_List_CellEditEnding" PreviewKeyDown="DataGrid_List_PreviewKeyDown">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="DataGridTextColumn_编号" Header="编号" Binding="{Binding 编号}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                 <DataGridTextColumn Header="直径" Binding="{Binding 直径}" MinWidth="80" IsReadOnly="True" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                 <DataGridTextColumn Header="厚度" Binding="{Binding 厚度}" MinWidth="80" IsReadOnly="True" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                 <DataGridTextColumn x:Name="DataGridTextColumn_数量" Header="数量" Binding="{Binding 数量}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn x:Name="DataGridTextColumn_损耗数量" Header="损耗数量" Binding="{Binding 损耗数量}" MinWidth="120" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn x:Name="DataGridTextColumn_入库半成品编号" Header="入库半成品编号" Binding="{Binding 入库半成品编号}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn x:Name="DataGridTextColumn_半成品品名" Header="半成品品名" Binding="{Binding 半成品品名}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="DataGridTextColumn_半成品数量" Header="半成品数量" Binding="{Binding 半成品数量}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
             </DataGrid.Columns>
         </DataGrid>
         <Label x:Name="Label_Title" Content="Label__Title" HorizontalAlignment="Left" Margin="45,10,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Padding="5,0" VerticalContentAlignment="Center" Height="30"/>

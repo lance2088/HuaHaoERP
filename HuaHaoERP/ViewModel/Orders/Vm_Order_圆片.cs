@@ -12,11 +12,15 @@ namespace HuaHaoERP.ViewModel.Orders
         {
             List<Model_圆片订单> data = new List<Model_圆片订单>();
             string sql = "SELECT "
-                       + "	a.*,b.Quantity,c.Number,c.Diameter,c.Thickness "
+                       + "	a.*,"
+                       + "  b.Quantity,b.LossQuantity,b.HalfProductGuid,b.HalfProductQuantity,"
+                       + "  c.Number,c.Diameter,c.Thickness, "
+                       + "  d.Number as PNumber,d.Name as PName "
                        + "FROM "
                        + "	T_Order_Wafer a "
                        + "Left join T_Warehouse_Wafer b on a.Guid=b.OrderGuid "
                        + "Left join T_ProductInfo_Wafer c on b.WaferGuid=c.Guid "
+                       + "Left Join T_ProductInfo_Product d ON d.Guid=b.HalfProductGuid "
                        + "where a.OrderType=" + inOut + " "
                        + "  AND a.Date Between '" + start.ToString("yyyy-MM-dd 00:00:00") + "' And '" + end.ToString("yyyy-MM-dd 23:59:59") + "' "
                        + "Order By a.Date,c.Number "
@@ -48,15 +52,27 @@ namespace HuaHaoERP.ViewModel.Orders
                         try
                         {
                             m.数量s += inOut == 1 ? dr.Field<Int64>("Quantity") : -dr.Field<Int64>("Quantity");
+                            m.损耗数量s += dr.Field<Int64>("LossQuantity");
+                            m.半成品数量s += dr.Field<Int64>("HalfProductQuantity");
                         }
                         catch { }
+                        m.入库半成品编号s += dr.Field<string>("PNumber");
+                        m.半成品品名s += dr.Field<string>("PName");
                     }
                     else
                     {
                         m.编号s += "\n" + dr.Field<string>("Number");
                         m.直径s += "\n" + dr.Field<string>("Diameter");
                         m.厚度s += "\n" + dr.Field<string>("Thickness");
-                        m.数量s += "\n" + (inOut == 1 ? dr.Field<Int64>("Quantity") : -dr.Field<Int64>("Quantity"));
+                        try
+                        {
+                            m.数量s += "\n" + (inOut == 1 ? dr.Field<Int64>("Quantity") : -dr.Field<Int64>("Quantity"));
+                            m.损耗数量s += "\n" + dr.Field<Int64>("LossQuantity");
+                            m.半成品数量s += "\n" + dr.Field<Int64>("HalfProductQuantity");
+                        }
+                        catch { }
+                        m.入库半成品编号s += "\n" + dr.Field<string>("PNumber");
+                        m.半成品品名s += "\n" + dr.Field<string>("PName");
                     }
                 }
                 if (m.序号 != 0)
@@ -78,8 +94,9 @@ namespace HuaHaoERP.ViewModel.Orders
                     if (data.OrderType == 0)
                     {
                         m.数量 = -m.数量;
+                        sqls.Add("Insert into T_Warehouse_HalfProduct(Guid,ProductID,Date,Operator,Quantity) values('" + Guid.NewGuid() + "','" + m.半成品Guid + "','" + data.下单日期 + "',''," + m.半成品数量 + ")");
                     }
-                    sqls.Add("Insert into T_Warehouse_Wafer values('" + Guid.NewGuid() + "','" + data.Guid + "','" + m.Guid + "'," + m.数量 + ")");
+                    sqls.Add("Insert into T_Warehouse_Wafer values('" + Guid.NewGuid() + "','" + data.Guid + "','" + m.Guid + "'," + m.数量 + "," + m.损耗数量 + ",'" + m.半成品Guid + "'," + m.半成品数量 + ")");
                 }
             }
             if (sqls.Count == 1)//无明细记录返回false

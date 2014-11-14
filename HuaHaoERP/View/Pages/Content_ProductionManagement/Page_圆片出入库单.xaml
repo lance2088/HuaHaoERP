@@ -17,6 +17,10 @@
                 <DataGridTextColumn Header="直径" Binding="{Binding 直径s}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                 <DataGridTextColumn Header="厚度" Binding="{Binding 厚度s}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                 <DataGridTextColumn Header="数量" Binding="{Binding 数量s}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn x:Name="DataGridTextColumn_损耗数量" Header="损耗数量" Binding="{Binding 损耗数量s}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn x:Name="DataGridTextColumn_入库半成品编号" Header="入库半成品编号" Binding="{Binding 入库半成品编号s}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn x:Name="DataGridTextColumn_半成品品名" Header="半成品品名" Binding="{Binding 半成品品名s}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn x:Name="DataGridTextColumn_半成品数量" Header="半成品数量" Binding="{Binding 半成品数量s}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                 <DataGridTextColumn Header="备注" Binding="{Binding 备注}" MinWidth="120" ElementStyle="{DynamicResource TextBlockStyle_AlignLeft}"/>
             </DataGrid.Columns>
         </DataGrid>

@@ -23,5 +23,9 @@ namespace HuaHaoERP.Model.Order
         public string 直径s { get; set; }
         public string 厚度s { get; set; }
         public string 数量s { get; set; }
+        public string 损耗数量s { get; set; }
+        public string 入库半成品编号s { get; set; }
+        public string 半成品品名s { get; set; }
+        public string 半成品数量s { get; set; }
     }
 }

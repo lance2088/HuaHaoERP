@@ -11,6 +11,16 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         {
             InitializeComponent();
             _inOut = inOut;
+            if (_inOut == 1)
+            {
+                this.DataGridTextColumn_入库半成品编号.Visibility = System.Windows.Visibility.Collapsed;
+                this.DataGridTextColumn_半成品品名.Visibility = System.Windows.Visibility.Collapsed;
+                this.DataGridTextColumn_半成品数量.Visibility = System.Windows.Visibility.Collapsed;
+            }
+            else
+            {
+                this.DataGridTextColumn_损耗数量.Visibility = System.Windows.Visibility.Collapsed;
+            }
             this.DatePicker_StartDate.SelectedDate = DateTime.Now.AddDays(-6).Date;
             this.DatePicker_EndDate.SelectedDate = DateTime.Now.Date;
             InitDataGrid();
