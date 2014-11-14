@@ -7,8 +7,8 @@
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
 AppId={{F60249E1-D51A-43A5-B469-BF891D8D1300}
 AppName=HuaHaoERP
-AppVersion=1.6.5
-;AppVerName=PyramidERP 1.6.5
+AppVersion=1.6.6
+;AppVerName=PyramidERP 1.6.6
 AppPublisher=StoneAnt, Inc.
 AppPublisherURL=http://www.stoneant.net/
 AppSupportURL=http://www.stoneant.net/
