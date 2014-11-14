@@ -45,7 +45,11 @@ namespace HuaHaoERP.ViewModel.Orders
                         m.编号s += dr.Field<string>("Number");
                         m.直径s += dr.Field<string>("Diameter");
                         m.厚度s += dr.Field<string>("Thickness");
-                        m.数量s += inOut == 1 ? dr.Field<Int64>("Quantity") : -dr.Field<Int64>("Quantity");
+                        try
+                        {
+                            m.数量s += inOut == 1 ? dr.Field<Int64>("Quantity") : -dr.Field<Int64>("Quantity");
+                        }
+                        catch { }
                     }
                     else
                     {
@@ -77,6 +81,10 @@ namespace HuaHaoERP.ViewModel.Orders
                     }
                     sqls.Add("Insert into T_Warehouse_Wafer values('" + Guid.NewGuid() + "','" + data.Guid + "','" + m.Guid + "'," + m.数量 + ")");
                 }
+            }
+            if (sqls.Count == 1)//无明细记录返回false
+            {
+                return false;
             }
             return new Helper.SQLite.DBHelper().Transaction(sqls);
         }
