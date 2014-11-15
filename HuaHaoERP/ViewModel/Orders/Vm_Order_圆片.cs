@@ -49,13 +49,9 @@ namespace HuaHaoERP.ViewModel.Orders
                         m.编号s += dr.Field<string>("Number");
                         m.直径s += dr.Field<string>("Diameter");
                         m.厚度s += dr.Field<string>("Thickness");
-                        try
-                        {
-                            m.数量s += inOut == 1 ? dr.Field<Int64>("Quantity") : -dr.Field<Int64>("Quantity");
-                            m.损耗数量s += dr.Field<Int64>("LossQuantity");
-                            m.半成品数量s += dr.Field<Int64>("HalfProductQuantity");
-                        }
-                        catch { }
+                        m.数量s += inOut == 1 ? dr.Field<Int64?>("Quantity") : -dr.Field<Int64?>("Quantity");
+                        m.损耗数量s += dr.Field<Int64?>("LossQuantity");
+                        m.半成品数量s += dr.Field<Int64?>("HalfProductQuantity");
                         m.入库半成品编号s += dr.Field<string>("PNumber");
                         m.半成品品名s += dr.Field<string>("PName");
                     }
@@ -64,13 +60,9 @@ namespace HuaHaoERP.ViewModel.Orders
                         m.编号s += "\n" + dr.Field<string>("Number");
                         m.直径s += "\n" + dr.Field<string>("Diameter");
                         m.厚度s += "\n" + dr.Field<string>("Thickness");
-                        try
-                        {
-                            m.数量s += "\n" + (inOut == 1 ? dr.Field<Int64>("Quantity") : -dr.Field<Int64>("Quantity"));
-                            m.损耗数量s += "\n" + dr.Field<Int64>("LossQuantity");
-                            m.半成品数量s += "\n" + dr.Field<Int64>("HalfProductQuantity");
-                        }
-                        catch { }
+                        m.数量s += "\n" + (inOut == 1 ? dr.Field<Int64?>("Quantity") : -dr.Field<Int64?>("Quantity"));
+                        m.损耗数量s += "\n" + dr.Field<Int64?>("LossQuantity");
+                        m.半成品数量s += "\n" + dr.Field<Int64?>("HalfProductQuantity");
                         m.入库半成品编号s += "\n" + dr.Field<string>("PNumber");
                         m.半成品品名s += "\n" + dr.Field<string>("PName");
                     }
