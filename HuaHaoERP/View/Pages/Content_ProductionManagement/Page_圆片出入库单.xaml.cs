@@ -55,6 +55,10 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         {
             if (this.DataGrid_List.SelectedCells.Count > 0)
             {
+                if (MessageBox.Show("确认删除订单？", "警告", MessageBoxButton.YesNo) == MessageBoxResult.No)
+                {
+                    return;
+                }
                 Model_圆片订单 m = this.DataGrid_List.SelectedCells[0].Item as Model_圆片订单;
                 if (new ViewModel.Orders.Vm_Order_圆片().Delete(m.Guid))
                 {

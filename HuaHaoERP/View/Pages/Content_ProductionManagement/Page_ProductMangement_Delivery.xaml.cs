@@ -103,7 +103,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                     }
                 }
                 DateTime dt = new DateTime();
-                new DeliveryProcessOutConsole().ReadList(dt, dt,ProductID, ProcessorID, out data, out CountOutOrder);
+                new DeliveryProcessOutConsole().ReadList(dt, dt, ProductID, ProcessorID, out data, out CountOutOrder);
             }
             this.DataGrid_ProcessOut.ItemsSource = data;
             this.Label_CountOutOrder.Content = this.CountOutOrder;
@@ -269,7 +269,11 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void Button_删除_Click(object sender, RoutedEventArgs e)
         {
-
+            if (this.DataGrid_ProcessOut.SelectedCells.Count > 0)
+            {
+                ProductManagement_DevlieryModel m = this.DataGrid_ProcessOut.SelectedCells[0].Item as ProductManagement_DevlieryModel;
+                
+            }
         }
 
     }

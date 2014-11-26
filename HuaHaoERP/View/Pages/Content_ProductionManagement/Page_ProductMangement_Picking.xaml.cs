@@ -251,7 +251,11 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 
         private void Button_删除_Click(object sender, RoutedEventArgs e)
         {
-
+            if (this.DataGrid_ProcessIn.SelectedCells.Count > 0)
+            {
+                ProductManagement_PickingModel m = this.DataGrid_ProcessIn.SelectedCells[0].Item as ProductManagement_PickingModel;
+                
+            }
         }
 
     }
