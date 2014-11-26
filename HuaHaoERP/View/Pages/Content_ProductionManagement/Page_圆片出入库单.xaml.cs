@@ -1,11 +1,13 @@
-﻿using System;
+﻿using HuaHaoERP.Model.Order;
+using System;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace HuaHaoERP.View.Pages.Content_ProductionManagement
 {
     public partial class Page_圆片出入库单 : Page
     {
-        private int _inOut = 0;//1 in 0 out
+        private readonly int _inOut = 0;//1 in 0 out
 
         public Page_圆片出入库单(int inOut)
         {
@@ -48,5 +50,19 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         {
             InitDataGrid();
         }
+
+        private void Button_删除_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            if (this.DataGrid_List.SelectedCells.Count > 0)
+            {
+                Model_圆片订单 m = this.DataGrid_List.SelectedCells[0].Item as Model_圆片订单;
+                if (new ViewModel.Orders.Vm_Order_圆片().Delete(m.Guid))
+                {
+                    MessageBox.Show("删除成功");
+                    InitDataGrid();
+                }
+            }
+        }
+
     }
 }

@@ -86,7 +86,7 @@ namespace HuaHaoERP.ViewModel.Orders
                     if (data.OrderType == 0)
                     {
                         m.数量 = -m.数量;
-                        sqls.Add("Insert into T_Warehouse_HalfProduct(Guid,ProductID,Date,Operator,Quantity) values('" + Guid.NewGuid() + "','" + m.半成品Guid + "','" + data.下单日期 + "',''," + m.半成品数量 + ")");
+                        sqls.Add("Insert into T_Warehouse_HalfProduct(Guid,ProductID,Date,Operator,Quantity,OrderGuid) values('" + Guid.NewGuid() + "','" + m.半成品Guid + "','" + data.下单日期 + "',''," + m.半成品数量 + ",'" + data.Guid + "')");
                     }
                     sqls.Add("Insert into T_Warehouse_Wafer values('" + Guid.NewGuid() + "','" + data.Guid + "','" + m.Guid + "'," + m.数量 + "," + m.损耗数量 + ",'" + m.半成品Guid + "'," + m.半成品数量 + ")");
                 }
@@ -95,6 +95,19 @@ namespace HuaHaoERP.ViewModel.Orders
             {
                 return false;
             }
+            return new Helper.SQLite.DBHelper().Transaction(sqls);
+        }
+
+        public bool Delete(Guid orderGuid)
+        {
+            if (orderGuid == new Guid())
+            {
+                return false;
+            }
+            List<string> sqls = new List<string>();
+            sqls.Add("Delete From T_Order_Wafer Where Guid='" + orderGuid + "'");
+            sqls.Add("Delete From T_Warehouse_Wafer Where OrderGuid='" + orderGuid + "'");
+            sqls.Add("Delete From T_Warehouse_HalfProduct Where OrderGuid='" + orderGuid + "'");
             return new Helper.SQLite.DBHelper().Transaction(sqls);
         }
     }

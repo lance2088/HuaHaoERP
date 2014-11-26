@@ -639,6 +639,7 @@
     <None Include="InternalDoc\LicenseTool\LicenseTool.exe" />
     <None Include="InternalDoc\LicenseTool\StoneAnt.License.Create.dll" />
     <None Include="InternalDoc\LicenseTool\StoneAnt.License.dll" />
+    <Content Include="InternalDoc\DataBaseUpdateSQL\1.6.6.sql" />
     <Content Include="InternalDoc\DataBaseUpdateSQL\1.6.5.sql" />
     <Content Include="InternalDoc\DataBaseUpdateSQL\1.6.4.sql" />
     <Content Include="InternalDoc\DataBaseUpdateSQL\1.6.2.sql" />

@@ -36,5 +36,7 @@
         <Label Content="至" HorizontalAlignment="Left" Margin="198,10,0,0" VerticalAlignment="Top" Padding="5,0" VerticalContentAlignment="Center" Height="24"/>
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_Today" Content="今天" HorizontalAlignment="Left" Margin="333,10,0,0" VerticalAlignment="Top" Width="50" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Height="24" Foreground="Black" Click="Button_Today_Click" Focusable="False"/>
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_AllDate" Content="全部日期" Margin="389,10,0,0" VerticalAlignment="Top" Template="{DynamicResource ButtonControlTemplate_CommonWhite}" Height="24" Foreground="Black" Click="Button_AllDate_Click" HorizontalAlignment="Left" Width="75" Focusable="False"/>
+        <Button x:Name="Button_删除" Content="删除" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Height="24" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Click="Button_删除_Click"/>
+
     </Grid>
 </Page>

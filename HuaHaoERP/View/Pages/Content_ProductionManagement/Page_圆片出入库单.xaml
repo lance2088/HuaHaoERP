@@ -28,6 +28,7 @@
         <Button x:Name="Button_NewOrder" Content="新增" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Height="24" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Click="Button_NewOrder_Click"/>
         <DatePicker x:Name="DatePicker_EndDate" HorizontalAlignment="Left" Margin="234,10,0,0" VerticalAlignment="Top" Height="24" Width="120" CalendarClosed="DatePicker_EndDate_CalendarClosed"/>
         <Label Content="至" HorizontalAlignment="Left" Margin="210,10,0,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" Padding="5,0"/>
+        <Button x:Name="Button_删除" Content="删除" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Height="24" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Click="Button_删除_Click"/>
 
     </Grid>
 </Page>
