@@ -645,6 +645,7 @@
     <Content Include="InternalDoc\DataBaseUpdateSQL\1.6.2.sql" />
     <Content Include="InternalDoc\DataBaseUpdateSQL\1.6.0.sql" />
     <None Include="Resources\DataBase.sql" />
+    <None Include="InternalDoc\DataBaseUpdateSQL\数据库更新说明.txt" />
     <Content Include="InternalDoc\ThirdPartyLib\StoneAnt.License.dll" />
     <Content Include="InternalDoc\ThirdPartyLib\System.Data.SQLite.dll" />
   </ItemGroup>
