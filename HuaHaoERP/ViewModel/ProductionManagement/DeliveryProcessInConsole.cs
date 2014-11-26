@@ -33,13 +33,14 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                 }
                 else
                 {
-                    sql = "insert into T_PM_ProductInProcessDetail(Guid,ParentId,ProductID,Date,Operator,QuantityA,QuantityB,QuantityC) VALUES ('" + Guid.NewGuid() + "','" + m.Guid + "','" + mm.ProductID + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + CommonParameters.LoginUserName + "','" + mm.QuantityA + "','" + mm.QuantityB + "','" + mm.QuantityD + "')";
+                    sql = "insert into T_PM_ProductInProcessDetail(Guid,ParentId,ProductID,Date,Operator,QuantityA,QuantityB,QuantityC,OrderGuid) "
+                        + "VALUES ('" + Guid.NewGuid() + "','" + m.Guid + "','" + mm.ProductID + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + CommonParameters.LoginUserName + "','" + mm.QuantityA + "','" + mm.QuantityB + "','" + mm.QuantityD + "','" + m.Guid + "')";
                     sqlList.Add(sql);
-                    sql = "Insert into T_Warehouse_SparePartsInventory(Guid,ProcessorID,ProductID,Date,Operator,Quantity,Remark) "
-                        + " values('" + Guid.NewGuid() + "','" + m.ProcessorID + "','" + mm.ProductID + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + CommonParameters.LoginUserName + "','-" + (mm.QuantityA + mm.QuantityB) + "','从抛光收货单录入')";
+                    sql = "Insert into T_Warehouse_SparePartsInventory(Guid,ProcessorID,ProductID,Date,Operator,Quantity,Remark,OrderGuid) "
+                        + " values('" + Guid.NewGuid() + "','" + m.ProcessorID + "','" + mm.ProductID + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + CommonParameters.LoginUserName + "','-" + (mm.QuantityA + mm.QuantityB) + "','从抛光收货单录入','" + m.Guid + "')";
                     sqlList.Add(sql);
-                    sql = "Insert into T_Warehouse_Product(Guid,ProductID,Date,Operator,Quantity,Remark) "
-                        + " values('" + Guid.NewGuid() + "','" + mm.ProductID + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + CommonParameters.LoginUserName + "','" + mm.QuantityA + "','从抛光收货单录入,记录损坏数量：" + mm.QuantityB + "')";
+                    sql = "Insert into T_Warehouse_Product(Guid,ProductID,Date,Operator,Quantity,Remark,OrderGuid) "
+                        + " values('" + Guid.NewGuid() + "','" + mm.ProductID + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + CommonParameters.LoginUserName + "','" + mm.QuantityA + "','从抛光收货单录入,记录损坏数量：" + mm.QuantityB + "','" + m.Guid + "')";
                     sqlList.Add(sql);
                 }
             }
@@ -169,6 +170,20 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
             }
             strCount = (Count).ToString();
             return flag;
+        }
+
+        public bool DeleteOrder(Guid orderGuid)
+        {
+            if (orderGuid == new Guid() || orderGuid == null)
+            {
+                return false;
+            }
+            List<string> sqls = new List<string>();
+            sqls.Add("Delete from T_PM_ProductInProcess where Guid='" + orderGuid + "'");
+            sqls.Add("Delete from T_PM_ProductInProcessDetail where OrderGuid='" + orderGuid + "'");
+            sqls.Add("Delete from T_Warehouse_SparePartsInventory where OrderGuid='" + orderGuid + "'");
+            sqls.Add("Delete from T_Warehouse_Product where OrderGuid='" + orderGuid + "'");
+            return new Helper.SQLite.DBHelper().Transaction(sqls);
         }
     }
 }

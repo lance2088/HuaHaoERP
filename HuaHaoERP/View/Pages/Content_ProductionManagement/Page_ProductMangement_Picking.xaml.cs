@@ -253,8 +253,15 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
         {
             if (this.DataGrid_ProcessIn.SelectedCells.Count > 0)
             {
+                if (MessageBox.Show("确认删除订单？", "警告", MessageBoxButton.YesNo) == MessageBoxResult.No)
+                {
+                    return;
+                }
                 ProductManagement_PickingModel m = this.DataGrid_ProcessIn.SelectedCells[0].Item as ProductManagement_PickingModel;
-                
+                if (new ViewModel.ProductionManagement.DeliveryProcessInConsole().DeleteOrder(m.Guid))
+                {
+                    InitializeDataGrid();
+                }
             }
         }
 
