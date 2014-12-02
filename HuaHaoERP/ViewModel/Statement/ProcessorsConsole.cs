@@ -19,7 +19,14 @@ namespace HuaHaoERP.ViewModel.Statement
             else
             {
                 start = Convert.ToDateTime(year + "-" + month + "-01");
-                end = Convert.ToDateTime(year + "-" + (month + 1) + "-01").AddSeconds(-1);
+                if (month == 12)
+                {
+                    end = Convert.ToDateTime((year + 1) + "-01-01").AddSeconds(-1);
+                }
+                else
+                {
+                    end = Convert.ToDateTime(year + "-" + (month + 1) + "-01").AddSeconds(-1);
+                }
             }
             string sql = "select a.OrderType,total(a.Quantity),total(a.MinorInjuries),total(a.Injuries),total(a.Lose),b.Name "
                 + "from T_PM_ProcessSchedule a "
