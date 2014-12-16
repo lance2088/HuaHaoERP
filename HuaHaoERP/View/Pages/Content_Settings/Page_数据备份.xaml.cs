@@ -116,6 +116,10 @@ namespace HuaHaoERP.View.Pages.Content_Settings
                 {
                     new Helper.SettingFile.INIHelper().IniWriteValue("Database", "BackupPATH", AppDomain.CurrentDomain.BaseDirectory + "DataBackup");
                 }
+                if (!Directory.Exists(new Helper.SettingFile.INIHelper().IniReadValue("Database", "BackupPATH")))
+                {
+                    Directory.CreateDirectory(new Helper.SettingFile.INIHelper().IniReadValue("Database", "BackupPATH"));
+                }
                 new Helper.SQLite.DBHelper().Backup(new Helper.SettingFile.INIHelper().IniReadValue("Database", "BackupPATH") + "\\Backup" + DateTime.Now.ToString("yyyyMMddHHmmss") + Helper.DataDefinition.CommonParameters.DbPassword + ".db");
                 new Helper.SettingFile.INIHelper().IniWriteValue("Database", "上次备份时间", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
             }

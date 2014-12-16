@@ -8,19 +8,19 @@ namespace HuaHaoERP.Helper.SQLite
     public class DBHelper
     {
         private string DataSource = "Data\\Data.db";
-        private SQLiteConnection conn = new SQLiteConnection();
-        private SQLiteCommand cmd = new SQLiteCommand();
+        private SQLiteConnection _dbConn = new SQLiteConnection();
+        private SQLiteCommand _dbCmd = new SQLiteCommand();
         private SQLiteConnectionStringBuilder _dbConnBuilder = new SQLiteConnectionStringBuilder();
         private string _dbPassword = Helper.DataDefinition.CommonParameters.DbPassword;
 
         internal DBHelper()
         {
-            InitializeDbConnect(Helper.DataDefinition.CommonParameters.DbPassword);
+            InitializeDbConnect();
         }
 
         internal void ChangeDBPassword(string Password)
         {
-            conn.ChangePassword(Password);
+            _dbConn.ChangePassword(Password);
         }
         internal void ClearDBPassword()
         {
@@ -31,22 +31,21 @@ namespace HuaHaoERP.Helper.SQLite
         /// 初始化数据库连接 With Password
         /// </summary>
         /// <param name="Password"></param>
-        private void InitializeDbConnect(string Password)
+        private void InitializeDbConnect()
         {
-            SQLiteConnectionStringBuilder connBuilder = new SQLiteConnectionStringBuilder();
-            connBuilder.DataSource = DataSource;
-            connBuilder.JournalMode = SQLiteJournalModeEnum.Wal;
-            conn.ConnectionString = connBuilder.ToString();
-            conn.SetPassword(Password);
+            _dbConnBuilder.DataSource = DataSource;
+            _dbConnBuilder.JournalMode = SQLiteJournalModeEnum.Wal;
+            _dbConn.ConnectionString = _dbConnBuilder.ToString();
+            _dbConn.SetPassword(_dbPassword);
             try
             {
-                conn.Open();
+                _dbConn.Open();
             }
             catch (Exception ee)
             {
                 Helper.LogHelper.FileLog.ErrorLog(ee.ToString());
             }
-            cmd.Connection = conn;
+            _dbCmd.Connection = _dbConn;
         }
 
         /// <summary>
@@ -54,9 +53,9 @@ namespace HuaHaoERP.Helper.SQLite
         /// </summary>
         private void ReleaseObject()
         {
-            conn.Close();
-            conn.Dispose();
-            cmd.Dispose();
+            _dbConn.Close();
+            _dbConn.Dispose();
+            _dbCmd.Dispose();
         }
 
         internal void Backup(string backupDataSource)
@@ -66,7 +65,7 @@ namespace HuaHaoERP.Helper.SQLite
             connOut.ConnectionString = _dbConnBuilder.ToString();
             connOut.SetPassword(_dbPassword);
             connOut.Open();
-            conn.BackupDatabase(connOut, "main", "main", -1, null, -1);
+            _dbConn.BackupDatabase(connOut, "main", "main", -1, null, -1);
             connOut.Close();
             connOut.Dispose();
             ReleaseObject();
@@ -80,13 +79,13 @@ namespace HuaHaoERP.Helper.SQLite
         internal bool Transaction(List<string> sqls)
         {
             bool flag = false;
-            SQLiteTransaction strans = conn.BeginTransaction();
+            SQLiteTransaction strans = _dbConn.BeginTransaction();
             try
             {
                 foreach (string sql in sqls)
                 {
-                    cmd.CommandText = sql;
-                    cmd.ExecuteNonQuery();
+                    _dbCmd.CommandText = sql;
+                    _dbCmd.ExecuteNonQuery();
                 }
                 strans.Commit();
                 flag = true;
@@ -106,13 +105,13 @@ namespace HuaHaoERP.Helper.SQLite
         internal bool Transaction(string[] sqls)
         {
             bool flag = false;
-            SQLiteTransaction strans = conn.BeginTransaction();
+            SQLiteTransaction strans = _dbConn.BeginTransaction();
             try
             {
                 foreach (string sql in sqls)
                 {
-                    cmd.CommandText = sql;
-                    cmd.ExecuteNonQuery();
+                    _dbCmd.CommandText = sql;
+                    _dbCmd.ExecuteNonQuery();
                 }
                 strans.Commit();
                 flag = true;
@@ -139,8 +138,8 @@ namespace HuaHaoERP.Helper.SQLite
             bool flag = false;
             try
             {
-                cmd.CommandText = sql;
-                cmd.ExecuteNonQuery();
+                _dbCmd.CommandText = sql;
+                _dbCmd.ExecuteNonQuery();
                 flag = true;
             }
             catch (Exception ee)
@@ -164,7 +163,7 @@ namespace HuaHaoERP.Helper.SQLite
         {
             bool flag = false;
             ds = new DataSet();
-            SQLiteDataAdapter dAdapter = new SQLiteDataAdapter(sql, conn);
+            SQLiteDataAdapter dAdapter = new SQLiteDataAdapter(sql, _dbConn);
             try
             {
                 dAdapter.Fill(ds);
@@ -193,8 +192,8 @@ namespace HuaHaoERP.Helper.SQLite
             result = new object();
             try
             {
-                cmd.CommandText = sql;
-                SQLiteDataReader reader = cmd.ExecuteReader();
+                _dbCmd.CommandText = sql;
+                SQLiteDataReader reader = _dbCmd.ExecuteReader();
                 if (reader.Read())
                 {
                     result = reader.GetValue(0);
@@ -217,10 +216,10 @@ namespace HuaHaoERP.Helper.SQLite
             string result = "";
             try
             {
-                cmd.CommandText = sql;
-                cmd.Parameters.Add(new SQLiteParameter("Name", userName));
-                cmd.Parameters.Add(new SQLiteParameter("Password", password));
-                SQLiteDataReader reader = cmd.ExecuteReader();
+                _dbCmd.CommandText = sql;
+                _dbCmd.Parameters.Add(new SQLiteParameter("Name", userName));
+                _dbCmd.Parameters.Add(new SQLiteParameter("Password", password));
+                SQLiteDataReader reader = _dbCmd.ExecuteReader();
                 if (reader.Read())
                 {
                     result = reader.GetString(0);
