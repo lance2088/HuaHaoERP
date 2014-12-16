@@ -9,17 +9,17 @@
 
     <Grid>
         <TabControl Margin="0" BorderThickness="0" Padding="0">
-            <TabItem Header="生产记账" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Foreground="White" Margin="7,0,-7,0">
+            <!--<TabItem Header="生产记账" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Foreground="White" Margin="7,0,-7,0" Visibility="Collapsed">
                 <Grid Background="White">
                     <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_ProductionBookkeeping" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
-            </TabItem>
-            <TabItem Header="圆片入库单" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Foreground="White" Margin="17,0,-17,0">
+            </TabItem>-->
+            <TabItem Header="圆片入库单" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Foreground="White" Margin="7,0,-7,0">
                 <Grid Background="White">
                     <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_圆片入库单" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="圆片出库单" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Foreground="White" Margin="27,0,-27,0">
+            <TabItem Header="圆片出库单" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Foreground="White" Margin="17,0,-17,0">
                 <Grid Background="White">
                     <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_圆片出库单" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
@@ -81,12 +81,12 @@
                     </TextBox>
                 </Grid>
             </TabItem>
-            <TabItem FocusVisualStyle="{x:Null}" Header="抛光发货" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="37,0,-37,0" Foreground="White">
+            <TabItem FocusVisualStyle="{x:Null}" Header="抛光发货单" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="27,0,-27,0" Foreground="White">
                 <Grid Background="White">
                     <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_Delivery" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </TabItem>
-            <TabItem FocusVisualStyle="{x:Null}" Header="抛光收货" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="47,0,-47,0" Foreground="White">
+            <TabItem FocusVisualStyle="{x:Null}" Header="抛光收货单" Template="{DynamicResource TabItemControlTemplate_LevelTwoTab}" Margin="37,0,-37,0" Foreground="White">
                 <Grid Background="White">
                     <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_Picking" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>

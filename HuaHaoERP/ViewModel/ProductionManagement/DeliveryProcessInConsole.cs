@@ -113,6 +113,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                         "	a.ProcessorID, " +
                         "	c.Name as ProcessorName, " +
                         "	b.ProductID, " +
+                        "	d.Number as ProductNumber, " +
                         "	d.Name as ProductName, " +
                         "	b.QuantityA,b.QuantityB," +
                         "	a.Remark " +
@@ -144,6 +145,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                         LastData.Date = dr["Date"].ToString().Split(' ')[0];
                         LastData.OrderNO = dr["Number"].ToString();
                         LastData.ProcessorName = dr["ProcessorName"].ToString();
+                        LastData.ProductNumber = dr["ProductNumber"].ToString();
                         LastData.ProductName = dr["ProductName"].ToString();
                         LastData.ProcessorID = (Guid)dr["ProcessorID"];
                         int.TryParse(dr["QuantityA"].ToString(), out temp);
@@ -155,6 +157,7 @@ namespace HuaHaoERP.ViewModel.ProductionManagement
                     }
                     else //旧凭证
                     {
+                        LastData.ProductNumber += "\n" + dr["ProductNumber"].ToString();
                         LastData.ProductName += "\n" + dr["ProductName"].ToString();
                         int.TryParse(dr["QuantityA"].ToString(), out temp);
                         LastData.QuantityA += "\n" + dr["QuantityA"].ToString();

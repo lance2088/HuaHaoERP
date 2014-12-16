@@ -18,18 +18,19 @@ namespace HuaHaoERP.View.Pages.Content_Settings
             InitializeComponent();
             PermissionsSettings();
             SubscribeToEvent();
-            if(Helper.DataDefinition.CommonParameters.DbPassword != "")
+            if (Helper.DataDefinition.CommonParameters.DbPassword != "")
             {
                 this.Button_EncryptedDB.Content = "解密数据库";
             }
             RefreshDataGrid_UserControl();
             this.Frame_About.Content = new View.Pages.Content_Others.Page_About();
             this.TabControl_Settings.SelectedIndex = 2;
+            this.Frame_数据备份.Content = new Page_数据备份();
         }
 
         private void PermissionsSettings()
         {
-            if(Helper.DataDefinition.CommonParameters.IsLockApp)
+            if (Helper.DataDefinition.CommonParameters.IsLockApp)
             {
                 this.TabItem_Comprehensive.Visibility = System.Windows.Visibility.Collapsed;
                 this.TabItem_SecuritySettings.Visibility = System.Windows.Visibility.Collapsed;
@@ -67,7 +68,7 @@ namespace HuaHaoERP.View.Pages.Content_Settings
             string PasswordOld = TranslatePassword.TranslateToString(this.PasswordBox_Old.SecurePassword);
             string PasswordNew = TranslatePassword.TranslateToString(this.PasswordBox_New.SecurePassword);
             string PasswordNewRepeat = TranslatePassword.TranslateToString(this.PasswordBox_NewRepeat.SecurePassword);
-            if(!new ChangePasswordConsole().CheckPassword(Helper.DataDefinition.CommonParameters.LoginUserName, PasswordOld))
+            if (!new ChangePasswordConsole().CheckPassword(Helper.DataDefinition.CommonParameters.LoginUserName, PasswordOld))
             {
                 this.Label_Message.Content = "错误：原始密码错误";
                 this.PasswordBox_Old.Clear();
@@ -79,9 +80,9 @@ namespace HuaHaoERP.View.Pages.Content_Settings
                 this.Label_Message.Content = "错误：新密码不一致";
                 Check = false;
             }
-            if(Check)
+            if (Check)
             {
-                if(new ChangePasswordConsole().ChangePassword(Helper.DataDefinition.CommonParameters.LoginUserName, PasswordNew))
+                if (new ChangePasswordConsole().ChangePassword(Helper.DataDefinition.CommonParameters.LoginUserName, PasswordNew))
                 {
                     this.PasswordBox_Old.Clear();
                     this.PasswordBox_New.Clear();
@@ -99,7 +100,7 @@ namespace HuaHaoERP.View.Pages.Content_Settings
 
         private void Button_EncryptedDB_Click(object sender, RoutedEventArgs e)
         {
-            if(Helper.DataDefinition.CommonParameters.DbPassword == "")
+            if (Helper.DataDefinition.CommonParameters.DbPassword == "")
             {
                 new ViewModel.Settings.EncryptedDBConsole().Encrypted(Guid.NewGuid().ToString());
                 this.Button_EncryptedDB.Content = "解密数据库";
@@ -116,14 +117,14 @@ namespace HuaHaoERP.View.Pages.Content_Settings
             if (this.IsLoaded)
             {
                 Expander ep = sender as Expander;
-                foreach(Expander epd in this.StackPanel_SecuritySettings.Children)
+                foreach (Expander epd in this.StackPanel_SecuritySettings.Children)
                 {
-                    if(epd != ep)
+                    if (epd != ep)
                     {
                         epd.IsExpanded = false;
                     }
                 }
-                
+
             }
         }
         private void DataGrid_UserControl_Row_MouseDoubleClick(object sender, RoutedEventArgs e)
@@ -169,7 +170,7 @@ namespace HuaHaoERP.View.Pages.Content_Settings
                     File.Copy(open.FileName, AppDomain.CurrentDomain.BaseDirectory + "Background\\LoginBackground.jpg", true);
                     Helper.Events.UpdateEvent.BackgroundEvent.OnUpdateLoginBackground();
                 }
-                catch(Exception)
+                catch (Exception)
                 {
 
                 }

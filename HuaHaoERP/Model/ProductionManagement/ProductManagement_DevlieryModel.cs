@@ -14,6 +14,13 @@ namespace HuaHaoERP.Model.ProductionManagement
         private string _processorName;
         private string _date;
         private string _remark;
+        private string _productNumber;
+
+        public string ProductNumber
+        {
+            get { return _productNumber; }
+            set { _productNumber = value; }
+        }
         private string _productName;
         private string _quantity;
 

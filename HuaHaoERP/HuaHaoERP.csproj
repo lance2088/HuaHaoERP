@@ -93,6 +93,7 @@
     </Reference>
     <Reference Include="System.Management" />
     <Reference Include="System.Printing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -227,6 +228,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Pages\Content_Settings\Page_Settings_Popup_AddUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\Content_Settings\Page_数据备份.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -521,6 +526,9 @@
     </Compile>
     <Compile Include="View\Pages\Content_Settings\Page_Settings_Popup_AddUser.xaml.cs">
       <DependentUpon>Page_Settings_Popup_AddUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\Content_Settings\Page_数据备份.xaml.cs">
+      <DependentUpon>Page_数据备份.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\Content_Statements\Page_Statements.xaml.cs">
       <DependentUpon>Page_Statements.xaml</DependentUpon>

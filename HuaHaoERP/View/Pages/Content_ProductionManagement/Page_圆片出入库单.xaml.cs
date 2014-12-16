@@ -64,6 +64,7 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 {
                     MessageBox.Show("删除成功");
                     InitDataGrid();
+                    Helper.Events.MeansOfProduction.Event_圆片.OnUpdate圆片库存();
                 }
             }
         }

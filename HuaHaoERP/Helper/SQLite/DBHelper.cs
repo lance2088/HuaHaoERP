@@ -10,6 +10,8 @@ namespace HuaHaoERP.Helper.SQLite
         private string DataSource = "Data\\Data.db";
         private SQLiteConnection conn = new SQLiteConnection();
         private SQLiteCommand cmd = new SQLiteCommand();
+        private SQLiteConnectionStringBuilder _dbConnBuilder = new SQLiteConnectionStringBuilder();
+        private string _dbPassword = Helper.DataDefinition.CommonParameters.DbPassword;
 
         internal DBHelper()
         {
@@ -55,6 +57,19 @@ namespace HuaHaoERP.Helper.SQLite
             conn.Close();
             conn.Dispose();
             cmd.Dispose();
+        }
+
+        internal void Backup(string backupDataSource)
+        {
+            _dbConnBuilder.DataSource = backupDataSource;
+            SQLiteConnection connOut = new SQLiteConnection();
+            connOut.ConnectionString = _dbConnBuilder.ToString();
+            connOut.SetPassword(_dbPassword);
+            connOut.Open();
+            conn.BackupDatabase(connOut, "main", "main", -1, null, -1);
+            connOut.Close();
+            connOut.Dispose();
+            ReleaseObject();
         }
 
         /// <summary>

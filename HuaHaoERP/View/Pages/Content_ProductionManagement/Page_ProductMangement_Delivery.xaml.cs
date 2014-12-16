@@ -1,5 +1,6 @@
 ﻿using HuaHaoERP.Helper.Events;
 using HuaHaoERP.Helper.Events.UpdateEvent.ProducttionManagement;
+using HuaHaoERP.Helper.Events.UpdateEvent.Warehouse;
 using HuaHaoERP.Model.ProductionManagement;
 using HuaHaoERP.ViewModel.ProductionManagement;
 using System;
@@ -279,6 +280,9 @@ namespace HuaHaoERP.View.Pages.Content_ProductionManagement
                 if (new ViewModel.ProductionManagement.DeliveryProcessOutConsole().DeleteOrder(m.Guid))
                 {
                     InitializeOutsideProcessDataGrid();
+                    HalfProductEvent.OnUpdateDataGrid();
+                    SparePartsInventoryEvent.OnUpdateDataGrid();
+                    DeliveryProcessOutEvent.OnUpdateDataGrid();
                 }
             }
         }

@@ -17,6 +17,7 @@ namespace HuaHaoERP
                 return;
             }
             base.OnStartup(e);
+            new View.Pages.Content_Settings.Page_数据备份().Backup();
         }
 
         void App_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
