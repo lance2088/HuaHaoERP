@@ -71,6 +71,15 @@ namespace HuaHaoERP.View.Pages.Content_Settings
 
         private void Button_恢复_Click(object sender, RoutedEventArgs e)
         {
+            if (MessageBox.Show("软件会自动保存一份当前数据的备份至软件目录下的Data/TempData.db文件。\n确认要回复数据库吗？", "", MessageBoxButton.OKCancel) == MessageBoxResult.Cancel)
+            {
+                return;
+            }
+            if (this.TextBox_恢复文件.Text.Length == 0)
+            {
+                MessageBox.Show("请先选择要恢复的备份文件");
+                return;
+            }
             File.Copy(AppDomain.CurrentDomain.BaseDirectory + "Data//Data.db", AppDomain.CurrentDomain.BaseDirectory + "Data//TempData.db", true);
             File.Copy(this.TextBox_恢复文件.Text, AppDomain.CurrentDomain.BaseDirectory + "Data//Data.db", true);
             MessageBox.Show("恢复成功，请重新打开软件");
