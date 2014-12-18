@@ -299,6 +299,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Pages\业务管理\Page_业务管理.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ResourceDictionarys\DictionaryButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -577,6 +581,9 @@
     </Compile>
     <Compile Include="View\Pages\UserControl_Chart\UserControl_ChartTest.xaml.cs">
       <DependentUpon>UserControl_ChartTest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\业务管理\Page_业务管理.xaml.cs">
+      <DependentUpon>Page_业务管理.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Windows\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>

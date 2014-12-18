@@ -27,6 +27,11 @@
                     <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_Content_ProductionManagement" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </TabItem>
+            <TabItem x:Name="TabItem_业务管理" FocusVisualStyle="{x:Null}" Header="业务管理" Template="{DynamicResource TabItemControlTemplate_CommonMain}" Width="150" Height="40" Margin="0,37,5,-37" Foreground="White" FontSize="14">
+                <Grid>
+                    <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_业务管理" Content="" Margin="0" NavigationUIVisibility="Hidden"/>
+                </Grid>
+            </TabItem>
             <TabItem x:Name="TabItem_Warehouse" FocusVisualStyle="{x:Null}" Header="仓库管理" Template="{DynamicResource TabItemControlTemplate_CommonMain}" Width="150" Height="40" Margin="0,37,5,-37" Foreground="White" FontSize="14">
                 <Grid>
                     <Frame FocusVisualStyle="{x:Null}" x:Name="Frame_Content_Warehouse" Content="" Margin="0" NavigationUIVisibility="Hidden"/>

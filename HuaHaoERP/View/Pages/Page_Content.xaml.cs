@@ -8,6 +8,7 @@ namespace HuaHaoERP.View.Pages
         {
             InitializeComponent();
             InitializeData();
+            this.Frame_业务管理.Content = new View.Pages.业务管理.Page_业务管理();
         }
 
         private void InitializeData()
