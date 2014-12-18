@@ -34,7 +34,7 @@
                     <DataGrid Margin="10,40,10,10" x:Name="DataGrid_Num" Background="#FFF0F0F0"  HorizontalContentAlignment="Stretch" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleCommon}" CellStyle="{DynamicResource DataGridCellStyleCommon}" BorderBrush="#FF99CCFF" HorizontalGridLinesBrush="#FF99CCFF" VerticalGridLinesBrush="#FF99CCFF" HeadersVisibility="Column" IsReadOnly="True" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False" AutoGenerateColumns="False" SelectionMode="Single">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="编号" Binding="{Binding ProductNumber}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}" MinWidth="70"/>
-                            <DataGridTextColumn Header="名称" Binding="{Binding ProductName}" MinWidth="40" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                            <DataGridTextColumn Header="名称" Binding="{Binding ProductName}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                             <DataGridTextColumn Header="产品类型" Binding="{Binding Type}" MinWidth="40" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                             <DataGridTextColumn Header="规格" Binding="{Binding Specification}" MinWidth="40" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                             <DataGridTextColumn Header="数量" Binding="{Binding Quantity}" MinWidth="80" ElementStyle="{DynamicResource TextBlockStyle_AlignRight}"/>
@@ -74,7 +74,7 @@
                     </TextBox>
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_PackingOut" Content="送货" HorizontalAlignment="Left" Margin="390,10,0,0" VerticalAlignment="Top" Width="60" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_PackingOut_Click" Focusable="False"/>
                     <Button FocusVisualStyle="{x:Null}" x:Name="Button_SparepartsOut" Content="出散件" HorizontalAlignment="Right" Margin="0,40,169,0" VerticalAlignment="Top" Width="60" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Foreground="White" Height="24" Click="Button_SparepartsOut_Click" Focusable="False" Visibility="Hidden"/>
-                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_BatchHistory" Content="批量记录" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_BatchHistory_Click" Focusable="False" Visibility="Collapsed"/>
+                    <Button FocusVisualStyle="{x:Null}" x:Name="Button_BatchHistory" Content="批量记录" HorizontalAlignment="Right" Margin="0,10,120,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_BatchHistory_Click" Focusable="False"/>
                     <ComboBox x:Name="ComboBox_类别" HorizontalAlignment="Left" Margin="303,10,0,0" VerticalAlignment="Top" Width="82" Height="24" DropDownClosed="ComboBox_类别_DropDownClosed" VerticalContentAlignment="Center">
                         <ComboBoxItem Content="全部" IsSelected="True"/>
                         <ComboBoxItem Content="鼎盖"/>
