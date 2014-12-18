@@ -3,22 +3,15 @@ using HuaHaoERP.ViewModel.Warehouse;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace HuaHaoERP.View.Pages.Content_Warehouse
 {
     /// <summary>
-    /// Interaction logic for Page_Warehouse_SparePartsInventory.xaml
+    /// 外协仓库
     /// </summary>
     public partial class Page_Warehouse_SparePartsInventory : Page
     {
@@ -29,6 +22,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             InitializeComponent();
             InitProcessorsComboBox();
             InitializeDataGrid();
+            HuaHaoERP.Helper.Events.UpdateEvent.Warehouse.SparePartsInventoryEvent.EUpdateDataGrid += (s, e) => { InitializeDataGrid(); };
         }
 
         private void InitProcessorsComboBox()
@@ -47,7 +41,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             }
             this.ProcessorsID = (Guid)this.ComboBox_Processors.SelectedValue;
             List<WarehouseSparePartsInventoryModel> dd = new List<WarehouseSparePartsInventoryModel>();
-            new WarehouseSparePartsInventoryConsole().ReadDetailsList(this.TextBox_Search.Text.Trim().Replace("'", ""),ProcessorsID, out dd);
+            new WarehouseSparePartsInventoryConsole().ReadDetailsList(this.TextBox_Search.Text.Trim().Replace("'", ""), ProcessorsID, out dd);
             DataGrid_Num.ItemsSource = dd;
         }
 
