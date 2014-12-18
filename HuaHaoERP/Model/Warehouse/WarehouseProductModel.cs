@@ -98,6 +98,21 @@ namespace HuaHaoERP.Model.Warehouse
             get { return packageNum; }
             set { packageNum = value; }
         }
+
+        private string type;
+
+        public string Type
+        {
+            get { return type; }
+            set { type = value; }
+        }
+        private string specification;
+
+        public string Specification
+        {
+            get { return specification; }
+            set { specification = value; }
+        }
     }
 
     class WarehouseProductPackingNumModel

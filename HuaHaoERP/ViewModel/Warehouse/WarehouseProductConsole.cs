@@ -90,6 +90,8 @@ namespace HuaHaoERP.ViewModel.Warehouse
                        + "	total(a.Quantity) as Quantity,                            "
                        + "  b.Number as ProductNumber,                              "
                        + "	b.Name as ProductName,                                 "
+                       + "	b.Type as ProductType,                                 "
+                       + "	b.Specification as ProductSpecification,                                 "
                        + "  b.PackageNumber as ProductPackageNumber               "
                        + "FROM                                                    "
                        + "	T_Warehouse_Product a                                 "
@@ -109,6 +111,8 @@ namespace HuaHaoERP.ViewModel.Warehouse
                     d.ProductID = (Guid)dr["ProductID"];
                     d.ProductNumber = dr["ProductNumber"].ToString();
                     d.ProductName = dr["ProductName"].ToString();
+                    d.Type = dr.Field<string>("ProductType");
+                    d.Specification = dr.Field<string>("ProductSpecification");
                     d.Quantity = int.Parse(dr["Quantity"].ToString());
                     int ProductPackageNumber = 0;
                     int.TryParse(dr["ProductPackageNumber"].ToString(), out ProductPackageNumber);

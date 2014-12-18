@@ -10,6 +10,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Linq;
 
 namespace HuaHaoERP.View.Pages.Content_Warehouse
 {
@@ -20,6 +21,7 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
         private RawMaterialsConsole rmc = new RawMaterialsConsole();
         private ScrapModel m = new ScrapModel();
         int PackStock = 0;//包装后库存
+        private List<WarehouseProductNumModel> _产品仓库数据 = new List<WarehouseProductNumModel>();
 
         public Page_Warehouse()
         {
@@ -130,16 +132,17 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
             string HistoryType = this.ComboBox_ShowHistory.Text.Substring(0, 2);
             string Search = this.TextBox_Search.Text;
             //明细
-            List<WarehouseProductModel> d = new List<WarehouseProductModel>();
-            if (new ViewModel.Warehouse.WarehouseProductConsole().ReadDetailsList(Start, End, HistoryType, out d, Search))
-            {
-                this.DataGrid_ProductDetails.ItemsSource = d;
-            }
+            //List<WarehouseProductModel> d = new List<WarehouseProductModel>();
+            //if (new ViewModel.Warehouse.WarehouseProductConsole().ReadDetailsList(Start, End, HistoryType, out d, Search))
+            //{
+            //    this.DataGrid_ProductDetails.ItemsSource = d;
+            //}
             //散件
             List<WarehouseProductNumModel> dn = new List<WarehouseProductNumModel>();
             if (new ViewModel.Warehouse.WarehouseProductConsole().ReadNumList(out dn, Search))
             {
-                this.DataGrid_Num.ItemsSource = dn;
+                _产品仓库数据 = dn;
+                this.DataGrid_Num.ItemsSource = _产品仓库数据;
             }
 
             int TotalNum = 0;
@@ -368,10 +371,30 @@ namespace HuaHaoERP.View.Pages.Content_Warehouse
 
         #endregion
 
+        /// <summary>
+        /// 成品仓库
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ComboBox_类别_DropDownClosed(object sender, EventArgs e)
+        {
+            if (this.ComboBox_类别.SelectedIndex > 0)
+            {
+                var a = from i in _产品仓库数据
+                        where i.Type == this.ComboBox_类别.Text
+                        select i;
+                this.DataGrid_Num.ItemsSource = a;
+            }
+            else
+            {
+                this.DataGrid_Num.ItemsSource = _产品仓库数据;
+            }
+        }
 
-        
 
-     
+
+
+
 
     }
 }
