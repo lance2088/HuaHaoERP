@@ -13,6 +13,7 @@ namespace HuaHaoERP.ViewModel.Warehouse
             string sql = "Select sum(a.Quantity),b.* "
                 + "from T_Warehouse_Wafer a "
                 + "Left Join T_ProductInfo_Wafer b ON a.WaferGuid=b.Guid "
+                + "Where b.Guid IS NOT NULL "
                 + "Group By WaferGuid ";
             DataSet ds = new DataSet();
             if (new Helper.SQLite.DBHelper().QueryData(sql, out ds))
