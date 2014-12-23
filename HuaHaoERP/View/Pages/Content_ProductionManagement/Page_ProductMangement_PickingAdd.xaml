@@ -30,15 +30,15 @@
             </DataGrid.Columns>
         </DataGrid>
         <Label x:Name="Label_Title" Content="Label__Title" HorizontalAlignment="Left" Margin="45,10,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Padding="5,0" VerticalContentAlignment="Center" Height="30"/>
-        <DatePicker x:Name="DatePicker_InsertDate" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="120"/>
+        <DatePicker x:Name="DatePicker_InsertDate" HorizontalAlignment="Right" Margin="0,45,627,0" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="TextBox_Number" HorizontalAlignment="Left" Height="24" Margin="500,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
         <TextBox x:Name="TextBox_Remark" HorizontalAlignment="Left" Height="24" Margin="500,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" VerticalContentAlignment="Center"/>
         <Label Content="单号" Margin="0,10,305,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="38" Padding="5,0" VerticalContentAlignment="Center" Height="24"/>
         <Label Content="备注" Margin="0,46,305,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="38" Height="24" Padding="5,0" VerticalContentAlignment="Center"/>
-        <Label Content="日期" HorizontalAlignment="Left" Margin="627,10,0,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" Padding="5,0"/>
+        <Label Content="日期" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" Padding="5,0"/>
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_CommitNew" Content="保存并新增" HorizontalAlignment="Left" Margin="545,0,0,20" VerticalAlignment="Bottom" Width="85" Foreground="White" Height="24" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Click="Button_CommitNew_Click"/>
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_Back" Content="&lt;" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="30" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="30" Padding="0" Foreground="White" FontWeight="Bold" FontSize="16" Click="Button_Cancel_Click"/>
-        <Label Content="抛光户：" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" Padding="5,0"/>
-        <ComboBox x:Name="ComboBox_Processors" HorizontalAlignment="Left" Height="24" Margin="67,46,0,0" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" IsEditable="True" KeyUp="ComboBox_Processors_KeyUp" DropDownOpened="ComboBox_Processors_DropDownOpened" GotFocus="ComboBox_Processors_GotFocus" DropDownClosed="ComboBox_Processors_DropDownClosed"/>
+        <Label Content="抛光户：" HorizontalAlignment="Left" Margin="239,46,0,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" Padding="5,0"/>
+        <ComboBox x:Name="ComboBox_Processors" HorizontalAlignment="Left" Height="24" Margin="310,46,0,0" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" IsEditable="True" KeyUp="ComboBox_Processors_KeyUp" DropDownOpened="ComboBox_Processors_DropDownOpened" GotFocus="ComboBox_Processors_GotFocus" DropDownClosed="ComboBox_Processors_DropDownClosed"/>
     </Grid>
 </Page>

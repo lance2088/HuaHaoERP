@@ -19,7 +19,7 @@
                 <DataGridTextColumn Header="序号" Binding="{Binding Id}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                 <DataGridTextColumn Header="单号" Binding="{Binding OrderNO}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                 <DataGridTextColumn Header="下单日期" Binding="{Binding Date}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
-                <DataGridTextColumn Header="客户" Binding="{Binding ProcessorName}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
+                <DataGridTextColumn Header="抛光户" Binding="{Binding ProcessorName}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                 <DataGridTextColumn Header="产品编号" Binding="{Binding ProductNumber}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                 <DataGridTextColumn Header="产品品名" Binding="{Binding ProductName}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
                 <DataGridTextColumn Header="合格数量" Binding="{Binding QuantityA}" ElementStyle="{DynamicResource TextBlockStyle_AlignCenter}"/>
@@ -28,8 +28,8 @@
             </DataGrid.Columns>
         </DataGrid>
         <DatePicker x:Name="DatePicker_ProcessorsFirst" HorizontalAlignment="Left" Margin="90,10,0,0" VerticalAlignment="Top" MinWidth="100" VerticalContentAlignment="Center" Height="24" Width="109" CalendarClosed="DatePicker_ProcessorsFirst_CalendarClosed"/>
-        <ComboBox x:Name="ComboBox_Product" HorizontalAlignment="Left" Margin="469,10,0,0" VerticalAlignment="Top" Width="100" VerticalContentAlignment="Center" Height="24"  DropDownClosed="ComboBox_Product_DropDownClosed" IsEditable="True" KeyUp="ComboBox_Product_KeyUp" DropDownOpened="ComboBox_Product_DropDownOpened" GotFocus="ComboBox_Product_GotFocus" Visibility="Collapsed"/>
-        <ComboBox x:Name="ComboBox_Processors" HorizontalAlignment="Left" Margin="573,10,0,0" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" Height="24"  DropDownClosed="ComboBox_Processors_DropDownClosed" IsEditable="True" KeyUp="ComboBox_Processors_KeyUp" DropDownOpened="ComboBox_Processors_DropDownOpened" GotFocus="ComboBox_Processors_GotFocus" Visibility="Collapsed"/>
+        <ComboBox x:Name="ComboBox_Product" HorizontalAlignment="Left" Margin="469,10,0,0" VerticalAlignment="Top" Width="100" VerticalContentAlignment="Center" Height="24"  DropDownClosed="ComboBox_Product_DropDownClosed" IsEditable="True" KeyUp="ComboBox_Product_KeyUp" DropDownOpened="ComboBox_Product_DropDownOpened" GotFocus="ComboBox_Product_GotFocus"/>
+        <ComboBox x:Name="ComboBox_Processors" HorizontalAlignment="Left" Margin="573,10,0,0" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" Height="24"  DropDownClosed="ComboBox_Processors_DropDownClosed" IsEditable="True" KeyUp="ComboBox_Processors_KeyUp" DropDownOpened="ComboBox_Processors_DropDownOpened" GotFocus="ComboBox_Processors_GotFocus"/>
         <Label x:Name="Label_CountInOrder" Content="0" HorizontalAlignment="Left" Margin="347,0,0,21" VerticalAlignment="Bottom"  BorderThickness="0,0,0,1" BorderBrush="Black" HorizontalContentAlignment="Center" Padding="10,5,10,2" Height="22" FontSize="14" ToolTip="（数量，轻伤，重伤，丢失）"/>
         <Label Content="收货统计：" HorizontalAlignment="Center" Margin="275,0,512,19" VerticalAlignment="Bottom" Padding="5,0" Height="22" Width="70" VerticalContentAlignment="Center"/>
         <Button FocusVisualStyle="{x:Null}" x:Name="Button_AddProcessIn" Content="新增" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Template="{DynamicResource ButtonControlTemplate_CommonBlue}" Height="24" Foreground="White" Click="Button_AddProcessIn_Click" Focusable="False"/>
